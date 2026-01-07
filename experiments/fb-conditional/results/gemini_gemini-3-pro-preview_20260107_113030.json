@@ -1,0 +1,32 @@
+{
+  "results": [
+    {
+      "pair_id": "0x36c83576575af62aa27da668d4310b76ad9102eb0c19ce6fe0aac88c668287d3_0x538166715f9c8dbd7ecb32fcb13cf4692f6da0d68f9b6fbacbcd300012e3b754",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x8a3efd9a41cb8bff7474de6b67f4efa778ac4dd5d8caea008b8087af0a19a0e6_0x50b8b0f741566a420756d975faaf4cc4716229cd5183c3a35b3b20ac2b5050ef",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x5412ae25e97078f814157de948459d59c6221b4c4c495fdd57b536543ad36729_0x8ee2f1640386310eb5e7ffa596ba9335f2d324e303d21b0dfea6998874445791",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x4fccc0dcb625ea55ff1ca0409bb44fe1952c04bc16cf5255002ceb2cc3791888_0x60e45f2a5cccd16fd60eda5f96670f946b2281b7ce59595b621eee05de4eda49",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0xa38b66d42e953997abb37d1f6ee5304c289f40511d5274150564a009bd1dc44a_0x7cd79521e16e9f6f1e82311edb96e0a2f4b2dbc92fd7264a7add59f54b054109",
+      "error": "Failed to elicit probabilities"
+    }
+  ],
+  "metadata": {
+    "run_at": "2026-01-07T11:30:33.804573",
+    "model": "gemini/gemini-3-pro-preview",
+    "thinking": false,
+    "num_pairs": 5,
+    "num_successful": 0
+  },
+  "summary": {}
+}

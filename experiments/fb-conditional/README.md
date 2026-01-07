@@ -1,45 +1,27 @@
 # FB Conditional Experiment
 
-Validation experiment: Can LLM agents do conditional forecasting better than the independence baseline?
+**Question:** Can LLM agents reason conditionally, or do they treat forecasting questions as independent?
 
-## The Idea
+**Answer:** See [FINDINGS.md](FINDINGS.md) for results and methodology.
 
-Permute resolved ForecastBench questions into conditional pairs:
-
-```
-Original questions (resolved):
-- Q1: "Will X happen by Y?" → resolved YES
-- Q2: "Will A happen by B?" → resolved NO
-
-Conditional query:
-- "If X happens by Y, what's P(A happens by B)?"
-- Compare agent forecast to: P(A) × P(B) [independence assumption]
-```
-
-**Success metric:** Agent beats independence baseline on positive controls, shows no spurious sensitivity on negative controls.
-
-## Experimental Design
-
-100 question pairs stratified into:
-- 30 strong positive controls (obvious causal/logical link)
-- 40 weak positive controls (same domain, unclear relationship)
-- 30 negative controls (random pairs, unrelated domains)
-
-## Usage
+## Quick Start
 
 ```bash
 # 1. Ensure data is migrated
 uv run python packages/llm-forecasting/scripts/migrate_forecastbench.py --db data/forecastbench.db
 
-# 2. Generate candidate pairs
+# 2. Generate candidate pairs (LLM-assisted)
 uv run python experiments/fb-conditional/generate_pairs.py
 
 # 3. Run experiment
-uv run python experiments/fb-conditional/run_experiment.py
+uv run python experiments/fb-conditional/run_experiment.py --model claude-opus-4-5-20251101
 
-# 4. Analyze results
-uv run python experiments/fb-conditional/analyze.py
+# With other models:
+uv run python experiments/fb-conditional/run_experiment.py --model claude-sonnet-4-20250514
+uv run python experiments/fb-conditional/run_experiment.py --model gpt-4o
 ```
+
+Results are auto-saved to `results/{model}_{timestamp}.json`.
 
 ## Data
 
@@ -48,11 +30,30 @@ Uses `data/forecastbench.db` - shared SQLite database with:
 - Market forecasts (freeze values)
 - Resolutions
 
-**Important:** Only use prediction market sources for this experiment:
-- `manifold`, `metaculus`, `polymarket`, `infer`
+**Note:** Only prediction market sources are used (`manifold`, `metaculus`, `polymarket`, `infer`). Data sources (`acled`, `fred`, `yfinance`) have templated question text with placeholders, not suitable for this experiment.
 
-Skip data sources (`acled`, `fred`, `yfinance`) — they have templated question text
-with `{resolution_date}` placeholders, not suitable for conditional reasoning.
+## Files
+
+| File | Purpose |
+|------|---------|
+| `FINDINGS.md` | Results and methodology |
+| `generate_pairs.py` | LLM-assisted pair generation |
+| `run_experiment.py` | Main experiment runner |
+| `pairs.json` | Generated question pairs |
+| `results/` | Experiment output by model |
+
+### Longitudinal experiment (Jan 2026)
+
+| File | Purpose |
+|------|---------|
+| `fetch_pending_questions.py` | Generate stock questions with baseline prices |
+| `resolve_and_run.py` | Resolve questions and run experiment |
+| `pending_pairs_2026-01-14.json` | 40 pairs awaiting resolution |
+
+**TODO: Run on January 14, 2026:**
+```bash
+uv run python experiments/fb-conditional/resolve_and_run.py
+```
 
 ## References
 

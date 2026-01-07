@@ -1,0 +1,227 @@
+{
+  "results": [
+    {
+      "pair_id": "0x36c83576575af62aa27da668d4310b76ad9102eb0c19ce6fe0aac88c668287d3_0x538166715f9c8dbd7ecb32fcb13cf4692f6da0d68f9b6fbacbcd300012e3b754",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x8a3efd9a41cb8bff7474de6b67f4efa778ac4dd5d8caea008b8087af0a19a0e6_0x50b8b0f741566a420756d975faaf4cc4716229cd5183c3a35b3b20ac2b5050ef",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x5412ae25e97078f814157de948459d59c6221b4c4c495fdd57b536543ad36729_0x8ee2f1640386310eb5e7ffa596ba9335f2d324e303d21b0dfea6998874445791",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x4fccc0dcb625ea55ff1ca0409bb44fe1952c04bc16cf5255002ceb2cc3791888_0x60e45f2a5cccd16fd60eda5f96670f946b2281b7ce59595b621eee05de4eda49",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0xa38b66d42e953997abb37d1f6ee5304c289f40511d5274150564a009bd1dc44a_0x7cd79521e16e9f6f1e82311edb96e0a2f4b2dbc92fd7264a7add59f54b054109",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x6a67b9d828d53862160e470329ffea5246f338ecfffdf2cab45211ec578b0347_D38AIR8f03odzU8ZvoKr",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0xcb1531b00e984865530f13e4ce35bcbc7d71615af98827b5e9aee2ca2984b626_24034",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0xf5bd04e6c5fb5400dd9deef7f67f2658b32430fc148f3ab52f011acf779fcb41_0x6c8a58fbff19479adec1e3f4111bb5622398e5b5ef3cf0c611a41cc234c6f8ad",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x8c866938d6598760f8d18bd624d6ba822b79f7e23604573f52cf8e769614fa5e_0x1bef2cec162d5499c60c1acd8e3c5a3acc321aee580deda1f01aa40dadbda374",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x419c7ae262b7b17f41a077eeaec4b2d3881406ea3a4cf0d5984536fe0bd3c995_0xb3e11395bc67c2ad811de3ea4f58d47778e7a7d209eb73bc04a21c5a7472c186",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x12b6268efb832fe64bb746b9f50a51245b761d6b170e172b3cd81a7c4f39432b_0x8370b54d8b25a8a408ddb402ff7a03178139f59593ee97c03a10a43523516404",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x4b080093a8b8eade06f36e577ca260e2bcc37c7fcfe0304036d6dfd051825507_0x20a7cb88730bd709c39eff84e88c822b21a1707549e0bbb1c42751ee0c991fc1",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x570568964af751a02d31d4d829fed2f7afe8f51fdf592e0338a08cec065f01ea_0x35915279267a71c7a89e07747e645107bd7720209a7ac145ab36af6c6ac35c67",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0xb5f6d7f3158494f1c433c25237e61cd33eec00943a6cd95d67b1d0b06cb7ce2b_0xcb8af0c28d73c486a1bd1080eb4183709cc4cc3eed4420c7551d6298b0adb6f4",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x0c4823aafbe6bf931478b1fe3b30a1437663233e22b4492aebe7b0ac457623e5_0x4889d2e60921e596e38ac65047f01380bf462abe631f1a27e562fa6203cc7e9c",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x8b4d1584715be1214797eb680966c68238ef24ec4b8f38b293fe6f808620770b_0xa5c12010762d72819add78f2030ffc7e65b8296896527e5e2087d7ac2b42d3e5",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0xd97d95f15edfe56fd412a3e95929497903f16069964f63b7ced90172cd723d61_0x6c21b21e4e18b01887221429c4dea83232f5eb43ebd8c5849bc334ecea3e68de",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x15ef292e550795785df3ee5eac729517fc850936e877b165998c94351c12544b_0x42e2f652615d33f0ff3a6d1ba4fe0ebbb29384304072992d873e5aa7f9de063b",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0xf759fba6c4fd415128bc840a1bf99708244720d7e613ef4ca02f0e15157b2f14_0xbb0e4120b64af4ff962dae9fda5e73f3ea14c689dd22e4099adeafe69700e546",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0xb38ff89ca80358305983b93c73fea18d3269d7776f3bb77bfd75b0ce838cae70_0x8be38f21b6c39fff2de0258b1d18fc9feafdef9e95f14d7f81db3bd3d7effeff",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0xf931e094c21b844b916c65258bc9b24311f13f91507fe8efda9923217fc79523_0xfb6e175f630cd8d873d8051881c4db72f839842208c606b41bcdf750a1552f55",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x77783da9b3549399a4bc0ba504f03c33f6cafca89f6ef5d96cb1d9492dfd22d5_0x6a67b9d828d53862160e470329ffea5246f338ecfffdf2cab45211ec578b0347",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x9d7427139c12b62d791d4f942843b9c8060c9942b3b14b5be8ddb8380b7a0f8f_0x199d06911b2e6dbd3b2b4275d07ecbccf72358e46607485a403de5b90cdfdb1f",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0xc30cf28f8108d5e883038c89afeaaead56c19730ed7211249cbf60c35ff76890_kCikWdlPijovPazB9fP1",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0xa4855d0b28960be4824c31c280d274572e176313d8efda21446cabe6bdc32efc_0x4b774c74e8672a632d6c12d04620f0c19a3ea10e74871a0239c9392805b70a90",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "29027_0x35915279267a71c7a89e07747e645107bd7720209a7ac145ab36af6c6ac35c67",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0xd9773233f3dd345b0cf99b4338e9663dee025c76bcdae2d8f11efb4327a3566d_0xc8f7efe4f5cf3c6d5b51cdd87cbd360e7f2a3b9999f6b8fa96d2dcd96e287141",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0xa05e93dbcfefc56ee0ab0151512dccaae63840650eaae9ed8a89d5dcbe238f22_0xed3a181bf912941cd49a24094cfba00ba30d3a48afe00cdabf32041324edc83e",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x850c1624dc9d8ca9850195df05293ff85273e6b92e89a9551cd0a57c2f72aceb_KtGRsTouYWiDPaPhRC3o",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x5a378fe7c6e208d4d43020278d3666e46fe82be14beadc1240914b06b93eb9f7_0xd56c9ee002e2ae2766bb390373a18ecf78201df41533f2d7470f9440cbba18d7",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x3f3ab94bfcb8a771c37805ff85aea28a8f1bfd2132196b9e378a428ea9de80bd_0xb3a76d0e65e030f0c6549e905086e5677dcb9172d3b4bd58808e1671a0bfbf79",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "1581_12112",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0xffea59c51b27dd000038fb9e8f659bfb3ea3cb8a4283a9e774bdef9844a27141_PNVVTlruggno0Yw5tjVS",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "85llAdStSR_RJH3aufks8LK0Pjyhrgl",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "39002_24034",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "sis542tw6o_QtxO4jGNyhDzq5s3NrcG",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "hQQPLApOcA_kCikWdlPijovPazB9fP1",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "1386_0x8a3efd9a41cb8bff7474de6b67f4efa778ac4dd5d8caea008b8087af0a19a0e6",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "ERAQ2GcY83b6TeC7x0Yf_0xac668145450c97698032df41289265cc1eab25bc5f42c4d4809922ea7db39f3e",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "7444_0x4b080093a8b8eade06f36e577ca260e2bcc37c7fcfe0304036d6dfd051825507",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x36c83576575af62aa27da668d4310b76ad9102eb0c19ce6fe0aac88c668287d3_0xd97d95f15edfe56fd412a3e95929497903f16069964f63b7ced90172cd723d61",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x8d0139c21a36eaf6aacda9ccac75f58a45a9f2209b336351bebcce4ab11b3b03_0xa4855d0b28960be4824c31c280d274572e176313d8efda21446cabe6bdc32efc",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x3f3ab94bfcb8a771c37805ff85aea28a8f1bfd2132196b9e378a428ea9de80bd_0xcb1531b00e984865530f13e4ce35bcbc7d71615af98827b5e9aee2ca2984b626",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0xac668145450c97698032df41289265cc1eab25bc5f42c4d4809922ea7db39f3e_0x570568964af751a02d31d4d829fed2f7afe8f51fdf592e0338a08cec065f01ea",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x9d7427139c12b62d791d4f942843b9c8060c9942b3b14b5be8ddb8380b7a0f8f_0xf759fba6c4fd415128bc840a1bf99708244720d7e613ef4ca02f0e15157b2f14",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "hQQPLApOcA_0x6f6a615bee9e8a1811ecbafbe6d3b73c36369789229eee051aaa996175aa1287",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0xb5f6d7f3158494f1c433c25237e61cd33eec00943a6cd95d67b1d0b06cb7ce2b_0x8d0139c21a36eaf6aacda9ccac75f58a45a9f2209b336351bebcce4ab11b3b03",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0xed3a181bf912941cd49a24094cfba00ba30d3a48afe00cdabf32041324edc83e_0x20a7cb88730bd709c39eff84e88c822b21a1707549e0bbb1c42751ee0c991fc1",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "12112_0x4b080093a8b8eade06f36e577ca260e2bcc37c7fcfe0304036d6dfd051825507",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0xb4dfe263c46220c1ecaccfd524914457f60278f5507107e8f303fa6ac2ff5eed_0xc8f7efe4f5cf3c6d5b51cdd87cbd360e7f2a3b9999f6b8fa96d2dcd96e287141",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "1581_0x3f3ab94bfcb8a771c37805ff85aea28a8f1bfd2132196b9e378a428ea9de80bd",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "QtxO4jGNyhDzq5s3NrcG_0x15ef292e550795785df3ee5eac729517fc850936e877b165998c94351c12544b",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "0x4b774c74e8672a632d6c12d04620f0c19a3ea10e74871a0239c9392805b70a90_0xffea59c51b27dd000038fb9e8f659bfb3ea3cb8a4283a9e774bdef9844a27141",
+      "error": "Failed to elicit probabilities"
+    },
+    {
+      "pair_id": "1386_0x199d06911b2e6dbd3b2b4275d07ecbccf72358e46607485a403de5b90cdfdb1f",
+      "error": "Failed to elicit probabilities"
+    }
+  ],
+  "metadata": {
+    "run_at": "2026-01-07T10:43:21.403986",
+    "model": "gpt-5",
+    "num_pairs": 54,
+    "num_successful": 0
+  },
+  "summary": {}
+}
