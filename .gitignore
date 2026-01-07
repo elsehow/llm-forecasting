@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local data
+data/
+*.db
+
+# Generated outputs
+packages/conditional-trees/output/
+
+# Environment
+.env
+.env.local
+
+# Claude Code (local paths)
+.claude/settings.json

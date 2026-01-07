@@ -1,0 +1,200 @@
+[
+  {
+    "id": "ai_transformation",
+    "name": "AI Transformation World",
+    "description": "Artificial intelligence achieves breakthrough capabilities that fundamentally transform the global economy and society. AI drives unprecedented productivity gains across sectors while creating new industries and reshaping labor markets. However, the benefits are unevenly distributed, potentially concentrating wealth among AI platform owners while displacing traditional workers.",
+    "probability": 0.2,
+    "key_drivers": [
+      "AI breakthroughs enable 40-60% productivity gains by 2035",
+      "AGI or highly capable AI systems achieve widespread deployment",
+      "AI excels at many cognitive and manual tasks but distribution of gains varies",
+      "Regulatory and policy responses determine whether benefits are shared or concentrated"
+    ],
+    "member_scenarios": [
+      "AI Productivity Boom",
+      "AI Displacement Wave",
+      "Worker Renaissance",
+      "Corporate Feudalism",
+      "AI Drug Discovery Boom",
+      "Biotech AI Revolution"
+    ]
+  },
+  {
+    "id": "climate_crisis",
+    "name": "Climate Crisis World",
+    "description": "Accelerating climate change becomes the dominant global challenge, triggering massive economic restructuring, infrastructure investment, and social upheaval. Extreme weather events overwhelm adaptation efforts while forcing fundamental changes to how societies organize economically and politically. Climate impacts drive migration, conflict, and systemic disruption across all sectors.",
+    "probability": 0.25,
+    "key_drivers": [
+      "Climate impacts accelerate beyond current projections with tipping point cascades",
+      "Extreme weather events become more frequent and severe globally",
+      "Climate adaptation requires trillions in infrastructure spending",
+      "Climate migration reaches 200+ million people by 2040",
+      "Emergency powers become normalized as governments respond to repeated crises"
+    ],
+    "member_scenarios": [
+      "Climate Adaptation Economy",
+      "Climate Fragmentation",
+      "Climate Acceleration",
+      "Compound Catastrophe",
+      "Climate Stagflation",
+      "Climate Pathogen Emergence"
+    ]
+  },
+  {
+    "id": "geopolitical_fragmentation",
+    "name": "Fragmented World Order",
+    "description": "The post-Cold War global order breaks down into competing blocs and spheres of influence. US-China rivalry intensifies while other powers assert independence, leading to economic decoupling, reduced international cooperation, and increased military tensions. Global governance becomes fragmented across issue-specific coalitions rather than unified institutions.",
+    "probability": 0.3,
+    "key_drivers": [
+      "US-China strategic competition escalates with extensive decoupling",
+      "International trade and cooperation decline due to nationalism and security concerns",
+      "Military buildups and proxy conflicts increase globally",
+      "Alternative payment systems and alliance networks emerge",
+      "Multilateral institutions weaken as great powers compete"
+    ],
+    "member_scenarios": [
+      "Geopolitical Fragmentation",
+      "Cold War Redux",
+      "Chinese Hegemony",
+      "Fragmented Multipolarity",
+      "Dollar Displacement"
+    ]
+  },
+  {
+    "id": "demographic_transition",
+    "name": "Great Demographic Transition",
+    "description": "Global population dynamics undergo dramatic shifts as fertility rates decline rapidly in developing countries while longevity increases. This creates massive changes in working-age populations, economic growth patterns, and social structures. Migration flows redistribute populations while aging societies struggle with labor shortages and fiscal pressures.",
+    "probability": 0.35,
+    "key_drivers": [
+      "Global fertility rates decline faster than expected across developing nations",
+      "Life expectancy gains slow while healthy lifespan potentially extends significantly",
+      "Climate and economic migration reaches unprecedented scales",
+      "Aging populations in developed countries create labor shortages",
+      "Social security and healthcare systems face mounting fiscal pressures"
+    ],
+    "member_scenarios": [
+      "Stagnant Demographics Drag",
+      "Demographic Transition Accelerates",
+      "Longevity Revolution",
+      "Migration Mega-Shifts",
+      "Great Stagnation"
+    ]
+  },
+  {
+    "id": "technological_stagnation",
+    "name": "Innovation Plateau World",
+    "description": "Technological progress slows significantly due to fundamental limitations, regulatory barriers, or economic constraints. AI development hits technical barriers while other breakthrough technologies fail to materialize. Economic growth remains modest as productivity gains plateau and traditional industries maintain competitiveness against automation.",
+    "probability": 0.1,
+    "key_drivers": [
+      "AI capabilities hit fundamental technical barriers or face regulatory restrictions",
+      "Energy costs, chip shortages, or economic shocks limit technology deployment",
+      "Public backlash leads to restrictive governance of emerging technologies",
+      "Investment in R&D declines due to diminishing returns or competing priorities",
+      "Traditional human-centered approaches remain competitive"
+    ],
+    "member_scenarios": [
+      "AI Winter Stagnation",
+      "AI Winter Returns",
+      "Gradual Integration Path",
+      "Regulatory Bottleneck Scenario"
+    ]
+  },
+  {
+    "id": "democratic_transformation",
+    "name": "Governance Revolution World",
+    "description": "Political systems worldwide undergo fundamental transformation as traditional democracy faces challenges from authoritarianism while new forms of governance emerge. Digital natives reshape political institutions while climate change and inequality stress existing democratic frameworks. The outcome varies between democratic renewal, authoritarian consolidation, or hybrid governance models.",
+    "probability": 0.25,
+    "key_drivers": [
+      "Generational transition brings digital natives to political power globally",
+      "Economic inequality and climate stress challenge democratic legitimacy",
+      "Surveillance technology capabilities favor different governance models",
+      "Youth demographics drive pro-democracy movements in some regions",
+      "New forms of participatory and decentralized governance emerge"
+    ],
+    "member_scenarios": [
+      "Democratic Renaissance",
+      "Authoritarian Consolidation",
+      "Generational Shift",
+      "Chinese Conquest",
+      "Independence Declaration"
+    ]
+  },
+  {
+    "id": "financial_crisis",
+    "name": "Financial System Breakdown",
+    "description": "The global financial system experiences severe stress from multiple sources including debt overhangs, climate risks, and systemic failures. Traditional insurance markets partially collapse while sovereign debt crises emerge. Despite safe-haven demand, fiscal sustainability concerns drive higher risk premiums and structural changes to capital markets.",
+    "probability": 0.15,
+    "key_drivers": [
+      "Federal and corporate debt levels become unsustainable triggering crisis",
+      "Traditional insurance and reinsurance markets face widespread failures",
+      "Climate disasters and compound catastrophes overwhelm risk management",
+      "Interest payments consume increasing shares of government revenues",
+      "Credit remains constrained affecting economic growth and recovery"
+    ],
+    "member_scenarios": [
+      "Financial System Crisis",
+      "Fiscal Crisis",
+      "Coverage Contraction",
+      "Compound Catastrophe"
+    ]
+  },
+  {
+    "id": "biosecurity_catastrophe",
+    "name": "Biological Catastrophe World",
+    "description": "A severe global pandemic emerges from natural evolution, laboratory accident, or deliberate release, causing millions of deaths and overwhelming healthcare systems. This could involve highly pathogenic influenza, engineered pathogens, antimicrobial-resistant bacteria, or climate-released diseases. The event reshapes global preparedness and international cooperation around biological threats.",
+    "probability": 0.08,
+    "key_drivers": [
+      "Highly pathogenic pathogen emerges with both high transmissibility and mortality",
+      "Initial detection and response are delayed allowing widespread spread",
+      "Healthcare systems become overwhelmed leading to cascade effects",
+      "Vaccine development and deployment face significant technical or logistical barriers",
+      "International cooperation is hindered by attribution concerns or resource competition"
+    ],
+    "member_scenarios": [
+      "H5N1 Spillover Storm",
+      "Lab Leak Nightmare",
+      "Antimicrobial Apocalypse",
+      "Climate Pathogen Emergence",
+      "Bioweapon Deployment"
+    ]
+  },
+  {
+    "id": "managed_stability",
+    "name": "Managed Stability World",
+    "description": "Despite ongoing challenges and tensions, international institutions and crisis management mechanisms prove resilient enough to prevent major catastrophes. Gradual adaptation occurs across multiple domains while maintaining relative stability. Changes happen incrementally rather than through dramatic disruptions, with mixed outcomes across different regions and sectors.",
+    "probability": 0.15,
+    "key_drivers": [
+      "Crisis management mechanisms and international cooperation prevent major escalations",
+      "Gradual adaptation and incremental change rather than revolutionary transformation",
+      "Mixed outcomes with some regions/sectors improving while others decline",
+      "Established institutions prove more resilient than anticipated",
+      "Status quo bias and conservative approaches dominate policy responses"
+    ],
+    "member_scenarios": [
+      "Status Quo Stability",
+      "Frozen Conflict",
+      "Managed Competition",
+      "Gradual Integration Path",
+      "Adaptation Success"
+    ]
+  },
+  {
+    "id": "systemic_collapse",
+    "name": "Cascade Collapse World",
+    "description": "Multiple interconnected crises create a systemic breakdown where individual challenges amplify each other beyond society's ability to respond effectively. Climate disasters trigger economic collapse, which enables conflict and political breakdown, which prevents coordinated responses to further challenges. Traditional institutions and international cooperation break down under the weight of compound crises.",
+    "probability": 0.07,
+    "key_drivers": [
+      "Multiple overlapping crises create systemic amplification effects",
+      "Traditional institutions and governance systems prove inadequate for compound challenges",
+      "International cooperation breaks down amid nationalism and resource competition",
+      "Economic collapse and social instability become self-reinforcing",
+      "Emergency response and rebuilding capacity becomes overwhelmed"
+    ],
+    "member_scenarios": [
+      "Collapse Cascade",
+      "Compound Catastrophe",
+      "Coverage Contraction",
+      "Climate Fragmentation"
+    ]
+  }
+]

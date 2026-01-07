@@ -1,0 +1,24 @@
+[project]
+name = "forecast-copilot"
+version = "0.1.0"
+description = "User-facing forecasting assistant"
+requires-python = ">=3.11"
+dependencies = [
+    "llm-forecasting",
+    "conditional-trees",
+    "click>=8.0",
+]
+
+[tool.uv.sources]
+llm-forecasting = { workspace = true }
+conditional-trees = { workspace = true }
+
+[project.scripts]
+forecast-copilot = "forecast_copilot.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/forecast_copilot"]

@@ -1,0 +1,73 @@
+[
+  {
+    "id": "us_gdp_2040",
+    "text": "US real GDP in 2040 (2024 dollars)",
+    "type": "continuous",
+    "resolution_source": "BEA estimate (2024 dollars), Q4 2040",
+    "domain": "Macro"
+  },
+  {
+    "id": "labor_share_2035",
+    "text": "Labor share of US GDP, 2035",
+    "type": "continuous",
+    "resolution_source": "BEA National Income Accounts",
+    "domain": "AI/Labor"
+  },
+  {
+    "id": "taiwan_status_2036",
+    "text": "Taiwan governance status on Jan 1, 2036",
+    "type": "categorical",
+    "options": ["Self-governing", "PRC-administered", "Under blockade", "Active conflict"],
+    "resolution_source": "Observed governance status",
+    "domain": "Geopolitics"
+  },
+  {
+    "id": "working_age_pop_2040",
+    "text": "Global working-age population (15-64), 2040",
+    "type": "continuous",
+    "resolution_source": "UN World Population Prospects",
+    "domain": "Demographics"
+  },
+  {
+    "id": "free_countries_2035",
+    "text": "Number of countries rated 'Free' by Freedom House, 2035",
+    "type": "continuous",
+    "resolution_source": "Freedom House Freedom in the World Index",
+    "domain": "Global democracy"
+  },
+  {
+    "id": "natcat_losses_2035",
+    "text": "Annual insured losses from natural catastrophes, 2035 (USD)",
+    "type": "continuous",
+    "resolution_source": "Swiss Re sigma; Munich Re NatCatSERVICE",
+    "domain": "Climate"
+  },
+  {
+    "id": "treasury_yield_2035",
+    "text": "US 10-year Treasury yield, Dec 2035",
+    "type": "continuous",
+    "resolution_source": "US Treasury",
+    "domain": "Financial system"
+  },
+  {
+    "id": "us_china_tension_2036",
+    "text": "US-China Tension Index value, Jan 1, 2036",
+    "type": "continuous",
+    "resolution_source": "Policy Uncertainty UCT Index",
+    "domain": "Geopolitics"
+  },
+  {
+    "id": "ai_drugs_2030",
+    "text": "FDA-approved drugs discovered with AI-primary methods, cumulative through 2030",
+    "type": "continuous",
+    "resolution_source": "FDA approval database + methodology disclosure",
+    "domain": "AI/Science"
+  },
+  {
+    "id": "pandemic_deaths_peak",
+    "text": "Largest single-year pandemic death toll, 2025-2040",
+    "type": "continuous",
+    "resolution_source": "WHO data",
+    "domain": "Biosecurity"
+  }
+]

@@ -1,0 +1,20 @@
+[project]
+name = "conditional-trees"
+version = "0.1.0"
+description = "Scenario-based conditional forecasting using LLMs"
+requires-python = ">=3.11"
+dependencies = [
+    "llm-forecasting",
+    "pydantic>=2.0",
+    "anthropic>=0.40.0",
+]
+
+[tool.uv.sources]
+llm-forecasting = { workspace = true }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/conditional_trees"]
