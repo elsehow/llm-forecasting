@@ -5,16 +5,8 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
-
-class Question(BaseModel):
-    """Input question for forecasting."""
-
-    id: str
-    text: str
-    type: Literal["continuous", "binary", "categorical"]
-    options: list[str] | None = None  # For categorical questions
-    resolution_source: str | None = None
-    domain: str | None = None
+# Import Question from core library - no duplicate types
+from llm_forecasting.models import Question, QuestionType
 
 
 class Scenario(BaseModel):

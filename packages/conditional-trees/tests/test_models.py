@@ -3,6 +3,7 @@
 import pytest
 from conditional_trees.models import (
     Question,
+    QuestionType,
     Scenario,
     GlobalScenario,
     Relationship,
@@ -18,27 +19,29 @@ class TestQuestion:
     def test_continuous_question(self):
         q = Question(
             id="test",
+            source="tree",
             text="US GDP in 2040",
-            type="continuous",
+            question_type=QuestionType.CONTINUOUS,
             resolution_source="BEA",
             domain="Macro",
         )
-        assert q.type == "continuous"
+        assert q.question_type == QuestionType.CONTINUOUS
         assert q.options is None
 
     def test_categorical_question(self):
         q = Question(
             id="test",
+            source="tree",
             text="Taiwan status",
-            type="categorical",
+            question_type=QuestionType.CATEGORICAL,
             options=["Self-governing", "PRC-administered"],
         )
-        assert q.type == "categorical"
+        assert q.question_type == QuestionType.CATEGORICAL
         assert len(q.options) == 2
 
     def test_binary_question(self):
-        q = Question(id="test", text="Will X happen?", type="binary")
-        assert q.type == "binary"
+        q = Question(id="test", source="tree", text="Will X happen?", question_type=QuestionType.BINARY)
+        assert q.question_type == QuestionType.BINARY
 
 
 class TestScenario:

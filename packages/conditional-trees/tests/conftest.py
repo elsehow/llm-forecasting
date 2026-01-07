@@ -8,6 +8,7 @@ import pytest
 
 from conditional_trees.models import (
     Question,
+    QuestionType,
     Scenario,
     GlobalScenario,
     Relationship,
@@ -28,9 +29,22 @@ def load_fixture(name: str) -> dict | list:
 
 @pytest.fixture
 def questions() -> list[Question]:
-    """Load test questions."""
+    """Load test questions, transforming tree format to core Question format."""
     data = load_fixture("questions")
-    return [Question(**q) for q in data]
+    questions = []
+    for q in data:
+        # Transform tree format to core format
+        q_data = {
+            "id": q["id"],
+            "text": q["text"],
+            "source": "tree",  # Tree questions don't come from a market source
+            "question_type": QuestionType(q["type"]),  # Map 'type' string to enum
+            "options": q.get("options"),
+            "resolution_source": q.get("resolution_source"),
+            "domain": q.get("domain"),
+        }
+        questions.append(Question(**q_data))
+    return questions
 
 
 @pytest.fixture

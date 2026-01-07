@@ -24,6 +24,7 @@ htmlcov/
 
 # Local data
 data/
+!data/README.md
 *.db
 
 # Generated outputs

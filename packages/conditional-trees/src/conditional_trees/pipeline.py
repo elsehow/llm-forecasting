@@ -7,7 +7,7 @@ from datetime import datetime
 from pathlib import Path
 
 from .config import FORECAST_HORIZON, START_DATE
-from .models import ForecastTree, Question
+from .models import ForecastTree, Question, QuestionType
 from .phases.base_rates import fetch_base_rates, format_base_rates_context
 from .phases.condition import condition
 from .phases.converge import converge
@@ -141,10 +141,28 @@ async def build_forecast_tree(
 
 
 def load_questions(path: str | Path) -> list[Question]:
-    """Load questions from a JSON file."""
+    """Load questions from a JSON file.
+
+    Transforms tree question format (with 'type' field) to core Question format
+    (with 'question_type' enum and required 'source' field).
+    """
     with open(path) as f:
         data = json.load(f)
-    return [Question(**q) for q in data]
+
+    questions = []
+    for q in data:
+        # Transform tree format to core format
+        q_data = {
+            "id": q["id"],
+            "text": q["text"],
+            "source": "tree",  # Tree questions don't come from a market source
+            "question_type": QuestionType(q["type"]),  # Map 'type' string to enum
+            "options": q.get("options"),
+            "resolution_source": q.get("resolution_source"),
+            "domain": q.get("domain"),
+        }
+        questions.append(Question(**q_data))
+    return questions
 
 
 def load_tree(path: str | Path) -> ForecastTree:

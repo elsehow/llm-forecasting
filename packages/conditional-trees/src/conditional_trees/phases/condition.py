@@ -15,6 +15,7 @@ from ..models import (
     ContinuousForecast,
     GlobalScenario,
     Question,
+    QuestionType,
 )
 from ..prompts import (
     CONDITION_BATCH_BINARY_USER,
@@ -52,14 +53,14 @@ def _build_batched_condition_call(
     call_id = question.id
     scenarios_json = _scenarios_to_json(scenarios)
 
-    if question.type == "continuous":
+    if question.question_type == QuestionType.CONTINUOUS:
         user_prompt = CONDITION_BATCH_CONTINUOUS_USER.format(
             question_text=question.text,
             resolution_source=question.resolution_source or "Official data source",
             base_rate_context=base_rate_context,
             scenarios_json=scenarios_json,
         )
-    elif question.type == "categorical":
+    elif question.question_type == QuestionType.CATEGORICAL:
         user_prompt = CONDITION_BATCH_CATEGORICAL_USER.format(
             question_text=question.text,
             options=", ".join(question.options or []),
@@ -100,7 +101,7 @@ def _parse_batched_result(
             logger.warning(f"Missing forecast for {question.id}/{scenario.id}")
             continue
 
-        if question.type == "continuous":
+        if question.question_type == QuestionType.CONTINUOUS:
             forecasts.append(ContinuousForecast(
                 question_id=question.id,
                 scenario_id=scenario.id,
@@ -109,7 +110,7 @@ def _parse_batched_result(
                 ci_80_high=scenario_result["ci_80_high"],
                 reasoning=scenario_result.get("reasoning"),
             ))
-        elif question.type == "categorical":
+        elif question.question_type == QuestionType.CATEGORICAL:
             forecasts.append(CategoricalForecast(
                 question_id=question.id,
                 scenario_id=scenario.id,
@@ -147,15 +148,15 @@ async def condition(
         verbose: Print progress messages
     """
     # Group questions by type for schema-specific batching
-    questions_by_type: dict[str, list[Question]] = defaultdict(list)
+    questions_by_type: dict[QuestionType, list[Question]] = defaultdict(list)
     for q in questions:
-        questions_by_type[q.type].append(q)
+        questions_by_type[q.question_type].append(q)
 
     # Schema mapping by question type
     schema_map = {
-        "continuous": ConditionBatchContinuousResponse,
-        "categorical": ConditionBatchCategoricalResponse,
-        "binary": ConditionBatchBinaryResponse,
+        QuestionType.CONTINUOUS: ConditionBatchContinuousResponse,
+        QuestionType.CATEGORICAL: ConditionBatchCategoricalResponse,
+        QuestionType.BINARY: ConditionBatchBinaryResponse,
     }
 
     if verbose:

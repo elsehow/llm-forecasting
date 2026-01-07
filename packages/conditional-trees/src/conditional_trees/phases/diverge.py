@@ -44,7 +44,7 @@ async def diverge(
         user_prompt = DIVERGE_USER.format(
             n_scenarios=n_scenarios,
             question_text=q.text,
-            question_type=q.type,
+            question_type=q.question_type.value,  # Use enum value for prompt
             domain=q.domain or "General",
         )
         calls.append((q.id, system_prompt, user_prompt))

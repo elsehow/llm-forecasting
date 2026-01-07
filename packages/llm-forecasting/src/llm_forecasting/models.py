@@ -16,6 +16,7 @@ class QuestionType(str, Enum):
     BINARY = "binary"  # Yes/No, resolves to 0 or 1
     CONTINUOUS = "continuous"  # Numeric value (e.g., stock price, temperature)
     QUANTILE = "quantile"  # Predict quantiles of a distribution
+    CATEGORICAL = "categorical"  # Multiple choice (e.g., "Under blockade", "Active conflict")
 
 
 class SourceType(str, Enum):
@@ -51,6 +52,15 @@ class Question(BaseModel):
 
     # Sampling metadata - used for balancing question sets
     base_rate: float | None = None  # Historical base rate if known
+
+    # For categorical questions: the options to choose from
+    options: list[str] | None = None
+
+    # Domain/category for tree questions (e.g., "Macro", "AI/Labor")
+    domain: str | None = None
+
+    # Where to look for resolution (for tree questions, distinct from source)
+    resolution_source: str | None = None
 
 
 class Forecast(BaseModel):
