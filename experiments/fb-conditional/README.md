@@ -38,9 +38,46 @@ Uses `data/forecastbench.db` - shared SQLite database with:
 |------|---------|
 | `FINDINGS.md` | Results and methodology |
 | `generate_pairs.py` | LLM-assisted pair generation |
-| `run_experiment.py` | Main experiment runner |
+| `run_experiment.py` | Basic elicitation: P(A), P(A\|B=1), P(A\|B=0) |
+| `bayesian_check.py` | Full Bayesian check: adds P(B), P(B\|A=1), P(B\|A=0) |
+| `analyze_direction.py` | Resolution-independent analysis |
+| `run_full_eval.py` | **Full pipeline runner** |
 | `pairs.json` | Generated question pairs |
 | `results/` | Experiment output by model |
+
+## Full Evaluation Pipeline
+
+Run all models with all checks:
+
+```bash
+# Full run (all models, all checks)
+uv run python experiments/fb-conditional/run_full_eval.py
+
+# Quick test (1 model, 3 pairs)
+uv run python experiments/fb-conditional/run_full_eval.py --test
+
+# Specific models
+uv run python experiments/fb-conditional/run_full_eval.py --models claude-sonnet-4-20250514:thinking gpt-5.2
+
+# With new pairs
+uv run python experiments/fb-conditional/run_full_eval.py --pairs pairs_new.json
+
+# Just analyze existing results
+uv run python experiments/fb-conditional/run_full_eval.py --analyze-only
+```
+
+### What the pipeline does:
+
+1. **Basic elicitation** (`run_experiment.py`): P(A), P(A|B=1), P(A|B=0)
+   - Computes Brier improvement (resolution-dependent)
+
+2. **Bayesian check** (`bayesian_check.py`): P(B), P(B|A=1), P(B|A=0)
+   - Tests if P(A|B) × P(B) = P(B|A) × P(A)
+
+3. **Analysis** (`analyze_direction.py`):
+   - Direction of update: Is P(A|B=1) > P(A) > P(A|B=0)?
+   - LOTP consistency: Does a valid P(B) exist?
+   - Bayes consistency: Do both directions agree?
 
 ### Longitudinal experiment (Jan 2026)
 
@@ -52,7 +89,11 @@ Uses `data/forecastbench.db` - shared SQLite database with:
 
 **TODO: Run on January 14, 2026:**
 ```bash
+# Resolve questions and run basic experiment
 uv run python experiments/fb-conditional/resolve_and_run.py
+
+# Then run full evaluation on resolved pairs
+uv run python experiments/fb-conditional/run_full_eval.py --pairs pairs_resolved.json
 ```
 
 ## References
