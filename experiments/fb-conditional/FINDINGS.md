@@ -134,6 +134,9 @@ Questions were randomly sampled from resolved binary questions in ForecastBench,
 ## Future Work
 
 0. **Run in real time**. Like ForecastBench does—the only sure way to prevent data contamination!
+   - **Ready to run:** `pending_pairs_2026-01-14.json` has 37 questions resolving Jan 14
+   - **Script:** `resolve_and_run.py` fetches resolutions and runs experiment
+   - **Key validation:** Test **Two-Stage elicitation** against baseline. The [[Coherence Scaffolding Experiments]] found Two-Stage achieves best Brier (+0.008) and 0% false positives. Need to validate this holds on live data.
 
 1. **More models** — DeepSeek R1, Grok, Llama 4. Do other reasoning models (R1, o1) have the same spurious correlation problem?
 

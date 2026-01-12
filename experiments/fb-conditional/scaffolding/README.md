@@ -6,10 +6,21 @@ Experiments testing whether different elicitation methods improve conditional re
 
 | Experiment | Hypothesis | Status |
 |------------|-----------|--------|
-| `joint-probability/` | Eliciting joint tables forces coherence | In progress |
-| `bracket-elicitation/` | Forcing direction commitment first reduces impossible updates | In progress |
-| `mechanized-bayes/` | Eliciting marginals/joints separately, then computing conditionals, improves accuracy | Ready |
-| `consistency-check-loop/` | Showing models their inconsistency enables self-correction | Ready |
+| `joint-probability/` | Eliciting joint tables forces coherence | Complete |
+| `bracket-elicitation/` | Forcing direction commitment first reduces impossible updates | Complete |
+| `two-stage/` | Separating classification from elicitation reduces false positives | Complete |
+| `mechanized-bayes/` | Eliciting marginals/joints separately improves accuracy | Complete |
+| `consistency-check-loop/` | Showing models their inconsistency enables self-correction | Complete |
+| `adaptive-scaffolding/` | Routing to different scaffolds based on context improves performance | Complete |
+
+## Winner: Two-Stage
+
+The [[Adaptive Scaffolding Experiment]] found that **Two-Stage-Uniform** outperforms all other approaches:
+- Best overall Brier (+0.008)
+- Zero false positives (0%)
+- 100% direction accuracy on bracket-routed pairs
+
+Use Two-Stage unless pairs are pre-filtered as correlated (then use Bracket).
 
 ## Baseline
 
