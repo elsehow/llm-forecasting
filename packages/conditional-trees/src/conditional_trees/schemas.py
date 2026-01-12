@@ -161,20 +161,32 @@ class BinaryForecastItem(BaseModel):
 
 # =============================================================================
 # Phase 5: Condition (batched - all scenarios for one question)
+# Uses Bracket-style direction commitment for logical coherence
 # =============================================================================
 
+# Direction commitment types
+DirectionType = Literal["increases", "decreases", "neutral"]
+
+
 class ConditionBatchContinuousResponse(BaseModel):
-    """Response from batched continuous condition phase."""
+    """Response from batched continuous condition phase with direction commitment."""
+    directions: dict[str, DirectionType]
     forecasts: dict[str, ContinuousForecastItem]
 
 
 class ConditionBatchCategoricalResponse(BaseModel):
-    """Response from batched categorical condition phase."""
+    """Response from batched categorical condition phase with direction commitment.
+
+    For categorical questions, directions can be "neutral" or the name of an option
+    that the scenario shifts probability toward.
+    """
+    directions: dict[str, str]  # Option name or "neutral"
     forecasts: dict[str, CategoricalForecastItem]
 
 
 class ConditionBatchBinaryResponse(BaseModel):
-    """Response from batched binary condition phase."""
+    """Response from batched binary condition phase with direction commitment."""
+    directions: dict[str, DirectionType]
     forecasts: dict[str, BinaryForecastItem]
 
 

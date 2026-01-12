@@ -250,21 +250,29 @@ class TestPhase5ConditionSchema:
 
         # Build batched response format (grouped by question)
         by_question: dict[str, dict] = {}
+        directions_by_question: dict[str, dict] = {}
         for c in continuous[:10]:
             qid = c["question_id"]
             if qid not in by_question:
                 by_question[qid] = {}
+                directions_by_question[qid] = {}
             by_question[qid][c["scenario_id"]] = {
                 "median": c["median"],
                 "ci_80_low": c["ci_80_low"],
                 "ci_80_high": c["ci_80_high"],
                 "reasoning": c.get("reasoning", "Test"),
             }
+            # Add direction (use "neutral" as default for test data)
+            directions_by_question[qid][c["scenario_id"]] = "neutral"
 
         # Validate each question's response
         for qid, forecasts in by_question.items():
-            response = ConditionBatchContinuousResponse(forecasts=forecasts)
+            response = ConditionBatchContinuousResponse(
+                directions=directions_by_question[qid],
+                forecasts=forecasts
+            )
             assert len(response.forecasts) > 0
+            assert len(response.directions) > 0
 
     def test_categorical_forecasts_validate(self):
         """Categorical forecasts validate correctly."""
@@ -274,18 +282,26 @@ class TestPhase5ConditionSchema:
         if categorical:
             # Build batched response
             by_question: dict[str, dict] = {}
+            directions_by_question: dict[str, dict] = {}
             for c in categorical[:10]:
                 qid = c["question_id"]
                 if qid not in by_question:
                     by_question[qid] = {}
+                    directions_by_question[qid] = {}
                 by_question[qid][c["scenario_id"]] = {
                     "probabilities": c["probabilities"],
                     "reasoning": c.get("reasoning", "Test"),
                 }
+                # Add direction (use "neutral" as default for test data)
+                directions_by_question[qid][c["scenario_id"]] = "neutral"
 
             for qid, forecasts in by_question.items():
-                response = ConditionBatchCategoricalResponse(forecasts=forecasts)
+                response = ConditionBatchCategoricalResponse(
+                    directions=directions_by_question[qid],
+                    forecasts=forecasts
+                )
                 assert len(response.forecasts) > 0
+                assert len(response.directions) > 0
 
     def test_binary_forecasts_validate(self):
         """Binary forecasts validate correctly."""
@@ -294,18 +310,26 @@ class TestPhase5ConditionSchema:
 
         if binary:
             by_question: dict[str, dict] = {}
+            directions_by_question: dict[str, dict] = {}
             for c in binary[:10]:
                 qid = c["question_id"]
                 if qid not in by_question:
                     by_question[qid] = {}
+                    directions_by_question[qid] = {}
                 by_question[qid][c["scenario_id"]] = {
                     "probability": c["probability"],
                     "reasoning": c.get("reasoning", "Test"),
                 }
+                # Add direction (use "neutral" as default for test data)
+                directions_by_question[qid][c["scenario_id"]] = "neutral"
 
             for qid, forecasts in by_question.items():
-                response = ConditionBatchBinaryResponse(forecasts=forecasts)
+                response = ConditionBatchBinaryResponse(
+                    directions=directions_by_question[qid],
+                    forecasts=forecasts
+                )
                 assert len(response.forecasts) > 0
+                assert len(response.directions) > 0
 
 
 class TestPhase6SignalsSchema:

@@ -13,6 +13,8 @@ from conditional_trees.phases.structure import structure
 from conditional_trees.phases.quantify import quantify
 from conditional_trees.phases.condition import condition
 from conditional_trees.phases.signals import signals
+from conditional_trees.phases.condition import _validate_direction_consistency
+from conditional_trees.models import QuestionType
 
 
 class TestPhase0BaseRates:
@@ -325,3 +327,66 @@ class TestPhase6Signals:
 
             assert len(result) == 1
             assert result[0].direction == "increases"
+
+
+class TestDirectionConsistencyValidation:
+    """Tests for Bracket-style direction consistency validation."""
+
+    @pytest.mark.parametrize("q_type,key,dirs,vals,expected_violations,check_strs", [
+        # Valid orderings (no violations)
+        (QuestionType.BINARY, "probability",
+         {"a": "increases", "b": "neutral", "c": "decreases"}, [0.7, 0.5, 0.3], 0, []),
+        (QuestionType.CONTINUOUS, "median",
+         {"a": "increases", "b": "neutral", "c": "decreases"}, [100, 50, 25], 0, []),
+        (QuestionType.BINARY, "probability",
+         {"a": "neutral", "b": "neutral", "c": "neutral"}, [0.5, 0.6, 0.4], 0, []),
+        # Increases below neutral
+        (QuestionType.BINARY, "probability",
+         {"a": "increases", "b": "neutral"}, [0.4, 0.5], 1, ["a", "increases"]),
+        # Neutral below decreases
+        (QuestionType.BINARY, "probability",
+         {"a": "increases", "b": "neutral", "c": "decreases"}, [0.7, 0.3, 0.4], 1, ["b", "c"]),
+        # Increases below decreases
+        (QuestionType.BINARY, "probability",
+         {"a": "increases", "b": "decreases"}, [0.2, 0.6], 1, ["a", "b"]),
+        # Continuous invalid
+        (QuestionType.CONTINUOUS, "median",
+         {"a": "increases", "b": "neutral"}, [30, 50], 1, ["a"]),
+    ])
+    def test_binary_continuous_validation(self, q_type, key, dirs, vals, expected_violations, check_strs):
+        """Test binary/continuous direction validation with parameterized cases."""
+        forecasts = {sid: {key: val} for sid, val in zip(dirs.keys(), vals)}
+        violations = _validate_direction_consistency(dirs, forecasts, q_type)
+        assert len(violations) == expected_violations
+        for s in check_strs:
+            assert any(s in v for v in violations)
+
+    @pytest.mark.parametrize("dirs,probs_a,expected_violations,check_strs", [
+        # Valid: ai_scenario has higher P(Option A)
+        ({"ai": "Option A", "base": "neutral"}, [0.7, 0.5], 0, []),
+        # Invalid: ai_scenario has lower P(Option A)
+        ({"ai": "Option A", "base": "neutral"}, [0.4, 0.5], 1, ["ai", "Option A"]),
+        # Invalid option name
+        ({"ai": "Option C", "base": "neutral"}, [0.5, 0.5], 1, ["Option C", "not in options"]),
+    ])
+    def test_categorical_validation(self, dirs, probs_a, expected_violations, check_strs):
+        """Test categorical direction validation."""
+        forecasts = {
+            list(dirs.keys())[0]: {"probabilities": {"Option A": probs_a[0], "Option B": 1 - probs_a[0]}},
+            list(dirs.keys())[1]: {"probabilities": {"Option A": probs_a[1], "Option B": 1 - probs_a[1]}},
+        }
+        violations = _validate_direction_consistency(
+            dirs, forecasts, QuestionType.CATEGORICAL, options=["Option A", "Option B"]
+        )
+        assert len(violations) == expected_violations
+        for s in check_strs:
+            assert any(s in v for v in violations)
+
+    def test_missing_forecast_is_skipped(self):
+        """Test that missing forecasts don't cause errors."""
+        violations = _validate_direction_consistency(
+            {"exists": "increases", "missing": "neutral"},
+            {"exists": {"probability": 0.7}},
+            QuestionType.BINARY
+        )
+        assert violations == []

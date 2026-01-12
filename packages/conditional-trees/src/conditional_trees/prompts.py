@@ -208,12 +208,23 @@ Respond in JSON format:
 }}"""
 
 # Batched condition prompts - all scenarios for one question
+# Uses Bracket-style direction commitment to ensure logical coherence
 CONDITION_BATCH_SYSTEM = """You are an expert forecaster making conditional predictions.
 Your task is to forecast outcomes for a question under multiple scenarios.
 
-IMPORTANT: Your forecasts should be internally coherent. If Scenario A describes more extreme conditions
-than Scenario B, your forecast for A should reflect that. Consider how the scenarios relate to each other
-when making your predictions."""
+IMPORTANT: You must ensure logical coherence across scenarios.
+
+Step 1: DIRECTION COMMITMENT
+Before giving probabilities, explicitly state the expected ordering.
+- Which scenarios should produce HIGHER probabilities for this question?
+- Which scenarios should produce LOWER probabilities?
+- Which scenarios are roughly NEUTRAL (similar to baseline)?
+
+Step 2: PROBABILITY ASSIGNMENT
+Your probabilities MUST respect the ordering you declared in Step 1.
+If you said Scenario A should be higher than Scenario B, then P(outcome|A) > P(outcome|B).
+
+This constraint eliminates impossible forecasts where probabilities contradict the stated logic."""
 
 CONDITION_BATCH_CONTINUOUS_USER = """Forecast the outcome for this question under each scenario:
 
@@ -225,18 +236,29 @@ Resolution: {resolution_source}
 Scenarios:
 {scenarios_json}
 
+STEP 1: DIRECTION COMMITMENT
+First, classify each scenario's effect on this question:
+- "increases": This scenario leads to a HIGHER median value
+- "decreases": This scenario leads to a LOWER median value
+- "neutral": This scenario has no meaningful effect on the outcome
+
+STEP 2: FORECASTS
 For EACH scenario, provide:
 - Median estimate
 - 80% confidence interval (10th and 90th percentiles)
 - Brief reasoning
 
-IMPORTANT:
-- Use the EXACT "id" from each scenario as the key in your response
-- Ensure your forecasts are coherent across scenarios
-- More extreme scenarios should generally produce more extreme forecasts
+CONSTRAINT: Your medians MUST respect Step 1:
+- All "increases" scenarios must have higher median than all "neutral" scenarios
+- All "decreases" scenarios must have lower median than all "neutral" scenarios
 
-Respond in JSON format with scenario IDs as keys:
+IMPORTANT: Use the EXACT "id" from each scenario as the key in your response.
+
+Respond in JSON format:
 {{
+  "directions": {{
+    "<scenario_id>": "increases|decreases|neutral"
+  }},
   "forecasts": {{
     "<scenario_id>": {{
       "median": 25000000000000,
@@ -255,15 +277,26 @@ Options: {options}
 Scenarios:
 {scenarios_json}
 
+STEP 1: DIRECTION COMMITMENT
+First, classify each scenario's effect on this question.
+For each scenario, identify which option it shifts probability TOWARD:
+- Name a specific option if the scenario clearly favors it
+- "neutral" if the scenario has no meaningful effect
+
+STEP 2: PROBABILITIES
 For EACH scenario, provide probability for each option (must sum to 1.0).
 
-IMPORTANT:
-- Use the EXACT "id" from each scenario as the key in your response
-- Ensure your forecasts are coherent across scenarios
-- Scenarios mentioning relevant factors should show larger effects
+CONSTRAINT: Your probabilities MUST respect Step 1:
+- If you said a scenario shifts toward Option X, that scenario should have
+  higher P(Option X) than neutral scenarios
 
-Respond in JSON format with scenario IDs as keys:
+IMPORTANT: Use the EXACT "id" from each scenario as the key in your response.
+
+Respond in JSON format:
 {{
+  "directions": {{
+    "<scenario_id>": "<option_name>|neutral"
+  }},
   "forecasts": {{
     "<scenario_id>": {{
       "probabilities": {{"Option A": 0.6, "Option B": 0.3, "Option C": 0.1}},
@@ -279,17 +312,28 @@ Question: {question_text}
 Scenarios:
 {scenarios_json}
 
+STEP 1: DIRECTION COMMITMENT
+First, classify each scenario's effect on this question:
+- "increases": This scenario makes the outcome MORE likely than baseline
+- "decreases": This scenario makes the outcome LESS likely than baseline
+- "neutral": This scenario has no meaningful effect on this outcome
+
+STEP 2: PROBABILITIES
 For EACH scenario, provide:
 - Probability (0-1)
 - Brief reasoning
 
-IMPORTANT:
-- Use the EXACT "id" from each scenario as the key in your response
-- Ensure your forecasts are coherent across scenarios
-- Scenarios mentioning relevant factors should show larger effects
+CONSTRAINT: Your probabilities MUST respect Step 1:
+- All "increases" scenarios must have higher probability than all "neutral" scenarios
+- All "decreases" scenarios must have lower probability than all "neutral" scenarios
 
-Respond in JSON format with scenario IDs as keys:
+IMPORTANT: Use the EXACT "id" from each scenario as the key in your response.
+
+Respond in JSON format:
 {{
+  "directions": {{
+    "<scenario_id>": "increases|decreases|neutral"
+  }},
   "forecasts": {{
     "<scenario_id>": {{
       "probability": 0.35,
@@ -362,3 +406,19 @@ Respond in JSON format:
     }}
   ]
 }}"""
+
+CONDITION_RETRY_DIRECTION = """Your probabilities violated your stated direction commitments:
+
+Violations:
+{violations}
+
+Your directions said:
+{directions}
+
+But your probabilities were:
+{probabilities}
+
+Please revise your probabilities to respect your direction commitments.
+If you need to change directions, you may, but then probabilities must match.
+
+Respond in the same JSON format."""
