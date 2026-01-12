@@ -1,0 +1,182 @@
+{
+  "0x226c6d5a8de377a56641a498191c5e1f3792b81618841afb8879a5d817f13771_0x25a4ea049d3bd46fe71ad8676feef9098bb37cbd9d9336280dd6188a7659813c": {
+    "structure": "a_causes_b",
+    "reasoning": "Russia invading a NATO country (A) would directly trigger the invocation of NATO Article 5 (B), establishing a clear causal chain from A to B."
+  },
+  "0x86d3e198cc89b22d04ea77fd9d760b557d934d04d974578526ac4b063d588113_0xa6852cb4eaf23193e9dc073471131102017ba31ac9571f5ee8a12c4cc1800d7c": {
+    "structure": "a_causes_b",
+    "reasoning": "If a Chinese AI model (like DeepSeek) becomes #1 in 2025, this would directly determine whether DeepSeek has the top model by December 31, 2025."
+  },
+  "0xbadc6cd0d0ea4a71e3cab24b4856311a5720866c2a62d805f2aeb1ddd0dba990_0xbc19b7dee8883e27c2e617cfa9a8875c5f014643f760f72121f4a769b19536c6": {
+    "structure": "a_causes_b",
+    "reasoning": "A Bitcoin dip to $90k in October would directly impact market sentiment and price trajectory, causally influencing whether Bitcoin could reach $145k in the subsequent month of November."
+  },
+  "0xcddb4f52babca280f8e5fc4b9146f2520f0bfb88e134ff9ac8d52ea674185d79_0xc2846f35e85eb09a094edbd4e93e345d3c682dc0436615adc27122222fccbd81": {
+    "structure": "a_causes_b",
+    "reasoning": "An emergency rate cut would count toward the total number of rate cuts needed to reach four cuts in 2025, making A's occurrence directly contribute to B's fulfillment."
+  },
+  "0x310c3d08f015157ec78e04f3f4fefed659b5e2bd88ae80cb38ff27ef970c39bd_C8MtRn2ixX8Y0rV2Oqcy": {
+    "structure": "common_cause",
+    "reasoning": "Both questions are measuring different aspects of the same underlying phenomenon - OpenAI's actual progress toward AGI in 2025 - where hints/claims and formal announcements would both stem from their technical achievements."
+  },
+  "1N2cnoqviIjoUdO3g5ke_0x3e98b1cce4001e971c9b0500408e89e06dd75a1bf2c60e763d0e5f8464a9f6a1": {
+    "structure": "a_causes_b",
+    "reasoning": "The end of the Russia-Ukraine war (A) would create the necessary conditions and diplomatic environment for Putin and Zelenskyy to shake hands (B), making A a causal prerequisite for B."
+  },
+  "0xcb1531b00e984865530f13e4ce35bcbc7d71615af98827b5e9aee2ca2984b626_18541": {
+    "structure": "a_causes_b",
+    "reasoning": "A Chinese invasion of Taiwan in 2025 would likely trigger international sanctions and diplomatic isolation that could affect China's ability to establish or maintain military bases in BRICS countries before 2026."
+  },
+  "0x468d2a45052a19334bd591db94acae2a55294e337ad2fb7c2a49430cd244a811_1674": {
+    "structure": "common_cause",
+    "reasoning": "Both conflicts would likely be influenced by broader regional geopolitical tensions, military instability, and security dynamics in Asia, rather than one directly causing the other."
+  },
+  "0x81fb3e948db1f5645556dbc01b96f50c319f1331ce8b745701197b8264c1d344_0xce733629b3b1bea0649c9c9433401295eb8e1ba6d572803cb53446c93d28cd44": {
+    "structure": "a_causes_b",
+    "reasoning": "Iran acquiring nuclear weapons would likely prompt US allies to seek their own nuclear capabilities as a defensive response, making A a direct causal driver of B."
+  },
+  "0x2bcafeaa34b577a82baf2137057b3f9f02f4d50ee3bc6908c0a5899a3260e50a_0x5a542fe246448e58671948b2f28bb746d7694172ad3c57b28d5cf86126834cf0": {
+    "structure": "common_cause",
+    "reasoning": "Both questions are determined by the same underlying factors - the market capitalizations of Apple and Microsoft on December 31st, which are influenced by common economic conditions, market sentiment, and industry trends."
+  },
+  "0x19ee98e348c0ccb341d1b9566fa14521566e9b2ea7aed34dc407a0ec56be36a2_0x293fb49f43b12631ec4ad0617d9c0efc0eacce33416ef16f68521427daca1678": {
+    "structure": "common_cause",
+    "reasoning": "Both events would be driven by common underlying factors affecting the Bitcoin market such as regulatory changes, market conditions, or major crypto ecosystem developments, rather than one directly causing the other."
+  },
+  "0x8ee2f1640386310eb5e7ffa596ba9335f2d324e303d21b0dfea6998874445791_RzsZN6SlUp": {
+    "structure": "a_causes_b",
+    "reasoning": "A ceasefire in Ukraine (A) would directly enable the condition for Trump to win the Nobel Peace Prize (B), as B is explicitly defined as contingent on whether a ceasefire occurs."
+  },
+  "0x3711ce4799322ea9a6d7b445c39af9849ccde8b25b9e7b09314813ef787f12c2_0xc017605da04aeb24bed768ca1fad3772c1f2dcf78506f6e868208765ee25aaaa": {
+    "structure": "a_causes_b",
+    "reasoning": "Canada joining as the 51st state would be a specific mechanism by which the U.S. would acquire Canadian territory, making A a causal pathway to B."
+  },
+  "IMLre6PYIQgsesV6Wa6O_D5o5fIGpQnjANdl2DxdU": {
+    "structure": "a_causes_b",
+    "reasoning": "If the US enters a recession before the end of 2024, it would directly increase the probability that there will still be a recession by the end of 2025, as recessions typically last multiple quarters."
+  },
+  "0x41da88e6d6db2ebf5fbb868d93e97c3052121a59d1222c00774119427ec9efe1_0xde9fec321fb6a4a264d6d012ad2bfee3b29e123797ce02765dca14cae96e26de": {
+    "structure": "independent",
+    "reasoning": "xAI's success in math modeling and Z.ai's success in coding modeling are distinct achievements in different domains by different companies with no meaningful causal connection."
+  },
+  "0x81be71c406085cede3485dbd3801cc083d077568f63fcf1136aa1e7beadf214c_0x74f6aa8144daf93f45c67ac5134ec1b6acc1c80fde043cea457929cbd6afd007": {
+    "structure": "independent",
+    "reasoning": "The Rams winning the NFC West and the Ravens winning the AFC North are outcomes in completely separate divisions with no direct causal influence on each other."
+  },
+  "0xf34b156ecf111694d6e6841a7effb807f9483cb0cabfaa3e50283530d96d58ce_0xd3a26e8ca4f4dd9a7933e65fb1a36851b4527f7adadf477ca65106714ee26335": {
+    "structure": "common_cause",
+    "reasoning": "Both tech product releases could be influenced by common factors like overall tech market conditions, supply chain constraints, or broader economic factors affecting major tech companies' product launch timelines."
+  },
+  "0xfb6717befc0ec8bb8389512c3739b5e4bca290f2a8a908e894cadb5a3785d9ae_0x54416d15d2428ec5fb1e6f2e646f0fd570f367be80d9dd285c479c8e9ce238a6": {
+    "structure": "a_causes_b",
+    "reasoning": "If Solana reaches $350 in October, this would directly contribute toward achieving a new all-time high before 2026, making A's outcome causally influence B's outcome."
+  },
+  "0xeee36eb4a7474ed4415c966a86491a2880d799479c776776a0e1b06671e3b690_0x1bef2cec162d5499c60c1acd8e3c5a3acc321aee580deda1f01aa40dadbda374": {
+    "structure": "common_cause",
+    "reasoning": "Both questions are about who will become the next Mayor of Bucharest, so they are both influenced by the same underlying electoral process and voter preferences in that election."
+  },
+  "0xc30cf28f8108d5e883038c89afeaaead56c19730ed7211249cbf60c35ff76890_0x21400affa8e3fdfff07bb8421d708635bc7be52f5396268dd281ef92a31bb86f": {
+    "structure": "a_causes_b",
+    "reasoning": "A strong opening weekend performance (A) would contribute to the overall box office success that determines whether the movie becomes the top grossing film of 2025 (B)."
+  },
+  "0x3d64b85493b8e6602ea4dc4ebfa1e8b998594c8439e4e0d730ce6e44f7e587e3_0xa4e7e472e1f4b0f5a9e88c0d086053ef51bb4dc150cf861bef48232447d3b636": {
+    "structure": "common_cause",
+    "reasoning": "Both outcomes are determined by the same tournament structure and participant pool, where only one player can win the championship."
+  },
+  "0x564dc4a385305c482015061537989c4af69f1556f40b958a7bd6e4cf84ad1e2c_0x1321095e16f2904ccae2520e22e635b69bd4f25fc54afd3d0d838a3bf54550ad": {
+    "structure": "common_cause",
+    "reasoning": "Both questions about different parties winning the most seats in the same 2025 Argentina election are influenced by common underlying factors like voter preferences, economic conditions, and campaign effectiveness."
+  },
+  "0xd1754bc54ec5b0af53339ad69d868bcdf5510242212a400db22bc865b103bbfb_0x8e5dd56e494bac55a67a36b7044cefd95dfe7bf8c893f7d82a58c9681990100d": {
+    "structure": "common_cause",
+    "reasoning": "Both normalization outcomes would be influenced by common underlying factors such as regional stability, Israeli foreign policy strategy, U.S. diplomatic efforts, and broader Middle East geopolitical dynamics."
+  },
+  "0x77783da9b3549399a4bc0ba504f03c33f6cafca89f6ef5d96cb1d9492dfd22d5_0xd01204c643956b06dcb7ec56f07ea473bdc9e61a7c29bd1318df0e249b1050ea": {
+    "structure": "common_cause",
+    "reasoning": "Both US military deployments in Yemen and Gaza would be driven by common factors such as overall US Middle East policy, regional security concerns, and broader geopolitical strategy rather than one directly causing the other."
+  },
+  "0x4c9ccd1404d105968de9b1ff3226fbafdc0b6e402a26bbcad3a84a1b62296783_0xd97d95f15edfe56fd412a3e95929497903f16069964f63b7ced90172cd723d61": {
+    "structure": "b_causes_a",
+    "reasoning": "If Seattle wins the AL Championship, they advance to the World Series, which would prevent Toronto from winning it since only one team can win the World Series."
+  },
+  "0x4e4e89fd4a8b605664a3745981cd9034905ef59f385c893b8f29add42f3b4e00_39771": {
+    "structure": "common_cause",
+    "reasoning": "Both global temperature anomalies and hurricane intensity are influenced by common underlying climate factors like ocean temperatures, atmospheric circulation patterns, and broader climate system dynamics."
+  },
+  "0xcc2bd8cbba68f1fe46e89445b61e2c581ea96527438889eb749a852fba647920_0x79342e0d3cce6f59378a6a016531546b773490b30ce51700265bc13e6651bd72": {
+    "structure": "a_causes_b",
+    "reasoning": "If Epstein or Maxwell were confirmed as Mossad operatives, this revelation would likely increase pressure for Congressional hearings and Maxwell's testimony to investigate the intelligence connections."
+  },
+  "ln62Z8L0Sd_dUpnZIpOU8": {
+    "structure": "independent",
+    "reasoning": "Elon Musk forming a political party and Trump taking action against South Park are unrelated events involving different actors with no meaningful causal connection between them."
+  },
+  "0x8947925aa89cdf1e70d7755df73c099c1977d322fb64ac20a2d2ee9850c9f913_0x8309a3b9eb96171c215153b8dccc3bcbcfa84d709f10d9319f5cb8874ff2c728": {
+    "structure": "common_cause",
+    "reasoning": "Both questions are determined by the same underlying factors: the relative performance and capabilities of different AI companies' models at the end of 2025, making them causally connected through common technological and competitive developments in the AI industry."
+  },
+  "0x2a34915c245f4b94976dda8afddb56452caf0ba2307500f78d7f08813d467917_0x7455e92b9e9c842ca260e65f0d640108223fd9f3430f997472825763654d96c7": {
+    "structure": "common_cause",
+    "reasoning": "Both questions are determined by the same underlying factors such as music streaming patterns, artist popularity trends, and listener preferences in 2025, making them mutually exclusive outcomes of common causal influences."
+  },
+  "0xc8f7efe4f5cf3c6d5b51cdd87cbd360e7f2a3b9999f6b8fa96d2dcd96e287141_h7dapoa4cm": {
+    "structure": "independent",
+    "reasoning": "A cryptocurrency ETF approval and Formula 1 racing performance operate in completely separate domains with no plausible causal mechanism connecting them."
+  },
+  "12112_cNFd1y1J8PgOJllEy4uJ": {
+    "structure": "independent",
+    "reasoning": "Beyond Meat's financial performance and Magnus Carlsen's chess rating operate in completely separate domains with no plausible causal mechanism connecting them."
+  },
+  "0xe574324078501de57aa22beaaeafe461518a6556f0f97764bbbbd78d3a8e8048_hkmwaaZrisxgrs5Q3zGz": {
+    "structure": "independent",
+    "reasoning": "Peru's performance in the 2026 FIFA World Cup and the release timing of a Spider-Man animated movie are completely unrelated events in different domains with no causal connection."
+  },
+  "17917_nMv5WyihlTP9vYXwQmE7": {
+    "structure": "independent",
+    "reasoning": "The recovery of alien technology from a meteor crash site and Tom Brady's NFL career decisions operate in completely separate domains with no plausible causal mechanism connecting them."
+  },
+  "0x8f930d8198b8c189f1935a3eb61a38daa3ed0395a06c50291587cf9229e8d6fd_6A0Csq0Z9c": {
+    "structure": "independent",
+    "reasoning": "A historical conspiracy theory about 9/11 has no meaningful causal connection to a YouTube creator's future subscriber count, as these involve completely unrelated domains with no plausible mechanism linking them."
+  },
+  "0x4bcdc5f24786e4ea5279a4f859d8879cc08b98cfaa2924862947c65db0f010ae_AtLFLzDlSERmVcSdUapy": {
+    "structure": "independent",
+    "reasoning": "A South Korean president's legal sentencing and a Minecraft movie's box office performance operate in completely separate domains (politics vs entertainment) with no plausible causal mechanism connecting them."
+  },
+  "0xaa368b9b8a22b8fd9338f3e46b4ce5f856233ac5ff45e30557384846279acee7_0x184228c1bfc9502d38f6f9984667f3da7b2f955616f195a3ba28b51fb0539bfe": {
+    "structure": "independent",
+    "reasoning": "Hyperliquid cryptocurrency price movements and the New Orleans Saints' NFL performance operate in completely separate domains with no plausible causal mechanism connecting them."
+  },
+  "0xd459f7a9a61a7c36807a0a4066cbc1579e9b6277894baf778569f026ff5e69fb_Ku10BoO4J0oiKmH5rLVQ": {
+    "structure": "independent",
+    "reasoning": "RFK Jr.'s autism research activities and Denis Villeneuve's film production decisions operate in completely separate domains with no plausible causal pathway between them."
+  },
+  "40407_0xa8533ac7382ad55fde02964b221eeab55da2ffe538a5da2c3f84449695d3ba8c": {
+    "structure": "independent",
+    "reasoning": "Nancy Pelosi's stock trading performance and a music album's chart success operate in completely separate domains with no plausible causal mechanisms connecting them."
+  },
+  "0x712015ce8ac2c87d89bfacff5610f225c147a147441a78654846d1462921ede7_66FpF5wc6FoUxdSUp9Ch": {
+    "structure": "independent",
+    "reasoning": "SpaceX's commercial space launch activities and Iran's potential military action in the Strait of Hormuz operate in completely separate domains with no plausible causal mechanism connecting them."
+  },
+  "0xc1c4e7857dfd1fe47c1e6a11813aaca3f622a5f47769cd765be8c7a8336af555_zqPzgyRyu9": {
+    "structure": "independent",
+    "reasoning": "The confirmation of aliens from an interstellar object and a lawsuit settlement between Twitch streamers operate in completely separate domains with no plausible causal mechanism connecting them."
+  },
+  "0xb1a6136ad23d19526c4929d2e79c79e999628de931ca2475d138fb31637fd2c4_ERAQ2GcY83b6TeC7x0Yf": {
+    "structure": "independent",
+    "reasoning": "Saudi Aramco's market capitalization is determined by oil markets and financial factors, while a hypothetical movie fusion would be driven by entertainment industry decisions, with no meaningful causal connection between these entirely separate domains."
+  },
+  "0xfc4453f83b30fdad8ac707b7bd11309aa4c4c90d0c17ad0c4680d4142d4471f7_IglOIIg2AI": {
+    "structure": "independent",
+    "reasoning": "China's Bitcoin policy decisions and S&P 500 daily volatility operate in largely separate domains with no meaningful direct causal connection between these specific outcomes."
+  },
+  "09U2cQZqCR_rF0NagHSV237D4FXYJgK": {
+    "structure": "independent",
+    "reasoning": "Elon Musk's personal wealth ranking and the creation of an AI-written blockbuster movie operate in completely separate domains with no meaningful causal pathways between them."
+  },
+  "0x0398ee767efc168f65bb148d7ac5874406ecf38b0585262c259c07b72a40b362_hQQPLApOcA": {
+    "structure": "independent",
+    "reasoning": "NVIDIA's stock price and a video game announcement are from completely unrelated domains with no plausible causal mechanism connecting them."
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "results": [
+    {
+      "pair_id": "0x86d3e198cc89b22d04ea77fd9d760b557d934d04d974578526ac4b063d588113_0xa6852cb4eaf23193e9dc073471131102017ba31ac9571f5ee8a12c4cc1800d7c",
+      "category": "strong",
+      "reason": "Both about AI model leadership - Chinese AI vs DeepSeek having top model",
+      "q_a": "Will a Chinese AI model become #1 in 2025? ",
+      "q_b": "Will DeepSeek have the top AI model on December 31?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "turn1": {
+        "p_a": 0.35,
+        "p_a_given_b1": 0.95
+      },
+      "turn2": {
+        "p_b": 0.15,
+        "p_b_given_a1": 0.41
+      },
+      "initial": {
+        "joint_forward": 0.1425,
+        "joint_reverse": 0.1435,
+        "inconsistency": 0.0010000000000000009,
+        "consistent": true
+      },
+      "reconciled": null,
+      "analysis": {
+        "needed_reconciliation": false,
+        "reconciliation_helped": null,
+        "direction_flipped": null,
+        "brier_initial": 0.12249999999999998,
+        "brier_reconciled": null,
+        "brier_improved": null,
+        "became_consistent": true,
+        "needed_turn4": false
+      }
+    },
+    {
+      "pair_id": "0x310c3d08f015157ec78e04f3f4fefed659b5e2bd88ae80cb38ff27ef970c39bd_C8MtRn2ixX8Y0rV2Oqcy",
+      "category": "strong",
+      "reason": "Both about OpenAI achieving AGI in 2025",
+      "q_a": "OpenAI announces it has achieved AGI in 2025?",
+      "q_b": "Will OpenAI hint at [read description] or claim to have AGI by 2025 end?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "turn1": {
+        "p_a": 0.2,
+        "p_a_given_b1": 0.65
+      },
+      "turn2": {
+        "p_b": 0.35,
+        "p_b_given_a1": 0.95
+      },
+      "initial": {
+        "joint_forward": 0.22749999999999998,
+        "joint_reverse": 0.19,
+        "inconsistency": 0.03749999999999998,
+        "consistent": true
+      },
+      "reconciled": null,
+      "analysis": {
+        "needed_reconciliation": false,
+        "reconciliation_helped": null,
+        "direction_flipped": null,
+        "brier_initial": 0.04000000000000001,
+        "brier_reconciled": null,
+        "brier_improved": null,
+        "became_consistent": true,
+        "needed_turn4": false
+      }
+    },
+    {
+      "pair_id": "0xcddb4f52babca280f8e5fc4b9146f2520f0bfb88e134ff9ac8d52ea674185d79_0xc2846f35e85eb09a094edbd4e93e345d3c682dc0436615adc27122222fccbd81",
+      "category": "strong",
+      "reason": "Both about Fed rate cuts in 2025 - emergency cut vs 4 cuts",
+      "q_a": "Fed emergency rate cut in 2025?",
+      "q_b": "Will 4 Fed rate cuts happen in 2025?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "turn1": {
+        "p_a": 0.2,
+        "p_a_given_b1": 0.4
+      },
+      "turn2": {
+        "p_b": 0.3,
+        "p_b_given_a1": 0.75
+      },
+      "initial": {
+        "joint_forward": 0.12,
+        "joint_reverse": 0.15000000000000002,
+        "inconsistency": 0.030000000000000027,
+        "consistent": true
+      },
+      "reconciled": null,
+      "analysis": {
+        "needed_reconciliation": false,
+        "reconciliation_helped": null,
+        "direction_flipped": null,
+        "brier_initial": 0.04000000000000001,
+        "brier_reconciled": null,
+        "brier_improved": null,
+        "became_consistent": true,
+        "needed_turn4": false
+      }
+    }
+  ],
+  "metadata": {
+    "run_at": "2026-01-12T10:20:47.434577",
+    "model": "claude-sonnet-4-20250514",
+    "thinking": true,
+    "num_pairs": 3,
+    "num_successful": 3,
+    "consistency_threshold": 0.05
+  }
+}
