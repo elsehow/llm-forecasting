@@ -1,0 +1,36 @@
+{
+  "calibration": {
+    "alpha": 1.4583853485878773,
+    "beta": -0.1880039360249084,
+    "interpretation": "LLM undershoots by 46% on average, with -0.19 baseline shift",
+    "train_size": 13,
+    "test_size": 7,
+    "brier_uncalibrated": 0.09678571428571428,
+    "brier_calibrated": 0.07535622178584096,
+    "brier_improvement": 0.021429492499873318,
+    "p_value": 0.044,
+    "ci_95_lower": -0.0031019448878214866,
+    "ci_95_upper": 0.04322916694429756,
+    "significant": true
+  },
+  "stats": {
+    "n_pairs": 20,
+    "mean_error": -0.06300000000000001,
+    "std_error": 0.3020281443839299,
+    "median_error": -0.06500000000000002,
+    "min_error": -0.65,
+    "max_error": 0.72,
+    "mean_p_llm": 0.4370000000000001,
+    "mean_p_correct": 0.5,
+    "n_correlated": 0,
+    "n_independent": 20,
+    "independent_mean_error": -0.06300000000000001
+  },
+  "metadata": {
+    "model": "claude-sonnet-4-20250514",
+    "cutoff_date": "2025-10-01",
+    "n_questions": 1577,
+    "n_pairs": 20,
+    "run_at": "2026-01-12T17:28:33.154365"
+  }
+}

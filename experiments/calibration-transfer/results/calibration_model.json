@@ -1,0 +1,14 @@
+{
+  "alpha": 1.4583853485878773,
+  "beta": -0.1880039360249084,
+  "interpretation": "LLM undershoots by 46% on average, with -0.19 baseline shift",
+  "train_size": 13,
+  "test_size": 7,
+  "brier_uncalibrated": 0.09678571428571428,
+  "brier_calibrated": 0.07535622178584096,
+  "brier_improvement": 0.021429492499873318,
+  "p_value": 0.044,
+  "ci_95_lower": -0.0031019448878214866,
+  "ci_95_upper": 0.04322916694429756,
+  "significant": true
+}

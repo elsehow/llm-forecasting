@@ -190,6 +190,51 @@ class ConditionBatchBinaryResponse(BaseModel):
     forecasts: dict[str, BinaryForecastItem]
 
 
+def create_dynamic_condition_schema(
+    scenario_ids: list[str],
+    question_type: str,
+) -> type[BaseModel]:
+    """Create a dynamic Pydantic model with exact scenario IDs as fields.
+
+    This enforces that the LLM must use the exact scenario IDs provided,
+    rather than inventing new ones.
+
+    Args:
+        scenario_ids: List of exact scenario IDs to use as field names
+        question_type: "continuous", "categorical", or "binary"
+
+    Returns:
+        A dynamically created Pydantic model class
+    """
+    from pydantic import create_model
+
+    # Select the appropriate forecast item type
+    if question_type == "continuous":
+        forecast_item = ContinuousForecastItem
+    elif question_type == "categorical":
+        forecast_item = CategoricalForecastItem
+    else:
+        forecast_item = BinaryForecastItem
+
+    # Create dynamic forecasts model with exact scenario IDs as fields
+    forecast_fields = {sid: (forecast_item, ...) for sid in scenario_ids}
+    DynamicForecasts = create_model("DynamicForecasts", **forecast_fields)
+
+    # Create dynamic directions model
+    if question_type == "categorical":
+        direction_fields = {sid: (str, ...) for sid in scenario_ids}
+    else:
+        direction_fields = {sid: (DirectionType, ...) for sid in scenario_ids}
+    DynamicDirections = create_model("DynamicDirections", **direction_fields)
+
+    # Create the response model
+    return create_model(
+        "DynamicConditionResponse",
+        directions=(DynamicDirections, ...),
+        forecasts=(DynamicForecasts, ...),
+    )
+
+
 # =============================================================================
 # Phase 6: Signals
 # =============================================================================

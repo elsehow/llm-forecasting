@@ -32,6 +32,7 @@ from ..schemas import (
     ConditionBatchBinaryResponse,
     ConditionBatchCategoricalResponse,
     ConditionBatchContinuousResponse,
+    create_dynamic_condition_schema,
 )
 
 logger = logging.getLogger(__name__)
@@ -150,20 +151,15 @@ def _parse_batched_result(
     scenarios: list[GlobalScenario],
     result: dict,
 ) -> list[ConditionalForecast]:
-    """Parse batched LLM result into list of forecasts."""
+    """Parse batched LLM result into list of forecasts.
+
+    With dynamic schemas, the LLM is constrained to use exact scenario IDs,
+    so no fuzzy matching is needed.
+    """
     forecasts = []
 
     # Result format: {"forecasts": {"scenario_id": {...}, ...}}
     forecasts_data = result.get("forecasts", {})
-
-    # Debug: log what keys we got vs what we expected
-    if forecasts_data:
-        expected_ids = {s.id for s in scenarios}
-        received_keys = set(forecasts_data.keys())
-        if expected_ids != received_keys:
-            print(f"  DEBUG: Key mismatch for {question.id}")
-            print(f"    Expected: {sorted(expected_ids)[:3]}...")
-            print(f"    Got: {sorted(received_keys)[:3]}...")
 
     for scenario in scenarios:
         scenario_result = forecasts_data.get(scenario.id)
@@ -230,11 +226,14 @@ async def condition(
     for q in questions:
         questions_by_type[q.question_type].append(q)
 
-    # Schema mapping by question type
-    schema_map = {
-        QuestionType.CONTINUOUS: ConditionBatchContinuousResponse,
-        QuestionType.CATEGORICAL: ConditionBatchCategoricalResponse,
-        QuestionType.BINARY: ConditionBatchBinaryResponse,
+    # Get scenario IDs for dynamic schema generation
+    scenario_ids = [s.id for s in scenarios]
+
+    # Question type to schema type string mapping
+    type_to_str = {
+        QuestionType.CONTINUOUS: "continuous",
+        QuestionType.CATEGORICAL: "categorical",
+        QuestionType.BINARY: "binary",
     }
 
     if verbose:
@@ -253,12 +252,18 @@ async def condition(
         if verbose:
             print(f"  Making {len(calls)} {q_type} calls ({len(scenarios)} scenarios each)")
 
-        # Execute with type-specific schema
+        # Generate dynamic schema with exact scenario IDs
+        dynamic_schema = create_dynamic_condition_schema(
+            scenario_ids=scenario_ids,
+            question_type=type_to_str[q_type],
+        )
+
+        # Execute with dynamic schema that enforces exact scenario IDs
         results = await llm_call_many(
             calls,
             model=MODEL_CONDITION,
             verbose=verbose,
-            response_model=schema_map.get(q_type),
+            response_model=dynamic_schema,
         )
 
         # Parse results and validate directions
