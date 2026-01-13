@@ -276,6 +276,20 @@ The output `forecast_tree.json` contains:
 - **update_cadence**: How often to check this signal (`"daily"`, `"weekly"`, `"monthly"`, `"quarterly"`, `"event"`)
 - **causal_priority**: 0-100 score indicating how upstream/leading this signal is (higher = check first)
 
+## Visualization
+
+After generating a tree, visualize it with the interactive explorer:
+
+```bash
+cp output/forecast_tree.json web/
+cd web && python -m http.server 8000
+# Open http://localhost:8000/explorer.html
+```
+
+The explorer is a three-column interface showing questions, scenarios, and signals. Click any element to see its connections highlighted.
+
+See `web/README.md` for details.
+
 ## Diagnostics
 
 Run diagnostics on an existing tree:

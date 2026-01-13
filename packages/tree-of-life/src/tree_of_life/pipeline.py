@@ -10,6 +10,14 @@ from .config import FORECAST_HORIZON, START_DATE
 from .models import ForecastTree, Question, QuestionType
 from .phases.base_rates import fetch_base_rates, format_base_rates_context
 from .units import infer_unit_from_question, normalize_value, parse_unit_from_dict
+from .view_transforms import (
+    build_scenario_outcomes,
+    compute_question_aggregates,
+    generate_question_display_name,
+    generate_signal_display_name,
+    transform_signal_direction,
+    transform_signal_magnitude,
+)
 from .phases.condition import condition
 from .phases.converge import converge
 from .phases.diverge import diverge
@@ -215,9 +223,14 @@ def load_tree(path: str | Path) -> ForecastTree:
 def save_tree(tree: ForecastTree, path: str | Path) -> None:
     """Save forecast tree to a JSON file.
 
-    Hydrates upstream_scenarios from relationships before saving,
-    so the serialized JSON includes derived causal dependencies.
-    Normalizes conditional values to display units.
+    Applies view transformations to make the output render-ready:
+    - Hydrates upstream_scenarios from relationships
+    - Normalizes values to display units
+    - Adds display_name to questions and signals
+    - Pre-joins outcomes onto scenarios
+    - Sorts scenarios by probability (descending)
+    - Converts signal direction/magnitude to view-ready values
+    - Pre-computes question aggregates (expected, min, max)
     """
     hydrated = tree.hydrate_upstream()
     data = hydrated.model_dump(mode="json")
@@ -228,16 +241,44 @@ def save_tree(tree: ForecastTree, path: str | Path) -> None:
         if q.get("unit"):
             question_units[q["id"]] = q["unit"]["type"]
 
-    # Normalize continuous forecast values to display units
+    # 1. Normalize continuous forecast values to display units
     for c in data.get("conditionals", []):
         unit_type = question_units.get(c.get("question_id"))
         if not unit_type:
             continue
-
-        # Normalize numeric fields in continuous forecasts
         for field in ["median", "ci_80_low", "ci_80_high"]:
             if field in c and c[field] is not None:
                 c[field] = normalize_value(c[field], unit_type)
+
+    # 2. Add display_name to questions + compute aggregates
+    scenarios = data.get("global_scenarios", [])
+    conditionals = data.get("conditionals", [])
+    for q in data.get("questions", []):
+        if not q.get("display_name"):
+            q["display_name"] = generate_question_display_name(q.get("text", ""))
+        # Compute expected, min, max
+        aggregates = compute_question_aggregates(q["id"], scenarios, conditionals)
+        q["expected"] = aggregates["expected"]
+        q["min"] = aggregates["min"]
+        q["max"] = aggregates["max"]
+
+    # 3. Add display_name to signals + transform direction/magnitude
+    for s in data.get("signals", []):
+        if not s.get("display_name"):
+            s["display_name"] = generate_signal_display_name(s.get("text", ""))
+        if s.get("direction") in ("increases", "decreases"):
+            s["direction"] = transform_signal_direction(s["direction"])
+        if s.get("magnitude") in ("large", "medium", "small"):
+            s["magnitude"] = transform_signal_magnitude(s["magnitude"])
+
+    # 4. Pre-join outcomes onto scenarios
+    for scenario in scenarios:
+        scenario["outcomes"] = build_scenario_outcomes(scenario["id"], conditionals)
+
+    # 5. Sort scenarios by probability (descending)
+    data["global_scenarios"] = sorted(
+        scenarios, key=lambda s: s.get("probability", 0), reverse=True
+    )
 
     with open(path, "w") as f:
         json.dump(data, f, indent=2)
