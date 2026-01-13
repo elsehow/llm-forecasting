@@ -1,0 +1,74 @@
+{
+  "analysis": {
+    "correlated": {
+      "name": "correlated",
+      "n": 1,
+      "n_a1": 1,
+      "n_b1": 1,
+      "mean_error": 0.0,
+      "std_error": 0.0,
+      "mean_p_llm": 1.0,
+      "mean_p_correct": 1.0
+    },
+    "independent": {
+      "name": "independent",
+      "n": 99,
+      "n_a1": 49,
+      "n_b1": 49,
+      "mean_error": -0.15848484848484848,
+      "std_error": 0.4113671800729109,
+      "mean_p_llm": 0.3364646464646464,
+      "mean_p_correct": 0.494949494949495
+    },
+    "all": {
+      "name": "all",
+      "n": 100,
+      "n_a1": 50,
+      "n_b1": 50,
+      "mean_error": -0.15689999999999998,
+      "std_error": 0.4096088255885119,
+      "mean_p_llm": 0.34309999999999996,
+      "mean_p_correct": 0.5
+    }
+  },
+  "calibration": {
+    "alpha": 0.9960256705557315,
+    "beta": 0.15826359243232857,
+    "interpretation": "Scale down by 0%, add +0.16 baseline",
+    "train_size": 100,
+    "train_group": "all"
+  },
+  "validation": {
+    "correlated": {
+      "name": "correlated",
+      "n": 1,
+      "error": "Not enough data"
+    },
+    "independent": {
+      "name": "independent",
+      "n": 99,
+      "brier_uncalibrated": 0.194340404040404,
+      "brier_calibrated": 0.16923211157206738,
+      "improvement": 0.025108292468336624,
+      "p_value": 0.024,
+      "significant": true
+    },
+    "all": {
+      "name": "all",
+      "n": 100,
+      "brier_uncalibrated": 0.19239699999999996,
+      "brier_calibrated": 0.16753979045634673,
+      "improvement": 0.024857209543653225,
+      "p_value": 0.031,
+      "significant": true
+    }
+  },
+  "verdict": "AMBIGUOUS - Mixed results",
+  "metadata": {
+    "run_at": "2026-01-12T17:56:53.437070",
+    "model": "claude-sonnet-4-20250514",
+    "n_pairs": 100,
+    "pre_cutoff": true,
+    "contamination_warning": true
+  }
+}

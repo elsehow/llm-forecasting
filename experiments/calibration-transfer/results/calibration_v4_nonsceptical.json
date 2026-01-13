@@ -1,0 +1,86 @@
+{
+  "analysis": {
+    "related": {
+      "name": "related",
+      "n": 34,
+      "n_a1": 19,
+      "n_b1": 21,
+      "mean_error": -0.21323529411764708,
+      "std_error": 0.39870909776010655,
+      "mean_p_llm": 0.40441176470588236,
+      "mean_p_correct": 0.6176470588235294
+    },
+    "unrelated": {
+      "name": "unrelated",
+      "n": 166,
+      "n_a1": 81,
+      "n_b1": 79,
+      "mean_error": -0.16259036144578318,
+      "std_error": 0.4383703813356914,
+      "mean_p_llm": 0.31331325301204815,
+      "mean_p_correct": 0.4759036144578313
+    },
+    "all": {
+      "name": "all",
+      "n": 200,
+      "n_a1": 100,
+      "n_b1": 100,
+      "mean_error": -0.17119999999999996,
+      "std_error": 0.4323037820792226,
+      "mean_p_llm": 0.32880000000000004,
+      "mean_p_correct": 0.5
+    }
+  },
+  "calibration": {
+    "alpha": 0.9142032400465386,
+    "beta": 0.19940997467269805,
+    "interpretation": "Scale down by 9%, add +0.20 baseline",
+    "train_size": 200,
+    "train_group": "all"
+  },
+  "validation": {
+    "related": {
+      "name": "related",
+      "n": 34,
+      "brier_uncalibrated": 0.20443823529411764,
+      "brier_calibrated": 0.16385169708223088,
+      "improvement": 0.040586538211886763,
+      "p_value": 0.041,
+      "significant": true
+    },
+    "unrelated": {
+      "name": "unrelated",
+      "n": 166,
+      "brier_uncalibrated": 0.21860421686746986,
+      "brier_calibrated": 0.18915933339031832,
+      "improvement": 0.029444883477151546,
+      "p_value": 0.006,
+      "significant": true
+    },
+    "all": {
+      "name": "all",
+      "n": 200,
+      "brier_uncalibrated": 0.21619599999999997,
+      "brier_calibrated": 0.18485703521794342,
+      "improvement": 0.031338964782056555,
+      "p_value": 0.002,
+      "significant": true
+    }
+  },
+  "hypothesis_test": {
+    "related_improvement": 0.040586538211886763,
+    "unrelated_improvement": 0.029444883477151546,
+    "difference": 0.011141654734735218,
+    "related_significant": true,
+    "hypothesis_verdict": "CONFIRMED - Calibration helps more on related pairs"
+  },
+  "verdict": "PARTIAL SUCCESS - Some related pairs found, mixed calibration results",
+  "metadata": {
+    "run_at": "2026-01-12T20:05:23.354715",
+    "model": "claude-sonnet-4-20250514",
+    "n_pairs": 200,
+    "pct_related": 17.0,
+    "post_cutoff": true,
+    "prompt_type": "non-skeptical"
+  }
+}

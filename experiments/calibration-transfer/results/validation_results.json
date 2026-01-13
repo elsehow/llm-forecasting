@@ -1,36 +1,37 @@
 {
   "calibration": {
-    "alpha": 1.4583853485878773,
-    "beta": -0.1880039360249084,
-    "interpretation": "LLM undershoots by 46% on average, with -0.19 baseline shift",
-    "train_size": 13,
-    "test_size": 7,
-    "brier_uncalibrated": 0.09678571428571428,
-    "brier_calibrated": 0.07535622178584096,
-    "brier_improvement": 0.021429492499873318,
-    "p_value": 0.044,
-    "ci_95_lower": -0.0031019448878214866,
-    "ci_95_upper": 0.04322916694429756,
-    "significant": true
+    "alpha": 0.7902571445799497,
+    "beta": 0.28805564979270193,
+    "interpretation": "LLM overshoots by 21% on average, with +0.29 baseline shift",
+    "train_size": 134,
+    "test_size": 66,
+    "brier_uncalibrated": 0.17733636363636363,
+    "brier_calibrated": 0.1718421497824194,
+    "brier_improvement": 0.005494213853944219,
+    "p_value": 0.4,
+    "ci_95_lower": -0.03645169362086388,
+    "ci_95_upper": 0.053234692787137786,
+    "significant": false
   },
   "stats": {
-    "n_pairs": 20,
-    "mean_error": -0.06300000000000001,
-    "std_error": 0.3020281443839299,
-    "median_error": -0.06500000000000002,
-    "min_error": -0.65,
-    "max_error": 0.72,
-    "mean_p_llm": 0.4370000000000001,
+    "n_pairs": 200,
+    "mean_error": -0.1944,
+    "std_error": 0.43904856223429317,
+    "median_error": -0.07500000000000001,
+    "min_error": -0.95,
+    "max_error": 0.95,
+    "mean_p_llm": 0.3056,
     "mean_p_correct": 0.5,
-    "n_correlated": 0,
-    "n_independent": 20,
-    "independent_mean_error": -0.06300000000000001
+    "n_correlated": 4,
+    "n_independent": 196,
+    "correlated_mean_error": -0.55,
+    "independent_mean_error": -0.18714285714285714
   },
   "metadata": {
     "model": "claude-sonnet-4-20250514",
     "cutoff_date": "2025-10-01",
     "n_questions": 1577,
-    "n_pairs": 20,
-    "run_at": "2026-01-12T17:28:33.154365"
+    "n_pairs": 200,
+    "run_at": "2026-01-12T17:35:04.237975"
   }
 }

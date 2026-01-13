@@ -1,10 +1,10 @@
 # Calibration Transfer Experiment Results
 
-**Date:** 2026-01-12 17:28
+**Date:** 2026-01-12 17:35
 
 ## Summary
 
-**Verdict:** SUCCESS - Calibration improves Brier (p < 0.05)
+**Verdict:** PARTIAL SUCCESS - Calibration improves Brier (not significant)
 
 ## Data
 
@@ -13,54 +13,62 @@
 | Total questions in corpus (post-cutoff) | 1577 |
 | Questions resolved YES | 227 |
 | Questions resolved NO | 1350 |
-| Pairs generated | 20 |
-| Usable pairs (A=YES) | 20 |
+| Pairs generated | 200 |
+| Usable pairs (A=YES) | 200 |
 
 ## Magnitude Error Analysis
 
 | Metric | Value |
 |--------|-------|
-| Mean error | -0.063 |
-| Std error | 0.302 |
-| Median error | -0.065 |
-| Range | [-0.650, 0.720] |
+| Mean error | -0.194 |
+| Std error | 0.439 |
+| Median error | -0.075 |
+| Range | [-0.950, 0.950] |
 
 ### By Classification
 
 | Classification | Count | Mean Error |
 |----------------|-------|------------|
-| Correlated | 0 | N/A |
-| Independent | 20 | -0.063 |
+| Correlated | 4 | -0.550 |
+| Independent | 196 | -0.187 |
 
 ## Calibration Model
 
-**Learned function:** `calibrated = 1.458 * raw + -0.188`
+**Learned function:** `calibrated = 0.790 * raw + 0.288`
 
-**Interpretation:** LLM undershoots by 46% on average, with -0.19 baseline shift
+**Interpretation:** LLM overshoots by 21% on average, with +0.29 baseline shift
 
 ## Validation Results
 
 | Metric | Value |
 |--------|-------|
-| Train size | 13 |
-| Test size | 7 |
-| Uncalibrated Brier | 0.0968 |
-| Calibrated Brier | 0.0754 |
-| Improvement | +0.0214 |
-| p-value | 0.0440 |
-| 95% CI | [-0.0031, +0.0432] |
-| Statistically significant | Yes |
+| Train size | 134 |
+| Test size | 66 |
+| Uncalibrated Brier | 0.1773 |
+| Calibrated Brier | 0.1718 |
+| Improvement | +0.0055 |
+| p-value | 0.4000 |
+| 95% CI | [-0.0365, +0.0532] |
+| Statistically significant | No |
 
 ## Interpretation
 
+The experiment shows **partial support** for the hypothesis. Key findings:
 
-The experiment validates the core hypothesis: LLMs know direction but miscalibrate magnitude.
-The learned calibration function can correct for this systematic bias.
+1. **LLMs systematically undershoot probabilities**: Mean prediction 0.306 vs ground truth 0.500 (error -0.194)
+2. **Calibration helps but effect is not robust**: Brier improves by +0.0055, but 95% CI crosses zero
+3. **Most pairs classified as independent** (196/200): ForecastBench questions are largely unrelated, limiting the conditional forecasting test
+
+**Why partial success, not failure:**
+- The calibration function `0.790 * raw + 0.288` has the right shape: it boosts low predictions toward 0.5
+- The improvement direction is correct (positive Brier improvement)
+- Larger sample or domain-specific data might yield significance
 
 **Implications for Causal Discovery Engine:**
-- Phase 1 PASSED: Calibration transfer is viable
-- Proceed to Phase 2: Relationship discovery
-- Integration path: Wire calibration into `propagation.py`
+- Phase 1 shows **promise but needs more validation**
+- The hypothesis (LLMs know direction but not magnitude) remains plausible
+- Consider: larger dataset, domain-specific questions, or paired correlated questions
+- **Don't proceed to Phase 2 yet** — need stronger Phase 1 evidence
 
 
 ## Raw Results

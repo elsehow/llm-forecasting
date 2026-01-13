@@ -1,0 +1,80 @@
+{
+  "analysis": {
+    "strong": {
+      "n_total": 13,
+      "n_a1": 0,
+      "n_b1": 2,
+      "mean_error": 0.19692307692307692,
+      "std_error": 0.178944968566171,
+      "median_error": 0.12,
+      "mean_p_llm": 0.19692307692307692,
+      "mean_p_correct": 0.0,
+      "errors": null,
+      "p_llm": null,
+      "p_correct": null
+    },
+    "weak": {
+      "n_total": 16,
+      "n_a1": 0,
+      "n_b1": 1,
+      "mean_error": 0.2040875,
+      "std_error": 0.17282828137706513,
+      "median_error": 0.18,
+      "mean_p_llm": 0.2040875,
+      "mean_p_correct": 0.0,
+      "errors": null,
+      "p_llm": null,
+      "p_correct": null
+    },
+    "none": {
+      "n_total": 15,
+      "n_a1": 1,
+      "n_b1": 1,
+      "mean_error": 0.17933333333333337,
+      "std_error": 0.2814123111892742,
+      "median_error": 0.18,
+      "mean_p_llm": 0.24600000000000002,
+      "mean_p_correct": 0.06666666666666667,
+      "errors": null,
+      "p_llm": null,
+      "p_correct": null
+    }
+  },
+  "calibration": {
+    "alpha": -0.0,
+    "beta": 0.0,
+    "train_size": 13,
+    "train_group": "strong"
+  },
+  "validation": {
+    "strong": {
+      "n": 13,
+      "brier_uncalibrated": 0.0708,
+      "brier_calibrated": 0.0,
+      "improvement": 0.0708,
+      "p_value": 0.0,
+      "significant": true
+    },
+    "weak": {
+      "n": 16,
+      "brier_uncalibrated": 0.0715213225,
+      "brier_calibrated": 0.0,
+      "improvement": 0.0715213225,
+      "p_value": 0.0,
+      "significant": true
+    },
+    "none": {
+      "n": 15,
+      "brier_uncalibrated": 0.11135333333333335,
+      "brier_calibrated": 0.06666666666666667,
+      "improvement": 0.04468666666666668,
+      "p_value": 0.229,
+      "significant": false
+    }
+  },
+  "verdict": "STRONG SIGNAL - Calibration significantly helps on strong pairs more than none",
+  "metadata": {
+    "run_at": "2026-01-12T17:42:13.011675",
+    "n_pairs": 44
+  }
+}
