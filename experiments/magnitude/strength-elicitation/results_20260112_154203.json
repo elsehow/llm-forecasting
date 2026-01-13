@@ -1,0 +1,1662 @@
+{
+  "results": [
+    {
+      "pair_id": "0x86d3e198cc89b22d04ea77fd9d760b557d934d04d974578526ac4b063d588113_0xa6852cb4eaf23193e9dc073471131102017ba31ac9571f5ee8a12c4cc1800d7c",
+      "category": "strong",
+      "reason": "Both about AI model leadership - Chinese AI vs DeepSeek having top model",
+      "q_a": "Will a Chinese AI model become #1 in 2025? ",
+      "q_b": "Will DeepSeek have the top AI model on December 31?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "correlated",
+        "reasoning": "DeepSeek is a Chinese AI company, so if DeepSeek has the top AI model, then by definition a Chinese AI model would be #1."
+      },
+      "baseline": {
+        "direction": "positive",
+        "p_a": 0.45,
+        "p_a_given_b1": 0.95,
+        "p_a_given_b0": 0.25
+      },
+      "strength_elicitation": {
+        "direction": "positive",
+        "strength": 6,
+        "p_a": 0.3,
+        "reasoning": "DeepSeek is Chinese, so its success directly contributes to Chinese AI leadership, though other Chinese companies could also achieve this outcome."
+      },
+      "computed": {
+        "linear": {
+          "p_a_given_b1": 0.48,
+          "p_a_given_b0": 0.12
+        },
+        "sigmoid": {
+          "p_a_given_b1": 0.47960629803373556,
+          "p_a_given_b0": 0.1203937019662644
+        },
+        "quadratic": {
+          "p_a_given_b1": 0.408,
+          "p_a_given_b0": 0.192
+        }
+      },
+      "brier": {
+        "baseline": 0.0625,
+        "strength_linear": 0.0144,
+        "strength_sigmoid": 0.014494643473141696,
+        "strength_quadratic": 0.036864,
+        "improvement_linear": 0.048100000000000004,
+        "improvement_sigmoid": 0.048005356526858306,
+        "improvement_quadratic": 0.025636
+      }
+    },
+    {
+      "pair_id": "0x310c3d08f015157ec78e04f3f4fefed659b5e2bd88ae80cb38ff27ef970c39bd_C8MtRn2ixX8Y0rV2Oqcy",
+      "category": "strong",
+      "reason": "Both about OpenAI achieving AGI in 2025",
+      "q_a": "OpenAI announces it has achieved AGI in 2025?",
+      "q_b": "Will OpenAI hint at [read description] or claim to have AGI by 2025 end?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "correlated",
+        "reasoning": "An announcement of achieving AGI (Question A) would directly constitute claiming to have AGI (Question B), creating a clear causal relationship where A occurring makes B highly likely."
+      },
+      "baseline": {
+        "direction": "positive",
+        "p_a": 0.18,
+        "p_a_given_b1": 0.38,
+        "p_a_given_b0": 0.03
+      },
+      "strength_elicitation": {
+        "direction": "positive",
+        "strength": 9,
+        "p_a": 0.2,
+        "reasoning": "Announcing AGI achievement is essentially a definitive form of claiming to have AGI, making the correlation nearly deterministic."
+      },
+      "computed": {
+        "linear": {
+          "p_a_given_b1": 0.47000000000000003,
+          "p_a_given_b0": 0.01
+        },
+        "sigmoid": {
+          "p_a_given_b1": 0.4828027472303394,
+          "p_a_given_b0": 0.01
+        },
+        "quadratic": {
+          "p_a_given_b1": 0.443,
+          "p_a_given_b0": 0.01
+        }
+      },
+      "brier": {
+        "baseline": 0.0009,
+        "strength_linear": 0.0001,
+        "strength_sigmoid": 0.0001,
+        "strength_quadratic": 0.0001,
+        "improvement_linear": 0.0007999999999999999,
+        "improvement_sigmoid": 0.0007999999999999999,
+        "improvement_quadratic": 0.0007999999999999999
+      }
+    },
+    {
+      "pair_id": "0xcddb4f52babca280f8e5fc4b9146f2520f0bfb88e134ff9ac8d52ea674185d79_0xc2846f35e85eb09a094edbd4e93e345d3c682dc0436615adc27122222fccbd81",
+      "category": "strong",
+      "reason": "Both about Fed rate cuts in 2025 - emergency cut vs 4 cuts",
+      "q_a": "Fed emergency rate cut in 2025?",
+      "q_b": "Will 4 Fed rate cuts happen in 2025?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "While both involve Fed rate cuts in 2025, an emergency cut and the total number of cuts are driven by different economic conditions and timing, with no direct causal relationship between emergency action and reaching a specific count."
+      },
+      "baseline": {
+        "p_a": 0.2,
+        "p_a_given_b1": 0.2,
+        "p_a_given_b0": 0.2
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 0.04000000000000001,
+        "strength_linear": 0.04000000000000001,
+        "strength_sigmoid": 0.04000000000000001,
+        "strength_quadratic": 0.04000000000000001,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    },
+    {
+      "pair_id": "0x226c6d5a8de377a56641a498191c5e1f3792b81618841afb8879a5d817f13771_0x25a4ea049d3bd46fe71ad8676feef9098bb37cbd9d9336280dd6188a7659813c",
+      "category": "strong",
+      "reason": "Russia invading NATO would trigger NATO Article 5",
+      "q_a": "Will Russia invade a NATO country in 2025?",
+      "q_b": "NATO article 5 in 2025?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "correlated",
+        "reasoning": "A Russian invasion of a NATO country would directly trigger NATO Article 5 collective defense provisions, creating a clear causal link between these events."
+      },
+      "baseline": {
+        "direction": "positive",
+        "p_a": 0.08,
+        "p_a_given_b1": 0.7,
+        "p_a_given_b0": 0.02
+      },
+      "strength_elicitation": {
+        "direction": "positive",
+        "strength": 8,
+        "p_a": 0.08,
+        "reasoning": "A Russian invasion of a NATO country would almost certainly trigger Article 5 by design, with only very unusual circumstances preventing this automatic response."
+      },
+      "computed": {
+        "linear": {
+          "p_a_given_b1": 0.32,
+          "p_a_given_b0": 0.01
+        },
+        "sigmoid": {
+          "p_a_given_b1": 0.3442391233933647,
+          "p_a_given_b0": 0.01
+        },
+        "quadratic": {
+          "p_a_given_b1": 0.272,
+          "p_a_given_b0": 0.01
+        }
+      },
+      "brier": {
+        "baseline": 0.0004,
+        "strength_linear": 0.0001,
+        "strength_sigmoid": 0.0001,
+        "strength_quadratic": 0.0001,
+        "improvement_linear": 0.00030000000000000003,
+        "improvement_sigmoid": 0.00030000000000000003,
+        "improvement_quadratic": 0.00030000000000000003
+      }
+    },
+    {
+      "pair_id": "0xbadc6cd0d0ea4a71e3cab24b4856311a5720866c2a62d805f2aeb1ddd0dba990_0xbc19b7dee8883e27c2e617cfa9a8875c5f014643f760f72121f4a769b19536c6",
+      "category": "strong",
+      "reason": "Both about Bitcoin price movements - dip to $90k vs reach $145k",
+      "q_a": "Will Bitcoin dip to $90k in October?",
+      "q_b": "Will Bitcoin reach $145,000 in November?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "While both questions concern Bitcoin prices, the specific price targets in consecutive months lack a direct causal mechanism linking a $90k dip in October to reaching $145k in November."
+      },
+      "baseline": {
+        "p_a": 0.37,
+        "p_a_given_b1": 0.37,
+        "p_a_given_b0": 0.37
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 0.1369,
+        "strength_linear": 0.1369,
+        "strength_sigmoid": 0.1369,
+        "strength_quadratic": 0.1369,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    },
+    {
+      "pair_id": "1N2cnoqviIjoUdO3g5ke_0x3e98b1cce4001e971c9b0500408e89e06dd75a1bf2c60e763d0e5f8464a9f6a1",
+      "category": "strong",
+      "reason": "Ukraine war ending would enable Putin-Zelenskyy handshake",
+      "q_a": "Will the Russia-Ukraine war end before the end of 2025?",
+      "q_b": "Putin and Zelenskyy shake hands in 2025?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "correlated",
+        "reasoning": "A handshake between the warring leaders would likely be part of a diplomatic peace process that directly relates to ending the war."
+      },
+      "baseline": {
+        "direction": "positive",
+        "p_a": 0.35,
+        "p_a_given_b1": 0.8,
+        "p_a_given_b0": 0.25
+      },
+      "strength_elicitation": {
+        "direction": "positive",
+        "strength": 6,
+        "p_a": 0.45,
+        "reasoning": "War ending significantly increases likelihood of diplomatic meetings and negotiations, though the war could end through non-negotiated means that wouldn't involve handshakes."
+      },
+      "computed": {
+        "linear": {
+          "p_a_given_b1": 0.63,
+          "p_a_given_b0": 0.27
+        },
+        "sigmoid": {
+          "p_a_given_b1": 0.6296062980337356,
+          "p_a_given_b0": 0.27039370196626444
+        },
+        "quadratic": {
+          "p_a_given_b1": 0.558,
+          "p_a_given_b0": 0.342
+        }
+      },
+      "brier": {
+        "baseline": 0.0625,
+        "strength_linear": 0.0729,
+        "strength_sigmoid": 0.07311275406302103,
+        "strength_quadratic": 0.11696400000000001,
+        "improvement_linear": -0.010400000000000006,
+        "improvement_sigmoid": -0.010612754063021035,
+        "improvement_quadratic": -0.05446400000000001
+      }
+    },
+    {
+      "pair_id": "0xcb1531b00e984865530f13e4ce35bcbc7d71615af98827b5e9aee2ca2984b626_18541",
+      "category": "strong",
+      "reason": "China invading Taiwan would likely affect China's military base operations in BRICS countries",
+      "q_a": "Will China invade Taiwan in 2025?",
+      "q_b": "Will China operate at least one military base in a BRICS country before 2026?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "While both involve Chinese military actions, they represent different strategic domains (territorial conflict vs diplomatic military cooperation) without a clear direct causal mechanism linking their outcomes."
+      },
+      "error": "Baseline elicitation failed"
+    },
+    {
+      "pair_id": "0x468d2a45052a19334bd591db94acae2a55294e337ad2fb7c2a49430cd244a811_1674",
+      "category": "strong",
+      "reason": "Both about military conflicts in Asia - North Korea invasion and Cambodia-Thailand conflict",
+      "q_a": "Will North Korea invade South Korea in 2025?",
+      "q_b": "Will the Cambodia-Thailand conflict result in at least 20 deaths between 4 November 2025 and 15 Janu",
+      "resolution_a": 0.0,
+      "resolution_b": 1.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "These involve completely different countries, regions, and conflict dynamics with no direct causal mechanism linking a North Korea-South Korea invasion to Cambodia-Thailand border casualties."
+      },
+      "baseline": {
+        "p_a": 0.03,
+        "p_a_given_b1": 0.03,
+        "p_a_given_b0": 0.03
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 0.0009,
+        "strength_linear": 0.0009,
+        "strength_sigmoid": 0.0009,
+        "strength_quadratic": 0.0009,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    },
+    {
+      "pair_id": "0x81fb3e948db1f5645556dbc01b96f50c319f1331ce8b745701197b8264c1d344_0xce733629b3b1bea0649c9c9433401295eb8e1ba6d572803cb53446c93d28cd44",
+      "category": "strong",
+      "reason": "Iran getting nukes would make US allies more likely to get nukes",
+      "q_a": "Iran Nuke in 2025?",
+      "q_b": "Will a US ally get a nuke in 2025?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "correlated",
+        "reasoning": "Iran acquiring nuclear weapons could trigger proliferation cascades where US allies (especially Middle Eastern ones) seek their own nuclear deterrent in response."
+      },
+      "baseline": {
+        "direction": "positive",
+        "p_a": 0.2,
+        "p_a_given_b1": 0.4,
+        "p_a_given_b0": 0.12
+      },
+      "strength_elicitation": {
+        "direction": "positive",
+        "strength": 6,
+        "p_a": 0.2,
+        "reasoning": "Iran's nuclear breakout would create substantial regional security pressure on US allies to pursue nuclear capabilities, though actually acquiring them in the same year would still face significant barriers."
+      },
+      "computed": {
+        "linear": {
+          "p_a_given_b1": 0.38,
+          "p_a_given_b0": 0.020000000000000018
+        },
+        "sigmoid": {
+          "p_a_given_b1": 0.3796062980337356,
+          "p_a_given_b0": 0.020393701966264416
+        },
+        "quadratic": {
+          "p_a_given_b1": 0.308,
+          "p_a_given_b0": 0.09200000000000001
+        }
+      },
+      "brier": {
+        "baseline": 0.0144,
+        "strength_linear": 0.0004000000000000007,
+        "strength_sigmoid": 0.0004159030798888171,
+        "strength_quadratic": 0.008464000000000003,
+        "improvement_linear": 0.013999999999999999,
+        "improvement_sigmoid": 0.013984096920111183,
+        "improvement_quadratic": 0.005935999999999997
+      }
+    },
+    {
+      "pair_id": "0x2bcafeaa34b577a82baf2137057b3f9f02f4d50ee3bc6908c0a5899a3260e50a_0x5a542fe246448e58671948b2f28bb746d7694172ad3c57b28d5cf86126834cf0",
+      "category": "strong",
+      "reason": "Both about which company will be largest by market cap - Apple vs Microsoft",
+      "q_a": "Will Apple be the largest company in the world by market cap on December 31?",
+      "q_b": "Will Microsoft be the largest company in the world by market cap on December 31?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "correlated",
+        "reasoning": "These questions are mutually exclusive since only one company can hold the largest market cap position at any given time."
+      },
+      "baseline": {
+        "direction": "negative",
+        "p_a": 0.45,
+        "p_a_given_b1": 0.0,
+        "p_a_given_b0": 0.75
+      },
+      "strength_elicitation": {
+        "direction": "negative",
+        "strength": 8,
+        "p_a": 0.45,
+        "reasoning": "Since only one company can hold the #1 market cap position simultaneously, Apple being largest makes Microsoft being largest impossible, creating a very strong negative correlation."
+      },
+      "computed": {
+        "linear": {
+          "p_a_given_b1": 0.21000000000000002,
+          "p_a_given_b0": 0.69
+        },
+        "sigmoid": {
+          "p_a_given_b1": 0.18576087660663532,
+          "p_a_given_b0": 0.7142391233933647
+        },
+        "quadratic": {
+          "p_a_given_b1": 0.258,
+          "p_a_given_b0": 0.642
+        }
+      },
+      "brier": {
+        "baseline": 0.5625,
+        "strength_linear": 0.4760999999999999,
+        "strength_sigmoid": 0.5101375253857221,
+        "strength_quadratic": 0.41216400000000003,
+        "improvement_linear": 0.08640000000000009,
+        "improvement_sigmoid": 0.0523624746142779,
+        "improvement_quadratic": 0.15033599999999997
+      }
+    },
+    {
+      "pair_id": "0x8ee2f1640386310eb5e7ffa596ba9335f2d324e303d21b0dfea6998874445791_RzsZN6SlUp",
+      "category": "strong",
+      "reason": "Ukraine ceasefire directly relates to Trump winning Nobel Peace Prize condition",
+      "q_a": "Russia x Ukraine ceasefire in 2025?",
+      "q_b": "Will Trump win the 2025 Nobel Peace Prize iff there is a ceasefire in Ukraine before 2026? (or not i",
+      "resolution_a": 0.0,
+      "resolution_b": 1.0,
+      "stage1": {
+        "classification": "correlated",
+        "reasoning": "Question B explicitly conditions Trump's Nobel Peace Prize on a Ukraine ceasefire before 2026, making it directly dependent on the ceasefire outcome asked about in Question A."
+      },
+      "baseline": {
+        "direction": "positive",
+        "p_a": 0.3,
+        "p_a_given_b1": 0.75,
+        "p_a_given_b0": 0.15
+      },
+      "strength_elicitation": {
+        "direction": "positive",
+        "strength": 8,
+        "p_a": 0.35,
+        "reasoning": "Question B explicitly defines Trump's Nobel Prize win as contingent on a Ukraine ceasefire, creating a very strong logical connection where A=YES directly supports B=YES."
+      },
+      "computed": {
+        "linear": {
+          "p_a_given_b1": 0.59,
+          "p_a_given_b0": 0.10999999999999999
+        },
+        "sigmoid": {
+          "p_a_given_b1": 0.6142391233933646,
+          "p_a_given_b0": 0.08576087660663528
+        },
+        "quadratic": {
+          "p_a_given_b1": 0.542,
+          "p_a_given_b0": 0.15799999999999995
+        }
+      },
+      "brier": {
+        "baseline": 0.5625,
+        "strength_linear": 0.34809999999999997,
+        "strength_sigmoid": 0.377289700707049,
+        "strength_quadratic": 0.293764,
+        "improvement_linear": 0.21440000000000003,
+        "improvement_sigmoid": 0.18521029929295102,
+        "improvement_quadratic": 0.268736
+      }
+    },
+    {
+      "pair_id": "0x19ee98e348c0ccb341d1b9566fa14521566e9b2ea7aed34dc407a0ec56be36a2_0x293fb49f43b12631ec4ad0617d9c0efc0eacce33416ef16f68521427daca1678",
+      "category": "strong",
+      "reason": "Both about major Bitcoin holders moving their Bitcoin",
+      "q_a": "MicroStrategy sells any Bitcoin in 2025?",
+      "q_b": "Will Satoshi move any Bitcoin in 2025?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "These involve completely different entities with unrelated motivations - MicroStrategy's corporate Bitcoin strategy has no direct causal connection to Satoshi's personal decisions about dormant Bitcoin holdings."
+      },
+      "baseline": {
+        "p_a": 0.2,
+        "p_a_given_b1": 0.2,
+        "p_a_given_b0": 0.2
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 0.04000000000000001,
+        "strength_linear": 0.04000000000000001,
+        "strength_sigmoid": 0.04000000000000001,
+        "strength_quadratic": 0.04000000000000001,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    },
+    {
+      "pair_id": "0x3711ce4799322ea9a6d7b445c39af9849ccde8b25b9e7b09314813ef787f12c2_0xc017605da04aeb24bed768ca1fad3772c1f2dcf78506f6e868208765ee25aaaa",
+      "category": "strong",
+      "reason": "Both about US acquiring Canadian territory",
+      "q_a": "Will Canada join US as 51st state in 2025?",
+      "q_b": "Will the U.S. acquire Canadian territory in 2025?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "correlated",
+        "reasoning": "Canada joining as the 51st state would necessarily involve the U.S. acquiring Canadian territory, creating a direct logical link where the first outcome guarantees the second."
+      },
+      "baseline": {
+        "direction": "positive",
+        "p_a": 0.005,
+        "p_a_given_b1": 0.02,
+        "p_a_given_b0": 0.001
+      },
+      "strength_elicitation": {
+        "direction": "positive",
+        "strength": 9,
+        "p_a": 0.01,
+        "reasoning": "Canada joining as the 51st state logically requires the U.S. to acquire Canadian territory, making A nearly deterministic of B."
+      },
+      "computed": {
+        "linear": {
+          "p_a_given_b1": 0.28,
+          "p_a_given_b0": 0.01
+        },
+        "sigmoid": {
+          "p_a_given_b1": 0.2928027472303394,
+          "p_a_given_b0": 0.01
+        },
+        "quadratic": {
+          "p_a_given_b1": 0.253,
+          "p_a_given_b0": 0.01
+        }
+      },
+      "brier": {
+        "baseline": 1e-06,
+        "strength_linear": 0.0001,
+        "strength_sigmoid": 0.0001,
+        "strength_quadratic": 0.0001,
+        "improvement_linear": -9.900000000000001e-05,
+        "improvement_sigmoid": -9.900000000000001e-05,
+        "improvement_quadratic": -9.900000000000001e-05
+      }
+    },
+    {
+      "pair_id": "IMLre6PYIQgsesV6Wa6O_D5o5fIGpQnjANdl2DxdU",
+      "category": "strong",
+      "reason": "Both about US recession timing - 2024 vs 2025",
+      "q_a": "Did the US enter a recession before the end of 2024?",
+      "q_b": "Will there be a US recession by EOY2025?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "correlated",
+        "reasoning": "If a US recession occurred by end of 2024, it would logically satisfy the condition of there being a recession by EOY2025, creating a direct temporal and definitional link between the outcomes."
+      },
+      "baseline": {
+        "direction": "positive",
+        "p_a": 0.2,
+        "p_a_given_b1": 0.4,
+        "p_a_given_b0": 0.1
+      },
+      "strength_elicitation": {
+        "direction": "positive",
+        "strength": 8,
+        "p_a": 0.2,
+        "reasoning": "If a recession occurs by end of 2024, it virtually guarantees one will have occurred by end of 2025, creating a very strong positive correlation."
+      },
+      "computed": {
+        "linear": {
+          "p_a_given_b1": 0.44,
+          "p_a_given_b0": 0.01
+        },
+        "sigmoid": {
+          "p_a_given_b1": 0.4642391233933647,
+          "p_a_given_b0": 0.01
+        },
+        "quadratic": {
+          "p_a_given_b1": 0.392,
+          "p_a_given_b0": 0.01
+        }
+      },
+      "brier": {
+        "baseline": 0.010000000000000002,
+        "strength_linear": 0.0001,
+        "strength_sigmoid": 0.0001,
+        "strength_quadratic": 0.0001,
+        "improvement_linear": 0.009900000000000003,
+        "improvement_sigmoid": 0.009900000000000003,
+        "improvement_quadratic": 0.009900000000000003
+      }
+    },
+    {
+      "pair_id": "0x41da88e6d6db2ebf5fbb868d93e97c3052121a59d1222c00774119427ec9efe1_0xde9fec321fb6a4a264d6d012ad2bfee3b29e123797ce02765dca14cae96e26de",
+      "category": "weak",
+      "reason": "Both about xAI/Z.ai having best AI models but for different capabilities",
+      "q_a": "Will xAI have the best AI model for math at the end of 2025?",
+      "q_b": "Will Z.ai have the best AI model for coding at the end of 2025?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "These involve different companies (xAI vs Z.ai) competing in different AI domains (math vs coding) with no direct causal mechanism linking one company's math performance to another's coding performance."
+      },
+      "baseline": {
+        "p_a": 0.18,
+        "p_a_given_b1": 0.18,
+        "p_a_given_b0": 0.18
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 0.0324,
+        "strength_linear": 0.0324,
+        "strength_sigmoid": 0.0324,
+        "strength_quadratic": 0.0324,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    },
+    {
+      "pair_id": "0xf34b156ecf111694d6e6841a7effb807f9483cb0cabfaa3e50283530d96d58ce_0xd3a26e8ca4f4dd9a7933e65fb1a36851b4527f7adadf477ca65106714ee26335",
+      "category": "weak",
+      "reason": "Both about Tesla/Apple tech releases but different products",
+      "q_a": "Tesla launches unsupervised full self driving (FSD) by October 31?",
+      "q_b": "Apple Vision Pro 2 released by December 31?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "These involve different companies (Tesla vs Apple) developing completely different technologies (autonomous driving vs AR/VR) with separate development cycles, supply chains, and target markets."
+      },
+      "baseline": {
+        "p_a": 0.1,
+        "p_a_given_b1": 0.1,
+        "p_a_given_b0": 0.1
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 0.010000000000000002,
+        "strength_linear": 0.010000000000000002,
+        "strength_sigmoid": 0.010000000000000002,
+        "strength_quadratic": 0.010000000000000002,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    },
+    {
+      "pair_id": "0xfb6717befc0ec8bb8389512c3739b5e4bca290f2a8a908e894cadb5a3785d9ae_0x54416d15d2428ec5fb1e6f2e646f0fd570f367be80d9dd285c479c8e9ce238a6",
+      "category": "weak",
+      "reason": "Both about Solana price movements but different targets",
+      "q_a": "Will Solana reach $350 in October?",
+      "q_b": "Solana all time high before 2026?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "correlated",
+        "reasoning": "If Solana reaches $350 in October, this would automatically constitute a new all-time high before 2026, creating a direct logical dependency between the outcomes."
+      },
+      "baseline": {
+        "direction": "positive",
+        "p_a": 0.18,
+        "p_a_given_b1": 0.28,
+        "p_a_given_b0": 0.05
+      },
+      "strength_elicitation": {
+        "direction": "positive",
+        "strength": 7,
+        "p_a": 0.2,
+        "reasoning": "If Solana reaches $350 in October, this would exceed its previous ATH of ~$260, making a new ATH before 2026 very likely, though B could occur without A."
+      },
+      "computed": {
+        "linear": {
+          "p_a_given_b1": 0.41000000000000003,
+          "p_a_given_b0": 0.01
+        },
+        "sigmoid": {
+          "p_a_given_b1": 0.43055743504970534,
+          "p_a_given_b0": 0.01
+        },
+        "quadratic": {
+          "p_a_given_b1": 0.347,
+          "p_a_given_b0": 0.05300000000000005
+        }
+      },
+      "brier": {
+        "baseline": 0.0025000000000000005,
+        "strength_linear": 0.0001,
+        "strength_sigmoid": 0.0001,
+        "strength_quadratic": 0.002809000000000005,
+        "improvement_linear": 0.0024000000000000007,
+        "improvement_sigmoid": 0.0024000000000000007,
+        "improvement_quadratic": -0.0003090000000000046
+      }
+    },
+    {
+      "pair_id": "0x81be71c406085cede3485dbd3801cc083d077568f63fcf1136aa1e7beadf214c_0x74f6aa8144daf93f45c67ac5134ec1b6acc1c80fde043cea457929cbd6afd007",
+      "category": "weak",
+      "reason": "Both about NFL division winners but different divisions",
+      "q_a": "Will the Los Angeles Rams win the NFC West?",
+      "q_b": "Will the Baltimore Ravens win the AFC North?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "These involve different NFL teams in separate conferences and divisions with no direct causal relationship between their division championship outcomes."
+      },
+      "baseline": {
+        "p_a": 0.28,
+        "p_a_given_b1": 0.28,
+        "p_a_given_b0": 0.28
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 0.07840000000000001,
+        "strength_linear": 0.07840000000000001,
+        "strength_sigmoid": 0.07840000000000001,
+        "strength_quadratic": 0.07840000000000001,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    },
+    {
+      "pair_id": "0xeee36eb4a7474ed4415c966a86491a2880d799479c776776a0e1b06671e3b690_0x1bef2cec162d5499c60c1acd8e3c5a3acc321aee580deda1f01aa40dadbda374",
+      "category": "weak",
+      "reason": "Both about Bucharest mayoral candidates",
+      "q_a": "Will Sebastian Burduja be the next Mayor of Bucharest?",
+      "q_b": "Will Marian Vanghelie be the next Mayor of Bucharest?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "correlated",
+        "reasoning": "Both questions ask about different candidates for the same mayoral position, creating a direct inverse relationship where one winning prevents the other from winning."
+      },
+      "baseline": {
+        "direction": "negative",
+        "p_a": 0.15,
+        "p_a_given_b1": 0.02,
+        "p_a_given_b0": 0.18
+      },
+      "strength_elicitation": {
+        "direction": "negative",
+        "strength": 9,
+        "p_a": 0.25,
+        "reasoning": "Since only one person can be mayor at a time, one candidate winning makes it virtually impossible for the other to win the same position."
+      },
+      "computed": {
+        "linear": {
+          "p_a_given_b1": 0.01,
+          "p_a_given_b0": 0.52
+        },
+        "sigmoid": {
+          "p_a_given_b1": 0.01,
+          "p_a_given_b0": 0.5328027472303394
+        },
+        "quadratic": {
+          "p_a_given_b1": 0.01,
+          "p_a_given_b0": 0.493
+        }
+      },
+      "brier": {
+        "baseline": 0.0324,
+        "strength_linear": 0.27040000000000003,
+        "strength_sigmoid": 0.2838787674561969,
+        "strength_quadratic": 0.243049,
+        "improvement_linear": -0.23800000000000004,
+        "improvement_sigmoid": -0.2514787674561969,
+        "improvement_quadratic": -0.21064899999999998
+      }
+    },
+    {
+      "pair_id": "0xc30cf28f8108d5e883038c89afeaaead56c19730ed7211249cbf60c35ff76890_0x21400affa8e3fdfff07bb8421d708635bc7be52f5396268dd281ef92a31bb86f",
+      "category": "weak",
+      "reason": "Both about movies being top grossing of 2025",
+      "q_a": "Will 'Avatar: Fire and Ash' have the best domestic opening weekend in 2025?",
+      "q_b": "Will Avatar 3 be the top grossing movie of 2025?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "correlated",
+        "reasoning": "Both questions measure commercial success of the same movie (Avatar 3/Fire and Ash), where strong opening weekend performance typically correlates with and contributes to overall yearly box office dominance."
+      },
+      "baseline": {
+        "direction": "positive",
+        "p_a": 0.28,
+        "p_a_given_b1": 0.5,
+        "p_a_given_b0": 0.2
+      },
+      "strength_elicitation": {
+        "direction": "positive",
+        "strength": 7,
+        "p_a": 0.3,
+        "reasoning": "A record-breaking opening weekend is a strong predictor of annual box office dominance, though not deterministic due to factors like international performance and film longevity."
+      },
+      "computed": {
+        "linear": {
+          "p_a_given_b1": 0.51,
+          "p_a_given_b0": 0.09
+        },
+        "sigmoid": {
+          "p_a_given_b1": 0.5305574350497053,
+          "p_a_given_b0": 0.06944256495029466
+        },
+        "quadratic": {
+          "p_a_given_b1": 0.44699999999999995,
+          "p_a_given_b0": 0.15300000000000002
+        }
+      },
+      "brier": {
+        "baseline": 0.04000000000000001,
+        "strength_linear": 0.0081,
+        "strength_sigmoid": 0.004822269826875892,
+        "strength_quadratic": 0.023409000000000006,
+        "improvement_linear": 0.03190000000000001,
+        "improvement_sigmoid": 0.03517773017312412,
+        "improvement_quadratic": 0.016591
+      }
+    },
+    {
+      "pair_id": "0x564dc4a385305c482015061537989c4af69f1556f40b958a7bd6e4cf84ad1e2c_0x1321095e16f2904ccae2520e22e635b69bd4f25fc54afd3d0d838a3bf54550ad",
+      "category": "weak",
+      "reason": "Both about Argentina election results but different parties",
+      "q_a": "Will FIT-U hold the most seats in the Chamber of Deputies following the 2025 Argentina election?",
+      "q_b": "Will SER win the most seats in the Chamber of Deputies following the 2025 Argentina election?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "correlated",
+        "reasoning": "These questions ask about mutually exclusive outcomes in the same election - only one party can hold the most seats in Argentina's Chamber of Deputies."
+      },
+      "baseline": {
+        "direction": "negative",
+        "p_a": 0.15,
+        "p_a_given_b1": 0.0,
+        "p_a_given_b0": 0.2
+      },
+      "strength_elicitation": {
+        "direction": "negative",
+        "strength": 10,
+        "p_a": 0.15,
+        "reasoning": "These are mutually exclusive outcomes since only one party can hold the most seats in the Chamber of Deputies."
+      },
+      "computed": {
+        "linear": {
+          "p_a_given_b1": 0.01,
+          "p_a_given_b0": 0.44999999999999996
+        },
+        "sigmoid": {
+          "p_a_given_b1": 0.01,
+          "p_a_given_b0": 0.4420209019269402
+        },
+        "quadratic": {
+          "p_a_given_b1": 0.01,
+          "p_a_given_b0": 0.44999999999999996
+        }
+      },
+      "brier": {
+        "baseline": 0.04000000000000001,
+        "strength_linear": 0.20249999999999996,
+        "strength_sigmoid": 0.1953824777403057,
+        "strength_quadratic": 0.20249999999999996,
+        "improvement_linear": -0.16249999999999995,
+        "improvement_sigmoid": -0.1553824777403057,
+        "improvement_quadratic": -0.16249999999999995
+      }
+    },
+    {
+      "pair_id": "0x77783da9b3549399a4bc0ba504f03c33f6cafca89f6ef5d96cb1d9492dfd22d5_0xd01204c643956b06dcb7ec56f07ea473bdc9e61a7c29bd1318df0e249b1050ea",
+      "category": "weak",
+      "reason": "Both about US military deployment in Middle East",
+      "q_a": "US forces in Yemen in 2025?",
+      "q_b": "U.S. forces in Gaza in 2025?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "While both involve US military presence in the Middle East, they concern entirely different conflicts (Yemen's Saudi-Houthi war vs Gaza's Israel-Palestine conflict) with distinct strategic rationales, allies, and decision-making processes."
+      },
+      "baseline": {
+        "p_a": 0.68,
+        "p_a_given_b1": 0.68,
+        "p_a_given_b0": 0.68
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 0.4624000000000001,
+        "strength_linear": 0.4624000000000001,
+        "strength_sigmoid": 0.4624000000000001,
+        "strength_quadratic": 0.4624000000000001,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    },
+    {
+      "pair_id": "0xd1754bc54ec5b0af53339ad69d868bcdf5510242212a400db22bc865b103bbfb_0x8e5dd56e494bac55a67a36b7044cefd95dfe7bf8c893f7d82a58c9681990100d",
+      "category": "weak",
+      "reason": "Both about Middle East normalization but different countries",
+      "q_a": "Israel and Lebanon normalize relations in 2025?",
+      "q_b": "Israel and Saudi Arabia normalize relations in 2025?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "correlated",
+        "reasoning": "Saudi Arabia's regional influence and diplomatic leadership could create momentum for Lebanese normalization with Israel, and both events would be part of the same Middle East peace process."
+      },
+      "baseline": {
+        "direction": "positive",
+        "p_a": 0.18,
+        "p_a_given_b1": 0.28,
+        "p_a_given_b0": 0.12
+      },
+      "strength_elicitation": {
+        "direction": "positive",
+        "strength": 6,
+        "p_a": 0.18,
+        "reasoning": "Regional diplomatic momentum tends to build on itself, and successful normalization with Lebanon would demonstrate Israel's commitment to broader Arab-Israeli peace while creating political momentum for further breakthroughs."
+      },
+      "computed": {
+        "linear": {
+          "p_a_given_b1": 0.36,
+          "p_a_given_b0": 0.01
+        },
+        "sigmoid": {
+          "p_a_given_b1": 0.35960629803373556,
+          "p_a_given_b0": 0.01
+        },
+        "quadratic": {
+          "p_a_given_b1": 0.288,
+          "p_a_given_b0": 0.072
+        }
+      },
+      "brier": {
+        "baseline": 0.0144,
+        "strength_linear": 0.0001,
+        "strength_sigmoid": 0.0001,
+        "strength_quadratic": 0.005183999999999999,
+        "improvement_linear": 0.0143,
+        "improvement_sigmoid": 0.0143,
+        "improvement_quadratic": 0.009216
+      }
+    },
+    {
+      "pair_id": "0x3d64b85493b8e6602ea4dc4ebfa1e8b998594c8439e4e0d730ce6e44f7e587e3_0xa4e7e472e1f4b0f5a9e88c0d086053ef51bb4dc150cf861bef48232447d3b636",
+      "category": "weak",
+      "reason": "Both about poker championship winners but different players",
+      "q_a": "Will Maria Konnikova win the 2025 National Heads-Up Poker Championship?",
+      "q_b": "Will Ryan Feldman win the 2025 National Heads-Up Poker Championship?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "correlated",
+        "reasoning": "These outcomes are mutually exclusive since only one person can win the 2025 National Heads-Up Poker Championship."
+      },
+      "baseline": {
+        "direction": "negative",
+        "p_a": 0.01,
+        "p_a_given_b1": 0.0,
+        "p_a_given_b0": 0.0101
+      },
+      "strength_elicitation": {
+        "direction": "negative",
+        "strength": 8,
+        "p_a": 0.03,
+        "reasoning": "Mutually exclusive events create strong negative correlation since one person winning prevents the other from winning."
+      },
+      "computed": {
+        "linear": {
+          "p_a_given_b1": 0.01,
+          "p_a_given_b0": 0.27
+        },
+        "sigmoid": {
+          "p_a_given_b1": 0.01,
+          "p_a_given_b0": 0.29423912339336467
+        },
+        "quadratic": {
+          "p_a_given_b1": 0.01,
+          "p_a_given_b0": 0.22200000000000003
+        }
+      },
+      "brier": {
+        "baseline": 0.00010201,
+        "strength_linear": 0.0729,
+        "strength_sigmoid": 0.08657666173529567,
+        "strength_quadratic": 0.049284000000000015,
+        "improvement_linear": -0.07279799,
+        "improvement_sigmoid": -0.08647465173529567,
+        "improvement_quadratic": -0.049181990000000016
+      }
+    },
+    {
+      "pair_id": "0x4c9ccd1404d105968de9b1ff3226fbafdc0b6e402a26bbcad3a84a1b62296783_0xd97d95f15edfe56fd412a3e95929497903f16069964f63b7ced90172cd723d61",
+      "category": "weak",
+      "reason": "Both about baseball championships but different teams/leagues",
+      "q_a": "Will the Toronto Blue Jays win the 2025 World Series?",
+      "q_b": "Will the Seattle Mariners win the 2025 American League Championship?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "correlated",
+        "reasoning": "Both teams are in the American League, so if the Mariners win the AL Championship, the Blue Jays cannot win the World Series since only one AL team advances."
+      },
+      "baseline": {
+        "direction": "negative",
+        "p_a": 0.03,
+        "p_a_given_b1": 0.0,
+        "p_a_given_b0": 0.04
+      },
+      "strength_elicitation": {
+        "direction": "negative",
+        "strength": 10,
+        "p_a": 0.04,
+        "reasoning": "If the Blue Jays win the World Series, they necessarily won the AL Championship, making it impossible for the Mariners to have won it."
+      },
+      "computed": {
+        "linear": {
+          "p_a_given_b1": 0.01,
+          "p_a_given_b0": 0.33999999999999997
+        },
+        "sigmoid": {
+          "p_a_given_b1": 0.01,
+          "p_a_given_b0": 0.33202090192694017
+        },
+        "quadratic": {
+          "p_a_given_b1": 0.01,
+          "p_a_given_b0": 0.33999999999999997
+        }
+      },
+      "brier": {
+        "baseline": 0.0016,
+        "strength_linear": 0.11559999999999998,
+        "strength_sigmoid": 0.11023787931637882,
+        "strength_quadratic": 0.11559999999999998,
+        "improvement_linear": -0.11399999999999998,
+        "improvement_sigmoid": -0.10863787931637882,
+        "improvement_quadratic": -0.11399999999999998
+      }
+    },
+    {
+      "pair_id": "0x4e4e89fd4a8b605664a3745981cd9034905ef59f385c893b8f29add42f3b4e00_39771",
+      "category": "weak",
+      "reason": "Both about weather/climate events but different types",
+      "q_a": "Will global temperature increase by between 1.10\u00baC and 1.14\u00baC in October 2025?",
+      "q_b": "Will there be a stronger hurricane than Erin during the 2025 Atlantic hurricane season?",
+      "resolution_a": 0.0,
+      "resolution_b": 1.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "While warmer global temperatures can influence hurricane intensity, the specific narrow temperature range (1.10-1.14\u00b0C) would not be a reliable predictor of Atlantic hurricane strength due to numerous other factors like local ocean conditions, wind shear, and atmospheric patterns."
+      },
+      "baseline": {
+        "p_a": 0.2,
+        "p_a_given_b1": 0.2,
+        "p_a_given_b0": 0.2
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 0.04000000000000001,
+        "strength_linear": 0.04000000000000001,
+        "strength_sigmoid": 0.04000000000000001,
+        "strength_quadratic": 0.04000000000000001,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    },
+    {
+      "pair_id": "0xcc2bd8cbba68f1fe46e89445b61e2c581ea96527438889eb749a852fba647920_0x79342e0d3cce6f59378a6a016531546b773490b30ce51700265bc13e6651bd72",
+      "category": "weak",
+      "reason": "Both about Epstein/Maxwell revelations but different aspects",
+      "q_a": "Epstein or Maxwell confirmed Mossad operatives in 2025?",
+      "q_b": "Will Ghislaine Maxwell testify before Congress in 2025?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "correlated",
+        "reasoning": "Confirmation of Maxwell as a Mossad operative would likely impact congressional testimony decisions due to national security implications, and conversely, congressional testimony could potentially reveal intelligence connections."
+      },
+      "baseline": {
+        "direction": "positive",
+        "p_a": 0.18,
+        "p_a_given_b1": 0.35,
+        "p_a_given_b0": 0.1
+      },
+      "strength_elicitation": {
+        "direction": "positive",
+        "strength": 7,
+        "p_a": 0.1,
+        "reasoning": "Confirmation of Mossad connections would be such a significant national security revelation that congressional hearings would become highly likely."
+      },
+      "computed": {
+        "linear": {
+          "p_a_given_b1": 0.31,
+          "p_a_given_b0": 0.01
+        },
+        "sigmoid": {
+          "p_a_given_b1": 0.33055743504970536,
+          "p_a_given_b0": 0.01
+        },
+        "quadratic": {
+          "p_a_given_b1": 0.24699999999999997,
+          "p_a_given_b0": 0.01
+        }
+      },
+      "brier": {
+        "baseline": 0.010000000000000002,
+        "strength_linear": 0.0001,
+        "strength_sigmoid": 0.0001,
+        "strength_quadratic": 0.0001,
+        "improvement_linear": 0.009900000000000003,
+        "improvement_sigmoid": 0.009900000000000003,
+        "improvement_quadratic": 0.009900000000000003
+      }
+    },
+    {
+      "pair_id": "0x8947925aa89cdf1e70d7755df73c099c1977d322fb64ac20a2d2ee9850c9f913_0x8309a3b9eb96171c215153b8dccc3bcbcfa84d709f10d9319f5cb8874ff2c728",
+      "category": "weak",
+      "reason": "Both about AI model rankings but different positions/companies",
+      "q_a": "Will OpenAI have the second best AI model at the end of December 2025?",
+      "q_b": "Will Meta have the top AI model on December 31?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "correlated",
+        "reasoning": "Both questions concern AI model rankings at the same time period, where Meta having the top position directly affects the probability of OpenAI holding the second position in the competitive hierarchy."
+      },
+      "baseline": {
+        "direction": "positive",
+        "p_a": 0.35,
+        "p_a_given_b1": 0.45,
+        "p_a_given_b0": 0.3
+      },
+      "strength_elicitation": {
+        "direction": "positive",
+        "strength": 5,
+        "p_a": 0.3,
+        "reasoning": "If OpenAI is second-best, it rules out them being first, making Meta's path to the top spot more plausible among the remaining competitors."
+      },
+      "computed": {
+        "linear": {
+          "p_a_given_b1": 0.44999999999999996,
+          "p_a_given_b0": 0.15
+        },
+        "sigmoid": {
+          "p_a_given_b1": 0.42039370196626435,
+          "p_a_given_b0": 0.1796062980337356
+        },
+        "quadratic": {
+          "p_a_given_b1": 0.375,
+          "p_a_given_b0": 0.22499999999999998
+        }
+      },
+      "brier": {
+        "baseline": 0.09,
+        "strength_linear": 0.0225,
+        "strength_sigmoid": 0.032258422293383056,
+        "strength_quadratic": 0.05062499999999999,
+        "improvement_linear": 0.0675,
+        "improvement_sigmoid": 0.05774157770661694,
+        "improvement_quadratic": 0.03937500000000001
+      }
+    },
+    {
+      "pair_id": "0x2a34915c245f4b94976dda8afddb56452caf0ba2307500f78d7f08813d467917_0x7455e92b9e9c842ca260e65f0d640108223fd9f3430f997472825763654d96c7",
+      "category": "weak",
+      "reason": "Both about top Spotify artist for 2025 but different artists",
+      "q_a": "Will Billie Eilish be the top Spotify artist for 2025?",
+      "q_b": "Will The Weeknd be the top Spotify artist for 2025?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "correlated",
+        "reasoning": "These are mutually exclusive outcomes competing for the same singular ranking position - only one artist can be the top Spotify artist for 2025."
+      },
+      "baseline": {
+        "direction": "negative",
+        "p_a": 0.12,
+        "p_a_given_b1": 0.0,
+        "p_a_given_b0": 0.15
+      },
+      "strength_elicitation": {
+        "direction": "negative",
+        "strength": 10,
+        "p_a": 0.08,
+        "reasoning": "These events are mutually exclusive since only one artist can hold the top Spotify position, creating perfect negative correlation."
+      },
+      "computed": {
+        "linear": {
+          "p_a_given_b1": 0.01,
+          "p_a_given_b0": 0.38
+        },
+        "sigmoid": {
+          "p_a_given_b1": 0.01,
+          "p_a_given_b0": 0.3720209019269402
+        },
+        "quadratic": {
+          "p_a_given_b1": 0.01,
+          "p_a_given_b0": 0.38
+        }
+      },
+      "brier": {
+        "baseline": 0.0225,
+        "strength_linear": 0.1444,
+        "strength_sigmoid": 0.13839955147053407,
+        "strength_quadratic": 0.1444,
+        "improvement_linear": -0.12190000000000001,
+        "improvement_sigmoid": -0.11589955147053407,
+        "improvement_quadratic": -0.12190000000000001
+      }
+    },
+    {
+      "pair_id": "ln62Z8L0Sd_dUpnZIpOU8",
+      "category": "weak",
+      "reason": "Both about Trump's political actions but different targets",
+      "q_a": "Will Elon musk form a new political party",
+      "q_b": "Will Trump exact punishment on South Park?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "These involve different people (Musk vs Trump) acting in different domains (forming political parties vs media retaliation) with no direct causal mechanism linking the outcomes."
+      },
+      "baseline": {
+        "p_a": 0.18,
+        "p_a_given_b1": 0.18,
+        "p_a_given_b0": 0.18
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 0.0324,
+        "strength_linear": 0.0324,
+        "strength_sigmoid": 0.0324,
+        "strength_quadratic": 0.0324,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    },
+    {
+      "pair_id": "0xc8f7efe4f5cf3c6d5b51cdd87cbd360e7f2a3b9999f6b8fa96d2dcd96e287141_h7dapoa4cm",
+      "category": "none",
+      "reason": "Pepe ETF approval vs F1 racing results - completely unrelated domains",
+      "q_a": "Pepe ETF in 2025?",
+      "q_b": "Will Fernando Alonso end up in top-2 of F1 WDC 2025?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "These questions involve completely different domains (cryptocurrency/finance vs. Formula 1 racing) with no plausible causal mechanism linking a meme coin ETF's performance to an F1 driver's championship results."
+      },
+      "baseline": {
+        "p_a": 0.08,
+        "p_a_given_b1": 0.08,
+        "p_a_given_b0": 0.08
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 0.0064,
+        "strength_linear": 0.0064,
+        "strength_sigmoid": 0.0064,
+        "strength_quadratic": 0.0064,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    },
+    {
+      "pair_id": "12112_cNFd1y1J8PgOJllEy4uJ",
+      "category": "none",
+      "reason": "Beyond Meat bankruptcy vs Magnus Carlsen chess rating - unrelated business and sports",
+      "q_a": "Will Beyond Meat file for bankruptcy protection before 2026?",
+      "q_b": "Will Magnus Carlsen drop below 2800 Elo at any point before 2026?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "These questions involve completely unrelated domains - a food company's financial status and a chess player's performance rating - with no plausible causal mechanism connecting the outcomes."
+      },
+      "baseline": {
+        "p_a": 0.3,
+        "p_a_given_b1": 0.3,
+        "p_a_given_b0": 0.3
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 0.09,
+        "strength_linear": 0.09,
+        "strength_sigmoid": 0.09,
+        "strength_quadratic": 0.09,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    },
+    {
+      "pair_id": "0xe574324078501de57aa22beaaeafe461518a6556f0f97764bbbbd78d3a8e8048_hkmwaaZrisxgrs5Q3zGz",
+      "category": "none",
+      "reason": "Peru World Cup win vs Spider-Man movie release - sports vs entertainment",
+      "q_a": "Will Peru win the 2026 FIFA World Cup?",
+      "q_b": "Will Spider-Man: Beyond the Spider-Verse release before the end of 2025?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "These questions involve completely different domains (international soccer tournament vs. animated movie release) with no plausible causal mechanism connecting Peru's World Cup performance to a film's production schedule."
+      },
+      "baseline": {
+        "p_a": 0.007,
+        "p_a_given_b1": 0.007,
+        "p_a_given_b0": 0.007
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 4.9000000000000005e-05,
+        "strength_linear": 4.9000000000000005e-05,
+        "strength_sigmoid": 4.9000000000000005e-05,
+        "strength_quadratic": 4.9000000000000005e-05,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    },
+    {
+      "pair_id": "0x8f930d8198b8c189f1935a3eb61a38daa3ed0395a06c50291587cf9229e8d6fd_6A0Csq0Z9c",
+      "category": "none",
+      "reason": "9/11 conspiracy theory vs MrBeast subscriber count - conspiracy vs social media",
+      "q_a": "Was 9/11 an inside job?",
+      "q_b": "Will MrBeast reach 460 million subscribers in 2025?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "These questions address completely different domains with no causal relationship between 9/11 conspiracy theories and YouTube subscriber growth metrics."
+      },
+      "baseline": {
+        "p_a": 0.02,
+        "p_a_given_b1": 0.02,
+        "p_a_given_b0": 0.02
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 0.0004,
+        "strength_linear": 0.0004,
+        "strength_sigmoid": 0.0004,
+        "strength_quadratic": 0.0004,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    },
+    {
+      "pair_id": "17917_nMv5WyihlTP9vYXwQmE7",
+      "category": "none",
+      "reason": "Alien technology recovery vs Tom Brady NFL return - science vs sports",
+      "q_a": "Will evidence of alien technology be recovered near the IM1 crash site before 2026?",
+      "q_b": "Will Tom Brady play in an NFL game again before the end of 2025?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "These questions involve completely unrelated domains (potential alien technology discovery vs NFL player career decisions) with no plausible causal mechanism connecting the outcomes."
+      },
+      "baseline": {
+        "p_a": 0.02,
+        "p_a_given_b1": 0.02,
+        "p_a_given_b0": 0.02
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 0.0004,
+        "strength_linear": 0.0004,
+        "strength_sigmoid": 0.0004,
+        "strength_quadratic": 0.0004,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    },
+    {
+      "pair_id": "0x4bcdc5f24786e4ea5279a4f859d8879cc08b98cfaa2924862947c65db0f010ae_AtLFLzDlSERmVcSdUapy",
+      "category": "none",
+      "reason": "South Korean president sentencing vs Minecraft movie box office - politics vs entertainment",
+      "q_a": "Will Yoon be sentenced to prison in 2025?",
+      "q_b": "Will the upcoming Minecraft movie make over a billion dollars at the worldwide box office?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "These questions involve completely different domains - Korean political/legal matters versus Hollywood entertainment box office performance - with no direct causal mechanism linking the outcomes."
+      },
+      "baseline": {
+        "p_a": 0.37,
+        "p_a_given_b1": 0.37,
+        "p_a_given_b0": 0.37
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 0.1369,
+        "strength_linear": 0.1369,
+        "strength_sigmoid": 0.1369,
+        "strength_quadratic": 0.1369,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    },
+    {
+      "pair_id": "0xaa368b9b8a22b8fd9338f3e46b4ce5f856233ac5ff45e30557384846279acee7_0x184228c1bfc9502d38f6f9984667f3da7b2f955616f195a3ba28b51fb0539bfe",
+      "category": "none",
+      "reason": "Hyperliquid price vs Saints Super Bowl win - crypto vs NFL",
+      "q_a": "Hyperliquid all time high by December 31?",
+      "q_b": "Will the Saints win Super Bowl 2026?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "These involve completely different domains (cryptocurrency markets vs NFL football) with no direct causal mechanism linking a crypto price milestone to a sports team's championship outcome."
+      },
+      "baseline": {
+        "p_a": 0.35,
+        "p_a_given_b1": 0.35,
+        "p_a_given_b0": 0.35
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 0.12249999999999998,
+        "strength_linear": 0.12249999999999998,
+        "strength_sigmoid": 0.12249999999999998,
+        "strength_quadratic": 0.12249999999999998,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    },
+    {
+      "pair_id": "0xd459f7a9a61a7c36807a0a4066cbc1579e9b6277894baf778569f026ff5e69fb_Ku10BoO4J0oiKmH5rLVQ",
+      "category": "none",
+      "reason": "RFK Jr autism research vs Denis Villeneuve film - health policy vs cinema",
+      "q_a": "Will RFK Jr. find the cause of Autism before November?",
+      "q_b": "Will Denis Villeneuve\u2019s next film be related to Dune?",
+      "resolution_a": 0.0,
+      "resolution_b": 1.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "These questions involve completely different people (RFK Jr. vs. Denis Villeneuve), domains (medical research vs. film production), and outcomes with no causal relationship between autism research and filmmaking decisions."
+      },
+      "baseline": {
+        "p_a": 0.01,
+        "p_a_given_b1": 0.01,
+        "p_a_given_b0": 0.01
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 0.0001,
+        "strength_linear": 0.0001,
+        "strength_sigmoid": 0.0001,
+        "strength_quadratic": 0.0001,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    },
+    {
+      "pair_id": "0x0398ee767efc168f65bb148d7ac5874406ecf38b0585262c259c07b72a40b362_hQQPLApOcA",
+      "category": "none",
+      "reason": "NVIDIA stock price vs Half-Life 3 game release - finance vs gaming",
+      "q_a": "Will NVIDIA (NVDA) close at $210\u2013215 in 2025?",
+      "q_b": "Half-Life 3 confirmed by EOY?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "While NVIDIA makes gaming GPUs, a single game announcement would have negligible impact on NVIDIA's stock price, which is primarily driven by AI/datacenter demand rather than individual gaming releases."
+      },
+      "baseline": {
+        "p_a": 0.12,
+        "p_a_given_b1": 0.12,
+        "p_a_given_b0": 0.12
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 0.0144,
+        "strength_linear": 0.0144,
+        "strength_sigmoid": 0.0144,
+        "strength_quadratic": 0.0144,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    },
+    {
+      "pair_id": "40407_0xa8533ac7382ad55fde02964b221eeab55da2ffe538a5da2c3f84449695d3ba8c",
+      "category": "none",
+      "reason": "Nancy Pelosi stock performance vs music album performance - politics vs entertainment",
+      "q_a": "Will Nancy Pelosi beat the S&P 500 in 2025?",
+      "q_b": "Will 'The Life of a Showgirl' be #1 for 16 straight weeks?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "These questions involve completely different domains (financial investment performance vs entertainment industry chart success) with no direct causal mechanism linking Nancy Pelosi's stock market performance to a showgirl-themed product's chart position."
+      },
+      "baseline": {
+        "p_a": 0.4,
+        "p_a_given_b1": 0.4,
+        "p_a_given_b0": 0.4
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 0.16000000000000003,
+        "strength_linear": 0.16000000000000003,
+        "strength_sigmoid": 0.16000000000000003,
+        "strength_quadratic": 0.16000000000000003,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    },
+    {
+      "pair_id": "0x712015ce8ac2c87d89bfacff5610f225c147a147441a78654846d1462921ede7_66FpF5wc6FoUxdSUp9Ch",
+      "category": "none",
+      "reason": "SpaceX launches vs Iran Strait of Hormuz closure - space technology vs geopolitics",
+      "q_a": "Will 10-12 SpaceX Starship launches successfully reach Space in 2025?",
+      "q_b": "Will Iran close the Strait of Hormuz by the end of 2025?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "SpaceX rocket launches and Iranian geopolitical decisions about a Middle Eastern waterway operate in completely separate domains with no direct causal mechanism linking their outcomes."
+      },
+      "baseline": {
+        "p_a": 0.3,
+        "p_a_given_b1": 0.3,
+        "p_a_given_b0": 0.3
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 0.09,
+        "strength_linear": 0.09,
+        "strength_sigmoid": 0.09,
+        "strength_quadratic": 0.09,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    },
+    {
+      "pair_id": "0xc1c4e7857dfd1fe47c1e6a11813aaca3f622a5f47769cd765be8c7a8336af555_zqPzgyRyu9",
+      "category": "none",
+      "reason": "Alien confirmation vs Twitch streamer lawsuit - science vs internet drama",
+      "q_a": "Interstellar object confirmed aliens?",
+      "q_b": "Will Pxie and Destiny settle their lawsuit by the end of 2025?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "These questions involve completely different domains (alien discovery vs. specific legal dispute) with no plausible causal mechanism connecting the outcomes."
+      },
+      "baseline": {
+        "p_a": 0.03,
+        "p_a_given_b1": 0.03,
+        "p_a_given_b0": 0.03
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 0.0009,
+        "strength_linear": 0.0009,
+        "strength_sigmoid": 0.0009,
+        "strength_quadratic": 0.0009,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    },
+    {
+      "pair_id": "0xb1a6136ad23d19526c4929d2e79c79e999628de931ca2475d138fb31637fd2c4_ERAQ2GcY83b6TeC7x0Yf",
+      "category": "none",
+      "reason": "Saudi Aramco market cap vs Barbie/Oppenheimer movie fusion - business vs entertainment",
+      "q_a": "Will Saudi Aramco be the largest company in the world by market cap on December 31?",
+      "q_b": "Before 2026, will Barbie and Oppenheimer fuse into one super-movie?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "These questions concern entirely different domains - Saudi Aramco's market capitalization versus movie production decisions - with no discernible causal or logical connection."
+      },
+      "baseline": {
+        "p_a": 0.2,
+        "p_a_given_b1": 0.2,
+        "p_a_given_b0": 0.2
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 0.04000000000000001,
+        "strength_linear": 0.04000000000000001,
+        "strength_sigmoid": 0.04000000000000001,
+        "strength_quadratic": 0.04000000000000001,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    },
+    {
+      "pair_id": "0xfc4453f83b30fdad8ac707b7bd11309aa4c4c90d0c17ad0c4680d4142d4471f7_IglOIIg2AI",
+      "category": "none",
+      "reason": "China Bitcoin policy vs S&P 500 volatility - crypto regulation vs stock market",
+      "q_a": "Will China unban Bitcoin in 2025?",
+      "q_b": "Will the S&P 500 AGAIN decrease by over 5% in one day in 2025?",
+      "resolution_a": 0.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "China's Bitcoin policy decisions are driven by domestic regulatory concerns and capital control objectives, which have no direct causal relationship to single-day US stock market volatility patterns."
+      },
+      "baseline": {
+        "p_a": 0.15,
+        "p_a_given_b1": 0.15,
+        "p_a_given_b0": 0.15
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 0.0225,
+        "strength_linear": 0.0225,
+        "strength_sigmoid": 0.0225,
+        "strength_quadratic": 0.0225,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    },
+    {
+      "pair_id": "09U2cQZqCR_rF0NagHSV237D4FXYJgK",
+      "category": "none",
+      "reason": "Elon Musk wealth ranking vs AI-written movies - personal wealth vs entertainment technology",
+      "q_a": "Will Elon Musk be the world's richest person on December 31, 2025?",
+      "q_b": "Will there be a blockbuster movie in the US before the end of 2025 that is acknowledged as written b",
+      "resolution_a": 1.0,
+      "resolution_b": 0.0,
+      "stage1": {
+        "classification": "independent",
+        "reasoning": "Elon Musk's wealth ranking depends on his companies' valuations while AI-written movies relate to Hollywood's creative processes, with no direct causal mechanism linking these separate domains."
+      },
+      "baseline": {
+        "p_a": 0.38,
+        "p_a_given_b1": 0.38,
+        "p_a_given_b0": 0.38
+      },
+      "strength_elicitation": null,
+      "computed": null,
+      "brier": {
+        "baseline": 0.3844,
+        "strength_linear": 0.3844,
+        "strength_sigmoid": 0.3844,
+        "strength_quadratic": 0.3844,
+        "improvement_linear": 0,
+        "improvement_sigmoid": 0,
+        "improvement_quadratic": 0
+      }
+    }
+  ],
+  "metadata": {
+    "run_at": "2026-01-12T15:45:53.011600",
+    "model": "claude-sonnet-4-20250514",
+    "thinking": true,
+    "num_pairs": 45,
+    "num_successful": 44
+  }
+}
