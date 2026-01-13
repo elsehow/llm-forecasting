@@ -5,16 +5,16 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
-from conditional_trees.models import Question, Scenario, GlobalScenario, Relationship
-from conditional_trees.phases.base_rates import fetch_base_rates, format_base_rates_context
-from conditional_trees.phases.diverge import diverge
-from conditional_trees.phases.converge import converge
-from conditional_trees.phases.structure import structure
-from conditional_trees.phases.quantify import quantify
-from conditional_trees.phases.condition import condition
-from conditional_trees.phases.signals import signals
-from conditional_trees.phases.condition import _validate_direction_consistency
-from conditional_trees.models import QuestionType
+from tree_of_life.models import Question, Scenario, GlobalScenario, Relationship
+from tree_of_life.phases.base_rates import fetch_base_rates, format_base_rates_context
+from tree_of_life.phases.diverge import diverge
+from tree_of_life.phases.converge import converge
+from tree_of_life.phases.structure import structure
+from tree_of_life.phases.quantify import quantify
+from tree_of_life.phases.condition import condition
+from tree_of_life.phases.signals import signals
+from tree_of_life.phases.condition import _validate_direction_consistency
+from tree_of_life.models import QuestionType
 
 
 class TestPhase0BaseRates:
@@ -60,7 +60,7 @@ class TestPhase0BaseRates:
         })
         mock_response.content = [mock_text_block]
 
-        with patch("conditional_trees.phases.base_rates.anthropic.Anthropic") as mock_client_class:
+        with patch("tree_of_life.phases.base_rates.anthropic.Anthropic") as mock_client_class:
             mock_client = MagicMock()
             mock_client.messages.create.return_value = mock_response
             mock_client_class.return_value = mock_client
@@ -108,7 +108,7 @@ class TestPhase1Diverge:
             ]
         }
 
-        with patch("conditional_trees.phases.diverge.llm_call_many") as mock_llm:
+        with patch("tree_of_life.phases.diverge.llm_call_many") as mock_llm:
             # Return mock response for each question
             mock_llm.return_value = {q.id: mock_response for q in questions}
 
@@ -150,7 +150,7 @@ class TestPhase2Converge:
             ]
         }
 
-        with patch("conditional_trees.phases.converge.llm_call") as mock_llm:
+        with patch("tree_of_life.phases.converge.llm_call") as mock_llm:
             mock_llm.return_value = mock_response
 
             result = await converge(raw_scenarios)
@@ -194,7 +194,7 @@ class TestPhase3Structure:
             ]
         }
 
-        with patch("conditional_trees.phases.structure.llm_call") as mock_llm:
+        with patch("tree_of_life.phases.structure.llm_call") as mock_llm:
             mock_llm.return_value = mock_response
 
             result = await structure(global_scenarios)
@@ -226,7 +226,7 @@ class TestPhase4Quantify:
             ]
         }
 
-        with patch("conditional_trees.phases.quantify.llm_call") as mock_llm:
+        with patch("tree_of_life.phases.quantify.llm_call") as mock_llm:
             mock_llm.return_value = mock_response
 
             result, prob_result = await quantify(global_scenarios, relationships)
@@ -273,7 +273,7 @@ class TestPhase5Condition:
             }
         }
 
-        with patch("conditional_trees.phases.condition.llm_call_many") as mock_llm:
+        with patch("tree_of_life.phases.condition.llm_call_many") as mock_llm:
             mock_llm.return_value = mock_response
 
             result = await condition([q], [s], verbose=False)
@@ -320,7 +320,7 @@ class TestPhase6Signals:
             }
         }
 
-        with patch("conditional_trees.phases.signals.llm_call_many") as mock_llm:
+        with patch("tree_of_life.phases.signals.llm_call_many") as mock_llm:
             mock_llm.return_value = mock_response
 
             result = await signals([s], verbose=False)

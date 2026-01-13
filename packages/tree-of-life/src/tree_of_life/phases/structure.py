@@ -2,7 +2,7 @@
 
 import json
 
-from conditional_trees.config import MODEL_STRUCTURE
+from tree_of_life.config import MODEL_STRUCTURE
 from ..llm import llm_call
 from ..models import GlobalScenario, Relationship
 from ..prompts import STRUCTURE_SYSTEM, STRUCTURE_USER

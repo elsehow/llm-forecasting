@@ -2,7 +2,7 @@
 
 import json
 
-from conditional_trees.config import MAX_GLOBAL_SCENARIOS, MODEL_CONVERGE
+from tree_of_life.config import MAX_GLOBAL_SCENARIOS, MODEL_CONVERGE
 from ..llm import llm_call
 from ..models import GlobalScenario, Scenario
 from ..prompts import CONVERGE_SYSTEM, CONVERGE_USER

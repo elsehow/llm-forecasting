@@ -28,7 +28,7 @@ data/
 *.db
 
 # Generated outputs
-packages/conditional-trees/output/
+packages/tree-of-life/output/
 
 # Environment
 .env
@@ -36,3 +36,4 @@ packages/conditional-trees/output/
 
 # Claude Code (local paths)
 .claude/settings.json
+output/

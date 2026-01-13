@@ -166,9 +166,30 @@ def load_questions(path: str | Path) -> list[Question]:
 
 
 def load_tree(path: str | Path) -> ForecastTree:
-    """Load a forecast tree from a JSON file."""
+    """Load a forecast tree from a JSON file.
+
+    Handles format transformation for questions (type -> question_type,
+    adds source field if missing).
+    """
     with open(path) as f:
         data = json.load(f)
+
+    # Transform questions if needed (handle legacy format)
+    if "questions" in data:
+        transformed_questions = []
+        for q in data["questions"]:
+            q_data = {
+                "id": q["id"],
+                "text": q["text"],
+                "source": q.get("source", "tree"),  # Default to "tree" if missing
+                "question_type": QuestionType(q.get("question_type") or q.get("type")),
+                "options": q.get("options"),
+                "resolution_source": q.get("resolution_source"),
+                "domain": q.get("domain"),
+            }
+            transformed_questions.append(Question(**q_data))
+        data["questions"] = transformed_questions
+
     return ForecastTree(**data)
 
 

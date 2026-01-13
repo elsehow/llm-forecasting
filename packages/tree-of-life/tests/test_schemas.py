@@ -12,7 +12,7 @@ from pathlib import Path
 import pytest
 from pydantic import ValidationError
 
-from conditional_trees.schemas import (
+from tree_of_life.schemas import (
     BaseRateItem,
     BaseRatesResponse,
     ConditionBatchBinaryResponse,

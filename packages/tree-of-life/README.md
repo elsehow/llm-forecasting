@@ -39,7 +39,7 @@ Requires [uv](https://docs.astral.sh/uv/) for package management.
 
 ```bash
 # Clone and setup
-cd conditional-trees
+cd tree-of-life
 uv sync
 
 # Set API key
@@ -302,6 +302,27 @@ src/
     ├── condition.py   # Phase 5: Conditional forecasts
     └── signals.py     # Phase 6: Early signals
 ```
+
+### VOI Analysis
+
+The `voi.py` module provides Value of Information calculations for ranking signals:
+
+```python
+from tree_of_life.pipeline import load_tree
+
+tree = load_tree('output/forecast_tree.json')
+
+# Rank signals by Linear VOI (default, more stable for rare events)
+for signal, voi in tree.top_voi_signals(n=5):
+    print(f"{signal.text}: VOI = {voi:.4f}")
+
+# Compare linear vs entropy VOI methods
+from tree_of_life import compare_voi_methods
+for r in compare_voi_methods(tree):
+    print(f"{r['signal_text']}: linear={r['linear_voi']:.3f}, entropy={r['entropy_voi']:.3f}")
+```
+
+Linear VOI uses expected absolute belief shift instead of entropy-based information gain. It's more stable under magnitude noise, especially for rare events (P < 0.10).
 
 ### Causal Graph
 

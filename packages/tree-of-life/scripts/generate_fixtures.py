@@ -12,13 +12,13 @@ os.environ["USE_BATCH_API"] = "false"
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from conditional_trees.pipeline import load_questions
-from conditional_trees.phases.diverge import diverge
-from conditional_trees.phases.converge import converge
-from conditional_trees.phases.structure import structure
-from conditional_trees.phases.quantify import quantify
-from conditional_trees.phases.condition import condition
-from conditional_trees.phases.signals import signals
+from tree_of_life.pipeline import load_questions
+from tree_of_life.phases.diverge import diverge
+from tree_of_life.phases.converge import converge
+from tree_of_life.phases.structure import structure
+from tree_of_life.phases.quantify import quantify
+from tree_of_life.phases.condition import condition
+from tree_of_life.phases.signals import signals
 
 FIXTURES_DIR = Path(__file__).parent.parent / "tests" / "fixtures"
 

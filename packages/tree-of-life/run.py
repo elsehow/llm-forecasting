@@ -11,9 +11,9 @@ from pathlib import Path
 # Add src to path for direct execution
 sys.path.insert(0, str(Path(__file__).parent))
 
-from conditional_trees.config import setup_logging
-from conditional_trees.models import ForecastTree
-from conditional_trees.pipeline import (
+from tree_of_life.config import setup_logging
+from tree_of_life.models import ForecastTree
+from tree_of_life.pipeline import (
     build_forecast_tree,
     load_questions,
     load_tree,

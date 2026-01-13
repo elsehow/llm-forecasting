@@ -2,7 +2,7 @@
 
 from datetime import date
 
-from conditional_trees.config import MODEL_SIGNALS, SIGNAL_HORIZON_DATE
+from tree_of_life.config import MODEL_SIGNALS, SIGNAL_HORIZON_DATE
 from ..llm import llm_call_many
 from ..models import GlobalScenario, Signal
 from ..prompts import SIGNALS_SYSTEM, SIGNALS_USER

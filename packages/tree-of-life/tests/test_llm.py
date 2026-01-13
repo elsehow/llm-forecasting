@@ -2,7 +2,7 @@
 
 import pytest
 
-from conditional_trees.llm import (
+from tree_of_life.llm import (
     validate_custom_id,
     BatchValidationError,
     LLMRequest,

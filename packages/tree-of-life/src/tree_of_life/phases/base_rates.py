@@ -11,7 +11,7 @@ from datetime import date
 
 import anthropic
 
-from conditional_trees.config import MODEL_BASE_RATES, STRUCTURED_OUTPUTS_BETA
+from tree_of_life.config import MODEL_BASE_RATES, STRUCTURED_OUTPUTS_BETA
 from ..models import Question
 from ..schemas import BaseRatesResponse, make_strict_schema
 

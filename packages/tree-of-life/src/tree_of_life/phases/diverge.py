@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from conditional_trees.config import FORECAST_HORIZON, MODEL_DIVERGE, N_SCENARIOS_PER_QUESTION, START_DATE
+from tree_of_life.config import FORECAST_HORIZON, MODEL_DIVERGE, N_SCENARIOS_PER_QUESTION, START_DATE
 from ..llm import llm_call_many
 from ..models import Question, Scenario
 from ..prompts import DIVERGE_SYSTEM, DIVERGE_USER

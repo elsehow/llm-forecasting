@@ -2,7 +2,7 @@
 
 import pytest
 
-from conditional_trees.probability import (
+from tree_of_life.probability import (
     ProbabilityResult,
     force_normalize,
     format_probabilities_for_retry,

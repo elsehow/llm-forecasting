@@ -1,7 +1,7 @@
 """Tests for Pydantic models."""
 
 import pytest
-from conditional_trees.models import (
+from tree_of_life.models import (
     Question,
     QuestionType,
     Scenario,

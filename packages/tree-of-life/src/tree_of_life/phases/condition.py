@@ -11,7 +11,7 @@ import json
 import logging
 from collections import defaultdict
 
-from conditional_trees.config import MODEL_CONDITION
+from tree_of_life.config import MODEL_CONDITION
 from ..llm import llm_call_many
 from ..models import (
     BinaryForecast,

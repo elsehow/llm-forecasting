@@ -7,14 +7,14 @@ Three-package workspace for LLM forecasting research.
 | Package | Purpose | Status |
 |---------|---------|--------|
 | `llm-forecasting` | Core: questions, agents, eval | Production |
-| `conditional-trees` | Scenario decomposition | Production |
+| `tree-of-life` | Scenario decomposition | Production |
 | `forecast-copilot` | User-facing assistant | Scaffold |
 
 ## Quick Start
 
 ```bash
 uv sync
-uv pip install -e packages/llm-forecasting -e packages/conditional-trees -e packages/forecast-copilot
+uv pip install -e packages/llm-forecasting -e packages/tree-of-life -e packages/forecast-copilot
 uv run pytest tests/
 ```
 
@@ -30,7 +30,7 @@ packages/
 │   ├── eval/           # Scoring, runner, viz
 │   └── sampling.py     # Stratified question sampling
 │
-├── conditional-trees/src/conditional_trees/
+├── tree-of-life/src/tree_of_life/
 │   ├── models.py       # Scenario, Signal, ForecastTree
 │   ├── phases/         # 7-phase generation pipeline
 │   ├── pipeline.py     # Orchestrator
@@ -47,14 +47,14 @@ packages/
 - **ABCs** for extensibility (ForecastAgent, QuestionSource, Storage)
 - **Pydantic frozen models** for data integrity
 - **LiteLLM** for unified LLM interface (core package)
-- **Anthropic SDK** for batch API (conditional-trees, migration TODO)
+- **Anthropic SDK** for batch API (tree-of-life, migration TODO)
 
 ## Testing
 
 ```bash
 uv run pytest                                              # All tests (210 pass)
 uv run pytest packages/llm-forecasting/tests               # Core package only
-uv run pytest packages/conditional-trees/tests             # Trees only
+uv run pytest packages/tree-of-life/tests                  # Trees only
 uv run pytest packages/llm-forecasting/tests --integration # Include integration tests
 ```
 
@@ -73,6 +73,19 @@ class NewSource(QuestionSource):
 
     async def fetch_resolution(self, question: Question) -> Resolution | None:
         ...
+```
+
+## Tree of Life Pipeline
+
+See `packages/tree-of-life/README.md` for full documentation. Key points:
+
+```bash
+# Run pipeline (auto-timestamps output)
+cd packages/tree-of-life
+uv run python run.py
+
+# Resume from failed phase (don't re-run entire pipeline!)
+uv run python run.py --from-phase 3 --input output/forecast_tree_2026-01-12T16-59-00.json
 ```
 
 ## Project Context

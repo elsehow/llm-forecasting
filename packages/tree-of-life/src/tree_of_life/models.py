@@ -218,3 +218,40 @@ class ForecastTree(BaseModel):
                 )
             scenarios.append(s)
         return self.model_copy(update={"global_scenarios": scenarios})
+
+    def signals_ranked_by_voi(
+        self,
+        voi_type: Literal["linear", "entropy"] = "linear",
+    ) -> list[tuple[Signal, float]]:
+        """Rank signals by Value of Information.
+
+        Linear VOI (default) is more stable under magnitude noise,
+        especially for rare events (P < 0.10).
+
+        Args:
+            voi_type: "linear" (default, more stable) or "entropy"
+
+        Returns:
+            List of (Signal, voi_score) tuples, sorted descending by VOI
+        """
+        from .voi import rank_signals_by_voi
+
+        return rank_signals_by_voi(self, voi_type)
+
+    def top_voi_signals(
+        self,
+        n: int = 5,
+        voi_type: Literal["linear", "entropy"] = "linear",
+    ) -> list[tuple[Signal, float]]:
+        """Get top N signals by Value of Information.
+
+        Args:
+            n: Number of top signals to return
+            voi_type: "linear" (default, more stable) or "entropy"
+
+        Returns:
+            List of top N (Signal, voi_score) tuples
+        """
+        from .voi import top_signals_by_voi
+
+        return top_signals_by_voi(self, n, voi_type)

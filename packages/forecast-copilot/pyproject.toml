@@ -5,13 +5,13 @@ description = "User-facing forecasting assistant"
 requires-python = ">=3.11"
 dependencies = [
     "llm-forecasting",
-    "conditional-trees",
+    "tree-of-life",
     "click>=8.0",
 ]
 
 [tool.uv.sources]
 llm-forecasting = { workspace = true }
-conditional-trees = { workspace = true }
+tree-of-life = { workspace = true }
 
 [project.scripts]
 forecast-copilot = "forecast_copilot.cli:main"

@@ -6,8 +6,8 @@ from unittest.mock import patch, AsyncMock
 
 import pytest
 
-from conditional_trees.pipeline import build_forecast_tree, load_questions, save_tree
-from conditional_trees.models import ForecastTree, Question
+from tree_of_life.pipeline import build_forecast_tree, load_questions, save_tree
+from tree_of_life.models import ForecastTree, Question
 
 # Path to package root (parent of tests/)
 PACKAGE_ROOT = Path(__file__).parent.parent
@@ -146,13 +146,13 @@ class TestFullPipeline:
         }
 
         # Patch all LLM calls including Phase 0
-        with patch("conditional_trees.pipeline.fetch_base_rates", return_value=base_rates_response), \
-             patch("conditional_trees.phases.diverge.llm_call_many", return_value=diverge_response), \
-             patch("conditional_trees.phases.converge.llm_call", return_value=converge_response), \
-             patch("conditional_trees.phases.structure.llm_call", return_value=structure_response), \
-             patch("conditional_trees.phases.quantify.llm_call", return_value=quantify_response), \
-             patch("conditional_trees.phases.condition.llm_call_many", return_value=condition_response), \
-             patch("conditional_trees.phases.signals.llm_call_many", return_value=signals_response):
+        with patch("tree_of_life.pipeline.fetch_base_rates", return_value=base_rates_response), \
+             patch("tree_of_life.phases.diverge.llm_call_many", return_value=diverge_response), \
+             patch("tree_of_life.phases.converge.llm_call", return_value=converge_response), \
+             patch("tree_of_life.phases.structure.llm_call", return_value=structure_response), \
+             patch("tree_of_life.phases.quantify.llm_call", return_value=quantify_response), \
+             patch("tree_of_life.phases.condition.llm_call_many", return_value=condition_response), \
+             patch("tree_of_life.phases.signals.llm_call_many", return_value=signals_response):
 
             tree = await build_forecast_tree(questions, verbose=False)
 

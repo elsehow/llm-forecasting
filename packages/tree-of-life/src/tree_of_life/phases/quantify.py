@@ -3,7 +3,7 @@
 import json
 import logging
 
-from conditional_trees.config import MODEL_QUANTIFY
+from tree_of_life.config import MODEL_QUANTIFY
 from ..llm import llm_call
 from ..models import GlobalScenario, Relationship
 from ..probability import (
