@@ -38,8 +38,8 @@ Questions → [0. Base Rates] → Current reference values (via web search)
 Requires [uv](https://docs.astral.sh/uv/) for package management.
 
 ```bash
-# Clone and setup
-cd tree-of-life
+# From repo root
+cd packages/tree-of-life
 uv sync
 
 # Set API key
