@@ -105,6 +105,7 @@
       overflow-y: auto;
       padding: 0.75rem;
       background: var(--bg-primary);
+      min-height: 0; /* Required for overflow scroll in grid children */
     }
 
     .column::-webkit-scrollbar { width: 6px; }
@@ -293,12 +294,14 @@
     .flow-path {
       fill: none;
       stroke: var(--flow-color);
-      transition: all 0.2s ease;
       opacity: 0;
     }
     .flow-path.highlighted {
       stroke: var(--flow-highlight);
       opacity: 1;
+    }
+    .flow-path.dimmed {
+      opacity: 0;
     }
     .flow-path.up { stroke: rgba(22, 163, 74, 0.5); }
     .flow-path.down { stroke: rgba(220, 38, 38, 0.5); }
@@ -495,6 +498,7 @@
         const explorerRect = document.getElementById('explorer').getBoundingClientRect();
         svg.setAttribute('viewBox', `0 0 ${explorerRect.width} ${explorerRect.height}`);
 
+        // Create scenario→outcome paths
         document.querySelectorAll('.scenario-card').forEach(scenarioCard => {
           const scenarioRect = scenarioCard.getBoundingClientRect();
           const scenarioId = scenarioCard.dataset.scenario;
@@ -519,6 +523,7 @@
           });
         });
 
+        // Create signal→scenario paths
         document.querySelectorAll('.signal-card').forEach(driverCard => {
           const driverRect = driverCard.getBoundingClientRect();
           const effects = JSON.parse(driverCard.dataset.effects);
