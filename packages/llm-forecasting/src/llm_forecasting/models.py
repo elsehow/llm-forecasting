@@ -26,6 +26,44 @@ class SourceType(str, Enum):
     DATA = "data"  # Data-based questions (FRED, ACLED, Yahoo Finance, etc.)
 
 
+class Unit(BaseModel):
+    """Unit metadata for formatting question values.
+
+    The type field is a free-form string to allow arbitrary units
+    (e.g., "percent", "usd_trillions", "per_cow_slaughtered").
+    """
+
+    model_config = ConfigDict(frozen=True)
+
+    type: str  # Free-form unit type identifier
+    label: str  # Full label for display (e.g., "US dollars (trillions)")
+    short_label: str  # Compact label (e.g., "$T", "%")
+
+    @classmethod
+    def from_type(cls, unit_type: str) -> "Unit":
+        """Create a Unit with standard label/short_label for common types.
+
+        For unknown types, uses the type string as both labels.
+        """
+        labels = {
+            "percent": ("percent", "%"),
+            "usd": ("US dollars", "$"),
+            "usd_trillions": ("US dollars (trillions)", "$T"),
+            "population": ("people (millions)", "M"),
+            "population_billions": ("people (billions)", "B"),
+            "rate": ("per 1,000", "per 1k"),
+            "years": ("years", "yrs"),
+            "count": ("count", ""),
+            "ratio": ("ratio", "x"),
+        }
+        if unit_type in labels:
+            label, short = labels[unit_type]
+        else:
+            # For custom types, use the type as the label
+            label, short = unit_type, unit_type
+        return cls(type=unit_type, label=label, short_label=short)
+
+
 class Question(BaseModel):
     """A forecasting question from any source."""
 
@@ -61,6 +99,9 @@ class Question(BaseModel):
 
     # Where to look for resolution (for tree questions, distinct from source)
     resolution_source: str | None = None
+
+    # Unit metadata for formatting values in visualization
+    unit: Unit | None = None
 
 
 class Forecast(BaseModel):

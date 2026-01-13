@@ -95,7 +95,7 @@ async def llm_call_sync(
     try:
         response = client.messages.create(
             model=model_id,
-            max_tokens=4096,
+            max_tokens=16384,
             system=system,
             messages=[{"role": "user", "content": user}],
             extra_headers={"anthropic-beta": STRUCTURED_OUTPUTS_BETA},
@@ -150,7 +150,7 @@ def create_batch(requests: list[LLMRequest], model: str = MODEL) -> str:
         logger.debug(f"  Request {i}: custom_id={req.custom_id}")
         params = {
             "model": model_id,
-            "max_tokens": 4096,
+            "max_tokens": 16384,
             "system": req.system,
             "messages": [{"role": "user", "content": req.user}],
         }

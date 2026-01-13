@@ -109,7 +109,8 @@ Questions JSON file:
     "text": "US real GDP in 2040 (2024 dollars)",
     "type": "continuous",
     "resolution_source": "BEA estimate",
-    "domain": "Macro"
+    "domain": "Macro",
+    "unit": { "type": "usd_trillions", "label": "US dollars (trillions)", "short_label": "$T" }
   },
   {
     "id": "taiwan_status_2036",
@@ -122,10 +123,82 @@ Questions JSON file:
     "id": "ai_drugs_2030",
     "text": "Will an AI-designed drug complete Phase III trials by 2030?",
     "type": "binary",
-    "domain": "AI/Biotech"
+    "domain": "AI/Biotech",
+    "unit": { "type": "percent", "label": "percent", "short_label": "%" }
   }
 ]
 ```
+
+### Unit Metadata
+
+Questions can include a `unit` field that specifies how values should be formatted in visualizations. This eliminates the need for display tools to guess units from question text.
+
+```json
+{
+  "unit": {
+    "type": "usd_trillions",
+    "label": "US dollars (trillions)",
+    "short_label": "$T"
+  }
+}
+```
+
+| Field | Description |
+|-------|-------------|
+| `type` | Identifier for the unit type (free-form string) |
+| `label` | Full label for display (e.g., "US dollars (trillions)") |
+| `short_label` | Compact label for charts/tables (e.g., "$T", "%") |
+
+**Common unit types:**
+
+| type | label | short_label | use case |
+|------|-------|-------------|----------|
+| `percent` | "percent" | "%" | rates, probabilities, shares |
+| `usd` | "US dollars" | "$" | absolute dollar amounts |
+| `usd_trillions` | "US dollars (trillions)" | "$T" | GDP, large economic values |
+| `population` | "people (millions)" | "M" | population counts |
+| `population_billions` | "people (billions)" | "B" | world population |
+| `rate` | "per 1,000" | "per 1k" | mortality, birth rates |
+| `years` | "years" | "yrs" | life expectancy, durations |
+| `count` | "count" | "" | discrete counts |
+| `ratio` | "ratio" | "x" | multipliers, convergence ratios |
+
+Custom units are supported - use any string for `type` and provide appropriate `label`/`short_label`:
+
+```json
+{
+  "unit": {
+    "type": "tons_carbon_per_cow",
+    "label": "tons of carbon per cow slaughtered",
+    "short_label": "tC/cow"
+  }
+}
+```
+
+If `unit` is omitted, the pipeline will attempt to infer it from the question text. Explicit specification is recommended for accuracy.
+
+### Value Storage Contract
+
+**Values are stored in display units** so the UI can format with a simple append:
+
+```javascript
+// UI formatting is trivial:
+`${value}${unit.short_label}` → "58$T" for GDP, "9.7B" for population
+```
+
+| unit.type | Values stored as | Example |
+|-----------|------------------|---------|
+| `usd_trillions` | Trillions of USD | GDP of $170T → `170` |
+| `usd` | Raw USD | Cost of $500 → `500` |
+| `population_billions` | Billions of people | 9.4B people → `9.4` |
+| `percent` | Percentage points (0-100) | 15% → `15` |
+| `years` | Years | 76 years → `76` |
+| `rate` | Rate per 1,000 | 34 per 1k → `34` |
+| `count` | Raw count | 34 million → `34000000` |
+
+**Note on `count`:** This is the exception where the UI does smart K/M/B scaling since counts span many orders of magnitude.
+
+Normalization happens automatically when `save_tree()` is called.
 
 Question types:
 - **continuous**: Numeric forecast with median + 80% CI

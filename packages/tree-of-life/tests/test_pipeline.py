@@ -20,8 +20,10 @@ class TestPipelineHelpers:
         """Test loading questions from JSON."""
         questions_path = PACKAGE_ROOT / "examples" / "fri_questions.json"
         questions = load_questions(str(questions_path))
-        assert len(questions) == 10
+        assert len(questions) == 20
         assert all(isinstance(q, Question) for q in questions)
+        # Verify units are loaded
+        assert all(q.unit is not None for q in questions)
 
     def test_save_tree(self, tmp_path, questions, quantified_scenarios, relationships, conditionals, signals, raw_scenarios):
         """Test saving forecast tree to JSON."""

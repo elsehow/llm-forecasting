@@ -9,6 +9,7 @@ from pathlib import Path
 from .config import FORECAST_HORIZON, START_DATE
 from .models import ForecastTree, Question, QuestionType
 from .phases.base_rates import fetch_base_rates, format_base_rates_context
+from .units import infer_unit_from_question, normalize_value, parse_unit_from_dict
 from .phases.condition import condition
 from .phases.converge import converge
 from .phases.diverge import diverge
@@ -145,12 +146,21 @@ def load_questions(path: str | Path) -> list[Question]:
 
     Transforms tree question format (with 'type' field) to core Question format
     (with 'question_type' enum and required 'source' field).
+
+    Units can be specified explicitly in JSON or will be inferred from question text.
     """
     with open(path) as f:
         data = json.load(f)
 
     questions = []
     for q in data:
+        # Handle unit - explicit in JSON or inferred from text
+        unit = None
+        if "unit" in q and q["unit"] is not None:
+            unit = parse_unit_from_dict(q["unit"])
+        else:
+            unit = infer_unit_from_question(q["id"], q["text"])
+
         # Transform tree format to core format
         q_data = {
             "id": q["id"],
@@ -160,6 +170,7 @@ def load_questions(path: str | Path) -> list[Question]:
             "options": q.get("options"),
             "resolution_source": q.get("resolution_source"),
             "domain": q.get("domain"),
+            "unit": unit,
         }
         questions.append(Question(**q_data))
     return questions
@@ -169,7 +180,7 @@ def load_tree(path: str | Path) -> ForecastTree:
     """Load a forecast tree from a JSON file.
 
     Handles format transformation for questions (type -> question_type,
-    adds source field if missing).
+    adds source field if missing). Preserves or infers units.
     """
     with open(path) as f:
         data = json.load(f)
@@ -178,6 +189,13 @@ def load_tree(path: str | Path) -> ForecastTree:
     if "questions" in data:
         transformed_questions = []
         for q in data["questions"]:
+            # Handle unit - explicit in JSON or inferred from text
+            unit = None
+            if "unit" in q and q["unit"] is not None:
+                unit = parse_unit_from_dict(q["unit"])
+            else:
+                unit = infer_unit_from_question(q["id"], q["text"])
+
             q_data = {
                 "id": q["id"],
                 "text": q["text"],
@@ -186,6 +204,7 @@ def load_tree(path: str | Path) -> ForecastTree:
                 "options": q.get("options"),
                 "resolution_source": q.get("resolution_source"),
                 "domain": q.get("domain"),
+                "unit": unit,
             }
             transformed_questions.append(Question(**q_data))
         data["questions"] = transformed_questions
@@ -198,10 +217,30 @@ def save_tree(tree: ForecastTree, path: str | Path) -> None:
 
     Hydrates upstream_scenarios from relationships before saving,
     so the serialized JSON includes derived causal dependencies.
+    Normalizes conditional values to display units.
     """
     hydrated = tree.hydrate_upstream()
+    data = hydrated.model_dump(mode="json")
+
+    # Build question_id -> unit_type lookup
+    question_units = {}
+    for q in data.get("questions", []):
+        if q.get("unit"):
+            question_units[q["id"]] = q["unit"]["type"]
+
+    # Normalize continuous forecast values to display units
+    for c in data.get("conditionals", []):
+        unit_type = question_units.get(c.get("question_id"))
+        if not unit_type:
+            continue
+
+        # Normalize numeric fields in continuous forecasts
+        for field in ["median", "ci_80_low", "ci_80_high"]:
+            if field in c and c[field] is not None:
+                c[field] = normalize_value(c[field], unit_type)
+
     with open(path, "w") as f:
-        f.write(hydrated.model_dump_json(indent=2))
+        json.dump(data, f, indent=2)
 
 
 async def resume_from_phase(

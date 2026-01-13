@@ -1,73 +1,162 @@
 [
   {
-    "id": "us_gdp_2040",
-    "text": "US real GDP in 2040 (2024 dollars)",
+    "id": "us_real_gdp_2050",
+    "text": "US real GDP in 2050",
     "type": "continuous",
-    "resolution_source": "BEA estimate (2024 dollars), Q4 2040",
-    "domain": "Macro"
+    "resolution_source": "BEA",
+    "domain": "Macro",
+    "unit": { "type": "usd_trillions", "label": "US dollars (trillions)", "short_label": "$T" }
   },
   {
-    "id": "labor_share_2035",
-    "text": "Labor share of US GDP, 2035",
+    "id": "global_real_gdp_2050",
+    "text": "Global real GDP in 2050",
     "type": "continuous",
-    "resolution_source": "BEA National Income Accounts",
-    "domain": "AI/Labor"
+    "resolution_source": "World Bank / IMF",
+    "domain": "Macro",
+    "unit": { "type": "usd_trillions", "label": "US dollars (trillions)", "short_label": "$T" }
   },
   {
-    "id": "taiwan_status_2036",
-    "text": "Taiwan governance status on Jan 1, 2036",
-    "type": "categorical",
-    "options": ["Self-governing", "PRC-administered", "Under blockade", "Active conflict"],
-    "resolution_source": "Observed governance status",
-    "domain": "Geopolitics"
+    "id": "world_population_2050",
+    "text": "World population in 2050",
+    "type": "continuous",
+    "resolution_source": "UN World Population",
+    "domain": "Demographics",
+    "unit": { "type": "population_billions", "label": "people (billions)", "short_label": "B" }
   },
   {
-    "id": "working_age_pop_2040",
-    "text": "Global working-age population (15-64), 2040",
+    "id": "global_poverty_2050",
+    "text": "What percentage of the world's population lives in extreme poverty by 2050 (using the international <$2.15/day poverty line)?",
     "type": "continuous",
-    "resolution_source": "UN World Population Prospects",
-    "domain": "Demographics"
+    "resolution_source": "World Bank",
+    "domain": "Development",
+    "unit": { "type": "percent", "label": "percent", "short_label": "%" }
   },
   {
-    "id": "free_countries_2035",
-    "text": "Number of countries rated 'Free' by Freedom House, 2035",
+    "id": "catastrophe_10pct_2050",
+    "text": "Probability a catastrophe leads to the death of at least 10% of the world population within a five year period by 2050 (XPT definitions)",
     "type": "continuous",
-    "resolution_source": "Freedom House Freedom in the World Index",
-    "domain": "Global democracy"
+    "resolution_source": null,
+    "domain": "Existential Risk",
+    "unit": { "type": "percent", "label": "percent", "short_label": "%" }
   },
   {
-    "id": "natcat_losses_2035",
-    "text": "Annual insured losses from natural catastrophes, 2035 (USD)",
+    "id": "catastrophe_10pct_ai_2050",
+    "text": "Probability of a catastrophe (10%+ world population death) caused by AI by 2050",
     "type": "continuous",
-    "resolution_source": "Swiss Re sigma; Munich Re NatCatSERVICE",
-    "domain": "Climate"
+    "resolution_source": null,
+    "domain": "Existential Risk",
+    "unit": { "type": "percent", "label": "percent", "short_label": "%" }
   },
   {
-    "id": "treasury_yield_2035",
-    "text": "US 10-year Treasury yield, Dec 2035",
+    "id": "catastrophe_10pct_nuclear_2050",
+    "text": "Probability of a catastrophe (10%+ world population death) caused by nuclear weapon use by 2050",
     "type": "continuous",
-    "resolution_source": "US Treasury",
-    "domain": "Financial system"
+    "resolution_source": null,
+    "domain": "Existential Risk",
+    "unit": { "type": "percent", "label": "percent", "short_label": "%" }
   },
   {
-    "id": "us_china_tension_2036",
-    "text": "US-China Tension Index value, Jan 1, 2036",
+    "id": "catastrophe_10pct_bioweapon_2050",
+    "text": "Probability of a catastrophe (10%+ world population death) caused by bioweapon use by 2050",
     "type": "continuous",
-    "resolution_source": "Policy Uncertainty UCT Index",
-    "domain": "Geopolitics"
+    "resolution_source": null,
+    "domain": "Existential Risk",
+    "unit": { "type": "percent", "label": "percent", "short_label": "%" }
   },
   {
-    "id": "ai_drugs_2030",
-    "text": "FDA-approved drugs discovered with AI-primary methods, cumulative through 2030",
+    "id": "catastrophe_10pct_other_anthropogenic_2050",
+    "text": "Probability of a catastrophe (10%+ world population death) caused by other anthropogenic sources (non-AI/bioweapon/nuclear) by 2050",
     "type": "continuous",
-    "resolution_source": "FDA approval database + methodology disclosure",
-    "domain": "AI/Science"
+    "resolution_source": null,
+    "domain": "Existential Risk",
+    "unit": { "type": "percent", "label": "percent", "short_label": "%" }
   },
   {
-    "id": "pandemic_deaths_peak",
-    "text": "Largest single-year pandemic death toll, 2025-2040",
+    "id": "catastrophe_10pct_non_anthropogenic_2050",
+    "text": "Probability of a catastrophe (10%+ world population death) caused by non-anthropogenic sources by 2050",
     "type": "continuous",
-    "resolution_source": "WHO data",
-    "domain": "Biosecurity"
+    "resolution_source": null,
+    "domain": "Existential Risk",
+    "unit": { "type": "percent", "label": "percent", "short_label": "%" }
+  },
+  {
+    "id": "global_life_expectancy_2050",
+    "text": "Global life expectancy at birth in 2050",
+    "type": "continuous",
+    "resolution_source": "WHO Global Health Estimates",
+    "domain": "Health",
+    "unit": { "type": "years", "label": "years", "short_label": "yrs" }
+  },
+  {
+    "id": "free_democracies_share_2050",
+    "text": "Proportion of the global population living in free democracies (Freedom House) in 2050",
+    "type": "continuous",
+    "resolution_source": "Freedom House / V-Dem",
+    "domain": "Governance",
+    "unit": { "type": "percent", "label": "percent", "short_label": "%" }
+  },
+  {
+    "id": "armed_conflict_deaths_2040_2050",
+    "text": "Number of people killed in armed conflict between 2040 and 2050",
+    "type": "continuous",
+    "resolution_source": "UCDP Battle-Related Deaths Dataset",
+    "domain": "Conflict",
+    "unit": { "type": "count", "label": "people", "short_label": "" }
+  },
+  {
+    "id": "wealth_concentration_2050",
+    "text": "Proportion of global wealth controlled by the wealthiest 1,000 households in 2050",
+    "type": "continuous",
+    "resolution_source": "Wealth-X / Oxfam",
+    "domain": "Inequality",
+    "unit": { "type": "percent", "label": "percent", "short_label": "%" }
+  },
+  {
+    "id": "us_labor_force_participation_2050",
+    "text": "U.S. labor force participation rate in 2050",
+    "type": "continuous",
+    "resolution_source": "BLS",
+    "domain": "Labor",
+    "unit": { "type": "percent", "label": "percent", "short_label": "%" }
+  },
+  {
+    "id": "childhood_mortality_2050",
+    "text": "Childhood (under-5) mortality rate in 2050",
+    "type": "continuous",
+    "resolution_source": "UN / WHO",
+    "domain": "Health",
+    "unit": { "type": "rate", "label": "per 1,000 live births", "short_label": "per 1k" }
+  },
+  {
+    "id": "global_labor_share_2050",
+    "text": "Global labor share in 2050",
+    "type": "continuous",
+    "resolution_source": null,
+    "domain": "Macro",
+    "unit": { "type": "percent", "label": "percent", "short_label": "%" }
+  },
+  {
+    "id": "renewable_energy_share_2050",
+    "text": "Global energy share from renewable sources in 2050",
+    "type": "continuous",
+    "resolution_source": "IEA",
+    "domain": "Energy",
+    "unit": { "type": "percent", "label": "percent", "short_label": "%" }
+  },
+  {
+    "id": "genome_sequencing_cost_2050",
+    "text": "Cost of sequencing a human genome in 2050",
+    "type": "continuous",
+    "resolution_source": null,
+    "domain": "Biotech",
+    "unit": { "type": "usd", "label": "US dollars", "short_label": "$" }
+  },
+  {
+    "id": "space_gdp_share_2050",
+    "text": "Proportion of global GDP from space-based capital in 2050",
+    "type": "continuous",
+    "resolution_source": null,
+    "domain": "Macro",
+    "unit": { "type": "percent", "label": "percent", "short_label": "%" }
   }
 ]
