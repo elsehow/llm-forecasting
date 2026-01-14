@@ -1,0 +1,1541 @@
+{
+  "summary": {
+    "baseline": {
+      "n": 40,
+      "mae": 0.2996794462822149,
+      "median_error": 0.30444878220487126,
+      "std_error": 0.20279520878897317
+    },
+    "few_shot": {
+      "n": 40,
+      "mae": 0.2980244649021404,
+      "median_error": 0.30444878220487126,
+      "std_error": 0.21120055783356897
+    },
+    "improvement": "0.6%"
+  },
+  "baseline_results": [
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x940e3bb0526e2f9334fd2b8b13efc971138d6c755923096e648d55dc68b398d7",
+          "question": "Canucks vs. Senators"
+        },
+        "market_b": {
+          "condition_id": "0xbfcc34365517ac4978e76ecd8287e37fd92e68b22a3db9b31129c5c37669c293",
+          "question": "Will the Fed Cut\u2013Cut\u2013Cut in the next three decisions (Oct\u2013Dec\u2013Jan)?"
+        },
+        "rho": -0.0495,
+        "pval": 0.8183,
+        "bucket": "independent",
+        "n_observations": 25
+      },
+      "predicted": 0.5,
+      "expected": 0.450500197999208,
+      "error": 0.049499802000792015
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xed888eb64bffa457086fb5904e9b2046da9aa31c5db36e9d4a303efa7e850d76",
+          "question": "Will Lu\u00eds Marques Mendes win the 2026 Portugal presidential election?"
+        },
+        "market_b": {
+          "condition_id": "0x63d8f3a34c90bd5342dda8acf62b6a898dfa52f86475efaf180b66493ef6af80",
+          "question": "Will Jair Bolsonaro win the 2026 Brazilian presidential election?"
+        },
+        "rho": 0.0518,
+        "pval": 0.782,
+        "bucket": "independent",
+        "n_observations": 32
+      },
+      "predicted": 0.5,
+      "expected": 0.5517997928008288,
+      "error": 0.0517997928008288
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x61ce3773237a948584e422de72265f937034af418a8b703e3a860ea62e59ff36",
+          "question": "Will the Iranian regime fall by March 31?"
+        },
+        "market_b": {
+          "condition_id": "0xa0eafdfa7da17483796f77f4b287d28834ab97db4a9a6e999b52c1ba239bc2f3",
+          "question": "Will the Seattle Seahawks win Super Bowl 2026?"
+        },
+        "rho": -0.0158,
+        "pval": 0.9572,
+        "bucket": "independent",
+        "n_observations": 15
+      },
+      "predicted": 0.5,
+      "expected": 0.4842000631997472,
+      "error": 0.015799936800252823
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x17a2466c34d9a93dbef8bda91bc56005b4162666901df319bcddb063d6bd8991",
+          "question": "Will Bitcoin dip to $80,000 in January?"
+        },
+        "market_b": {
+          "condition_id": "0x6acea3596be0a8126e8658d39ecc1ac44bee1246c162e51a8062b380bcf147c2",
+          "question": "Will the U.S. collect less than $100b in revenue in 2025?"
+        },
+        "rho": -0.0018,
+        "pval": 0.996,
+        "bucket": "independent",
+        "n_observations": 11
+      },
+      "predicted": 0.65,
+      "expected": 0.4982000071999712,
+      "error": 0.15179999280002882
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xf2e51acfbb6d0414dc2ace81b7dc2af7c165e443dcb91f6caa7aab6d6ab4f06d",
+          "question": "Will Chelsea Clinton win the 2028 Democratic presidential nomination?"
+        },
+        "market_b": {
+          "condition_id": "0x68e3c4e0dd8f82d010060032006fd157401b0bd8e04bd2953ae293e31eb99bf6",
+          "question": "Will Elon Musk win the 2028 US Presidential Election?"
+        },
+        "rho": -0.0271,
+        "pval": 0.9097,
+        "bucket": "independent",
+        "n_observations": 21
+      },
+      "predicted": 0.15,
+      "expected": 0.4729001083995664,
+      "error": 0.3229001083995664
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xede5bd35327ea3d3c4ec164df7dd85de41a6c7de5419457281b6ad2d98d15086",
+          "question": "Will Newcastle win the 2025\u201326 English Premier League?"
+        },
+        "market_b": {
+          "condition_id": "0xb3298af85e00aafad937c119444a5f2800a55343b7482eb75581f6e454432501",
+          "question": "Will Kamala Harris win the 2028 US Presidential Election?"
+        },
+        "rho": 0.0519,
+        "pval": 0.8433,
+        "bucket": "independent",
+        "n_observations": 18
+      },
+      "predicted": 0.5,
+      "expected": 0.5518997924008304,
+      "error": 0.051899792400830425
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xe844e12246d8504b8ec30c1d461718dbc9645fb73487ca50e5e716eefbb2bc63",
+          "question": "Will Trump nominate Arthur Laffer as the next Fed chair?"
+        },
+        "market_b": {
+          "condition_id": "0x9cd77217b2ab264fe4f6d302f662c0a91f349fe5798f1f98d70bb2311712791b",
+          "question": "Will Tulsi Gabbard win the 2028 Republican presidential nomination?"
+        },
+        "rho": -0.0199,
+        "pval": 0.9005,
+        "bucket": "independent",
+        "n_observations": 43
+      },
+      "predicted": 0.52,
+      "expected": 0.4801000795996816,
+      "error": 0.03989992040031842
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xb8c1bd306a8a4cedfb280e114e655c5092b3f37edccae05cd877d7f21a5774ce",
+          "question": "Russia x Ukraine ceasefire by January 31, 2026?"
+        },
+        "market_b": {
+          "condition_id": "0x4405c62496c4fdd275d17ec31567a01534013c518c314ce61bb633b5e7cb6426",
+          "question": "Will the Toronto Raptors win the 2026 NBA Finals?"
+        },
+        "rho": 0.0292,
+        "pval": 0.8599,
+        "bucket": "independent",
+        "n_observations": 40
+      },
+      "predicted": 0.5,
+      "expected": 0.5291998832004672,
+      "error": 0.02919988320046718
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xed888eb64bffa457086fb5904e9b2046da9aa31c5db36e9d4a303efa7e850d76",
+          "question": "Will Lu\u00eds Marques Mendes win the 2026 Portugal presidential election?"
+        },
+        "market_b": {
+          "condition_id": "0x705371444684d676041d1010a94cae3a657340fa4809b4307de3c173a35e0957",
+          "question": "Will Trump nominate Christopher Waller as the next Fed chair?"
+        },
+        "rho": 0.0757,
+        "pval": 0.59,
+        "bucket": "independent",
+        "n_observations": 54
+      },
+      "predicted": 0.5,
+      "expected": 0.5756996972012112,
+      "error": 0.07569969720121117
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x41c6341dd79903aca4bb0c29f5a7976946c3774d2fd72f38cbb7de7092144520",
+          "question": "Will Mike Pence win the 2028 Republican presidential nomination?"
+        },
+        "market_b": {
+          "condition_id": "0x257b18205f908aef01ef2d1d50e6fea7d29cf5486fe04031d8b101394476faed",
+          "question": "Will there be no change in Fed interest rates after the March 2026 meeting?"
+        },
+        "rho": 0.0413,
+        "pval": 0.8283,
+        "bucket": "independent",
+        "n_observations": 31
+      },
+      "predicted": 0.5,
+      "expected": 0.5412998348006608,
+      "error": 0.041299834800660795
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x1970bcce75e3674660917ae4685b433a9b1e0152d810a8d7c346dfd5e00694c2",
+          "question": "Will Cory Booker win the 2028 Democratic presidential nomination?"
+        },
+        "market_b": {
+          "condition_id": "0xf9d58b904a94f0431d5bee7070650a305566927b3f7bf00f8529e20c9a99a6d4",
+          "question": "Will Atalanta win the 2025\u201326 Champions League?"
+        },
+        "rho": 0.2473,
+        "pval": 0.3742,
+        "bucket": "weak",
+        "n_observations": 16
+      },
+      "predicted": 0.5,
+      "expected": 0.7472990108039568,
+      "error": 0.24729901080395678
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x35cc41270f5cdfd59b45e68ab85dc51b0b900d286a6c74ea006b8572d9ff5934",
+          "question": "Fed decreases interest rates by 25 bps after January 2026 meeting?"
+        },
+        "market_b": {
+          "condition_id": "0xe371bb4a38f3714fc1ef7a8ecdaca8a8005aecead9ec95eb5ed8184ca55a94d7",
+          "question": "Will Slavia Pragu win the 2025\u201326 Champions League?"
+        },
+        "rho": 0.1284,
+        "pval": 0.4912,
+        "bucket": "weak",
+        "n_observations": 32
+      },
+      "predicted": 0.5,
+      "expected": 0.6283994864020543,
+      "error": 0.12839948640205434
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xdb1ae961e30733e7857ebb425b5f6449fa8032de13f32c1c6e447a0c3801ca04",
+          "question": "Will Trump nominate Scott Bessent as the next Fed chair?"
+        },
+        "market_b": {
+          "condition_id": "0xe371bb4a38f3714fc1ef7a8ecdaca8a8005aecead9ec95eb5ed8184ca55a94d7",
+          "question": "Will Slavia Pragu win the 2025\u201326 Champions League?"
+        },
+        "rho": -0.115,
+        "pval": 0.474,
+        "bucket": "weak",
+        "n_observations": 42
+      },
+      "predicted": 0.5,
+      "expected": 0.38500045999816,
+      "error": 0.11499954000183998
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xaeea5f917fc5746387b5f9c0a4263dba035dbb3f0ac6ad72bf92183d21e26739",
+          "question": "Russia x Ukraine ceasefire by end of 2026?"
+        },
+        "market_b": {
+          "condition_id": "0x4f1f6b8c58e86aeeda05b9fdf46daa8a055cf858ef3dfb382779aa5244c7dce2",
+          "question": "Will Lu\u00eds Marques Mendes qualify for the second round of the 2026 Portugal presidential election?"
+        },
+        "rho": 0.1069,
+        "pval": 0.5004,
+        "bucket": "weak",
+        "n_observations": 43
+      },
+      "predicted": 0.5,
+      "expected": 0.6068995724017104,
+      "error": 0.10689957240171044
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x72b25fe7b05903658eea56ffd995dc4f0f252d49d6a9a202bac103dd29ab2ba5",
+          "question": "Will Sarah Knafo win the Paris mayor election?"
+        },
+        "market_b": {
+          "condition_id": "0x63d8f3a34c90bd5342dda8acf62b6a898dfa52f86475efaf180b66493ef6af80",
+          "question": "Will Jair Bolsonaro win the 2026 Brazilian presidential election?"
+        },
+        "rho": -0.2384,
+        "pval": 0.213,
+        "bucket": "weak",
+        "n_observations": 30
+      },
+      "predicted": 0.5,
+      "expected": 0.2616009535961856,
+      "error": 0.23839904640381437
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x00ad3bb5284b0b2314b1a2d42812fe292f606619c6278bd95c9d905816c240f6",
+          "question": "Will Sarah Huckabee Sanders win the 2028 Republican presidential nomination?"
+        },
+        "market_b": {
+          "condition_id": "0xdd926c00d4bfddfc9051c380151f77509d3eef2e7bef20f8d3aec9cbd50e7586",
+          "question": "Will Juventus win the 2025\u201326 Champions League?"
+        },
+        "rho": 0.1651,
+        "pval": 0.4409,
+        "bucket": "weak",
+        "n_observations": 25
+      },
+      "predicted": 0.5,
+      "expected": 0.6650993396026417,
+      "error": 0.16509933960264167
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x29635b9089e6c26fdb8ac7eb57bfe2ce1e97ebea54ed4b950ba1524e3cc31c8c",
+          "question": "Will the San Francisco 49ers win Super Bowl 2026?"
+        },
+        "market_b": {
+          "condition_id": "0x3265b10daeb30dbcc3214bd02e488551d0a5d3028392f4152e4750b943fbfc91",
+          "question": "Will Tim Walz win the 2028 Democratic presidential nomination?"
+        },
+        "rho": 0.2334,
+        "pval": 0.1229,
+        "bucket": "weak",
+        "n_observations": 46
+      },
+      "predicted": 0.5,
+      "expected": 0.7333990664037344,
+      "error": 0.23339906640373442
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x4f3421fb2daf5cca7430ed8d8132463963081572d75434393a1808fdb8829fe8",
+          "question": "Will Portugal win the 2026 FIFA World Cup?"
+        },
+        "market_b": {
+          "condition_id": "0x7338d9dea0de820ed621abdff3de2d4b07a573bc0c1a6f7128941f4d0c5606e3",
+          "question": "Will the Orlando Magic win the 2026 NBA Finals?"
+        },
+        "rho": 0.1808,
+        "pval": 0.5028,
+        "bucket": "weak",
+        "n_observations": 17
+      },
+      "predicted": 0.5,
+      "expected": 0.6807992768028928,
+      "error": 0.18079927680289276
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xe202539dfbeced92dc4112f134a205c80ca6cf4db32bd82f05b291c297219fd8",
+          "question": "Will the Detroit Pistons win the 2026 NBA Finals?"
+        },
+        "market_b": {
+          "condition_id": "0x48b0b0bca515f68fccf95af4793dbd0edbfec1f8ec6e8df2c0f69ba74f8c4722",
+          "question": "Trump out as President before 2027?"
+        },
+        "rho": 0.1375,
+        "pval": 0.3733,
+        "bucket": "weak",
+        "n_observations": 45
+      },
+      "predicted": 0.5,
+      "expected": 0.6374994500022,
+      "error": 0.13749945000219999
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x28f1e9218bcd41ced05faf3c03f026721d87712556bf2828337551f03cae0a01",
+          "question": "Israel strikes Iran by March 31, 2026?"
+        },
+        "market_b": {
+          "condition_id": "0x3e218c99a1335641b3a5ee6c887521d19b0c28fddd6b99c254a07968e35c0b1b",
+          "question": "Will Michelle Obama win the 2028 Democratic presidential nomination?"
+        },
+        "rho": -0.2485,
+        "pval": 0.138,
+        "bucket": "weak",
+        "n_observations": 38
+      },
+      "predicted": 0.52,
+      "expected": 0.251500993996024,
+      "error": 0.268499006003976
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xe90b27f08082e17740308fdc957528d29a3f334a9ecaeefd056a3427a4cfdaaf",
+          "question": "Will Jo\u00e3o Cotrim Figueiredo win the 2026 Portugal presidential election?"
+        },
+        "market_b": {
+          "condition_id": "0x42631e1a8c8e6389422b58b8e15b1b551892b9833651aa3bab25afab124354b5",
+          "question": "Will Brian Kemp win the 2028 Republican presidential nomination?"
+        },
+        "rho": -0.3357,
+        "pval": 0.3772,
+        "bucket": "moderate",
+        "n_observations": 10
+      },
+      "predicted": 0.5,
+      "expected": 0.16430134279462877,
+      "error": 0.33569865720537123
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xfbb80ea5f8fc02ee7df8bd4f58790e1d04b874078a49a7b7028a74a2075100c9",
+          "question": "Will Elon Musk win the 2028 Republican presidential nomination?"
+        },
+        "market_b": {
+          "condition_id": "0x61ce3773237a948584e422de72265f937034af418a8b703e3a860ea62e59ff36",
+          "question": "Will the Iranian regime fall by March 31?"
+        },
+        "rho": -0.3778,
+        "pval": 0.083,
+        "bucket": "moderate",
+        "n_observations": 23
+      },
+      "predicted": 0.52,
+      "expected": 0.12220151119395517,
+      "error": 0.39779848880604485
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xb1d2cd56624ec8bb3d8115d50d503d0e8578bf32d754ad5fe3c0e08a73186c57",
+          "question": "Supreme Court rules in favor of Trump's tariffs?"
+        },
+        "market_b": {
+          "condition_id": "0xa179267e7ead3f4fdbb7d799b3d253b25a272329f643734995d83a8d633e8053",
+          "question": "Will Olympique de Marseille win on 2026-01-13?"
+        },
+        "rho": 0.3066,
+        "pval": 0.4224,
+        "bucket": "moderate",
+        "n_observations": 10
+      },
+      "predicted": 0.5,
+      "expected": 0.8065987736049056,
+      "error": 0.3065987736049056
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xbaf7780f9059e34b84301fd411f8dc573b4d56adfe6e0cda33daf304b1438da4",
+          "question": "Will Ecuador win the 2026 FIFA World Cup?"
+        },
+        "market_b": {
+          "condition_id": "0x649ad05a2868343271fe82ea692031d567ca1af652e3529788933157e94aa088",
+          "question": "Will the Minnesota Timberwolves win the 2026 NBA Finals?"
+        },
+        "rho": 0.3849,
+        "pval": 0.2721,
+        "bucket": "moderate",
+        "n_observations": 11
+      },
+      "predicted": 0.5,
+      "expected": 0.8848984604061585,
+      "error": 0.3848984604061585
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x0f49db97f71c68b1e42a6d16e3de93d85dbf7d4148e3f018eb79e88554be9f75",
+          "question": "Will Gavin Newsom win the 2028 Democratic presidential nomination?"
+        },
+        "market_b": {
+          "condition_id": "0xa1f08ec3bcc1434cb0b695bd5ee9f81268ef45fb73f752b3a1c1fb1d35750866",
+          "question": "Will Real Madrid win the 2025\u201326 La Liga?"
+        },
+        "rho": 0.454,
+        "pval": 0.1875,
+        "bucket": "moderate",
+        "n_observations": 11
+      },
+      "predicted": 0.5,
+      "expected": 0.953998184007264,
+      "error": 0.453998184007264
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xb203c39cc9099c3dc19e7bc7de977ca6e11716a6556e58a3350e97f135515629",
+          "question": "Will XRP reach $3.20 in January?"
+        },
+        "market_b": {
+          "condition_id": "0x70187b4770796788b9d1f3fc6652c596870a9a837b96c832441652588f26029d",
+          "question": "Will Mar\u00eda Corina Machado be the leader of Venezuela end of 2026?"
+        },
+        "rho": -0.4036,
+        "pval": 0.2814,
+        "bucket": "moderate",
+        "n_observations": 10
+      },
+      "predicted": 0.5,
+      "expected": 0.09640161439354239,
+      "error": 0.4035983856064576
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x0e34be3ee9cb4203fae20b289dfc9a9370f0045ab3fb2e1fa4e6fb82596c678f",
+          "question": "Will the Rams win the NFC Championship?"
+        },
+        "market_b": {
+          "condition_id": "0x91720563534d7ba1ea55eada72c6d1063b4b773e46befea288a7dcfdcae7da25",
+          "question": "Will Arthur Fils win the 2026 Australian Open?"
+        },
+        "rho": 0.4632,
+        "pval": 0.0458,
+        "bucket": "moderate",
+        "n_observations": 20
+      },
+      "predicted": 0.5,
+      "expected": 0.9631981472074111,
+      "error": 0.46319814720741115
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x4405c62496c4fdd275d17ec31567a01534013c518c314ce61bb633b5e7cb6426",
+          "question": "Will the Toronto Raptors win the 2026 NBA Finals?"
+        },
+        "market_b": {
+          "condition_id": "0x42631e1a8c8e6389422b58b8e15b1b551892b9833651aa3bab25afab124354b5",
+          "question": "Will Brian Kemp win the 2028 Republican presidential nomination?"
+        },
+        "rho": 0.398,
+        "pval": 0.2546,
+        "bucket": "moderate",
+        "n_observations": 11
+      },
+      "predicted": 0.5,
+      "expected": 0.8979984080063681,
+      "error": 0.3979984080063681
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xf8dbde8b6e038775a673947e59da2de15a2127272b50b9877400fdbf7cfc3026",
+          "question": "Will Tom Brady win the 2028 Republican presidential nomination?"
+        },
+        "market_b": {
+          "condition_id": "0x28f1e9218bcd41ced05faf3c03f026721d87712556bf2828337551f03cae0a01",
+          "question": "Israel strikes Iran by March 31, 2026?"
+        },
+        "rho": -0.5092,
+        "pval": 0.1615,
+        "bucket": "moderate",
+        "n_observations": 10
+      },
+      "predicted": 0.5,
+      "expected": 0.01,
+      "error": 0.49
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xbe87f132c20d1d9baf073e9e203e338f068d9613ec2bb3ca1bc078b41f2aebbc",
+          "question": "Will Manchester City FC win on 2026-01-13?"
+        },
+        "market_b": {
+          "condition_id": "0x68e3c4e0dd8f82d010060032006fd157401b0bd8e04bd2953ae293e31eb99bf6",
+          "question": "Will Elon Musk win the 2028 US Presidential Election?"
+        },
+        "rho": 0.3023,
+        "pval": 0.3662,
+        "bucket": "moderate",
+        "n_observations": 12
+      },
+      "predicted": 0.5,
+      "expected": 0.8022987908048369,
+      "error": 0.3022987908048369
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xed888eb64bffa457086fb5904e9b2046da9aa31c5db36e9d4a303efa7e850d76",
+          "question": "Will Lu\u00eds Marques Mendes win the 2026 Portugal presidential election?"
+        },
+        "market_b": {
+          "condition_id": "0x8fc141205ebce5adf437bfdf4d0c5ff58ff24293b79c9431991346c208bb48ed",
+          "question": "Will Tulsi Gabbard win the 2028 US Presidential Election?"
+        },
+        "rho": NaN,
+        "pval": NaN,
+        "bucket": "strong",
+        "n_observations": 53
+      },
+      "predicted": 0.5,
+      "expected": 0.99,
+      "error": 0.49
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x836b850fc838195374862551a36f1c8691d96ff01e58b0a071f0fc1a0e357fb1",
+          "question": "Will LeBron James win the 2028 US Presidential Election?"
+        },
+        "market_b": {
+          "condition_id": "0x46d40e851b24d9b0af4bc1942ccd86439cae82a9011767da14950df0ad997adf",
+          "question": "Will Trump nominate Judy Shelton as the next Fed chair?"
+        },
+        "rho": NaN,
+        "pval": NaN,
+        "bucket": "strong",
+        "n_observations": 56
+      },
+      "predicted": 0.5,
+      "expected": 0.99,
+      "error": 0.49
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x298157e618b5729dafd742eec9b21e040a13da0bb09ff1fa4492360c347e3824",
+          "question": "Will the Utah Jazz win the 2026 NBA Finals?"
+        },
+        "market_b": {
+          "condition_id": "0x29283b56d3eec6d1d89fff51793d9d2e01579d2379b1d3e9ebda175d3561e809",
+          "question": "Will Phil Murphy win the 2028 Democratic presidential nomination?"
+        },
+        "rho": NaN,
+        "pval": NaN,
+        "bucket": "strong",
+        "n_observations": 15
+      },
+      "predicted": 0.5,
+      "expected": 0.99,
+      "error": 0.49
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xfbb80ea5f8fc02ee7df8bd4f58790e1d04b874078a49a7b7028a74a2075100c9",
+          "question": "Will Elon Musk win the 2028 Republican presidential nomination?"
+        },
+        "market_b": {
+          "condition_id": "0xb203c39cc9099c3dc19e7bc7de977ca6e11716a6556e58a3350e97f135515629",
+          "question": "Will XRP reach $3.20 in January?"
+        },
+        "rho": -0.8828,
+        "pval": 0.0007,
+        "bucket": "strong",
+        "n_observations": 11
+      },
+      "predicted": 0.5,
+      "expected": 0.01,
+      "error": 0.49
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x8b203037c7c0e21b500314f8398d2a8ea294b7ce1f4f9185f426425a3505bc45",
+          "question": "Will LeBron James win the 2028 Democratic presidential nomination?"
+        },
+        "market_b": {
+          "condition_id": "0x94947a23e965124fa382e3ff89827b7bb00c2e2f3f9c0b92137e639d4cbfb080",
+          "question": "Will Trump nominate Stephen Miran as the next Fed chair?"
+        },
+        "rho": NaN,
+        "pval": NaN,
+        "bucket": "strong",
+        "n_observations": 26
+      },
+      "predicted": 0.5,
+      "expected": 0.99,
+      "error": 0.49
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x8b203037c7c0e21b500314f8398d2a8ea294b7ce1f4f9185f426425a3505bc45",
+          "question": "Will LeBron James win the 2028 Democratic presidential nomination?"
+        },
+        "market_b": {
+          "condition_id": "0xcb06319aa9e029904c93c1df7d10b7ce7d6aab2b25b8f661e0cf57ea048a1567",
+          "question": "Will Atletico Madrid win the 2025\u201326 Champions League?"
+        },
+        "rho": NaN,
+        "pval": NaN,
+        "bucket": "strong",
+        "n_observations": 46
+      },
+      "predicted": 0.5,
+      "expected": 0.99,
+      "error": 0.49
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x8fc141205ebce5adf437bfdf4d0c5ff58ff24293b79c9431991346c208bb48ed",
+          "question": "Will Tulsi Gabbard win the 2028 US Presidential Election?"
+        },
+        "market_b": {
+          "condition_id": "0xbc2d59e8ea0378f0851c86e84d250e80a5698874db52c13798053841f291dc28",
+          "question": "Will the Sacramento Kings win the 2026 NBA Finals?"
+        },
+        "rho": NaN,
+        "pval": NaN,
+        "bucket": "strong",
+        "n_observations": 19
+      },
+      "predicted": 0.5,
+      "expected": 0.99,
+      "error": 0.49
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xfee4b6988b9513dab72118c97abeb4369f0d9a7c2290337ca5d5c2f116a148c2",
+          "question": "Will Trump nominate Ron Paul as the next Fed chair?"
+        },
+        "market_b": {
+          "condition_id": "0xd947403a5eae117d6fe0bf737f2d279c89dddc495dc7d2eb198accd1ecd07cc9",
+          "question": "Will Microsoft be the largest company in the world by market cap on January 31?"
+        },
+        "rho": NaN,
+        "pval": NaN,
+        "bucket": "strong",
+        "n_observations": 20
+      },
+      "predicted": 0.5,
+      "expected": 0.99,
+      "error": 0.49
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x940e3bb0526e2f9334fd2b8b13efc971138d6c755923096e648d55dc68b398d7",
+          "question": "Canucks vs. Senators"
+        },
+        "market_b": {
+          "condition_id": "0x64396449b471b10b006285fa49dd9a5df535694de7b4c703fdeb0d88d5c4cd33",
+          "question": "Will Vivek Ramaswamy win the 2028 US Presidential Election?"
+        },
+        "rho": NaN,
+        "pval": NaN,
+        "bucket": "strong",
+        "n_observations": 26
+      },
+      "predicted": 0.5,
+      "expected": 0.99,
+      "error": 0.49
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x663b88d3a8f2341bb8d878709dc78632bcaf7512e577bd15521e5d8ed933efbc",
+          "question": "Will Hillary Clinton win the 2028 Democratic presidential nomination?"
+        },
+        "market_b": {
+          "condition_id": "0xe06a7e94cf2fa8dc2085b7610fe16e9be1cde6654f34d365c13da1149b276c61",
+          "question": "Will Oprah Winfrey win the 2028 Democratic presidential nomination?"
+        },
+        "rho": NaN,
+        "pval": NaN,
+        "bucket": "strong",
+        "n_observations": 27
+      },
+      "predicted": 0,
+      "expected": 0.99,
+      "error": 0.99
+    }
+  ],
+  "few_shot_results": [
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x940e3bb0526e2f9334fd2b8b13efc971138d6c755923096e648d55dc68b398d7",
+          "question": "Canucks vs. Senators"
+        },
+        "market_b": {
+          "condition_id": "0xbfcc34365517ac4978e76ecd8287e37fd92e68b22a3db9b31129c5c37669c293",
+          "question": "Will the Fed Cut\u2013Cut\u2013Cut in the next three decisions (Oct\u2013Dec\u2013Jan)?"
+        },
+        "rho": -0.0495,
+        "pval": 0.8183,
+        "bucket": "independent",
+        "n_observations": 25
+      },
+      "predicted": 0.5,
+      "expected": 0.450500197999208,
+      "error": 0.049499802000792015
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xed888eb64bffa457086fb5904e9b2046da9aa31c5db36e9d4a303efa7e850d76",
+          "question": "Will Lu\u00eds Marques Mendes win the 2026 Portugal presidential election?"
+        },
+        "market_b": {
+          "condition_id": "0x63d8f3a34c90bd5342dda8acf62b6a898dfa52f86475efaf180b66493ef6af80",
+          "question": "Will Jair Bolsonaro win the 2026 Brazilian presidential election?"
+        },
+        "rho": 0.0518,
+        "pval": 0.782,
+        "bucket": "independent",
+        "n_observations": 32
+      },
+      "predicted": 0.58,
+      "expected": 0.5517997928008288,
+      "error": 0.028200207199171157
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x61ce3773237a948584e422de72265f937034af418a8b703e3a860ea62e59ff36",
+          "question": "Will the Iranian regime fall by March 31?"
+        },
+        "market_b": {
+          "condition_id": "0xa0eafdfa7da17483796f77f4b287d28834ab97db4a9a6e999b52c1ba239bc2f3",
+          "question": "Will the Seattle Seahawks win Super Bowl 2026?"
+        },
+        "rho": -0.0158,
+        "pval": 0.9572,
+        "bucket": "independent",
+        "n_observations": 15
+      },
+      "predicted": 0.5,
+      "expected": 0.4842000631997472,
+      "error": 0.015799936800252823
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x17a2466c34d9a93dbef8bda91bc56005b4162666901df319bcddb063d6bd8991",
+          "question": "Will Bitcoin dip to $80,000 in January?"
+        },
+        "market_b": {
+          "condition_id": "0x6acea3596be0a8126e8658d39ecc1ac44bee1246c162e51a8062b380bcf147c2",
+          "question": "Will the U.S. collect less than $100b in revenue in 2025?"
+        },
+        "rho": -0.0018,
+        "pval": 0.996,
+        "bucket": "independent",
+        "n_observations": 11
+      },
+      "predicted": 0.65,
+      "expected": 0.4982000071999712,
+      "error": 0.15179999280002882
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xf2e51acfbb6d0414dc2ace81b7dc2af7c165e443dcb91f6caa7aab6d6ab4f06d",
+          "question": "Will Chelsea Clinton win the 2028 Democratic presidential nomination?"
+        },
+        "market_b": {
+          "condition_id": "0x68e3c4e0dd8f82d010060032006fd157401b0bd8e04bd2953ae293e31eb99bf6",
+          "question": "Will Elon Musk win the 2028 US Presidential Election?"
+        },
+        "rho": -0.0271,
+        "pval": 0.9097,
+        "bucket": "independent",
+        "n_observations": 21
+      },
+      "predicted": 0.45,
+      "expected": 0.4729001083995664,
+      "error": 0.02290010839956641
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xede5bd35327ea3d3c4ec164df7dd85de41a6c7de5419457281b6ad2d98d15086",
+          "question": "Will Newcastle win the 2025\u201326 English Premier League?"
+        },
+        "market_b": {
+          "condition_id": "0xb3298af85e00aafad937c119444a5f2800a55343b7482eb75581f6e454432501",
+          "question": "Will Kamala Harris win the 2028 US Presidential Election?"
+        },
+        "rho": 0.0519,
+        "pval": 0.8433,
+        "bucket": "independent",
+        "n_observations": 18
+      },
+      "predicted": 0.5,
+      "expected": 0.5518997924008304,
+      "error": 0.051899792400830425
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xe844e12246d8504b8ec30c1d461718dbc9645fb73487ca50e5e716eefbb2bc63",
+          "question": "Will Trump nominate Arthur Laffer as the next Fed chair?"
+        },
+        "market_b": {
+          "condition_id": "0x9cd77217b2ab264fe4f6d302f662c0a91f349fe5798f1f98d70bb2311712791b",
+          "question": "Will Tulsi Gabbard win the 2028 Republican presidential nomination?"
+        },
+        "rho": -0.0199,
+        "pval": 0.9005,
+        "bucket": "independent",
+        "n_observations": 43
+      },
+      "predicted": 0.55,
+      "expected": 0.4801000795996816,
+      "error": 0.06989992040031845
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xb8c1bd306a8a4cedfb280e114e655c5092b3f37edccae05cd877d7f21a5774ce",
+          "question": "Russia x Ukraine ceasefire by January 31, 2026?"
+        },
+        "market_b": {
+          "condition_id": "0x4405c62496c4fdd275d17ec31567a01534013c518c314ce61bb633b5e7cb6426",
+          "question": "Will the Toronto Raptors win the 2026 NBA Finals?"
+        },
+        "rho": 0.0292,
+        "pval": 0.8599,
+        "bucket": "independent",
+        "n_observations": 40
+      },
+      "predicted": 0.5,
+      "expected": 0.5291998832004672,
+      "error": 0.02919988320046718
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xed888eb64bffa457086fb5904e9b2046da9aa31c5db36e9d4a303efa7e850d76",
+          "question": "Will Lu\u00eds Marques Mendes win the 2026 Portugal presidential election?"
+        },
+        "market_b": {
+          "condition_id": "0x705371444684d676041d1010a94cae3a657340fa4809b4307de3c173a35e0957",
+          "question": "Will Trump nominate Christopher Waller as the next Fed chair?"
+        },
+        "rho": 0.0757,
+        "pval": 0.59,
+        "bucket": "independent",
+        "n_observations": 54
+      },
+      "predicted": 0.5,
+      "expected": 0.5756996972012112,
+      "error": 0.07569969720121117
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x41c6341dd79903aca4bb0c29f5a7976946c3774d2fd72f38cbb7de7092144520",
+          "question": "Will Mike Pence win the 2028 Republican presidential nomination?"
+        },
+        "market_b": {
+          "condition_id": "0x257b18205f908aef01ef2d1d50e6fea7d29cf5486fe04031d8b101394476faed",
+          "question": "Will there be no change in Fed interest rates after the March 2026 meeting?"
+        },
+        "rho": 0.0413,
+        "pval": 0.8283,
+        "bucket": "independent",
+        "n_observations": 31
+      },
+      "predicted": 0.55,
+      "expected": 0.5412998348006608,
+      "error": 0.00870016519933925
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x1970bcce75e3674660917ae4685b433a9b1e0152d810a8d7c346dfd5e00694c2",
+          "question": "Will Cory Booker win the 2028 Democratic presidential nomination?"
+        },
+        "market_b": {
+          "condition_id": "0xf9d58b904a94f0431d5bee7070650a305566927b3f7bf00f8529e20c9a99a6d4",
+          "question": "Will Atalanta win the 2025\u201326 Champions League?"
+        },
+        "rho": 0.2473,
+        "pval": 0.3742,
+        "bucket": "weak",
+        "n_observations": 16
+      },
+      "predicted": 0.5,
+      "expected": 0.7472990108039568,
+      "error": 0.24729901080395678
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x35cc41270f5cdfd59b45e68ab85dc51b0b900d286a6c74ea006b8572d9ff5934",
+          "question": "Fed decreases interest rates by 25 bps after January 2026 meeting?"
+        },
+        "market_b": {
+          "condition_id": "0xe371bb4a38f3714fc1ef7a8ecdaca8a8005aecead9ec95eb5ed8184ca55a94d7",
+          "question": "Will Slavia Pragu win the 2025\u201326 Champions League?"
+        },
+        "rho": 0.1284,
+        "pval": 0.4912,
+        "bucket": "weak",
+        "n_observations": 32
+      },
+      "predicted": 0.5,
+      "expected": 0.6283994864020543,
+      "error": 0.12839948640205434
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xdb1ae961e30733e7857ebb425b5f6449fa8032de13f32c1c6e447a0c3801ca04",
+          "question": "Will Trump nominate Scott Bessent as the next Fed chair?"
+        },
+        "market_b": {
+          "condition_id": "0xe371bb4a38f3714fc1ef7a8ecdaca8a8005aecead9ec95eb5ed8184ca55a94d7",
+          "question": "Will Slavia Pragu win the 2025\u201326 Champions League?"
+        },
+        "rho": -0.115,
+        "pval": 0.474,
+        "bucket": "weak",
+        "n_observations": 42
+      },
+      "predicted": 0.5,
+      "expected": 0.38500045999816,
+      "error": 0.11499954000183998
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xaeea5f917fc5746387b5f9c0a4263dba035dbb3f0ac6ad72bf92183d21e26739",
+          "question": "Russia x Ukraine ceasefire by end of 2026?"
+        },
+        "market_b": {
+          "condition_id": "0x4f1f6b8c58e86aeeda05b9fdf46daa8a055cf858ef3dfb382779aa5244c7dce2",
+          "question": "Will Lu\u00eds Marques Mendes qualify for the second round of the 2026 Portugal presidential election?"
+        },
+        "rho": 0.1069,
+        "pval": 0.5004,
+        "bucket": "weak",
+        "n_observations": 43
+      },
+      "predicted": 0.5,
+      "expected": 0.6068995724017104,
+      "error": 0.10689957240171044
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x72b25fe7b05903658eea56ffd995dc4f0f252d49d6a9a202bac103dd29ab2ba5",
+          "question": "Will Sarah Knafo win the Paris mayor election?"
+        },
+        "market_b": {
+          "condition_id": "0x63d8f3a34c90bd5342dda8acf62b6a898dfa52f86475efaf180b66493ef6af80",
+          "question": "Will Jair Bolsonaro win the 2026 Brazilian presidential election?"
+        },
+        "rho": -0.2384,
+        "pval": 0.213,
+        "bucket": "weak",
+        "n_observations": 30
+      },
+      "predicted": 0.65,
+      "expected": 0.2616009535961856,
+      "error": 0.3883990464038144
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x00ad3bb5284b0b2314b1a2d42812fe292f606619c6278bd95c9d905816c240f6",
+          "question": "Will Sarah Huckabee Sanders win the 2028 Republican presidential nomination?"
+        },
+        "market_b": {
+          "condition_id": "0xdd926c00d4bfddfc9051c380151f77509d3eef2e7bef20f8d3aec9cbd50e7586",
+          "question": "Will Juventus win the 2025\u201326 Champions League?"
+        },
+        "rho": 0.1651,
+        "pval": 0.4409,
+        "bucket": "weak",
+        "n_observations": 25
+      },
+      "predicted": 0.5,
+      "expected": 0.6650993396026417,
+      "error": 0.16509933960264167
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x29635b9089e6c26fdb8ac7eb57bfe2ce1e97ebea54ed4b950ba1524e3cc31c8c",
+          "question": "Will the San Francisco 49ers win Super Bowl 2026?"
+        },
+        "market_b": {
+          "condition_id": "0x3265b10daeb30dbcc3214bd02e488551d0a5d3028392f4152e4750b943fbfc91",
+          "question": "Will Tim Walz win the 2028 Democratic presidential nomination?"
+        },
+        "rho": 0.2334,
+        "pval": 0.1229,
+        "bucket": "weak",
+        "n_observations": 46
+      },
+      "predicted": 0.5,
+      "expected": 0.7333990664037344,
+      "error": 0.23339906640373442
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x4f3421fb2daf5cca7430ed8d8132463963081572d75434393a1808fdb8829fe8",
+          "question": "Will Portugal win the 2026 FIFA World Cup?"
+        },
+        "market_b": {
+          "condition_id": "0x7338d9dea0de820ed621abdff3de2d4b07a573bc0c1a6f7128941f4d0c5606e3",
+          "question": "Will the Orlando Magic win the 2026 NBA Finals?"
+        },
+        "rho": 0.1808,
+        "pval": 0.5028,
+        "bucket": "weak",
+        "n_observations": 17
+      },
+      "predicted": 0.5,
+      "expected": 0.6807992768028928,
+      "error": 0.18079927680289276
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xe202539dfbeced92dc4112f134a205c80ca6cf4db32bd82f05b291c297219fd8",
+          "question": "Will the Detroit Pistons win the 2026 NBA Finals?"
+        },
+        "market_b": {
+          "condition_id": "0x48b0b0bca515f68fccf95af4793dbd0edbfec1f8ec6e8df2c0f69ba74f8c4722",
+          "question": "Trump out as President before 2027?"
+        },
+        "rho": 0.1375,
+        "pval": 0.3733,
+        "bucket": "weak",
+        "n_observations": 45
+      },
+      "predicted": 0.5,
+      "expected": 0.6374994500022,
+      "error": 0.13749945000219999
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x28f1e9218bcd41ced05faf3c03f026721d87712556bf2828337551f03cae0a01",
+          "question": "Israel strikes Iran by March 31, 2026?"
+        },
+        "market_b": {
+          "condition_id": "0x3e218c99a1335641b3a5ee6c887521d19b0c28fddd6b99c254a07968e35c0b1b",
+          "question": "Will Michelle Obama win the 2028 Democratic presidential nomination?"
+        },
+        "rho": -0.2485,
+        "pval": 0.138,
+        "bucket": "weak",
+        "n_observations": 38
+      },
+      "predicted": 0.52,
+      "expected": 0.251500993996024,
+      "error": 0.268499006003976
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xe90b27f08082e17740308fdc957528d29a3f334a9ecaeefd056a3427a4cfdaaf",
+          "question": "Will Jo\u00e3o Cotrim Figueiredo win the 2026 Portugal presidential election?"
+        },
+        "market_b": {
+          "condition_id": "0x42631e1a8c8e6389422b58b8e15b1b551892b9833651aa3bab25afab124354b5",
+          "question": "Will Brian Kemp win the 2028 Republican presidential nomination?"
+        },
+        "rho": -0.3357,
+        "pval": 0.3772,
+        "bucket": "moderate",
+        "n_observations": 10
+      },
+      "predicted": 0.5,
+      "expected": 0.16430134279462877,
+      "error": 0.33569865720537123
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xfbb80ea5f8fc02ee7df8bd4f58790e1d04b874078a49a7b7028a74a2075100c9",
+          "question": "Will Elon Musk win the 2028 Republican presidential nomination?"
+        },
+        "market_b": {
+          "condition_id": "0x61ce3773237a948584e422de72265f937034af418a8b703e3a860ea62e59ff36",
+          "question": "Will the Iranian regime fall by March 31?"
+        },
+        "rho": -0.3778,
+        "pval": 0.083,
+        "bucket": "moderate",
+        "n_observations": 23
+      },
+      "predicted": 0.55,
+      "expected": 0.12220151119395517,
+      "error": 0.4277984888060449
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xb1d2cd56624ec8bb3d8115d50d503d0e8578bf32d754ad5fe3c0e08a73186c57",
+          "question": "Supreme Court rules in favor of Trump's tariffs?"
+        },
+        "market_b": {
+          "condition_id": "0xa179267e7ead3f4fdbb7d799b3d253b25a272329f643734995d83a8d633e8053",
+          "question": "Will Olympique de Marseille win on 2026-01-13?"
+        },
+        "rho": 0.3066,
+        "pval": 0.4224,
+        "bucket": "moderate",
+        "n_observations": 10
+      },
+      "predicted": 0.5,
+      "expected": 0.8065987736049056,
+      "error": 0.3065987736049056
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xbaf7780f9059e34b84301fd411f8dc573b4d56adfe6e0cda33daf304b1438da4",
+          "question": "Will Ecuador win the 2026 FIFA World Cup?"
+        },
+        "market_b": {
+          "condition_id": "0x649ad05a2868343271fe82ea692031d567ca1af652e3529788933157e94aa088",
+          "question": "Will the Minnesota Timberwolves win the 2026 NBA Finals?"
+        },
+        "rho": 0.3849,
+        "pval": 0.2721,
+        "bucket": "moderate",
+        "n_observations": 11
+      },
+      "predicted": 0.5,
+      "expected": 0.8848984604061585,
+      "error": 0.3848984604061585
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x0f49db97f71c68b1e42a6d16e3de93d85dbf7d4148e3f018eb79e88554be9f75",
+          "question": "Will Gavin Newsom win the 2028 Democratic presidential nomination?"
+        },
+        "market_b": {
+          "condition_id": "0xa1f08ec3bcc1434cb0b695bd5ee9f81268ef45fb73f752b3a1c1fb1d35750866",
+          "question": "Will Real Madrid win the 2025\u201326 La Liga?"
+        },
+        "rho": 0.454,
+        "pval": 0.1875,
+        "bucket": "moderate",
+        "n_observations": 11
+      },
+      "predicted": 0.5,
+      "expected": 0.953998184007264,
+      "error": 0.453998184007264
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xb203c39cc9099c3dc19e7bc7de977ca6e11716a6556e58a3350e97f135515629",
+          "question": "Will XRP reach $3.20 in January?"
+        },
+        "market_b": {
+          "condition_id": "0x70187b4770796788b9d1f3fc6652c596870a9a837b96c832441652588f26029d",
+          "question": "Will Mar\u00eda Corina Machado be the leader of Venezuela end of 2026?"
+        },
+        "rho": -0.4036,
+        "pval": 0.2814,
+        "bucket": "moderate",
+        "n_observations": 10
+      },
+      "predicted": 0.5,
+      "expected": 0.09640161439354239,
+      "error": 0.4035983856064576
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x0e34be3ee9cb4203fae20b289dfc9a9370f0045ab3fb2e1fa4e6fb82596c678f",
+          "question": "Will the Rams win the NFC Championship?"
+        },
+        "market_b": {
+          "condition_id": "0x91720563534d7ba1ea55eada72c6d1063b4b773e46befea288a7dcfdcae7da25",
+          "question": "Will Arthur Fils win the 2026 Australian Open?"
+        },
+        "rho": 0.4632,
+        "pval": 0.0458,
+        "bucket": "moderate",
+        "n_observations": 20
+      },
+      "predicted": 0.5,
+      "expected": 0.9631981472074111,
+      "error": 0.46319814720741115
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x4405c62496c4fdd275d17ec31567a01534013c518c314ce61bb633b5e7cb6426",
+          "question": "Will the Toronto Raptors win the 2026 NBA Finals?"
+        },
+        "market_b": {
+          "condition_id": "0x42631e1a8c8e6389422b58b8e15b1b551892b9833651aa3bab25afab124354b5",
+          "question": "Will Brian Kemp win the 2028 Republican presidential nomination?"
+        },
+        "rho": 0.398,
+        "pval": 0.2546,
+        "bucket": "moderate",
+        "n_observations": 11
+      },
+      "predicted": 0.5,
+      "expected": 0.8979984080063681,
+      "error": 0.3979984080063681
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xf8dbde8b6e038775a673947e59da2de15a2127272b50b9877400fdbf7cfc3026",
+          "question": "Will Tom Brady win the 2028 Republican presidential nomination?"
+        },
+        "market_b": {
+          "condition_id": "0x28f1e9218bcd41ced05faf3c03f026721d87712556bf2828337551f03cae0a01",
+          "question": "Israel strikes Iran by March 31, 2026?"
+        },
+        "rho": -0.5092,
+        "pval": 0.1615,
+        "bucket": "moderate",
+        "n_observations": 10
+      },
+      "predicted": 0.5,
+      "expected": 0.01,
+      "error": 0.49
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xbe87f132c20d1d9baf073e9e203e338f068d9613ec2bb3ca1bc078b41f2aebbc",
+          "question": "Will Manchester City FC win on 2026-01-13?"
+        },
+        "market_b": {
+          "condition_id": "0x68e3c4e0dd8f82d010060032006fd157401b0bd8e04bd2953ae293e31eb99bf6",
+          "question": "Will Elon Musk win the 2028 US Presidential Election?"
+        },
+        "rho": 0.3023,
+        "pval": 0.3662,
+        "bucket": "moderate",
+        "n_observations": 12
+      },
+      "predicted": 0.5,
+      "expected": 0.8022987908048369,
+      "error": 0.3022987908048369
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xed888eb64bffa457086fb5904e9b2046da9aa31c5db36e9d4a303efa7e850d76",
+          "question": "Will Lu\u00eds Marques Mendes win the 2026 Portugal presidential election?"
+        },
+        "market_b": {
+          "condition_id": "0x8fc141205ebce5adf437bfdf4d0c5ff58ff24293b79c9431991346c208bb48ed",
+          "question": "Will Tulsi Gabbard win the 2028 US Presidential Election?"
+        },
+        "rho": NaN,
+        "pval": NaN,
+        "bucket": "strong",
+        "n_observations": 53
+      },
+      "predicted": 0.5,
+      "expected": 0.99,
+      "error": 0.49
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x836b850fc838195374862551a36f1c8691d96ff01e58b0a071f0fc1a0e357fb1",
+          "question": "Will LeBron James win the 2028 US Presidential Election?"
+        },
+        "market_b": {
+          "condition_id": "0x46d40e851b24d9b0af4bc1942ccd86439cae82a9011767da14950df0ad997adf",
+          "question": "Will Trump nominate Judy Shelton as the next Fed chair?"
+        },
+        "rho": NaN,
+        "pval": NaN,
+        "bucket": "strong",
+        "n_observations": 56
+      },
+      "predicted": 0.5,
+      "expected": 0.99,
+      "error": 0.49
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x298157e618b5729dafd742eec9b21e040a13da0bb09ff1fa4492360c347e3824",
+          "question": "Will the Utah Jazz win the 2026 NBA Finals?"
+        },
+        "market_b": {
+          "condition_id": "0x29283b56d3eec6d1d89fff51793d9d2e01579d2379b1d3e9ebda175d3561e809",
+          "question": "Will Phil Murphy win the 2028 Democratic presidential nomination?"
+        },
+        "rho": NaN,
+        "pval": NaN,
+        "bucket": "strong",
+        "n_observations": 15
+      },
+      "predicted": 0.5,
+      "expected": 0.99,
+      "error": 0.49
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xfbb80ea5f8fc02ee7df8bd4f58790e1d04b874078a49a7b7028a74a2075100c9",
+          "question": "Will Elon Musk win the 2028 Republican presidential nomination?"
+        },
+        "market_b": {
+          "condition_id": "0xb203c39cc9099c3dc19e7bc7de977ca6e11716a6556e58a3350e97f135515629",
+          "question": "Will XRP reach $3.20 in January?"
+        },
+        "rho": -0.8828,
+        "pval": 0.0007,
+        "bucket": "strong",
+        "n_observations": 11
+      },
+      "predicted": 0.58,
+      "expected": 0.01,
+      "error": 0.57
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x8b203037c7c0e21b500314f8398d2a8ea294b7ce1f4f9185f426425a3505bc45",
+          "question": "Will LeBron James win the 2028 Democratic presidential nomination?"
+        },
+        "market_b": {
+          "condition_id": "0x94947a23e965124fa382e3ff89827b7bb00c2e2f3f9c0b92137e639d4cbfb080",
+          "question": "Will Trump nominate Stephen Miran as the next Fed chair?"
+        },
+        "rho": NaN,
+        "pval": NaN,
+        "bucket": "strong",
+        "n_observations": 26
+      },
+      "predicted": 0.5,
+      "expected": 0.99,
+      "error": 0.49
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x8b203037c7c0e21b500314f8398d2a8ea294b7ce1f4f9185f426425a3505bc45",
+          "question": "Will LeBron James win the 2028 Democratic presidential nomination?"
+        },
+        "market_b": {
+          "condition_id": "0xcb06319aa9e029904c93c1df7d10b7ce7d6aab2b25b8f661e0cf57ea048a1567",
+          "question": "Will Atletico Madrid win the 2025\u201326 Champions League?"
+        },
+        "rho": NaN,
+        "pval": NaN,
+        "bucket": "strong",
+        "n_observations": 46
+      },
+      "predicted": 0.5,
+      "expected": 0.99,
+      "error": 0.49
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x8fc141205ebce5adf437bfdf4d0c5ff58ff24293b79c9431991346c208bb48ed",
+          "question": "Will Tulsi Gabbard win the 2028 US Presidential Election?"
+        },
+        "market_b": {
+          "condition_id": "0xbc2d59e8ea0378f0851c86e84d250e80a5698874db52c13798053841f291dc28",
+          "question": "Will the Sacramento Kings win the 2026 NBA Finals?"
+        },
+        "rho": NaN,
+        "pval": NaN,
+        "bucket": "strong",
+        "n_observations": 19
+      },
+      "predicted": 0.5,
+      "expected": 0.99,
+      "error": 0.49
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0xfee4b6988b9513dab72118c97abeb4369f0d9a7c2290337ca5d5c2f116a148c2",
+          "question": "Will Trump nominate Ron Paul as the next Fed chair?"
+        },
+        "market_b": {
+          "condition_id": "0xd947403a5eae117d6fe0bf737f2d279c89dddc495dc7d2eb198accd1ecd07cc9",
+          "question": "Will Microsoft be the largest company in the world by market cap on January 31?"
+        },
+        "rho": NaN,
+        "pval": NaN,
+        "bucket": "strong",
+        "n_observations": 20
+      },
+      "predicted": 0.5,
+      "expected": 0.99,
+      "error": 0.49
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x940e3bb0526e2f9334fd2b8b13efc971138d6c755923096e648d55dc68b398d7",
+          "question": "Canucks vs. Senators"
+        },
+        "market_b": {
+          "condition_id": "0x64396449b471b10b006285fa49dd9a5df535694de7b4c703fdeb0d88d5c4cd33",
+          "question": "Will Vivek Ramaswamy win the 2028 US Presidential Election?"
+        },
+        "rho": NaN,
+        "pval": NaN,
+        "bucket": "strong",
+        "n_observations": 26
+      },
+      "predicted": 0.5,
+      "expected": 0.99,
+      "error": 0.49
+    },
+    {
+      "pair": {
+        "market_a": {
+          "condition_id": "0x663b88d3a8f2341bb8d878709dc78632bcaf7512e577bd15521e5d8ed933efbc",
+          "question": "Will Hillary Clinton win the 2028 Democratic presidential nomination?"
+        },
+        "market_b": {
+          "condition_id": "0xe06a7e94cf2fa8dc2085b7610fe16e9be1cde6654f34d365c13da1149b276c61",
+          "question": "Will Oprah Winfrey win the 2028 Democratic presidential nomination?"
+        },
+        "rho": NaN,
+        "pval": NaN,
+        "bucket": "strong",
+        "n_observations": 27
+      },
+      "predicted": 0,
+      "expected": 0.99,
+      "error": 0.99
+    }
+  ]
+}

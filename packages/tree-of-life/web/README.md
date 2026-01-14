@@ -1,6 +1,13 @@
-# Tree of Life Explorer
+# Tree of Life Web
 
-Interactive visualization for conditional forecasting trees.
+Interactive visualizations for conditional forecasting trees.
+
+## Files
+
+| File | Description |
+|------|-------------|
+| `explorer.html` | Three-column explorer for navigating questions, scenarios, and signals |
+| `index.html` | Scrollytelling explainer that walks through how conditional forecasting works |
 
 ## Usage
 
@@ -9,17 +16,17 @@ Interactive visualization for conditional forecasting trees.
    uv run tree-of-life "Your question here"
    ```
 
-2. Open the explorer:
-   - Copy `output/forecast_tree.json` to this directory
-   - Open `explorer.html` in a browser
+2. Copy the output and serve:
+   ```bash
+   cp output/forecast_tree.json web/
+   cd web && python -m http.server 8000
+   ```
 
-Or serve it:
-```bash
-cd web && python -m http.server 8000
-# Open http://localhost:8000/explorer.html
-```
+3. Open in browser:
+   - `http://localhost:8000/explorer.html` — interactive explorer
+   - `http://localhost:8000/index.html` — explainer walkthrough
 
-## How It Works
+## Explorer
 
 The explorer is a three-column interface:
 - **Left:** Forecast questions (outcomes)
@@ -28,9 +35,13 @@ The explorer is a three-column interface:
 
 Click any element to see its connections highlighted.
 
+## Explainer
+
+The explainer (`index.html`) is a scrollytelling narrative that walks through how conditional forecasting works, step by step.
+
 ## Data Format
 
-The explorer expects `forecast_tree.json` in the same directory with the following structure:
+Both visualizations expect `forecast_tree.json` in the same directory:
 
 ```json
 {

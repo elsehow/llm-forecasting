@@ -1,0 +1,63 @@
+## How to Update Conditional Probabilities Based on Correlation
+
+When estimating P(A|B=YES), use the correlation coefficient ρ to guide your update magnitude:
+
+### Formula
+
+Given:
+- P(A) = your unconditional probability estimate for A
+- ρ = correlation between A and B (ranges from -1 to +1)
+- B resolves YES
+
+The expected update follows this pattern:
+
+**For positive correlations (ρ > 0):**
+P(A|B=YES) ≈ P(A) + ρ × √(P(A) × (1-P(A))) × adjustment_factor
+
+Simplified rules:
+- ρ > 0.6 (strong positive): Update by 20-40 percentage points toward 1.0
+- ρ = 0.3-0.6 (moderate positive): Update by 10-20 percentage points toward 1.0
+- ρ = 0.1-0.3 (weak positive): Update by 5-10 percentage points toward 1.0
+
+**For negative correlations (ρ < 0):**
+P(A|B=YES) ≈ P(A) - |ρ| × √(P(A) × (1-P(A))) × adjustment_factor
+
+Simplified rules:
+- ρ < -0.6 (strong negative): Update by 20-40 percentage points toward 0.0
+- ρ = -0.6 to -0.3 (moderate negative): Update by 10-20 percentage points toward 0.0
+- ρ = -0.3 to -0.1 (weak negative): Update by 5-10 percentage points toward 0.0
+
+**For near-zero correlations (|ρ| < 0.1):**
+P(A|B=YES) ≈ P(A)  (no meaningful update)
+
+### Examples
+
+**Example 1: Strong positive correlation**
+- A: "Will XRP dip to $1.80 in January?"
+- B: "Will Bitcoin dip to $85,000 in January?"
+- ρ = 0.94 (strong positive - crypto assets move together)
+- If P(A) = 0.25 and B=YES:
+  - P(A|B=YES) ≈ 0.25 + 0.35 = 0.60
+  - Rationale: Bitcoin dipping means crypto market is bearish, so XRP dip becomes much more likely
+
+**Example 2: Strong negative correlation**
+- A: "Will Bitcoin reach $115,000 in January?"
+- B: "Will Bitcoin dip to $85,000 in January?"
+- ρ = -0.64 (near-mutually exclusive)
+- If P(A) = 0.30 and B=YES:
+  - P(A|B=YES) ≈ 0.30 - 0.25 = 0.05
+  - Rationale: If Bitcoin dipped to $85k, reaching $115k in the same month is very unlikely
+
+**Example 3: Independent (zero correlation)**
+- A: "Will the Toronto Raptors win the 2026 NBA Finals?"
+- B: "Will Jair Bolsonaro win the 2026 Brazilian presidential election?"
+- ρ ≈ 0.00 (unrelated events)
+- If P(A) = 0.05 and B=YES:
+  - P(A|B=YES) ≈ 0.05 (no change)
+  - Rationale: Brazilian politics has no bearing on NBA outcomes
+
+### Key Principle
+
+The correlation coefficient ρ tells you HOW MUCH to update, not just WHETHER to update.
+- High |ρ| → large update
+- Low |ρ| → small or no update

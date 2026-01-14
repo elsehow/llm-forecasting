@@ -10,15 +10,8 @@ import re
 def generate_question_display_name(text: str) -> str:
     """Generate a concise display name from verbose question text.
 
-    Removes filler words and question syntax while preserving
-    distinguishing information.
-
-    Examples:
-        "What will global real GDP be in 2050?" → "Global Real GDP in 2050"
-        "What percentage of the world's population lives in extreme poverty by 2050?"
-            → "Global Extreme Poverty Rate by 2050"
-        "Probability of a catastrophe (10%+ world population death) caused by AI by 2050"
-            → "AI Catastrophe Probability by 2050"
+    Removes filler words, question syntax, and parentheticals while
+    preserving distinguishing information. Does not alter capitalization.
     """
     result = text
 
@@ -84,41 +77,14 @@ def generate_question_display_name(text: str) -> str:
     result = re.sub(r"\s*\([^)]+\)", "", result)
     result = " ".join(result.split())
 
-    # Title case with acronym preservation
-    return _title_case_with_acronyms(result)
-
-
-def _title_case_with_acronyms(text: str) -> str:
-    """Title case text while preserving acronyms like GDP, AI, US, U.S."""
-    words = text.split()
-    title_words = []
-    acronyms = {"gdp", "ai", "us", "un", "who", "imf", "bea", "bls", "u.s.", "u.s"}
-    small_words = {"in", "of", "the", "by", "to", "for", "and", "or", "at", "a", "an"}
-
-    for i, word in enumerate(words):
-        word_clean = word.lower().rstrip(".,;:?!")
-        if word_clean in acronyms or word_clean.replace(".", "") in {"us"}:
-            # Handle U.S. specially
-            if "." in word:
-                title_words.append(word.upper())
-            else:
-                title_words.append(word.upper())
-        elif i > 0 and word_clean in small_words:
-            title_words.append(word.lower())
-        else:
-            title_words.append(word.capitalize())
-
-    return " ".join(title_words)
+    return result
 
 
 def generate_signal_display_name(text: str, max_length: int = 50) -> str:
     """Generate a concise display name from verbose signal text.
 
-    Extracts the key action/event from the signal description.
-
-    Examples:
-        "A major AI lab (OpenAI, Anthropic, Google DeepMind, or Meta) announces..."
-            → "Major AI Lab Announces Breakthrough"
+    Removes parentheticals and truncates at natural breakpoints.
+    Does not alter capitalization.
     """
     # Remove parentheticals (often contain examples/lists)
     result = re.sub(r"\([^)]+\)", "", text)
@@ -141,19 +107,7 @@ def generate_signal_display_name(text: str, max_length: int = 50) -> str:
         if len(result) > max_length:
             result = result[: max_length - 3].rsplit(" ", 1)[0] + "..."
 
-    # Title case
-    words = result.split()
-    title_words = []
-    acronyms = {"ai", "us", "un", "gdp", "phd"}
-    for i, word in enumerate(words):
-        if word.lower() in acronyms:
-            title_words.append(word.upper())
-        elif i == 0 or word.lower() not in {"a", "an", "the", "in", "of", "to", "for", "and", "or"}:
-            title_words.append(word.capitalize())
-        else:
-            title_words.append(word.lower())
-
-    return " ".join(title_words)
+    return result
 
 
 def transform_signal_direction(direction: str) -> str:
