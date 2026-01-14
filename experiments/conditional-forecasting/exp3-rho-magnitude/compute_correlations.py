@@ -11,7 +11,7 @@ from pathlib import Path
 import numpy as np
 from scipy.stats import pearsonr
 
-DATA_DIR = Path(__file__).parent / "data"
+DATA_DIR = Path(__file__).parent.parent / "data"
 HISTORY_DIR = DATA_DIR / "price_history"
 
 # Correlation buckets

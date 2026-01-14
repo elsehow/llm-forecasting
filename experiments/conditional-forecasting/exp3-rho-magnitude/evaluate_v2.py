@@ -40,7 +40,7 @@ class EvalResult:
 
 
 def load_curated_pairs():
-    with open(Path(__file__).parent / "curated_pairs.json") as f:
+    with open(Path(__file__).parent.parent / "data" / "curated_pairs.json") as f:
         return json.load(f)["curated_pairs"]
 
 
@@ -298,10 +298,10 @@ def run_evaluation():
         ]
     }
 
-    with open(Path(__file__).parent / "results" / "evaluation_v2.json", "w") as f:
+    with open(Path(__file__).parent.parent / "results" / "evaluation_v2.json", "w") as f:
         json.dump(results_data, f, indent=2)
 
-    print(f"\nResults saved to results/evaluation_v2.json")
+    print(f"\nResults saved to ../results/evaluation_v2.json")
 
 
 if __name__ == "__main__":

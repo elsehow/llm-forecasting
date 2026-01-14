@@ -11,7 +11,7 @@ from pathlib import Path
 
 import httpx
 
-DATA_DIR = Path(__file__).parent / "data"
+DATA_DIR = Path(__file__).parent.parent / "data"
 HISTORY_DIR = DATA_DIR / "price_history"
 HISTORY_DIR.mkdir(parents=True, exist_ok=True)
 

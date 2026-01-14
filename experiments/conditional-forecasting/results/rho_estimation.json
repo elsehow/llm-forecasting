@@ -1,0 +1,191 @@
+{
+  "summary": {
+    "correlation": 0.7210792191022121,
+    "mae": 0.24619999999999997,
+    "rmse": 0.4250682298172847,
+    "bias": -0.094,
+    "direction_accuracy": 0.9
+  },
+  "results": [
+    {
+      "pair_id": 1,
+      "category": "same_event_different_timeline",
+      "actual_rho": 0.787,
+      "estimated_rho": 0.85,
+      "error": 0.06299999999999994,
+      "abs_error": 0.06299999999999994,
+      "reasoning": "These questions are highly positively correlated since they measure the same event (Iranian regime fall) over overlapping time periods. If A occurs (regime falls by March 31), then B must also occur (falls before 2027). However, B can occur without A (regime could fall between April 2025 and 2027), so it's not perfect correlation. The shared underlying factors affecting regime stability create strong positive dependence between these outcomes."
+    },
+    {
+      "pair_id": 2,
+      "category": "same_event_different_timeline",
+      "actual_rho": 0.665,
+      "estimated_rho": 0.85,
+      "error": 0.18499999999999994,
+      "abs_error": 0.18499999999999994,
+      "reasoning": "These questions are highly positively correlated because they measure the same underlying event (Russia-Ukraine ceasefire) with overlapping timeframes. If a ceasefire occurs by January 31, 2026, then Question B is automatically satisfied since March 31 is later. However, the correlation isn't perfect (+1) because a ceasefire could occur between February 1 and March 31, 2026, making A false but B true. The strong positive correlation reflects that the same geopolitical factors and peace processes would influence both outcomes."
+    },
+    {
+      "pair_id": 3,
+      "category": "related_geopolitical",
+      "actual_rho": 0.724,
+      "estimated_rho": 0.3,
+      "error": -0.424,
+      "abs_error": 0.424,
+      "reasoning": "These events are moderately positively correlated. US strikes on Iran could destabilize the regime and potentially lead to Khamenei's removal, while internal Iranian instability that removes Khamenei might increase the likelihood of US military action due to regional chaos or power vacuum. However, many scenarios exist where either event occurs independently - Khamenei could leave due to natural causes/internal politics without US involvement, and US strikes could happen while Khamenei remains in power. The correlation is positive but modest since both events involve Iranian political stability but through different causal pathways."
+    },
+    {
+      "pair_id": 4,
+      "category": "related_geopolitical",
+      "actual_rho": 0.447,
+      "estimated_rho": 0.35,
+      "error": -0.09700000000000003,
+      "abs_error": 0.09700000000000003,
+      "reasoning": "These questions are moderately positively correlated. An Israeli strike on Iran could destabilize the Iranian regime and potentially lead to Khamenei's removal, while internal Iranian instability might also increase the likelihood of Israeli military action. However, each event has many independent causes - Khamenei could leave due to health/age/internal politics unrelated to Israel, and Israel might strike for reasons unrelated to Iranian leadership changes. The correlation is positive but moderate since they're not directly dependent on each other."
+    },
+    {
+      "pair_id": 5,
+      "category": "crypto_correlation",
+      "actual_rho": 0.939,
+      "estimated_rho": 0.7,
+      "error": -0.239,
+      "abs_error": 0.239,
+      "reasoning": "Both questions ask about cryptocurrency price dips in the same timeframe. Bitcoin and XRP are positively correlated as crypto assets that often move together during market-wide events like regulatory news, macro conditions, or risk sentiment shifts. A Bitcoin dip to $85k would likely coincide with broader crypto market weakness that would also pressure XRP toward $1.80. However, correlation isn't perfect since XRP has unique factors (regulatory status, different use cases) that can cause divergent price action."
+    },
+    {
+      "pair_id": 6,
+      "category": "crypto_correlation",
+      "actual_rho": 0.63,
+      "estimated_rho": 0.65,
+      "error": 0.020000000000000018,
+      "abs_error": 0.020000000000000018,
+      "reasoning": "Both questions involve cryptocurrencies reaching high price targets in the same timeframe, suggesting they're both dependent on positive crypto market sentiment, institutional adoption, and risk-on investor behavior. However, they're different assets with distinct use cases and market dynamics - Bitcoin as digital gold vs XRP as a payments token. A strong crypto bull market would increase odds for both, but they could diverge based on asset-specific factors like regulation or adoption."
+    },
+    {
+      "pair_id": 7,
+      "category": "mutually_exclusive",
+      "actual_rho": -0.636,
+      "estimated_rho": -0.7,
+      "error": -0.06399999999999995,
+      "abs_error": 0.06399999999999995,
+      "reasoning": "These questions are strongly negatively correlated as they represent opposite extremes of Bitcoin price movement in January. If Bitcoin dips to $85,000, it would need an extraordinary ~35% rally to then reach $115,000 in the same month, making both outcomes simultaneously very unlikely. High volatility could theoretically allow both, preventing perfect negative correlation, but generally one outcome makes the other much less probable."
+    },
+    {
+      "pair_id": 8,
+      "category": "mutually_exclusive",
+      "actual_rho": -0.436,
+      "estimated_rho": -0.6,
+      "error": -0.16399999999999998,
+      "abs_error": 0.16399999999999998,
+      "reasoning": "These questions are negatively correlated because they measure opposing Fed actions in consecutive meetings. If the Fed decreases rates in January 2026 (Question A = YES), they are less likely to hold rates unchanged in March 2026 (Question B = NO), as rate cuts often signal ongoing easing cycles. However, the correlation isn't perfect (-1) because the Fed could cut in January then pause in March depending on economic conditions, and there's a two-month gap between meetings allowing for new data to influence decisions."
+    },
+    {
+      "pair_id": 9,
+      "category": "mutually_exclusive",
+      "actual_rho": -0.436,
+      "estimated_rho": -0.15,
+      "error": 0.28600000000000003,
+      "abs_error": 0.28600000000000003,
+      "reasoning": "These questions are about mutually exclusive outcomes (only one team can win the 2026 NBA Finals), creating a negative correlation. However, the correlation is weak because there are 30 NBA teams, so the Celtics winning only slightly decreases the probability of the Rockets winning from roughly 1/30 to 0. The correlation isn't strongly negative because both teams could independently have low probabilities of winning."
+    },
+    {
+      "pair_id": 10,
+      "category": "sequential_events",
+      "actual_rho": 0.911,
+      "estimated_rho": 0.85,
+      "error": -0.061000000000000054,
+      "abs_error": 0.061000000000000054,
+      "reasoning": "These questions are highly correlated because winning the Super Bowl requires first winning the NFC Championship. If the Rams win the Super Bowl (A=YES), then they definitely won the NFC Championship (B=YES). However, they could win the NFC Championship but lose the Super Bowl, so B=YES doesn't guarantee A=YES. This creates a strong but not perfect positive correlation."
+    },
+    {
+      "pair_id": 11,
+      "category": "independent",
+      "actual_rho": -0.005,
+      "estimated_rho": 0.0,
+      "error": 0.005,
+      "abs_error": 0.005,
+      "reasoning": "These questions are about completely unrelated events - NBA sports outcomes and Brazilian politics. The Toronto Raptors' basketball performance has no causal relationship with Brazilian electoral politics. They occur in different domains, different countries, and involve entirely different actors and factors. Knowing whether the Raptors win the NBA Finals provides no information about Brazilian voting patterns or political preferences."
+    },
+    {
+      "pair_id": 12,
+      "category": "independent",
+      "actual_rho": 0.027,
+      "estimated_rho": 0.0,
+      "error": -0.027,
+      "abs_error": 0.027,
+      "reasoning": "These questions are about completely unrelated events - NBA championship outcome and Brazilian presidential election - occurring in different countries, different domains (sports vs politics), with no causal relationship or shared underlying factors that would make one outcome predictive of the other."
+    },
+    {
+      "pair_id": 13,
+      "category": "independent",
+      "actual_rho": 0.023,
+      "estimated_rho": 0.05,
+      "error": 0.027000000000000003,
+      "abs_error": 0.027000000000000003,
+      "reasoning": "These questions are largely independent. The fall of the Iranian regime is a geopolitical event driven by domestic Iranian politics, international relations, and regional dynamics. Kim Kardashian winning the 2028 US Presidential Election is primarily about US domestic politics, celebrity culture, and electoral processes. While major global instability could theoretically create conditions where unconventional political outcomes become more likely, the connection is extremely weak and indirect. The correlation is essentially zero with perhaps a tiny positive component due to both representing low-probability disruptive events."
+    },
+    {
+      "pair_id": 14,
+      "category": "independent",
+      "actual_rho": 0.043,
+      "estimated_rho": 0.0,
+      "error": -0.043,
+      "abs_error": 0.043,
+      "reasoning": "These questions are about completely unrelated events - Turkish football club performance in European competition versus US Democratic Party politics. The outcome of Galatasaray's Champions League campaign has no logical connection to Andy Beshear's political prospects four years later. They involve different countries, different domains (sports vs politics), different timeframes, and different underlying factors."
+    },
+    {
+      "pair_id": 15,
+      "category": "independent",
+      "actual_rho": -0.06,
+      "estimated_rho": 0.15,
+      "error": 0.21,
+      "abs_error": 0.21,
+      "reasoning": "These questions are weakly positively correlated. Both relate to Trump's policy preferences and political success, but they operate in different domains (Fed appointments vs. tariff policy) and different timeframes. Bullard's nomination might suggest a more market-friendly approach that could indirectly support tariff policies, but the Supreme Court's tariff ruling depends more on legal precedent than Fed leadership. The correlation is low but slightly positive due to the common Trump administration context."
+    },
+    {
+      "pair_id": 16,
+      "category": "same_race",
+      "actual_rho": -0.428,
+      "estimated_rho": -0.8,
+      "error": -0.37200000000000005,
+      "abs_error": 0.37200000000000005,
+      "reasoning": "These questions are about two different candidates winning the same single-winner election. Only one person can win the 2026 Portugal presidential election, so if Jo\u00e3o Cotrim Figueiredo wins, Lu\u00eds Marques Mendes cannot win, and vice versa. This creates a strong negative correlation. The correlation isn't perfect (-1.0) because there are other potential candidates who could win instead of either of these two."
+    },
+    {
+      "pair_id": 17,
+      "category": "same_race",
+      "actual_rho": -0.428,
+      "estimated_rho": -0.7,
+      "error": -0.27199999999999996,
+      "abs_error": 0.27199999999999996,
+      "reasoning": "These questions are about two different people competing for the same single position (2028 Democratic presidential nomination). Only one person can win the nomination, so if Tim Walz wins, Chris Murphy cannot win, and vice versa. This creates a strong negative correlation. However, it's not perfectly -1.0 because both could lose to a third candidate, and the probability that either wins depends on many shared factors like Democratic voter preferences and political conditions."
+    },
+    {
+      "pair_id": 18,
+      "category": "same_race",
+      "actual_rho": -0.477,
+      "estimated_rho": -0.15,
+      "error": 0.32699999999999996,
+      "abs_error": 0.32699999999999996,
+      "reasoning": "These questions are about mutually exclusive events - only one team can win the Champions League. However, the correlation is only weakly negative because both Inter and PSV have relatively low individual probabilities of winning, so most of the time both outcomes will be NO regardless. The negative correlation exists because if one team wins, the other definitely cannot, but this constraint has limited impact given the low base probabilities for each team."
+    },
+    {
+      "pair_id": 19,
+      "category": "crypto_anticorrelation",
+      "actual_rho": -0.699,
+      "estimated_rho": -0.3,
+      "error": 0.39899999999999997,
+      "abs_error": 0.39899999999999997,
+      "reasoning": "Both questions relate to cryptocurrency price movements in January, but measure opposite directional movements. If Bitcoin reaches $115k (a significant rally), it would likely indicate broad crypto market strength, making XRP more likely to rise rather than dip to $1.80. However, the correlation is only moderate since XRP and Bitcoin can have different drivers and XRP's movement to $1.80 depends on its current price level and specific factors affecting that token."
+    },
+    {
+      "pair_id": 20,
+      "category": "related_political",
+      "actual_rho": 0.689,
+      "estimated_rho": -0.95,
+      "error": -1.6389999999999998,
+      "abs_error": 1.6389999999999998,
+      "reasoning": "These questions are about mutually exclusive events - Trump can only nominate one person as Fed chair. If Bullard is nominated, Laffer cannot be, and vice versa. This creates a strong negative correlation, though not perfectly -1.0 since both outcomes could be NO if Trump chooses someone else entirely."
+    }
+  ]
+}

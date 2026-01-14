@@ -12,8 +12,8 @@ from pathlib import Path
 import litellm
 import numpy as np
 
-DATA_DIR = Path(__file__).parent / "data"
-RESULTS_DIR = Path(__file__).parent / "results"
+DATA_DIR = Path(__file__).parent.parent / "data"
+RESULTS_DIR = Path(__file__).parent.parent / "results"
 RESULTS_DIR.mkdir(exist_ok=True)
 
 MODEL = os.environ.get("MODEL", "claude-sonnet-4-20250514")

@@ -1,0 +1,943 @@
+{
+  "metadata": {
+    "timestamp": "20260114_113820",
+    "model": "claude-sonnet-4-20250514",
+    "n_pairs": 20
+  },
+  "summary": {
+    "baseline": {
+      "direction_accuracy": 0.75,
+      "direction_correct": 15,
+      "direction_total": 20,
+      "mae": 0.13506
+    },
+    "oracle": {
+      "direction_accuracy": 0.9,
+      "direction_correct": 18,
+      "direction_total": 20,
+      "mae": 0.07314
+    },
+    "e2e_2call": {
+      "direction_accuracy": 0.75,
+      "direction_correct": 15,
+      "direction_total": 20,
+      "mae": 0.08147999999999998,
+      "good_rho_accuracy": 0.8,
+      "good_rho_n": 15,
+      "bad_rho_accuracy": 0.6,
+      "bad_rho_n": 5
+    },
+    "e2e_1call": {
+      "direction_accuracy": 0.85,
+      "direction_correct": 17,
+      "direction_total": 20,
+      "mae": 0.07862999999999999,
+      "good_rho_accuracy": 0.9230769230769231,
+      "good_rho_n": 13,
+      "bad_rho_accuracy": 0.7142857142857143,
+      "bad_rho_n": 7
+    }
+  },
+  "results": [
+    {
+      "pair_id": 1,
+      "category": "same_event_different_timeline",
+      "question_a": "Will the Iranian regime fall by March 31?",
+      "question_b": "Will the Iranian regime fall before 2027?",
+      "true_rho": 0.787,
+      "expected_direction": "positive",
+      "conditions": {
+        "baseline": {
+          "p_a": 0.05,
+          "p_a_given_b_yes": 0.35,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": null,
+          "reasoning": "The Iranian regime appears relatively stable despite ongoing protests and sanctions, making regime change by March 2025 unlikely in the base case. However, if we learn the regime will fall before 2027, this dramatically increases the probability it happens soon, as regime collapses often occur more rapidly than gradually over multi-year periods once critical thresholds are crossed."
+        },
+        "oracle": {
+          "p_a": 0.05,
+          "p_a_given_b_yes": 0.35,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": 0.787,
+          "reasoning": "The Iranian regime is highly stable with extensive security apparatus, making collapse by March 2025 very unlikely (5%). However, given the strong positive correlation (0.79), if the regime does fall before 2027, it significantly increases the chance it happens in the shorter timeframe, as regime collapses often accelerate once instability reaches a tipping point."
+        },
+        "e2e_2call": {
+          "p_a": 0.05,
+          "p_a_given_b_yes": 0.25,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": 0.85,
+          "rho_error": 0.06299999999999994,
+          "rho_reasoning": "These questions are highly positively correlated because they measure the same underlying event (Iranian regime fall) over overlapping time periods. If Question A is YES (regime falls by March 31), then Question B must also be YES (since March 31 is before 2027). However, Question B can be YES even if A is NO (regime could fall between April 2025 and 2027). The correlation is strong but not perfect because B has a much longer timeframe, allowing for scenarios where A=NO but B=YES.",
+          "reasoning": "The Iranian regime has shown resilience despite ongoing protests and sanctions, making a fall by March 31 unlikely (5%). However, if the regime does fall before 2027 (B=YES), this indicates underlying instability has reached a tipping point, making an earlier collapse much more plausible. The strong positive correlation (\u03c1=0.85) supports a substantial upward adjustment to 25%, as both events share common causal factors like economic collapse, mass uprising, or military defection."
+        },
+        "e2e_1call": {
+          "p_a": 0.05,
+          "p_a_given_b_yes": 0.35,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": 0.85,
+          "rho_error": 0.06299999999999994,
+          "reasoning": "These events are highly positively correlated since A is a subset of B - if the regime falls by March 31, it necessarily falls before 2027. The correlation isn't perfect (1.0) because B can occur without A. P(A) is low given the short timeframe and regime stability. Given B occurs, there's substantially higher probability A occurs too, as regime collapse within the longer timeframe suggests heightened instability that could manifest in the near term."
+        }
+      }
+    },
+    {
+      "pair_id": 2,
+      "category": "same_event_different_timeline",
+      "question_a": "Russia x Ukraine ceasefire by January 31, 2026?",
+      "question_b": "Russia x Ukraine ceasefire by March 31, 2026?",
+      "true_rho": 0.665,
+      "expected_direction": "positive",
+      "conditions": {
+        "baseline": {
+          "p_a": 0.25,
+          "p_a_given_b_yes": 0.85,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": null,
+          "reasoning": "These questions are highly related since A is a subset of B (any ceasefire by Jan 31 would also satisfy the Mar 31 deadline). P(A) reflects the challenging nature of achieving a ceasefire in this timeframe given current dynamics. However, if we learn B=YES (ceasefire by Mar 31), this strongly suggests the ceasefire occurred, and there's a high probability it happened in the earlier January period rather than specifically in the narrow Feb-Mar window."
+        },
+        "oracle": {
+          "p_a": 0.25,
+          "p_a_given_b_yes": 0.65,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": 0.665,
+          "reasoning": "Base rate for ceasefire by Jan 2026 is low given current conflict intensity and political positions. However, if ceasefire occurs by March 2026, it significantly increases likelihood it happened by January, since ceasefires typically occur due to major political shifts or exhaustion that would likely manifest earlier rather than later. The 0.67 correlation suggests strong positive relationship - knowing B=YES provides substantial evidence that the underlying conditions for ceasefire were present earlier."
+        },
+        "e2e_2call": {
+          "p_a": 0.35,
+          "p_a_given_b_yes": 0.85,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": 0.85,
+          "rho_error": 0.18499999999999994,
+          "rho_reasoning": "These questions are highly positively correlated because they measure the same underlying event (Russia-Ukraine ceasefire) with overlapping timeframes. If a ceasefire occurs by January 31, 2026, then Question B (by March 31, 2026) automatically becomes YES. However, the correlation isn't perfect (+1) because Question B can be YES even if Question A is NO - a ceasefire could occur between February 1 and March 31, 2026. The strong positive correlation reflects that the same geopolitical factors and peace processes would influence both outcomes.",
+          "reasoning": "P(A) reflects the significant challenges to achieving a ceasefire by Jan 2026 given current conflict dynamics. The high positive correlation (\u03c1=0.85) means if a ceasefire occurs by March 2026, it becomes much more likely one occurred by January 2026 - either the same ceasefire or an earlier one that enabled the March outcome. The strong correlation justifies a substantial upward update from 35% to 85%."
+        },
+        "e2e_1call": {
+          "p_a": 0.35,
+          "p_a_given_b_yes": 0.75,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": 0.85,
+          "rho_error": 0.18499999999999994,
+          "reasoning": "These events are highly positively correlated since a ceasefire by Jan 31 necessarily implies one by Mar 31, but not vice versa. The base rate for ceasefire by Jan 2026 is moderate given current dynamics. If we know a ceasefire occurs by Mar 2026, it substantially increases the probability it happened earlier by Jan, as ceasefire negotiations typically take months and earlier resolution suggests faster diplomatic progress."
+        }
+      }
+    },
+    {
+      "pair_id": 3,
+      "category": "related_geopolitical",
+      "question_a": "Khamenei out as Supreme Leader of Iran by June 30?",
+      "question_b": "US strikes Iran by June 30, 2026?",
+      "true_rho": 0.724,
+      "expected_direction": "positive",
+      "conditions": {
+        "baseline": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.45,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": null,
+          "reasoning": "Khamenei is 85 and in declining health, making leadership change moderately likely by June 2025 through natural causes or internal pressure. US strikes on Iran would create severe crisis potentially triggering regime change, military coup, or Khamenei's removal by other leaders seeking to end conflict. Military pressure historically destabilizes authoritarian leadership, significantly increasing probability of leadership change."
+        },
+        "oracle": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.45,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": 0.724,
+          "reasoning": "Khamenei is 85 years old with reported health issues, but Supreme Leaders typically hold power until death and succession is carefully managed. Base rate around 15% accounts for health risks and potential unrest. The strong positive correlation (0.72) suggests US strikes would significantly destabilize Iran's leadership structure. Military conflict could trigger internal power struggles, weaken Khamenei's position, or create conditions where hardliners might replace him. Given this correlation, P(A|B=YES) increases substantially to 45% as US strikes would likely create the kind of crisis that could lead to leadership change."
+        },
+        "e2e_2call": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.35,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": 0.4,
+          "rho_error": -0.32399999999999995,
+          "rho_reasoning": "These questions are moderately positively correlated. A US strike on Iran could potentially destabilize the regime and lead to Khamenei's removal, while internal Iranian instability that removes Khamenei might increase the likelihood of US military action during a period of vulnerability or chaos. However, each event could occur independently - Khamenei could leave due to health/age, or the US could strike for reasons unrelated to leadership change. The correlation is positive but moderate since neither event strictly requires the other.",
+          "reasoning": "Khamenei is 85 and has health concerns, but transitions of Supreme Leader are rare and typically occur through death rather than removal. The moderate positive correlation (\u03c1=0.40) suggests US strikes would significantly increase instability and pressure on his position, potentially accelerating his departure through health crisis, internal pressure, or regime change. Given B occurs, the probability more than doubles due to the destabilizing effects of military conflict."
+        },
+        "e2e_1call": {
+          "p_a": 0.12,
+          "p_a_given_b_yes": 0.45,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": 0.65,
+          "rho_error": -0.07399999999999995,
+          "reasoning": "Strong positive correlation - US strikes would likely target nuclear facilities or occur during major Iranian instability, both scenarios that could precipitate regime change. Khamenei's removal is normally low probability given regime stability, but US military action would dramatically increase internal pressure and chaos, making leadership change much more likely through succession crisis, internal coup, or popular uprising."
+        }
+      }
+    },
+    {
+      "pair_id": 4,
+      "category": "related_geopolitical",
+      "question_a": "Khamenei out as Supreme Leader of Iran in 2026?",
+      "question_b": "Israel strikes Iran by March 31, 2026?",
+      "true_rho": 0.447,
+      "expected_direction": "positive",
+      "conditions": {
+        "baseline": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.35,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": null,
+          "reasoning": "Khamenei's removal is unlikely under normal circumstances given his entrenched position and age (84). However, an Israeli strike on Iran would create extraordinary circumstances - potential regime instability, public unrest, military/clerical elite questioning leadership, or health impacts from crisis stress. Such a major external shock significantly increases the probability of leadership change through various pathways including internal coup, health crisis, or popular uprising."
+        },
+        "oracle": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.35,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": 0.447,
+          "reasoning": "Khamenei has been Supreme Leader since 1989 and regime changes are rare, so base rate is low (~15%). However, if Israel strikes Iran, this could destabilize the regime through internal pressure, economic crisis, or triggering broader conflict that weakens Khamenei's position. The positive correlation (\u03c1=0.45) suggests these events reinforce each other - Israeli strikes increase instability that could lead to leadership change. Given the strong correlation, I'm updating significantly upward to 35% conditional probability."
+        },
+        "e2e_2call": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.25,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": 0.4,
+          "rho_error": -0.046999999999999986,
+          "rho_reasoning": "These questions are moderately positively correlated. An Israeli strike on Iran could destabilize the Iranian regime and potentially lead to Khamenei's removal, while major internal Iranian instability that removes Khamenei might also increase the likelihood of Israeli military action during the chaos. However, each outcome can occur independently - Khamenei could be removed due to internal factors unrelated to Israel, and Israel could strike Iran for reasons unrelated to regime change. The correlation is positive but moderate since they share some causal pathways through regional instability.",
+          "reasoning": "Khamenei is 85 and has been Supreme Leader since 1989, but regime changes are rare and he maintains strong institutional control. The positive correlation (\u03c1=0.40) suggests Israeli strikes would increase instability and potential for leadership change, as military conflict could weaken his position domestically or trigger health issues. However, even with strikes, the regime's survival mechanisms remain strong, so the conditional probability increases meaningfully but stays relatively low."
+        },
+        "e2e_1call": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.25,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": 0.35,
+          "rho_error": -0.09700000000000003,
+          "reasoning": "There's moderate positive correlation because Israeli strikes could destabilize Iran's regime and potentially weaken Khamenei's position, but many other factors affect leadership changes. Base rate for supreme leader change is low given Iran's stable authoritarian structure and Khamenei's entrenchment. Israeli strikes would increase instability and internal pressure, modestly raising the probability of leadership change through health crises, internal coups, or popular unrest."
+        }
+      }
+    },
+    {
+      "pair_id": 5,
+      "category": "crypto_correlation",
+      "question_a": "Will Bitcoin dip to $85,000 in January?",
+      "question_b": "Will XRP dip to $1.80 in January?",
+      "true_rho": 0.939,
+      "expected_direction": "positive",
+      "conditions": {
+        "baseline": {
+          "p_a": 0.35,
+          "p_a_given_b_yes": 0.55,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": null,
+          "reasoning": "Bitcoin and XRP are positively correlated cryptocurrencies. If XRP dips significantly to $1.80 (from current levels around $2.20-2.40), it likely indicates broader crypto market weakness or risk-off sentiment, which would increase the probability of Bitcoin also experiencing a substantial dip to $85,000. Both represent meaningful declines from recent levels, so observing one makes the other more likely due to shared market dynamics."
+        },
+        "oracle": {
+          "p_a": 0.25,
+          "p_a_given_b_yes": 0.65,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": 0.939,
+          "reasoning": "Bitcoin at ~$100k would need a 15% drop to hit $85k, which seems moderately unlikely in January. However, with \u03c1=0.94 showing very strong positive correlation, if XRP drops to $1.80 (indicating broader crypto weakness), Bitcoin becomes much more likely to also experience significant decline. The high correlation justifies a substantial update from 25% to 65%."
+        },
+        "e2e_2call": {
+          "p_a": 0.35,
+          "p_a_given_b_yes": 0.55,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": 0.7,
+          "rho_error": -0.239,
+          "rho_reasoning": "Both questions ask about cryptocurrency price dips in the same timeframe. Bitcoin and XRP are positively correlated assets that tend to move together during broader crypto market movements. If Bitcoin drops to $85k (a significant decline from recent highs), it would likely indicate broader crypto market stress that would also pressure XRP downward toward $1.80. However, the correlation isn't perfect since XRP has additional regulatory and adoption factors that can cause independent price movements.",
+          "reasoning": "Bitcoin at ~$95k needs ~10% drop to hit $85k, which is plausible but not highly likely in January given recent momentum. XRP hitting $1.80 would indicate broader crypto weakness/correction. With \u03c1=0.70 showing strong positive correlation, if XRP drops significantly (B=YES), it substantially increases odds of Bitcoin also experiencing a major dip, hence updating from 35% to 55%."
+        },
+        "e2e_1call": {
+          "p_a": 0.35,
+          "p_a_given_b_yes": 0.55,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": 0.65,
+          "rho_error": -0.2889999999999999,
+          "reasoning": "Crypto markets are highly correlated, especially during downturns. Both scenarios represent significant drops from recent highs (~20% for BTC, ~25% for XRP). If XRP hits $1.80, it signals broader crypto weakness that would increase Bitcoin's probability of reaching $85k. The correlation is strong positive but not perfect due to different market dynamics and Bitcoin's relative stability."
+        }
+      }
+    },
+    {
+      "pair_id": 6,
+      "category": "crypto_correlation",
+      "question_a": "Will Bitcoin reach $110,000 in January?",
+      "question_b": "Will XRP reach $3.20 in January?",
+      "true_rho": 0.63,
+      "expected_direction": "positive",
+      "conditions": {
+        "baseline": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.45,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": null,
+          "reasoning": "Bitcoin reaching $110k requires significant momentum from current ~$95k levels. XRP hitting $3.20 would represent massive gains from ~$2.30, likely indicating broader crypto market euphoria with strong institutional/retail inflows. Such conditions would substantially increase Bitcoin's odds of breaking $110k as crypto assets tend to move together during bull runs, especially for round-number psychological resistance levels."
+        },
+        "oracle": {
+          "p_a": 0.25,
+          "p_a_given_b_yes": 0.45,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": 0.63,
+          "reasoning": "Bitcoin reaching $110k requires ~25% gain from current levels (~$88k), which seems challenging but possible in January's volatile crypto environment. The strong positive correlation (\u03c1=0.63) suggests crypto markets move together - if XRP reaches $3.20 (requiring significant altcoin momentum), it indicates broader crypto bullishness that substantially increases Bitcoin's chances of hitting $110k."
+        },
+        "e2e_2call": {
+          "p_a": 0.25,
+          "p_a_given_b_yes": 0.45,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": 0.6,
+          "rho_error": -0.030000000000000027,
+          "rho_reasoning": "Both questions involve cryptocurrencies reaching specific price targets in the same timeframe, suggesting moderate positive correlation. Bitcoin often leads broader crypto market movements, so a Bitcoin surge to $110K would likely indicate strong market sentiment that could drive XRP higher as well. However, they're different assets with distinct factors, so the correlation isn't perfect - XRP could face regulatory issues or Bitcoin could rise due to institutional adoption that doesn't benefit XRP equally.",
+          "reasoning": "Bitcoin reaching $110K requires significant upward momentum from current levels (~$100K). The moderate positive correlation (\u03c1=0.60) with XRP reaching $3.20 reflects that both events depend on broader crypto market strength and risk appetite. If XRP hits $3.20 (indicating strong altcoin performance and market enthusiasm), this substantially increases the likelihood of Bitcoin also reaching new highs, warranting an update from 25% to 45%."
+        },
+        "e2e_1call": {
+          "p_a": 0.25,
+          "p_a_given_b_yes": 0.45,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": 0.65,
+          "rho_error": 0.020000000000000018,
+          "reasoning": "Bitcoin and XRP are both cryptocurrencies that tend to move together during market rallies, showing strong positive correlation. However, they're not perfectly correlated due to different use cases and market dynamics. If XRP reaches $3.20 (a significant gain from current levels), it would indicate a strong crypto bull market, substantially increasing the likelihood of Bitcoin reaching $110,000. The correlation is high but not extreme, as Bitcoin is more established while XRP has different regulatory and adoption factors."
+        }
+      }
+    },
+    {
+      "pair_id": 7,
+      "category": "mutually_exclusive",
+      "question_a": "Will Bitcoin dip to $85,000 in January?",
+      "question_b": "Will Bitcoin reach $115,000 in January?",
+      "true_rho": -0.636,
+      "expected_direction": "negative",
+      "conditions": {
+        "baseline": {
+          "p_a": 0.3,
+          "p_a_given_b_yes": 0.7,
+          "predicted_direction": "positive",
+          "direction_correct": false,
+          "rho_used": null,
+          "reasoning": "Bitcoin reaching $115k in January implies significant volatility and price movement. Given Bitcoin's current price around $95-100k, reaching $115k would likely involve substantial swings that make a dip to $85k more probable during the same volatile period. High volatility scenarios increase the chance of both extreme moves occurring within the month."
+        },
+        "oracle": {
+          "p_a": 0.25,
+          "p_a_given_b_yes": 0.08,
+          "predicted_direction": "negative",
+          "direction_correct": true,
+          "rho_used": -0.636,
+          "reasoning": "Bitcoin dipping to $85k and reaching $115k in the same month are opposing events with strong negative correlation (\u03c1 = -0.64). Base probability of dipping to $85k is moderate given current volatility. However, if Bitcoin reaches $115k, it suggests strong upward momentum, making a dip to $85k much less likely - the negative correlation demands a substantial downward adjustment from the base rate."
+        },
+        "e2e_2call": {
+          "p_a": 0.25,
+          "p_a_given_b_yes": 0.08,
+          "predicted_direction": "negative",
+          "direction_correct": true,
+          "rho_used": -0.7,
+          "rho_error": -0.06399999999999995,
+          "rho_reasoning": "These questions are strongly negatively correlated because they represent opposing Bitcoin price movements within the same timeframe. If Bitcoin dips to $85,000, it would need an extremely large rally (35%+) to also reach $115,000 in January, making both outcomes simultaneously very unlikely. However, the correlation isn't perfect (-1) because Bitcoin's high volatility could theoretically allow both events in a single month, just with very low probability.",
+          "reasoning": "Bitcoin dipping to $85k and reaching $115k in the same month are strongly negatively correlated events (\u03c1 = -0.70). If Bitcoin reaches $115k, it suggests strong upward momentum, making a dip to $85k much less likely. The base probability of a $85k dip is moderate given current volatility, but conditional on hitting $115k, this probability drops significantly due to the strong negative correlation."
+        },
+        "e2e_1call": {
+          "p_a": 0.25,
+          "p_a_given_b_yes": 0.08,
+          "predicted_direction": "negative",
+          "direction_correct": true,
+          "rho_used": -0.7,
+          "rho_error": -0.06399999999999995,
+          "reasoning": "These events are strongly negatively correlated since Bitcoin dipping to $85k and reaching $115k in the same month would require extreme volatility (roughly 35% swing). While theoretically possible, reaching $115k makes the $85k dip much less likely. Base rate for $85k dip is moderate given current volatility, but conditional on $115k being hit, the probability drops significantly."
+        }
+      }
+    },
+    {
+      "pair_id": 8,
+      "category": "mutually_exclusive",
+      "question_a": "Fed decreases interest rates by 25 bps after January 2026 meeting?",
+      "question_b": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "true_rho": -0.436,
+      "expected_direction": "negative",
+      "conditions": {
+        "baseline": {
+          "p_a": 0.5,
+          "p_a_given_b_yes": 0.5,
+          "predicted_direction": "none",
+          "direction_correct": false,
+          "rho_used": null,
+          "reasoning": ""
+        },
+        "oracle": {
+          "p_a": 0.35,
+          "p_a_given_b_yes": 0.2,
+          "predicted_direction": "negative",
+          "direction_correct": true,
+          "rho_used": -0.436,
+          "reasoning": "P(A) reflects moderate probability of a 25bp cut by January 2026 given current economic uncertainties. The negative correlation (\u03c1 = -0.44) indicates that if rates remain unchanged in March 2026 (B=YES), it suggests a more stable/hawkish Fed stance, making a January cut less likely. The substantial negative correlation justifies reducing P(A) from 35% to 20% when conditioning on no March change."
+        },
+        "e2e_2call": {
+          "p_a": 0.5,
+          "p_a_given_b_yes": 0.5,
+          "predicted_direction": "none",
+          "direction_correct": false,
+          "rho_used": -0.6,
+          "rho_error": -0.16399999999999998,
+          "rho_reasoning": "These questions are negatively correlated because they relate to consecutive Fed meetings. If the Fed decreases rates in January 2026 (Question A = YES), it suggests an easing monetary policy cycle, making it less likely they would hold rates unchanged in March (Question B = NO). However, the correlation isn't perfect because Fed policy can shift based on new economic data between meetings, and a January cut doesn't guarantee March action.",
+          "reasoning": ""
+        },
+        "e2e_1call": {
+          "p_a": 0.25,
+          "p_a_given_b_yes": 0.1,
+          "predicted_direction": "negative",
+          "direction_correct": true,
+          "rho_used": -0.6,
+          "rho_error": -0.16399999999999998,
+          "reasoning": "Strong negative correlation because if Fed makes no change in March 2026, it suggests either stable economic conditions or recent prior cuts, making another 25bp cut post-January less likely. However, not perfectly negative since different economic data could emerge between meetings. Base rate for 25bp cut is moderate given economic uncertainty, but drops significantly if March shows Fed inaction."
+        }
+      }
+    },
+    {
+      "pair_id": 9,
+      "category": "mutually_exclusive",
+      "question_a": "Will the Boston Celtics win the 2026 NBA Finals?",
+      "question_b": "Will the Houston Rockets win the 2026 NBA Finals?",
+      "true_rho": -0.436,
+      "expected_direction": "negative",
+      "conditions": {
+        "baseline": {
+          "p_a": 0.1,
+          "p_a_given_b_yes": 0.0,
+          "predicted_direction": "negative",
+          "direction_correct": true,
+          "rho_used": null,
+          "reasoning": "The Celtics are a strong team with recent success, giving them roughly 10% odds to win in 2026. However, if the Rockets win the 2026 Finals, then by definition the Celtics cannot also win, since only one team can win the championship in any given year. These events are mutually exclusive."
+        },
+        "oracle": {
+          "p_a": 0.067,
+          "p_a_given_b_yes": 0.01,
+          "predicted_direction": "negative",
+          "direction_correct": true,
+          "rho_used": -0.436,
+          "reasoning": "The Celtics have a moderate chance as a strong franchise, roughly 1-in-15 given 30 teams and competitive balance. The strong negative correlation (-0.44) means if Houston wins, it significantly reduces Boston's chances since only one team can win the Finals. Given Houston's current rebuild trajectory, if they win in 2026 it likely means they've become a dominant force, making it very unlikely Boston could also win that same year."
+        },
+        "e2e_2call": {
+          "p_a": 0.12,
+          "p_a_given_b_yes": 0.08,
+          "predicted_direction": "negative",
+          "direction_correct": true,
+          "rho_used": -0.15,
+          "rho_error": 0.28600000000000003,
+          "rho_reasoning": "These questions are about mutually exclusive events - only one team can win the 2026 NBA Finals. However, the correlation is weak rather than perfectly negative because both teams have low individual probabilities of winning (each around 3-7% in a 30-team league). Knowing the Celtics won tells us definitively the Rockets didn't, but knowing the Celtics lost tells us very little about the Rockets' chances since 28 other teams could have won instead.",
+          "reasoning": "The Celtics are a strong contender with recent success, giving them above-average odds (~12%) to win in 2026. The negative correlation (-0.15) reflects that if the Rockets win, it necessarily means the Celtics didn't, plus some additional negative relationship due to competitive dynamics. Given the Rockets winning, I reduce the Celtics' probability by about 1/3 to account for both the direct impossibility and the modest negative correlation."
+        },
+        "e2e_1call": {
+          "p_a": 0.1,
+          "p_a_given_b_yes": 0.0,
+          "predicted_direction": "negative",
+          "direction_correct": true,
+          "rho_used": -0.95,
+          "rho_error": -0.514,
+          "reasoning": "These events are strongly negatively correlated since only one team can win the NBA Finals in any given year. If Houston wins, Boston cannot win (barring extreme circumstances like shared titles, which don't occur in NBA Finals). The Celtics have a reasonable chance as a historically strong franchise, but if we know Houston wins, the probability of Boston winning drops to essentially zero."
+        }
+      }
+    },
+    {
+      "pair_id": 10,
+      "category": "sequential_events",
+      "question_a": "Will the Los Angeles Rams win Super Bowl 2026?",
+      "question_b": "Will the Rams win the NFC Championship?",
+      "true_rho": 0.911,
+      "expected_direction": "positive",
+      "conditions": {
+        "baseline": {
+          "p_a": 0.06,
+          "p_a_given_b_yes": 0.55,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": null,
+          "reasoning": "The Rams are one of 32 NFL teams, so unconditionally they have roughly a 1/32 chance of winning the Super Bowl. However, these events are highly related - to win the Super Bowl, an NFC team must first win the NFC Championship. If the Rams win the NFC Championship, they advance to face the AFC champion with roughly 50-55% odds of winning, depending on matchup strength. Learning B=YES dramatically increases the probability of A since it confirms the Rams have overcome the major hurdle of reaching the Super Bowl."
+        },
+        "oracle": {
+          "p_a": 0.06,
+          "p_a_given_b_yes": 0.55,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": 0.911,
+          "reasoning": "The Rams have a roughly 1/32 baseline chance as Super Bowl winners, adjusted slightly upward to 6% given they're a decent franchise. The high correlation (0.91) reflects that winning the NFC Championship is nearly necessary for Super Bowl victory. If they win the NFC Championship, they face only one remaining opponent with roughly even odds, hence 55% conditional probability."
+        },
+        "e2e_2call": {
+          "p_a": 0.06,
+          "p_a_given_b_yes": 0.52,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": 0.85,
+          "rho_error": -0.061000000000000054,
+          "rho_reasoning": "These questions are highly correlated because winning the Super Bowl requires first winning the NFC Championship (since the Rams are an NFC team). If the Rams win the Super Bowl, they definitely won the NFC Championship (\u03c1 would be 1.0 in that direction). However, winning the NFC Championship doesn't guarantee a Super Bowl win - they could lose in the Super Bowl. This creates a strong but not perfect positive correlation, as the NFC Championship is a necessary but not sufficient condition for the Super Bowl victory.",
+          "reasoning": "P(A) reflects that the Rams are one of 32 NFL teams with varying competitive strength. The high correlation (\u03c1=0.85) makes sense since winning the NFC Championship is almost necessary to win the Super Bowl (must reach Super Bowl first). Given they win the NFC Championship, they face only one remaining opponent with roughly 50/50 odds, dramatically increasing their Super Bowl probability from the unconditional baseline."
+        },
+        "e2e_1call": {
+          "p_a": 0.06,
+          "p_a_given_b_yes": 0.55,
+          "predicted_direction": "positive",
+          "direction_correct": true,
+          "rho_used": 0.85,
+          "rho_error": -0.061000000000000054,
+          "reasoning": "These events are highly correlated since winning the Super Bowl requires first winning the NFC Championship. The correlation isn't perfect (1.0) because the Rams could win NFC but lose Super Bowl to AFC champion. Base rate reflects that any given team has low Super Bowl odds 2+ years out. Given NFC win, their Super Bowl odds jump dramatically to slightly above 50% since they'd only need to beat one more team."
+        }
+      }
+    },
+    {
+      "pair_id": 11,
+      "category": "independent",
+      "question_a": "Will the Toronto Raptors win the 2026 NBA Finals?",
+      "question_b": "Will Jair Bolsonaro win the 2026 Brazilian presidential election?",
+      "true_rho": -0.005,
+      "expected_direction": "none",
+      "conditions": {
+        "baseline": {
+          "p_a": 0.033,
+          "p_a_given_b_yes": 0.033,
+          "predicted_direction": "none",
+          "direction_correct": true,
+          "rho_used": null,
+          "reasoning": "The Toronto Raptors winning the 2026 NBA Finals and Jair Bolsonaro winning the 2026 Brazilian presidential election are essentially independent events. There's no meaningful causal relationship between Brazilian politics and NBA outcomes. The Raptors have roughly a 1-in-30 chance as one of 30 NBA teams, though they're currently not among the top contenders. Bolsonaro's electoral success would not materially change the Raptors' basketball performance, roster, or competitive position in the NBA."
+        },
+        "oracle": {
+          "p_a": 0.033,
+          "p_a_given_b_yes": 0.032,
+          "predicted_direction": "none",
+          "direction_correct": true,
+          "rho_used": -0.005,
+          "reasoning": "The Raptors have a roughly 1-in-30 chance as an average NBA team to win the 2026 Finals. The correlation coefficient of -0.01 indicates an extremely weak negative relationship with Bolsonaro winning Brazil's 2026 election. Given this near-zero correlation, I apply only a minimal downward adjustment from 3.3% to 3.2% when conditioning on Bolsonaro's victory, reflecting the slight negative correlation while acknowledging these events are essentially independent."
+        },
+        "e2e_2call": {
+          "p_a": 0.033,
+          "p_a_given_b_yes": 0.033,
+          "predicted_direction": "none",
+          "direction_correct": true,
+          "rho_used": 0.0,
+          "rho_error": 0.005,
+          "rho_reasoning": "These questions are about completely unrelated events - a sports outcome in Canada/US and a political election in Brazil. The Toronto Raptors winning the NBA Finals has no causal relationship with Bolsonaro's electoral prospects, and they don't share any meaningful underlying factors that would make them correlated.",
+          "reasoning": "The Raptors have a roughly 1/30 chance as one of 30 NBA teams, slightly below average given recent performance. Since \u03c1 = 0.00, these events are independent - Bolsonaro winning the Brazilian election has no bearing on NBA outcomes. Therefore P(A|B=YES) equals P(A)."
+        },
+        "e2e_1call": {
+          "p_a": 0.033,
+          "p_a_given_b_yes": 0.035,
+          "predicted_direction": "none",
+          "direction_correct": true,
+          "rho_used": 0.05,
+          "rho_error": 0.055,
+          "reasoning": "These events are largely independent - NBA championships depend on team performance, trades, and injuries, while Brazilian elections depend on domestic politics. There's minimal correlation, perhaps slightly positive due to potential shared global economic factors that could affect both sports economics and political outcomes. The Raptors face long odds among 30 NBA teams, with marginal increase if Bolsonaro wins due to possible indirect effects on global markets/player movements."
+        }
+      }
+    },
+    {
+      "pair_id": 12,
+      "category": "independent",
+      "question_a": "Will the Milwaukee Bucks win the 2026 NBA Finals?",
+      "question_b": "Will Jair Bolsonaro win the 2026 Brazilian presidential election?",
+      "true_rho": 0.027,
+      "expected_direction": "none",
+      "conditions": {
+        "baseline": {
+          "p_a": 0.033,
+          "p_a_given_b_yes": 0.033,
+          "predicted_direction": "none",
+          "direction_correct": true,
+          "rho_used": null,
+          "reasoning": "The Milwaukee Bucks have roughly a 1-in-30 chance of winning the 2026 NBA Finals based on league parity. Bolsonaro winning the Brazilian election would have no meaningful impact on NBA outcomes, as Brazilian politics and American basketball are completely independent domains with no causal relationship."
+        },
+        "oracle": {
+          "p_a": 0.033,
+          "p_a_given_b_yes": 0.034,
+          "predicted_direction": "none",
+          "direction_correct": true,
+          "rho_used": 0.027,
+          "reasoning": "The Milwaukee Bucks are one of 30 NBA teams, so baseline probability is around 1/30 = 0.033. The correlation of \u03c1 = 0.03 is very weak, suggesting near independence between these events. If Bolsonaro wins, the Bucks probability increases only marginally - from 3.3% to 3.4% - reflecting the minimal positive correlation between these largely unrelated sports and political outcomes."
+        },
+        "e2e_2call": {
+          "p_a": 0.033,
+          "p_a_given_b_yes": 0.033,
+          "predicted_direction": "none",
+          "direction_correct": true,
+          "rho_used": 0.0,
+          "rho_error": -0.027,
+          "rho_reasoning": "These questions are about completely unrelated events - an NBA championship outcome and a Brazilian political election. The Milwaukee Bucks' basketball performance has no causal relationship with Brazilian electoral politics, and they don't share any meaningful underlying factors that would cause them to move together. Knowing whether the Bucks win the NBA Finals provides no information about Bolsonaro's electoral prospects.",
+          "reasoning": "The Milwaukee Bucks have a roughly 1-in-30 chance of winning the 2026 NBA Finals based on historical team performance and current roster strength. With correlation coefficient \u03c1 = 0.00, these events are independent - Bolsonaro's electoral prospects in Brazil have no meaningful connection to NBA outcomes. Therefore, P(A|B=YES) equals P(A)."
+        },
+        "e2e_1call": {
+          "p_a": 0.06,
+          "p_a_given_b_yes": 0.063,
+          "predicted_direction": "none",
+          "direction_correct": true,
+          "rho_used": 0.05,
+          "rho_error": 0.023000000000000003,
+          "reasoning": "These events are largely independent - NBA outcomes and Brazilian elections have minimal connection. The tiny positive correlation reflects potential indirect effects: if Bolsonaro wins, it might signal broader global populist/nationalist trends that could marginally affect sports betting markets or player psychology, but this is extremely weak. The Milwaukee Bucks have roughly 1-in-16 odds as one of several championship contenders, with minimal change conditional on Brazilian political outcomes."
+        }
+      }
+    },
+    {
+      "pair_id": 13,
+      "category": "independent",
+      "question_a": "Will the Iranian regime fall before 2027?",
+      "question_b": "Will Kim Kardashian win the 2028 US Presidential Election?",
+      "true_rho": 0.023,
+      "expected_direction": "none",
+      "conditions": {
+        "baseline": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.35,
+          "predicted_direction": "positive",
+          "direction_correct": false,
+          "rho_used": null,
+          "reasoning": "The Iranian regime falling by 2027 is unlikely under normal circumstances. However, Kim Kardashian winning the 2028 presidency would require such extraordinary political upheaval and breakdown of traditional institutions that it would signal we're in a world of extreme political instability. In such a chaotic global environment, authoritarian regimes like Iran's would be more vulnerable to collapse from internal pressures, external conflicts, or cascading regional instability."
+        },
+        "oracle": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.16,
+          "predicted_direction": "none",
+          "direction_correct": true,
+          "rho_used": 0.023,
+          "reasoning": "The Iranian regime has shown resilience despite ongoing protests and economic pressures, making a fall before 2027 unlikely but possible (~15%). Kim Kardashian winning the 2028 presidency is extremely improbable given constitutional requirements and political realities. The tiny positive correlation (\u03c1=0.02) suggests these events are nearly independent, so P(A|B=YES) increases only marginally from the base rate, reflecting perhaps a weak link through extreme political disruption scenarios."
+        },
+        "e2e_2call": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.18,
+          "predicted_direction": "positive",
+          "direction_correct": false,
+          "rho_used": 0.05,
+          "rho_error": 0.027000000000000003,
+          "rho_reasoning": "These questions are essentially independent. The Iranian regime's stability has no meaningful causal relationship with Kim Kardashian's political prospects. While both involve political upheaval/change, they operate in completely different domains (Middle Eastern geopolitics vs US celebrity culture/politics). Any correlation would be purely coincidental noise rather than reflecting genuine interdependence.",
+          "reasoning": "The Iranian regime falling by 2027 is unlikely but possible given regional tensions and internal pressures. Kim Kardashian winning the presidency is extremely unlikely (~0.001%). The weak positive correlation (0.05) suggests both events might occur in scenarios of extreme political disruption or anti-establishment sentiment. Given B occurs, A becomes slightly more likely as it indicates a world where conventional political expectations are completely overturned, but the update is small due to the very weak correlation."
+        },
+        "e2e_1call": {
+          "p_a": 0.25,
+          "p_a_given_b_yes": 0.35,
+          "predicted_direction": "positive",
+          "direction_correct": false,
+          "rho_used": 0.15,
+          "rho_error": 0.127,
+          "reasoning": "Weak positive correlation exists because both events represent major political upheavals that would likely occur in contexts of extreme social/political instability, economic crisis, or widespread institutional breakdown. However, they're geographically and institutionally distinct. Kim Kardashian winning presidency would require unprecedented political disruption in the US, which correlates somewhat with global instability that could affect Iran. The correlation is positive but small since regional factors dominate both outcomes."
+        }
+      }
+    },
+    {
+      "pair_id": 14,
+      "category": "independent",
+      "question_a": "Will Galatasaray win the 2025\u201326 Champions League?",
+      "question_b": "Will Andy Beshear win the 2028 Democratic presidential nomination?",
+      "true_rho": 0.043,
+      "expected_direction": "none",
+      "conditions": {
+        "baseline": {
+          "p_a": 0.02,
+          "p_a_given_b_yes": 0.02,
+          "predicted_direction": "none",
+          "direction_correct": true,
+          "rho_used": null,
+          "reasoning": "Galatasaray has very low odds of winning the Champions League given competition from elite European clubs. Andy Beshear winning the 2028 Democratic nomination is a US political event completely unrelated to Turkish football performance. These events are independent - learning about Beshear's political success provides no information about Galatasaray's football prospects."
+        },
+        "oracle": {
+          "p_a": 0.06,
+          "p_a_given_b_yes": 0.062,
+          "predicted_direction": "none",
+          "direction_correct": true,
+          "rho_used": 0.043,
+          "reasoning": "Galatasaray has a low baseline chance of winning the Champions League given the dominance of top European clubs. With \u03c1 = 0.04 indicating a very weak positive correlation, Beshear winning the 2028 Democratic nomination would slightly increase Galatasaray's chances, but the update is minimal due to the near-independence of these events."
+        },
+        "e2e_2call": {
+          "p_a": 0.02,
+          "p_a_given_b_yes": 0.02,
+          "predicted_direction": "none",
+          "direction_correct": true,
+          "rho_used": 0.0,
+          "rho_error": -0.043,
+          "rho_reasoning": "These questions are about completely unrelated events - a Turkish football club's performance in European competition (2025-26) and a Kentucky governor's potential presidential campaign (2028). The outcomes share no causal relationship, common underlying factors, or logical connection that would make one predictive of the other.",
+          "reasoning": "Galatasaray has a very low probability of winning the Champions League given the dominance of top European clubs. With \u03c1 = 0.00, these events are independent - Andy Beshear's potential presidential nomination has no bearing on Turkish football outcomes. Therefore, P(A|B=YES) = P(A)."
+        },
+        "e2e_1call": {
+          "p_a": 0.02,
+          "p_a_given_b_yes": 0.021,
+          "predicted_direction": "none",
+          "direction_correct": true,
+          "rho_used": 0.05,
+          "rho_error": 0.007000000000000006,
+          "reasoning": "These events are nearly independent - a Turkish football club's Champions League success and a Kentucky governor's presidential nomination have minimal connection. The tiny positive correlation reflects potential broad economic/geopolitical factors that could simultaneously benefit Turkish sports investment and moderate Democratic candidates, but this effect is negligible."
+        }
+      }
+    },
+    {
+      "pair_id": 15,
+      "category": "independent",
+      "question_a": "Will Trump nominate James B. Bullard as the next Fed chair?",
+      "question_b": "Supreme Court rules in favor of Trump's tariffs?",
+      "true_rho": -0.06,
+      "expected_direction": "none",
+      "conditions": {
+        "baseline": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.25,
+          "predicted_direction": "positive",
+          "direction_correct": false,
+          "rho_used": null,
+          "reasoning": "P(A) is relatively low since there are many potential Fed chair candidates and Bullard, while qualified as a former regional Fed president, isn't among the most commonly mentioned frontrunners. P(A|B=YES) is higher because if SCOTUS rules favorably on Trump's tariffs, it signals judicial alignment with Trump's economic agenda. This would likely encourage Trump to nominate Fed officials who share his views on monetary policy and trade, making Bullard (who has expressed some dovish views that could complement expansionary fiscal policy) more attractive as a nominee."
+        },
+        "oracle": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.12,
+          "predicted_direction": "negative",
+          "direction_correct": false,
+          "rho_used": -0.06,
+          "reasoning": "Bullard is a plausible but not highly likely Fed chair nominee given his experience and relatively mainstream views. The slight negative correlation suggests that if the Supreme Court upholds Trump's tariffs (indicating a more aggressive trade stance), Trump might be slightly less likely to choose Bullard, who is generally viewed as more moderate on monetary policy. However, the correlation is very weak (-0.06), so the conditional probability only shifts modestly downward from the base rate."
+        },
+        "e2e_2call": {
+          "p_a": 0.25,
+          "p_a_given_b_yes": 0.3,
+          "predicted_direction": "positive",
+          "direction_correct": false,
+          "rho_used": 0.15,
+          "rho_error": 0.21,
+          "rho_reasoning": "These questions are weakly related through Trump's overall policy agenda and political success. If Trump nominates Bullard (a dovish Fed official), it might indicate a more interventionist economic approach that could align with aggressive tariff policies that would later receive Supreme Court support. However, the questions involve different institutions (Fed vs Supreme Court), different policy domains (monetary vs trade policy), and different timeframes. The correlation is positive but low because both reflect Trump's policy preferences, but the specific outcomes are largely independent of each other.",
+          "reasoning": "Bullard has moderate probability as Fed chair nominee given his experience and Trump's preference for business-friendly candidates. The positive correlation (\u03c1=0.15) suggests both events reflect Trump's economic policy success/influence. If Supreme Court upholds Trump's tariffs, it signals stronger presidential economic authority and judicial deference, making Trump more likely to choose someone like Bullard who would support his broader economic agenda. The modest correlation leads to a moderate upward adjustment from 25% to 30%."
+        },
+        "e2e_1call": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.2,
+          "predicted_direction": "positive",
+          "direction_correct": false,
+          "rho_used": 0.3,
+          "rho_error": 0.36,
+          "reasoning": "Moderate positive correlation exists because both events reflect Trump's economic policy preferences - Bullard has been supportive of accommodative monetary policy that could complement Trump's fiscal agenda, and Supreme Court approval of tariffs would validate Trump's trade approach. However, Fed chair selection involves many factors beyond trade policy alignment, limiting the correlation. If tariffs are upheld, it slightly increases the probability Trump chooses a Fed chair who won't counteract his economic policies through restrictive monetary policy."
+        }
+      }
+    },
+    {
+      "pair_id": 16,
+      "category": "same_race",
+      "question_a": "Will Jo\u00e3o Cotrim Figueiredo win the 2026 Portugal presidential election?",
+      "question_b": "Will Lu\u00eds Marques Mendes win the 2026 Portugal presidential election?",
+      "true_rho": -0.428,
+      "expected_direction": "negative",
+      "conditions": {
+        "baseline": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.0,
+          "predicted_direction": "negative",
+          "direction_correct": true,
+          "rho_used": null,
+          "reasoning": "Jo\u00e3o Cotrim Figueiredo (Liberal Initiative leader) has moderate chances in the 2026 Portuguese presidential election as a center-right candidate. However, if Lu\u00eds Marques Mendes (former PSD leader, constitutional court judge) wins, then by definition Cotrim Figueiredo cannot win the same election - only one person can be elected president. These are mutually exclusive outcomes."
+        },
+        "oracle": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.05,
+          "predicted_direction": "negative",
+          "direction_correct": true,
+          "rho_used": -0.428,
+          "reasoning": "Jo\u00e3o Cotrim Figueiredo leads a smaller liberal party (IL) and would be a long-shot candidate against more established political figures. The negative correlation of -0.43 suggests these candidates appeal to overlapping voter segments or represent competing paths for similar political coalitions. If Lu\u00eds Marques Mendes (a well-known center-right figure) wins, it likely means the center-right consolidated effectively, making it much harder for Cotrim Figueiredo to find his electoral niche."
+        },
+        "e2e_2call": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.03,
+          "predicted_direction": "negative",
+          "direction_correct": true,
+          "rho_used": -0.8,
+          "rho_error": -0.37200000000000005,
+          "rho_reasoning": "These questions are about two different candidates winning the same single-winner election. If one candidate wins, the other cannot win, creating a strong negative correlation. However, it's not perfectly -1 because both candidates could lose to a third candidate, and their individual probabilities may fluctuate independently based on campaign performance, scandals, or other candidate-specific factors.",
+          "reasoning": "Jo\u00e3o Cotrim Figueiredo (Liberal Initiative) has limited electoral appeal in Portugal's presidential context, making his victory unlikely. The strong negative correlation (-0.80) with Lu\u00eds Marques Mendes reflects that both are center-right figures who would likely compete for similar voter segments. If Mendes (a more established, mainstream conservative figure) wins, it significantly reduces Cotrim Figueiredo's already low chances, as the electorate would have chosen the more moderate option over the more liberal/libertarian alternative."
+        },
+        "e2e_1call": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.02,
+          "predicted_direction": "negative",
+          "direction_correct": true,
+          "rho_used": -0.85,
+          "rho_error": -0.422,
+          "reasoning": "Both are potential center-right candidates for the 2026 Portuguese presidential election. Marques Mendes is a more established political figure with broader appeal, while Cotrim Figueiredo represents the Liberal Initiative party. If Marques Mendes runs and wins, it would likely mean he consolidated the center-right vote, making Cotrim Figueiredo's path to victory much more difficult. The strong negative correlation reflects that they would compete for similar voter bases, and Marques Mendes would be the stronger candidate in a head-to-head scenario."
+        }
+      }
+    },
+    {
+      "pair_id": 17,
+      "category": "same_race",
+      "question_a": "Will Tim Walz win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Chris Murphy win the 2028 Democratic presidential nomination?",
+      "true_rho": -0.428,
+      "expected_direction": "negative",
+      "conditions": {
+        "baseline": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.0,
+          "predicted_direction": "negative",
+          "direction_correct": true,
+          "rho_used": null,
+          "reasoning": "Tim Walz has moderate chances for 2028 given his VP experience and progressive appeal. However, if Chris Murphy wins the nomination, then by definition Walz cannot also win it - only one person can secure the Democratic nomination. These are mutually exclusive events."
+        },
+        "oracle": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.08,
+          "predicted_direction": "negative",
+          "direction_correct": true,
+          "rho_used": -0.428,
+          "reasoning": "Tim Walz has moderate chances for 2028 given his VP experience, but faces competition from other prominent Democrats. The strong negative correlation (-0.43) with Chris Murphy suggests they appeal to overlapping voter bases or represent similar ideological positions within the Democratic primary electorate. If Murphy wins the nomination, it significantly reduces Walz's chances since only one person can win, and their campaigns would likely compete for similar supporters."
+        },
+        "e2e_2call": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.05,
+          "predicted_direction": "negative",
+          "direction_correct": true,
+          "rho_used": -0.7,
+          "rho_error": -0.27199999999999996,
+          "rho_reasoning": "These questions are strongly negatively correlated because they ask about two different people winning the same single-winner nomination. If Tim Walz wins the 2028 Democratic nomination, Chris Murphy cannot win it, and vice versa. However, the correlation isn't perfectly -1.0 because both could lose to a third candidate, meaning both outcomes could be NO simultaneously. The strong negative correlation reflects that success of one candidate significantly reduces the probability of the other's success.",
+          "reasoning": "Tim Walz has moderate chances for 2028 as current VP, but faces competition from other Democrats. The strong negative correlation (\u03c1 = -0.70) means if Chris Murphy wins the nomination, it significantly reduces Walz's chances since only one person can win. Murphy winning would likely indicate a shift away from the current administration's leadership toward a fresh Senate voice."
+        },
+        "e2e_1call": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.03,
+          "predicted_direction": "negative",
+          "direction_correct": true,
+          "rho_used": -0.8,
+          "rho_error": -0.37200000000000005,
+          "reasoning": "These events are strongly negatively correlated since both Walz and Murphy would likely compete for similar Democratic voter segments (progressive/establishment lanes) and only one can win the nomination. If Murphy wins, it significantly reduces Walz's chances as it suggests Murphy successfully captured their shared voter base and political positioning."
+        }
+      }
+    },
+    {
+      "pair_id": 18,
+      "category": "same_race",
+      "question_a": "Will Inter win the 2025\u201326 Champions League?",
+      "question_b": "Will PSV win the 2025\u201326 Champions League?",
+      "true_rho": -0.477,
+      "expected_direction": "negative",
+      "conditions": {
+        "baseline": {
+          "p_a": 0.06,
+          "p_a_given_b_yes": 0.0,
+          "predicted_direction": "negative",
+          "direction_correct": true,
+          "rho_used": null,
+          "reasoning": "Inter has a moderate chance as a strong Serie A team with recent Champions League experience. However, if PSV wins the Champions League, then Inter cannot win it since only one team can win the tournament. These are mutually exclusive events - P(A|B=YES) = 0."
+        },
+        "oracle": {
+          "p_a": 0.08,
+          "p_a_given_b_yes": 0.02,
+          "predicted_direction": "negative",
+          "direction_correct": true,
+          "rho_used": -0.477,
+          "reasoning": "Inter is a strong contender but faces competition from many elite clubs, giving them roughly 8% baseline odds. The negative correlation of -0.48 indicates that PSV winning (a major upset) would suggest a tournament where top favorites underperformed significantly, making Inter's chances much lower at around 2%."
+        },
+        "e2e_2call": {
+          "p_a": 0.06,
+          "p_a_given_b_yes": 0.04,
+          "predicted_direction": "none",
+          "direction_correct": false,
+          "rho_used": -0.15,
+          "rho_error": 0.32699999999999996,
+          "rho_reasoning": "These questions are about mutually exclusive outcomes (only one team can win the Champions League), creating a weak negative correlation. However, since both Inter and PSV have relatively low individual probabilities of winning among all European clubs, the correlation is only moderately negative rather than strongly negative. The overlap in their win probabilities is small enough that knowing one loses doesn't dramatically increase the other's chances.",
+          "reasoning": "Inter has moderate Champions League prospects as a top Italian club, so I estimate 6% unconditional probability. The negative correlation of -0.15 suggests these outcomes move oppositely - if PSV (a much less favored team) wins, it likely means major upsets occurred that would have also eliminated Inter earlier in the tournament. Given PSV's win, Inter's chances drop to 4%."
+        },
+        "e2e_1call": {
+          "p_a": 0.04,
+          "p_a_given_b_yes": 0.0,
+          "predicted_direction": "negative",
+          "direction_correct": true,
+          "rho_used": -0.95,
+          "rho_error": -0.473,
+          "reasoning": "These events are nearly perfectly negatively correlated since only one team can win the Champions League in a given season. If PSV wins, Inter cannot win by definition. P(A) reflects Inter as a stronger contender than PSV, but P(A|B=YES) = 0 due to mutual exclusivity."
+        }
+      }
+    },
+    {
+      "pair_id": 19,
+      "category": "crypto_anticorrelation",
+      "question_a": "Will Bitcoin reach $115,000 in January?",
+      "question_b": "Will XRP dip to $1.80 in January?",
+      "true_rho": -0.699,
+      "expected_direction": "negative",
+      "conditions": {
+        "baseline": {
+          "p_a": 0.25,
+          "p_a_given_b_yes": 0.15,
+          "predicted_direction": "negative",
+          "direction_correct": true,
+          "rho_used": null,
+          "reasoning": "Bitcoin reaching $115k requires significant bullish momentum from current levels (~$95k). XRP dipping to $1.80 would indicate broader crypto market weakness or altcoin rotation back to Bitcoin. However, such weakness would likely create headwinds for Bitcoin's own rally to $115k. The negative correlation between XRP weakness and Bitcoin's ability to reach new highs makes A less likely given B=YES."
+        },
+        "oracle": {
+          "p_a": 0.25,
+          "p_a_given_b_yes": 0.12,
+          "predicted_direction": "negative",
+          "direction_correct": true,
+          "rho_used": -0.699,
+          "reasoning": "Bitcoin reaching $115k requires significant upward momentum from current levels (~$95k), so base probability is moderate at 25%. Given the strong negative correlation (-0.70), if XRP dips to $1.80 (indicating crypto market weakness or risk-off sentiment), Bitcoin is much less likely to achieve such a high target. The conditional probability drops to 12% as the negative correlation suggests opposite price movements."
+        },
+        "e2e_2call": {
+          "p_a": 0.25,
+          "p_a_given_b_yes": 0.15,
+          "predicted_direction": "negative",
+          "direction_correct": true,
+          "rho_used": -0.3,
+          "rho_error": 0.39899999999999997,
+          "rho_reasoning": "Both questions involve cryptocurrency prices in the same timeframe, but measure opposite movements - Bitcoin reaching a high vs XRP dipping to a low. If Bitcoin surges to $115k, it would likely indicate strong crypto market momentum that could lift XRP above $1.80. However, the correlation is moderate rather than strong because: (1) XRP and Bitcoin can sometimes move independently due to different use cases and investor bases, (2) XRP's price level of $1.80 isn't extremely low relative to recent ranges, and (3) crypto correlations are imperfect even during broad market moves.",
+          "reasoning": "Bitcoin reaching $115k requires significant bullish momentum from current levels (~$95k). The negative correlation of -0.30 suggests that if XRP dips to $1.80 (indicating crypto market weakness or risk-off sentiment), Bitcoin's chances of hitting $115k decrease substantially. The correlation is moderate, so I update from 25% base probability down to 15% when conditioning on XRP weakness."
+        },
+        "e2e_1call": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.08,
+          "predicted_direction": "negative",
+          "direction_correct": true,
+          "rho_used": -0.3,
+          "rho_error": 0.39899999999999997,
+          "reasoning": "Bitcoin reaching $115k suggests strong crypto market conditions, while XRP dipping to $1.80 suggests weakness. These events are somewhat negatively correlated as they imply opposite market sentiments, though not perfectly since individual crypto assets can move independently. The correlation is moderate negative (-0.3) rather than strong because crypto markets can be highly volatile with asset-specific factors. If XRP dips significantly, it slightly reduces the probability of Bitcoin reaching new highs due to potential broader market uncertainty."
+        }
+      }
+    },
+    {
+      "pair_id": 20,
+      "category": "related_political",
+      "question_a": "Will Trump nominate James B. Bullard as the next Fed chair?",
+      "question_b": "Will Trump nominate Arthur Laffer as the next Fed chair?",
+      "true_rho": 0.689,
+      "expected_direction": "positive",
+      "conditions": {
+        "baseline": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.0,
+          "predicted_direction": "negative",
+          "direction_correct": false,
+          "rho_used": null,
+          "reasoning": "These are mutually exclusive events - Trump can only nominate one person as Fed chair. If Trump nominates Arthur Laffer (B=YES), then he cannot simultaneously nominate James Bullard (A=NO). Both are potential candidates given Trump's preferences for Fed critics, but knowing one occurred makes the other impossible."
+        },
+        "oracle": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.05,
+          "predicted_direction": "negative",
+          "direction_correct": false,
+          "rho_used": 0.689,
+          "reasoning": "Trump can only nominate one person as Fed chair, making these events mutually exclusive despite the positive correlation in their prediction market movements. The correlation likely reflects shared factors (both are unconventional picks that appeal to Trump's economic philosophy) that make them move together in speculation, but if Laffer is actually chosen, Bullard cannot be. The high positive correlation suggests they're seen as similar types of nominees competing for the same position."
+        },
+        "e2e_2call": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.02,
+          "predicted_direction": "negative",
+          "direction_correct": false,
+          "rho_used": -0.95,
+          "rho_error": -1.6389999999999998,
+          "rho_reasoning": "These questions are about mutually exclusive events - Trump can only nominate one person as Fed chair. If Bullard is nominated, Laffer cannot be, and vice versa. The correlation is very strongly negative but not perfectly -1.0 because there's a high probability that neither person is nominated (Trump could choose someone else entirely).",
+          "reasoning": "Trump can only nominate one person as Fed chair, making these events nearly mutually exclusive. The strong negative correlation (\u03c1 = -0.95) reflects this constraint. If Laffer is nominated, Bullard almost certainly cannot be, so P(A|B=YES) drops dramatically from the already low baseline probability."
+        },
+        "e2e_1call": {
+          "p_a": 0.15,
+          "p_a_given_b_yes": 0.01,
+          "predicted_direction": "negative",
+          "direction_correct": false,
+          "rho_used": -0.95,
+          "rho_error": -1.6389999999999998,
+          "reasoning": "These events are strongly negatively correlated since Trump can only nominate one person as Fed chair. Bullard is a more conventional choice with actual Fed experience, while Laffer represents a more unconventional pick aligned with supply-side economics. If Trump chooses the unconventional Laffer route, it makes the conventional Bullard choice extremely unlikely."
+        }
+      }
+    }
+  ]
+}

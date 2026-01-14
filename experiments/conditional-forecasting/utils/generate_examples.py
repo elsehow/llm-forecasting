@@ -10,7 +10,7 @@ from pathlib import Path
 
 import litellm
 
-DATA_DIR = Path(__file__).parent / "data"
+DATA_DIR = Path(__file__).parent.parent / "data"
 
 # Model for generating explanations
 MODEL = os.environ.get("MODEL", "claude-sonnet-4-20250514")

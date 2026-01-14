@@ -10,7 +10,7 @@ from pathlib import Path
 
 import httpx
 
-DATA_DIR = Path(__file__).parent / "data"
+DATA_DIR = Path(__file__).parent.parent / "data"
 DATA_DIR.mkdir(exist_ok=True)
 
 # Public API - no key needed, but be respectful
