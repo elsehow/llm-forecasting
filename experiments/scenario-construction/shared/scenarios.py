@@ -18,6 +18,17 @@ DEFAULT_MODEL = "claude-sonnet-4-20250514"
 # Pydantic models for structured output
 # ============================================================
 
+from typing import Literal
+
+
+class SignalImpact(BaseModel):
+    """How a signal affects a scenario's probability."""
+    signal_index: int = Field(description="Index of signal (0-based, from input array)")
+    effect: Literal["enhances", "suppresses"] = Field(
+        description="'enhances' = signal YES makes scenario more likely; 'suppresses' = signal YES makes scenario less likely"
+    )
+
+
 class MECEScenario(BaseModel):
     """A single MECE scenario."""
     name: str = Field(description="2-4 word memorable name")
@@ -27,7 +38,9 @@ class MECEScenario(BaseModel):
     outcome_high: float = Field(description="Numeric upper bound of outcome range (e.g., 55.0 for $55T)")
     key_drivers: list[str] = Field(description="3-5 factors that define this scenario")
     why_exclusive: str = Field(description="Why this scenario CANNOT co-occur with the others")
-    mapped_signals: list[str] = Field(description="Which input signals map to this scenario")
+    signal_impacts: list[SignalImpact] = Field(
+        description="Which signals affect this scenario and how (enhances or suppresses)"
+    )
     indicator_bundle: dict[str, str] = Field(description="3-5 measurable indicators with thresholds")
 
 
@@ -71,9 +84,18 @@ CRITICAL REQUIREMENTS:
      * outcome_low: numeric lower bound (e.g., 45.0)
      * outcome_high: numeric upper bound (e.g., 55.0)
 
-4. SIGNAL GROUNDING:
-   - Map signals to the scenario(s) they would indicate
-   - Use the signals to inform the causal story for each scenario
+4. SIGNAL IMPACTS:
+   For each scenario, identify which signals affect it and HOW:
+   - ENHANCES: If this signal resolves YES, this scenario becomes MORE likely
+   - SUPPRESSES: If this signal resolves YES, this scenario becomes LESS likely
+
+   Use the signal's "idx" value (0-based index) in signal_impacts.
+
+   Guidelines:
+   - Aim for at least 2 enhancing AND 2 suppressing signals per scenario
+   - A signal can enhance one scenario while suppressing another
+   - Only include signals with clear directional impact (skip neutral ones)
+   - Think about the causal mechanism: WHY does the signal affect this scenario?
 
 5. For each scenario, explain WHY it cannot co-occur with the others.
 
@@ -82,7 +104,7 @@ CRITICAL REQUIREMENTS:
 Think step by step:
 - What are the key axes of uncertainty implied by these signals?
 - How can we partition the outcome space so scenarios don't overlap?
-- What outcome ranges correspond to each scenario?
+- For each scenario, which signals would make it more/less likely?
 """
 
 
@@ -119,11 +141,11 @@ async def generate_mece_scenarios(
     else:
         filtered_signals = signals
 
-    # Format signals for prompt
+    # Format signals for prompt (0-indexed)
     signals_formatted = []
     for i, s in enumerate(filtered_signals):
         signal_info = {
-            "idx": i + 1,
+            "idx": i,  # 0-based index for signal_impacts reference
             "text": s.get("text") or s.get("question", ""),
             "source": s.get("source", "unknown"),
         }
