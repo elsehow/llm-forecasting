@@ -212,6 +212,18 @@ class SQLiteStorage(Storage):
             value=row.value,
         )
 
+    def _question_set_row_to_dict(self, row: QuestionSetRow) -> dict:
+        """Convert a QuestionSetRow to a dictionary."""
+        return {
+            "id": row.id,
+            "name": row.name,
+            "created_at": row.created_at,
+            "freeze_date": row.freeze_date,
+            "forecast_due_date": row.forecast_due_date,
+            "resolution_dates": json.loads(row.resolution_dates),
+            "status": row.status,
+        }
+
     async def save_question(self, question: Question) -> None:
         async with await self._get_session() as session:
             row = self._question_to_row(question)
@@ -419,15 +431,7 @@ class SQLiteStorage(Storage):
             if not row:
                 return None
 
-            return {
-                "id": row.id,
-                "name": row.name,
-                "created_at": row.created_at,
-                "freeze_date": row.freeze_date,
-                "forecast_due_date": row.forecast_due_date,
-                "resolution_dates": json.loads(row.resolution_dates),
-                "status": row.status,
-            }
+            return self._question_set_row_to_dict(row)
 
     async def get_question_set_by_name(self, name: str) -> dict | None:
         """Get a question set by name."""
@@ -439,15 +443,7 @@ class SQLiteStorage(Storage):
             if not row:
                 return None
 
-            return {
-                "id": row.id,
-                "name": row.name,
-                "created_at": row.created_at,
-                "freeze_date": row.freeze_date,
-                "forecast_due_date": row.forecast_due_date,
-                "resolution_dates": json.loads(row.resolution_dates),
-                "status": row.status,
-            }
+            return self._question_set_row_to_dict(row)
 
     async def get_question_sets(self, status: str | None = None) -> list[dict]:
         """Get all question sets, optionally filtered by status."""
@@ -460,18 +456,7 @@ class SQLiteStorage(Storage):
             result = await session.execute(stmt)
             rows = result.scalars().all()
 
-            return [
-                {
-                    "id": row.id,
-                    "name": row.name,
-                    "created_at": row.created_at,
-                    "freeze_date": row.freeze_date,
-                    "forecast_due_date": row.forecast_due_date,
-                    "resolution_dates": json.loads(row.resolution_dates),
-                    "status": row.status,
-                }
-                for row in rows
-            ]
+            return [self._question_set_row_to_dict(row) for row in rows]
 
     async def get_question_set_items(self, question_set_id: int) -> list[dict]:
         """Get all items in a question set."""

@@ -8,11 +8,14 @@ API docs: https://trading-api.readme.io/reference/getting-started
 """
 
 import logging
-from datetime import date, datetime, timezone
+from datetime import date
 
 import httpx
 
+from llm_forecasting.date_utils import parse_iso_datetime
+from llm_forecasting.http_utils import HTTPClientMixin
 from llm_forecasting.models import Question, QuestionType, Resolution, SourceType
+from llm_forecasting.resolution_utils import kalshi_resolution_to_float
 from llm_forecasting.sources.base import QuestionSource
 
 logger = logging.getLogger(__name__)
@@ -22,7 +25,7 @@ BASE_URL = "https://api.elections.kalshi.com/trade-api/v2"
 
 # NOTE: Not registered - source is deprecated until we get API permissions
 # @registry.register
-class KalshiSource(QuestionSource):
+class KalshiSource(QuestionSource, HTTPClientMixin):
     """Fetch questions from Kalshi prediction market.
 
     Kalshi offers regulated prediction markets on events like elections,
@@ -33,11 +36,6 @@ class KalshiSource(QuestionSource):
 
     def __init__(self, http_client: httpx.AsyncClient | None = None):
         self._client = http_client
-
-    async def _get_client(self) -> httpx.AsyncClient:
-        if self._client is None:
-            self._client = httpx.AsyncClient(timeout=30.0)
-        return self._client
 
     async def _get_markets(self, limit: int = 100, cursor: str | None = None) -> dict:
         """Get markets from Kalshi API."""
@@ -60,20 +58,16 @@ class KalshiSource(QuestionSource):
     def _market_to_question(self, market: dict) -> Question:
         """Convert a Kalshi market to a Question."""
         # Parse timestamps
-        created_at = datetime.fromisoformat(market["open_time"].replace("Z", "+00:00"))
+        created_at = parse_iso_datetime(market["open_time"])
         close_time = market.get("close_time")
         resolution_date = None
         if close_time:
-            resolution_date = datetime.fromisoformat(
-                close_time.replace("Z", "+00:00")
-            ).date()
+            close_dt = parse_iso_datetime(close_time)
+            resolution_date = close_dt.date() if close_dt else None
 
         # Determine resolution status
         resolved = market.get("status") == "finalized"
-        resolution_value = None
-        if resolved:
-            result = market.get("result")
-            resolution_value = 1.0 if result == "yes" else 0.0 if result == "no" else None
+        resolution_value = kalshi_resolution_to_float(market.get("result")) if resolved else None
 
         return Question(
             id=market["ticker"],
@@ -123,13 +117,13 @@ class KalshiSource(QuestionSource):
         market = await self._get_market(question_id)
 
         if market.get("status") == "finalized":
-            result = market.get("result")
-            if result in ("yes", "no"):
+            value = kalshi_resolution_to_float(market.get("result"))
+            if value is not None:
                 return Resolution(
                     question_id=question_id,
                     source=self.name,
                     date=date.today(),
-                    value=1.0 if result == "yes" else 0.0,
+                    value=value,
                 )
 
         # Return current price as interim resolution
@@ -143,8 +137,3 @@ class KalshiSource(QuestionSource):
             )
 
         return None
-
-    async def close(self):
-        if self._client:
-            await self._client.aclose()
-            self._client = None
