@@ -16,7 +16,12 @@ import numpy as np
 from scipy import stats
 
 # Import canonical VOI from core
-from llm_forecasting.voi import linear_voi_from_rho
+from llm_forecasting.voi import (
+    linear_voi_from_rho,
+    entropy_voi_from_rho,
+    entropy_voi_normalized_from_rho,
+    compare_voi_metrics_from_rho,
+)
 
 # Paths
 VOI_DIR = Path(__file__).parent
@@ -143,10 +148,18 @@ def main():
     actual_shifts = np.array([r["actual_shift"] for r in results])
     p_befores = np.array([r["p_before"] for r in results])
 
-    # Compute linear VOI using canonical formula
+    # Compute both VOI metrics using canonical formulas
     rhos = np.array([r["rho"] for r in results])
-    vois = np.array([
+    linear_vois = np.array([
         linear_voi_from_rho(rho, p_before, 0.5)
+        for rho, p_before in zip(rhos, p_befores)
+    ])
+    entropy_vois = np.array([
+        entropy_voi_from_rho(rho, p_before, 0.5)
+        for rho, p_before in zip(rhos, p_befores)
+    ])
+    entropy_vois_norm = np.array([
+        entropy_voi_normalized_from_rho(rho, p_before, 0.5)
         for rho, p_before in zip(rhos, p_befores)
     ])
 
@@ -159,15 +172,45 @@ def main():
     print(f"\n|ρ| vs actual_shift:")
     print(f"  r = {r_rho:.3f}, p = {p_rho:.3f}")
 
-    # Test 2: VOI vs actual shift
-    r_voi, p_voi = stats.pearsonr(vois, actual_shifts)
-    print(f"\nVOI vs actual_shift:")
-    print(f"  r = {r_voi:.3f}, p = {p_voi:.3f}")
+    # Test 2: Linear VOI vs actual shift
+    r_linear, p_linear = stats.pearsonr(linear_vois, actual_shifts)
+    print(f"\nLinear VOI vs actual_shift:")
+    print(f"  r = {r_linear:.3f}, p = {p_linear:.3f}")
 
-    # Test 3: Spearman (rank correlation)
+    # Test 3: Entropy VOI vs actual shift
+    r_entropy, p_entropy = stats.pearsonr(entropy_vois, actual_shifts)
+    print(f"\nEntropy VOI vs actual_shift:")
+    print(f"  r = {r_entropy:.3f}, p = {p_entropy:.3f}")
+
+    # Test 4: Normalized Entropy VOI vs actual shift
+    r_entropy_norm, p_entropy_norm = stats.pearsonr(entropy_vois_norm, actual_shifts)
+    print(f"\nEntropy VOI (normalized) vs actual_shift:")
+    print(f"  r = {r_entropy_norm:.3f}, p = {p_entropy_norm:.3f}")
+
+    # Test 5: Spearman (rank correlation) for |ρ|
     rho_spearman, p_spearman = stats.spearmanr(abs_rhos, actual_shifts)
     print(f"\nSpearman |ρ| vs actual_shift:")
     print(f"  ρ = {rho_spearman:.3f}, p = {p_spearman:.3f}")
+
+    # Test 6: Compare VOI methods head-to-head
+    print("\n" + "-" * 70)
+    print("VOI METHOD COMPARISON")
+    print("-" * 70)
+
+    # Rank correlation between linear and entropy VOI
+    tau_voi, p_tau = stats.kendalltau(linear_vois, entropy_vois)
+    print(f"\nLinear vs Entropy VOI ranking (Kendall's τ):")
+    print(f"  τ = {tau_voi:.3f}, p = {p_tau:.3f}")
+
+    # Which predicts actual shifts better?
+    if r_linear > r_entropy:
+        winner = "Linear VOI"
+        advantage = r_linear - r_entropy
+    else:
+        winner = "Entropy VOI"
+        advantage = r_entropy - r_linear
+    print(f"\nBetter predictor of actual shifts: {winner}")
+    print(f"  Advantage: Δr = {advantage:.3f}")
 
     # Breakdown by classification
     print("\n" + "-" * 70)
@@ -250,11 +293,22 @@ def main():
             "mean_abs_rho": float(np.mean(abs_rhos)),
             "mean_actual_shift": float(np.mean(actual_shifts)),
             "mean_p_before": float(np.mean(p_befores)),
+            "mean_linear_voi": float(np.mean(linear_vois)),
+            "mean_entropy_voi": float(np.mean(entropy_vois)),
+            "mean_entropy_voi_normalized": float(np.mean(entropy_vois_norm)),
         },
         "correlations": {
             "rho_vs_shift": {"r": float(r_rho), "p": float(p_rho)},
-            "voi_vs_shift": {"r": float(r_voi), "p": float(p_voi)},
+            "linear_voi_vs_shift": {"r": float(r_linear), "p": float(p_linear)},
+            "entropy_voi_vs_shift": {"r": float(r_entropy), "p": float(p_entropy)},
+            "entropy_voi_normalized_vs_shift": {"r": float(r_entropy_norm), "p": float(p_entropy_norm)},
             "spearman_rho_vs_shift": {"rho": float(rho_spearman), "p": float(p_spearman)},
+        },
+        "voi_comparison": {
+            "linear_vs_entropy_tau": float(tau_voi),
+            "linear_vs_entropy_tau_p": float(p_tau),
+            "better_predictor": winner,
+            "advantage_delta_r": float(advantage),
         },
         "by_category": {
             cat: {

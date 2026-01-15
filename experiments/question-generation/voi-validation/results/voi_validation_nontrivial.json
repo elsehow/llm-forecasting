@@ -1,0 +1,510 @@
+{
+  "metadata": {
+    "n_pairs": 34,
+    "mean_abs_rho": 0.24191764705882357,
+    "mean_actual_shift": 0.04861764705882354,
+    "mean_p_before": 0.34022058823529416,
+    "mean_linear_voi": 0.1017998904913675,
+    "mean_entropy_voi": 0.0638350117848101,
+    "mean_entropy_voi_normalized": 0.07695443776607916
+  },
+  "correlations": {
+    "rho_vs_shift": {
+      "r": 0.48052637793999153,
+      "p": 0.004021751334864573
+    },
+    "linear_voi_vs_shift": {
+      "r": 0.5731210277061349,
+      "p": 0.00039594038463922244
+    },
+    "entropy_voi_vs_shift": {
+      "r": 0.652702322801846,
+      "p": 2.8691916688157975e-05
+    },
+    "entropy_voi_normalized_vs_shift": {
+      "r": 0.6157962034293798,
+      "p": 0.00010586657190592686
+    },
+    "spearman_rho_vs_shift": {
+      "rho": 0.2674772673817112,
+      "p": 0.1261831680855111
+    }
+  },
+  "voi_comparison": {
+    "linear_vs_entropy_tau": 0.8787878787878789,
+    "linear_vs_entropy_tau_p": 2.7024034141903367e-13,
+    "better_predictor": "Entropy VOI",
+    "advantage_delta_r": 0.0795812950957111
+  },
+  "by_category": {
+    "same_event_different_timeline": {
+      "n": 1,
+      "avg_abs_rho": 0.6647,
+      "avg_shift": 0.03
+    },
+    "mutually_exclusive": {
+      "n": 13,
+      "avg_abs_rho": 0.2848615384615385,
+      "avg_shift": 0.07623076923076923
+    },
+    "shared_driver": {
+      "n": 6,
+      "avg_abs_rho": 0.2548166666666667,
+      "avg_shift": 0.022833333333333348
+    },
+    "sequential_prerequisite": {
+      "n": 4,
+      "avg_abs_rho": 0.23295,
+      "avg_shift": 0.024999999999999974
+    },
+    "causal_relationship": {
+      "n": 10,
+      "avg_abs_rho": 0.13965999999999998,
+      "avg_shift": 0.03950000000000002
+    }
+  },
+  "pairs": [
+    {
+      "question_a": "Russia x Ukraine ceasefire by January 31, 2026?",
+      "question_b": "Russia x Ukraine ceasefire by March 31, 2026?",
+      "rho": 0.6647,
+      "abs_rho": 0.6647,
+      "classification": "same_event_different_timeline",
+      "resolved": "A",
+      "outcome": "NO",
+      "p_before": 0.195,
+      "p_after": 0.225,
+      "actual_shift": 0.03,
+      "direction": "up"
+    },
+    {
+      "question_a": "Will Bitcoin dip to $85,000 in January?",
+      "question_b": "Will Bitcoin reach $115,000 in January?",
+      "rho": -0.6359,
+      "abs_rho": 0.6359,
+      "classification": "mutually_exclusive",
+      "resolved": "B",
+      "outcome": "NO",
+      "p_before": 0.665,
+      "p_after": 0.385,
+      "actual_shift": 0.28,
+      "direction": "down"
+    },
+    {
+      "question_a": "Will Bitcoin reach $110,000 in January?",
+      "question_b": "Will Bitcoin dip to $80,000 in January?",
+      "rho": -0.5969,
+      "abs_rho": 0.5969,
+      "classification": "mutually_exclusive",
+      "resolved": "A",
+      "outcome": "NO",
+      "p_before": 0.29,
+      "p_after": 0.18,
+      "actual_shift": 0.10999999999999999,
+      "direction": "down"
+    },
+    {
+      "question_a": "Will Microsoft be the largest company in the world by market cap on January 31?",
+      "question_b": "Will Apple be the largest company in the world by market cap on January 31?",
+      "rho": 0.5848,
+      "abs_rho": 0.5848,
+      "classification": "mutually_exclusive",
+      "resolved": "A",
+      "outcome": "NO",
+      "p_before": 0.33,
+      "p_after": 0.055,
+      "actual_shift": 0.275,
+      "direction": "down"
+    },
+    {
+      "question_a": "Will Trump nominate Kevin Warsh as the next Fed chair?",
+      "question_b": "Will Trump nominate Christopher Waller as the next Fed chair?",
+      "rho": 0.5261,
+      "abs_rho": 0.5261,
+      "classification": "mutually_exclusive",
+      "resolved": "B",
+      "outcome": "NO",
+      "p_before": 0.1,
+      "p_after": 0.11,
+      "actual_shift": 0.009999999999999995,
+      "direction": "up"
+    },
+    {
+      "question_a": "Will Real Madrid win the 2025\u201326 La Liga?",
+      "question_b": "Will Inter win the 2025\u201326 Champions League?",
+      "rho": 0.4643,
+      "abs_rho": 0.4643,
+      "classification": "shared_driver",
+      "resolved": "B",
+      "outcome": "NO",
+      "p_before": 0.62,
+      "p_after": 0.59,
+      "actual_shift": 0.030000000000000027,
+      "direction": "down"
+    },
+    {
+      "question_a": "Fed decreases interest rates by 25 bps after January 2026 meeting?",
+      "question_b": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "rho": -0.4361,
+      "abs_rho": 0.4361,
+      "classification": "sequential_prerequisite",
+      "resolved": "A",
+      "outcome": "NO",
+      "p_before": 0.635,
+      "p_after": 0.69,
+      "actual_shift": 0.05499999999999994,
+      "direction": "up"
+    },
+    {
+      "question_a": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Kamala Harris win the 2028 US Presidential Election?",
+      "rho": -0.4148,
+      "abs_rho": 0.4148,
+      "classification": "shared_driver",
+      "resolved": "B",
+      "outcome": "NO",
+      "p_before": 0.375,
+      "p_after": 0.375,
+      "actual_shift": 0.0,
+      "direction": "down"
+    },
+    {
+      "question_a": "Will Zohran Mamdani win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
+      "rho": -0.3196,
+      "abs_rho": 0.3196,
+      "classification": "mutually_exclusive",
+      "resolved": "A",
+      "outcome": "NO",
+      "p_before": 0.375,
+      "p_after": 0.375,
+      "actual_shift": 0.0,
+      "direction": "down"
+    },
+    {
+      "question_a": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Rand Paul win the 2028 Republican presidential nomination?",
+      "rho": -0.2473,
+      "abs_rho": 0.2473,
+      "classification": "shared_driver",
+      "resolved": "B",
+      "outcome": "NO",
+      "p_before": 0.375,
+      "p_after": 0.375,
+      "actual_shift": 0.0,
+      "direction": "down"
+    },
+    {
+      "question_a": "Will the Los Angeles Rams win Super Bowl 2026?",
+      "question_b": "Will the 49ers win the 2026 NFC Championship?",
+      "rho": -0.2445,
+      "abs_rho": 0.2445,
+      "classification": "mutually_exclusive",
+      "resolved": "B",
+      "outcome": "NO",
+      "p_before": 0.1065,
+      "p_after": 0.126,
+      "actual_shift": 0.019500000000000003,
+      "direction": "up"
+    },
+    {
+      "question_a": "Will Donald Trump win the 2028 US Presidential Election?",
+      "question_b": "Trump out as President before 2027?",
+      "rho": -0.2404,
+      "abs_rho": 0.2404,
+      "classification": "sequential_prerequisite",
+      "resolved": "A",
+      "outcome": "NO",
+      "p_before": 0.19,
+      "p_after": 0.185,
+      "actual_shift": 0.0050000000000000044,
+      "direction": "down"
+    },
+    {
+      "question_a": "Will Trump nominate Rick Rieder as the next Fed chair?",
+      "question_b": "Will Trump nominate Christopher Waller as the next Fed chair?",
+      "rho": 0.2401,
+      "abs_rho": 0.2401,
+      "classification": "mutually_exclusive",
+      "resolved": "A",
+      "outcome": "NO",
+      "p_before": 0.24,
+      "p_after": 0.0385,
+      "actual_shift": 0.20149999999999998,
+      "direction": "down"
+    },
+    {
+      "question_a": "Will Trump nominate Christopher Waller as the next Fed chair?",
+      "question_b": "Fed rate cut by January 2026 meeting?",
+      "rho": 0.2234,
+      "abs_rho": 0.2234,
+      "classification": "causal_relationship",
+      "resolved": "A",
+      "outcome": "NO",
+      "p_before": 0.22,
+      "p_after": 0.22,
+      "actual_shift": 0.0,
+      "direction": "down"
+    },
+    {
+      "question_a": "Will Trump nominate David Malpass as the next Fed chair?",
+      "question_b": "Will the Fed Cut\u2013Cut\u2013Cut in the next three decisions (Oct\u2013Dec\u2013Jan)?",
+      "rho": -0.2168,
+      "abs_rho": 0.2168,
+      "classification": "causal_relationship",
+      "resolved": "A",
+      "outcome": "NO",
+      "p_before": 0.105,
+      "p_after": 0.19,
+      "actual_shift": 0.085,
+      "direction": "up"
+    },
+    {
+      "question_a": "Will Trump nominate Bill Pulte as the next Fed chair?",
+      "question_b": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "rho": 0.2075,
+      "abs_rho": 0.2075,
+      "classification": "causal_relationship",
+      "resolved": "A",
+      "outcome": "NO",
+      "p_before": 0.545,
+      "p_after": 0.49,
+      "actual_shift": 0.05500000000000005,
+      "direction": "down"
+    },
+    {
+      "question_a": "Will Trump nominate Scott Bessent as the next Fed chair?",
+      "question_b": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "rho": 0.2025,
+      "abs_rho": 0.2025,
+      "classification": "causal_relationship",
+      "resolved": "A",
+      "outcome": "NO",
+      "p_before": 0.545,
+      "p_after": 0.49,
+      "actual_shift": 0.05500000000000005,
+      "direction": "down"
+    },
+    {
+      "question_a": "Fed decreases interest rates by 50+ bps after January 2026 meeting?",
+      "question_b": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "rho": -0.1991,
+      "abs_rho": 0.1991,
+      "classification": "shared_driver",
+      "resolved": "A",
+      "outcome": "NO",
+      "p_before": 0.545,
+      "p_after": 0.49,
+      "actual_shift": 0.05500000000000005,
+      "direction": "down"
+    },
+    {
+      "question_a": "Will Trump nominate Kevin Warsh as the next Fed chair?",
+      "question_b": "Trump out as President by March 31?",
+      "rho": 0.1784,
+      "abs_rho": 0.1784,
+      "classification": "sequential_prerequisite",
+      "resolved": "B",
+      "outcome": "NO",
+      "p_before": 0.19,
+      "p_after": 0.165,
+      "actual_shift": 0.024999999999999994,
+      "direction": "down"
+    },
+    {
+      "question_a": "Will Trump nominate Kevin Hassett as the next Fed chair?",
+      "question_b": "Will Trump nominate Michelle Bowman as the next Fed chair?",
+      "rho": -0.1744,
+      "abs_rho": 0.1744,
+      "classification": "mutually_exclusive",
+      "resolved": "B",
+      "outcome": "NO",
+      "p_before": 0.4,
+      "p_after": 0.39,
+      "actual_shift": 0.010000000000000009,
+      "direction": "down"
+    },
+    {
+      "question_a": "Will Trump nominate Jerome Powell as the next Fed chair?",
+      "question_b": "Trump out as President before 2027?",
+      "rho": 0.1561,
+      "abs_rho": 0.1561,
+      "classification": "causal_relationship",
+      "resolved": "A",
+      "outcome": "NO",
+      "p_before": 0.19,
+      "p_after": 0.185,
+      "actual_shift": 0.0050000000000000044,
+      "direction": "down"
+    },
+    {
+      "question_a": "Will Trump nominate Kevin Warsh as the next Fed chair?",
+      "question_b": "Fed rate cut by January 2026 meeting?",
+      "rho": 0.1452,
+      "abs_rho": 0.1452,
+      "classification": "causal_relationship",
+      "resolved": "B",
+      "outcome": "NO",
+      "p_before": 0.245,
+      "p_after": 0.325,
+      "actual_shift": 0.08000000000000002,
+      "direction": "up"
+    },
+    {
+      "question_a": "Will Microsoft be the largest company in the world by market cap on January 31?",
+      "question_b": "Will Alphabet be the largest company in the world by market cap on June 30?",
+      "rho": 0.1266,
+      "abs_rho": 0.1266,
+      "classification": "shared_driver",
+      "resolved": "A",
+      "outcome": "NO",
+      "p_before": 0.227,
+      "p_after": 0.1795,
+      "actual_shift": 0.047500000000000014,
+      "direction": "down"
+    },
+    {
+      "question_a": "Will Trump nominate no one before 2027?",
+      "question_b": "Trump out as President before 2027?",
+      "rho": 0.1256,
+      "abs_rho": 0.1256,
+      "classification": "causal_relationship",
+      "resolved": "A",
+      "outcome": "NO",
+      "p_before": 0.19,
+      "p_after": 0.185,
+      "actual_shift": 0.0050000000000000044,
+      "direction": "down"
+    },
+    {
+      "question_a": "Will Andrew Yang win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
+      "rho": -0.1198,
+      "abs_rho": 0.1198,
+      "classification": "mutually_exclusive",
+      "resolved": "A",
+      "outcome": "NO",
+      "p_before": 0.375,
+      "p_after": 0.375,
+      "actual_shift": 0.0,
+      "direction": "down"
+    },
+    {
+      "question_a": "Fed decreases interest rates by 50+ bps after January 2026 meeting?",
+      "question_b": "Fed decreases interest rates by 25 bps after January 2026 meeting?",
+      "rho": 0.0912,
+      "abs_rho": 0.0912,
+      "classification": "mutually_exclusive",
+      "resolved": "A",
+      "outcome": "NO",
+      "p_before": 0.355,
+      "p_after": 0.415,
+      "actual_shift": 0.06,
+      "direction": "up"
+    },
+    {
+      "question_a": "Will Trump nominate Marc Sumerlin as the next Fed chair?",
+      "question_b": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "rho": 0.0804,
+      "abs_rho": 0.0804,
+      "classification": "causal_relationship",
+      "resolved": "A",
+      "outcome": "NO",
+      "p_before": 0.545,
+      "p_after": 0.49,
+      "actual_shift": 0.05500000000000005,
+      "direction": "down"
+    },
+    {
+      "question_a": "Will Jared Polis win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
+      "rho": 0.0793,
+      "abs_rho": 0.0793,
+      "classification": "mutually_exclusive",
+      "resolved": "A",
+      "outcome": "NO",
+      "p_before": 0.375,
+      "p_after": 0.375,
+      "actual_shift": 0.0,
+      "direction": "down"
+    },
+    {
+      "question_a": "Fed increases interest rates by 25+ bps after January 2026 meeting?",
+      "question_b": "Will the Fed Cut\u2013Cut\u2013Pause in the next three decisions (Oct\u2013Dec\u2013Jan)?",
+      "rho": 0.0769,
+      "abs_rho": 0.0769,
+      "classification": "sequential_prerequisite",
+      "resolved": "A",
+      "outcome": "NO",
+      "p_before": 0.35,
+      "p_after": 0.335,
+      "actual_shift": 0.014999999999999958,
+      "direction": "down"
+    },
+    {
+      "question_a": "Will Alphabet be the largest company in the world by market cap on June 30?",
+      "question_b": "Will Apple be the largest company in the world by market cap on January 31?",
+      "rho": -0.0768,
+      "abs_rho": 0.0768,
+      "classification": "shared_driver",
+      "resolved": "B",
+      "outcome": "NO",
+      "p_before": 0.184,
+      "p_after": 0.1795,
+      "actual_shift": 0.004500000000000004,
+      "direction": "down"
+    },
+    {
+      "question_a": "Will Trump nominate Larry Lindsey as the next Fed chair?",
+      "question_b": "Will Trump nominate Kevin Warsh as the next Fed chair?",
+      "rho": 0.0616,
+      "abs_rho": 0.0616,
+      "classification": "mutually_exclusive",
+      "resolved": "A",
+      "outcome": "NO",
+      "p_before": 0.19,
+      "p_after": 0.165,
+      "actual_shift": 0.024999999999999994,
+      "direction": "down"
+    },
+    {
+      "question_a": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Ron DeSantis win the 2028 US Presidential Election?",
+      "rho": -0.0391,
+      "abs_rho": 0.0391,
+      "classification": "causal_relationship",
+      "resolved": "B",
+      "outcome": "NO",
+      "p_before": 0.375,
+      "p_after": 0.375,
+      "actual_shift": 0.0,
+      "direction": "down"
+    },
+    {
+      "question_a": "Will Bernie Sanders win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
+      "rho": -0.029,
+      "abs_rho": 0.029,
+      "classification": "mutually_exclusive",
+      "resolved": "A",
+      "outcome": "NO",
+      "p_before": 0.375,
+      "p_after": 0.375,
+      "actual_shift": 0.0,
+      "direction": "down"
+    },
+    {
+      "question_a": "Will Trump nominate Philip Jefferson as the next Fed chair?",
+      "question_b": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "rho": 0.0,
+      "abs_rho": 0.0,
+      "classification": "causal_relationship",
+      "resolved": "A",
+      "outcome": "NO",
+      "p_before": 0.545,
+      "p_after": 0.49,
+      "actual_shift": 0.05500000000000005,
+      "direction": "down"
+    }
+  ]
+}

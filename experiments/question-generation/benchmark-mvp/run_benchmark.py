@@ -24,7 +24,12 @@ from dotenv import load_dotenv
 import litellm
 
 from llm_forecasting.models import Signal
-from llm_forecasting.voi import estimate_rho as _estimate_rho_core
+from llm_forecasting.voi import (
+    estimate_rho as _estimate_rho_core,
+    linear_voi,
+    entropy_voi,
+    entropy_voi_normalized,
+)
 
 load_dotenv()
 
@@ -194,12 +199,16 @@ async def elicit_conditionals(ultimate: str, crux: str, rho: float) -> dict:
         return {"error": str(e)}
 
 
-def compute_linear_voi(p_ultimate: float, p_crux: float,
-                       p_ult_given_yes: float, p_ult_given_no: float) -> float:
-    """Compute Linear VOI (expected absolute belief shift)."""
-    shift_yes = abs(p_ult_given_yes - p_ultimate)
-    shift_no = abs(p_ult_given_no - p_ultimate)
-    return p_crux * shift_yes + (1 - p_crux) * shift_no
+def compute_all_voi_metrics(p_ultimate: float, p_crux: float,
+                            p_ult_given_yes: float, p_ult_given_no: float) -> dict:
+    """Compute all VOI metrics for comparison."""
+    return {
+        "linear": linear_voi(p_ultimate, p_crux, p_ult_given_yes, p_ult_given_no),
+        "entropy": entropy_voi(p_ultimate, p_crux, p_ult_given_yes, p_ult_given_no),
+        "entropy_normalized": entropy_voi_normalized(
+            p_ultimate, p_crux, p_ult_given_yes, p_ult_given_no
+        ),
+    }
 
 
 def crux_to_signal(
@@ -337,9 +346,9 @@ async def process_ultimate(ultimate_data: dict, pair_rhos: dict,
         conditionals = await elicit_conditionals(ultimate, crux, rho_est)
 
         if "error" in conditionals:
-            voi = 0.0
+            voi_metrics = {"linear": 0.0, "entropy": 0.0, "entropy_normalized": 0.0}
         else:
-            voi = compute_linear_voi(
+            voi_metrics = compute_all_voi_metrics(
                 conditionals["p_ultimate"],
                 conditionals["p_crux"],
                 conditionals["p_ultimate_given_crux_yes"],
@@ -352,10 +361,13 @@ async def process_ultimate(ultimate_data: dict, pair_rhos: dict,
             "rho_reasoning": rho_reason,
             "rho_known": known_rho,
             "conditionals": conditionals,
-            "voi": voi,
+            "voi": voi_metrics["linear"],  # Keep for backwards compatibility
+            "voi_linear": voi_metrics["linear"],
+            "voi_entropy": voi_metrics["entropy"],
+            "voi_entropy_normalized": voi_metrics["entropy_normalized"],
         })
 
-        print(f"    {i+1}. VOI={voi:.3f}, ρ={rho_est:.2f}: {crux[:40]}...")
+        print(f"    {i+1}. VOI(L)={voi_metrics['linear']:.3f}, VOI(E)={voi_metrics['entropy']:.3f}, ρ={rho_est:.2f}: {crux[:35]}...")
 
     # Convert to Signal objects for type-safe access
     signals = [
@@ -371,20 +383,35 @@ async def process_ultimate(ultimate_data: dict, pair_rhos: dict,
         for i, cs in enumerate(crux_scores)
     ]
 
-    # 3. Rank by VOI
-    voi_ranking = sorted(range(len(cruxes)), key=lambda i: -crux_scores[i]["voi"])
-    voi_ranking = [i + 1 for i in voi_ranking]  # 1-indexed
+    # 3. Rank by VOI (both linear and entropy)
+    linear_ranking = sorted(range(len(cruxes)), key=lambda i: -crux_scores[i]["voi_linear"])
+    linear_ranking = [i + 1 for i in linear_ranking]  # 1-indexed
+
+    entropy_ranking = sorted(range(len(cruxes)), key=lambda i: -crux_scores[i]["voi_entropy"])
+    entropy_ranking = [i + 1 for i in entropy_ranking]  # 1-indexed
 
     # 4. Get LLM ranking
     print("  Getting LLM ranking baseline...")
     llm_ranking = await get_llm_ranking(ultimate, cruxes)
 
     # 5. Compare rankings
-    if len(voi_ranking) == len(llm_ranking):
-        rho_corr, p_corr = compute_rank_correlation(voi_ranking, llm_ranking)
-        print(f"  Rank correlation: ρ={rho_corr:.2f}, p={p_corr:.3f}")
-    else:
-        rho_corr, p_corr = None, None
+    correlations = {}
+    if len(linear_ranking) == len(llm_ranking):
+        # Linear VOI vs LLM
+        rho_linear_llm, p_linear_llm = compute_rank_correlation(linear_ranking, llm_ranking)
+        correlations["linear_vs_llm"] = {"rho": rho_linear_llm, "p": p_linear_llm}
+
+        # Entropy VOI vs LLM
+        rho_entropy_llm, p_entropy_llm = compute_rank_correlation(entropy_ranking, llm_ranking)
+        correlations["entropy_vs_llm"] = {"rho": rho_entropy_llm, "p": p_entropy_llm}
+
+        # Linear vs Entropy VOI
+        rho_linear_entropy, p_linear_entropy = compute_rank_correlation(linear_ranking, entropy_ranking)
+        correlations["linear_vs_entropy"] = {"rho": rho_linear_entropy, "p": p_linear_entropy}
+
+        print(f"  Linear VOI vs LLM: ρ={rho_linear_llm:.2f}")
+        print(f"  Entropy VOI vs LLM: ρ={rho_entropy_llm:.2f}")
+        print(f"  Linear vs Entropy: ρ={rho_linear_entropy:.2f}")
 
     return {
         "ultimate": ultimate,
@@ -392,9 +419,12 @@ async def process_ultimate(ultimate_data: dict, pair_rhos: dict,
         "volume": ultimate_data.get("volume_total", 0),
         "crux_scores": crux_scores,
         "signals": signals,  # Signal objects for type-safe access
-        "voi_ranking": voi_ranking,
+        "voi_ranking_linear": linear_ranking,
+        "voi_ranking_entropy": entropy_ranking,
+        "voi_ranking": linear_ranking,  # Keep for backwards compatibility
         "llm_ranking": llm_ranking,
-        "rank_correlation": {"rho": rho_corr, "p": p_corr},
+        "rank_correlations": correlations,
+        "rank_correlation": correlations.get("linear_vs_llm", {"rho": None, "p": None}),  # Backwards compat
     }
 
 
@@ -435,33 +465,71 @@ async def main():
 
     valid_results = [r for r in results if "error" not in r]
 
-    # Average VOI
-    all_vois = []
+    # Collect all VOI scores
+    all_linear_vois = []
+    all_entropy_vois = []
+    all_entropy_vois_norm = []
     for r in valid_results:
         for cs in r["crux_scores"]:
-            all_vois.append(cs["voi"])
+            all_linear_vois.append(cs["voi_linear"])
+            all_entropy_vois.append(cs["voi_entropy"])
+            all_entropy_vois_norm.append(cs["voi_entropy_normalized"])
 
-    print(f"\nTotal cruxes generated: {len(all_vois)}")
-    print(f"Mean VOI: {np.mean(all_vois):.3f}")
-    print(f"Median VOI: {np.median(all_vois):.3f}")
-    print(f"Max VOI: {np.max(all_vois):.3f}")
+    print(f"\nTotal cruxes generated: {len(all_linear_vois)}")
 
-    # Rank correlation with LLM baseline
-    correlations = [r["rank_correlation"]["rho"] for r in valid_results
-                   if r["rank_correlation"]["rho"] is not None]
+    print("\n--- Linear VOI Statistics ---")
+    print(f"  Mean: {np.mean(all_linear_vois):.3f}")
+    print(f"  Median: {np.median(all_linear_vois):.3f}")
+    print(f"  Max: {np.max(all_linear_vois):.3f}")
 
-    print(f"\nVOI vs LLM Ranking:")
-    print(f"  Mean ρ: {np.mean(correlations):.2f}")
-    print(f"  Median ρ: {np.median(correlations):.2f}")
+    print("\n--- Entropy VOI Statistics ---")
+    print(f"  Mean: {np.mean(all_entropy_vois):.3f} bits")
+    print(f"  Median: {np.median(all_entropy_vois):.3f} bits")
+    print(f"  Max: {np.max(all_entropy_vois):.3f} bits")
 
-    # High correlation means VOI agrees with LLM intuition
-    # Low correlation means VOI provides different signal
-    if np.mean(correlations) > 0.7:
-        print("  → High agreement: VOI aligns with LLM intuition")
-    elif np.mean(correlations) > 0.3:
-        print("  → Moderate agreement: VOI provides some different signal")
-    else:
-        print("  → Low agreement: VOI provides very different ranking than LLM")
+    print("\n--- Entropy VOI (Normalized) Statistics ---")
+    print(f"  Mean: {np.mean(all_entropy_vois_norm):.1%} of max")
+    print(f"  Median: {np.median(all_entropy_vois_norm):.1%} of max")
+    print(f"  Max: {np.max(all_entropy_vois_norm):.1%} of max")
+
+    # Rank correlations with LLM baseline
+    linear_llm_corrs = [r["rank_correlations"]["linear_vs_llm"]["rho"]
+                        for r in valid_results
+                        if r.get("rank_correlations", {}).get("linear_vs_llm", {}).get("rho") is not None]
+    entropy_llm_corrs = [r["rank_correlations"]["entropy_vs_llm"]["rho"]
+                         for r in valid_results
+                         if r.get("rank_correlations", {}).get("entropy_vs_llm", {}).get("rho") is not None]
+    linear_entropy_corrs = [r["rank_correlations"]["linear_vs_entropy"]["rho"]
+                            for r in valid_results
+                            if r.get("rank_correlations", {}).get("linear_vs_entropy", {}).get("rho") is not None]
+
+    print("\n" + "-" * 70)
+    print("RANKING COMPARISONS")
+    print("-" * 70)
+
+    if linear_llm_corrs:
+        print(f"\nLinear VOI vs LLM Ranking:")
+        print(f"  Mean ρ: {np.mean(linear_llm_corrs):.2f}")
+        print(f"  Median ρ: {np.median(linear_llm_corrs):.2f}")
+
+    if entropy_llm_corrs:
+        print(f"\nEntropy VOI vs LLM Ranking:")
+        print(f"  Mean ρ: {np.mean(entropy_llm_corrs):.2f}")
+        print(f"  Median ρ: {np.median(entropy_llm_corrs):.2f}")
+
+    if linear_entropy_corrs:
+        print(f"\nLinear vs Entropy VOI:")
+        print(f"  Mean ρ: {np.mean(linear_entropy_corrs):.2f}")
+        print(f"  Median ρ: {np.median(linear_entropy_corrs):.2f}")
+
+    # Interpretation
+    if linear_llm_corrs and entropy_llm_corrs:
+        linear_mean = np.mean(linear_llm_corrs)
+        entropy_mean = np.mean(entropy_llm_corrs)
+        if linear_mean > entropy_mean:
+            print(f"\n  → Linear VOI is closer to LLM intuition (Δρ = {linear_mean - entropy_mean:.2f})")
+        else:
+            print(f"\n  → Entropy VOI is closer to LLM intuition (Δρ = {entropy_mean - linear_mean:.2f})")
 
     # Top cruxes by VOI (using Signal objects)
     print("\n" + "-" * 70)
@@ -498,16 +566,33 @@ async def main():
         "metadata": {
             "n_ultimates": len(ultimates),
             "n_cruxes_per_ultimate": N_CRUXES_PER_ULTIMATE,
-            "total_cruxes": len(all_vois),
+            "total_cruxes": len(all_linear_vois),
             "model": MODEL,
             "model_cheap": MODEL_CHEAP,
             "timestamp": datetime.now().isoformat(),
         },
         "statistics": {
-            "mean_voi": float(np.mean(all_vois)),
-            "median_voi": float(np.median(all_vois)),
-            "max_voi": float(np.max(all_vois)),
-            "mean_rank_correlation": float(np.mean(correlations)) if correlations else None,
+            # Linear VOI
+            "mean_voi_linear": float(np.mean(all_linear_vois)),
+            "median_voi_linear": float(np.median(all_linear_vois)),
+            "max_voi_linear": float(np.max(all_linear_vois)),
+            # Entropy VOI
+            "mean_voi_entropy": float(np.mean(all_entropy_vois)),
+            "median_voi_entropy": float(np.median(all_entropy_vois)),
+            "max_voi_entropy": float(np.max(all_entropy_vois)),
+            # Entropy VOI Normalized
+            "mean_voi_entropy_normalized": float(np.mean(all_entropy_vois_norm)),
+            "median_voi_entropy_normalized": float(np.median(all_entropy_vois_norm)),
+            "max_voi_entropy_normalized": float(np.max(all_entropy_vois_norm)),
+            # Ranking correlations
+            "mean_linear_vs_llm": float(np.mean(linear_llm_corrs)) if linear_llm_corrs else None,
+            "mean_entropy_vs_llm": float(np.mean(entropy_llm_corrs)) if entropy_llm_corrs else None,
+            "mean_linear_vs_entropy": float(np.mean(linear_entropy_corrs)) if linear_entropy_corrs else None,
+            # Backwards compatibility
+            "mean_voi": float(np.mean(all_linear_vois)),
+            "median_voi": float(np.median(all_linear_vois)),
+            "max_voi": float(np.max(all_linear_vois)),
+            "mean_rank_correlation": float(np.mean(linear_llm_corrs)) if linear_llm_corrs else None,
         },
         "results": serializable_results,
     }
