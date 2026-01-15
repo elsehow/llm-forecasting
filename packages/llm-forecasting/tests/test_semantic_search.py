@@ -176,8 +176,12 @@ class TestObservedSources:
     """Test observed source classification."""
 
     def test_observed_sources_defined(self):
-        """Verify expected observed sources are defined."""
-        expected = {"polymarket", "metaculus", "kalshi", "manifold", "infer", "fred", "yfinance"}
+        """Verify expected observed sources are defined.
+
+        Note: FRED/YahooFinance removed (2026-01-15) - they're resolution sources,
+        not question sources. See Scenario Generation.md#Source Architecture
+        """
+        expected = {"polymarket", "metaculus", "kalshi", "manifold", "infer"}
         assert OBSERVED_SOURCES == expected
 
     def test_all_observed_sources_preferred(self):

@@ -44,6 +44,7 @@ from shared.signals import (
 from shared.uncertainties import identify_uncertainties
 from shared.scenarios import generate_mece_scenarios
 from shared.config import get_target, TARGETS
+from shared.refresh import refresh_if_stale
 
 load_dotenv()
 
@@ -84,7 +85,9 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 KNOWLEDGE_CUTOFF = DEFAULT_KNOWLEDGE_CUTOFF
 
 # Sources to search
-SOURCES = ["polymarket", "metaculus", "kalshi", "fred", "infer", "manifold"]
+# Question sources only (prediction markets) - not data sources like FRED
+# See: Obsidian/projects/Scenario Generation.md#Source Architecture
+SOURCES = ["polymarket", "metaculus", "kalshi", "infer", "manifold"]
 
 
 def enrich_with_resolution_data(signals: list[dict], db_path: Path) -> list[dict]:
@@ -127,6 +130,10 @@ async def main():
     print(f"Knowledge cutoff: {KNOWLEDGE_CUTOFF}")
     print(f"Uncertainty axes: {args.n_uncertainties}")
     print(f"VOI floor: {args.voi_floor}")
+
+    # Step 0: Refresh market data if stale (>24h old)
+    print("\n[0/5] Checking data freshness...")
+    await refresh_if_stale(str(DB_PATH), SOURCES)
 
     # Step 1: Identify key uncertainties
     print("\n[1/5] Identifying key uncertainties...")
@@ -287,7 +294,7 @@ async def main():
             "outcome_high": s.outcome_high,
             "key_drivers": s.key_drivers,
             "why_exclusive": s.why_exclusive,
-            "mapped_signals": s.mapped_signals,
+            "signal_impacts": [{"signal_index": si.signal_index, "effect": si.effect} for si in s.signal_impacts],
             "indicator_bundle": s.indicator_bundle,
         }
         for s in result.scenarios

@@ -9,9 +9,11 @@ import numpy as np
 from .embeddings import embed_texts, embed_single, EmbeddingCache, cosine_similarity
 
 
-# Sources considered "observed" (from prediction markets/real data)
+# Sources considered "observed" (from prediction markets)
 # vs "synthesized" (LLM-generated)
-OBSERVED_SOURCES = {"polymarket", "metaculus", "kalshi", "manifold", "infer", "fred", "yfinance"}
+# Note: FRED/YahooFinance removed - they're resolution sources, not question sources
+# See: Obsidian/projects/Scenario Generation.md#Source Architecture
+OBSERVED_SOURCES = {"polymarket", "metaculus", "kalshi", "manifold", "infer"}
 
 
 @dataclass
