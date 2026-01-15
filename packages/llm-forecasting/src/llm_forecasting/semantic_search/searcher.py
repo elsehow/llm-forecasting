@@ -11,7 +11,7 @@ from .embeddings import embed_texts, embed_single, EmbeddingCache, cosine_simila
 
 # Sources considered "observed" (from prediction markets/real data)
 # vs "synthesized" (LLM-generated)
-OBSERVED_SOURCES = {"polymarket", "metaculus", "manifold", "infer", "fred", "yfinance"}
+OBSERVED_SOURCES = {"polymarket", "metaculus", "kalshi", "manifold", "infer", "fred", "yfinance"}
 
 
 @dataclass

@@ -75,7 +75,7 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 KNOWLEDGE_CUTOFF = DEFAULT_KNOWLEDGE_CUTOFF
 
 # Sources to search
-SOURCES = ["polymarket", "metaculus", "fred", "infer", "manifold"]
+SOURCES = ["polymarket", "metaculus", "kalshi", "fred", "infer", "manifold"]
 
 
 async def main():

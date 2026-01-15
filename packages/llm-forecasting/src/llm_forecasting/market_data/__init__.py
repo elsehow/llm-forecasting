@@ -42,6 +42,7 @@ from llm_forecasting.market_data.models import (
 from llm_forecasting.market_data.storage import MarketDataStorage
 
 # Import implementations to register them
+from llm_forecasting.market_data.kalshi import KalshiData
 from llm_forecasting.market_data.metaculus import MetaculusData
 from llm_forecasting.market_data.polymarket import PolymarketData
 
@@ -57,6 +58,7 @@ __all__ = [
     # Storage
     "MarketDataStorage",
     # Implementations
-    "PolymarketData",
+    "KalshiData",
     "MetaculusData",
+    "PolymarketData",
 ]

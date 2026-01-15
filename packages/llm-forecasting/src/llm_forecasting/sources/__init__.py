@@ -6,6 +6,7 @@ from llm_forecasting.sources.base import QuestionSource, registry
 from llm_forecasting.sources.fred import FREDSource
 from llm_forecasting.sources.good_judgment import GoodJudgmentSource
 from llm_forecasting.sources.infer import INFERSource
+from llm_forecasting.sources.kalshi import KalshiSource
 from llm_forecasting.sources.manifold import ManifoldSource
 from llm_forecasting.sources.metaculus import MetaculusSource
 from llm_forecasting.sources.polymarket import PolymarketSource
@@ -28,6 +29,7 @@ __all__ = [
     "FREDSource",
     "GoodJudgmentSource",
     "INFERSource",
+    "KalshiSource",
     "ManifoldSource",
     "MetaculusSource",
     "PolymarketSource",

@@ -84,7 +84,7 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 KNOWLEDGE_CUTOFF = DEFAULT_KNOWLEDGE_CUTOFF
 
 # Sources to search
-SOURCES = ["polymarket", "metaculus", "fred", "infer", "manifold"]
+SOURCES = ["polymarket", "metaculus", "kalshi", "fred", "infer", "manifold"]
 
 
 def enrich_with_resolution_data(signals: list[dict], db_path: Path) -> list[dict]:
