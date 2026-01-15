@@ -24,26 +24,29 @@ if TYPE_CHECKING:
 
 
 # =============================================================================
-# Prompt for LLM-based rho estimation
+# CANONICAL ρ ESTIMATION PROMPT
+# Validated 2026-01-14: 90% direction accuracy (Exp3)
+# Validated 2026-01-15: 0% ρ=0 rate vs 43% with previous prompt
+# Do not duplicate - import from here
 # =============================================================================
 
-RHO_ESTIMATION_PROMPT = """Estimate the correlation coefficient (ρ) between these two forecasting questions.
+RHO_ESTIMATION_PROMPT = """You are estimating the correlation between two prediction market questions.
 
-ρ ranges from -1 to +1:
-- ρ = +1: Perfect positive correlation (if A happens, B definitely happens)
-- ρ = 0: Independent (A and B are unrelated)
-- ρ = -1: Perfect negative correlation (if A happens, B definitely doesn't)
+Question A: "{question_a}"
+Question B: "{question_b}"
 
-Question A (target): {question_a}
-Question B (signal): {question_b}
+Estimate the correlation coefficient (ρ) between these two questions. This measures how much knowing the outcome of one question tells you about the other:
+- ρ = +1: Perfect positive correlation (if A is YES, B is definitely YES)
+- ρ = 0: Independent (knowing A tells you nothing about B)
+- ρ = -1: Perfect negative correlation (if A is YES, B is definitely NO)
 
-Consider:
-1. Is there a causal relationship?
-2. Are they measuring the same underlying phenomenon?
-3. Could they be mutually exclusive?
-4. Are they truly independent?
+Think about:
+- Are these questions about related events?
+- Would one outcome make the other more or less likely?
+- Are they measuring the same underlying phenomenon?
 
-Respond with JSON only: {{"rho": <number between -1 and 1>, "reasoning": "<brief explanation>"}}"""
+Respond with JSON only:
+{{"rho": <float from -1 to +1>, "reasoning": "<brief explanation>"}}"""
 
 
 def linear_voi(
@@ -363,7 +366,9 @@ async def estimate_rho(
             text = text.strip()
 
         result = json.loads(text)
-        return float(result["rho"]), result.get("reasoning", "")
+        # Accept both "rho" and "rho_estimate" for compatibility
+        rho = result.get("rho", result.get("rho_estimate", 0.0))
+        return float(rho), result.get("reasoning", "")
     except Exception as e:
         return 0.0, f"Error: {e}"
 
@@ -448,7 +453,9 @@ async def estimate_rho_batch(
                         text = text[4:]
                     text = text.strip()
                 parsed = json.loads(text)
-                results_by_id[custom_id] = (float(parsed["rho"]), parsed.get("reasoning", ""))
+                # Accept both "rho" and "rho_estimate" for compatibility
+                rho = parsed.get("rho", parsed.get("rho_estimate", 0.0))
+                results_by_id[custom_id] = (float(rho), parsed.get("reasoning", ""))
             except Exception as e:
                 results_by_id[custom_id] = (0.0, f"Parse error: {e}")
         else:

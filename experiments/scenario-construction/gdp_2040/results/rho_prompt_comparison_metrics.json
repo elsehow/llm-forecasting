@@ -1,0 +1,26 @@
+{
+  "n_signals": 30,
+  "prompt_a": {
+    "name": "Current voi.py",
+    "rho_zero_count": 13,
+    "rho_zero_rate": 0.43333333333333335,
+    "mean_abs_rho": 0.17333333333333334,
+    "above_threshold_count": 17,
+    "above_threshold_rate": 0.5666666666666667,
+    "independent_mentions": 30
+  },
+  "prompt_b": {
+    "name": "Validated Exp3",
+    "rho_zero_count": 0,
+    "rho_zero_rate": 0.0,
+    "mean_abs_rho": 0.31333333333333335,
+    "above_threshold_count": 29,
+    "above_threshold_rate": 0.9666666666666667,
+    "independent_mentions": 1
+  },
+  "comparison": {
+    "rho_zero_reduction": 13,
+    "mean_abs_rho_improvement": 0.14,
+    "above_threshold_improvement": 12
+  }
+}

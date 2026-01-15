@@ -12,6 +12,9 @@ import anthropic
 from dotenv import load_dotenv
 import numpy as np
 
+# Import canonical prompt from voi.py
+from llm_forecasting.voi import RHO_ESTIMATION_PROMPT
+
 # Load environment from repo root
 load_dotenv(Path(__file__).parent.parent.parent / ".env")
 
@@ -25,23 +28,8 @@ def load_curated_pairs():
 
 
 def get_rho_estimation_prompt(question_a: str, question_b: str) -> str:
-    return f"""You are estimating the correlation between two prediction market questions.
-
-Question A: "{question_a}"
-Question B: "{question_b}"
-
-Estimate the correlation coefficient (ρ) between these two questions. This measures how much knowing the outcome of one question tells you about the other:
-- ρ = +1: Perfect positive correlation (if A is YES, B is definitely YES)
-- ρ = 0: Independent (knowing A tells you nothing about B)
-- ρ = -1: Perfect negative correlation (if A is YES, B is definitely NO)
-
-Think about:
-- Are these questions about related events?
-- Would one outcome make the other more or less likely?
-- Are they measuring the same underlying phenomenon?
-
-Respond with JSON only:
-{{"rho_estimate": <float from -1 to +1>, "reasoning": "<brief explanation>"}}"""
+    """Format the canonical prompt with the given questions."""
+    return RHO_ESTIMATION_PROMPT.format(question_a=question_a, question_b=question_b)
 
 
 def call_model(prompt: str) -> dict:
@@ -56,7 +44,11 @@ def call_model(prompt: str) -> dict:
             text = text.split("```json")[1].split("```")[0]
         elif "```" in text:
             text = text.split("```")[1].split("```")[0]
-        return json.loads(text.strip())
+        result = json.loads(text.strip())
+        # Normalize key: accept both "rho" and "rho_estimate"
+        if "rho" in result and "rho_estimate" not in result:
+            result["rho_estimate"] = result["rho"]
+        return result
     except json.JSONDecodeError:
         print(f"Failed to parse: {text}")
         return {"rho_estimate": 0.0, "reasoning": "parse error"}

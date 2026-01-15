@@ -1,0 +1,427 @@
+{
+  "target": "What will US real GDP be in 2050 (in 2024 dollars)?",
+  "prompt_a_results": [
+    {
+      "signal_id": "llm_97431fce",
+      "signal_text": "By January 2029, US business investment in AI and automation equipment exceeds $800 billion annually (2024 dollars), per Bureau of Economic Analysis data",
+      "rho": 0.6,
+      "reasoning": "There is a potential causal relationship between US business investment in AI and automation equipment and future US real GDP. As businesses invest more in these technologies, it could drive productivity gains and economic growth, which would be reflected in higher real GDP. However, the relationship is not perfect, as other factors also influence GDP. Additionally, the two questions are not measuring the same underlying phenomenon, and they are not mutually exclusive or independent. Therefore, the correlation coefficient is estimated to be moderately positive at 0.6.",
+      "original_rho": 0.5
+    },
+    {
+      "signal_id": "llm_8a681ddb",
+      "signal_text": "By December 2027, average annual GDP growth in the top 10 AI-adopting US metropolitan areas exceeds national average by >1.5 percentage points for 3 consecutive years, per Bureau of Economic Analysis regional data",
+      "rho": 0.3,
+      "reasoning": "There is a potential causal relationship between the two questions, as the adoption of AI in major metropolitan areas could impact overall US GDP growth. However, the questions are not measuring the same underlying phenomenon, and they are not mutually exclusive. Additionally, the two variables are not truly independent, as the performance of the top AI-adopting areas could influence the national GDP figure. Therefore, the correlation coefficient is estimated to be moderately positive at 0.3.",
+      "original_rho": 0.5
+    },
+    {
+      "signal_id": "llm_4d7d5ae0",
+      "signal_text": "By January 2029, the Congressional Budget Office raises its long-term US potential GDP growth forecast to >3% annually, citing AI and automation as primary drivers",
+      "rho": 0.6,
+      "reasoning": "There is a potential causal relationship between the two questions, as the CBO's long-term US potential GDP growth forecast could be a leading indicator for future US real GDP. They are not measuring the same underlying phenomenon, but they are related. The questions are not mutually exclusive, and they are not truly independent, as the CBO's forecast could influence future GDP growth. Therefore, the correlation coefficient is estimated to be moderately positive at 0.6.",
+      "original_rho": 0.6
+    },
+    {
+      "signal_id": "llm_a246040c",
+      "signal_text": "By December 2026, US manufacturing productivity growth exceeds 4% annually for 2 consecutive years while manufacturing employment remains stable or grows, per Bureau of Labor Statistics data",
+      "rho": 0.3,
+      "reasoning": "There is no clear causal relationship between the two questions. They are measuring different underlying phenomena - one is about future GDP, the other is about manufacturing productivity and employment. They are not mutually exclusive, and could potentially be independent. However, there may be some correlation if strong manufacturing performance is associated with overall economic growth. Given the limited information, a moderate positive correlation of 0.3 seems reasonable.",
+      "original_rho": 0.4
+    },
+    {
+      "signal_id": "llm_a13421b9",
+      "signal_text": "By December 2027, US R&D spending on AI reaches >$300 billion annually (2024 dollars) across government and private sectors, per NSF Science and Engineering Indicators",
+      "rho": 0.3,
+      "reasoning": "There is a potential causal relationship between US R&D spending on AI and future US real GDP, as increased AI investment could drive economic growth. However, they are not measuring the same underlying phenomenon, and they are not mutually exclusive or truly independent. The correlation is likely to be positive but moderate, as many other factors influence GDP beyond just AI R&D spending.",
+      "original_rho": 0.3
+    },
+    {
+      "signal_id": "llm_87d8d920",
+      "signal_text": "Before January 2030, at least 5 US states will report aggregate climate adaptation expenditures exceeding $50 billion over any 3-year period, per state budget documents",
+      "rho": 0.2,
+      "reasoning": "There is no clear causal relationship between the two questions. They are measuring different underlying phenomena - economic growth and climate adaptation expenditures. The questions are not mutually exclusive, as climate adaptation could impact economic growth, but the relationship is likely weak. While the questions are related to some degree, they are not truly independent, so the correlation coefficient is estimated to be moderately positive at 0.2.",
+      "original_rho": 0.3
+    },
+    {
+      "signal_id": "llm_06fa2a76",
+      "signal_text": "By December 2029, insurance industry losses from US climate-related events will exceed $150 billion in any single year, according to Munich Re or Swiss Re reports",
+      "rho": 0.3,
+      "reasoning": "There is a potential causal relationship between the two questions, as climate-related events can impact economic growth. However, they are not measuring the same underlying phenomenon, and they are not mutually exclusive or truly independent. The impact of climate-related events on GDP growth is complex and may not be the sole determinant of the 2050 GDP figure. Therefore, the correlation coefficient is estimated to be moderately positive at 0.3.",
+      "original_rho": 0.3
+    },
+    {
+      "signal_id": "llm_911ccfbc",
+      "signal_text": "Will the US federal debt-to-GDP ratio exceed 140% by December 31, 2028, according to Congressional Budget Office data?",
+      "rho": 0.5,
+      "reasoning": "There is a potential causal relationship between the US real GDP and the federal debt-to-GDP ratio. A higher GDP could lead to a lower debt-to-GDP ratio, and vice versa. However, they are not measuring the same underlying phenomenon, as one is a macroeconomic indicator (GDP) and the other is a fiscal policy metric (debt-to-GDP ratio). They are not mutually exclusive, and they could be somewhat independent, as other factors such as government spending, tax policy, and economic growth can also influence the debt-to-GDP ratio. Given these considerations, a moderate positive correlation (\u03c1 = 0.5) seems reasonable.",
+      "original_rho": 0.3
+    },
+    {
+      "signal_id": "llm_fa7c6529",
+      "signal_text": "By December 2028, the US Federal Government will allocate more than $200 billion annually for climate adaptation infrastructure, as reported in the federal budget",
+      "rho": 0.3,
+      "reasoning": "There is a potential causal relationship between the two questions, as increased government spending on climate adaptation infrastructure could have an impact on future economic growth. However, the two questions are not measuring the same underlying phenomenon, and they are not mutually exclusive. Additionally, while there may be some correlation between the two, they are not truly independent, as government spending decisions can influence economic outcomes. Therefore, the estimated correlation coefficient (\u03c1) is 0.3, indicating a moderate positive correlation.",
+      "original_rho": 0.3
+    },
+    {
+      "signal_id": "llm_1a90956f",
+      "signal_text": "Before January 2030, US agricultural productivity (output per acre) will decline by more than 10% from 2024 levels in any single year, according to USDA statistics",
+      "rho": -0.3,
+      "reasoning": "There is no clear causal relationship between US real GDP in 2050 and a decline in US agricultural productivity before 2030. They are measuring different underlying phenomena. While they are not mutually exclusive, they are not directly related either. Therefore, they are likely to be somewhat independent, but with a moderate negative correlation, as a decline in agricultural productivity could have a modest negative impact on overall economic growth.",
+      "original_rho": -0.3
+    },
+    {
+      "signal_id": "llm_b72e163f",
+      "signal_text": "By December 2027, US labor productivity growth (output per hour) averages >3.5% annually for 3 consecutive years, per Bureau of Labor Statistics data",
+      "rho": 0.2,
+      "reasoning": "There is no clear causal relationship between the two questions. They are measuring different underlying phenomena - one is about GDP and the other is about labor productivity growth. They are not mutually exclusive, as high labor productivity growth could contribute to higher GDP, but they are not directly measuring the same thing. While they may be somewhat related, they are not truly independent, so the correlation coefficient is likely to be positive but relatively low, around 0.2.",
+      "original_rho": 0.3
+    },
+    {
+      "signal_id": "llm_56b64657",
+      "signal_text": "By December 2029, cumulative US power grid resilience investments will exceed $300 billion since 2024, per Department of Energy tracking",
+      "rho": 0.2,
+      "reasoning": "There is no clear causal relationship between US real GDP in 2050 and cumulative US power grid resilience investments by 2029. They are measuring different underlying phenomena - macroeconomic output versus infrastructure investment. They are not mutually exclusive, and could potentially be independent. Given the lack of a clear connection, the correlation coefficient is estimated to be a weak positive value of 0.2.",
+      "original_rho": 0.2
+    },
+    {
+      "signal_id": "llm_8f802a80",
+      "signal_text": "Will US policy uncertainty (as measured by the Economic Policy Uncertainty Index) exceed 300 for any 6-month period before December 31, 2027?",
+      "rho": 0.0,
+      "reasoning": "Based on the information provided, there does not appear to be a clear causal relationship between the two questions, nor are they measuring the same underlying phenomenon. The first question is about the future level of US real GDP, while the second question is about the future level of US policy uncertainty. These two variables are not directly related, and they could be considered independent. Therefore, the correlation coefficient (\u03c1) between these two forecasting questions is likely to be close to 0, indicating no significant correlation.",
+      "original_rho": -0.2
+    },
+    {
+      "signal_id": "llm_3c330c82",
+      "signal_text": "By June 2028, at least 50% of Fortune 500 companies report deploying AI systems that have reduced their workforce needs by >15% while maintaining output, per annual SEC filings",
+      "rho": 0.2,
+      "reasoning": "There is no clear causal relationship between the two questions. They are measuring different underlying phenomena - economic growth and AI adoption. The questions are not mutually exclusive, as AI adoption could impact GDP in various ways. However, they are not truly independent, as AI adoption could be a factor influencing future GDP. Given the lack of a clear causal relationship and the different underlying phenomena, the correlation coefficient is estimated to be moderately positive at 0.2.",
+      "original_rho": 0.2
+    },
+    {
+      "signal_id": "llm_aa0bf499",
+      "signal_text": "By December 31, 2028, will either major political party officially adopt a platform calling for significant constitutional amendments (affecting federal economic powers), as documented in party convention proceedings?",
+      "rho": 0.0,
+      "reasoning": "There is no clear causal relationship between the two questions. They are measuring different underlying phenomena - one is about future economic output, the other is about political party platforms. The two events are not mutually exclusive, and they appear to be independent. Therefore, the correlation coefficient is likely to be close to 0, indicating no significant relationship between the two variables.",
+      "original_rho": 0.2
+    },
+    {
+      "signal_id": "llm_4c830df2",
+      "signal_text": "By December 2026, total factor productivity growth in the US exceeds 2% annually for 2 consecutive years, per Congressional Budget Office estimates",
+      "rho": 0.3,
+      "reasoning": "There is a potential causal relationship between total factor productivity growth and real GDP, as higher productivity can drive economic growth. However, they are not measuring the same underlying phenomenon, as real GDP is a broader economic indicator that depends on many factors beyond just productivity. They are also not mutually exclusive, as it is possible for both high productivity growth and high real GDP to occur. While there may be some correlation, they are not truly independent, so the correlation coefficient is likely to be positive but not very strong, around 0.3.",
+      "original_rho": 0.2
+    },
+    {
+      "signal_id": "llm_65275ef4",
+      "signal_text": "By December 2028, US coastal property retreat programs will have relocated more than 100,000 structures at public expense exceeding $50 billion, per FEMA and state agency reports",
+      "rho": 0.2,
+      "reasoning": "There is no clear causal relationship between the two questions. They are measuring different underlying phenomena - one is about future GDP, the other is about coastal property retreat. They are not mutually exclusive, as high GDP growth could potentially lead to more resources for coastal adaptation. While they are not completely independent, as both may be influenced by broader economic and environmental factors, the connection is not strong enough to suggest a high correlation coefficient.",
+      "original_rho": 0.2
+    },
+    {
+      "signal_id": "llm_47566231",
+      "signal_text": "By June 2028, AI systems demonstrate >90% accuracy in at least 5 of the following professional tasks: legal document review, financial analysis, software debugging, medical diagnosis, scientific literature review, per standardized benchmark tests",
+      "rho": 0.0,
+      "reasoning": "There is no clear causal relationship between the two questions, they are measuring different underlying phenomena, they are not mutually exclusive, and they appear to be independent events. Therefore, the correlation coefficient is likely to be close to 0, indicating no significant correlation between the two questions.",
+      "original_rho": 0.0
+    },
+    {
+      "signal_id": "llm_db8ecb28",
+      "signal_text": "By June 2028, median wages in AI-intensive occupations (software, engineering, finance, healthcare) grow >50% faster than economy-wide median wage growth over 4 years, per Bureau of Labor Statistics occupational employment statistics",
+      "rho": 0.2,
+      "reasoning": "There is no clear causal relationship between the two questions. They are measuring different underlying phenomena - one is about future GDP, the other is about wage growth in certain occupations. They are not mutually exclusive, and could potentially be independent. Given the lack of a clear connection, the correlation coefficient is estimated to be around 0.2, indicating a weak positive relationship.",
+      "original_rho": 0.0
+    },
+    {
+      "signal_id": "llm_95654989",
+      "signal_text": "By December 31, 2027, will the US federal government experience a shutdown lasting more than 30 consecutive days, as confirmed by the Office of Management and Budget?",
+      "rho": 0.0,
+      "reasoning": "There is no clear causal relationship between the two questions, they are measuring different underlying phenomena (economic growth vs. government shutdown), they are not mutually exclusive, and they appear to be independent events. Therefore, the correlation coefficient is likely to be close to 0, indicating no significant correlation between the two questions.",
+      "original_rho": 0.0
+    },
+    {
+      "signal_id": "llm_2c6e2335",
+      "signal_text": "Before January 1, 2029, will any US state officially declare that it will not comply with federal tax collection, as reported by major news outlets (NYT, WSJ, WaPo)?",
+      "rho": 0.0,
+      "reasoning": "There is no clear causal relationship between the two questions, they are measuring different underlying phenomena (economic growth vs. state tax compliance), they are not mutually exclusive, and they appear to be independent events. Therefore, the correlation coefficient is likely to be close to 0, indicating no significant correlation between the two questions.",
+      "original_rho": 0.0
+    },
+    {
+      "signal_id": "llm_e5f848ab",
+      "signal_text": "Will the US Supreme Court overturn a major economic regulation (affecting >$100B in economic activity) on grounds that challenge federal regulatory authority by December 31, 2027, per Reuters confirmation?",
+      "rho": 0.0,
+      "reasoning": "There is no clear causal relationship between the US real GDP in 2050 and the US Supreme Court overturning a major economic regulation by 2027. They are measuring different underlying phenomena - the overall economic output and a specific legal/regulatory event. They are not mutually exclusive, as the Supreme Court decision could have either positive or negative impacts on the GDP. Additionally, the two events are truly independent, as the GDP in 2050 is not directly affected by a Supreme Court decision in 2027. Therefore, the correlation coefficient between these two forecasting questions is 0, indicating they are independent.",
+      "original_rho": 0.0
+    },
+    {
+      "signal_id": "llm_7712cd2d",
+      "signal_text": "Will the Federal Reserve's independence be formally challenged through Congressional legislation that passes at least one chamber by December 31, 2027, according to Congressional records?",
+      "rho": 0.0,
+      "reasoning": "There is no clear causal relationship between the future US real GDP and the Federal Reserve's independence being challenged through legislation. They are measuring different underlying phenomena that are likely independent. The two events are not mutually exclusive, as the Federal Reserve's independence could be challenged regardless of the future GDP. Therefore, the correlation coefficient between these two forecasting questions is estimated to be 0, indicating they are independent.",
+      "original_rho": 0.0
+    },
+    {
+      "signal_id": "llm_80e54541",
+      "signal_text": "Before January 1, 2029, will the US experience a peaceful transition of power where the losing presidential candidate publicly disputes the legitimacy of election results for more than 30 days, per major media reporting?",
+      "rho": 0.0,
+      "reasoning": "There is no clear causal relationship between the two questions, they are measuring different underlying phenomena (economic growth vs. political stability), they are not mutually exclusive, and they appear to be independent events. Therefore, the correlation coefficient is likely to be close to 0, indicating no significant correlation between the two questions.",
+      "original_rho": 0.0
+    },
+    {
+      "signal_id": "llm_a1b63adb",
+      "signal_text": "By December 31, 2028, will any US federal agency lose more than 40% of its senior career staff (GS-14 and above) compared to 2024 levels, according to OPM data?",
+      "rho": 0.0,
+      "reasoning": "There is no clear causal relationship between the two questions, they are measuring different underlying phenomena (economic growth vs. government workforce changes), they are not mutually exclusive, and they appear to be independent events. Therefore, the correlation coefficient is likely to be close to 0, indicating no significant correlation between the two questions.",
+      "original_rho": 0.0
+    },
+    {
+      "signal_id": "llm_78eded4d",
+      "signal_text": "Will Congress fail to raise the debt ceiling until within 7 days of Treasury's projected X-date on any occasion before December 31, 2027, as confirmed by Treasury Department statements?",
+      "rho": 0.0,
+      "reasoning": "There is no clear causal relationship between the two questions, and they are measuring different underlying phenomena. The first question is about the future level of US real GDP, while the second question is about the timing of Congress raising the debt ceiling. The two events are also likely independent, as the level of US real GDP is not directly related to the timing of debt ceiling negotiations. Therefore, the correlation coefficient between these two questions is likely to be close to 0, indicating no significant relationship.",
+      "original_rho": 0.0
+    },
+    {
+      "signal_id": "llm_711ac426",
+      "signal_text": "Before January 2029, the US Army Corps of Engineers will have active flood control projects with combined budgets exceeding $100 billion, per Corps project databases",
+      "rho": 0.0,
+      "reasoning": "There is no clear causal relationship between the two questions, they are measuring different underlying phenomena (economic growth vs. flood control projects), they are not mutually exclusive, and they appear to be independent.",
+      "original_rho": 0.0
+    },
+    {
+      "signal_id": "llm_715fb4b7",
+      "signal_text": "By December 2028, at least 20 Fortune 500 companies will report combined climate adaptation expenses exceeding $50 billion annually in SEC 10-K filings",
+      "rho": 0.0,
+      "reasoning": "There is no clear causal relationship between the two questions, they are measuring different underlying phenomena (US GDP and corporate climate adaptation expenses), they are not mutually exclusive, and they appear to be independent events. Therefore, the correlation coefficient is likely to be close to 0, indicating no significant correlation between the two questions.",
+      "original_rho": 0.0
+    },
+    {
+      "signal_id": "llm_6884a101",
+      "signal_text": "Before January 2029, climate-related supply chain disruptions will cause US manufacturing output to decline by more than 5% in any single quarter, per Federal Reserve data",
+      "rho": 0.2,
+      "reasoning": "There is no clear causal relationship between the two questions. They are measuring different underlying phenomena - economic growth and climate-related supply chain disruptions. The events described in the two questions are not mutually exclusive, and they could be independent. Therefore, the correlation coefficient is estimated to be around 0.2, indicating a weak positive correlation.",
+      "original_rho": 0.0
+    },
+    {
+      "signal_id": "llm_18549ddf",
+      "signal_text": "Before January 2030, water scarcity will force temporary shutdowns of industrial facilities representing more than $100 billion in annual output, per state water agency and EPA reports",
+      "rho": 0.0,
+      "reasoning": "There is no clear causal relationship between the two questions, they are measuring different underlying phenomena (economic growth vs. water scarcity), they are not mutually exclusive, and they appear to be independent events. Therefore, the correlation coefficient is likely to be close to 0, indicating no significant correlation between the two questions.",
+      "original_rho": 0.0
+    }
+  ],
+  "prompt_b_results": [
+    {
+      "signal_id": "llm_97431fce",
+      "signal_text": "By January 2029, US business investment in AI and automation equipment exceeds $800 billion annually (2024 dollars), per Bureau of Economic Analysis data",
+      "rho": 0.5,
+      "reasoning": "The two questions are related, as higher US real GDP in 2050 would likely be associated with greater business investment in AI and automation equipment by 2029. A stronger economy and higher GDP would provide more resources and incentives for businesses to invest in productivity-enhancing technologies. However, the relationship is not perfect, as other factors beyond just GDP could influence AI and automation investment. Therefore, a moderately positive correlation coefficient of 0.5 seems reasonable.",
+      "original_rho": 0.5
+    },
+    {
+      "signal_id": "llm_8a681ddb",
+      "signal_text": "By December 2027, average annual GDP growth in the top 10 AI-adopting US metropolitan areas exceeds national average by >1.5 percentage points for 3 consecutive years, per Bureau of Economic Analysis regional data",
+      "rho": 0.3,
+      "reasoning": "The two questions are related, as they both concern economic growth and performance. However, they are measuring different aspects of the economy - overall GDP growth (Question A) and the relative performance of AI-adopting metropolitan areas (Question B). While there may be some positive correlation, as strong overall GDP growth could contribute to the outperformance of AI-adopting areas, the relationship is not direct or perfect. Knowing the outcome of one question would provide some information about the other, but not enough to determine the outcome with certainty.",
+      "original_rho": 0.5
+    },
+    {
+      "signal_id": "llm_4d7d5ae0",
+      "signal_text": "By January 2029, the Congressional Budget Office raises its long-term US potential GDP growth forecast to >3% annually, citing AI and automation as primary drivers",
+      "rho": 0.6,
+      "reasoning": "The two questions are related, as a higher long-term US potential GDP growth rate (Question B) would likely lead to a higher real GDP in 2050 (Question A). However, they are not perfectly correlated, as other factors beyond just the potential GDP growth rate could influence the 2050 GDP figure. Therefore, I estimate a moderately positive correlation coefficient of 0.6 between these two questions.",
+      "original_rho": 0.6
+    },
+    {
+      "signal_id": "llm_a246040c",
+      "signal_text": "By December 2026, US manufacturing productivity growth exceeds 4% annually for 2 consecutive years while manufacturing employment remains stable or grows, per Bureau of Labor Statistics data",
+      "rho": 0.3,
+      "reasoning": "The two questions are related, as strong economic growth (high GDP) could lead to increased manufacturing productivity and employment. However, the relationship is not direct, as other factors like technological change, trade policy, and labor market dynamics could also influence manufacturing productivity and employment. Therefore, the correlation between the two questions is likely to be positive but moderate, reflecting the indirect relationship between the underlying phenomena.",
+      "original_rho": 0.4
+    },
+    {
+      "signal_id": "llm_a13421b9",
+      "signal_text": "By December 2027, US R&D spending on AI reaches >$300 billion annually (2024 dollars) across government and private sectors, per NSF Science and Engineering Indicators",
+      "rho": 0.5,
+      "reasoning": "The two questions are related, as higher US real GDP in 2050 could indicate stronger economic growth and technological development, which could in turn increase the likelihood of US R&D spending on AI reaching $300 billion annually by 2027. However, the relationship is not perfect, as other factors beyond just GDP growth could influence AI R&D spending. Therefore, I estimate a moderately positive correlation coefficient of 0.5 between the two questions.",
+      "original_rho": 0.3
+    },
+    {
+      "signal_id": "llm_87d8d920",
+      "signal_text": "Before January 2030, at least 5 US states will report aggregate climate adaptation expenditures exceeding $50 billion over any 3-year period, per state budget documents",
+      "rho": 0.2,
+      "reasoning": "The two questions are not directly related, as they are measuring different phenomena - economic growth and climate adaptation spending. However, there may be some indirect relationship, as higher economic growth could potentially enable greater climate adaptation investments. Therefore, I estimate a modest positive correlation between the two questions.",
+      "original_rho": 0.3
+    },
+    {
+      "signal_id": "llm_06fa2a76",
+      "signal_text": "By December 2029, insurance industry losses from US climate-related events will exceed $150 billion in any single year, according to Munich Re or Swiss Re reports",
+      "rho": 0.5,
+      "reasoning": "The two questions are related, as higher economic growth (as measured by real GDP) could lead to increased insurance industry losses from climate-related events. However, the relationship is not direct or perfect, as other factors like climate policy, adaptation measures, and the frequency/severity of extreme weather events would also play a role. Therefore, I estimate a moderately positive correlation coefficient of 0.5, as knowing the outcome of one question would provide some information about the other, but not a complete prediction.",
+      "original_rho": 0.3
+    },
+    {
+      "signal_id": "llm_911ccfbc",
+      "signal_text": "Will the US federal debt-to-GDP ratio exceed 140% by December 31, 2028, according to Congressional Budget Office data?",
+      "rho": 0.6,
+      "reasoning": "The two questions are related, as the level of US real GDP and the federal debt-to-GDP ratio are likely to be correlated. A higher GDP would generally be associated with a lower debt-to-GDP ratio, and vice versa. Therefore, knowing the outcome of one question would provide some information about the other, suggesting a positive correlation between the two.",
+      "original_rho": 0.3
+    },
+    {
+      "signal_id": "llm_fa7c6529",
+      "signal_text": "By December 2028, the US Federal Government will allocate more than $200 billion annually for climate adaptation infrastructure, as reported in the federal budget",
+      "rho": 0.3,
+      "reasoning": "The two questions are related, as higher economic growth (as measured by real GDP) could increase the government's ability and willingness to invest in climate adaptation infrastructure. However, the relationship is not direct or guaranteed, as other factors like political priorities and budget constraints could also influence the government's spending decisions. Therefore, the correlation between the two questions is likely to be positive but moderate, reflecting the indirect and uncertain nature of the relationship.",
+      "original_rho": 0.3
+    },
+    {
+      "signal_id": "llm_1a90956f",
+      "signal_text": "Before January 2030, US agricultural productivity (output per acre) will decline by more than 10% from 2024 levels in any single year, according to USDA statistics",
+      "rho": -0.5,
+      "reasoning": "The two questions are related, as higher US real GDP in 2050 could be associated with increased agricultural productivity, which would make the decline in agricultural productivity by 2030 less likely. However, the relationship is not perfectly negative, as other factors could influence agricultural productivity independent of GDP growth. Therefore, I estimate a moderate negative correlation coefficient of -0.5 between the two questions.",
+      "original_rho": -0.3
+    },
+    {
+      "signal_id": "llm_b72e163f",
+      "signal_text": "By December 2027, US labor productivity growth (output per hour) averages >3.5% annually for 3 consecutive years, per Bureau of Labor Statistics data",
+      "rho": 0.3,
+      "reasoning": "The two questions are related, as higher real GDP growth in the long run (Question A) would likely be associated with higher labor productivity growth in the shorter term (Question B). However, the relationship is not perfect, as other factors can influence labor productivity growth in the shorter term. Therefore, I estimate a moderate positive correlation between the two questions.",
+      "original_rho": 0.3
+    },
+    {
+      "signal_id": "llm_56b64657",
+      "signal_text": "By December 2029, cumulative US power grid resilience investments will exceed $300 billion since 2024, per Department of Energy tracking",
+      "rho": 0.2,
+      "reasoning": "The two questions are not directly related. The first question is about the future level of US real GDP, while the second question is about future investments in US power grid resilience. While these two factors may be somewhat correlated (e.g., higher GDP could lead to more investment in infrastructure), the relationship is not strong enough to expect a high correlation coefficient. Therefore, I estimate a moderate positive correlation of 0.2 between the two questions.",
+      "original_rho": 0.2
+    },
+    {
+      "signal_id": "llm_8f802a80",
+      "signal_text": "Will US policy uncertainty (as measured by the Economic Policy Uncertainty Index) exceed 300 for any 6-month period before December 31, 2027?",
+      "rho": -0.3,
+      "reasoning": "The two questions are related, as higher economic policy uncertainty (as measured by the EPU index) could negatively impact real GDP growth. However, the relationship is not perfectly negative, as other factors also influence GDP growth and policy uncertainty. A correlation coefficient of -0.3 suggests a moderate negative correlation between the two variables.",
+      "original_rho": -0.2
+    },
+    {
+      "signal_id": "llm_3c330c82",
+      "signal_text": "By June 2028, at least 50% of Fortune 500 companies report deploying AI systems that have reduced their workforce needs by >15% while maintaining output, per annual SEC filings",
+      "rho": 0.3,
+      "reasoning": "The two questions are related, as the deployment of AI systems that reduce workforce needs could impact economic growth. However, the relationship is not direct or deterministic. Factors like technological progress, regulatory environment, and other economic conditions could influence both outcomes, but not in a perfectly correlated way. Therefore, I estimate a moderate positive correlation between the two questions.",
+      "original_rho": 0.2
+    },
+    {
+      "signal_id": "llm_aa0bf499",
+      "signal_text": "By December 31, 2028, will either major political party officially adopt a platform calling for significant constitutional amendments (affecting federal economic powers), as documented in party convention proceedings?",
+      "rho": 0.3,
+      "reasoning": "The two questions are related, as the economic powers of the federal government (Question B) could impact the long-term economic growth of the US (Question A). However, the relationship is not direct or deterministic. Significant constitutional amendments affecting federal economic powers could have both positive and negative impacts on long-term GDP growth, depending on the specific changes. Therefore, the correlation between the two questions is likely to be moderate and positive, but not perfect.",
+      "original_rho": 0.2
+    },
+    {
+      "signal_id": "llm_4c830df2",
+      "signal_text": "By December 2026, total factor productivity growth in the US exceeds 2% annually for 2 consecutive years, per Congressional Budget Office estimates",
+      "rho": 0.3,
+      "reasoning": "The two questions are related, as higher real GDP growth in the US would likely be associated with higher total factor productivity growth. However, the relationship is not perfect, as other factors can influence productivity growth. Additionally, the time horizons of the two questions are different, which introduces some uncertainty. Overall, a moderately positive correlation of 0.3 seems reasonable.",
+      "original_rho": 0.2
+    },
+    {
+      "signal_id": "llm_65275ef4",
+      "signal_text": "By December 2028, US coastal property retreat programs will have relocated more than 100,000 structures at public expense exceeding $50 billion, per FEMA and state agency reports",
+      "rho": 0.5,
+      "reasoning": "The two questions are related, as they both concern the long-term economic and environmental impacts of climate change. A higher GDP in 2050 could make it more likely that the US would have the resources to fund coastal property retreat programs, suggesting a positive correlation. However, the questions are not directly measuring the same underlying phenomenon, so the correlation is not expected to be perfect.",
+      "original_rho": 0.2
+    },
+    {
+      "signal_id": "llm_47566231",
+      "signal_text": "By June 2028, AI systems demonstrate >90% accuracy in at least 5 of the following professional tasks: legal document review, financial analysis, software debugging, medical diagnosis, scientific literature review, per standardized benchmark tests",
+      "rho": 0.2,
+      "reasoning": "The two questions are not directly related, as they are measuring different phenomena - economic growth and the development of advanced AI capabilities. However, there could be some indirect relationship, as stronger economic growth and technological progress may be correlated to some degree. Therefore, I estimate a modest positive correlation coefficient of 0.2, indicating that knowing the outcome of one question provides some limited information about the other, but they are not strongly linked.",
+      "original_rho": 0.0
+    },
+    {
+      "signal_id": "llm_db8ecb28",
+      "signal_text": "By June 2028, median wages in AI-intensive occupations (software, engineering, finance, healthcare) grow >50% faster than economy-wide median wage growth over 4 years, per Bureau of Labor Statistics occupational employment statistics",
+      "rho": 0.2,
+      "reasoning": "The two questions are not directly related, as they are measuring different economic phenomena. However, there may be some indirect relationship, as stronger economic growth (higher real GDP) could potentially lead to faster wage growth in AI-intensive occupations. Therefore, I estimate a modest positive correlation between the two questions.",
+      "original_rho": 0.0
+    },
+    {
+      "signal_id": "llm_95654989",
+      "signal_text": "By December 31, 2027, will the US federal government experience a shutdown lasting more than 30 consecutive days, as confirmed by the Office of Management and Budget?",
+      "rho": 0.1,
+      "reasoning": "The two questions are not directly related. The first question is about the future level of US real GDP, while the second question is about the possibility of a US federal government shutdown. While there may be some indirect relationship between economic conditions and political events, the correlation between these two specific questions is likely to be weak. The outcomes of these questions are not strongly dependent on each other, so the correlation coefficient is estimated to be around 0.1, indicating a small positive correlation.",
+      "original_rho": 0.0
+    },
+    {
+      "signal_id": "llm_2c6e2335",
+      "signal_text": "Before January 1, 2029, will any US state officially declare that it will not comply with federal tax collection, as reported by major news outlets (NYT, WSJ, WaPo)?",
+      "rho": 0.2,
+      "reasoning": "The two questions are not directly related, as they are measuring different phenomena - economic growth and state-level political actions. However, there could be some indirect relationship, as stronger economic growth may make states less likely to defy federal tax collection. But this relationship is likely weak, so the correlation coefficient is estimated to be around 0.2, indicating a small positive correlation.",
+      "original_rho": 0.0
+    },
+    {
+      "signal_id": "llm_e5f848ab",
+      "signal_text": "Will the US Supreme Court overturn a major economic regulation (affecting >$100B in economic activity) on grounds that challenge federal regulatory authority by December 31, 2027, per Reuters confirmation?",
+      "rho": 0.2,
+      "reasoning": "The two questions are not directly related, as they are measuring different phenomena - economic growth and Supreme Court decisions. However, there may be some indirect relationship, as stronger economic growth could potentially influence the Supreme Court's decisions on economic regulations. Additionally, the time horizons of the two questions (2050 and 2027) are not closely aligned, which reduces the potential correlation. Overall, a modest positive correlation of 0.2 seems reasonable, but the relationship is not strong.",
+      "original_rho": 0.0
+    },
+    {
+      "signal_id": "llm_7712cd2d",
+      "signal_text": "Will the Federal Reserve's independence be formally challenged through Congressional legislation that passes at least one chamber by December 31, 2027, according to Congressional records?",
+      "rho": 0.2,
+      "reasoning": "The two questions are not directly related, as they are measuring different economic and political phenomena. However, there may be some indirect relationship, as the level of US real GDP in 2050 could influence the political environment and the likelihood of the Federal Reserve's independence being challenged. A stronger economy may make it less likely for such a challenge to occur. Therefore, I estimate a modest positive correlation between the two questions.",
+      "original_rho": 0.0
+    },
+    {
+      "signal_id": "llm_80e54541",
+      "signal_text": "Before January 1, 2029, will the US experience a peaceful transition of power where the losing presidential candidate publicly disputes the legitimacy of election results for more than 30 days, per major media reporting?",
+      "rho": -0.3,
+      "reasoning": "The two questions are not directly related, as they are measuring different phenomena - economic growth and the peaceful transition of power. However, there could be some indirect relationship, as a weaker economy or political instability could potentially make a peaceful transition of power less likely. Overall, the correlation is likely to be moderately negative, as the outcomes of the two questions are not strongly linked.",
+      "original_rho": 0.0
+    },
+    {
+      "signal_id": "llm_a1b63adb",
+      "signal_text": "By December 31, 2028, will any US federal agency lose more than 40% of its senior career staff (GS-14 and above) compared to 2024 levels, according to OPM data?",
+      "rho": 0.2,
+      "reasoning": "The two questions are not directly related, as they are measuring different phenomena - economic growth and government staffing levels. However, there could be some indirect relationship, as stronger economic growth may lead to more government resources and potentially higher staff retention. Therefore, I estimate a small positive correlation between the two questions.",
+      "original_rho": 0.0
+    },
+    {
+      "signal_id": "llm_78eded4d",
+      "signal_text": "Will Congress fail to raise the debt ceiling until within 7 days of Treasury's projected X-date on any occasion before December 31, 2027, as confirmed by Treasury Department statements?",
+      "rho": 0.2,
+      "reasoning": "The two questions are not directly related, as they are measuring different underlying phenomena. However, there may be some indirect relationship, as the state of the US economy (as measured by real GDP) could potentially impact the likelihood of Congress failing to raise the debt ceiling. A stronger economy may make it easier for Congress to reach an agreement on the debt ceiling, while a weaker economy could increase the political tensions and make a failure to raise the debt ceiling more likely. Therefore, I estimate a moderate positive correlation between the two questions.",
+      "original_rho": 0.0
+    },
+    {
+      "signal_id": "llm_711ac426",
+      "signal_text": "Before January 2029, the US Army Corps of Engineers will have active flood control projects with combined budgets exceeding $100 billion, per Corps project databases",
+      "rho": 0.2,
+      "reasoning": "The two questions are not directly related. The first question is about the future level of US real GDP, while the second question is about the US Army Corps of Engineers' flood control projects. While there could be some indirect relationship, such as economic growth potentially affecting government spending on infrastructure, the connection is not strong enough to expect a high correlation. Therefore, I estimate a moderate positive correlation of 0.2 between the two questions.",
+      "original_rho": 0.0
+    },
+    {
+      "signal_id": "llm_715fb4b7",
+      "signal_text": "By December 2028, at least 20 Fortune 500 companies will report combined climate adaptation expenses exceeding $50 billion annually in SEC 10-K filings",
+      "rho": 0.3,
+      "reasoning": "The two questions are related, as economic growth (GDP) and climate adaptation expenses are likely correlated. A stronger economy may enable more investment in climate adaptation, while climate change impacts could also constrain economic growth. However, the relationship is not direct or deterministic, so the correlation is moderate rather than strong.",
+      "original_rho": 0.0
+    },
+    {
+      "signal_id": "llm_6884a101",
+      "signal_text": "Before January 2029, climate-related supply chain disruptions will cause US manufacturing output to decline by more than 5% in any single quarter, per Federal Reserve data",
+      "rho": -0.3,
+      "reasoning": "The two questions are related, as higher economic growth (Question A) could make climate-related supply chain disruptions (Question B) less likely, and vice versa. However, the relationship is not perfectly negative, as other factors beyond just GDP growth could influence the likelihood of supply chain disruptions. Therefore, I estimate a moderate negative correlation coefficient of -0.3.",
+      "original_rho": 0.0
+    },
+    {
+      "signal_id": "llm_18549ddf",
+      "signal_text": "Before January 2030, water scarcity will force temporary shutdowns of industrial facilities representing more than $100 billion in annual output, per state water agency and EPA reports",
+      "rho": 0.3,
+      "reasoning": "The two questions are related, as economic growth (GDP) and water scarcity are likely to be correlated. Higher GDP may lead to increased industrial activity and water usage, which could increase the risk of water scarcity and temporary shutdowns. However, the relationship is not direct or perfect, as there are many other factors that influence both GDP and water scarcity. Therefore, the correlation coefficient is likely to be positive but moderate, around 0.3.",
+      "original_rho": 0.0
+    }
+  ]
+}
