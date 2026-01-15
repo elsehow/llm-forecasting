@@ -24,9 +24,14 @@ uv run pytest tests/
 packages/
 ├── llm-forecasting/src/llm_forecasting/
 │   ├── models.py       # Question, Forecast, Resolution, ForecastScore
-│   ├── sources/        # QuestionSource ABC + implementations
+│   ├── market_data/    # Raw market data providers + SQLite caching
+│   │   ├── base.py     # MarketDataProvider ABC, Market/Candle models
+│   │   ├── polymarket.py   # Polymarket API client
+│   │   ├── metaculus.py    # Metaculus API client
+│   │   └── storage.py      # SQLite: markets + price_history tables
+│   ├── sources/        # QuestionSource ABC (thin wrappers over market_data)
 │   ├── agents/         # ForecastAgent ABC + LLM implementation
-│   ├── storage/        # SQLite persistence
+│   ├── storage/        # SQLite persistence for questions/forecasts
 │   ├── eval/           # Scoring, runner, viz
 │   └── sampling.py     # Stratified question sampling
 │
@@ -95,3 +100,32 @@ Key files (if you have vault access via .claude/settings.json):
 - `projects/Forecast Bench Rewrite.md` - origin of core package
 - `projects/Copilot Needs Discovery.md` - user research for copilot
 - `projects/Conditional Forecasting Trees.md` - tree design rationale
+
+## Market Data Layer
+
+The `market_data/` module provides raw market data access with SQLite caching:
+
+```python
+from llm_forecasting.market_data import PolymarketData, MarketDataStorage
+
+async def example():
+    provider = PolymarketData()
+    storage = MarketDataStorage()  # Uses forecastbench.db by default
+
+    # Fetch and cache markets
+    markets = await provider.fetch_markets(min_liquidity=25000)
+    await storage.save_markets(markets)
+
+    # Fetch price history
+    for market in markets[:10]:
+        if market.clob_token_ids:
+            history = await provider.fetch_price_history_by_token(
+                market.clob_token_ids[0]
+            )
+            await storage.save_price_history(market.id, "polymarket", history)
+
+    # Later: retrieve from cache
+    cached = await storage.get_markets(platform="polymarket")
+```
+
+Sources (`PolymarketSource`, `MetaculusSource`) use these providers internally and convert `Market` → `Question`.

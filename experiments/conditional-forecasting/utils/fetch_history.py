@@ -1,175 +1,138 @@
 #!/usr/bin/env python3
 """
-Fetch historical price data for markets using Polymarket CLOB API.
-Saves to data/price_history/{condition_id}.json
+Fetch historical price data using the llm_forecasting market_data layer.
+Saves to SQLite for shared access across experiments.
 """
 
+import asyncio
 import json
-import time
-from datetime import datetime, timedelta
 from pathlib import Path
 
-import httpx
+from llm_forecasting.market_data import MarketDataStorage, PolymarketData
 
 DATA_DIR = Path(__file__).parent.parent / "data"
 HISTORY_DIR = DATA_DIR / "price_history"
 HISTORY_DIR.mkdir(parents=True, exist_ok=True)
 
-# Public API - be respectful
-RATE_LIMIT_DELAY = 0.3
-CLOB_API = "https://clob.polymarket.com"
 
-
-def fetch_price_history(
-    token_id: str,
+async def fetch_and_cache_history(
     days: int = 60,
-    interval: str = "1d",  # 1m, 5m, 1h, 4h, 1d
-) -> list[dict]:
+    db_path: Path | None = None,
+) -> dict:
     """
-    Fetch price history for a token (YES outcome).
-    Fetches in 7-day chunks to avoid API limits.
+    Fetch price history for all cached markets.
 
     Args:
-        token_id: CLOB token ID
-        days: Number of days of history
-        interval: Candle interval (1d = daily)
+        days: Number of days of history to fetch
+        db_path: Optional custom DB path (default: forecastbench.db)
 
     Returns:
-        List of {timestamp, open, high, low, close} dicts
+        Stats dict with success/failure counts
     """
-    # Convert interval to fidelity parameter
-    fidelity_map = {"1m": 1, "5m": 5, "1h": 60, "4h": 240, "1d": 1440}
-    fidelity = fidelity_map.get(interval, 1440)
+    storage = MarketDataStorage(db_path or "forecastbench.db")
+    provider = PolymarketData()
 
-    all_candles = []
-    chunk_days = 7  # Fetch in 7-day chunks to avoid "interval too long" error
+    stats = {"successful": 0, "skipped": 0, "failed": 0, "insufficient": 0}
 
-    end_ts = int(datetime.now().timestamp())
-    start_ts = int((datetime.now() - timedelta(days=days)).timestamp())
+    try:
+        # Get markets from SQLite cache
+        markets = await storage.get_markets(platform="polymarket")
 
-    # Fetch in chunks from oldest to newest
-    chunk_start = start_ts
-    while chunk_start < end_ts:
-        chunk_end = min(chunk_start + (chunk_days * 86400), end_ts)
+        if not markets:
+            # Fallback: load from JSON if SQLite is empty
+            markets_json = DATA_DIR / "markets.json"
+            if markets_json.exists():
+                print("Loading markets from JSON (SQLite cache empty)...")
+                with open(markets_json) as f:
+                    market_data = json.load(f)
 
-        try:
-            url = f"{CLOB_API}/prices-history"
-            params = {
-                "market": token_id,
-                "interval": interval,
-                "fidelity": fidelity,
-                "startTs": chunk_start,
-                "endTs": chunk_end,
-            }
+                # Fetch fresh from API and save to SQLite
+                print("Fetching markets to populate SQLite cache...")
+                provider_markets = await provider.fetch_markets(limit=500)
+                await storage.save_markets(provider_markets)
+                markets = provider_markets
+            else:
+                print("No markets found. Run fetch_markets.py first.")
+                return stats
 
-            response = httpx.get(url, params=params, timeout=30)
-            response.raise_for_status()
-            data = response.json()
+        print(f"Processing {len(markets)} markets...")
 
-            # Response is {"history": [{"t": timestamp, "p": price}, ...]}
-            history = data.get("history", [])
+        for i, market in enumerate(markets):
+            if not market.clob_token_ids:
+                stats["failed"] += 1
+                continue
 
-            for point in history:
-                ts = point.get("t")
-                price = point.get("p")
-                if ts and price:
-                    all_candles.append({
-                        "timestamp": ts,
-                        "close": float(price),
-                        "open": float(price),
-                        "high": float(price),
-                        "low": float(price),
-                    })
+            # Check if already cached in SQLite
+            if await storage.has_price_history("polymarket", market.id):
+                stats["skipped"] += 1
+                continue
 
-        except httpx.HTTPStatusError as e:
-            if e.response.status_code == 404:
-                return []  # Token not found
-            # Continue to next chunk on other errors
-            pass
-        except Exception:
-            pass
+            # Fetch price history
+            token_id = market.clob_token_ids[0]
+            title = market.title[:40] if market.title else "Unknown"
+            print(f"[{i+1}/{len(markets)}] {title}...", flush=True)
 
-        chunk_start = chunk_end
-        time.sleep(0.1)  # Small delay between chunks
+            try:
+                points = await provider.fetch_price_history_by_token(
+                    token_id, interval="1d"
+                )
 
-    # Sort by timestamp and deduplicate
-    seen = set()
-    unique = []
-    for c in sorted(all_candles, key=lambda x: x["timestamp"]):
-        if c["timestamp"] not in seen:
-            seen.add(c["timestamp"])
-            unique.append(c)
+                if points and len(points) >= 7:
+                    await storage.save_price_history(market.id, "polymarket", points)
+                    stats["successful"] += 1
+                    print(f"  -> {len(points)} points")
 
-    return unique
+                    # Also write JSON for backward compatibility
+                    json_path = HISTORY_DIR / f"{market.id[:40]}.json"
+                    if not json_path.exists():
+                        candles = [
+                            {
+                                "timestamp": int(p.timestamp.timestamp()),
+                                "close": p.price,
+                                "open": p.price,
+                                "high": p.price,
+                                "low": p.price,
+                            }
+                            for p in points
+                        ]
+                        with open(json_path, "w") as f:
+                            json.dump(
+                                {
+                                    "condition_id": market.id,
+                                    "token_id": token_id,
+                                    "question": market.title,
+                                    "candles": candles,
+                                },
+                                f,
+                                indent=2,
+                            )
+                elif points:
+                    stats["insufficient"] += 1
+                    print(f"  -> only {len(points)} points (need 7+)")
+                else:
+                    stats["failed"] += 1
+                    print("  -> no data")
+            except Exception as e:
+                stats["failed"] += 1
+                print(f"  -> error: {e}")
+
+            await asyncio.sleep(0.3)  # Rate limit
+
+        return stats
+
+    finally:
+        await provider.close()
+        await storage.close()
 
 
 def main():
-    # Load markets
-    markets_path = DATA_DIR / "markets.json"
-    if not markets_path.exists():
-        print("Run fetch_markets.py first")
-        return
+    stats = asyncio.run(fetch_and_cache_history())
 
-    with open(markets_path) as f:
-        markets = json.load(f)
-
-    import sys
-    print(f"Fetching history for {len(markets)} markets...", flush=True)
-    successful = 0
-    skipped = 0
-    failed = 0
-    insufficient = 0
-
-    for i, market in enumerate(markets):
-        condition_id = market.get("condition_id")
-        clob_token_ids = market.get("clob_token_ids", [])
-
-        if not condition_id or not clob_token_ids:
-            failed += 1
-            continue
-
-        # Use first token (YES outcome typically)
-        token_id = clob_token_ids[0] if clob_token_ids else None
-        if not token_id:
-            failed += 1
-            continue
-
-        # Check cache (use condition_id for filename)
-        output_path = HISTORY_DIR / f"{condition_id[:40]}.json"
-        if output_path.exists():
-            skipped += 1
-            continue
-
-        # Fetch price history
-        q = market.get('question', 'Unknown')[:40]
-        print(f"[{i+1}/{len(markets)}] {q}...", flush=True)
-
-        candles = fetch_price_history(token_id, days=60)
-
-        if candles and len(candles) >= 7:  # Need at least a week of data
-            with open(output_path, "w") as f:
-                json.dump({
-                    "condition_id": condition_id,
-                    "token_id": token_id,
-                    "question": market.get("question"),
-                    "candles": candles,
-                }, f, indent=2)
-            successful += 1
-            print(f"  -> {len(candles)} candles", flush=True)
-        elif candles:
-            insufficient += 1
-            print(f"  -> only {len(candles)} candles (need 7+)", flush=True)
-        else:
-            failed += 1
-            print(f"  -> no data", flush=True)
-
-        time.sleep(RATE_LIMIT_DELAY)
-
-    print(f"\nDone:", flush=True)
-    print(f"  {successful} markets with sufficient history", flush=True)
-    print(f"  {insufficient} markets with insufficient history (<7 days)", flush=True)
-    print(f"  {skipped} already cached", flush=True)
-    print(f"  {failed} failed/no data", flush=True)
+    print("\nDone:")
+    print(f"  {stats['successful']} markets with sufficient history")
+    print(f"  {stats['insufficient']} markets with insufficient history (<7 days)")
+    print(f"  {stats['skipped']} already cached")
+    print(f"  {stats['failed']} failed/no data")
 
 
 if __name__ == "__main__":

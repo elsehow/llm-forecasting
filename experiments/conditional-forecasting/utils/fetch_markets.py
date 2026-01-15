@@ -1,124 +1,83 @@
 #!/usr/bin/env python3
 """
-Fetch active Polymarket markets via public gamma API.
-Sorted by volume to get established markets with price history.
+Fetch active Polymarket markets using the llm_forecasting market_data layer.
+Saves to both SQLite (for shared access) and JSON (for backward compatibility).
 """
 
+import asyncio
 import json
-import time
 from pathlib import Path
 
-import httpx
+from llm_forecasting.market_data import MarketDataStorage, PolymarketData
 
 DATA_DIR = Path(__file__).parent.parent / "data"
 DATA_DIR.mkdir(exist_ok=True)
 
-# Public API - no key needed, but be respectful
-RATE_LIMIT_DELAY = 0.5
-API_BASE = "https://gamma-api.polymarket.com"
 
-
-def fetch_markets(min_volume_usd: float = 10_000, limit: int = 500) -> list[dict]:
+async def fetch_and_cache_markets(
+    min_volume_usd: float = 10_000,
+    limit: int = 500,
+    db_path: Path | None = None,
+) -> list[dict]:
     """
-    Fetch Polymarket markets sorted by 24h volume.
+    Fetch Polymarket markets and cache to SQLite.
 
     Args:
-        min_volume_usd: Minimum 24h volume to include
-        limit: Max markets to fetch
+        min_volume_usd: Minimum 24h volume
+        limit: Max markets
+        db_path: Optional custom DB path (default: forecastbench.db)
 
     Returns:
-        List of market dicts
+        List of market dicts (for backward compatibility)
     """
-    all_markets = []
-    offset = 0
-    batch_size = 100  # API limit per request
+    provider = PolymarketData()
+    storage = MarketDataStorage(db_path or "forecastbench.db")
 
-    while len(all_markets) < limit:
-        print(f"Fetching markets offset={offset}...")
+    try:
+        print(f"Fetching markets with min volume ${min_volume_usd:,.0f}...")
 
-        params = {
-            "active": "true",
-            "closed": "false",
-            "limit": batch_size,
-            "offset": offset,
-            "order": "volume24hr",
-            "ascending": "false",
-        }
+        # Fetch from API
+        markets = await provider.fetch_markets(
+            active_only=True,
+            min_volume=min_volume_usd,
+            limit=limit,
+        )
 
-        try:
-            response = httpx.get(f"{API_BASE}/markets", params=params, timeout=30)
-            response.raise_for_status()
-            batch = response.json()
-        except Exception as e:
-            print(f"Error at offset {offset}: {e}")
-            break
+        print(f"Fetched {len(markets)} markets from Polymarket")
 
-        if not batch:
-            break
+        # Save to SQLite cache
+        await storage.save_markets(markets)
+        print(f"Saved to SQLite cache")
 
-        # First batch: show sample
-        if offset == 0 and batch:
-            m = batch[0]
-            print(f"\nFirst market keys: {list(m.keys())[:15]}")
-            print(f"  question: {m.get('question', 'N/A')[:60]}")
-            print(f"  volume24hr: ${float(m.get('volume24hr', 0)):,.0f}")
-            print(f"  conditionId: {m.get('conditionId', 'N/A')[:30]}...")
-            print()
+        # Convert to dicts for backward compatibility
+        market_dicts = []
+        for m in markets:
+            market_dicts.append(
+                {
+                    "condition_id": m.id,
+                    "question": m.title,
+                    "slug": m.url.split("/")[-1] if m.url else None,
+                    "volume_24h": m.volume_24h,
+                    "volume_total": m.volume_total,
+                    "liquidity": m.liquidity,
+                    "clob_token_ids": m.clob_token_ids,
+                    "outcomes": ["Yes", "No"],  # Only binary markets
+                    "end_date": m.close_date.isoformat() if m.close_date else None,
+                    "created_at": m.created_at.isoformat() if m.created_at else None,
+                }
+            )
 
-        all_markets.extend(batch)
-        offset += batch_size
-        time.sleep(RATE_LIMIT_DELAY)
+        return market_dicts
 
-        # Stop if we got a partial batch
-        if len(batch) < batch_size:
-            break
-
-    print(f"\nFetched {len(all_markets)} total markets")
-
-    # Filter and normalize
-    filtered = []
-    for m in all_markets:
-        condition_id = m.get("conditionId")
-        if not condition_id:
-            continue
-
-        volume_24h = float(m.get("volume24hr", 0) or 0)
-        if volume_24h < min_volume_usd:
-            continue
-
-        # Get token IDs for price history
-        # clobTokenIds is a JSON string like "[\"token1\", \"token2\"]"
-        clob_token_ids = m.get("clobTokenIds", "[]")
-        if isinstance(clob_token_ids, str):
-            try:
-                clob_token_ids = json.loads(clob_token_ids)
-            except:
-                clob_token_ids = []
-
-        market_dict = {
-            "condition_id": condition_id,
-            "question": m.get("question", "Unknown"),
-            "slug": m.get("slug"),
-            "volume_24h": volume_24h,
-            "volume_total": float(m.get("volume", 0) or 0),
-            "liquidity": float(m.get("liquidity", 0) or 0),
-            "clob_token_ids": clob_token_ids,
-            "outcomes": m.get("outcomes"),  # e.g., "Yes, No"
-            "end_date": m.get("endDate"),
-            "created_at": m.get("createdAt"),
-        }
-
-        filtered.append(market_dict)
-
-    print(f"Found {len(filtered)} markets with volume >= ${min_volume_usd:,.0f}")
-    return filtered
+    finally:
+        await provider.close()
+        await storage.close()
 
 
 def main():
     output_path = DATA_DIR / "markets.json"
 
-    # Always refetch to get current high-volume markets
-    # (Delete cache manually if you want to refresh)
+    # Check JSON cache for backward compatibility
     if output_path.exists():
         print(f"Using cached markets from {output_path}")
         print("(Delete data/markets.json to refetch)")
@@ -126,7 +85,9 @@ def main():
             markets = json.load(f)
         print(f"Loaded {len(markets)} cached markets")
     else:
-        markets = fetch_markets(min_volume_usd=10_000, limit=500)
+        markets = asyncio.run(fetch_and_cache_markets())
+
+        # Write JSON for backward compatibility with other scripts
         with open(output_path, "w") as f:
             json.dump(markets, f, indent=2)
         print(f"Saved {len(markets)} markets to {output_path}")
@@ -135,8 +96,8 @@ def main():
     if markets:
         print("\nTop markets by volume:")
         for m in markets[:5]:
-            q = m.get('question', 'Unknown')[:50]
-            vol = m.get('volume_24h', 0)
+            q = m.get("question", "Unknown")[:50]
+            vol = m.get("volume_24h", 0)
             print(f"  ${vol:>10,.0f}  {q}...")
 
 
