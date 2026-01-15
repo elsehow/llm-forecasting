@@ -1,0 +1,326 @@
+{
+  "id": "hybrid_gdp_2050_c942ddaf",
+  "name": "gdp_2050 (hybrid)",
+  "target": "gdp_2050",
+  "approach": "hybrid_v7",
+  "question": {
+    "id": "gdp_2050",
+    "source": "scenario_construction",
+    "text": "What will US real GDP be in 2050 (in 2024 dollars)?",
+    "question_type": "continuous",
+    "unit": "usd_trillions",
+    "base_rate": 29.0,
+    "value_range": [
+      25.0,
+      150.0
+    ]
+  },
+  "config": {
+    "context": "Current US GDP: ~$29 trillion (2024). 26-year horizon allows for transformative changes. Key uncertainties: AI/automation impact, transformative tech (quantum, fusion), geopolitical realignment, climate adaptation costs, demographic shifts, institutional stability.",
+    "cruxiness_normalizer": 40.0,
+    "voi_floor": 0.1
+  },
+  "knowledge_cutoff": "2025-10-01",
+  "current_date": "2026-01-15",
+  "sources_used": [
+    "polymarket",
+    "metaculus",
+    "fred",
+    "infer",
+    "manifold"
+  ],
+  "uncertainties": [
+    {
+      "name": "AI Productivity Impact",
+      "description": "Whether AI automation will drive substantial productivity gains across the economy or primarily displace workers without proportional output increases. This determines if AI becomes a major GDP growth accelerator or creates economic disruption.",
+      "search_query": "AI productivity growth economic impact automation GDP"
+    },
+    {
+      "name": "Geopolitical Stability",
+      "description": "The degree to which US maintains stable international relationships and avoids major conflicts or trade disruptions. Geopolitical tensions could significantly constrain growth through reduced trade, increased defense spending, and supply chain disruptions.",
+      "search_query": "US China relations trade war conflict probability geopolitical stability"
+    },
+    {
+      "name": "Climate Adaptation Costs",
+      "description": "The fiscal and economic burden of adapting to climate change through infrastructure upgrades, disaster recovery, and productivity losses from extreme weather. Higher adaptation costs will crowd out productive investment and constrain GDP growth.",
+      "search_query": "climate change economic costs infrastructure adaptation spending GDP impact"
+    }
+  ],
+  "signals_per_uncertainty": {
+    "AI Productivity Impact": 30,
+    "Geopolitical Stability": 30,
+    "Climate Adaptation Costs": 30
+  },
+  "signals_after_dedup": 11,
+  "signals_above_floor": 10,
+  "source_breakdown": {
+    "manifold": 3,
+    "metaculus": 4,
+    "polymarket": 2,
+    "fred": 1,
+    "infer": 1
+  },
+  "category_breakdown": {
+    "future": 5,
+    "near_term": 5,
+    "unknown": 1
+  },
+  "uncertainty_breakdown": {
+    "AI Productivity Impact": 3,
+    "Geopolitical Stability": 4,
+    "Climate Adaptation Costs": 4
+  },
+  "signals": [
+    {
+      "id": "zg7xJ5ZkJJ4wJPJDPjWO",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "By 2028, will there be a visible break in trend line on US GDP, GDP per capita, unemployment, or productivity, which most economists attribute directly to the effects of AI?",
+      "url": "https://manifold.markets/ScottAlexander/by-2028-will-there-be-a-visible-bre",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:35.058618Z",
+      "resolution_date": "2028-01-02",
+      "resolved": false,
+      "voi": 0.4,
+      "rho": 0.8,
+      "rho_reasoning": "There is a causal relationship between the two questions, as the productivity impact of AI (Question A) would directly influence whether there is a visible break in GDP, GDP per capita, unemployment, or productivity trends (Question B). They are measuring the same underlying phenomenon of the economic effects of AI adoption. While not mutually exclusive, they are related such that a positive answer to Question A would make a positive answer to Question B more likely. Therefore, the correlation coefficient is estimated to be 0.8, indicating a strong positive correlation between the two forecasting questions.",
+      "uncertainty_source": "AI Productivity Impact"
+    },
+    {
+      "id": "26289",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Five years after AGI, will an AI Windfall Clause have been activated?",
+      "url": "https://www.metaculus.com/questions/26289",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:35.058632Z",
+      "resolution_date": "2036-01-01",
+      "resolved": false,
+      "voi": 0.25,
+      "rho": 0.5,
+      "rho_reasoning": "There is a causal relationship between the two questions, as the productivity impact of AI (Question A) would likely affect whether an AI Windfall Clause is activated (Question B). They are measuring different aspects of the same underlying phenomenon, the impact of advanced AI systems on the economy. However, they are not mutually exclusive, as it is possible for AI to drive productivity gains without necessarily triggering an AI Windfall Clause. Additionally, the two questions are not truly independent, as the outcome of one would likely influence the other. Therefore, based on the information provided, I estimate the correlation coefficient (\u03c1) to be around 0.5, indicating a moderate positive correlation between the two forecasting questions.",
+      "uncertainty_source": "AI Productivity Impact"
+    },
+    {
+      "id": "P0OAOZIpyq",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "Apple announces AI company purchase for over $500m by end of 2025",
+      "url": "https://manifold.markets/DavidFWatson/apple-pays-over-500m-for-an-ai-comp",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:35.058638Z",
+      "resolution_date": "2026-01-01",
+      "resolved": false,
+      "voi": 0.19999999999999996,
+      "rho": 0.4,
+      "rho_reasoning": "There is a potential causal relationship, as Apple's acquisition of an AI company could signal broader AI adoption and productivity gains across the economy. However, the two questions are not measuring the same underlying phenomenon, and they are not mutually exclusive. Additionally, they may not be truly independent, as the Apple acquisition could be influenced by factors that also impact the broader AI productivity trend. Therefore, the correlation coefficient is estimated to be moderately positive at 0.4.",
+      "uncertainty_source": "AI Productivity Impact"
+    },
+    {
+      "id": "0xd3320fd4b325ce3d629fbaffd90bebd0a4f45042d91bf207c9866704d630bdb9",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "NATO x Russia military clash by March 31, 2026?",
+      "url": "https://polymarket.com/market/nato-x-russia-military-clash-by-march-31-2026",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:35.058641Z",
+      "resolution_date": "2026-03-31",
+      "resolved": false,
+      "voi": 0.4,
+      "rho": -0.8,
+      "rho_reasoning": "There is a causal relationship between the two questions, as a NATO-Russia military clash would likely have a significant negative impact on geopolitical stability and the US's ability to maintain stable international relationships. They are not measuring the same underlying phenomenon, but are closely related. The two questions could be mutually exclusive, as a lack of a NATO-Russia clash would generally indicate greater geopolitical stability. However, they are not truly independent, as a NATO-Russia clash would directly affect geopolitical stability. Given the strong causal relationship and potential mutual exclusivity, I estimate a high negative correlation coefficient of -0.8 between the two questions.",
+      "uncertainty_source": "Geopolitical Stability"
+    },
+    {
+      "id": "0x7b49b9bacb5f435bc10f3b100ff59e2fdd346f7f92a9001881bc9825a0af0f11",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will China invades Taiwan before GTA VI?",
+      "url": "https://polymarket.com/market/will-china-invades-taiwan-before-gta-vi-716",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:35.058644Z",
+      "resolution_date": "2026-07-31",
+      "resolved": false,
+      "voi": 0.35,
+      "rho": -0.7,
+      "rho_reasoning": "There is a plausible causal relationship between China's invasion of Taiwan and geopolitical stability, as such an event would likely lead to significant international tensions and trade disruptions, constraining economic growth. However, the questions are not measuring the same underlying phenomenon, as one is focused on a specific geopolitical event while the other is a broader assessment of geopolitical stability. Additionally, the two events are not mutually exclusive, as China could invade Taiwan without the U.S. losing all geopolitical stability. Therefore, the correlation is likely to be moderately negative, as the probability of China invading Taiwan would increase as geopolitical stability decreases, but the relationship is not perfectly inverse.",
+      "uncertainty_source": "Geopolitical Stability"
+    },
+    {
+      "id": "15150",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will the US and the EU (or one of its member states) cut diplomatic ties before 2051?",
+      "url": "https://www.metaculus.com/questions/15150/eu-and-us-cut-diplomatic-ties-before-2051/",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:35.058647Z",
+      "resolution_date": "2050-12-31",
+      "resolved": false,
+      "voi": 0.35,
+      "rho": -0.7,
+      "rho_reasoning": "There is a causal relationship between geopolitical stability and the US/EU diplomatic ties. Geopolitical tensions and conflicts could lead to a breakdown in diplomatic relations, which would negatively impact geopolitical stability. However, they are not measuring the same underlying phenomenon, as geopolitical stability encompasses a broader range of factors beyond just diplomatic ties. Additionally, while they are related, the US and EU cutting diplomatic ties is not necessarily mutually exclusive with maintaining overall geopolitical stability, as there could be tensions with other countries or regions. Therefore, I estimate a moderately strong negative correlation coefficient of -0.7 between these two forecasting questions.",
+      "uncertainty_source": "Geopolitical Stability"
+    },
+    {
+      "id": "6179",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will the USA enter a second civil war before 2031?",
+      "url": "https://www.metaculus.com/questions/6179",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:35.058649Z",
+      "resolution_date": "2031-01-01",
+      "resolved": false,
+      "voi": 0.35,
+      "rho": -0.7,
+      "rho_reasoning": "There is a causal relationship between geopolitical stability and the risk of a second US civil war. Geopolitical tensions and instability could increase the likelihood of a civil conflict. However, they are not measuring the same underlying phenomenon, as geopolitical stability is a broader concept that encompasses more than just the risk of civil war. Furthermore, they are not mutually exclusive, as a civil war could occur even in relatively stable geopolitical conditions. Finally, they are not truly independent, as the risk of a civil war could be influenced by broader geopolitical factors. Therefore, I estimate a moderately strong negative correlation coefficient of -0.7 between these two forecasting questions.",
+      "uncertainty_source": "Geopolitical Stability"
+    },
+    {
+      "id": "TPkEjiNb1wVCIGFnPcDD",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "Will the average global temperature in 2024 exceed 2023?",
+      "url": "https://manifold.markets/SteveRabin/will-the-average-global-temperature",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:35.058652Z",
+      "resolution_date": "2025-01-01",
+      "resolved": false,
+      "voi": 0.4,
+      "rho": 0.8,
+      "rho_reasoning": "There is a causal relationship between rising global temperatures and the need for climate adaptation, which incurs significant fiscal and economic costs. Question A and Question B are measuring related aspects of the same underlying phenomenon - the impacts of climate change. While they are not mutually exclusive, they are not perfectly correlated either, as other factors such as policy responses and technological advancements can also influence adaptation costs. Therefore, the correlation coefficient is estimated to be around 0.8, indicating a strong positive correlation.",
+      "uncertainty_source": "Climate Adaptation Costs"
+    },
+    {
+      "id": "USEPUINDXD",
+      "source": "fred",
+      "source_type": "market",
+      "text": "Will the Economic Policy Uncertainty Index for the US have increased by {resolution_date} as compared to its value on {forecast_due_date}?",
+      "url": "https://fred.stlouisfed.org/series/USEPUINDXD",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:35.058655Z",
+      "resolved": false,
+      "voi": 0.25,
+      "rho": 0.5,
+      "rho_reasoning": "There is a plausible causal relationship between higher climate adaptation costs and increased economic policy uncertainty, as the fiscal burden and constraints on productive investment could lead to greater economic uncertainty. However, they are not measuring the same underlying phenomenon, as the Economic Policy Uncertainty Index captures a broader range of factors beyond just climate adaptation costs. They are not mutually exclusive, and while they may be correlated, they are not perfectly dependent on each other.",
+      "uncertainty_source": "Climate Adaptation Costs"
+    },
+    {
+      "id": "1678",
+      "source": "infer",
+      "source_type": "market",
+      "text": "Will any country announce a new national carbon tax or emissions trading system by 31 July 2026?",
+      "url": "https://www.randforecastinginitiative.org/questions/1678",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:35.058658Z",
+      "resolution_date": "2026-08-01",
+      "resolved": false,
+      "voi": 0.25,
+      "rho": 0.5,
+      "rho_reasoning": "There is a likely causal relationship between climate adaptation costs and the implementation of carbon pricing mechanisms like a carbon tax or emissions trading system. Higher adaptation costs would indicate the need for more aggressive climate action, which could drive the adoption of new carbon pricing policies. However, they are not measuring the same underlying phenomenon and could be somewhat independent, as countries may implement carbon pricing for reasons beyond just adaptation costs. Therefore, I estimate a moderately positive correlation coefficient of 0.5.",
+      "uncertainty_source": "Climate Adaptation Costs"
+    },
+    {
+      "id": "10574",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will a 8-year gross world product doubling complete before a 2-year doubling does?",
+      "url": "https://www.metaculus.com/questions/10574",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:35.058661Z",
+      "resolution_date": "2029-12-31",
+      "resolved": false,
+      "voi": 0.09999999999999998,
+      "rho": 0.2,
+      "rho_reasoning": "There is no clear causal relationship between climate adaptation costs and the doubling of gross world product. They are measuring different underlying phenomena - one is about the economic burden of climate change, while the other is about the rate of global economic growth. They are not mutually exclusive, as both climate adaptation costs and global economic growth can vary independently. While they may be correlated to some degree, they are not strictly dependent on each other, so the correlation is likely to be weak and positive.",
+      "uncertainty_source": "Climate Adaptation Costs"
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "AI Boom Economy",
+      "description": "AI drives unprecedented productivity growth starting in the late 2020s, transforming most sectors of the economy. Despite some geopolitical tensions and climate costs, AI-enabled innovation and automation generate massive economic gains, with the US maintaining technological leadership and benefiting from AI windfall policies.",
+      "outcome_range": "$65-85T",
+      "outcome_low": 65.0,
+      "outcome_high": 85.0,
+      "key_drivers": [
+        "Visible AI productivity breakthrough by 2028",
+        "Major tech acquisitions accelerate AI deployment",
+        "AI windfall policies distribute gains broadly",
+        "Technological leadership maintained despite tensions",
+        "Climate adaptation costs offset by AI efficiency gains"
+      ],
+      "why_exclusive": "This scenario requires AI to deliver transformative productivity gains, which is incompatible with scenarios where AI fails to materialize or where major conflicts severely disrupt technological progress and economic systems.",
+      "mapped_signals": [
+        "By 2028, will there be a visible break in trend line on US GDP, GDP per capita, unemployment, or productivity, which most economists attribute directly to the effects of AI?",
+        "Five years after AGI, will an AI Windfall Clause have been activated?",
+        "Apple announces AI company purchase for over $500m by end of 2025"
+      ],
+      "indicator_bundle": {
+        "AI productivity growth": "Annual productivity growth >4% by 2030",
+        "Tech sector GDP share": "Technology sector >15% of GDP by 2040",
+        "AI windfall activation": "AI windfall policies active by 2035",
+        "Automation rate": "50%+ of jobs significantly augmented by AI by 2045",
+        "Real wage growth": "Median real wages growing >3% annually 2030-2050"
+      }
+    },
+    {
+      "name": "Crisis and Stagnation",
+      "description": "Major geopolitical conflicts, internal political instability, and severe climate impacts create a prolonged period of economic disruption and low growth. Military conflicts with Russia or China, potential civil unrest, and mounting climate adaptation costs overwhelm any technological gains.",
+      "outcome_range": "$35-50T",
+      "outcome_low": 35.0,
+      "outcome_high": 50.0,
+      "key_drivers": [
+        "Major military conflicts disrupt global trade",
+        "Internal political instability reduces investment",
+        "Severe climate impacts require massive adaptation spending",
+        "High economic policy uncertainty persists",
+        "Diplomatic isolation from traditional allies"
+      ],
+      "why_exclusive": "This scenario is defined by major systemic disruptions and conflicts that prevent the stable conditions necessary for either AI-driven boom or steady moderate growth trajectories.",
+      "mapped_signals": [
+        "NATO x Russia military clash by March 31, 2026?",
+        "Will China invades Taiwan before GTA VI?",
+        "Will the US and the EU (or one of its member states) cut diplomatic ties before 2051?",
+        "Will the USA enter a second civil war before 2031?",
+        "Will the Economic Policy Uncertainty Index for the US have increased by {resolution_date} as compared to its value on {forecast_due_date}?"
+      ],
+      "indicator_bundle": {
+        "Defense spending": "Defense spending >5% of GDP sustained",
+        "Political stability index": "Political stability index below 40th percentile globally",
+        "Climate adaptation costs": "Climate adaptation >3% of GDP annually",
+        "Trade disruption": "Trade volume 20%+ below 2024 levels",
+        "Investment rate": "Business investment <15% of GDP"
+      }
+    },
+    {
+      "name": "Moderate Resilience",
+      "description": "The US economy grows steadily but without transformative breakthroughs, successfully managing moderate geopolitical tensions and climate challenges. AI provides incremental rather than revolutionary gains, while institutional stability and pragmatic policy responses maintain consistent growth despite global uncertainties.",
+      "outcome_range": "$50-65T",
+      "outcome_low": 50.0,
+      "outcome_high": 65.0,
+      "key_drivers": [
+        "AI delivers incremental but not transformative productivity gains",
+        "Geopolitical tensions remain manageable without major conflicts",
+        "Climate policies implemented but at moderate cost",
+        "Institutional stability maintained with gradual adaptation",
+        "Steady demographic and technological transitions"
+      ],
+      "why_exclusive": "This scenario occupies the middle ground where neither extreme AI transformation occurs nor major systemic crises materialize - it cannot coexist with either the high-disruption crisis scenario or the transformative AI boom.",
+      "mapped_signals": [
+        "Will any country announce a new national carbon tax or emissions trading system by 31 July 2026?",
+        "Will the average global temperature in 2024 exceed 2023?"
+      ],
+      "indicator_bundle": {
+        "GDP growth rate": "Annual real GDP growth 2.0-3.5%",
+        "Productivity growth": "Annual productivity growth 1.5-2.5%",
+        "Climate spending": "Climate investment 1-2% of GDP annually",
+        "Policy uncertainty": "Economic Policy Uncertainty Index within historical range",
+        "Employment rate": "Unemployment rate 3-6% throughout period"
+      }
+    }
+  ],
+  "mece_reasoning": "These scenarios are MECE because they partition the outcome space along two key dimensions: the magnitude of technological transformation (particularly AI) and the severity of systemic disruptions (geopolitical conflicts, internal instability, climate impacts). The AI Boom Economy requires transformative AI gains AND relative stability, Crisis and Stagnation involves major systemic disruptions that prevent growth regardless of technology, and Moderate Resilience represents the middle path where neither extreme occurs. The outcome ranges are non-overlapping: $35-50T (crisis), $50-65T (moderate), and $65-85T (boom), ensuring mutual exclusivity. The scenarios are collectively exhaustive as they cover the full spectrum from severe disruption to transformative growth, with the moderate scenario capturing the baseline case where current trends continue without major shocks or breakthroughs.",
+  "coverage_gaps": [],
+  "created_at": "2026-01-15T13:01:35.058797"
+}

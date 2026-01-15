@@ -22,12 +22,14 @@ import json
 import asyncio
 import sys
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, date
 from uuid import uuid4
 
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
 import litellm
+
+from llm_forecasting.models import Signal
 
 # Import shared utilities
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -258,20 +260,28 @@ async def main():
     # Breakdown by uncertainty
     by_uncertainty = {k: len(v) for k, v in uncertainty_signals.items()}
 
-    # Build v7 signal format (includes id, resolution_date, base_rate)
+    # Build Signal instances
+    def parse_date(d: str | None) -> date | None:
+        if d is None:
+            return None
+        try:
+            return date.fromisoformat(str(d)[:10])
+        except ValueError:
+            return None
+
     signals_v7 = [
-        {
-            "id": s["id"],
-            "source": s["source"],
-            "text": s["text"],
-            "background": s.get("background"),
-            "resolution_date": s.get("resolution_date"),
-            "base_rate": s.get("base_rate"),
-            "voi": s.get("voi"),
-            "rho": s.get("rho"),
-            "rho_reasoning": s.get("rho_reasoning"),
-            "uncertainty_source": s.get("uncertainty_source"),
-        }
+        Signal(
+            id=s["id"],
+            source=s["source"],
+            text=s["text"],
+            background=s.get("background"),
+            resolution_date=parse_date(s.get("resolution_date")),
+            base_rate=s.get("base_rate"),
+            voi=s.get("voi", 0.0),
+            rho=s.get("rho", 0.0),
+            rho_reasoning=s.get("rho_reasoning"),
+            uncertainty_source=s.get("uncertainty_source"),
+        )
         for s in ranked_signals
     ]
 
@@ -323,7 +333,7 @@ async def main():
         "total_signals": len(all_signals),
         "signals_above_floor": sum(1 for s in ranked_signals if s.get("voi", 0) >= args.voi_floor),
         "voi_distribution": voi_counts,
-        "signals": signals_v7,
+        "signals": [s.model_dump(mode="json", exclude_none=True) for s in signals_v7],
         "scenarios": scenarios_v7,
         "mece_reasoning": result.mece_reasoning,
         "coverage_gaps": result.coverage_gaps,

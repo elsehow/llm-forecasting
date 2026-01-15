@@ -6,7 +6,7 @@ designed to hydrate a scenario explorer UI.
 
 from pydantic import BaseModel, Field
 
-from llm_forecasting.models import Question
+from llm_forecasting.models import Question, Signal
 
 from .scenarios import MECEScenario
 from .uncertainties import Uncertainty
@@ -46,7 +46,7 @@ class ScenarioSet(BaseModel):
     question: Question = Field(description="The target forecasting question")
 
     # Entities
-    signals: list[dict] = Field(description="Signals used for scenario generation")
+    signals: list[Signal] = Field(description="Signals used for scenario generation")
     scenarios: list[MECEScenario] = Field(description="Generated MECE scenarios")
 
     # Metadata

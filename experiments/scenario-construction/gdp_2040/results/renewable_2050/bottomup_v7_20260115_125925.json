@@ -1,0 +1,350 @@
+{
+  "id": "bottomup_renewable_2050_3b6574e5",
+  "name": "renewable_2050 (bottom-up)",
+  "target": "renewable_2050",
+  "approach": "bottomup_v7",
+  "question": {
+    "id": "renewable_2050",
+    "source": "scenario_construction",
+    "text": "What share of global energy will come from renewable sources in 2050?",
+    "question_type": "continuous",
+    "unit": "percent",
+    "base_rate": 15.0,
+    "value_range": [
+      10.0,
+      90.0
+    ]
+  },
+  "config": {
+    "context": "Current renewable share: ~15% (2024). Paris targets: 60-70% by 2050. Key uncertainties: policy ambition, battery/storage costs, grid infrastructure, fossil fuel phase-out pace, nuclear expansion.",
+    "cruxiness_normalizer": 30.0,
+    "voi_floor": 0.1
+  },
+  "knowledge_cutoff": "2025-10-01",
+  "current_date": "2026-01-15",
+  "sources_used": [
+    "polymarket",
+    "metaculus",
+    "fred",
+    "infer",
+    "manifold"
+  ],
+  "signals_retrieved": 200,
+  "signals_after_dedup": 14,
+  "signals_above_floor": 6,
+  "source_breakdown": {
+    "manifold": 3,
+    "metaculus": 8,
+    "polymarket": 2,
+    "infer": 1
+  },
+  "category_breakdown": {
+    "future": 99,
+    "near_term": 101
+  },
+  "signals": [
+    {
+      "id": "cLxfTH5GDfmqeNJwClVF",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "Will the majority of new cars sold worldwide be electric before the end of 2030?",
+      "url": "https://manifold.markets/kian_spire/will-the-majority-of-new-cars-sold",
+      "question_type": "binary",
+      "created_at": "2026-01-15T20:59:25.036164Z",
+      "resolution_date": "2030-12-31",
+      "resolved": false,
+      "voi": 0.35,
+      "rho": 0.7,
+      "rho_reasoning": "There appears to be a moderately strong positive correlation between the two questions. Question A and Question B are related, as the growth of renewable energy sources and the adoption of electric vehicles are closely linked. They are measuring related aspects of the global energy transition. While they are not measuring the same underlying phenomenon directly, they are both indicative of broader trends in energy and transportation. The two questions are not mutually exclusive, and could potentially be correlated as the growth of renewable energy and electric vehicles often go hand-in-hand. However, they are not perfectly correlated as there are other factors that could influence each metric independently."
+    },
+    {
+      "id": "1604",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Ragnar\u00f6k Question Series: if a global climate disaster occurs by 2100, will the Earth's human population decline by 95% or more?",
+      "url": "https://www.metaculus.com/questions/1604",
+      "question_type": "binary",
+      "created_at": "2026-01-15T20:59:25.036178Z",
+      "resolution_date": "2100-01-02",
+      "resolved": false,
+      "voi": 0.30000000000000004,
+      "rho": 0.6,
+      "rho_reasoning": "There is a potential causal relationship between the share of global energy from renewable sources in 2050 and the likelihood of a global climate disaster by 2100 leading to a 95%+ decline in human population. A higher share of renewable energy is likely to reduce greenhouse gas emissions and mitigate climate change, thereby decreasing the probability of a severe climate disaster. However, the two questions are not measuring the same underlying phenomenon, and they are not mutually exclusive. Therefore, the correlation coefficient is estimated to be moderately positive, around 0.6."
+    },
+    {
+      "id": "4779",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will a nuclear weapon be detonated as an act of war by 2050?",
+      "url": "https://www.metaculus.com/questions/4779",
+      "question_type": "binary",
+      "created_at": "2026-01-15T20:59:25.036184Z",
+      "resolution_date": "2050-01-01",
+      "resolved": false,
+      "voi": 0.30000000000000004,
+      "rho": -0.6,
+      "rho_reasoning": "There is no direct causal relationship between the share of global energy from renewables in 2050 and the detonation of a nuclear weapon as an act of war by 2050. However, they could be considered somewhat related as a shift towards renewable energy sources may indicate a greater global emphasis on peace and non-proliferation, which would make the detonation of a nuclear weapon less likely. Additionally, if a nuclear weapon were detonated, it could have significant environmental and economic impacts that could disrupt the growth of renewable energy. Therefore, these two variables are not completely independent, and a moderate negative correlation coefficient of -0.6 seems reasonable."
+    },
+    {
+      "id": "0x385458d81b805f220ccc137a23e5e24d1c6ecb61a189ba2edf8812b099129af9",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will global temperature increase by less than 1.10\u00baC in October 2025?",
+      "url": "https://polymarket.com/market/will-global-temperature-increase-by-less-than-1pt10c-in-october-2025",
+      "question_type": "binary",
+      "created_at": "2026-01-15T20:59:25.036187Z",
+      "resolution_date": "2025-11-11",
+      "resolved": false,
+      "voi": 0.25,
+      "rho": 0.5,
+      "rho_reasoning": "There is likely a positive correlation between the share of global energy from renewable sources in 2050 and the global temperature increase being less than 1.10\u00b0C in October 2025. This is because a higher share of renewable energy is generally associated with lower greenhouse gas emissions and reduced global temperature increases. However, the relationship is not perfect as there are many other factors that influence global temperature change. Additionally, the two questions are not measuring the same underlying phenomenon, but are related in the context of climate change and energy transition. They are also not mutually exclusive, as it is possible to have a high share of renewable energy while still experiencing temperature increases above 1.10\u00b0C. Therefore, a moderate positive correlation coefficient of 0.5 is a reasonable estimate."
+    },
+    {
+      "id": "25572",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will chemicals produced from biomass achieve price parity with these three petrochemical equivalents before 2050?",
+      "url": "https://www.metaculus.com/questions/25572",
+      "question_type": "binary",
+      "created_at": "2026-01-15T20:59:25.036190Z",
+      "resolution_date": "2049-12-30",
+      "resolved": false,
+      "voi": 0.25,
+      "rho": 0.5,
+      "rho_reasoning": "There is likely a positive correlation between the share of global energy from renewable sources in 2050 and the achievement of price parity for chemicals produced from biomass. A higher share of renewable energy could drive the economics and adoption of biomass-based chemicals, creating a causal relationship. However, they are not measuring the same underlying phenomenon, and they are not mutually exclusive or completely independent."
+    },
+    {
+      "id": "8968",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will the Federal Reserve set a target policy rate that is negative by 2050?",
+      "url": "https://www.metaculus.com/questions/8968",
+      "question_type": "binary",
+      "created_at": "2026-01-15T20:59:25.036193Z",
+      "resolution_date": "2050-01-01",
+      "resolved": false,
+      "voi": 0.15000000000000002,
+      "rho": 0.3,
+      "rho_reasoning": "There is no clear causal relationship between the share of global energy from renewable sources and the Federal Reserve setting a negative target policy rate by 2050. They are measuring different underlying phenomena. While they are not mutually exclusive, they are also not directly related. Therefore, they are likely somewhat independent, but could have a moderate positive correlation as both may be influenced by broader economic and energy policy trends."
+    },
+    {
+      "id": "6456",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will the EU phase out high-concentration CO2 stunning or killing of pigs by 2024?",
+      "url": "https://www.metaculus.com/questions/6456/ban-on-gassing-eu-pigs-by-2024/",
+      "question_type": "binary",
+      "created_at": "2026-01-15T20:59:25.036197Z",
+      "resolution_date": "2024-11-01",
+      "resolved": false,
+      "voi": 0.09999999999999998,
+      "rho": 0.2,
+      "rho_reasoning": "There is no clear causal relationship between the two questions, as the share of global energy from renewable sources in 2050 and the EU's phase-out of high-concentration CO2 stunning or killing of pigs by 2024 are measuring different underlying phenomena. Additionally, the two questions are not mutually exclusive, as the EU's policy decision on pig stunning does not directly impact the global energy mix in 2050. While they may be somewhat related in the broader context of climate change and sustainability, the two questions are not highly correlated, and can be considered largely independent."
+    },
+    {
+      "id": "8556",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will over half of the US Senate be women in 2050?",
+      "url": "https://www.metaculus.com/questions/8556",
+      "question_type": "binary",
+      "created_at": "2026-01-15T20:59:25.036200Z",
+      "resolution_date": "2049-12-31",
+      "resolved": false,
+      "voi": 0.09999999999999998,
+      "rho": 0.2,
+      "rho_reasoning": "There is no clear causal relationship between the share of global energy from renewable sources and the gender composition of the US Senate. They are measuring different underlying phenomena. They are not mutually exclusive, as higher renewable energy use and more women in the US Senate could both occur. While they are not completely independent, as broader social and political trends could influence both, the connection is not strong enough to suggest a high correlation."
+    },
+    {
+      "id": "13467",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will at least ten countries have committed to any diplomatic agreement restricting solar geoengineering, before 2026?",
+      "url": "https://www.metaculus.com/questions/13467",
+      "question_type": "binary",
+      "created_at": "2026-01-15T20:59:25.036205Z",
+      "resolution_date": "2026-01-01",
+      "resolved": false,
+      "voi": 0.050000000000000044,
+      "rho": 0.1,
+      "rho_reasoning": "Based on the information provided, there does not appear to be a strong causal relationship between the two questions. They are measuring different underlying phenomena - the share of global energy from renewable sources and the diplomatic agreements on solar geoengineering. While they may be somewhat related, as increased renewable energy usage could potentially impact the need for solar geoengineering, they are not directly measuring the same phenomenon. Additionally, the two questions do not appear to be mutually exclusive or truly independent. Therefore, the correlation coefficient is estimated to be weakly positive at 0.1."
+    },
+    {
+      "id": "0x07c96dbd0f70e5a27a0e15c22042abcc57bc6acc7f740f7935e0a08cde5e5138",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will the U.S. collect between $500b and $1t in revenue in 2025?",
+      "url": "https://polymarket.com/market/will-the-us-collect-between-500b-and-1t-in-revenue-in-2025",
+      "question_type": "binary",
+      "created_at": "2026-01-15T20:59:25.036209Z",
+      "resolution_date": "2026-02-28",
+      "resolved": false,
+      "voi": 0.050000000000000044,
+      "rho": 0.1,
+      "rho_reasoning": "There is no clear causal relationship between the share of global energy from renewable sources in 2050 and whether the US collects between $500b and $1t in revenue in 2025. They are measuring different underlying phenomena and are likely independent. While an increase in renewable energy may indirectly impact government revenue, the connection is not strong enough to suggest a high correlation coefficient."
+    },
+    {
+      "id": "Atx27moCcGMulhPvH0MU",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "Will Y2K38 cause a significant impact in the United States?",
+      "url": "https://manifold.markets/IsaacKing/will-y2k38-cause-a-significant-impa",
+      "question_type": "binary",
+      "created_at": "2026-01-15T20:59:25.036211Z",
+      "resolution_date": "2038-02-01",
+      "resolved": false,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "There is no clear causal relationship between the share of global energy coming from renewable sources in 2050 and the impact of Y2K38 in the United States. These two questions are measuring completely different and unrelated phenomena, and they are not mutually exclusive. They can be considered independent of each other."
+    },
+    {
+      "id": "zg7xJ5ZkJJ4wJPJDPjWO",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "By 2028, will there be a visible break in trend line on US GDP, GDP per capita, unemployment, or productivity, which most economists attribute directly to the effects of AI?",
+      "url": "https://manifold.markets/ScottAlexander/by-2028-will-there-be-a-visible-bre",
+      "question_type": "binary",
+      "created_at": "2026-01-15T20:59:25.036214Z",
+      "resolution_date": "2028-01-02",
+      "resolved": false,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "There is no obvious causal relationship between the share of global energy from renewable sources in 2050 and whether there will be a visible break in trend line on US economic indicators by 2028 due to AI. The two questions are measuring different underlying phenomena and are likely independent events. Without a clear connection between the two, the correlation coefficient would be close to 0, indicating no relationship."
+    },
+    {
+      "id": "1661",
+      "source": "infer",
+      "source_type": "market",
+      "text": "Will Western Asia and North African intra-regional exports equal or exceed 24% of total exports in 2025 or 2026, according to UNCTAD data?",
+      "url": "https://www.randforecastinginitiative.org/questions/1661",
+      "question_type": "binary",
+      "created_at": "2026-01-15T20:59:25.036217Z",
+      "resolution_date": "2027-01-01",
+      "resolved": false,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "Based on the information provided, there does not appear to be any causal relationship between the two forecast questions. They are measuring different underlying phenomena (global renewable energy share and intra-regional exports in a specific region) and are not mutually exclusive. Additionally, the questions do not seem to be related, so they can be considered independent. Therefore, the estimated correlation coefficient (\u03c1) is 0, indicating no correlation between the two forecast questions."
+    },
+    {
+      "id": "3842",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will a reliable poll of physicists reveal that a majority of those polled accept the many-worlds interpretation by 2050?",
+      "url": "https://www.metaculus.com/questions/3842",
+      "question_type": "binary",
+      "created_at": "2026-01-15T20:59:25.036220Z",
+      "resolution_date": "2045-01-01",
+      "resolved": false,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "There is no clear causal relationship between the share of global energy from renewable sources in 2050 and whether a majority of physicists accept the many-worlds interpretation by 2050. These are measuring different and unrelated phenomena, and they are not mutually exclusive. Therefore, they can be considered independent, and the correlation coefficient (\u03c1) would be 0."
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Climate Crisis Stagnation",
+      "description": "Multiple global crises converge to derail renewable energy transition. Nuclear conflict disrupts global supply chains, climate disasters overwhelm adaptation efforts, and economic collapse prioritizes immediate survival over long-term investments. Despite technological progress in EVs and bio-chemicals, renewable deployment stalls as societies focus on crisis management.",
+      "outcome_range": "25-40%",
+      "outcome_low": 25.0,
+      "outcome_high": 40.0,
+      "key_drivers": [
+        "Nuclear conflict disrupting global cooperation and supply chains",
+        "Severe climate disasters overwhelming societal capacity",
+        "Economic collapse requiring negative interest rates",
+        "Political instability preventing coordinated climate action"
+      ],
+      "why_exclusive": "This scenario requires multiple converging crises that would prevent the stable conditions and massive investments needed for the other scenarios to occur.",
+      "mapped_signals": [
+        "Will a nuclear weapon be detonated as an act of war by 2050?",
+        "Ragnar\u00f6k Question Series: if a global climate disaster occurs by 2100, will the Earth's human population decline by 95% or more?",
+        "Will the Federal Reserve set a target policy rate that is negative by 2050?"
+      ],
+      "indicator_bundle": {
+        "Global renewable capacity additions": "Below 200 GW annually by 2030",
+        "Energy transition investment": "Less than $2 trillion annually",
+        "Grid stability incidents": "More than 50 major blackouts per year globally",
+        "Climate finance availability": "Less than $500 billion annually"
+      }
+    },
+    {
+      "name": "Moderate Green Progress",
+      "description": "Steady but unspectacular progress toward renewable energy goals. Electric vehicles achieve majority market share, bio-chemicals reach cost parity, but climate warming continues at concerning rates. Economic stability prevents crisis-level interventions while enabling gradual transition without dramatic acceleration.",
+      "outcome_range": "40-60%",
+      "outcome_low": 40.0,
+      "outcome_high": 60.0,
+      "key_drivers": [
+        "EV adoption reaching majority status by 2030",
+        "Bio-chemical cost parity enabling industrial transition",
+        "Moderate climate warming without catastrophic tipping points",
+        "Stable economic conditions supporting steady investment"
+      ],
+      "why_exclusive": "This scenario assumes stable conditions without the crisis acceleration needed for rapid transition or the multiple disasters that would cause stagnation.",
+      "mapped_signals": [
+        "Will the majority of new cars sold worldwide be electric before the end of 2030?",
+        "Will chemicals produced from biomass achieve price parity with these three petrochemical equivalents before 2050?",
+        "Will global temperature increase by less than 1.10\u00b0C in October 2025?"
+      ],
+      "indicator_bundle": {
+        "Annual renewable capacity additions": "200-400 GW globally",
+        "Energy storage deployment": "100-300 GWh annually",
+        "Fossil fuel phase-out rate": "3-5% per year",
+        "Clean energy investment": "$2-4 trillion annually"
+      }
+    },
+    {
+      "name": "Climate Emergency Acceleration",
+      "description": "Rapid warming and early climate disasters trigger emergency mobilization comparable to wartime economies. Massive public investment, technology deployment at unprecedented scale, and coordinated global action drive accelerated renewable adoption. Economic disruption is managed through extraordinary monetary policy while society rallies around climate action.",
+      "outcome_range": "60-80%",
+      "outcome_low": 60.0,
+      "outcome_high": 80.0,
+      "key_drivers": [
+        "Early severe climate impacts spurring emergency action",
+        "Coordinated global mobilization and massive public investment",
+        "Accelerated technology deployment and grid transformation",
+        "Emergency economic measures supporting rapid transition"
+      ],
+      "why_exclusive": "This scenario requires climate emergency conditions severe enough to trigger unprecedented action, but not so severe as to cause societal collapse like the crisis scenario.",
+      "mapped_signals": [
+        "Will global temperature increase by less than 1.10\u00b0C in October 2025?",
+        "Will the Federal Reserve set a target policy rate that is negative by 2050?",
+        "Will chemicals produced from biomass achieve price parity with these three petrochemical equivalents before 2050?"
+      ],
+      "indicator_bundle": {
+        "Annual renewable capacity additions": "Over 500 GW globally",
+        "Energy transition investment": "Over $5 trillion annually",
+        "Fossil fuel phase-out rate": "Over 8% per year",
+        "Grid modernization pace": "Smart grid coverage over 80% by 2040"
+      }
+    },
+    {
+      "name": "Technology Breakthrough Transformation",
+      "description": "Revolutionary advances in energy storage, grid technology, and renewable efficiency create a technology-driven transformation even without severe climate pressure. Breakthrough battery technologies, fusion progress, or other innovations make renewables overwhelmingly cost-competitive, driving rapid adoption across all sectors despite relatively stable climate conditions.",
+      "outcome_range": "75-90%",
+      "outcome_low": 75.0,
+      "outcome_high": 90.0,
+      "key_drivers": [
+        "Breakthrough battery/storage technologies achieving grid-scale viability",
+        "Revolutionary improvements in solar/wind efficiency and cost",
+        "Advanced grid technologies enabling high renewable penetration",
+        "Market-driven adoption outpacing policy requirements"
+      ],
+      "why_exclusive": "This scenario is driven primarily by technological breakthroughs making renewables dominant for economic rather than crisis reasons, incompatible with both crisis stagnation and emergency mobilization scenarios.",
+      "mapped_signals": [
+        "Will the majority of new cars sold worldwide be electric before the end of 2030?",
+        "Will chemicals produced from biomass achieve price parity with these three petrochemical equivalents before 2050?"
+      ],
+      "indicator_bundle": {
+        "Battery cost reduction": "Below $50/kWh by 2035",
+        "Renewable LCOE advantage": "Over 70% cheaper than fossil fuels",
+        "Grid storage capacity": "Over 500 GWh globally by 2040",
+        "Private clean energy investment": "Over 80% of total energy investment"
+      }
+    }
+  ],
+  "mece_reasoning": "These scenarios are MECE because they partition the outcome space along two key dimensions: (1) the nature of driving forces (crisis-driven vs technology-driven vs emergency mobilization vs steady progress) and (2) non-overlapping outcome ranges for renewable energy share. Each scenario represents a fundamentally different world state:\n\n- Crisis Stagnation (25-40%): Multiple converging disasters prevent transition\n- Moderate Progress (40-60%): Steady advancement under stable conditions  \n- Emergency Acceleration (60-80%): Climate crisis triggers mobilization\n- Technology Breakthrough (75-90%): Innovation makes renewables dominant\n\nThe scenarios are mutually exclusive because they represent different causal pathways and societal responses that cannot simultaneously occur. The outcome ranges are designed to be adjacent but non-overlapping, with some intentional overlap between Emergency Acceleration and Technology Breakthrough (60-80% vs 75-90%) to reflect that both could theoretically achieve similar high outcomes through different mechanisms, but the small overlap represents uncertainty in distinguishing between crisis-driven vs technology-driven paths in that range.",
+  "coverage_gaps": [
+    "Outcomes above 90% renewable share (complete transformation scenarios)",
+    "Specific consideration of nuclear renaissance as alternative to renewables"
+  ],
+  "created_at": "2026-01-15T12:59:25.036365"
+}

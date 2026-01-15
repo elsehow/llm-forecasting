@@ -25,10 +25,12 @@ import asyncio
 import sqlite3
 import sys
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, date
 from uuid import uuid4
 
 from dotenv import load_dotenv
+
+from llm_forecasting.models import Signal
 
 # Import shared utilities
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -250,21 +252,28 @@ async def main():
         cat = s.get("signal_category", "unknown")
         category_counts[cat] = category_counts.get(cat, 0) + 1
 
-    # Build v7 signal format (includes id, url, base_rate)
+    # Build Signal instances
+    def parse_date(d: str | None) -> date | None:
+        if d is None:
+            return None
+        try:
+            return date.fromisoformat(str(d)[:10])
+        except ValueError:
+            return None
+
     signals_v7 = [
-        {
-            "id": s["id"],
-            "source": s["source"],
-            "text": s["question"],
-            "url": s.get("url"),
-            "resolution_date": s.get("resolution_date"),
-            "base_rate": s.get("base_rate"),
-            "voi": s.get("voi"),
-            "rho": s.get("rho"),
-            "rho_reasoning": s.get("rho_reasoning"),
-            "uncertainty_source": s.get("uncertainty_source"),
-            "signal_category": s.get("signal_category"),
-        }
+        Signal(
+            id=s["id"],
+            source=s["source"],
+            text=s["question"],
+            url=s.get("url"),
+            resolution_date=parse_date(s.get("resolution_date")),
+            base_rate=s.get("base_rate"),
+            voi=s.get("voi", 0.0),
+            rho=s.get("rho", 0.0),
+            rho_reasoning=s.get("rho_reasoning"),
+            uncertainty_source=s.get("uncertainty_source"),
+        )
         for s in deduped_signals[:50]
     ]
 
@@ -320,7 +329,7 @@ async def main():
         "source_breakdown": source_counts,
         "category_breakdown": category_counts,
         "uncertainty_breakdown": by_uncertainty,
-        "signals": signals_v7,
+        "signals": [s.model_dump(mode="json", exclude_none=True) for s in signals_v7],
         "scenarios": scenarios_v7,
         "mece_reasoning": result.mece_reasoning,
         "coverage_gaps": result.coverage_gaps,

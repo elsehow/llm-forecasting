@@ -1,0 +1,460 @@
+{
+  "id": "hybrid_renewable_2050_6b1f5256",
+  "name": "renewable_2050 (hybrid)",
+  "target": "renewable_2050",
+  "approach": "hybrid_v7",
+  "question": {
+    "id": "renewable_2050",
+    "source": "scenario_construction",
+    "text": "What share of global energy will come from renewable sources in 2050?",
+    "question_type": "continuous",
+    "unit": "percent",
+    "base_rate": 15.0,
+    "value_range": [
+      10.0,
+      90.0
+    ]
+  },
+  "config": {
+    "context": "Current renewable share: ~15% (2024). Paris targets: 60-70% by 2050. Key uncertainties: policy ambition, battery/storage costs, grid infrastructure, fossil fuel phase-out pace, nuclear expansion.",
+    "cruxiness_normalizer": 30.0,
+    "voi_floor": 0.1
+  },
+  "knowledge_cutoff": "2025-10-01",
+  "current_date": "2026-01-15",
+  "sources_used": [
+    "polymarket",
+    "metaculus",
+    "fred",
+    "infer",
+    "manifold"
+  ],
+  "uncertainties": [
+    {
+      "name": "Battery Cost Trajectory",
+      "description": "Whether battery storage costs continue rapid decline (enabling grid-scale renewables) or plateau due to material constraints or technological limits. This directly determines renewable energy's economic viability and grid integration feasibility.",
+      "search_query": "battery storage cost predictions lithium ion energy storage price forecasts"
+    },
+    {
+      "name": "Climate Policy Stringency",
+      "description": "The aggressiveness of government policies driving renewable adoption, including carbon pricing, fossil fuel phase-out mandates, and renewable energy subsidies. Policy strength varies dramatically across regions and political cycles.",
+      "search_query": "carbon tax policies renewable energy mandates fossil fuel phase out regulations"
+    },
+    {
+      "name": "Grid Infrastructure Investment",
+      "description": "Whether countries invest sufficiently in smart grid technology, transmission lines, and grid flexibility to handle intermittent renewable sources. Infrastructure bottlenecks could limit renewable deployment even with favorable economics.",
+      "search_query": "electricity grid modernization transmission infrastructure investment smart grid deployment"
+    }
+  ],
+  "signals_per_uncertainty": {
+    "Battery Cost Trajectory": 17,
+    "Climate Policy Stringency": 30,
+    "Grid Infrastructure Investment": 30
+  },
+  "signals_after_dedup": 20,
+  "signals_above_floor": 10,
+  "source_breakdown": {
+    "infer": 2,
+    "metaculus": 12,
+    "manifold": 3,
+    "polymarket": 3
+  },
+  "category_breakdown": {
+    "near_term": 8,
+    "future": 12
+  },
+  "uncertainty_breakdown": {
+    "Battery Cost Trajectory": 7,
+    "Climate Policy Stringency": 6,
+    "Grid Infrastructure Investment": 7
+  },
+  "signals": [
+    {
+      "id": "1581",
+      "source": "infer",
+      "source_type": "market",
+      "text": "Will the share of battery-electric vehicles among new registered cars in the EU exceed 20% by the second quarter of 2025?",
+      "url": "https://www.randforecastinginitiative.org/questions/1581",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:33.522336Z",
+      "resolution_date": "2025-07-01",
+      "resolved": false,
+      "voi": 0.35,
+      "rho": 0.7,
+      "rho_reasoning": "There is a clear causal relationship between battery cost trajectory and the adoption of battery-electric vehicles. As battery costs decline, BEV adoption is likely to increase, making them more economically viable. They are not measuring the same underlying phenomenon, but are closely related. They are not mutually exclusive, as BEV adoption can increase even if battery costs plateau. While they are related, they are not completely dependent, as other factors like policy, consumer preferences, and technological development also influence BEV adoption. Therefore, the correlation coefficient is estimated to be around 0.7, indicating a strong positive correlation.",
+      "uncertainty_source": "Battery Cost Trajectory"
+    },
+    {
+      "id": "14441",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will at least three lithium mines operate in the US before 2030?",
+      "url": "https://www.metaculus.com/questions/14441",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:33.522348Z",
+      "resolution_date": "2029-12-31",
+      "resolved": false,
+      "voi": 0.25,
+      "rho": 0.5,
+      "rho_reasoning": "There is a causal relationship between the two questions, as the growth of lithium mining operations in the US could signal continued rapid decline in battery storage costs, which would enable greater grid-scale renewable energy deployment. However, the questions are not measuring the exact same underlying phenomenon, and they are not mutually exclusive. While they are related, they are not perfectly correlated, so the correlation coefficient estimate is 0.5, indicating a moderately positive correlation.",
+      "uncertainty_source": "Battery Cost Trajectory"
+    },
+    {
+      "id": "1578",
+      "source": "infer",
+      "source_type": "market",
+      "text": "Will the U.S. national average gas price be equal to or above $3.600 for July 2025?",
+      "url": "https://www.randforecastinginitiative.org/questions/1578",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:33.522353Z",
+      "resolution_date": "2025-08-01",
+      "resolved": false,
+      "voi": 0.25,
+      "rho": -0.5,
+      "rho_reasoning": "There is no clear causal relationship between battery cost trajectory and U.S. national average gas price in July 2025. They are measuring different underlying phenomena - the first is about renewable energy economics, while the second is about short-term fuel prices. They are not mutually exclusive - battery costs and gas prices can both change independently. However, they are not completely independent, as the transition to renewable energy could indirectly impact fossil fuel prices over time. Given the lack of a clear causal link and the different underlying phenomena, the correlation is estimated to be moderately negative at -0.5.",
+      "uncertainty_source": "Battery Cost Trajectory"
+    },
+    {
+      "id": "4jXeV1fX6R9JJEgcSMER",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "Will prediction markets become mainstream by 2028?",
+      "url": "https://manifold.markets/Shump/will-prediction-markets-become-main",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:33.522355Z",
+      "resolution_date": "2029-01-01",
+      "resolved": false,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "Based on the information provided, there is no clear causal relationship between the two forecasting questions, and they are not measuring the same underlying phenomenon. The battery cost trajectory question is about the economic viability of renewable energy, while the prediction markets question is about the adoption of a specific technology. These two questions appear to be independent and not mutually exclusive, so the correlation coefficient between them is likely to be close to 0, indicating no significant correlation.",
+      "uncertainty_source": "Battery Cost Trajectory"
+    },
+    {
+      "id": "0x8eff77c559ceb1141d32741d418b923b613b84d5a6e701d22466bb374b20156a",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Hyperliquid daily fees above $8M in 2025?",
+      "url": "https://polymarket.com/market/hyperliquid-daily-fees-above-8m-in-2025",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:33.522358Z",
+      "resolution_date": "2025-12-31",
+      "resolved": false,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "Based on the information provided, there does not appear to be a causal relationship between the two forecasting questions, and they are measuring different underlying phenomena. The battery cost trajectory and the daily fees of a hypothetical 'hyperliquid' system are likely independent events, and there is no clear reason to believe they are mutually exclusive or strongly correlated. Therefore, the correlation coefficient (\u03c1) between these two forecasting questions is estimated to be 0, indicating they are independent.",
+      "uncertainty_source": "Battery Cost Trajectory"
+    },
+    {
+      "id": "15610",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will data centres consume more than 10% of global electricity usage for the year 2030?",
+      "url": "https://www.metaculus.com/questions/15610",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:33.522360Z",
+      "resolution_date": "2030-12-31",
+      "resolved": false,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "There is no apparent causal relationship between the two questions, and they are measuring different underlying phenomena. The two questions are also likely independent, as the growth in data center electricity consumption is not directly linked to the cost trajectory of battery storage. Therefore, the correlation coefficient (\u03c1) between these two forecasting questions is estimated to be 0, indicating they are independent.",
+      "uncertainty_source": "Battery Cost Trajectory"
+    },
+    {
+      "id": "0x8e8a20aa06f5913e9efda697f16b9525b70ce1f720851e8f1a13bd46072a6126",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will iPhone 17 cost $1,500 or more? ",
+      "url": "https://polymarket.com/market/will-iphone-17-cost-1500-or-more",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:33.522363Z",
+      "resolution_date": "2026-02-28",
+      "resolved": false,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "There is no causal relationship between the cost of iPhone 17 and the trajectory of battery storage costs. The two questions are measuring completely different underlying phenomena that are independent of each other. They are not mutually exclusive, and there is no reason to believe they are related in any way. Therefore, the correlation coefficient between these two forecasting questions is 0, indicating they are independent.",
+      "uncertainty_source": "Battery Cost Trajectory"
+    },
+    {
+      "id": "13796",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will >1% of global primary aluminum be produced by carbon-free technology before 2030?",
+      "url": "https://www.metaculus.com/questions/13796/1-of-aluminum-made-carbon-free-by-2030/",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:33.522365Z",
+      "resolution_date": "2029-12-31",
+      "resolved": false,
+      "voi": 0.35,
+      "rho": 0.7,
+      "rho_reasoning": "There appears to be a positive causal relationship between climate policy stringency and the adoption of carbon-free aluminum production technology. Stricter climate policies, such as carbon pricing and renewable energy subsidies, would likely drive greater investment and adoption of low-carbon technologies like carbon-free aluminum production. However, the relationship is not perfectly correlated as other factors beyond just climate policy, such as technology costs and market dynamics, also influence the adoption of carbon-free aluminum production. Therefore, a correlation coefficient of around 0.7 seems reasonable to capture the strong but not perfect positive relationship between these two questions.",
+      "uncertainty_source": "Climate Policy Stringency"
+    },
+    {
+      "id": "36488",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "In 2025, will the domestic content requirements become mandatory for obtaining the IRA's Investment Tax Credits (48\u0395)?",
+      "url": "https://www.metaculus.com/questions/36488",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:33.522368Z",
+      "resolution_date": "2025-12-31",
+      "resolved": false,
+      "voi": 0.35,
+      "rho": 0.7,
+      "rho_reasoning": "There is a causal relationship between climate policy stringency and domestic content requirements for IRA tax credits. More stringent climate policies (Question A) are likely to drive the adoption of domestic content requirements (Question B) as a way to promote local manufacturing and clean energy supply chains. While they are not measuring the same underlying phenomenon, they are related and interdependent. They are not mutually exclusive, and their outcomes are not truly independent, as climate policies can directly influence the implementation of domestic content rules.",
+      "uncertainty_source": "Climate Policy Stringency"
+    },
+    {
+      "id": "15493",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will a law that allows states other than California to set their own stringent vehicle emissions standards be enacted in the United States before January 1, 2027?",
+      "url": "https://www.metaculus.com/questions/15493",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:33.522371Z",
+      "resolution_date": "2027-01-01",
+      "resolved": false,
+      "voi": 0.30000000000000004,
+      "rho": 0.6,
+      "rho_reasoning": "There is a causal relationship between climate policy stringency and the enactment of a law allowing states other than California to set their own stringent vehicle emissions standards. They are both measuring the underlying phenomenon of government action on climate change and environmental regulations. While they are not mutually exclusive, they are not fully independent as they are related aspects of the same broader issue. Therefore, the correlation coefficient is likely positive and moderately strong, around 0.6.",
+      "uncertainty_source": "Climate Policy Stringency"
+    },
+    {
+      "id": "15072",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will the Council of the European Union adopt the proposed expansion to climate-focused export credits before 2025?",
+      "url": "https://www.metaculus.com/questions/15072/eu-climate-export-credit-expansion-by-2025/",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:33.522373Z",
+      "resolution_date": "2024-12-16",
+      "resolved": false,
+      "voi": 0.30000000000000004,
+      "rho": 0.6,
+      "rho_reasoning": "There is a causal relationship between the climate policy stringency and the adoption of the proposed expansion to climate-focused export credits, as more stringent climate policies would likely drive the adoption of such measures. They are measuring related aspects of the same underlying phenomenon of climate action and policy. While they are not mutually exclusive, they are not measuring the exact same thing, so the correlation is not perfect. Given the causal relationship, they are also not completely independent.",
+      "uncertainty_source": "Climate Policy Stringency"
+    },
+    {
+      "id": "11411",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will more than 33% of the earth's land area be covered by forest in 2050?",
+      "url": "https://www.metaculus.com/questions/11411",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:33.522375Z",
+      "resolution_date": "2049-12-31",
+      "resolved": false,
+      "voi": 0.30000000000000004,
+      "rho": 0.6,
+      "rho_reasoning": "There is a causal relationship between climate policy stringency and forest cover, as more aggressive climate policies would drive greater renewable energy adoption and likely lead to increased forest cover. They are not measuring the same underlying phenomenon, but are related. They are not mutually exclusive, as high climate policy stringency could result in more than 33% of land area being covered by forest. While the two questions are related, they are not completely independent, so the correlation coefficient is not 1.",
+      "uncertainty_source": "Climate Policy Stringency"
+    },
+    {
+      "id": "8968",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will the Federal Reserve set a target policy rate that is negative by 2050?",
+      "url": "https://www.metaculus.com/questions/8968",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:33.522378Z",
+      "resolution_date": "2050-01-01",
+      "resolved": false,
+      "voi": 0.19999999999999996,
+      "rho": 0.4,
+      "rho_reasoning": "There is a potential causal relationship between climate policy stringency and the Federal Reserve's target policy rate, as more aggressive climate policies could lead to changes in macroeconomic conditions that influence monetary policy. However, they are not measuring the same underlying phenomenon, and they are not mutually exclusive. While there may be some correlation, they are not completely independent, so the correlation coefficient is estimated to be moderately positive at around 0.4.",
+      "uncertainty_source": "Climate Policy Stringency"
+    },
+    {
+      "id": "39136",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will a cyberattack targeting AI systems cause a significant power blackout in the United States before 2028?",
+      "url": "https://www.metaculus.com/questions/39136",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:33.522380Z",
+      "resolution_date": "2028-01-01",
+      "resolved": false,
+      "voi": 0.30000000000000004,
+      "rho": 0.6,
+      "rho_reasoning": "There is a causal relationship between the two questions, as the reliability and resilience of the grid infrastructure (Question A) would impact the likelihood of a successful cyberattack causing a significant power blackout (Question B). They are not measuring the same underlying phenomenon, but are related. They are not mutually exclusive, as a lack of grid investment could increase the risk of a blackout, but a cyberattack could still occur even with sufficient grid investment. They are not truly independent, as the grid infrastructure would be a key factor in the vulnerability to a cyberattack.",
+      "uncertainty_source": "Grid Infrastructure Investment"
+    },
+    {
+      "id": "0x7cd79521e16e9f6f1e82311edb96e0a2f4b2dbc92fd7264a7add59f54b054109",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will Tesla launch a driverless Robotaxi service in 2025?",
+      "url": "https://polymarket.com/market/will-tesla-launch-a-driverless-robtotaxi-service-in-2025",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:33.522382Z",
+      "resolution_date": "2025-12-31",
+      "resolved": false,
+      "voi": 0.050000000000000044,
+      "rho": 0.1,
+      "rho_reasoning": "There is no clear causal relationship between the two questions. While grid infrastructure investments could impact the feasibility of autonomous vehicle services, the launch of a Tesla Robotaxi service is not directly measuring the same underlying phenomenon as grid infrastructure investments. The two questions are also not mutually exclusive, as the launch of a Robotaxi service could happen regardless of the state of grid infrastructure. Therefore, the questions appear to be largely independent, and the correlation coefficient is likely to be close to 0.",
+      "uncertainty_source": "Grid Infrastructure Investment"
+    },
+    {
+      "id": "15375",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will faster-than-light communication be possible before 2300?",
+      "url": "https://www.metaculus.com/questions/15375",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:33.522385Z",
+      "resolution_date": "2300-01-01",
+      "resolved": false,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "There is no causal relationship between grid infrastructure investment and the possibility of faster-than-light communication. These two questions are measuring completely different and independent phenomena. They are not mutually exclusive, and there is no reason to believe they are related in any way. Therefore, the correlation coefficient between these two questions is 0, indicating they are independent.",
+      "uncertainty_source": "Grid Infrastructure Investment"
+    },
+    {
+      "id": "tR3mF1fVM2kOInQOMCRI",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "Will New Orleans get a Major League Baseball team before 2030?",
+      "url": "https://manifold.markets/jks/will-new-orleans-get-a-major-league",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:33.522387Z",
+      "resolution_date": "2030-01-01",
+      "resolved": false,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "There is no causal relationship between whether countries invest in grid infrastructure and whether New Orleans gets a Major League Baseball team. They are measuring completely different, unrelated phenomena. They are also not mutually exclusive - one event happening does not preclude the other from happening. Since the two questions are independent and unrelated, the correlation coefficient (\u03c1) would be 0, indicating no correlation between the two.",
+      "uncertainty_source": "Grid Infrastructure Investment"
+    },
+    {
+      "id": "85llAdStSR",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "S&P 500 breaker before April 30?",
+      "url": "https://manifold.markets/NathanDickson/sp-500-breaker-before-april-30",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:33.522389Z",
+      "resolution_date": "2025-04-30",
+      "resolved": false,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "There is no clear causal relationship between the two questions. They are measuring different underlying phenomena - grid infrastructure investment and S&P 500 performance. The two questions are also not mutually exclusive and can be considered independent events.",
+      "uncertainty_source": "Grid Infrastructure Investment"
+    },
+    {
+      "id": "26266",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Five years after AGI, will a Dyson swarm be under construction?",
+      "url": "https://www.metaculus.com/questions/26266",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:33.522392Z",
+      "resolution_date": "2036-01-01",
+      "resolved": false,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "There is no causal relationship between grid infrastructure investment and the construction of a Dyson swarm 5 years after AGI. These are measuring completely different phenomena that are likely independent. They are not mutually exclusive and could potentially occur independently of each other.",
+      "uncertainty_source": "Grid Infrastructure Investment"
+    },
+    {
+      "id": "10436",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will a massive solar storm occur before 2050?",
+      "url": "https://www.metaculus.com/questions/10436",
+      "question_type": "binary",
+      "created_at": "2026-01-15T21:01:33.522394Z",
+      "resolution_date": "2049-12-31",
+      "resolved": false,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "There is no clear causal relationship between the occurrence of a massive solar storm and investment in grid infrastructure. These two questions are measuring different underlying phenomena and are not mutually exclusive. They appear to be independent events, so the correlation coefficient is likely to be close to 0.",
+      "uncertainty_source": "Grid Infrastructure Investment"
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Green Acceleration",
+      "description": "Aggressive policy support drives rapid renewable deployment through EV mandates, industrial decarbonization incentives, and strong climate finance. High fossil fuel prices accelerate the transition while avoiding major grid disruptions. The renewable transition becomes economically self-reinforcing.",
+      "outcome_range": "65-80%",
+      "outcome_low": 65.0,
+      "outcome_high": 80.0,
+      "key_drivers": [
+        "Strong policy enforcement (IRA domestic content, state emission standards)",
+        "High fossil fuel prices maintaining renewable cost advantage",
+        "Successful industrial decarbonization (aluminum, heavy industry)",
+        "Robust EV adoption driving grid flexibility",
+        "Grid resilience maintained despite growth"
+      ],
+      "why_exclusive": "Cannot coexist with scenarios featuring weak policy support, low fossil fuel prices, or major grid disruption events that derail renewable deployment.",
+      "mapped_signals": [
+        "Will the share of battery-electric vehicles among new registered cars in the EU exceed 20% by the second quarter of 2025?",
+        "Will the U.S. national average gas price be equal to or above $3.600 for July 2025?",
+        "Will >1% of global primary aluminum be produced by carbon-free technology before 2030?",
+        "In 2025, will the domestic content requirements become mandatory for obtaining the IRA's Investment Tax Credits (48\u0391)?",
+        "Will a law that allows states other than California to set their own stringent vehicle emissions standards be enacted in the United States before January 1, 2027?",
+        "Will the Council of the European Union adopt the proposed expansion to climate-focused export credits before 2025?"
+      ],
+      "indicator_bundle": {
+        "EV market share in major economies": ">30% by 2030",
+        "Industrial carbon-free production": ">5% of energy-intensive sectors by 2035",
+        "Policy stringency index": "Top quartile globally",
+        "Fossil fuel price volatility": "Oil >$80/barrel average 2025-2030",
+        "Grid stability incidents": "<2 major blackouts annually"
+      }
+    },
+    {
+      "name": "Steady Progress",
+      "description": "Moderate policy implementation with mixed EV adoption and gradual industrial transformation. Some renewable deployment occurs but at conventional pace, with fossil fuel prices providing mild incentives. Progress aligns roughly with current trajectories.",
+      "outcome_range": "45-65%",
+      "outcome_low": 45.0,
+      "outcome_high": 65.0,
+      "key_drivers": [
+        "Moderate policy implementation with some delays",
+        "Mixed EV adoption patterns across regions",
+        "Gradual industrial decarbonization",
+        "Stable but not elevated fossil fuel prices",
+        "Incremental grid modernization"
+      ],
+      "why_exclusive": "Represents middle-ground outcomes that cannot simultaneously occur with either aggressive acceleration or significant disruption/stagnation scenarios.",
+      "mapped_signals": [
+        "Will at least three lithium mines operate in the US before 2030?",
+        "Will more than 33% of the earth's land area be covered by forest in 2050?"
+      ],
+      "indicator_bundle": {
+        "EV market share in major economies": "15-25% by 2030",
+        "Industrial carbon-free production": "1-3% of energy-intensive sectors by 2035",
+        "Policy stringency index": "Middle quartile globally",
+        "Fossil fuel price volatility": "Oil $60-80/barrel average 2025-2030",
+        "Grid modernization rate": "3-5% annual capacity addition"
+      }
+    },
+    {
+      "name": "Disrupted Transition",
+      "description": "Major grid vulnerabilities and economic disruptions derail renewable deployment despite some policy efforts. Cyberattacks, financial instability, or infrastructure failures create setbacks that prioritize energy security over clean energy goals.",
+      "outcome_range": "25-45%",
+      "outcome_low": 25.0,
+      "outcome_high": 45.0,
+      "key_drivers": [
+        "Grid infrastructure vulnerabilities exposed",
+        "Economic instability disrupting investment",
+        "Security concerns prioritizing reliability over renewables",
+        "Supply chain disruptions for clean technology",
+        "Policy rollbacks due to energy security fears"
+      ],
+      "why_exclusive": "Cannot coexist with scenarios of smooth renewable deployment or strong policy enforcement, as major disruptions fundamentally alter priorities and capabilities.",
+      "mapped_signals": [
+        "Will a cyberattack targeting AI systems cause a significant power blackout in the United States before 2028?",
+        "Will the Federal Reserve set a target policy rate that is negative by 2050?"
+      ],
+      "indicator_bundle": {
+        "Grid security incidents": ">5 major blackouts annually by 2030",
+        "Clean energy investment volatility": ">30% year-over-year swings",
+        "Policy stability index": "Bottom quartile globally",
+        "Supply chain resilience": "<70% domestic/allied sourcing",
+        "Economic stress indicators": "Negative real rates indicating crisis"
+      }
+    }
+  ],
+  "mece_reasoning": "These three scenarios are MECE because they partition the renewable energy outcome space into non-overlapping ranges (65-80%, 45-65%, 25-45%) that together cover the full plausible spectrum from disrupted transition to green acceleration. They represent fundamentally different world states: one where aggressive policies and favorable conditions accelerate deployment, one where moderate progress continues along current trajectories, and one where major disruptions derail the transition. Each scenario is defined by mutually exclusive combinations of policy strength, economic conditions, and system stability - you cannot simultaneously have both aggressive policy acceleration AND major grid disruptions, or both smooth progress AND economic crisis requiring negative interest rates.",
+  "coverage_gaps": [],
+  "created_at": "2026-01-15T13:01:33.522534"
+}
