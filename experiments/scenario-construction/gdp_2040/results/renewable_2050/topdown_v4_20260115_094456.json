@@ -1,0 +1,206 @@
+{
+  "target": "renewable_2050",
+  "approach": "topdown_v4_expert_uncertainties",
+  "question": {
+    "id": "renewable_2050",
+    "text": "What share of global energy will come from renewable sources in 2050?",
+    "unit": "percent",
+    "base_rate": 15.0,
+    "value_range": [
+      10.0,
+      90.0
+    ]
+  },
+  "config": {
+    "context": "Current renewable share: ~15% (2024). Paris targets: 60-70% by 2050. Key uncertainties: policy ambition, battery/storage costs, grid infrastructure, fossil fuel phase-out pace, nuclear expansion.",
+    "cruxiness_normalizer": 30.0
+  },
+  "uncertainties": [
+    {
+      "name": "Green Technology Costs",
+      "description": "The speed of renewable energy cost declines and efficiency gains will determine whether the energy transition creates massive productivity improvements and new industries (boosting GDP growth) or remains an expensive burden that drags on economic performance through higher energy costs and stranded fossil fuel investments.",
+      "low_state": "Renewable costs plateau at current levels with limited efficiency gains, making the transition expensive and economically disruptive",
+      "high_state": "Renewable costs fall dramatically with breakthrough efficiency gains, creating massive productivity improvements and new industries",
+      "signals": [
+        "By December 2028, global weighted average cost of solar PV falls below $0.02/kWh, per IRENA Global Energy Transformation report",
+        "By June 2029, at least 5 countries achieve grid-scale battery storage costs below $50/kWh, per BloombergNEF Energy Storage Market Outlook",
+        "By December 2027, green hydrogen production costs fall below $2/kg in at least 3 major economies, per IEA Global Hydrogen Review",
+        "By December 2030, renewable energy accounts for >60% of global electricity generation, per IEA World Energy Outlook data",
+        "By June 2028, total global clean energy investment exceeds $3 trillion annually, per IEA World Energy Investment report"
+      ]
+    },
+    {
+      "name": "Climate Policy Coordination",
+      "description": "Whether major economies implement strong, coordinated climate policies will determine if the energy transition creates orderly investment flows and new global markets (supporting GDP growth) or results in fragmented policies, trade disputes, and economic disruption from policy uncertainty and stranded assets.",
+      "low_state": "Fragmented, weak climate policies create investment uncertainty, trade conflicts, and economic disruption",
+      "high_state": "Strong, coordinated global climate policies create clear investment signals and new international markets",
+      "signals": [
+        "By December 2027, US, EU, China, and India all implement carbon pricing mechanisms covering >80% of their emissions, per World Bank Carbon Pricing Dashboard",
+        "By June 2028, G20 countries collectively commit to >$500 billion annual climate finance flows to developing nations, per OECD climate finance tracking",
+        "By December 2029, global fossil fuel subsidies fall below $200 billion annually, per IMF and OECD subsidy databases",
+        "By December 2026, at least 50 countries implement border carbon adjustments on major industrial imports, per WTO trade monitoring reports",
+        "By June 2030, global green bond issuance exceeds $2 trillion annually, per Climate Bonds Initiative market data"
+      ]
+    }
+  ],
+  "signals": [
+    {
+      "text": "By December 2028, global weighted average cost of solar PV falls below $0.02/kWh, per IRENA Global Energy Transformation report",
+      "reasoning": "Resolves Green Technology Costs"
+    },
+    {
+      "text": "By June 2029, at least 5 countries achieve grid-scale battery storage costs below $50/kWh, per BloombergNEF Energy Storage Market Outlook",
+      "reasoning": "Resolves Green Technology Costs"
+    },
+    {
+      "text": "By December 2027, green hydrogen production costs fall below $2/kg in at least 3 major economies, per IEA Global Hydrogen Review",
+      "reasoning": "Resolves Green Technology Costs"
+    },
+    {
+      "text": "By December 2030, renewable energy accounts for >60% of global electricity generation, per IEA World Energy Outlook data",
+      "reasoning": "Resolves Green Technology Costs"
+    },
+    {
+      "text": "By June 2028, total global clean energy investment exceeds $3 trillion annually, per IEA World Energy Investment report",
+      "reasoning": "Resolves Green Technology Costs"
+    },
+    {
+      "text": "By December 2027, US, EU, China, and India all implement carbon pricing mechanisms covering >80% of their emissions, per World Bank Carbon Pricing Dashboard",
+      "reasoning": "Resolves Climate Policy Coordination"
+    },
+    {
+      "text": "By June 2028, G20 countries collectively commit to >$500 billion annual climate finance flows to developing nations, per OECD climate finance tracking",
+      "reasoning": "Resolves Climate Policy Coordination"
+    },
+    {
+      "text": "By December 2029, global fossil fuel subsidies fall below $200 billion annually, per IMF and OECD subsidy databases",
+      "reasoning": "Resolves Climate Policy Coordination"
+    },
+    {
+      "text": "By December 2026, at least 50 countries implement border carbon adjustments on major industrial imports, per WTO trade monitoring reports",
+      "reasoning": "Resolves Climate Policy Coordination"
+    },
+    {
+      "text": "By June 2030, global green bond issuance exceeds $2 trillion annually, per Climate Bonds Initiative market data",
+      "reasoning": "Resolves Climate Policy Coordination"
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Green Breakthrough Boom",
+      "description": "Dramatic renewable cost reductions combined with coordinated global climate policies create a virtuous cycle of investment and innovation. Energy becomes cheaper while economic productivity soars from new clean industries.",
+      "gdp_range": "80-85%",
+      "uncertainty_states": {
+        "Green Technology Costs": "Renewable costs fall dramatically with breakthrough efficiency gains, creating massive productivity improvements and new industries",
+        "Climate Policy Coordination": "Strong, coordinated global climate policies create clear investment signals and new international markets"
+      },
+      "key_drivers": [
+        "Breakthrough solar/battery cost reductions below grid parity",
+        "Coordinated carbon pricing creates massive clean investment flows",
+        "Green hydrogen enables industrial decarbonization",
+        "International climate finance accelerates developing nation transitions"
+      ],
+      "why_exclusive": "This scenario requires both technological breakthroughs AND policy coordination - without both, investment flows and adoption rates cannot reach the levels needed for 80%+ renewable share",
+      "signals": [
+        "By December 2028, global weighted average cost of solar PV falls below $0.02/kWh, per IRENA Global Energy Transformation report",
+        "By June 2029, at least 5 countries achieve grid-scale battery storage costs below $50/kWh, per BloombergNEF Energy Storage Market Outlook",
+        "By December 2027, green hydrogen production costs fall below $2/kg in at least 3 major economies, per IEA Global Hydrogen Review",
+        "By December 2027, US, EU, China, and India all implement carbon pricing mechanisms covering >80% of their emissions, per World Bank Carbon Pricing Dashboard",
+        "By June 2028, total global clean energy investment exceeds $3 trillion annually, per IEA World Energy Investment report"
+      ],
+      "indicator_bundle": {
+        "Renewable electricity share": ">85%",
+        "Clean energy investment": ">$4T annually",
+        "Carbon price coverage": ">90% global emissions",
+        "Green bond issuance": ">$2.5T annually",
+        "Energy cost reduction": "40-50% below 2020 levels"
+      }
+    },
+    {
+      "name": "Coordinated Transition",
+      "description": "Strong global climate policies drive steady renewable adoption despite modest technology cost improvements. International cooperation overcomes higher transition costs through coordinated investment and financing.",
+      "gdp_range": "65-75%",
+      "uncertainty_states": {
+        "Green Technology Costs": "Renewable costs plateau at current levels with limited efficiency gains, making the transition expensive and economically disruptive",
+        "Climate Policy Coordination": "Strong, coordinated global climate policies create clear investment signals and new international markets"
+      },
+      "key_drivers": [
+        "Carbon pricing and fossil fuel subsidy removal create renewable competitiveness",
+        "Massive international climate finance flows enable global transition",
+        "Border carbon adjustments prevent carbon leakage",
+        "Policy certainty drives investment despite higher costs"
+      ],
+      "why_exclusive": "This represents the policy-driven transition path where coordination compensates for limited technology breakthroughs - incompatible with scenarios assuming major cost reductions or policy fragmentation",
+      "signals": [
+        "By December 2027, US, EU, China, and India all implement carbon pricing mechanisms covering >80% of their emissions, per World Bank Carbon Pricing Dashboard",
+        "By June 2028, G20 countries collectively commit to >$500 billion annual climate finance flows to developing nations, per OECD climate finance tracking",
+        "By December 2029, global fossil fuel subsidies fall below $200 billion annually, per IMF and OECD subsidy databases",
+        "By December 2026, at least 50 countries implement border carbon adjustments on major industrial imports, per WTO trade monitoring reports",
+        "By June 2030, global green bond issuance exceeds $2 trillion annually, per Climate Bonds Initiative market data"
+      ],
+      "indicator_bundle": {
+        "Renewable electricity share": "65-75%",
+        "Carbon price coverage": ">85% global emissions",
+        "Climate finance flows": ">$600B annually",
+        "Fossil fuel subsidies": "<$150B annually",
+        "Border carbon adjustment coverage": ">60 countries"
+      }
+    },
+    {
+      "name": "Tech-Driven Disruption",
+      "description": "Breakthrough renewable cost reductions drive rapid adoption despite fragmented climate policies. Market forces and economic competitiveness overcome policy uncertainty as clean energy becomes definitively cheaper.",
+      "gdp_range": "60-70%",
+      "uncertainty_states": {
+        "Green Technology Costs": "Renewable costs fall dramatically with breakthrough efficiency gains, creating massive productivity improvements and new industries",
+        "Climate Policy Coordination": "Fragmented, weak climate policies create investment uncertainty, trade conflicts, and economic disruption"
+      },
+      "key_drivers": [
+        "Ultra-low renewable costs make fossil fuels economically unviable",
+        "Private sector investment flows despite policy fragmentation",
+        "Technological competitiveness overcomes subsidy disadvantages",
+        "Regional leaders drive adoption while others lag"
+      ],
+      "why_exclusive": "This scenario assumes technology breakthroughs can overcome policy fragmentation - cannot coexist with scenarios requiring coordinated policies or assuming limited technology progress",
+      "signals": [
+        "By December 2028, global weighted average cost of solar PV falls below $0.02/kWh, per IRENA Global Energy Transformation report",
+        "By June 2029, at least 5 countries achieve grid-scale battery storage costs below $50/kWh, per BloombergNEF Energy Storage Market Outlook",
+        "By December 2027, green hydrogen production costs fall below $2/kg in at least 3 major economies, per IEA Global Hydrogen Review",
+        "By December 2030, renewable energy accounts for >60% of global electricity generation, per IEA World Energy Outlook data"
+      ],
+      "indicator_bundle": {
+        "Renewable electricity share": "60-70%",
+        "Solar PV costs": "<$0.015/kWh",
+        "Battery storage costs": "<$40/kWh",
+        "Green hydrogen costs": "<$1.5/kg",
+        "Clean energy investment": "$2.5-3T annually"
+      }
+    },
+    {
+      "name": "Fragmented Struggle",
+      "description": "Limited technology progress combined with weak climate policies creates a slow, uneven renewable transition. High costs and policy uncertainty lead to regional disparities and economic disruption in the energy sector.",
+      "gdp_range": "35-50%",
+      "uncertainty_states": {
+        "Green Technology Costs": "Renewable costs plateau at current levels with limited efficiency gains, making the transition expensive and economically disruptive",
+        "Climate Policy Coordination": "Fragmented, weak climate policies create investment uncertainty, trade conflicts, and economic disruption"
+      },
+      "key_drivers": [
+        "High renewable costs limit adoption to wealthy regions",
+        "Policy uncertainty reduces long-term investment commitments",
+        "Continued fossil fuel subsidies distort energy markets",
+        "Trade conflicts over green technology and resources"
+      ],
+      "why_exclusive": "This represents the combination of worst-case outcomes for both uncertainties - cannot coexist with scenarios assuming either technological breakthroughs or policy coordination",
+      "signals": [],
+      "indicator_bundle": {
+        "Renewable electricity share": "35-50%",
+        "Clean energy investment": "<$2T annually",
+        "Fossil fuel subsidies": ">$400B annually",
+        "Carbon price coverage": "<50% global emissions",
+        "Regional renewable disparity": ">40 percentage points between leaders and laggards"
+      }
+    }
+  ],
+  "mece_reasoning": "These scenarios are MECE because they map the 2x2 matrix of uncertainty states to distinct renewable energy outcome ranges that cannot overlap. The 'Green Breakthrough Boom' (80-85%) requires both technological breakthroughs AND policy coordination. 'Coordinated Transition' (65-75%) shows policy can drive transition despite limited tech progress. 'Tech-Driven Disruption' (60-70%) demonstrates how breakthrough costs can overcome policy fragmentation. 'Fragmented Struggle' (35-50%) represents the combination of limited progress on both dimensions. The GDP ranges are mutually exclusive and collectively cover the plausible space from minimal progress to maximum feasible renewable adoption by 2050.",
+  "coverage_gaps": [],
+  "created_at": "2026-01-15T09:44:56.532015"
+}

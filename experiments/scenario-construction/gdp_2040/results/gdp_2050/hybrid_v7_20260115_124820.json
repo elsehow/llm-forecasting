@@ -1,0 +1,298 @@
+{
+  "id": "hybrid_gdp_2050_912b04b6",
+  "name": "gdp_2050 (hybrid)",
+  "target": "gdp_2050",
+  "approach": "hybrid_v7",
+  "question": {
+    "id": "gdp_2050",
+    "source": "scenario_construction",
+    "text": "What will US real GDP be in 2050 (in 2024 dollars)?",
+    "question_type": "continuous",
+    "unit": "usd_trillions",
+    "base_rate": 29.0,
+    "value_range": [
+      25.0,
+      150.0
+    ]
+  },
+  "config": {
+    "context": "Current US GDP: ~$29 trillion (2024). 26-year horizon allows for transformative changes. Key uncertainties: AI/automation impact, transformative tech (quantum, fusion), geopolitical realignment, climate adaptation costs, demographic shifts, institutional stability.",
+    "cruxiness_normalizer": 40.0,
+    "voi_floor": 0.1
+  },
+  "knowledge_cutoff": "2025-10-01",
+  "current_date": "2026-01-15",
+  "sources_used": [
+    "polymarket",
+    "metaculus",
+    "fred",
+    "infer",
+    "manifold"
+  ],
+  "uncertainties": [
+    {
+      "name": "AI Productivity Impact",
+      "description": "The extent to which artificial intelligence and automation will boost or disrupt US economic productivity and labor markets. This includes both positive effects from efficiency gains and potential negative effects from job displacement.",
+      "search_query": "AI artificial intelligence productivity growth economic impact automation labor market displacement"
+    },
+    {
+      "name": "Geopolitical Stability",
+      "description": "The degree of international cooperation versus conflict that will affect global trade, supply chains, and US economic relationships. This includes potential decoupling from China, alliance structures, and regional conflicts.",
+      "search_query": "US China trade relations geopolitical stability international cooperation global supply chains decoupling"
+    },
+    {
+      "name": "Climate Adaptation Costs",
+      "description": "The scale of economic resources required for climate change adaptation, including infrastructure resilience, disaster recovery, and transition costs. This represents a major drag on productive investment and GDP growth.",
+      "search_query": "climate change adaptation costs infrastructure spending disaster recovery economic impact green transition"
+    }
+  ],
+  "signals_per_uncertainty": {
+    "AI Productivity Impact": 30,
+    "Geopolitical Stability": 30,
+    "Climate Adaptation Costs": 30
+  },
+  "signals_after_dedup": 9,
+  "signals_above_floor": 6,
+  "source_breakdown": {
+    "manifold": 2,
+    "polymarket": 1,
+    "metaculus": 4,
+    "fred": 1,
+    "infer": 1
+  },
+  "category_breakdown": {
+    "near_term": 4,
+    "future": 4,
+    "unknown": 1
+  },
+  "uncertainty_breakdown": {
+    "AI Productivity Impact": 1,
+    "Geopolitical Stability": 3,
+    "Climate Adaptation Costs": 5
+  },
+  "signals": [
+    {
+      "id": "YleFhm7mAbAVzTW1dUmI",
+      "source": "manifold",
+      "text": "Will AI replace over 50 million jobs by end of 2024?",
+      "url": "https://manifold.markets/getby/will-ai-replace-over-50-million-job",
+      "resolution_date": "2025-01-01",
+      "base_rate": null,
+      "voi": 0.35,
+      "rho": 0.7,
+      "rho_reasoning": "There is a causal relationship between the two questions, as the extent to which AI and automation impact productivity and labor markets (Question A) would likely be reflected in the number of jobs displaced by AI (Question B). They are measuring related aspects of the same underlying phenomenon. However, they are not mutually exclusive, as AI could both boost productivity and displace jobs, and the questions are not truly independent, as the response to one would likely inform the response to the other. Given these considerations, I estimate the correlation coefficient (\u03c1) to be around 0.7, indicating a strong positive correlation between the two forecasting questions.",
+      "uncertainty_source": "AI Productivity Impact",
+      "signal_category": "near_term"
+    },
+    {
+      "id": "0x4c80df6f557bb0b9de08c0301ebdce500dd9bdc58400d9269fb8fab1709ed584",
+      "source": "polymarket",
+      "text": "China x Taiwan military clash before 2027?",
+      "url": "https://polymarket.com/market/china-x-taiwan-military-clash-before-2027",
+      "resolution_date": "2026-12-31",
+      "base_rate": null,
+      "voi": 0.35,
+      "rho": 0.7,
+      "rho_reasoning": "There is a causal relationship between geopolitical stability and the risk of a China-Taiwan military clash. A China-Taiwan conflict would significantly impact global trade, supply chains, and US economic relationships, which are key aspects of geopolitical stability. Additionally, these questions are measuring different aspects of the same underlying phenomenon - global geopolitical dynamics. While a China-Taiwan conflict is not mutually exclusive with other geopolitical factors, it is a significant driver of overall geopolitical stability. Therefore, the correlation coefficient (\u03c1) between these two questions is estimated to be 0.7, indicating a strong positive correlation.",
+      "uncertainty_source": "Geopolitical Stability",
+      "signal_category": "future"
+    },
+    {
+      "id": "8608",
+      "source": "metaculus",
+      "text": "Conditional on New START not being renewed or replaced by another similar treaty after February 2026, will there be a nuclear exchange between Russia and the US by 2035?",
+      "url": "https://www.metaculus.com/questions/8608",
+      "resolution_date": "2034-12-31",
+      "base_rate": null,
+      "voi": 0.35,
+      "rho": 0.7,
+      "rho_reasoning": "There is likely a causal relationship between geopolitical stability and the risk of nuclear exchange, as increased conflict and reduced international cooperation could increase the likelihood of a nuclear exchange. They are not measuring the same underlying phenomenon, but are related. They are not mutually exclusive, as geopolitical instability could lead to a nuclear exchange, but a nuclear exchange would also likely reduce geopolitical stability. They are not fully independent, as they are influenced by common underlying factors.",
+      "uncertainty_source": "Geopolitical Stability",
+      "signal_category": "future"
+    },
+    {
+      "id": "9t61v9e7x4",
+      "source": "manifold",
+      "text": "Trump impose large tariffs in first year?",
+      "url": "https://manifold.markets/RichardHanania/trump-impose-large-tariffs-in-first",
+      "resolution_date": "2026-04-02",
+      "base_rate": null,
+      "voi": 0.30000000000000004,
+      "rho": 0.6,
+      "rho_reasoning": "There is a potential causal relationship between the two questions, as the imposition of large tariffs by Trump could affect geopolitical stability and international cooperation. However, they are not measuring the exact same underlying phenomenon, as geopolitical stability encompasses a broader range of factors beyond just tariffs. The two questions are not mutually exclusive, as the imposition of tariffs is one potential driver of geopolitical instability. While there is some independence between the two questions, as other factors could also affect geopolitical stability, there is a strong enough correlation to estimate a positive correlation coefficient of 0.6.",
+      "uncertainty_source": "Geopolitical Stability",
+      "signal_category": "near_term"
+    },
+    {
+      "id": "585",
+      "source": "metaculus",
+      "text": "Will there be at least 2\u02daC of global warming by 2100?",
+      "url": "https://www.metaculus.com/questions/585",
+      "resolution_date": "2100-01-02",
+      "base_rate": null,
+      "voi": 0.35,
+      "rho": 0.7,
+      "rho_reasoning": "There is a causal relationship between the two questions. Question B (global warming) is a key driver of Question A (climate adaptation costs), as higher levels of global warming will require greater investment in adaptation measures. They are both measuring different aspects of the same underlying phenomenon of climate change. However, they are not mutually exclusive, as higher adaptation costs could be incurred even if the 2\u00b0C threshold is not reached by 2100. Therefore, the correlation between the two questions is likely to be positive and relatively strong, but not perfect.",
+      "uncertainty_source": "Climate Adaptation Costs",
+      "signal_category": "future"
+    },
+    {
+      "id": "USEPUINDXD",
+      "source": "fred",
+      "text": "Will the Economic Policy Uncertainty Index for the US have increased by {resolution_date} as compared to its value on {forecast_due_date}?",
+      "url": "https://fred.stlouisfed.org/series/USEPUINDXD",
+      "resolution_date": null,
+      "base_rate": null,
+      "voi": 0.25,
+      "rho": 0.5,
+      "rho_reasoning": "There is a potential causal relationship between climate adaptation costs and economic policy uncertainty. As the costs of climate adaptation increase, it could lead to greater economic uncertainty, which would be reflected in the Economic Policy Uncertainty Index. However, the two questions are not measuring the exact same underlying phenomenon, and they are not mutually exclusive. While they are related, they are not perfectly correlated, so the estimated correlation coefficient is 0.5, indicating a moderate positive correlation.",
+      "uncertainty_source": "Climate Adaptation Costs",
+      "signal_category": "unknown"
+    },
+    {
+      "id": "25572",
+      "source": "metaculus",
+      "text": "Will chemicals produced from biomass achieve price parity with these three petrochemical equivalents before 2050?",
+      "url": "https://www.metaculus.com/questions/25572",
+      "resolution_date": "2049-12-30",
+      "base_rate": null,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "Based on the information provided, there is no clear causal relationship between the two forecasting questions, they are not measuring the same underlying phenomenon, they are not mutually exclusive, and they appear to be truly independent. Therefore, the estimated correlation coefficient (\u03c1) between these two questions is 0.0, indicating they are independent and unrelated.",
+      "uncertainty_source": "Climate Adaptation Costs",
+      "signal_category": "future"
+    },
+    {
+      "id": "19949",
+      "source": "metaculus",
+      "text": "Will at least 500,000 Palestinians be displaced from Gaza before December 31st, 2025?",
+      "url": "https://www.metaculus.com/questions/19949",
+      "resolution_date": "2025-12-31",
+      "base_rate": null,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "There is no clear causal relationship between the displacement of Palestinians from Gaza and the economic resources required for climate change adaptation. They are measuring different underlying phenomena, and the events are not mutually exclusive or independent. Therefore, the correlation coefficient is likely to be close to 0, indicating no significant relationship between the two questions.",
+      "uncertainty_source": "Climate Adaptation Costs",
+      "signal_category": "near_term"
+    },
+    {
+      "id": "1576",
+      "source": "infer",
+      "text": "Will the U.S. Congress pass a budget reconciliation bill before 1 July 2025?",
+      "url": "https://www.randforecastinginitiative.org/questions/1576",
+      "resolution_date": "2025-07-01",
+      "base_rate": null,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "There is no clear causal relationship between the two questions, they are measuring different underlying phenomena, they are not mutually exclusive, and they appear to be independent. Without any additional information to suggest a correlation, the most appropriate estimate for the correlation coefficient is 0, indicating no relationship between the two questions.",
+      "uncertainty_source": "Climate Adaptation Costs",
+      "signal_category": "near_term"
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Transformational Boom",
+      "description": "AI revolution drives massive productivity gains while geopolitical stability is maintained and climate adaptation spurs green innovation. Automation displaces jobs but creates new high-value sectors, while international cooperation enables optimal resource allocation and technology diffusion.",
+      "outcome_range": "$60-80T",
+      "outcome_low": 60.0,
+      "outcome_high": 80.0,
+      "key_drivers": [
+        "AI productivity revolution with successful labor transition",
+        "Geopolitical stability and continued globalization",
+        "Climate adaptation driving green tech innovation",
+        "Institutional strength enabling rapid adaptation"
+      ],
+      "why_exclusive": "Cannot co-occur with scenarios involving major geopolitical conflicts, economic policy uncertainty, or AI winter conditions that would prevent transformational growth rates.",
+      "mapped_signals": [
+        "Will AI replace over 50 million jobs by end of 2024?",
+        "Will the Economic Policy Uncertainty Index for the US have increased by {resolution_date} as compared to its value on {forecast_due_date}?"
+      ],
+      "indicator_bundle": {
+        "AI job displacement rate": ">50M jobs by 2024, but net job creation positive by 2030",
+        "Average annual real GDP growth": ">3.5% annually 2024-2050",
+        "Climate adaptation investment": ">5% of GDP annually",
+        "Policy uncertainty index": "Below 2024 baseline consistently"
+      }
+    },
+    {
+      "name": "Steady Progress",
+      "description": "Moderate AI adoption drives incremental productivity gains while avoiding major geopolitical conflicts. Climate costs are manageable and policy remains relatively stable, leading to consistent but unspectacular growth similar to historical averages.",
+      "outcome_range": "$45-60T",
+      "outcome_low": 45.0,
+      "outcome_high": 60.0,
+      "key_drivers": [
+        "Gradual AI integration without disruption",
+        "Avoidance of major military conflicts",
+        "Moderate climate impacts with adaptation",
+        "Stable policy environment with incremental changes"
+      ],
+      "why_exclusive": "Cannot co-occur with transformational AI disruption, major geopolitical crises, or severe economic policy uncertainty that would push growth significantly above or below historical norms.",
+      "mapped_signals": [
+        "Trump impose large tariffs in first year?",
+        "Will there be at least 2\u00b0C of global warming by 2100?",
+        "Will the Economic Policy Uncertainty Index for the US have increased by {resolution_date} as compared to its value on {forecast_due_date}?"
+      ],
+      "indicator_bundle": {
+        "AI job displacement": "<30M jobs displaced by 2030",
+        "Average annual real GDP growth": "2.0-3.5% annually 2024-2050",
+        "Trade policy stability": "No sustained tariff wars >2 years",
+        "Climate adaptation costs": "2-4% of GDP annually"
+      }
+    },
+    {
+      "name": "Fragmented World",
+      "description": "Major geopolitical conflicts fragment the global economy while high policy uncertainty and trade wars reduce economic efficiency. AI development slows due to restricted international cooperation and resource diversion to security spending.",
+      "outcome_range": "$35-45T",
+      "outcome_low": 35.0,
+      "outcome_high": 45.0,
+      "key_drivers": [
+        "China-Taiwan conflict or US-Russia tensions escalate",
+        "Sustained trade wars and protectionist policies",
+        "High economic policy uncertainty",
+        "Reduced international AI/tech cooperation"
+      ],
+      "why_exclusive": "Cannot co-occur with scenarios of geopolitical stability, free trade, or low policy uncertainty that would enable higher growth rates.",
+      "mapped_signals": [
+        "China x Taiwan military clash before 2027?",
+        "Conditional on New START not being renewed or replaced by another similar treaty after February 2026, will there be a nuclear exchange between Russia and the US by 2035?",
+        "Trump impose large tariffs in first year?",
+        "Will the Economic Policy Uncertainty Index for the US have increased by {resolution_date} as compared to its value on {forecast_due_date}?"
+      ],
+      "indicator_bundle": {
+        "Major military conflict probability": ">30% by 2035",
+        "Average tariff rates": ">15% on major trading partners",
+        "Policy uncertainty index": ">150% of 2024 baseline",
+        "Defense spending": ">5% of GDP sustained"
+      }
+    },
+    {
+      "name": "Crisis and Decline",
+      "description": "Multiple severe shocks combine: nuclear exchange or devastating military conflict, complete breakdown of trade relationships, AI development stalls, and severe climate impacts overwhelm adaptation capacity. Economic institutions fail to manage cascading crises.",
+      "outcome_range": "$20-35T",
+      "outcome_low": 20.0,
+      "outcome_high": 35.0,
+      "key_drivers": [
+        "Nuclear exchange or equivalent devastating conflict",
+        "Complete breakdown of international trade system",
+        "Climate tipping points exceed adaptation capacity",
+        "Institutional collapse and policy paralysis"
+      ],
+      "why_exclusive": "Cannot co-occur with scenarios involving successful international cooperation, institutional stability, or effective crisis management that would prevent such severe decline.",
+      "mapped_signals": [
+        "Conditional on New START not being renewed or replaced by another similar treaty after February 2026, will there be a nuclear exchange between Russia and the US by 2035?",
+        "China x Taiwan military clash before 2027?",
+        "Will there be at least 2\u00b0C of global warming by 2100?",
+        "Will the Economic Policy Uncertainty Index for the US have increased by {resolution_date} as compared to its value on {forecast_due_date}?"
+      ],
+      "indicator_bundle": {
+        "Nuclear exchange occurrence": "Yes, by 2035",
+        "Climate damage costs": ">8% of GDP annually",
+        "International trade collapse": ">50% reduction from 2024 levels",
+        "Policy uncertainty index": ">200% of 2024 baseline"
+      }
+    }
+  ],
+  "mece_reasoning": "These scenarios are MECE because they partition the outcome space along two critical dimensions: (1) the severity of geopolitical/institutional disruption (from stability to crisis), and (2) the success of technological adaptation (particularly AI). The outcome ranges are non-overlapping: $60-80T (boom), $45-60T (steady), $35-45T (fragmented), and $20-35T (crisis), covering the full plausible space from transformational growth to severe decline. Each scenario represents a fundamentally different world state defined by incompatible conditions - you cannot simultaneously have both geopolitical stability and major military conflicts, or both successful AI integration and technology development stagnation. The scenarios map logically to the input signals, with positive signals clustering in higher-growth scenarios and negative/crisis signals in lower-growth scenarios.",
+  "coverage_gaps": [],
+  "created_at": "2026-01-15T12:48:20.038250"
+}

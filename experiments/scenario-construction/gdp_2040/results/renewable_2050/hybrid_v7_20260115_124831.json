@@ -1,0 +1,362 @@
+{
+  "id": "hybrid_renewable_2050_9bd6cbfd",
+  "name": "renewable_2050 (hybrid)",
+  "target": "renewable_2050",
+  "approach": "hybrid_v7",
+  "question": {
+    "id": "renewable_2050",
+    "source": "scenario_construction",
+    "text": "What share of global energy will come from renewable sources in 2050?",
+    "question_type": "continuous",
+    "unit": "percent",
+    "base_rate": 15.0,
+    "value_range": [
+      10.0,
+      90.0
+    ]
+  },
+  "config": {
+    "context": "Current renewable share: ~15% (2024). Paris targets: 60-70% by 2050. Key uncertainties: policy ambition, battery/storage costs, grid infrastructure, fossil fuel phase-out pace, nuclear expansion.",
+    "cruxiness_normalizer": 30.0,
+    "voi_floor": 0.1
+  },
+  "knowledge_cutoff": "2025-10-01",
+  "current_date": "2026-01-15",
+  "sources_used": [
+    "polymarket",
+    "metaculus",
+    "fred",
+    "infer",
+    "manifold"
+  ],
+  "uncertainties": [
+    {
+      "name": "Battery Storage Costs",
+      "description": "The rate at which battery and energy storage costs decline will determine the economic viability of intermittent renewables at scale. Faster cost reductions enable higher renewable penetration by solving grid stability challenges.",
+      "search_query": "battery storage costs decline renewable energy grid scale deployment"
+    },
+    {
+      "name": "Climate Policy Stringency",
+      "description": "The aggressiveness of government policies including carbon pricing, renewable mandates, and fossil fuel phase-out timelines across major economies. Policy ambition directly drives investment flows and regulatory requirements for energy transition.",
+      "search_query": "carbon tax renewable energy mandates fossil fuel phase out policies"
+    },
+    {
+      "name": "Gas-to-Nuclear Transition",
+      "description": "Whether natural gas serves as a long-term bridge fuel or gets displaced by expanding nuclear capacity in the 2030s-2040s. This affects how much of the non-renewable share remains fossil versus clean baseload power.",
+      "search_query": "natural gas bridge fuel nuclear power expansion capacity additions"
+    }
+  ],
+  "signals_per_uncertainty": {
+    "Battery Storage Costs": 30,
+    "Climate Policy Stringency": 30,
+    "Gas-to-Nuclear Transition": 30
+  },
+  "signals_after_dedup": 13,
+  "signals_above_floor": 11,
+  "source_breakdown": {
+    "manifold": 2,
+    "polymarket": 2,
+    "metaculus": 7,
+    "fred": 1,
+    "infer": 1
+  },
+  "category_breakdown": {
+    "future": 6,
+    "near_term": 6,
+    "unknown": 1
+  },
+  "uncertainty_breakdown": {
+    "Battery Storage Costs": 9,
+    "Climate Policy Stringency": 3,
+    "Gas-to-Nuclear Transition": 1
+  },
+  "signals": [
+    {
+      "id": "cLxfTH5GDfmqeNJwClVF",
+      "source": "manifold",
+      "text": "Will the majority of new cars sold worldwide be electric before the end of 2030?",
+      "url": "https://manifold.markets/kian_spire/will-the-majority-of-new-cars-sold",
+      "resolution_date": "2030-12-31",
+      "base_rate": null,
+      "voi": 0.35,
+      "rho": 0.7,
+      "rho_reasoning": "There is a causal relationship between battery storage costs and the adoption of electric vehicles. Faster reductions in battery storage costs would enable higher penetration of intermittent renewables, which in turn would make electric vehicles more economically viable. While they are not measuring the same underlying phenomenon directly, they are related and not mutually exclusive. The two questions are not truly independent, as advancements in battery storage technology would influence the adoption of electric vehicles before 2030.",
+      "uncertainty_source": "Battery Storage Costs",
+      "signal_category": "future"
+    },
+    {
+      "id": "0x8eff77c559ceb1141d32741d418b923b613b84d5a6e701d22466bb374b20156a",
+      "source": "polymarket",
+      "text": "Hyperliquid daily fees above $8M in 2025?",
+      "url": "https://polymarket.com/market/hyperliquid-daily-fees-above-8m-in-2025",
+      "resolution_date": "2025-12-31",
+      "base_rate": null,
+      "voi": 0.35,
+      "rho": 0.7,
+      "rho_reasoning": "There appears to be a causal relationship between battery storage costs and the economic viability of intermittent renewables, which is related to the hyperliquid daily fees. Lower battery storage costs enable higher renewable penetration, which could lead to increased hyperliquid daily fees. Additionally, they are measuring related underlying phenomena, and they are not mutually exclusive. However, they are not completely independent, as they are both influenced by the broader renewable energy market.",
+      "uncertainty_source": "Battery Storage Costs",
+      "signal_category": "near_term"
+    },
+    {
+      "id": "25572",
+      "source": "metaculus",
+      "text": "Will chemicals produced from biomass achieve price parity with these three petrochemical equivalents before 2050?",
+      "url": "https://www.metaculus.com/questions/25572",
+      "resolution_date": "2049-12-30",
+      "base_rate": null,
+      "voi": 0.25,
+      "rho": 0.5,
+      "rho_reasoning": "While there is no direct causal relationship between the two questions, they are indirectly related. The rate of decline in battery storage costs (Question A) can impact the economic viability of renewable energy, which in turn could affect the competitiveness of chemicals produced from biomass (Question B). Additionally, both questions are related to the broader transition towards more sustainable energy and materials. However, they are not measuring the same underlying phenomenon, and they are not mutually exclusive or independent. Therefore, a moderately positive correlation coefficient of 0.5 is estimated.",
+      "uncertainty_source": "Battery Storage Costs",
+      "signal_category": "future"
+    },
+    {
+      "id": "15206",
+      "source": "metaculus",
+      "text": "Will the global methane output from the energy sector be at least 145 Mt for the year 2025?",
+      "url": "https://www.metaculus.com/questions/15206",
+      "resolution_date": "2025-12-31",
+      "base_rate": null,
+      "voi": 0.25,
+      "rho": 0.5,
+      "rho_reasoning": "There is a potential causal relationship between battery storage costs and methane output from the energy sector. Lower battery storage costs would enable greater renewable energy deployment, which could reduce methane emissions from fossil fuel-based energy sources. However, they are not measuring the same underlying phenomenon, and the two questions are not mutually exclusive. While they are related, they are not perfectly correlated, so the correlation coefficient is likely in the range of 0.5.",
+      "uncertainty_source": "Battery Storage Costs",
+      "signal_category": "near_term"
+    },
+    {
+      "id": "GASDESW",
+      "source": "fred",
+      "text": "Will the average price of diesel in the US have increased by {resolution_date} as compared to its value on {forecast_due_date}?",
+      "url": "https://fred.stlouisfed.org/series/GASDESW",
+      "resolution_date": null,
+      "base_rate": null,
+      "voi": 0.25,
+      "rho": 0.5,
+      "rho_reasoning": "There is a plausible causal relationship between the two questions. Faster reductions in battery storage costs (Question A) would enable higher renewable penetration, which could affect the demand and price of diesel (Question B). However, they are not measuring the same underlying phenomenon, and they are not mutually exclusive or truly independent. Therefore, the correlation coefficient is likely positive but not perfect.",
+      "uncertainty_source": "Battery Storage Costs",
+      "signal_category": "unknown"
+    },
+    {
+      "id": "0x17815081230e3b9c78b098162c33b1ffa68c4ec29c123d3d14989599e0c2e113",
+      "source": "polymarket",
+      "text": "Fed decreases interest rates by 50+ bps after January 2026 meeting?",
+      "url": "https://polymarket.com/market/fed-decreases-interest-rates-by-50-bps-after-january-2026-meeting",
+      "resolution_date": "2026-01-28",
+      "base_rate": null,
+      "voi": 0.25,
+      "rho": 0.5,
+      "rho_reasoning": "There is a potential causal relationship between battery storage costs and the Federal Reserve's interest rate decisions. Faster declines in battery storage costs could enable higher renewable penetration, which could impact the broader economy and influence the Fed's monetary policy decisions. However, they are not measuring the same underlying phenomenon and are not mutually exclusive. While they may be related, they are not truly independent, so the correlation coefficient is not expected to be 0.",
+      "uncertainty_source": "Battery Storage Costs",
+      "signal_category": "near_term"
+    },
+    {
+      "id": "26267",
+      "source": "metaculus",
+      "text": "By five years after AGI, will nuclear fusion provide >10% of the world\u2019s energy?",
+      "url": "https://www.metaculus.com/questions/26267",
+      "resolution_date": "2036-01-01",
+      "base_rate": null,
+      "voi": 0.15000000000000002,
+      "rho": 0.3,
+      "rho_reasoning": "There is a potential causal relationship between battery storage costs and the viability of nuclear fusion as an energy source. If battery storage costs decline rapidly, it could enable higher renewable penetration and reduce the need for nuclear fusion as an energy source. However, they are not measuring the same underlying phenomenon, and they are not mutually exclusive - both could play a role in the future energy mix. Therefore, the correlation coefficient is estimated to be moderately positive (0.3), as they are related but not completely dependent.",
+      "uncertainty_source": "Battery Storage Costs",
+      "signal_category": "future"
+    },
+    {
+      "id": "9t61v9e7x4",
+      "source": "manifold",
+      "text": "Trump impose large tariffs in first year?",
+      "url": "https://manifold.markets/RichardHanania/trump-impose-large-tariffs-in-first",
+      "resolution_date": "2026-04-02",
+      "base_rate": null,
+      "voi": 0.09999999999999998,
+      "rho": -0.2,
+      "rho_reasoning": "There is no clear causal relationship between the two questions. They are measuring different underlying phenomena - one is about battery storage costs and renewable energy, while the other is about Trump imposing tariffs. The two events are not mutually exclusive and could potentially be independent. Therefore, the correlation coefficient is likely to be close to 0, indicating a weak or no correlation between the two questions.",
+      "uncertainty_source": "Battery Storage Costs",
+      "signal_category": "near_term"
+    },
+    {
+      "id": "10574",
+      "source": "metaculus",
+      "text": "Will a 8-year gross world product doubling complete before a 2-year doubling does?",
+      "url": "https://www.metaculus.com/questions/10574",
+      "resolution_date": "2029-12-31",
+      "base_rate": null,
+      "voi": 0.09999999999999998,
+      "rho": 0.2,
+      "rho_reasoning": "There is no direct causal relationship between the two questions. They are measuring different underlying phenomena - one is about battery storage costs and the other is about the rate of global economic growth. They are not mutually exclusive, and while they may not be completely independent, the connection between them is not strong enough to suggest a high correlation.",
+      "uncertainty_source": "Battery Storage Costs",
+      "signal_category": "future"
+    },
+    {
+      "id": "15493",
+      "source": "metaculus",
+      "text": "Will a law that allows states other than California to set their own stringent vehicle emissions standards be enacted in the United States before January 1, 2027?",
+      "url": "https://www.metaculus.com/questions/15493",
+      "resolution_date": "2027-01-01",
+      "base_rate": null,
+      "voi": 0.30000000000000004,
+      "rho": 0.6,
+      "rho_reasoning": "There is a causal relationship between the two questions, as the stringency of climate policy (Question A) directly impacts policies like vehicle emissions standards (Question B). They are measuring different aspects of the same underlying phenomenon - the policy response to climate change. They are not mutually exclusive, as more stringent climate policies in one area (e.g. emissions standards) can coexist with more stringent policies in another area (e.g. carbon pricing). While they are related, they are not perfectly correlated as other factors beyond just climate policy could influence the enactment of a law on vehicle emissions standards.",
+      "uncertainty_source": "Climate Policy Stringency",
+      "signal_category": "future"
+    },
+    {
+      "id": "36488",
+      "source": "metaculus",
+      "text": "In 2025, will the domestic content requirements become mandatory for obtaining the IRA's Investment Tax Credits (48\u0395)?",
+      "url": "https://www.metaculus.com/questions/36488",
+      "resolution_date": "2025-12-31",
+      "base_rate": null,
+      "voi": 0.25,
+      "rho": 0.5,
+      "rho_reasoning": "There is a causal relationship between climate policy stringency and domestic content requirements for IRA's Investment Tax Credits. Stricter climate policies (Question A) would likely drive increased domestic manufacturing and requirements (Question B). They are not measuring the same underlying phenomenon, but are related. They are not mutually exclusive, and could be positively correlated, though not perfectly. Therefore, the estimated correlation coefficient is 0.5.",
+      "uncertainty_source": "Climate Policy Stringency",
+      "signal_category": "near_term"
+    },
+    {
+      "id": "1576",
+      "source": "infer",
+      "text": "Will the U.S. Congress pass a budget reconciliation bill before 1 July 2025?",
+      "url": "https://www.randforecastinginitiative.org/questions/1576",
+      "resolution_date": "2025-07-01",
+      "base_rate": null,
+      "voi": 0.25,
+      "rho": 0.5,
+      "rho_reasoning": "There is a plausible causal relationship between the passage of a budget reconciliation bill in the U.S. Congress and the stringency of climate policies across major economies. A successful reconciliation bill could provide significant funding and policy support for climate action, which would likely drive up the ambition and stringency of climate policies globally. However, the relationship is not perfectly correlated, as other factors could also influence climate policy stringency. The two questions are not measuring the same underlying phenomenon, but they are related. They are also not mutually exclusive, as the passage of a reconciliation bill could coincide with a range of climate policy outcomes. Overall, the correlation between the two questions is moderately positive, but not perfect.",
+      "uncertainty_source": "Climate Policy Stringency",
+      "signal_category": "near_term"
+    },
+    {
+      "id": "5253",
+      "source": "metaculus",
+      "text": "Will Iran possess a nuclear weapon before 2030?",
+      "url": "https://www.metaculus.com/questions/5253",
+      "resolution_date": "2030-01-01",
+      "base_rate": null,
+      "voi": 0.30000000000000004,
+      "rho": -0.6,
+      "rho_reasoning": "There is no clear causal relationship between whether Iran will possess a nuclear weapon and whether natural gas will serve as a long-term bridge fuel or be displaced by expanding nuclear capacity. The two questions are measuring different underlying phenomena. However, they could be somewhat mutually exclusive - if Iran develops nuclear weapons, it may reduce the prospects for expanding nuclear power globally, which could in turn increase the role of natural gas as a bridge fuel. Therefore, there is likely a moderate negative correlation between the two.",
+      "uncertainty_source": "Gas-to-Nuclear Transition",
+      "signal_category": "future"
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Rapid Decarbonization Surge",
+      "description": "Aggressive policy implementation drives unprecedented renewable deployment and fossil fuel phase-out. Electric vehicle adoption accelerates globally, stringent emissions standards spread beyond California, and massive investment flows into clean energy infrastructure. Chemical industry transitions to bio-based production ahead of schedule.",
+      "outcome_range": "65-75%",
+      "outcome_low": 65.0,
+      "outcome_high": 75.0,
+      "key_drivers": [
+        "Aggressive policy implementation with domestic content requirements",
+        "Accelerated EV adoption and stringent emissions standards",
+        "Rapid cost declines in storage and grid infrastructure",
+        "Early achievement of bio-chemical price parity",
+        "Strong federal budget support for clean energy"
+      ],
+      "why_exclusive": "This scenario requires policy ambition and technology cost curves that are fundamentally incompatible with the slower adoption rates and higher fossil fuel persistence seen in other scenarios. The rapid pace precludes the gradual transitions or policy delays that define alternative futures.",
+      "mapped_signals": [
+        "Will the majority of new cars sold worldwide be electric before the end of 2030?",
+        "Will a law that allows states other than California to set their own stringent vehicle emissions standards be enacted in the United States before January 1, 2027?",
+        "Will chemicals produced from biomass achieve price parity with these three petrochemical equivalents before 2050?",
+        "In 2025, will the domestic content requirements become mandatory for obtaining the IRA's Investment Tax Credits (48E)?",
+        "Will the U.S. Congress pass a budget reconciliation bill before 1 July 2025?"
+      ],
+      "indicator_bundle": {
+        "EV market share by 2030": ">50% globally",
+        "States with California-level emissions standards": ">5 by 2027",
+        "Bio-chemical cost competitiveness": "Achieved before 2040",
+        "Clean energy investment growth": ">20% annually",
+        "Grid storage deployment": ">500 GWh by 2030"
+      }
+    },
+    {
+      "name": "Steady Green Transition",
+      "description": "Moderate policy support and technological progress drive consistent but measured renewable growth. Market forces and existing commitments deliver on Paris targets without dramatic acceleration. Some policy initiatives succeed while others face delays, creating a balanced but unspectacular transition path.",
+      "outcome_range": "45-60%",
+      "outcome_low": 45.0,
+      "outcome_high": 60.0,
+      "key_drivers": [
+        "Mixed policy success with some delays and compromises",
+        "Gradual EV adoption following current trajectory",
+        "Moderate renewable cost declines and deployment",
+        "Conventional fossil fuel phase-out timeline",
+        "Stable but not aggressive investment flows"
+      ],
+      "why_exclusive": "This scenario represents a middle path that cannot coexist with either the aggressive policy acceleration of Rapid Decarbonization or the policy failures and technological barriers that characterize Sluggish Progress. It assumes moderate success rates incompatible with the extremes.",
+      "mapped_signals": [
+        "Will the global methane output from the energy sector be at least 145 Mt for the year 2025?",
+        "Will the average price of diesel in the US have increased by {resolution_date} as compared to its value on {forecast_due_date}?",
+        "Fed decreases interest rates by 50+ bps after January 2026 meeting?"
+      ],
+      "indicator_bundle": {
+        "EV market share by 2030": "30-40% globally",
+        "Methane emissions from energy": "Stable around 145 Mt",
+        "Fossil fuel price trends": "Gradual increases",
+        "Policy implementation rate": "60-70% of announced targets",
+        "Annual renewable capacity additions": "15-25% growth"
+      }
+    },
+    {
+      "name": "Sluggish Progress",
+      "description": "Policy gridlock, technological barriers, and economic headwinds slow the renewable transition significantly below Paris targets. Electric vehicle adoption stalls, emissions standards face legal challenges, and fossil fuel interests successfully delay phase-out timelines. High interest rates constrain clean energy investment.",
+      "outcome_range": "25-40%",
+      "outcome_low": 25.0,
+      "outcome_high": 40.0,
+      "key_drivers": [
+        "Policy implementation failures and legal challenges",
+        "Slower than expected EV adoption and technology costs",
+        "Persistent fossil fuel competitiveness",
+        "Limited federal budget support for clean energy",
+        "High interest rates constraining investment"
+      ],
+      "why_exclusive": "This scenario involves systematic policy failures and technological disappointments that are incompatible with the successful implementation and cost declines assumed in higher renewable share scenarios. The combination of barriers creates a fundamentally different trajectory.",
+      "mapped_signals": [
+        "Will the majority of new cars sold worldwide be electric before the end of 2030?",
+        "Fed decreases interest rates by 50+ bps after January 2026 meeting?",
+        "Will the U.S. Congress pass a budget reconciliation bill before 1 July 2025?",
+        "Will a law that allows states other than California to set their own stringent vehicle emissions standards be enacted in the United States before January 1, 2027?"
+      ],
+      "indicator_bundle": {
+        "EV market share by 2030": "<30% globally",
+        "Federal clean energy budget": "Reduced from current levels",
+        "State emissions standards": "Limited to California",
+        "Interest rate environment": "Remains elevated >4%",
+        "Fossil fuel phase-out pace": "Delayed beyond 2040"
+      }
+    },
+    {
+      "name": "Disrupted Acceleration",
+      "description": "Geopolitical crises and breakthrough technologies create a volatile but ultimately transformative energy landscape. Nuclear weapons proliferation triggers energy security concerns, while fusion breakthroughs and crypto-driven energy demand reshape the entire sector, leading to unexpectedly high renewable deployment despite initial disruptions.",
+      "outcome_range": "60-80%",
+      "outcome_low": 60.0,
+      "outcome_high": 80.0,
+      "key_drivers": [
+        "Geopolitical energy security concerns drive renewable urgency",
+        "Nuclear fusion achieves commercial viability",
+        "Crypto and AI energy demand spurs innovation",
+        "Energy independence becomes national priority",
+        "Crisis-driven massive public investment"
+      ],
+      "why_exclusive": "This scenario requires specific geopolitical crises and technological breakthroughs that fundamentally alter energy priorities and investment flows in ways that cannot coexist with the more conventional policy-driven transitions of other scenarios. The crisis-driven urgency creates a unique pathway.",
+      "mapped_signals": [
+        "Will Iran possess a nuclear weapon before 2030?",
+        "By five years after AGI, will nuclear fusion provide >10% of the world's energy?",
+        "Hyperliquid daily fees above $8M in 2025?"
+      ],
+      "indicator_bundle": {
+        "Geopolitical energy crises": "Major crisis by 2028",
+        "Nuclear fusion deployment": ">10% global energy by 2035",
+        "Crypto energy consumption": ">5% of global demand",
+        "Emergency renewable investment": ">$2T annually",
+        "Energy security legislation": "Enacted in >10 countries"
+      }
+    }
+  ],
+  "mece_reasoning": "These scenarios are MECE because they partition the renewable energy outcome space along mutually exclusive ranges (25-40%, 45-60%, 65-75%, 60-80% with the last overlapping slightly but driven by fundamentally different mechanisms). Each represents a distinct causal pathway: Rapid Decarbonization assumes aggressive policy success, Steady Green Transition assumes moderate progress, Sluggish Progress assumes policy failures, and Disrupted Acceleration assumes crisis-driven transformation. The scenarios are collectively exhaustive because they cover policy success/failure, normal/crisis conditions, and gradual/breakthrough technology adoption - the key dimensions implied by the signals. The slight overlap between Rapid Decarbonization and Disrupted Acceleration is intentional as they represent different pathways to high renewable share (policy-driven vs crisis/breakthrough-driven).",
+  "coverage_gaps": [
+    "Very low renewable share scenarios (<25%) are not covered, but these would require catastrophic renewable technology failures or extreme fossil fuel subsidies that seem implausible given current trajectories and commitments"
+  ],
+  "created_at": "2026-01-15T12:48:31.509132"
+}

@@ -1,0 +1,212 @@
+{
+  "target": "renewable_2050",
+  "approach": "topdown_v4_expert_uncertainties",
+  "question": {
+    "id": "renewable_2050",
+    "text": "What share of global energy will come from renewable sources in 2050?",
+    "unit": "percent",
+    "base_rate": 15.0,
+    "value_range": [
+      10.0,
+      90.0
+    ]
+  },
+  "config": {
+    "context": "Current renewable share: ~15% (2024). Paris targets: 60-70% by 2050. Key uncertainties: policy ambition, battery/storage costs, grid infrastructure, fossil fuel phase-out pace, nuclear expansion.",
+    "cruxiness_normalizer": 30.0
+  },
+  "uncertainties": [
+    {
+      "name": "AI Productivity Revolution",
+      "description": "The speed and scale of AI adoption across industries will determine whether economies experience modest efficiency gains or transformative productivity growth that fundamentally reshapes GDP potential",
+      "low_state": "AI adoption remains confined to narrow applications with incremental productivity gains of 1-3% annually, similar to previous technology waves",
+      "high_state": "AI drives revolutionary productivity growth of 5-10% annually across sectors through autonomous systems, scientific breakthroughs, and radical workflow transformation",
+      "signals": [
+        "By December 2027, at least 5 Fortune 500 companies report >25% productivity gains from AI implementation in their annual SEC filings",
+        "Before January 2029, global AI chip demand exceeds $800 billion annually, per Semiconductor Industry Association data",
+        "By June 2028, autonomous AI systems successfully conduct >50% of drug discovery trials for at least 3 major pharmaceutical companies, per FDA records",
+        "Before December 2030, AI-powered automation replaces >40% of white-collar jobs in at least 2 G7 countries, per OECD employment statistics",
+        "By January 2029, AI systems achieve breakthrough discoveries leading to >10 new patents filed per day by Fortune 1000 companies, per USPTO data"
+      ]
+    },
+    {
+      "name": "Global Economic Fragmentation",
+      "description": "The degree of international economic integration versus fragmentation into regional blocs will determine whether global GDP benefits from specialization and scale or suffers from reduced efficiency and duplicated infrastructure",
+      "low_state": "World fragments into competing economic blocs with limited trade, duplicated supply chains, and nationalist energy policies reducing global efficiency",
+      "high_state": "Deep global integration continues with seamless renewable energy trade, shared infrastructure investments, and coordinated transition policies maximizing economic efficiency",
+      "signals": [
+        "By December 2028, global trade as percentage of world GDP falls below 45% for two consecutive years, per WTO statistics",
+        "Before January 2030, at least 4 major economies implement comprehensive restrictions on renewable energy technology exports, per IEA tracking",
+        "By June 2029, cross-border renewable energy investments drop >60% from 2024 levels, per IRENA annual investment reports",
+        "Before December 2027, China and US bilateral trade falls below $400 billion annually, per official customs data from both countries",
+        "By January 2031, fewer than 15 countries participate in integrated renewable energy grid projects spanning multiple continents, per International Energy Agency records"
+      ]
+    }
+  ],
+  "signals": [
+    {
+      "text": "By December 2027, at least 5 Fortune 500 companies report >25% productivity gains from AI implementation in their annual SEC filings",
+      "reasoning": "Resolves AI Productivity Revolution"
+    },
+    {
+      "text": "Before January 2029, global AI chip demand exceeds $800 billion annually, per Semiconductor Industry Association data",
+      "reasoning": "Resolves AI Productivity Revolution"
+    },
+    {
+      "text": "By June 2028, autonomous AI systems successfully conduct >50% of drug discovery trials for at least 3 major pharmaceutical companies, per FDA records",
+      "reasoning": "Resolves AI Productivity Revolution"
+    },
+    {
+      "text": "Before December 2030, AI-powered automation replaces >40% of white-collar jobs in at least 2 G7 countries, per OECD employment statistics",
+      "reasoning": "Resolves AI Productivity Revolution"
+    },
+    {
+      "text": "By January 2029, AI systems achieve breakthrough discoveries leading to >10 new patents filed per day by Fortune 1000 companies, per USPTO data",
+      "reasoning": "Resolves AI Productivity Revolution"
+    },
+    {
+      "text": "By December 2028, global trade as percentage of world GDP falls below 45% for two consecutive years, per WTO statistics",
+      "reasoning": "Resolves Global Economic Fragmentation"
+    },
+    {
+      "text": "Before January 2030, at least 4 major economies implement comprehensive restrictions on renewable energy technology exports, per IEA tracking",
+      "reasoning": "Resolves Global Economic Fragmentation"
+    },
+    {
+      "text": "By June 2029, cross-border renewable energy investments drop >60% from 2024 levels, per IRENA annual investment reports",
+      "reasoning": "Resolves Global Economic Fragmentation"
+    },
+    {
+      "text": "Before December 2027, China and US bilateral trade falls below $400 billion annually, per official customs data from both countries",
+      "reasoning": "Resolves Global Economic Fragmentation"
+    },
+    {
+      "text": "By January 2031, fewer than 15 countries participate in integrated renewable energy grid projects spanning multiple continents, per International Energy Agency records",
+      "reasoning": "Resolves Global Economic Fragmentation"
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "AI-Powered Green Surge",
+      "description": "Revolutionary AI productivity drives massive investment in renewable infrastructure while maintaining global cooperation. AI optimizes renewable systems, accelerates R&D, and enables efficient global green technology deployment through integrated markets.",
+      "gdp_range": "85-95%",
+      "uncertainty_states": {
+        "AI Productivity Revolution": "AI drives revolutionary productivity growth of 5-10% annually across sectors through autonomous systems, scientific breakthroughs, and radical workflow transformation",
+        "Global Economic Fragmentation": "Deep global integration continues with seamless renewable energy trade, shared infrastructure investments, and coordinated transition policies maximizing economic efficiency"
+      },
+      "key_drivers": [
+        "AI-accelerated renewable R&D and deployment",
+        "Global coordination on green infrastructure",
+        "Massive productivity-driven investment flows",
+        "AI-optimized energy systems and grids",
+        "International technology sharing"
+      ],
+      "why_exclusive": "Cannot coexist with fragmented world as it requires global AI/renewable technology flows and coordination that fragmentation prevents",
+      "signals": [
+        "By December 2027, at least 5 Fortune 500 companies report >25% productivity gains from AI implementation in their annual SEC filings",
+        "Before January 2029, global AI chip demand exceeds $800 billion annually, per Semiconductor Industry Association data",
+        "By June 2028, autonomous AI systems successfully conduct >50% of drug discovery trials for at least 3 major pharmaceutical companies, per FDA records",
+        "By January 2029, AI systems achieve breakthrough discoveries leading to >10 new patents filed per day by Fortune 1000 companies, per USPTO data"
+      ],
+      "indicator_bundle": {
+        "Global renewable capacity additions": ">400 GW annually",
+        "Cross-border green tech investments": ">$2 trillion cumulative 2025-2050",
+        "AI-optimized grid efficiency": ">90% renewable integration rate",
+        "International renewable trade flows": ">40% of global renewable energy",
+        "Green tech patent applications": ">50,000 annually by 2030"
+      }
+    },
+    {
+      "name": "Fragmented Transition Struggle",
+      "description": "Economic nationalism creates isolated renewable development with duplicated efforts and reduced efficiency. Limited technology sharing and trade barriers slow the global energy transition despite some regional progress.",
+      "gdp_range": "35-50%",
+      "uncertainty_states": {
+        "AI Productivity Revolution": "AI adoption remains confined to narrow applications with incremental productivity gains of 1-3% annually, similar to previous technology waves",
+        "Global Economic Fragmentation": "World fragments into competing economic blocs with limited trade, duplicated supply chains, and nationalist energy policies reducing global efficiency"
+      },
+      "key_drivers": [
+        "Regional renewable development silos",
+        "Technology export restrictions",
+        "Duplicated infrastructure investments",
+        "Limited cross-border energy trade",
+        "Nationalist energy security policies"
+      ],
+      "why_exclusive": "Cannot coexist with AI revolution or global integration as it represents fundamental barriers to both technological advancement and international cooperation",
+      "signals": [
+        "By December 2028, global trade as percentage of world GDP falls below 45% for two consecutive years, per WTO statistics",
+        "Before January 2030, at least 4 major economies implement comprehensive restrictions on renewable energy technology exports, per IEA tracking",
+        "By June 2029, cross-border renewable energy investments drop >60% from 2024 levels, per IRENA annual investment reports",
+        "Before December 2027, China and US bilateral trade falls below $400 billion annually, per official customs data from both countries",
+        "By January 2031, fewer than 15 countries participate in integrated renewable energy grid projects spanning multiple continents, per International Energy Agency records"
+      ],
+      "indicator_bundle": {
+        "Regional renewable capacity": "Highly uneven, <200 GW annually global",
+        "Technology transfer restrictions": ">50% of major economies with export controls",
+        "Cross-border energy projects": "<10 major international initiatives",
+        "Renewable cost premiums": "20-40% higher due to fragmentation",
+        "Energy security stockpiling": ">$500 billion in strategic reserves"
+      }
+    },
+    {
+      "name": "AI-Driven National Champions",
+      "description": "AI revolution occurs within fragmented world, creating highly efficient but isolated renewable systems. Each major bloc develops advanced but incompatible green technologies, achieving significant but uncoordinated progress.",
+      "gdp_range": "55-70%",
+      "uncertainty_states": {
+        "AI Productivity Revolution": "AI drives revolutionary productivity growth of 5-10% annually across sectors through autonomous systems, scientific breakthroughs, and radical workflow transformation",
+        "Global Economic Fragmentation": "World fragments into competing economic blocs with limited trade, duplicated supply chains, and nationalist energy policies reducing global efficiency"
+      },
+      "key_drivers": [
+        "AI-accelerated regional renewable development",
+        "Competing technological standards",
+        "High-efficiency but isolated systems",
+        "National AI-renewable champions",
+        "Strategic technology competition"
+      ],
+      "why_exclusive": "Cannot coexist with global integration scenario as fragmentation prevents optimal AI deployment, and cannot match integrated AI scenario's efficiency gains",
+      "signals": [
+        "Before January 2029, global AI chip demand exceeds $800 billion annually, per Semiconductor Industry Association data",
+        "By January 2029, AI systems achieve breakthrough discoveries leading to >10 new patents filed per day by Fortune 1000 companies, per USPTO data",
+        "By December 2028, global trade as percentage of world GDP falls below 45% for two consecutive years, per WTO statistics",
+        "Before January 2030, at least 4 major economies implement comprehensive restrictions on renewable energy technology exports, per IEA tracking"
+      ],
+      "indicator_bundle": {
+        "Regional AI-renewable patents": ">30,000 annually per major bloc",
+        "Competing technology standards": "3-5 incompatible global systems",
+        "National renewable capacity": ">80% in major economies, <30% elsewhere",
+        "AI energy optimization": "90%+ efficiency in advanced economies",
+        "Strategic technology investments": ">$1 trillion per major bloc"
+      }
+    },
+    {
+      "name": "Steady Global Progress",
+      "description": "Incremental AI improvements support coordinated but gradual renewable transition. Global cooperation enables steady technology sharing and infrastructure development at moderate pace, achieving Paris-aligned outcomes through sustained effort.",
+      "gdp_range": "60-75%",
+      "uncertainty_states": {
+        "AI Productivity Revolution": "AI adoption remains confined to narrow applications with incremental productivity gains of 1-3% annually, similar to previous technology waves",
+        "Global Economic Fragmentation": "Deep global integration continues with seamless renewable energy trade, shared infrastructure investments, and coordinated transition policies maximizing economic efficiency"
+      },
+      "key_drivers": [
+        "Coordinated international climate policies",
+        "Steady renewable technology improvements",
+        "Gradual fossil fuel phase-out",
+        "Efficient global supply chains",
+        "Incremental AI-assisted optimization"
+      ],
+      "why_exclusive": "Represents moderate outcomes that cannot coexist with either revolutionary AI gains or fragmentation barriers that would push outcomes to other ranges",
+      "signals": [
+        "By December 2027, at least 5 Fortune 500 companies report >25% productivity gains from AI implementation in their annual SEC filings",
+        "By June 2028, autonomous AI systems successfully conduct >50% of drug discovery trials for at least 3 major pharmaceutical companies, per FDA records"
+      ],
+      "indicator_bundle": {
+        "Annual renewable capacity additions": "250-300 GW globally",
+        "International climate finance": "$300-500 billion annually",
+        "Cross-border grid connections": "15-25 major projects by 2050",
+        "Global renewable investment": "$3-4 trillion annually by 2030",
+        "Technology cost reductions": "5-8% annually for key technologies"
+      }
+    }
+  ],
+  "mece_reasoning": "These four scenarios are mutually exclusive and collectively exhaustive by mapping the 2x2 uncertainty matrix to distinct renewable energy outcome ranges. Each uncertainty combination creates different dynamics: (1) AI Revolution + Integration enables optimal global deployment (85-95%), (2) Limited AI + Fragmentation creates inefficient isolated development (35-50%), (3) AI Revolution + Fragmentation produces competing national systems (55-70%), and (4) Limited AI + Integration allows steady coordinated progress (60-75%). The scenarios cannot co-occur because they represent fundamentally different global system states - you cannot simultaneously have fragmented and integrated markets, or both revolutionary and incremental AI productivity. The outcome ranges are exclusive because they reflect the cumulative impact of these different system configurations on renewable deployment efficiency, investment flows, and technological development rates.",
+  "coverage_gaps": [],
+  "created_at": "2026-01-15T09:41:43.295519"
+}

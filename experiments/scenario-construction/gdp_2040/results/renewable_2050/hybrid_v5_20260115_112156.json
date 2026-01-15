@@ -1,0 +1,251 @@
+{
+  "target": "renewable_2050",
+  "approach": "hybrid_v5_uncertainty_voi",
+  "question": {
+    "id": "renewable_2050",
+    "text": "What share of global energy will come from renewable sources in 2050?",
+    "unit": "percent",
+    "base_rate": 15.0,
+    "value_range": [
+      10.0,
+      90.0
+    ]
+  },
+  "config": {
+    "context": "Current renewable share: ~15% (2024). Paris targets: 60-70% by 2050. Key uncertainties: policy ambition, battery/storage costs, grid infrastructure, fossil fuel phase-out pace, nuclear expansion.",
+    "cruxiness_normalizer": 30.0
+  },
+  "knowledge_cutoff": "2025-10-01",
+  "current_date": "2026-01-15",
+  "sources_used": [
+    "polymarket",
+    "metaculus",
+    "fred",
+    "infer",
+    "manifold"
+  ],
+  "uncertainties": [
+    {
+      "name": "Battery Storage Breakthrough",
+      "description": "Whether battery and energy storage costs decline rapidly enough to enable large-scale renewable deployment. This determines if renewables can provide reliable baseload power at scale.",
+      "search_query": "battery storage costs renewable energy grid scale deployment 2030"
+    },
+    {
+      "name": "Policy Implementation Speed",
+      "description": "How quickly governments implement and enforce renewable energy mandates, carbon pricing, and fossil fuel phase-out policies. This drives the regulatory environment that shapes energy investment decisions.",
+      "search_query": "renewable energy policy implementation carbon pricing mandates 2030"
+    },
+    {
+      "name": "Grid Infrastructure Buildout",
+      "description": "The pace at which countries modernize electrical grids to handle distributed renewable sources and long-distance transmission. This determines the physical capacity to integrate renewable energy at scale.",
+      "search_query": "smart grid infrastructure renewable energy transmission investment 2030"
+    }
+  ],
+  "signals_per_uncertainty": {
+    "Battery Storage Breakthrough": 30,
+    "Policy Implementation Speed": 30,
+    "Grid Infrastructure Buildout": 30
+  },
+  "signals_after_dedup": 10,
+  "source_breakdown": {
+    "metaculus": 4,
+    "polymarket": 3,
+    "manifold": 1,
+    "infer": 2
+  },
+  "category_breakdown": {
+    "future": 3,
+    "near_term": 7
+  },
+  "uncertainty_breakdown": {
+    "Battery Storage Breakthrough": 4,
+    "Policy Implementation Speed": 4,
+    "Grid Infrastructure Buildout": 2
+  },
+  "signals": [
+    {
+      "text": "Will renewable energy exceed 55% of global electricity generation before 2030, according to Our World in Data?",
+      "source": "metaculus",
+      "voi": 0.4,
+      "rho": 0.8,
+      "rho_reasoning": "There is a causal relationship between the two questions. A breakthrough in battery storage technology would enable large-scale renewable deployment, which in turn would likely lead to renewable energy exceeding 55% of global electricity generation before 2030. While the two questions are not measuring the exact same phenomenon, they are closely related and interdependent. They are not mutually exclusive, and the success of one would positively influence the other. Therefore, I estimate a strong positive correlation coefficient (\u03c1) of 0.8 between these two forecasting questions.",
+      "uncertainty_source": "Battery Storage Breakthrough",
+      "signal_category": "future",
+      "resolution_date": "2029-12-30"
+    },
+    {
+      "text": "Will Tesla (TSLA) close at $300\u2013325 in 2025?",
+      "source": "polymarket",
+      "voi": 0.25,
+      "rho": 0.5,
+      "rho_reasoning": "There is a causal relationship between battery storage breakthrough and Tesla's stock price, as Tesla's success is closely tied to advancements in battery technology. They are not measuring the same underlying phenomenon, but they are related, as the success of Tesla's energy storage solutions could be indicative of broader industry progress. They are not mutually exclusive, as Tesla's stock price could be affected by factors beyond just battery storage advancements. However, they are not truly independent, as improvements in battery technology would likely have a positive impact on Tesla's business and stock performance.",
+      "uncertainty_source": "Battery Storage Breakthrough",
+      "signal_category": "near_term",
+      "resolution_date": "2025-12-31"
+    },
+    {
+      "text": "Will chemicals produced from biomass achieve price parity with these three petrochemical equivalents before 2050?",
+      "source": "metaculus",
+      "voi": 0.15000000000000002,
+      "rho": 0.3,
+      "rho_reasoning": "There does not appear to be a strong causal relationship between the two questions, as they are measuring different underlying phenomena. While the success of renewable energy deployment could potentially impact the competitiveness of biomass-derived chemicals, the two are not directly dependent on each other. Additionally, the questions are not mutually exclusive, as it is possible for both breakthroughs to occur. Therefore, the correlation coefficient between these two questions is estimated to be around 0.3, indicating a weak positive correlation.",
+      "uncertainty_source": "Battery Storage Breakthrough",
+      "signal_category": "future",
+      "resolution_date": "2049-12-30"
+    },
+    {
+      "text": "Hyperliquid daily fees above $8M in 2025?",
+      "source": "polymarket",
+      "voi": 0.15000000000000002,
+      "rho": 0.3,
+      "rho_reasoning": "There is no clear causal relationship between the two questions. While both are related to energy and technology trends, they are not measuring the same underlying phenomenon. The questions could be somewhat related, as a breakthrough in battery storage could enable large-scale renewable deployment, which could potentially impact the daily fees of a 'hyperliquid' system. However, they are not mutually exclusive, and the two events are not completely independent. Given the limited information, a moderate positive correlation of 0.3 seems reasonable.",
+      "uncertainty_source": "Battery Storage Breakthrough",
+      "signal_category": "near_term",
+      "resolution_date": "2025-12-31"
+    },
+    {
+      "text": "Will a law that allows states other than California to set their own stringent vehicle emissions standards be enacted in the United States before January 1, 2027?",
+      "source": "metaculus",
+      "voi": 0.25,
+      "rho": 0.5,
+      "rho_reasoning": "There is a potential causal relationship between the policy implementation speed (Question A) and the enactment of a law allowing other states to set their own vehicle emissions standards (Question B). Both are measuring aspects of the regulatory environment around renewable energy and emissions policies, so they are related to the same underlying phenomenon. However, they are not mutually exclusive, and the outcomes of the two questions are not perfectly correlated, so the correlation coefficient is estimated to be around 0.5, indicating a moderate positive correlation.",
+      "uncertainty_source": "Policy Implementation Speed",
+      "signal_category": "future",
+      "resolution_date": "2027-01-01"
+    },
+    {
+      "text": "Trump impose large tariffs in first year?",
+      "source": "manifold",
+      "voi": 0.25,
+      "rho": -0.5,
+      "rho_reasoning": "There is no clear causal relationship between the two questions. They are measuring different underlying phenomena - policy implementation speed for renewable energy and tariff imposition by Trump. They are not mutually exclusive, as the implementation of renewable energy policies and Trump imposing tariffs can happen independently. However, there is some indirect relationship, as the regulatory environment shaped by renewable energy policies could influence trade and tariff decisions. Therefore, I estimate a moderate negative correlation coefficient of -0.5 between these two questions.",
+      "uncertainty_source": "Policy Implementation Speed",
+      "signal_category": "near_term",
+      "resolution_date": "2026-04-02"
+    },
+    {
+      "text": "In 2025, will the domestic content requirements become mandatory for obtaining the IRA's Production Tax Credits (45Y)?",
+      "source": "metaculus",
+      "voi": 0.25,
+      "rho": 0.5,
+      "rho_reasoning": "There is a causal relationship between the two questions, as the policy implementation speed (Question A) would directly impact the mandatory domestic content requirements for the IRA's Production Tax Credits (Question B). They are both measuring different aspects of the regulatory environment for renewable energy investments, so they are not measuring the same underlying phenomenon. They are not mutually exclusive, as the domestic content requirements could be implemented at a different pace than the broader renewable energy policies. While they are related, they are not truly independent, as the policy implementation speed would influence the domestic content requirements.",
+      "uncertainty_source": "Policy Implementation Speed",
+      "signal_category": "near_term",
+      "resolution_date": "2025-12-31"
+    },
+    {
+      "text": "Will the U.S. Congress pass a budget reconciliation bill before 1 July 2025?",
+      "source": "infer",
+      "voi": 0.15000000000000002,
+      "rho": 0.3,
+      "rho_reasoning": "There is likely some causal relationship between the two questions, as the policy implementation speed (Question A) could influence the likelihood of the U.S. Congress passing a budget reconciliation bill (Question B). However, they are not measuring the same underlying phenomenon, and they are not mutually exclusive. While the two questions are related, they are not perfectly correlated, and there may be other factors that influence the outcomes of each. Therefore, the correlation coefficient (\u03c1) is estimated to be around 0.3, indicating a moderately positive correlation.",
+      "uncertainty_source": "Policy Implementation Speed",
+      "signal_category": "near_term",
+      "resolution_date": "2025-07-01"
+    },
+    {
+      "text": "Will an AI-enabled cyber-attack, attributed to a state actor, cause significant disruption to critical national infrastructure in any G20 country before 1 July 2026?",
+      "source": "infer",
+      "voi": 0.15000000000000002,
+      "rho": 0.3,
+      "rho_reasoning": "There is a potential causal relationship between the pace of grid infrastructure buildout and the likelihood of a cyber-attack disrupting critical infrastructure. However, they are not directly measuring the same underlying phenomenon, and the two events are not mutually exclusive. While there may be some correlation, they are not completely dependent, and the correlation coefficient is likely to be moderate, around 0.3.",
+      "uncertainty_source": "Grid Infrastructure Buildout",
+      "signal_category": "near_term",
+      "resolution_date": "2026-07-01"
+    },
+    {
+      "text": "Tether insolvent in 2025?",
+      "source": "polymarket",
+      "voi": 0.09999999999999998,
+      "rho": -0.2,
+      "rho_reasoning": "There does not appear to be a strong causal relationship between the pace of grid infrastructure buildout and whether Tether becomes insolvent in 2025. They are measuring different underlying phenomena - one is about physical infrastructure for renewable energy integration, while the other is about the financial stability of a specific cryptocurrency. Additionally, they are not mutually exclusive events, and could be considered largely independent. Therefore, the estimated correlation coefficient is low, around -0.2.",
+      "uncertainty_source": "Grid Infrastructure Buildout",
+      "signal_category": "near_term",
+      "resolution_date": "2025-12-31"
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Accelerated Green Transition",
+      "description": "Strong policy support and technological breakthroughs drive rapid renewable deployment. U.S. maintains aggressive green policies, Tesla and EV sector thrive, and early renewable targets are met. Grid infrastructure adapts quickly to high renewable penetration.",
+      "outcome_range": "65-75%",
+      "key_drivers": [
+        "Sustained U.S. green policy support (IRA intact)",
+        "Strong EV market growth (Tesla >$300)",
+        "Early achievement of renewable electricity targets",
+        "Successful grid infrastructure adaptation",
+        "Biomass chemicals achieve cost parity"
+      ],
+      "why_exclusive": "This scenario requires sustained policy momentum and market confidence that is incompatible with the policy reversals and market disruptions seen in other scenarios. The 65-75% range cannot overlap with lower ranges.",
+      "mapped_signals": [
+        "Will renewable energy exceed 55% of global electricity generation before 2030",
+        "Will Tesla (TSLA) close at $300\u2013325 in 2025?",
+        "Will chemicals produced from biomass achieve price parity with petrochemical equivalents before 2050?",
+        "Will a law allowing states to set stringent vehicle emissions standards be enacted before 2027?",
+        "Will domestic content requirements become mandatory for IRA's Production Tax Credits in 2025?"
+      ],
+      "indicator_bundle": {
+        "Renewable electricity share by 2030": ">55%",
+        "Tesla stock price 2025": "$300-325",
+        "U.S. state emission standards": "Enacted by 2027",
+        "Biomass chemical cost parity": "Achieved by 2050",
+        "IRA domestic content requirements": "Mandatory by 2025"
+      }
+    },
+    {
+      "name": "Moderate Progress",
+      "description": "Mixed policy environment with some support for renewables but also headwinds from trade disputes and inconsistent implementation. Progress continues but at a measured pace, meeting basic Paris targets but not exceeding them significantly.",
+      "outcome_range": "50-65%",
+      "key_drivers": [
+        "Partial policy reversals or delays",
+        "Trade tensions affecting renewable supply chains",
+        "Moderate EV adoption",
+        "Gradual fossil fuel phase-out",
+        "Infrastructure challenges slow deployment"
+      ],
+      "why_exclusive": "This scenario represents a middle path that cannot coexist with either the high-momentum acceleration scenario or the policy reversal/crisis scenarios. The 50-65% outcome range is mutually exclusive with other ranges.",
+      "mapped_signals": [
+        "Trump impose large tariffs in first year?",
+        "Will the U.S. Congress pass a budget reconciliation bill before July 2025?",
+        "Hyperliquid daily fees above $8M in 2025?"
+      ],
+      "indicator_bundle": {
+        "Global renewable share 2050": "50-65%",
+        "U.S. tariff implementation": "Large tariffs imposed",
+        "Congressional budget reconciliation": "Passed before July 2025",
+        "Financial market stability": "Moderate volatility"
+      }
+    },
+    {
+      "name": "Disrupted Transition",
+      "description": "Significant disruptions from cyber attacks, financial instability, or policy reversals severely hamper renewable deployment. Critical infrastructure attacks undermine grid modernization efforts, while financial market stress reduces investment in clean energy.",
+      "outcome_range": "35-50%",
+      "key_drivers": [
+        "Critical infrastructure cyber attacks",
+        "Financial market instability (crypto collapse)",
+        "Policy reversals and reduced climate ambition",
+        "Grid vulnerability concerns slow renewable integration",
+        "Reduced private investment in clean energy"
+      ],
+      "why_exclusive": "This scenario is defined by major disruptions that fundamentally alter the energy transition trajectory, making it impossible to achieve the higher renewable shares seen in other scenarios. The 35-50% range is below other scenario ranges.",
+      "mapped_signals": [
+        "Will an AI-enabled cyber-attack cause significant disruption to critical national infrastructure in any G20 country before July 2026?",
+        "Tether insolvent in 2025?",
+        "Will Tesla (TSLA) close at $300\u2013325 in 2025?"
+      ],
+      "indicator_bundle": {
+        "Critical infrastructure cyber attacks": "Occurs before July 2026",
+        "Cryptocurrency market stability": "Tether insolvent",
+        "Tesla stock performance": "<$300 in 2025",
+        "Grid modernization progress": "Significantly delayed",
+        "Climate policy ambition": "Reduced globally"
+      }
+    }
+  ],
+  "mece_reasoning": "These three scenarios are MECE because they partition the renewable energy outcome space into non-overlapping ranges (65-75%, 50-65%, 35-50%) that together cover the realistic possibility space for 2050 renewable share. Each scenario represents a fundamentally different world state: (1) sustained policy momentum with technological success, (2) mixed progress with moderate headwinds, or (3) major disruptions derailing the transition. The scenarios are mutually exclusive because they represent different levels of policy support, market confidence, and systemic stability that cannot coexist simultaneously. They are collectively exhaustive as they span from ambitious Paris+ targets down to a scenario where major disruptions significantly slow progress, covering the realistic range of outcomes given current starting point of ~15%.",
+  "coverage_gaps": [
+    "Scenarios assume no major breakthrough technologies (fusion, advanced storage) that could enable >75% renewable share",
+    "Does not explicitly model scenarios where renewables fall below 35% (would require major global policy reversals beyond what signals suggest)"
+  ],
+  "created_at": "2026-01-15T11:21:56.846746"
+}

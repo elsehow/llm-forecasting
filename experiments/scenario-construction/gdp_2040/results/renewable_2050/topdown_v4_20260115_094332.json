@@ -1,0 +1,206 @@
+{
+  "target": "renewable_2050",
+  "approach": "topdown_v4_expert_uncertainties",
+  "question": {
+    "id": "renewable_2050",
+    "text": "What share of global energy will come from renewable sources in 2050?",
+    "unit": "percent",
+    "base_rate": 15.0,
+    "value_range": [
+      10.0,
+      90.0
+    ]
+  },
+  "config": {
+    "context": "Current renewable share: ~15% (2024). Paris targets: 60-70% by 2050. Key uncertainties: policy ambition, battery/storage costs, grid infrastructure, fossil fuel phase-out pace, nuclear expansion.",
+    "cruxiness_normalizer": 30.0
+  },
+  "uncertainties": [
+    {
+      "name": "Energy Transition Speed",
+      "description": "The pace of renewable energy adoption drives massive infrastructure investment, job transitions, and energy cost changes that significantly impact GDP growth through capital allocation, labor market effects, and international competitiveness in energy-intensive industries.",
+      "low_state": "Slow transition: Renewables reach only 35-40% of global energy by 2050, dominated by continued fossil fuel dependence with high stranded asset costs and delayed infrastructure modernization.",
+      "high_state": "Rapid transition: Renewables achieve 70-80% of global energy by 2050, driving massive green infrastructure investment, energy cost reductions, and technological leadership advantages.",
+      "signals": [
+        "By December 2027, global renewable energy investment exceeds $2 trillion annually, per IEA World Energy Investment report",
+        "By January 2029, at least 15 countries achieve >50% renewable electricity generation for full calendar year 2028, per national energy statistics",
+        "Before June 2030, Tesla or Chinese EV manufacturers achieve >20% global auto market share, per automotive industry sales data",
+        "By December 2028, green hydrogen production costs fall below $3/kg in at least 5 major markets, per BloombergNEF hydrogen price tracking",
+        "Before January 2031, fossil fuel companies write down >$500 billion in stranded assets cumulatively since 2025, per company SEC filings and annual reports"
+      ]
+    },
+    {
+      "name": "Climate Investment Returns",
+      "description": "Whether climate adaptation and green technology investments generate positive economic returns versus becoming costly burdens determines GDP trajectories, as trillions in climate-related spending either boost productivity and competitiveness or drain resources without commensurate gains.",
+      "low_state": "Poor returns: Climate investments yield low productivity gains, green technologies remain expensive, and adaptation costs drain resources without generating economic benefits, reducing overall GDP growth.",
+      "high_state": "Strong returns: Climate technologies achieve breakthrough cost reductions, green infrastructure drives productivity gains, and early movers capture export advantages, boosting GDP through innovation and efficiency.",
+      "signals": [
+        "By December 2028, solar and wind achieve grid parity (unsubsidized) in >20 major economies, per IRENA Global Energy Transformation report",
+        "Before January 2030, at least 5 climate adaptation projects demonstrate >15% annual ROI, per World Bank infrastructure project evaluations",
+        "By June 2029, green technology exports from leading countries (US, China, EU) exceed $500 billion annually, per WTO trade statistics",
+        "Before December 2030, battery storage costs fall below $50/kWh at utility scale, per BloombergNEF battery price survey",
+        "By January 2031, carbon pricing mechanisms cover >40% of global emissions with average price >$75/tonne CO2, per World Bank carbon pricing dashboard"
+      ]
+    }
+  ],
+  "signals": [
+    {
+      "text": "By December 2027, global renewable energy investment exceeds $2 trillion annually, per IEA World Energy Investment report",
+      "reasoning": "Resolves Energy Transition Speed"
+    },
+    {
+      "text": "By January 2029, at least 15 countries achieve >50% renewable electricity generation for full calendar year 2028, per national energy statistics",
+      "reasoning": "Resolves Energy Transition Speed"
+    },
+    {
+      "text": "Before June 2030, Tesla or Chinese EV manufacturers achieve >20% global auto market share, per automotive industry sales data",
+      "reasoning": "Resolves Energy Transition Speed"
+    },
+    {
+      "text": "By December 2028, green hydrogen production costs fall below $3/kg in at least 5 major markets, per BloombergNEF hydrogen price tracking",
+      "reasoning": "Resolves Energy Transition Speed"
+    },
+    {
+      "text": "Before January 2031, fossil fuel companies write down >$500 billion in stranded assets cumulatively since 2025, per company SEC filings and annual reports",
+      "reasoning": "Resolves Energy Transition Speed"
+    },
+    {
+      "text": "By December 2028, solar and wind achieve grid parity (unsubsidized) in >20 major economies, per IRENA Global Energy Transformation report",
+      "reasoning": "Resolves Climate Investment Returns"
+    },
+    {
+      "text": "Before January 2030, at least 5 climate adaptation projects demonstrate >15% annual ROI, per World Bank infrastructure project evaluations",
+      "reasoning": "Resolves Climate Investment Returns"
+    },
+    {
+      "text": "By June 2029, green technology exports from leading countries (US, China, EU) exceed $500 billion annually, per WTO trade statistics",
+      "reasoning": "Resolves Climate Investment Returns"
+    },
+    {
+      "text": "Before December 2030, battery storage costs fall below $50/kWh at utility scale, per BloombergNEF battery price survey",
+      "reasoning": "Resolves Climate Investment Returns"
+    },
+    {
+      "text": "By January 2031, carbon pricing mechanisms cover >40% of global emissions with average price >$75/tonne CO2, per World Bank carbon pricing dashboard",
+      "reasoning": "Resolves Climate Investment Returns"
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Fossil Lock-in",
+      "description": "Energy transition stalls due to political resistance and technological bottlenecks. Renewables grow slowly to only 35-40% by 2050 as fossil fuel infrastructure remains dominant. Climate investments fail to deliver returns, creating economic drag.",
+      "gdp_range": "15-25%",
+      "uncertainty_states": {
+        "Energy Transition Speed": "Slow transition: Renewables reach only 35-40% of global energy by 2050, dominated by continued fossil fuel dependence with high stranded asset costs and delayed infrastructure modernization.",
+        "Climate Investment Returns": "Poor returns: Climate investments yield low productivity gains, green technologies remain expensive, and adaptation costs drain resources without generating economic benefits, reducing overall GDP growth."
+      },
+      "key_drivers": [
+        "Policy gridlock and fossil fuel lobbying",
+        "High renewable technology costs persist",
+        "Grid infrastructure modernization delays",
+        "Stranded fossil fuel asset resistance",
+        "Climate adaptation costs without productivity gains"
+      ],
+      "why_exclusive": "Cannot coexist with rapid renewable adoption or strong investment returns - represents world where both transition speed and investment efficiency remain low",
+      "signals": [
+        "By December 2027, global renewable energy investment exceeds $2 trillion annually, per IEA World Energy Investment report",
+        "By December 2028, green hydrogen production costs fall below $3/kg in at least 5 major markets, per BloombergNEF hydrogen price tracking",
+        "By December 2028, solar and wind achieve grid parity (unsubsidized) in >20 major economies, per IRENA Global Energy Transformation report"
+      ],
+      "indicator_bundle": {
+        "Renewable energy share 2050": "35-40%",
+        "Annual green investment": "<$1.5T by 2030",
+        "Grid parity countries": "<15 by 2030",
+        "Stranded asset writedowns": "<$200B cumulative"
+      }
+    },
+    {
+      "name": "Muddle Through",
+      "description": "Moderate energy transition progresses with mixed investment results. Renewables reach 50-60% by 2050 through gradual policy support and cost reductions. Economic benefits are modest but steady.",
+      "gdp_range": "40-55%",
+      "uncertainty_states": {
+        "Energy Transition Speed": "Moderate transition: Renewables reach 50-60% with steady but unspectacular progress",
+        "Climate Investment Returns": "Mixed returns: Some green technologies succeed while others underperform, creating moderate net economic benefits"
+      },
+      "key_drivers": [
+        "Incremental policy progress without dramatic shifts",
+        "Gradual renewable cost reductions",
+        "Partial grid modernization success",
+        "Mixed climate investment performance",
+        "Balanced fossil fuel phase-out"
+      ],
+      "why_exclusive": "Represents moderate outcomes that cannot occur alongside either dramatic transition failure or breakthrough success scenarios",
+      "signals": [
+        "By January 2029, at least 15 countries achieve >50% renewable electricity generation for full calendar year 2028, per national energy statistics",
+        "Before January 2030, at least 5 climate adaptation projects demonstrate >15% annual ROI, per World Bank infrastructure project evaluations",
+        "By June 2029, green technology exports from leading countries (US, China, EU) exceed $500 billion annually, per WTO trade statistics"
+      ],
+      "indicator_bundle": {
+        "Renewable energy share 2050": "50-60%",
+        "Annual green investment": "$1.5-2T by 2030",
+        "Countries >50% renewable": "15-25 by 2029",
+        "Green tech exports": "$300-600B annually"
+      }
+    },
+    {
+      "name": "Efficient Transition",
+      "description": "Slow but highly efficient energy transition achieves 45-55% renewables by 2050 with exceptional investment returns. Technology breakthroughs and smart policy drive productivity gains despite measured transition pace.",
+      "gdp_range": "45-55%",
+      "uncertainty_states": {
+        "Energy Transition Speed": "Slow transition: Renewables reach only 35-40% of global energy by 2050, dominated by continued fossil fuel dependence with high stranded asset costs and delayed infrastructure modernization.",
+        "Climate Investment Returns": "Strong returns: Climate technologies achieve breakthrough cost reductions, green infrastructure drives productivity gains, and early movers capture export advantages, boosting GDP through innovation and efficiency."
+      },
+      "key_drivers": [
+        "Breakthrough renewable technology costs",
+        "High-efficiency climate investments",
+        "Strategic rather than rapid transition",
+        "Technology export advantages",
+        "Productivity-focused green infrastructure"
+      ],
+      "why_exclusive": "Cannot coexist with rapid transition scenarios due to measured pace, but achieves higher renewable share than other slow scenarios due to superior investment efficiency",
+      "signals": [
+        "Before December 2030, battery storage costs fall below $50/kWh at utility scale, per BloombergNEF battery price survey",
+        "By January 2031, carbon pricing mechanisms cover >40% of global emissions with average price >$75/tonne CO2, per World Bank carbon pricing dashboard",
+        "Before January 2030, at least 5 climate adaptation projects demonstrate >15% annual ROI, per World Bank infrastructure project evaluations"
+      ],
+      "indicator_bundle": {
+        "Renewable energy share 2050": "45-55%",
+        "Battery storage costs": "<$50/kWh by 2030",
+        "Carbon price coverage": ">40% emissions",
+        "Climate project ROI": ">15% for adaptation"
+      }
+    },
+    {
+      "name": "Green Revolution",
+      "description": "Rapid energy transition achieves 70-80% renewables by 2050 with strong investment returns. Breakthrough technologies and aggressive policies create a virtuous cycle of cost reductions and economic growth.",
+      "gdp_range": "65-80%",
+      "uncertainty_states": {
+        "Energy Transition Speed": "Rapid transition: Renewables achieve 70-80% of global energy by 2050, driving massive green infrastructure investment, energy cost reductions, and technological leadership advantages.",
+        "Climate Investment Returns": "Strong returns: Climate technologies achieve breakthrough cost reductions, green infrastructure drives productivity gains, and early movers capture export advantages, boosting GDP through innovation and efficiency."
+      },
+      "key_drivers": [
+        "Aggressive climate policy implementation",
+        "Massive renewable infrastructure investment",
+        "Breakthrough battery and storage technologies",
+        "Rapid fossil fuel asset stranding",
+        "Green technology export leadership"
+      ],
+      "why_exclusive": "Cannot occur with slow transition or poor investment returns - requires both rapid adoption and strong economic performance from climate investments",
+      "signals": [
+        "Before June 2030, Tesla or Chinese EV manufacturers achieve >20% global auto market share, per automotive industry sales data",
+        "Before January 2031, fossil fuel companies write down >$500 billion in stranded assets cumulatively since 2025, per company SEC filings and annual reports",
+        "By June 2029, green technology exports from leading countries (US, China, EU) exceed $500 billion annually, per WTO trade statistics",
+        "Before December 2030, battery storage costs fall below $50/kWh at utility scale, per BloombergNEF battery price survey"
+      ],
+      "indicator_bundle": {
+        "Renewable energy share 2050": "70-80%",
+        "EV market share": ">20% by 2030",
+        "Stranded assets": ">$500B writedowns",
+        "Green tech exports": ">$500B annually"
+      }
+    }
+  ],
+  "mece_reasoning": "The four scenarios are mutually exclusive because they represent distinct combinations of transition speed and investment efficiency that cannot coexist. Fossil Lock-in requires both slow transition AND poor returns. Muddle Through represents moderate states that preclude extremes. Efficient Transition uniquely combines slow pace with high efficiency. Green Revolution requires both rapid transition AND strong returns. They are collectively exhaustive because they cover all logical combinations of the two key uncertainties, with renewable share ranges (35-40%, 45-55%, 50-60%, 70-80%) that span the full plausible outcome space from current ~15% to Paris targets of 60-70%, with no gaps or overlaps.",
+  "coverage_gaps": [],
+  "created_at": "2026-01-15T09:43:32.463911"
+}

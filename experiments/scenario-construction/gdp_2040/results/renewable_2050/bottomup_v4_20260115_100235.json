@@ -1,0 +1,223 @@
+{
+  "target": "renewable_2050",
+  "approach": "bottomup_v4_semantic_search",
+  "question": {
+    "id": "renewable_2050",
+    "text": "What share of global energy will come from renewable sources in 2050?",
+    "unit": "percent",
+    "base_rate": 15.0,
+    "value_range": [
+      10.0,
+      90.0
+    ]
+  },
+  "config": {
+    "context": "Current renewable share: ~15% (2024). Paris targets: 60-70% by 2050. Key uncertainties: policy ambition, battery/storage costs, grid infrastructure, fossil fuel phase-out pace, nuclear expansion.",
+    "cruxiness_normalizer": 30.0
+  },
+  "knowledge_cutoff": "2025-05-01",
+  "sources_used": [
+    "polymarket",
+    "metaculus",
+    "fred",
+    "infer",
+    "manifold",
+    "yfinance"
+  ],
+  "questions_retrieved": 300,
+  "high_relevance_before_dedup": 137,
+  "high_relevance_after_dedup": 10,
+  "duplicates_removed": 127,
+  "source_breakdown": {
+    "metaculus": 4,
+    "polymarket": 2,
+    "manifold": 3,
+    "infer": 1
+  },
+  "signals": [
+    {
+      "text": "Will renewable energy exceed 55% of global electricity generation before 2030, according to Our World in Data?",
+      "source": "metaculus",
+      "reasoning": "Strong connection to energy costs, industrial competitiveness, and the transition economy. Renewable dominance affects energy prices, grid stability, and industrial location decisions, all impacting GDP trajectory."
+    },
+    {
+      "text": "Will diplomatic engagement between the U.S. and China on nuclear risk reduction increase in 2025?",
+      "source": "metaculus",
+      "reasoning": "US-China diplomatic cooperation affects trade relations, technology transfer, and geopolitical stability, all of which influence economic confidence and investment flows."
+    },
+    {
+      "text": "Ragnar\u00f6k Question Series: If a global catastrophe occurs, will it be due to either human-made climate change or geoengineering?",
+      "source": "metaculus",
+      "reasoning": "Climate catastrophe would cause massive GDP collapse through infrastructure damage, agricultural failure, and social disruption on a global scale."
+    },
+    {
+      "text": "Fed increases interest rates by 25+ bps after July 2025 meeting?",
+      "source": "polymarket",
+      "reasoning": "Federal Reserve interest rate decisions directly affect borrowing costs, investment, and economic growth, making this a key GDP driver."
+    },
+    {
+      "text": "By 2028, will there be a visible break in trend line on US GDP, GDP per capita, unemployment, or productivity, which most economists attribute directly to the effects of AI?",
+      "source": "manifold",
+      "reasoning": "This question directly asks about visible AI impacts on US GDP metrics by 2028, making it highly relevant to GDP trajectory assessment."
+    },
+    {
+      "text": "Will the U.S. invade Venezuela in 2025?",
+      "source": "polymarket",
+      "reasoning": "Direct US military involvement would significantly impact federal spending, defense expenditures, and potentially oil markets, creating substantial fiscal and economic effects"
+    },
+    {
+      "text": "On 31 May 2025, will Nvidia be the world\u2019s most valuable company by market cap?",
+      "source": "infer",
+      "reasoning": "Reflects AI/semiconductor sector dominance and technological leadership affecting productivity growth and innovation."
+    },
+    {
+      "text": "Before 2100, will there be a 5-year period with an average global temperature >3.6\u02daC warmer than the 1861-1880 baseline?",
+      "source": "metaculus",
+      "reasoning": "Extreme climate change would cause massive economic disruption through weather events, agriculture, and infrastructure damage"
+    },
+    {
+      "text": "Will we get AGI before 2032?",
+      "source": "manifold",
+      "reasoning": "AGI achievement would revolutionize productivity, automation, and economic structure with transformational GDP impact"
+    },
+    {
+      "text": "Will a room-temperature, atmospheric pressure superconductor be discovered before 2030?",
+      "source": "manifold",
+      "reasoning": "A room-temperature superconductor breakthrough would revolutionize multiple industries including energy, transportation, and computing, potentially adding trillions to global GDP and significantly boosting US economic growth through technological advantages."
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Green Transformation",
+      "description": "Rapid renewable deployment exceeds expectations, reaching 70-80% by 2050. Technological breakthroughs in storage and grid management combine with aggressive climate policies to accelerate the energy transition. AI optimization and potential superconductor discoveries revolutionize energy efficiency and grid performance.",
+      "gdp_range": "$180-220T",
+      "key_drivers": [
+        "Room-temperature superconductor breakthrough enabling lossless energy transmission",
+        "AI-driven grid optimization and energy management systems",
+        "Accelerated renewable deployment exceeding 55% by 2030",
+        "Strong international climate cooperation and policy coordination",
+        "Breakthrough battery storage technologies driving down costs"
+      ],
+      "why_exclusive": "This scenario requires breakthrough technologies and aggressive policy implementation that would preclude slower transition scenarios. The combination of superconductor discovery and AI optimization would fundamentally transform energy economics in ways incompatible with gradual transitions.",
+      "signals": [
+        "Will renewable energy exceed 55% of global electricity generation before 2030?",
+        "Will a room-temperature, atmospheric pressure superconductor be discovered before 2030?",
+        "By 2028, will there be a visible break in trend line on US GDP attributed to AI effects?",
+        "Will we get AGI before 2032?"
+      ],
+      "indicator_bundle": {
+        "renewable_share_2030": "55%+",
+        "global_energy_storage_capacity": "500+ TWh",
+        "carbon_price_average": "$150+/tonne",
+        "green_investment_share": "40%+ of total energy investment",
+        "grid_stability_index": "95%+ uptime globally"
+      }
+    },
+    {
+      "name": "Steady Progress",
+      "description": "Renewable energy grows steadily to 45-55% by 2050, following current policy trajectories. Economic growth remains moderate with gradual technological improvements but no major breakthroughs. Geopolitical stability supports consistent investment in clean energy infrastructure.",
+      "gdp_range": "$140-180T",
+      "key_drivers": [
+        "Current renewable cost curves continue declining predictably",
+        "Moderate climate policies maintain momentum without acceleration",
+        "Stable US-China relations enable technology transfer and cooperation",
+        "Federal Reserve maintains balanced monetary policy supporting investment",
+        "Gradual nuclear expansion supplements renewables"
+      ],
+      "why_exclusive": "This scenario assumes no major technological breakthroughs or policy accelerations that would characterize the transformation scenario, while avoiding the disruptions that would limit growth in crisis scenarios.",
+      "signals": [
+        "Will renewable energy exceed 55% of global electricity generation before 2030?",
+        "Will diplomatic engagement between the U.S. and China on nuclear risk reduction increase in 2025?",
+        "Fed increases interest rates by 25+ bps after July 2025 meeting?",
+        "On 31 May 2025, will Nvidia be the world's most valuable company by market cap?"
+      ],
+      "indicator_bundle": {
+        "renewable_share_2030": "35-45%",
+        "global_energy_storage_capacity": "200-400 TWh",
+        "carbon_price_average": "$75-125/tonne",
+        "green_investment_share": "25-35% of total energy investment",
+        "fossil_fuel_phase_out_rate": "3-5% annually"
+      }
+    },
+    {
+      "name": "Fossil Fuel Resilience",
+      "description": "Renewable growth stalls at 25-35% by 2050 due to grid challenges, storage limitations, and fossil fuel industry pushback. Political resistance and economic disruptions slow the energy transition while maintaining traditional energy systems.",
+      "gdp_range": "$110-140T",
+      "key_drivers": [
+        "Grid infrastructure limitations constrain renewable integration",
+        "High storage costs maintain fossil fuel competitiveness",
+        "Political backlash against rapid energy transition policies",
+        "Geopolitical conflicts disrupt international climate cooperation",
+        "Traditional energy sectors maintain political and economic influence"
+      ],
+      "why_exclusive": "This scenario requires systematic resistance to renewable deployment and technological stagnation that would prevent the breakthroughs assumed in higher scenarios, while avoiding the complete economic collapse of crisis scenarios.",
+      "signals": [
+        "Will diplomatic engagement between the U.S. and China on nuclear risk reduction increase in 2025?",
+        "Will the U.S. invade Venezuela in 2025?",
+        "Fed increases interest rates by 25+ bps after July 2025 meeting?"
+      ],
+      "indicator_bundle": {
+        "renewable_share_2030": "<30%",
+        "global_energy_storage_capacity": "<150 TWh",
+        "carbon_price_average": "<$50/tonne",
+        "fossil_fuel_investment_share": "60%+ of total energy investment",
+        "energy_transition_policy_score": "Low implementation globally"
+      }
+    },
+    {
+      "name": "Climate Crisis Disruption",
+      "description": "Extreme climate impacts and potential geoengineering responses create massive economic disruptions before 2050. Energy systems are rebuilt multiple times due to climate disasters, leading to chaotic rather than planned renewable deployment reaching 60%+ through necessity.",
+      "gdp_range": "$80-110T",
+      "key_drivers": [
+        "Global temperature exceeds 3.6\u00b0C causing widespread infrastructure damage",
+        "Climate catastrophes force emergency energy system rebuilds",
+        "Geoengineering attempts create additional economic uncertainty",
+        "Mass climate migration disrupts labor markets and supply chains",
+        "Emergency renewable deployment due to fossil fuel supply disruptions"
+      ],
+      "why_exclusive": "This scenario involves systemic climate disruption that would fundamentally alter economic structures and prevent the stable growth trajectories assumed in other scenarios. The crisis-driven renewable deployment would be qualitatively different from planned transitions.",
+      "signals": [
+        "If a global catastrophe occurs, will it be due to climate change or geoengineering?",
+        "Before 2100, will there be a 5-year period with average global temperature >3.6\u00b0C above 1861-1880 baseline?",
+        "Will the U.S. invade Venezuela in 2025?"
+      ],
+      "indicator_bundle": {
+        "climate_damage_gdp_loss": "15-25% annually",
+        "emergency_renewable_deployment": "Crisis-driven 10%+ annual additions",
+        "infrastructure_replacement_rate": "20%+ per decade",
+        "climate_migration_population": "500M+ displaced",
+        "geoengineering_investment": "$500B+ annually"
+      }
+    },
+    {
+      "name": "Nuclear Renaissance",
+      "description": "A combination of nuclear expansion and moderate renewables reaches 65% low-carbon energy by 2050. Advanced nuclear technologies and strong institutional support create a mixed clean energy system with nuclear providing baseload and renewables handling peak demand.",
+      "gdp_range": "$160-200T",
+      "key_drivers": [
+        "Breakthrough in small modular reactor economics and deployment",
+        "Strong government support for nuclear infrastructure investment",
+        "US-China cooperation enables nuclear technology advancement",
+        "Nuclear addresses grid stability concerns with renewable intermittency",
+        "Public acceptance of nuclear energy increases due to climate urgency"
+      ],
+      "why_exclusive": "This scenario requires significant nuclear expansion that would compete with pure renewable strategies for investment capital and policy attention. The nuclear-renewable mix would create different economic dynamics than either pure renewable or fossil fuel dominant scenarios.",
+      "signals": [
+        "Will diplomatic engagement between the U.S. and China on nuclear risk reduction increase in 2025?",
+        "By 2028, will there be a visible break in trend line on US GDP attributed to AI effects?",
+        "Will renewable energy exceed 55% of global electricity generation before 2030?"
+      ],
+      "indicator_bundle": {
+        "nuclear_capacity_growth": "300%+ from 2024 levels",
+        "nuclear_plus_renewable_share": "65%+ by 2050",
+        "nuclear_construction_time": "<5 years average",
+        "advanced_reactor_deployment": "200+ units globally",
+        "nuclear_investment_flow": "$200B+ annually"
+      }
+    }
+  ],
+  "mece_reasoning": "These scenarios are mutually exclusive because they represent fundamentally different pathways for energy transition and economic development that cannot occur simultaneously. The Green Transformation scenario requires breakthrough technologies and aggressive policies that would preclude the gradual approach of Steady Progress. The Fossil Fuel Resilience scenario assumes systematic resistance to change that contradicts both transformation and crisis scenarios. Climate Crisis Disruption involves systemic breakdown that prevents the stable growth of other scenarios. Nuclear Renaissance requires massive capital allocation to nuclear that would compete directly with pure renewable strategies. Each scenario also occupies distinct GDP ranges ($80-110T, $110-140T, $140-180T, $160-200T, $180-220T) reflecting their different economic impacts.",
+  "coverage_gaps": [
+    "The scenarios may not fully capture: (1) Regional variation in energy transitions - some regions might follow different paths simultaneously; (2) Hybrid scenarios where different technologies dominate in different sectors (e.g., renewables for electricity, hydrogen for industry); (3) The potential for rapid shifts between scenarios due to sudden technological breakthroughs or policy changes; (4) The role of demand-side changes like energy efficiency improvements or lifestyle changes that could affect overall energy needs; (5) Cybersecurity risks or grid vulnerabilities that could force energy system changes independent of climate or economic factors."
+  ],
+  "created_at": "2026-01-15T10:02:35.555964"
+}

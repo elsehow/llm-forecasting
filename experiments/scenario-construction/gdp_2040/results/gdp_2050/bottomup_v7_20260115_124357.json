@@ -1,0 +1,267 @@
+{
+  "id": "bottomup_gdp_2050_92ca919b",
+  "name": "gdp_2050 (bottom-up)",
+  "target": "gdp_2050",
+  "approach": "bottomup_v7",
+  "question": {
+    "id": "gdp_2050",
+    "source": "scenario_construction",
+    "text": "What will US real GDP be in 2050 (in 2024 dollars)?",
+    "question_type": "continuous",
+    "unit": "usd_trillions",
+    "base_rate": 29.0,
+    "value_range": [
+      25.0,
+      150.0
+    ]
+  },
+  "config": {
+    "context": "Current US GDP: ~$29 trillion (2024). 26-year horizon allows for transformative changes. Key uncertainties: AI/automation impact, transformative tech (quantum, fusion), geopolitical realignment, climate adaptation costs, demographic shifts, institutional stability.",
+    "cruxiness_normalizer": 40.0,
+    "voi_floor": 0.1
+  },
+  "knowledge_cutoff": "2025-10-01",
+  "current_date": "2026-01-15",
+  "sources_used": [
+    "polymarket",
+    "metaculus",
+    "fred",
+    "infer",
+    "manifold"
+  ],
+  "signals_retrieved": 200,
+  "signals_after_dedup": 9,
+  "signals_above_floor": 6,
+  "source_breakdown": {
+    "metaculus": 3,
+    "manifold": 2,
+    "polymarket": 3,
+    "fred": 1
+  },
+  "category_breakdown": {
+    "future": 98,
+    "near_term": 98,
+    "unknown": 4
+  },
+  "signals": [
+    {
+      "id": "8646",
+      "source": "metaculus",
+      "text": "If >100 offensive nuclear detonations occur by 2050, will international trade of goods decline by at least 10% for at least 1 year in the following 5 years?",
+      "url": "https://www.metaculus.com/questions/8646",
+      "resolution_date": "2049-12-31",
+      "base_rate": null,
+      "voi": 0.35,
+      "rho": -0.7,
+      "rho_reasoning": "There is no clear causal relationship between the two questions. They are measuring different underlying phenomena - economic growth and nuclear war disruption of trade. They are not mutually exclusive, as it is possible for economic growth to occur even with nuclear war. However, they are not truly independent, as a major nuclear war would likely have significant negative impacts on the economy and trade. Based on this, I estimate a moderately strong negative correlation coefficient of -0.7.",
+      "signal_category": "future"
+    },
+    {
+      "id": "zg7xJ5ZkJJ4wJPJDPjWO",
+      "source": "manifold",
+      "text": "By 2028, will there be a visible break in trend line on US GDP, GDP per capita, unemployment, or productivity, which most economists attribute directly to the effects of AI?",
+      "url": "https://manifold.markets/ScottAlexander/by-2028-will-there-be-a-visible-bre",
+      "resolution_date": "2028-01-02",
+      "base_rate": null,
+      "voi": 0.25,
+      "rho": 0.5,
+      "rho_reasoning": "There is likely a causal relationship between the two questions, as the emergence of AI and its effects on the economy could directly impact future GDP growth. However, they are not measuring the same underlying phenomenon, as one is a quantitative forecast of GDP and the other is a qualitative assessment of economic trends. Additionally, the two questions are not mutually exclusive, as a visible break in economic trends does not necessarily preclude a particular GDP outcome. Finally, the questions are not entirely independent, as the effects of AI on the economy could influence both GDP and the presence of a trend break. Given these considerations, a moderately positive correlation coefficient of 0.5 seems reasonable.",
+      "signal_category": "future"
+    },
+    {
+      "id": "0xbad74413f87762c2b4423dfcd72ccce4c561bc59f33e7ed474b33ef917b802a0",
+      "source": "polymarket",
+      "text": "US defaults on debt in 2025?",
+      "url": "https://polymarket.com/market/us-defaults-on-debt-in-2025",
+      "resolution_date": "2025-12-31",
+      "base_rate": null,
+      "voi": 0.25,
+      "rho": -0.5,
+      "rho_reasoning": "There is no clear causal relationship between US real GDP in 2050 and a US debt default in 2025. They are measuring different underlying phenomena - economic output vs. debt repayment. While a debt default could potentially impact future economic growth, the relationship is indirect and complex. The two events are also not mutually exclusive - the US could default on debt without it necessarily impacting long-term GDP. Therefore, the two questions are likely weakly negatively correlated, with a correlation coefficient around -0.5.",
+      "signal_category": "near_term"
+    },
+    {
+      "id": "3385",
+      "source": "metaculus",
+      "text": "Will humanity maintain a continuous off-Earth presence until 2050?",
+      "url": "https://www.metaculus.com/questions/3385",
+      "resolution_date": "2040-07-14",
+      "base_rate": null,
+      "voi": 0.19999999999999996,
+      "rho": 0.4,
+      "rho_reasoning": "There could be a positive correlation between the two questions, as a continuous off-Earth presence until 2050 may contribute to the growth and development of the US economy, potentially leading to higher real GDP. However, the relationship is not direct, and there are many other factors that could influence US real GDP in 2050. Therefore, the correlation coefficient is estimated to be around 0.4, indicating a moderate positive correlation.",
+      "signal_category": "future"
+    },
+    {
+      "id": "CURRCIR",
+      "source": "fred",
+      "text": "Will the number of US dollars in circulation have increased by {resolution_date} as compared to its value on {forecast_due_date}?",
+      "url": "https://fred.stlouisfed.org/series/CURRCIR",
+      "resolution_date": null,
+      "base_rate": null,
+      "voi": 0.15000000000000002,
+      "rho": 0.3,
+      "rho_reasoning": "There is no clear causal relationship between US real GDP in 2050 and the change in the US dollars in circulation. They are measuring different underlying phenomena. While they are not mutually exclusive, they are not truly independent either, as both could be influenced by broader economic factors. Therefore, a moderate positive correlation coefficient of 0.3 is a reasonable estimate.",
+      "signal_category": "unknown"
+    },
+    {
+      "id": "0x7ffa1fcfaeac86d4a89afcb74c90296f0e7c3744ce5206183c9cb38651526e63",
+      "source": "polymarket",
+      "text": "New pandemic in 2025?",
+      "url": "https://polymarket.com/market/new-pandemic-in-2025",
+      "resolution_date": "2025-12-31",
+      "base_rate": null,
+      "voi": 0.15000000000000002,
+      "rho": -0.3,
+      "rho_reasoning": "There is no clear causal relationship between the US real GDP in 2050 and the occurrence of a new pandemic in 2025. They are also not measuring the same underlying phenomenon. While a pandemic could potentially impact economic growth, they are not mutually exclusive events. However, the occurrence of a new pandemic in 2025 could somewhat negatively impact long-term economic growth projections for 2050, hence the estimated correlation coefficient of -0.3.",
+      "signal_category": "near_term"
+    },
+    {
+      "id": "UnsISN6Qyd",
+      "source": "manifold",
+      "text": "Bitcoin $150K in 2025?",
+      "url": "https://manifold.markets/predyx_markets/bitcoin-150k-in-2025",
+      "resolution_date": "2026-01-01",
+      "base_rate": null,
+      "voi": 0.050000000000000044,
+      "rho": 0.1,
+      "rho_reasoning": "There is no clear causal relationship between US real GDP in 2050 and Bitcoin reaching $150K in 2025. They are measuring different underlying phenomena (macroeconomic performance vs. cryptocurrency price movement). They are not mutually exclusive, as the two events could happen independently. While there may be some correlation due to broader economic factors, the relationship is likely very weak, so a correlation coefficient of 0.1 seems reasonable.",
+      "signal_category": "near_term"
+    },
+    {
+      "id": "0x257b18205f908aef01ef2d1d50e6fea7d29cf5486fe04031d8b101394476faed",
+      "source": "polymarket",
+      "text": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "url": "https://polymarket.com/market/will-there-be-no-change-in-fed-interest-rates-after-the-march-2026-meeting",
+      "resolution_date": "2026-03-18",
+      "base_rate": null,
+      "voi": 0.050000000000000044,
+      "rho": 0.1,
+      "rho_reasoning": "There is no clear causal relationship between US real GDP in 2050 and Fed interest rate changes in 2026. The two questions are measuring different underlying phenomena - economic growth and monetary policy. While they are not mutually exclusive, they are also not closely related. Therefore, they are likely to be largely independent, with a weak positive correlation at most.",
+      "signal_category": "near_term"
+    },
+    {
+      "id": "15150",
+      "source": "metaculus",
+      "text": "Will the US and the EU (or one of its member states) cut diplomatic ties before 2051?",
+      "url": "https://www.metaculus.com/questions/15150/eu-and-us-cut-diplomatic-ties-before-2051/",
+      "resolution_date": "2050-12-31",
+      "base_rate": null,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "There is no obvious causal relationship between the future GDP of the US and the potential cutting of diplomatic ties between the US and the EU. They are measuring different underlying phenomena - economic growth and diplomatic relations. They are not mutually exclusive, as one could happen without the other. Additionally, they appear to be truly independent events, with no direct correlation between them.",
+      "signal_category": "future"
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Crisis Cascade",
+      "description": "Multiple catastrophic shocks compound to severely damage US economic capacity. Nuclear conflict, debt default, and pandemic combine with institutional breakdown to create lasting economic disruption. The economy struggles to recover from overlapping crises that destroy trust, infrastructure, and human capital.",
+      "outcome_range": "$25-35T",
+      "outcome_low": 25.0,
+      "outcome_high": 35.0,
+      "key_drivers": [
+        "Nuclear conflict disrupts global trade",
+        "US debt default triggers financial crisis",
+        "Pandemic overwhelms healthcare and productivity",
+        "Institutional breakdown undermines recovery",
+        "Compound negative shocks prevent stabilization"
+      ],
+      "why_exclusive": "Cannot co-occur with other scenarios because it represents the convergence of multiple catastrophic failures that would prevent the economy from achieving the growth levels seen in other scenarios",
+      "mapped_signals": [
+        "If >100 offensive nuclear detonations occur by 2050, will international trade of goods decline by at least 10% for at least 1 year in the following 5 years?",
+        "US defaults on debt in 2025?",
+        "New pandemic in 2025?"
+      ],
+      "indicator_bundle": {
+        "Nuclear_detonations": ">100 by 2050",
+        "US_debt_default": "Occurs by 2025",
+        "Pandemic_events": "Major pandemic in 2025",
+        "GDP_volatility": ">5% annual swings",
+        "Trade_disruption": ">10% decline sustained"
+      }
+    },
+    {
+      "name": "Stagnant Muddle",
+      "description": "The economy grows slowly as transformative technologies fail to deliver promised gains and various headwinds persist. AI impact remains modest, institutional challenges drag on growth, and the US muddles through without major breakthroughs or catastrophes. Demographics and debt constrain dynamism.",
+      "outcome_range": "$36-45T",
+      "outcome_low": 36.0,
+      "outcome_high": 45.0,
+      "key_drivers": [
+        "AI fails to show visible economic impact by 2028",
+        "Institutional dysfunction creates persistent drag",
+        "Demographic headwinds slow growth",
+        "No major technological breakthroughs materialize",
+        "Moderate but manageable economic challenges"
+      ],
+      "why_exclusive": "Cannot co-occur with other scenarios because it represents a specific range of modest growth that excludes both the catastrophic collapse of Crisis Cascade and the rapid growth of the technology-driven scenarios",
+      "mapped_signals": [
+        "By 2028, will there be a visible break in trend line on US GDP, GDP per capita, unemployment, or productivity, which most economists attribute directly to the effects of AI?",
+        "Will the number of US dollars in circulation have increased by {resolution_date} as compared to its value on {forecast_due_date}?"
+      ],
+      "indicator_bundle": {
+        "AI_economic_impact": "No visible break in trends by 2028",
+        "Productivity_growth": "<1.5% annually",
+        "GDP_growth": "1.5-2.5% annually",
+        "Debt_to_GDP": "Remains >100%",
+        "Innovation_index": "Below historical average"
+      }
+    },
+    {
+      "name": "AI Acceleration",
+      "description": "Artificial intelligence delivers transformative economic gains starting in the late 2020s, driving unprecedented productivity growth. Automation and AI augmentation revolutionize industries, creating new sectors and dramatically increasing output per worker while managing disruption through effective policy responses.",
+      "outcome_range": "$46-60T",
+      "outcome_low": 46.0,
+      "outcome_high": 60.0,
+      "key_drivers": [
+        "Visible AI economic impact emerges by 2028",
+        "Productivity acceleration from AI/automation",
+        "New AI-enabled industries and business models",
+        "Effective management of labor displacement",
+        "Compound returns from technological progress"
+      ],
+      "why_exclusive": "Cannot co-occur with other scenarios because it requires AI to have visible economic impact (contradicting Stagnant Muddle) while avoiding the catastrophic disruptions of Crisis Cascade and the even more extreme technological breakthroughs of Tech Singularity",
+      "mapped_signals": [
+        "By 2028, will there be a visible break in trend line on US GDP, GDP per capita, unemployment, or productivity, which most economists attribute directly to the effects of AI?",
+        "Will the number of US dollars in circulation have increased by {resolution_date} as compared to its value on {forecast_due_date}?"
+      ],
+      "indicator_bundle": {
+        "AI_economic_impact": "Visible GDP break by 2028",
+        "Productivity_growth": ">3% annually post-2028",
+        "AI_adoption_rate": ">75% of Fortune 500 by 2030",
+        "Unemployment_rate": "Managed below 8% despite automation",
+        "R&D_investment": ">4% of GDP in AI/tech"
+      }
+    },
+    {
+      "name": "Tech Singularity",
+      "description": "Multiple breakthrough technologies converge to create explosive economic growth. AI, quantum computing, fusion energy, and space industrialization combine synergistically. The economy experiences sustained high growth as transformative capabilities unlock previously impossible levels of productivity and wealth creation.",
+      "outcome_range": "$61-80T",
+      "outcome_low": 61.0,
+      "outcome_high": 80.0,
+      "key_drivers": [
+        "Multiple breakthrough technologies converge",
+        "Fusion energy provides abundant clean power",
+        "Quantum computing enables new capabilities",
+        "Space industrialization begins contributing to GDP",
+        "Synergistic effects between technologies"
+      ],
+      "why_exclusive": "Cannot co-occur with other scenarios because it represents the highest outcome range requiring multiple simultaneous technological breakthroughs that would exceed the growth levels possible under AI Acceleration alone or the constrained growth of other scenarios",
+      "mapped_signals": [
+        "By 2028, will there be a visible break in trend line on US GDP, GDP per capita, unemployment, or productivity, which most economists attribute directly to the effects of AI?",
+        "Will humanity maintain a continuous off-Earth presence until 2050?",
+        "Will the number of US dollars in circulation have increased by {resolution_date} as compared to its value on {forecast_due_date}?"
+      ],
+      "indicator_bundle": {
+        "Breakthrough_tech_count": ">3 major breakthroughs by 2040",
+        "Space_economy_contribution": ">2% of GDP by 2050",
+        "Fusion_commercialization": "Operational by 2040",
+        "Productivity_growth": ">5% annually post-2035",
+        "Patent_filings": ">3x current rate in key technologies"
+      }
+    }
+  ],
+  "mece_reasoning": "These scenarios are MECE because they partition the outcome space by GDP ranges that cannot overlap: Crisis Cascade ($25-35T) covers catastrophic compound failures, Stagnant Muddle ($36-45T) covers slow growth without major breakthroughs, AI Acceleration ($46-60T) covers AI-driven growth, and Tech Singularity ($61-80T) covers explosive multi-technology breakthroughs. Each scenario is defined by mutually exclusive combinations of key drivers - you cannot simultaneously have both catastrophic failures AND transformative technology success, or both modest AI impact AND visible AI breakthroughs. The scenarios are collectively exhaustive by covering the full plausible range from economic collapse through transformative growth, with each driven by different combinations of the provided signals.",
+  "coverage_gaps": [],
+  "created_at": "2026-01-15T12:43:57.887898"
+}

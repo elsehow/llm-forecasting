@@ -23,6 +23,8 @@ class MECEScenario(BaseModel):
     name: str = Field(description="2-4 word memorable name")
     description: str = Field(description="2-3 sentences describing this world state")
     outcome_range: str = Field(description="Expected outcome range, e.g., '$45-55T' for GDP or '40-50%' for renewable share")
+    outcome_low: float = Field(description="Numeric lower bound of outcome range (e.g., 45.0 for $45T)")
+    outcome_high: float = Field(description="Numeric upper bound of outcome range (e.g., 55.0 for $55T)")
     key_drivers: list[str] = Field(description="3-5 factors that define this scenario")
     why_exclusive: str = Field(description="Why this scenario CANNOT co-occur with the others")
     mapped_signals: list[str] = Field(description="Which input signals map to this scenario")
@@ -65,6 +67,9 @@ CRITICAL REQUIREMENTS:
 3. OUTCOME ANCHORING:
    - Use outcome ranges as the primary differentiator
    - Scenarios should partition the outcome space (non-overlapping ranges)
+   - Provide both human-readable outcome_range (e.g., "$45-55T") AND numeric bounds:
+     * outcome_low: numeric lower bound (e.g., 45.0)
+     * outcome_high: numeric upper bound (e.g., 55.0)
 
 4. SIGNAL GROUNDING:
    - Map signals to the scenario(s) they would indicate

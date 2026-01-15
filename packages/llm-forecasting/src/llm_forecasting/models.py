@@ -104,6 +104,33 @@ class Question(BaseModel):
     unit: Unit | None = None
 
 
+class Signal(Question):
+    """A Question with VOI metadata for scenario construction.
+
+    Extends Question to add value-of-information fields used in scenario
+    generation pipelines. Signals can be either observed (from prediction
+    markets/data sources) or synthetic (LLM-generated).
+    """
+
+    model_config = ConfigDict(frozen=False)  # Allow mutation for VOI enrichment
+
+    # VOI-specific fields
+    voi: float  # Value of Information for target question
+    rho: float  # Correlation coefficient with target question
+    rho_reasoning: str | None = None  # Explanation of correlation estimate
+    uncertainty_source: str | None = None  # Which uncertainty axis (for hybrid/topdown)
+
+    @property
+    def is_synthetic(self) -> bool:
+        """True if signal is LLM-generated (not from a market/data source)."""
+        return self.source == "llm"
+
+    @property
+    def probability(self) -> float | None:
+        """Current P(signal=yes). Uses base_rate from Question."""
+        return self.base_rate
+
+
 class Forecast(BaseModel):
     """A forecast made by a model or human on a question."""
 

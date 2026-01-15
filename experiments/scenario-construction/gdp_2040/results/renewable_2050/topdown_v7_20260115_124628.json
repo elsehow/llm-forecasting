@@ -1,0 +1,543 @@
+{
+  "id": "topdown_renewable_2050_29741ef1",
+  "name": "renewable_2050 (top-down)",
+  "target": "renewable_2050",
+  "approach": "topdown_v7",
+  "question": {
+    "id": "renewable_2050",
+    "source": "scenario_construction",
+    "text": "What share of global energy will come from renewable sources in 2050?",
+    "question_type": "continuous",
+    "unit": "percent",
+    "base_rate": 15.0,
+    "value_range": [
+      10.0,
+      90.0
+    ]
+  },
+  "config": {
+    "context": "Current renewable share: ~15% (2024). Paris targets: 60-70% by 2050. Key uncertainties: policy ambition, battery/storage costs, grid infrastructure, fossil fuel phase-out pace, nuclear expansion.",
+    "cruxiness_normalizer": 30.0,
+    "voi_floor": 0.1
+  },
+  "current_date": "2026-01-15",
+  "uncertainties": [
+    {
+      "name": "Energy Storage Breakthrough",
+      "description": "Whether battery costs and grid-scale storage technologies will achieve dramatic cost reductions and performance improvements by 2030-2035. This determines if intermittent renewables can reliably replace baseload power sources.",
+      "search_query": "battery storage costs grid scale renewable energy intermittency 2030"
+    },
+    {
+      "name": "Climate Policy Commitment",
+      "description": "The degree to which major economies (US, China, EU, India) will maintain and strengthen renewable energy mandates, carbon pricing, and fossil fuel phase-out policies through 2035. Political shifts could accelerate or reverse current trajectories.",
+      "search_query": "renewable energy policy mandates carbon pricing fossil fuel phase out major economies"
+    },
+    {
+      "name": "Fossil Fuel Economics",
+      "description": "How quickly conventional fossil fuel extraction becomes economically unviable due to resource depletion, carbon costs, and stranded assets. Earlier economic obsolescence would accelerate renewable adoption regardless of policy support.",
+      "search_query": "fossil fuel stranded assets peak oil gas extraction costs carbon pricing economics"
+    }
+  ],
+  "signals_per_uncertainty": {
+    "Energy Storage Breakthrough": 10,
+    "Climate Policy Commitment": 10,
+    "Fossil Fuel Economics": 10
+  },
+  "total_signals": 30,
+  "signals_above_floor": 28,
+  "voi_distribution": {
+    ">=0.3": 3,
+    ">=0.2": 16,
+    ">=0.1": 28,
+    "<0.1": 2
+  },
+  "signals": [
+    {
+      "id": "llm_6c0918ff",
+      "source": "llm",
+      "text": "By December 2030, at least 5 countries achieve renewable electricity generation exceeding 80% annually with grid stability maintained, per International Energy Agency statistics",
+      "background": "Multiple countries successfully managing grids with high renewable penetration would prove that storage and grid management technologies can handle intermittency at national scales.",
+      "resolution_date": "2030-12-31",
+      "base_rate": 0.45,
+      "voi": 0.3482456029873171,
+      "rho": 0.7,
+      "rho_reasoning": "There is a causal relationship between the two questions, as the share of global energy from renewable sources in 2050 (Question A) is likely to be influenced by the achievement of high renewable electricity generation in multiple countries by 2030 (Question B). They are measuring different aspects of the same underlying phenomenon, which is the transition to renewable energy. The two questions are not mutually exclusive, as achieving high renewable electricity generation in multiple countries by 2030 could contribute to a higher share of global energy from renewable sources by 2050. Therefore, the two questions are positively correlated, and the correlation coefficient (\u03c1) is estimated to be 0.7.",
+      "uncertainty_source": "Energy Storage Breakthrough"
+    },
+    {
+      "id": "llm_9cbeebc0",
+      "source": "llm",
+      "text": "By June 2026, renewable electricity costs fall below $0.02/kWh (LCOE) in at least 10 countries, per IRENA Global Energy Transformation report or BloombergNEF analysis",
+      "background": "Ultra-low renewable costs would make fossil fuel power generation economically obsolete in most markets, regardless of policy support, forcing rapid transition to renewable energy.",
+      "resolution_date": "2026-06-30",
+      "base_rate": 0.55,
+      "voi": 0.348245602987317,
+      "rho": 0.7,
+      "rho_reasoning": "There is a causal relationship between the two questions. The cost of renewable electricity is a key driver of the share of global energy that will come from renewable sources in 2050. As renewable electricity becomes more cost-competitive, it is likely to increase its share in the global energy mix. Additionally, the two questions are measuring related aspects of the renewable energy transition, though they are not measuring the same underlying phenomenon directly. The questions are not mutually exclusive, and they are not truly independent, as the cost of renewable electricity is a key factor in determining the share of renewable energy in the global energy mix. Therefore, the correlation coefficient between the two questions is likely to be positive and relatively high, estimated at around 0.7.",
+      "uncertainty_source": "Fossil Fuel Economics"
+    },
+    {
+      "id": "llm_8a297ea9",
+      "source": "llm",
+      "text": "By December 2030, lithium-ion battery pack costs fall below $50/kWh as reported in BloombergNEF's annual Battery Price Survey",
+      "background": "This cost threshold represents a dramatic reduction from current ~$130/kWh levels and would make renewable energy storage economically competitive with fossil fuel baseload power across most markets.",
+      "resolution_date": "2030-12-31",
+      "base_rate": 0.35,
+      "voi": 0.3465,
+      "rho": 0.8,
+      "rho_reasoning": "There is a clear causal relationship between the two questions. The cost of lithium-ion batteries is a key driver of the adoption of renewable energy, as it makes renewable energy sources like solar and wind more cost-competitive. As battery costs fall below $50/kWh, it will likely lead to a significant increase in the share of global energy coming from renewable sources by 2050. The two questions are not measuring the same underlying phenomenon, but they are closely related. They are not mutually exclusive, and the achievement of the goal in Question B would likely contribute to the achievement of the goal in Question A. Therefore, the correlation coefficient is estimated to be 0.8, indicating a strong positive correlation between the two questions.",
+      "uncertainty_source": "Energy Storage Breakthrough"
+    },
+    {
+      "id": "llm_664cf80b",
+      "source": "llm",
+      "text": "By January 1, 2028, China will have allocated more than $200 billion annually to renewable energy investments, as reported in the National Energy Administration's annual statistics",
+      "background": "China's renewable investment levels directly determine global clean energy scaling and cost reductions, making their financial commitment a key indicator of policy priority.",
+      "resolution_date": "2028-01-01",
+      "base_rate": 0.7,
+      "voi": 0.29700000000000004,
+      "rho": 0.7,
+      "rho_reasoning": "There appears to be a positive causal relationship between the two questions. Question B (China's renewable energy investment) is a leading indicator for Question A (global renewable energy share), as increased investment in renewable energy is likely to drive growth in renewable energy adoption globally. Additionally, the two questions are measuring related aspects of the same underlying phenomenon - the transition to renewable energy sources. While the questions are not mutually exclusive, they are not completely independent either, as China's renewable energy investment is a significant factor in the global energy mix. Therefore, the correlation coefficient (\u03c1) is estimated to be 0.7, indicating a strong positive correlation.",
+      "uncertainty_source": "Climate Policy Commitment"
+    },
+    {
+      "id": "llm_ad07da3b",
+      "source": "llm",
+      "text": "By December 31, 2028, the EU will have imposed sanctions or trade restrictions on fossil fuel imports from at least 3 major producer countries, as announced by the European Council",
+      "background": "EU fossil fuel import restrictions would demonstrate strong climate policy commitment while accelerating European renewable energy deployment and influencing global energy trade patterns.",
+      "resolution_date": "2028-12-31",
+      "base_rate": 0.3,
+      "voi": 0.29699999999999993,
+      "rho": 0.7,
+      "rho_reasoning": "There is a causal relationship between the two questions. The sanctions or trade restrictions on fossil fuel imports by the EU is likely to drive up the share of renewable energy in the global energy mix by 2050. They are not measuring the same underlying phenomenon, but the sanctions/restrictions are a key driver of the renewable energy share. The two questions are not mutually exclusive, and while they are related, they are not perfectly correlated. Hence, the estimated correlation coefficient (\u03c1) is around 0.7, indicating a strong positive correlation.",
+      "uncertainty_source": "Climate Policy Commitment"
+    },
+    {
+      "id": "llm_0b4cf59c",
+      "source": "llm",
+      "text": "By December 2027, global energy storage capacity additions exceed 100 GW in a single year, as reported by the International Renewable Energy Agency (IRENA)",
+      "background": "This deployment rate would indicate that storage technology has reached the scale needed to support massive renewable energy integration and phase out baseload fossil fuel plants.",
+      "resolution_date": "2027-12-31",
+      "base_rate": 0.4,
+      "voi": 0.2939387691339813,
+      "rho": 0.6,
+      "rho_reasoning": "There is a causal relationship between the two questions, as the growth of renewable energy is likely to be accompanied by increased energy storage capacity. They are measuring different aspects of the same underlying phenomenon, the transition to renewable energy. While not mutually exclusive, the two events are not perfectly correlated, as achieving 100 GW of energy storage in a single year does not guarantee a specific share of global energy from renewable sources by 2050. Overall, the two questions are positively correlated, but not perfectly so, hence the estimated correlation coefficient of 0.6.",
+      "uncertainty_source": "Energy Storage Breakthrough"
+    },
+    {
+      "id": "llm_d6ebfe3c",
+      "source": "llm",
+      "text": "By December 2029, China's National Development and Reform Commission reports battery storage manufacturing costs below 0.3 yuan per Wh ($0.04/Wh) in official policy documents",
+      "background": "China dominates global battery manufacturing, and achieving this ultra-low cost would make storage economically viable for massive grid applications worldwide, accelerating renewable deployment.",
+      "resolution_date": "2029-12-31",
+      "base_rate": 0.35,
+      "voi": 0.2861817604250837,
+      "rho": 0.6,
+      "rho_reasoning": "There is a potential causal relationship between the two questions, as lower battery storage costs in China (question B) could lead to greater adoption of renewable energy globally (question A). Additionally, they are both measuring aspects of renewable energy adoption, though they are not measuring the exact same underlying phenomenon. The questions are not mutually exclusive, as lower battery costs in China could contribute to, but not completely determine, the global share of renewable energy. While the two questions are related, they are not perfectly correlated, as there are other factors that could influence the global renewable energy share beyond just battery costs in China.",
+      "uncertainty_source": "Energy Storage Breakthrough"
+    },
+    {
+      "id": "llm_54d5dc1c",
+      "source": "llm",
+      "text": "Before January 2028, at least 50 major banks (assets >$100B) implement policies restricting financing for new oil and gas projects, per Banking on Climate Chaos report or equivalent analysis",
+      "background": "Widespread banking restrictions would create a financing crisis for fossil fuel development, making new projects economically unviable due to capital constraints and accelerating renewable investment.",
+      "resolution_date": "2028-01-01",
+      "base_rate": 0.35,
+      "voi": 0.2861817604250837,
+      "rho": 0.6,
+      "rho_reasoning": "There is a causal relationship between the two questions. The implementation of policies restricting financing for new oil and gas projects by major banks is likely to drive increased investment in renewable energy sources, which would increase the share of global energy coming from renewable sources by 2050. While they are not measuring the same underlying phenomenon, they are related and could be mutually reinforcing. They are not truly independent, as the success of one is likely to be influenced by the other.",
+      "uncertainty_source": "Fossil Fuel Economics"
+    },
+    {
+      "id": "llm_cc0da31d",
+      "source": "llm",
+      "text": "By June 30, 2027, India will have implemented a national carbon trading system covering at least 70% of industrial emissions, as confirmed by the Ministry of Environment, Forest and Climate Change",
+      "background": "A comprehensive carbon trading system would show India's commitment to market-based climate solutions and create economic incentives favoring renewable energy over fossil fuels.",
+      "resolution_date": "2027-06-30",
+      "base_rate": 0.45,
+      "voi": 0.24874685927665502,
+      "rho": 0.5,
+      "rho_reasoning": "There is likely a causal relationship between the two questions, as the implementation of a national carbon trading system in India could influence the global adoption of renewable energy sources. However, they are not directly measuring the same underlying phenomenon, as one is focused on India's policy while the other is about the global energy mix. The two questions are not mutually exclusive, as India's actions could be one factor contributing to the global shift towards renewables. Overall, there seems to be a moderate positive correlation between the two, hence the estimated rho value of 0.5.",
+      "uncertainty_source": "Climate Policy Commitment"
+    },
+    {
+      "id": "llm_d2c2da5c",
+      "source": "llm",
+      "text": "Before December 2026, global coal consumption falls below 6 billion tonnes annually for first time since 2009, per IEA Coal Market Report",
+      "background": "Rapid coal consumption decline would indicate the dirtiest fossil fuel is becoming economically obsolete due to competition from renewables and carbon costs, accelerating overall energy transition.",
+      "resolution_date": "2026-12-31",
+      "base_rate": 0.45,
+      "voi": 0.24874685927665502,
+      "rho": 0.5,
+      "rho_reasoning": "There is a potential causal relationship between the two questions, as a decline in global coal consumption could contribute to an increase in the share of renewable energy. However, they are not measuring the same underlying phenomenon, as the first question is about the overall share of renewable energy, while the second question is specifically about coal consumption. The two questions are not mutually exclusive, as a decline in coal consumption does not necessarily mean that the share of renewable energy will increase to a certain level. Additionally, the two questions are not truly independent, as they are both related to the energy mix and the transition to renewable energy sources. Therefore, a moderate positive correlation coefficient (\u03c1 = 0.5) is a reasonable estimate.",
+      "uncertainty_source": "Fossil Fuel Economics"
+    },
+    {
+      "id": "llm_17bfd1ea",
+      "source": "llm",
+      "text": "By December 31, 2027, the United States will have a federal carbon price of at least $50 per metric ton of CO2, as confirmed by EPA regulations or congressional legislation",
+      "background": "A significant federal carbon price would demonstrate strong US climate policy commitment and likely accelerate renewable energy deployment while making fossil fuels less competitive economically.",
+      "resolution_date": "2027-12-31",
+      "base_rate": 0.25,
+      "voi": 0.2475,
+      "rho": 0.6,
+      "rho_reasoning": "There is a causal relationship between the two questions, as a federal carbon price in the US would likely drive greater adoption of renewable energy sources globally. They are measuring related aspects of the energy transition, but not the exact same underlying phenomenon. The questions are not mutually exclusive, as renewable energy growth could occur without a US carbon price. While the questions are related, they are not perfectly correlated, so the correlation coefficient is estimated to be moderately positive at 0.6.",
+      "uncertainty_source": "Climate Policy Commitment"
+    },
+    {
+      "id": "llm_e6e98936",
+      "source": "llm",
+      "text": "By December 2028, at least 5 major oil companies (ExxonMobil, Chevron, Shell, BP, Total) report combined stranded asset write-downs exceeding $100 billion in SEC filings or equivalent regulatory disclosures",
+      "background": "Massive stranded asset write-downs would signal that fossil fuel companies themselves recognize their reserves are becoming economically unviable, indicating a fundamental shift in fossil fuel economics that would accelerate renewable adoption.",
+      "resolution_date": "2028-12-31",
+      "base_rate": 0.25,
+      "voi": 0.2475,
+      "rho": 0.6,
+      "rho_reasoning": "There is a causal relationship between the two questions, as the share of global energy from renewable sources in 2050 (Question A) is likely to be influenced by the write-downs of major oil companies due to stranded assets (Question B). They are measuring related aspects of the transition towards renewable energy. While they are not mutually exclusive, they are not fully independent either, as the performance of oil companies can impact the growth of renewable energy.",
+      "uncertainty_source": "Fossil Fuel Economics"
+    },
+    {
+      "id": "llm_4592082d",
+      "source": "llm",
+      "text": "By December 31, 2026, at least 15 US states will have enacted laws requiring 100% clean electricity by 2035, as tracked by the Database of State Incentives for Renewables and Efficiency (DSIRE)",
+      "background": "State-level renewable mandates drive significant clean energy deployment regardless of federal policy, and widespread adoption would indicate durable subnational climate commitment in the US.",
+      "resolution_date": "2026-12-31",
+      "base_rate": 0.4,
+      "voi": 0.24494897427831785,
+      "rho": 0.5,
+      "rho_reasoning": "There is a causal relationship between the share of global energy from renewable sources and the number of US states with 100% clean electricity laws by 2035. They are measuring related but not identical phenomena - the global shift to renewables and the policy actions driving that shift in the US. They are not mutually exclusive, and while they are not fully independent, the correlation is not perfect as other factors besides US state policies will influence the global renewable energy share.",
+      "uncertainty_source": "Climate Policy Commitment"
+    },
+    {
+      "id": "llm_8d6430a9",
+      "source": "llm",
+      "text": "By June 2028, insurance costs for new fossil fuel infrastructure projects exceed 8% of project value annually, per Willis Towers Watson Energy Market Review or equivalent insurance industry analysis",
+      "background": "High insurance costs would reflect growing financial risks of fossil fuel investments due to climate liability and stranded asset risks, making such projects economically unviable.",
+      "resolution_date": "2028-06-30",
+      "base_rate": 0.4,
+      "voi": 0.24494897427831785,
+      "rho": 0.5,
+      "rho_reasoning": "There is likely a causal relationship between the two questions, as the insurance costs for new fossil fuel infrastructure projects could impact the share of global energy that comes from renewable sources by 2050. They are measuring related but distinct phenomena - the shift towards renewable energy and the financial viability of fossil fuel projects. While they are not mutually exclusive, they are not perfectly correlated either, as other factors besides insurance costs could affect the renewable energy share. Therefore, a moderate positive correlation coefficient of 0.5 is a reasonable estimate.",
+      "uncertainty_source": "Fossil Fuel Economics"
+    },
+    {
+      "id": "llm_f9c00c75",
+      "source": "llm",
+      "text": "By June 2029, Tesla or BYD announces battery cell production costs below $40/kWh in at least one manufacturing facility, per official company earnings calls or press releases",
+      "background": "Leading battery manufacturers achieving this cost breakthrough would signal that ultra-cheap storage is becoming reality, making renewable-plus-storage systems cost-competitive with all fossil fuel generation.",
+      "resolution_date": "2029-06-30",
+      "base_rate": 0.3,
+      "voi": 0.22912878474779197,
+      "rho": 0.5,
+      "rho_reasoning": "There is a causal relationship between the two questions, as the share of global energy coming from renewable sources in 2050 (Question A) is likely to be influenced by the cost of battery production (Question B). The two questions are measuring related underlying phenomena, as the cost of battery production is a key factor in the adoption of renewable energy sources. However, they are not mutually exclusive, and the two events could potentially occur independently. Therefore, the correlation coefficient is estimated to be around 0.5, indicating a moderate positive correlation between the two questions.",
+      "uncertainty_source": "Energy Storage Breakthrough"
+    },
+    {
+      "id": "llm_97b05aa5",
+      "source": "llm",
+      "text": "By December 2027, cumulative global fossil fuel divestment commitments exceed $50 trillion in assets under management, per 350.org divestment database or equivalent tracking",
+      "background": "Massive divestment would create capital flight from fossil fuel sector, raising financing costs and making new fossil fuel projects economically unviable while channeling investment to renewables.",
+      "resolution_date": "2027-12-31",
+      "base_rate": 0.25,
+      "voi": 0.2165063509461096,
+      "rho": 0.5,
+      "rho_reasoning": "There appears to be a causal relationship between the two questions, with the fossil fuel divestment commitments (Question B) potentially driving increased adoption of renewable energy (Question A). Additionally, both questions are measuring different aspects of the same underlying phenomenon, the transition to a more sustainable energy system. However, the two questions are not mutually exclusive, as high levels of fossil fuel divestment may not necessarily translate directly to a specific share of global energy coming from renewable sources. Therefore, the correlation between the two questions is likely to be positive but not perfect, and an estimate of 0.5 seems reasonable.",
+      "uncertainty_source": "Fossil Fuel Economics"
+    },
+    {
+      "id": "llm_644b83fc",
+      "source": "llm",
+      "text": "By December 2028, solid-state batteries achieve commercial production volumes exceeding 1 GWh annually by any single manufacturer, per industry analyst reports from Wood Mackenzie or similar",
+      "background": "Solid-state batteries promise significantly higher energy density and safety compared to lithium-ion, potentially revolutionizing both grid storage and electric vehicles if commercialized at scale.",
+      "resolution_date": "2028-12-31",
+      "base_rate": 0.2,
+      "voi": 0.19800000000000006,
+      "rho": 0.5,
+      "rho_reasoning": "There is a potential causal relationship between the two questions, as the adoption of renewable energy sources (Question A) could be influenced by the commercialization of solid-state batteries (Question B). Both questions are measuring aspects of the energy and technology landscape, though they are not directly measuring the same underlying phenomenon. The questions are not mutually exclusive, as the achievement of commercial solid-state battery production (Question B) could contribute to the increase in renewable energy share (Question A), but they are not completely dependent either. Therefore, a moderately positive correlation coefficient (\u03c1 = 0.5) is a reasonable estimate.",
+      "uncertainty_source": "Energy Storage Breakthrough"
+    },
+    {
+      "id": "llm_d213fbe8",
+      "source": "llm",
+      "text": "By December 2028, venture capital and private equity investment in energy storage startups exceeds $20 billion annually, as tracked by PitchBook or similar investment databases",
+      "background": "Massive private investment would signal strong confidence in breakthrough storage technologies and business models, likely accelerating R&D and commercialization timelines significantly.",
+      "resolution_date": "2028-12-31",
+      "base_rate": 0.2,
+      "voi": 0.19800000000000006,
+      "rho": 0.6,
+      "rho_reasoning": "There is a likely causal relationship between increased venture capital investment in energy storage startups and the growth of renewable energy sources. They are both measuring aspects of the energy transition, though not the same underlying phenomenon directly. They are not mutually exclusive, as increased energy storage can support the growth of renewable energy. While related, the two questions are not entirely independent as they capture different aspects of the same broad trend.",
+      "uncertainty_source": "Energy Storage Breakthrough"
+    },
+    {
+      "id": "llm_7187f516",
+      "source": "llm",
+      "text": "Before December 31, 2027, the Republican Party will adopt a presidential platform explicitly supporting federal clean energy tax credits and renewable energy deployment",
+      "background": "Republican support for clean energy policies would indicate bipartisan US climate commitment, reducing policy reversal risk and providing investment certainty for renewable energy projects.",
+      "resolution_date": "2027-12-31",
+      "base_rate": 0.2,
+      "voi": 0.19800000000000006,
+      "rho": 0.6,
+      "rho_reasoning": "There is a causal relationship between the Republican Party adopting a pro-renewable energy platform and the share of global energy coming from renewable sources. They are measuring related but not identical phenomena, as the Republican platform would influence renewable energy deployment, which in turn would impact the share of global energy from renewables. They are not mutually exclusive, and while they are related, they are not perfectly correlated as other factors also influence the share of global renewable energy.",
+      "uncertainty_source": "Climate Policy Commitment"
+    },
+    {
+      "id": "llm_4f9ce31a",
+      "source": "llm",
+      "text": "By December 2027, proven global oil reserves decline by >15% from 2023 levels according to BP Statistical Review of World Energy or equivalent industry report",
+      "background": "Significant proven reserve declines would indicate resource depletion is outpacing new discoveries, signaling approaching economic obsolescence of oil and necessitating renewable alternatives.",
+      "resolution_date": "2027-12-31",
+      "base_rate": 0.2,
+      "voi": 0.19800000000000006,
+      "rho": 0.5,
+      "rho_reasoning": "There is a causal relationship between the two questions, as a decline in proven global oil reserves could lead to an increase in the share of renewable energy in the global energy mix by 2050. They are not measuring the same underlying phenomenon, but are related. The questions are not mutually exclusive, as a decline in oil reserves does not necessarily mean renewable energy will make up the entire difference. However, they are not truly independent, as the decline in oil reserves could be a contributing factor to the growth of renewable energy.",
+      "uncertainty_source": "Fossil Fuel Economics"
+    },
+    {
+      "id": "llm_ba1943d0",
+      "source": "llm",
+      "text": "By December 31, 2028, the European Union will have implemented a carbon border adjustment mechanism covering at least 80% of EU imports by value, as reported by European Commission trade statistics",
+      "background": "A comprehensive carbon border tax would show EU commitment to climate policy while pressuring other major economies to strengthen their own policies to avoid trade penalties.",
+      "resolution_date": "2028-12-31",
+      "base_rate": 0.6,
+      "voi": 0.19595917942265428,
+      "rho": 0.4,
+      "rho_reasoning": "There is a likely causal relationship between the implementation of a carbon border adjustment mechanism in the EU and the share of global energy coming from renewable sources, as the former could incentivize a shift towards renewable energy. However, the two questions are not measuring the same underlying phenomenon, and they are not mutually exclusive. While there is some relationship between the two, they are not fully independent, so the correlation coefficient is estimated to be moderately positive at 0.4.",
+      "uncertainty_source": "Climate Policy Commitment"
+    },
+    {
+      "id": "llm_b0940f73",
+      "source": "llm",
+      "text": "By December 2027, the U.S. Department of Energy announces successful demonstration of a grid-scale storage system providing 24+ hours of backup power to a city of 100,000+ people",
+      "background": "Long-duration storage capability at this scale would demonstrate that renewables plus storage can fully replace baseload power for extended periods during weather events or maintenance.",
+      "resolution_date": "2027-12-31",
+      "base_rate": 0.25,
+      "voi": 0.17320508075688773,
+      "rho": 0.4,
+      "rho_reasoning": "There is a potential causal relationship between the two questions, as the success of a grid-scale storage system (Question B) could contribute to the growth of renewable energy sources (Question A). However, they are not measuring the same underlying phenomenon, and the questions are not mutually exclusive. While there is some relationship, they are not entirely independent, so the correlation coefficient is estimated to be moderately positive at 0.4.",
+      "uncertainty_source": "Energy Storage Breakthrough"
+    },
+    {
+      "id": "llm_efcfd9be",
+      "source": "llm",
+      "text": "By December 2028, flow batteries or other non-lithium storage technologies capture more than 20% market share of new utility-scale storage installations globally, per Wood Mackenzie Power & Renewables reports",
+      "background": "Diversification beyond lithium-ion would indicate multiple storage technologies are achieving commercial viability, reducing risk and potentially accelerating cost declines through competition.",
+      "resolution_date": "2028-12-31",
+      "base_rate": 0.15,
+      "voi": 0.14850000000000002,
+      "rho": 0.5,
+      "rho_reasoning": "There is a potential causal relationship between the two questions. The share of global energy from renewable sources in 2050 (Question A) could be affected by the adoption of non-lithium storage technologies (Question B), which could enable greater integration of renewable energy. However, they are not measuring the same underlying phenomenon, and the questions are not mutually exclusive. Additionally, they are not truly independent, as the adoption of non-lithium storage technologies could be one factor influencing the share of renewable energy in the future. Therefore, a moderately positive correlation coefficient (\u03c1 = 0.5) is a reasonable estimate.",
+      "uncertainty_source": "Energy Storage Breakthrough"
+    },
+    {
+      "id": "llm_f68cc37d",
+      "source": "llm",
+      "text": "By January 1, 2029, China will have officially banned the construction of new coal-fired power plants domestically, as announced by the State Council or National Energy Administration",
+      "background": "China is the world's largest coal consumer and CO2 emitter, so a domestic coal ban would signal unprecedented climate policy commitment and force massive renewable energy scaling.",
+      "resolution_date": "2029-01-01",
+      "base_rate": 0.15,
+      "voi": 0.14850000000000002,
+      "rho": 0.5,
+      "rho_reasoning": "There is a likely causal relationship between China's ban on new coal-fired power plants and the global share of renewable energy in 2050. If China, a major consumer of coal, bans new coal plants, it could lead to an increase in renewable energy adoption globally. However, the two questions are not measuring the same underlying phenomenon directly, and they are not mutually exclusive or completely independent. Therefore, the correlation coefficient is estimated to be moderately positive at around 0.5.",
+      "uncertainty_source": "Climate Policy Commitment"
+    },
+    {
+      "id": "llm_d4f7706e",
+      "source": "llm",
+      "text": "By June 2027, global carbon pricing covers >50% of emissions with an average price exceeding $75/tonne CO2, per World Bank Carbon Pricing Dashboard",
+      "background": "High carbon pricing that covers most global emissions would fundamentally alter fossil fuel economics by internalizing climate costs, making renewables more competitive even without subsidies.",
+      "resolution_date": "2027-06-30",
+      "base_rate": 0.15,
+      "voi": 0.14850000000000002,
+      "rho": 0.7,
+      "rho_reasoning": "There is a causal relationship between the two questions. If global carbon pricing covers more than 50% of emissions with a high average price, it would likely drive a higher share of renewable energy in the global energy mix by 2050. The two questions are measuring related aspects of the transition to a low-carbon economy, but they are not directly measuring the same underlying phenomenon. They are not mutually exclusive, and the outcomes are not independent, as both are influenced by policy and technological factors in the energy sector.",
+      "uncertainty_source": "Fossil Fuel Economics"
+    },
+    {
+      "id": "llm_4cc11ef3",
+      "source": "llm",
+      "text": "By June 30, 2027, India will have committed to achieving net-zero emissions by 2060 or earlier, as officially announced by the Prime Minister or in India's updated NDC submission to UNFCCC",
+      "background": "India's net-zero commitment timeline would signal whether this major developing economy will prioritize climate action over economic growth concerns, influencing global renewable energy demand.",
+      "resolution_date": "2027-06-30",
+      "base_rate": 0.35,
+      "voi": 0.14309088021254182,
+      "rho": 0.3,
+      "rho_reasoning": "There is no clear causal relationship between the two questions. They are measuring related but distinct phenomena - the share of global energy from renewables in 2050 and India's net-zero commitment. The two questions are not mutually exclusive, and they are not truly independent, as India's net-zero commitment could affect the global energy mix. However, the relationship is likely to be moderate, so I estimate a correlation coefficient of 0.3.",
+      "uncertainty_source": "Climate Policy Commitment"
+    },
+    {
+      "id": "llm_cce66300",
+      "source": "llm",
+      "text": "By December 2026, oil production costs in the Permian Basin exceed $60/barrel for 50% of new wells, per EIA drilling productivity reports",
+      "background": "Rising extraction costs in the world's most productive shale region would indicate resource depletion is making fossil fuels less economically viable, forcing faster transition to renewables.",
+      "resolution_date": "2026-12-31",
+      "base_rate": 0.35,
+      "voi": 0.14309088021254182,
+      "rho": 0.3,
+      "rho_reasoning": "There is a potential causal relationship between the share of global energy from renewable sources and the oil production costs in the Permian Basin. As renewable energy becomes more prevalent, it could put downward pressure on oil prices and production costs. However, the two questions are not measuring the same underlying phenomenon and are not mutually exclusive. Additionally, they are not truly independent, as changes in the renewable energy landscape could impact oil production costs. Given these considerations, I estimate a moderately positive correlation coefficient of 0.3.",
+      "uncertainty_source": "Fossil Fuel Economics"
+    },
+    {
+      "id": "llm_df3d0d82",
+      "source": "llm",
+      "text": "By December 2029, at least one utility-scale battery storage project exceeds 10 GWh capacity and enters commercial operation, as verified by the U.S. Energy Information Administration",
+      "background": "Massive grid-scale storage facilities at this scale would demonstrate the technical feasibility of replacing traditional baseload power plants with renewable-plus-storage systems.",
+      "resolution_date": "2029-12-31",
+      "base_rate": 0.25,
+      "voi": 0.12990381056766576,
+      "rho": 0.3,
+      "rho_reasoning": "There is no clear causal relationship between the two questions. While the development of large-scale battery storage could support the growth of renewable energy, the share of global energy from renewables in 2050 is not directly dependent on a single battery storage project exceeding 10 GWh by 2029. The two questions are measuring different, albeit related, phenomena. They are not mutually exclusive, and could potentially be independent to some degree. Given the indirect relationship, a moderate positive correlation coefficient of 0.3 is a reasonable estimate.",
+      "uncertainty_source": "Energy Storage Breakthrough"
+    },
+    {
+      "id": "llm_fa07b776",
+      "source": "llm",
+      "text": "By January 1, 2029, China will have ended all subsidies for fossil fuel production and consumption, as reported in Ministry of Finance budget documents or National Development and Reform Commission announcements",
+      "background": "Eliminating fossil fuel subsidies would represent a major shift in Chinese energy policy, removing artificial cost advantages for coal and oil while improving renewable energy competitiveness.",
+      "resolution_date": "2029-01-01",
+      "base_rate": 0.1,
+      "voi": 0.09899999999999998,
+      "rho": 0.6,
+      "rho_reasoning": "There is a causal relationship between China's fossil fuel subsidy policy and the global share of renewable energy. As China moves away from fossil fuel subsidies, it is likely to increase the adoption of renewable energy, which would contribute to a higher global share of renewable energy by 2050. The two questions are not measuring the same underlying phenomenon, but are related. They are not mutually exclusive, and the outcome of one could influence the other, indicating a positive correlation between the two.",
+      "uncertainty_source": "Climate Policy Commitment"
+    },
+    {
+      "id": "llm_17679574",
+      "source": "llm",
+      "text": "Before January 2029, at least 3 G20 countries implement complete fossil fuel subsidy phase-outs totaling >$50 billion annually, per OECD fossil fuel subsidy database",
+      "background": "Elimination of major fossil fuel subsidies would remove artificial price supports, revealing the true economic unviability of fossil fuels and accelerating renewable competitiveness.",
+      "resolution_date": "2029-01-01",
+      "base_rate": 0.3,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "Parse error: Invalid control character at: line 3 column 263 (char 280)",
+      "uncertainty_source": "Fossil Fuel Economics"
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Renewable Acceleration",
+      "description": "A world of rapid renewable energy transition driven by breakthrough cost reductions, strong policy support, and accelerated fossil fuel decline. Multiple technological and policy tipping points align to create momentum far exceeding current expectations. Grid infrastructure and storage solutions mature rapidly to support high renewable penetration.",
+      "outcome_range": "70-85%",
+      "outcome_low": 70.0,
+      "outcome_high": 85.0,
+      "key_drivers": [
+        "Battery costs below $40-50/kWh enabling mass grid storage",
+        "Renewable electricity costs below $0.02/kWh in many regions",
+        "Strong policy coordination with carbon pricing >$75/tonne",
+        "Major fossil fuel industry stranded assets and declining production",
+        "Successful grid stability demonstrations with >80% renewables"
+      ],
+      "why_exclusive": "This scenario requires simultaneous achievement of multiple cost and policy breakthroughs that would make moderate outcomes impossible - if battery costs fall this low AND renewables achieve ultra-low costs AND strong policies emerge, the transition would be much faster than baseline projections.",
+      "mapped_signals": [
+        "Battery pack costs fall below $50/kWh by 2030",
+        "Renewable electricity costs below $0.02/kWh in 10+ countries by 2026",
+        "5+ countries achieve >80% renewable electricity with grid stability by 2030",
+        "Tesla/BYD battery costs below $40/kWh by 2029",
+        "Global carbon pricing >50% coverage with $75+/tonne by 2027",
+        "Major oil companies write down $100B+ in stranded assets by 2028",
+        "China bans new coal plants by 2029",
+        "Global coal consumption below 6B tonnes by 2026"
+      ],
+      "indicator_bundle": {
+        "Renewable electricity cost": "<$0.03/kWh in 15+ countries by 2028",
+        "Battery storage cost": "<$60/kWh by 2028",
+        "Countries with >70% renewable electricity": ">10 by 2030",
+        "Global carbon price coverage": ">40% of emissions with >$60/tonne by 2028",
+        "Annual fossil fuel stranded asset writedowns": ">$50B globally by 2027"
+      }
+    },
+    {
+      "name": "Steady Transition",
+      "description": "A moderate renewable transition following roughly current policy trajectories with incremental improvements in technology and gradual fossil fuel decline. Some breakthrough technologies emerge but deployment is slower due to infrastructure constraints, political resistance, or economic headwinds. Progress is steady but not revolutionary.",
+      "outcome_range": "45-65%",
+      "outcome_low": 45.0,
+      "outcome_high": 65.0,
+      "key_drivers": [
+        "Gradual renewable cost improvements without dramatic breakthroughs",
+        "Mixed policy support with some carbon pricing but limited coordination",
+        "Moderate storage deployment constrained by grid infrastructure challenges",
+        "Continued fossil fuel use in hard-to-electrify sectors",
+        "Regional variation in transition speed and commitment"
+      ],
+      "why_exclusive": "This scenario represents the middle path where neither dramatic cost breakthroughs nor policy acceleration occurs - it cannot coexist with either the rapid acceleration scenario (which requires breakthrough achievements) or the stalled transition (which requires systematic failures).",
+      "mapped_signals": [
+        "China invests >$200B annually in renewables by 2028",
+        "15+ US states require 100% clean electricity by 2035",
+        "India implements carbon trading covering 70% of industrial emissions by 2027",
+        "EU carbon border adjustment covers 80% of imports by 2028",
+        "Global energy storage capacity additions exceed 100 GW annually by 2027",
+        "50+ major banks restrict oil/gas project financing by 2028"
+      ],
+      "indicator_bundle": {
+        "Renewable electricity cost": "$0.03-0.05/kWh in most regions by 2028",
+        "Battery storage cost": "$60-100/kWh by 2028",
+        "Countries with >50% renewable electricity": "15-25 by 2030",
+        "Global carbon price coverage": "20-40% of emissions by 2028",
+        "Annual renewable energy investment": "$2-3T globally by 2028"
+      }
+    },
+    {
+      "name": "Stalled Transition",
+      "description": "A world where the renewable transition faces significant headwinds from policy backlash, technological bottlenecks, or economic disruption. High storage costs, grid integration challenges, and sustained fossil fuel competitiveness slow deployment. Political resistance and financing constraints limit progress despite climate urgency.",
+      "outcome_range": "25-40%",
+      "outcome_low": 25.0,
+      "outcome_high": 40.0,
+      "key_drivers": [
+        "Battery and storage costs remain high limiting grid integration",
+        "Political backlash against renewable policies and carbon pricing",
+        "Grid infrastructure bottlenecks constraining renewable deployment",
+        "Continued fossil fuel competitiveness due to new discoveries or low costs",
+        "Economic disruption reducing clean energy investment"
+      ],
+      "why_exclusive": "This scenario requires systematic failures across technology, policy, and economics that would prevent moderate progress - it cannot coexist with scenarios where breakthrough technologies succeed or strong policy coordination emerges.",
+      "mapped_signals": [
+        "Republican platform does NOT support clean energy credits by 2027",
+        "Insurance costs for fossil fuel projects remain below 8% annually",
+        "Oil production costs in Permian Basin exceed $60/barrel for 50% of wells",
+        "Proven oil reserves decline by >15% but alternatives don't scale",
+        "Flow batteries fail to capture >20% market share by 2028"
+      ],
+      "indicator_bundle": {
+        "Battery storage cost": ">$100/kWh through 2030",
+        "Countries with carbon pricing": "<30 with average <$50/tonne by 2028",
+        "Global coal consumption": ">6.5B tonnes annually through 2028",
+        "Renewable electricity cost": ">$0.05/kWh in most regions by 2028",
+        "Annual fossil fuel divestment": "<$20T cumulative by 2028"
+      }
+    },
+    {
+      "name": "Technology Breakthrough",
+      "description": "Advanced storage technologies like solid-state batteries or breakthrough grid solutions enable extremely high renewable penetration even without perfect policy alignment. Technological innovation overcomes current constraints, but deployment may be geographically uneven or limited to wealthy nations initially.",
+      "outcome_range": "60-75%",
+      "outcome_low": 60.0,
+      "outcome_high": 75.0,
+      "key_drivers": [
+        "Solid-state batteries or other breakthrough storage achieving commercial scale",
+        "Advanced grid solutions enabling 24+ hour storage and stability",
+        "Ultra-low cost renewables with improved efficiency",
+        "Breakthrough storage technologies capturing significant market share",
+        "Technology-driven transition despite mixed policy support"
+      ],
+      "why_exclusive": "This scenario is driven primarily by technological breakthroughs rather than policy coordination - it achieves high penetration through innovation even without the comprehensive policy support needed for the acceleration scenario, but requires specific technology successes that may not materialize.",
+      "mapped_signals": [
+        "Solid-state batteries achieve >1 GWh commercial production by 2028",
+        "US DOE demonstrates 24+ hour grid-scale storage for 100K+ people by 2027",
+        "Flow batteries capture >20% of utility storage market by 2028",
+        "Utility-scale battery project exceeds 10 GWh capacity by 2029",
+        "VC/PE investment in energy storage exceeds $20B annually by 2028"
+      ],
+      "indicator_bundle": {
+        "Next-gen storage commercial deployment": ">5 GWh solid-state or flow batteries by 2029",
+        "Grid-scale storage demonstrations": ">3 successful 24+ hour city-scale demos by 2028",
+        "Storage technology diversity": "Non-lithium >15% market share by 2029",
+        "Energy storage investment": ">$25B annually in startups by 2028",
+        "Advanced renewable efficiency": ">25% solar cell efficiency at commercial scale"
+      }
+    }
+  ],
+  "mece_reasoning": "These scenarios are MECE because they partition the renewable share outcome space into non-overlapping ranges (25-40%, 45-65%, 60-75%, 70-85%) while representing fundamentally different causal pathways: 1) Stalled Transition driven by systematic failures across technology, policy, and economics; 2) Steady Transition following moderate improvement along current trajectories; 3) Technology Breakthrough driven primarily by storage/grid innovations; 4) Renewable Acceleration requiring alignment of multiple breakthroughs in costs, policy, and fossil fuel decline. Each represents a distinct world-state with different combinations of technology success/failure and policy coordination that cannot occur simultaneously. The small overlap between Technology Breakthrough and Renewable Acceleration (60-75% vs 70-85%) reflects that similar outcomes can arise from different causal pathways, but the underlying world-states remain mutually exclusive based on whether the transition is technology-driven or policy-coordinated.",
+  "coverage_gaps": [
+    "Extreme scenarios below 25% or above 85% renewable share are not covered, though these represent very low probability outcomes given current momentum and climate imperatives"
+  ],
+  "created_at": "2026-01-15T12:46:28.208849"
+}
