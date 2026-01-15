@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scenario Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #fafafa;
+      --bg-secondary: #f5f5f5;
+      --text-primary: #1a1a1a;
+      --text-secondary: #525252;
+      --text-muted: #a3a3a3;
+      --border: #e5e5e5;
+      --border-strong: #d4d4d4;
+
+      --signal-bg: #f0fdf4;
+      --signal-border: #86efac;
+      --signal-text: #166534;
+      --signal-highlight: #dcfce7;
+
+      --scenario-bg: #fffbeb;
+      --scenario-border: #fcd34d;
+      --scenario-text: #92400e;
+      --scenario-highlight: #fef3c7;
+
+      --question-bg: #eff6ff;
+      --question-border: #93c5fd;
+      --question-text: #1e40af;
+      --question-highlight: #dbeafe;
+
+      --up-color: #16a34a;
+      --down-color: #dc2626;
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+
+      /* Source colors */
+      --polymarket: #7c3aed;
+      --metaculus: #2563eb;
+      --manifold: #059669;
+      --infer: #d97706;
+      --fred: #dc2626;
+      --llm: #6b7280;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary));
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-left { display: flex; align-items: center; gap: 1rem; }
+
+    h1 {
+      font-weight: 600;
+      font-size: 1.25rem;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 400;
+    }
+
+    .stats-bar {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+    .stat { display: flex; align-items: center; gap: 0.25rem; }
+    .stat-value { font-weight: 600; color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+
+    .explorer-container { position: relative; height: calc(100vh - 60px); overflow: hidden; }
+    .explorer { display: grid; grid-template-columns: 320px 1fr 320px; gap: 0; height: 100%; position: relative; }
+
+    #connections-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .flow-path {
+      fill: none;
+      stroke: rgba(200, 200, 200, 0.3);
+      stroke-width: 2;
+      transition: stroke 0.2s, stroke-width 0.2s, opacity 0.2s;
+    }
+    .flow-path.highlighted { opacity: 1; }
+    .flow-path.dimmed { opacity: 0.1; }
+    .flow-path.up { stroke: var(--up-color); }
+    .flow-path.down { stroke: var(--down-color); }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      padding: 0.75rem;
+      background: var(--bg-primary);
+      min-height: 0;
+    }
+
+    .column::-webkit-scrollbar { width: 6px; }
+    .column::-webkit-scrollbar-track { background: transparent; }
+    .column::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+
+    .column-header {
+      text-align: center;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      padding: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 0.5rem;
+      position: sticky;
+      top: 0;
+      background: var(--bg-primary);
+      z-index: 10;
+    }
+
+    .scenarios-column {
+      background: var(--bg-secondary);
+    }
+    .scenarios-column .column-header { background: var(--bg-secondary); }
+
+    .cards-container { display: flex; flex-direction: column; gap: 0.4rem; }
+
+    .card {
+      padding: 0.6rem 0.75rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      border: 1.5px solid transparent;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+    }
+    .card:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+    .card.dimmed { opacity: 0.15; pointer-events: none; }
+    .card.highlighted {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Signal Cards */
+    .signal-card {
+      background: var(--signal-bg);
+      border-color: var(--signal-border);
+      color: var(--signal-text);
+      font-size: 0.72rem;
+      line-height: 1.4;
+    }
+    .signal-card.highlighted {
+      border-color: var(--signal-text);
+      background: var(--signal-highlight);
+    }
+    .signal-card.synthetic {
+      border-style: dashed;
+    }
+    .signal-card.zero-voi {
+      opacity: 0.4;
+      background: var(--bg-secondary);
+      border-color: var(--border);
+      color: var(--text-muted);
+    }
+    .signal-card.zero-voi .source-badge {
+      background: var(--text-muted);
+    }
+    .signal-card.zero-voi .signal-voi {
+      color: var(--text-muted);
+    }
+
+    .signal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .signal-name {
+      font-weight: 500;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .signal-card.highlighted .signal-name {
+      -webkit-line-clamp: unset;
+    }
+
+    .source-badge {
+      font-size: 0.55rem;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+    .source-badge.polymarket { background: var(--polymarket); color: white; }
+    .source-badge.metaculus { background: var(--metaculus); color: white; }
+    .source-badge.manifold { background: var(--manifold); color: white; }
+    .source-badge.infer { background: var(--infer); color: white; }
+    .source-badge.fred { background: var(--fred); color: white; }
+    .source-badge.llm { background: var(--llm); color: white; }
+
+    .signal-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+    }
+
+    .signal-voi {
+      font-weight: 600;
+      color: var(--signal-text);
+    }
+
+    .signal-prob {
+      font-weight: 500;
+    }
+    .signal-prob.synthetic::after {
+      content: ' est.';
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    .signal-rho {
+      display: none;
+      margin-top: 0.35rem;
+      font-size: 0.6rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+    .signal-card.highlighted .signal-rho {
+      display: block;
+    }
+
+    /* Scenario Cards */
+    .scenario-card {
+      background: var(--scenario-bg);
+      border-color: var(--scenario-border);
+      color: var(--scenario-text);
+      font-size: 0.75rem;
+    }
+    .scenario-card.highlighted {
+      border-color: var(--scenario-text);
+      background: var(--scenario-highlight);
+    }
+
+    .scenario-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.25rem;
+    }
+
+    .scenario-name {
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .scenario-range {
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: var(--scenario-text);
+    }
+
+    .scenario-prob-bar {
+      height: 4px;
+      background: rgba(0,0,0,0.1);
+      border-radius: 2px;
+      margin: 0.4rem 0;
+      overflow: hidden;
+    }
+    .scenario-prob-fill {
+      height: 100%;
+      background: var(--scenario-text);
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
+    .scenario-description {
+      display: none;
+      font-size: 0.7rem;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+    }
+    .scenario-card.highlighted .scenario-description {
+      display: block;
+    }
+
+    .scenario-drivers {
+      display: none;
+      margin-top: 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--scenario-border);
+    }
+    .scenario-card.highlighted .scenario-drivers {
+      display: block;
+    }
+
+    .driver-label {
+      font-size: 0.6rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .driver-list {
+      font-size: 0.65rem;
+      color: var(--text-secondary);
+      padding-left: 1rem;
+    }
+    .driver-list li {
+      margin-bottom: 0.15rem;
+    }
+
+    /* Question Card */
+    .question-card {
+      background: var(--question-bg);
+      border-color: var(--question-border);
+      color: var(--question-text);
+      font-size: 0.8rem;
+    }
+    .question-card.highlighted {
+      border-color: var(--question-text);
+      background: var(--question-highlight);
+    }
+
+    .question-text {
+      font-weight: 500;
+      line-height: 1.4;
+      margin-bottom: 0.75rem;
+    }
+
+    .question-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .question-value.positive { color: var(--up-color); }
+    .question-value.negative { color: var(--down-color); }
+
+    .question-label {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .question-range {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+    }
+
+    .range-bar {
+      flex: 1;
+      height: 8px;
+      background: rgba(0,0,0,0.1);
+      border-radius: 4px;
+      position: relative;
+    }
+
+    .range-marker {
+      position: absolute;
+      top: -2px;
+      width: 12px;
+      height: 12px;
+      background: var(--question-text);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      transition: left 0.3s ease;
+    }
+    .range-marker.baseline {
+      background: var(--text-muted);
+      width: 8px;
+      height: 8px;
+      top: 0;
+      z-index: 1;
+    }
+    .range-marker.scenario {
+      z-index: 2;
+    }
+    .range-marker.scenario.up { background: var(--up-color); }
+    .range-marker.scenario.down { background: var(--down-color); }
+
+    .scenario-range-highlight {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      border-radius: 4px;
+      opacity: 0.3;
+    }
+    .scenario-range-highlight.up { background: var(--up-color); }
+    .scenario-range-highlight.down { background: var(--down-color); }
+
+    .range-endpoints {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .scenario-outcome {
+      display: none;
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--question-border);
+    }
+    .scenario-outcome.visible {
+      display: block;
+    }
+
+    .outcome-label {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .outcome-value {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .outcome-value.positive { color: var(--up-color); }
+    .outcome-value.negative { color: var(--down-color); }
+
+    /* Loading state */
+    .loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .error {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: var(--down-color);
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-left">
+      <h1>Scenario Explorer</h1>
+      <span class="subtitle" id="set-name">Loading...</span>
+    </div>
+    <div class="stats-bar">
+      <div class="stat">Signals: <span class="stat-value" id="stat-signals">-</span></div>
+      <div class="stat">Scenarios: <span class="stat-value" id="stat-scenarios">-</span></div>
+      <div class="stat">Approach: <span class="stat-value" id="stat-approach">-</span></div>
+    </div>
+  </div>
+
+  <div class="explorer-container">
+    <svg id="connections-svg"></svg>
+    <div class="explorer" id="explorer">
+      <div class="column" id="signals-col">
+        <div class="column-header">SIGNALS</div>
+        <div class="cards-container" id="signals-container"></div>
+      </div>
+      <div class="column scenarios-column" id="scenarios-col">
+        <div class="column-header">SCENARIOS</div>
+        <div class="cards-container" id="scenarios-container"></div>
+      </div>
+      <div class="column" id="question-col">
+        <div class="column-header">QUESTION</div>
+        <div id="question-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // =============================================================
+    // State (single source of truth)
+    // =============================================================
+    const state = {
+      data: null,
+      selection: {
+        signalId: null,
+        scenarioName: null,
+      },
+    };
+
+    // Observed sources (vs synthetic)
+    const OBSERVED_SOURCES = ['polymarket', 'metaculus', 'manifold', 'infer', 'fred'];
+
+    // =============================================================
+    // Pure render functions
+    // =============================================================
+
+    function render(state) {
+      if (!state.data) return;
+      renderHeader(state);
+      renderSignals(state);
+      renderScenarios(state);
+      renderQuestion(state);
+      requestAnimationFrame(() => renderPaths(state));
+    }
+
+    function renderHeader(state) {
+      document.getElementById('set-name').textContent = state.data.name || 'Unnamed';
+      document.getElementById('stat-signals').textContent = state.data.signals?.length || 0;
+      document.getElementById('stat-scenarios').textContent = state.data.scenarios?.length || 0;
+      document.getElementById('stat-approach').textContent = state.data.approach || '-';
+    }
+
+    function renderSignals(state) {
+      const container = document.getElementById('signals-container');
+      container.innerHTML = '';
+
+      const signals = state.data.signals || [];
+      const { signalId, scenarioName } = state.selection;
+
+      // Find which signals are mapped to selected scenario
+      let mappedSignalTexts = new Set();
+      if (scenarioName) {
+        const scenario = state.data.scenarios?.find(s => s.name === scenarioName);
+        if (scenario?.mapped_signals) {
+          scenario.mapped_signals.forEach(text => {
+            // Match by partial text (mapped_signals contains truncated versions)
+            mappedSignalTexts.add(text.toLowerCase().slice(0, 50));
+          });
+        }
+      }
+
+      // Build set of all signals mapped to any scenario
+      const allMappedSignals = new Set();
+      (state.data.scenarios || []).forEach(scenario => {
+        (scenario.mapped_signals || []).forEach(text => {
+          allMappedSignals.add(text.toLowerCase().slice(0, 50));
+        });
+      });
+
+      signals.forEach(signal => {
+        const isObserved = OBSERVED_SOURCES.includes(signal.source);
+        const isSelected = signalId === signal.id;
+        const isMapped = scenarioName && Array.from(mappedSignalTexts).some(t =>
+          signal.text.toLowerCase().startsWith(t)
+        );
+        const isZeroVoi = signal.voi === 0 || !Array.from(allMappedSignals).some(t =>
+          signal.text.toLowerCase().startsWith(t)
+        );
+
+        let classes = ['card', 'signal-card'];
+        if (!isObserved) classes.push('synthetic');
+        if (isZeroVoi) classes.push('zero-voi');
+        if (isSelected) classes.push('highlighted');
+        if (scenarioName && !isMapped && !isSelected) classes.push('dimmed');
+        if (isMapped) classes.push('highlighted');
+
+        const card = document.createElement('div');
+        card.className = classes.join(' ');
+        card.dataset.signalId = signal.id;
+
+        const prob = signal.base_rate != null ? `${(signal.base_rate * 100).toFixed(0)}%` : '-';
+        const resDate = signal.resolution_date ? new Date(signal.resolution_date).toLocaleDateString() : '-';
+
+        card.innerHTML = `
+          <div class="signal-header">
+            <div class="signal-name">${escapeHtml(signal.text)}</div>
+            <span class="source-badge ${signal.source}">${signal.source}</span>
+          </div>
+          <div class="signal-meta">
+            <span class="signal-voi">VOI: ${signal.voi?.toFixed(2) || '-'}</span>
+            <span class="signal-prob ${isObserved ? '' : 'synthetic'}">${prob}</span>
+            <span>ρ: ${signal.rho?.toFixed(2) || '-'}</span>
+            <span>${resDate}</span>
+          </div>
+          <div class="signal-rho">${escapeHtml(signal.rho_reasoning || '')}</div>
+        `;
+
+        card.addEventListener('click', () => onSignalClick(signal.id));
+        container.appendChild(card);
+      });
+    }
+
+    function renderScenarios(state) {
+      const container = document.getElementById('scenarios-container');
+      container.innerHTML = '';
+
+      const scenarios = state.data.scenarios || [];
+      const numScenarios = scenarios.length;
+      const { signalId, scenarioName } = state.selection;
+
+      // Find which scenarios contain the selected signal
+      let scenariosWithSignal = new Set();
+      if (signalId) {
+        const signal = state.data.signals?.find(s => s.id === signalId);
+        if (signal) {
+          scenarios.forEach(scenario => {
+            if (scenario.mapped_signals?.some(text =>
+              signal.text.toLowerCase().startsWith(text.toLowerCase().slice(0, 50))
+            )) {
+              scenariosWithSignal.add(scenario.name);
+            }
+          });
+        }
+      }
+
+      scenarios.forEach((scenario, idx) => {
+        const isSelected = scenarioName === scenario.name;
+        const isLinked = signalId && scenariosWithSignal.has(scenario.name);
+
+        let classes = ['card', 'scenario-card'];
+        if (isSelected) classes.push('highlighted');
+        if (signalId && !isLinked && !isSelected) classes.push('dimmed');
+        if (isLinked) classes.push('highlighted');
+
+        const card = document.createElement('div');
+        card.className = classes.join(' ');
+        card.dataset.scenarioName = scenario.name;
+
+        // Equal probability for now
+        const prob = 1 / numScenarios;
+
+        card.innerHTML = `
+          <div class="scenario-header">
+            <span class="scenario-name">${escapeHtml(scenario.name)}</span>
+            <span class="scenario-range">${escapeHtml(scenario.outcome_range || '')}</span>
+          </div>
+          <div class="scenario-prob-bar">
+            <div class="scenario-prob-fill" style="width: ${prob * 100}%"></div>
+          </div>
+          <div class="scenario-description">${escapeHtml(scenario.description || '')}</div>
+          <div class="scenario-drivers">
+            <div class="driver-label">Key Drivers:</div>
+            <ul class="driver-list">
+              ${(scenario.key_drivers || []).map(d => `<li>${escapeHtml(d)}</li>`).join('')}
+            </ul>
+          </div>
+        `;
+
+        card.addEventListener('click', () => onScenarioClick(scenario.name));
+        container.appendChild(card);
+      });
+    }
+
+    function renderQuestion(state) {
+      const container = document.getElementById('question-container');
+      container.innerHTML = '';
+
+      const question = state.data.question;
+      if (!question) return;
+
+      const scenarios = state.data.scenarios || [];
+      const { scenarioName } = state.selection;
+
+      // Compute E[X] across all scenarios (equal weight)
+      let expectedValue = 0;
+      if (scenarios.length > 0) {
+        const midpoints = scenarios.map(s => (s.outcome_low + s.outcome_high) / 2);
+        expectedValue = midpoints.reduce((a, b) => a + b, 0) / midpoints.length;
+      }
+
+      const [minVal, maxVal] = question.value_range || [0, 100];
+      const range = maxVal - minVal;
+      const baselinePos = ((expectedValue - minVal) / range) * 100;
+
+      const card = document.createElement('div');
+      card.className = 'card question-card highlighted';
+
+      // Build range bar content
+      let rangeBarContent = '';
+      let displayValue = expectedValue;
+      let valueLabel = 'Expected value across all scenarios';
+      let valueColorClass = '';
+
+      if (scenarioName) {
+        const scenario = scenarios.find(s => s.name === scenarioName);
+        if (scenario) {
+          const scenarioMid = (scenario.outcome_low + scenario.outcome_high) / 2;
+          const scenarioLowPos = ((scenario.outcome_low - minVal) / range) * 100;
+          const scenarioHighPos = ((scenario.outcome_high - minVal) / range) * 100;
+          const scenarioMidPos = ((scenarioMid - minVal) / range) * 100;
+          const isUp = scenarioMid >= expectedValue;
+          const colorClass = isUp ? 'up' : 'down';
+
+          displayValue = scenarioMid;
+          valueLabel = `If "${scenario.name}"`;
+          valueColorClass = isUp ? 'positive' : 'negative';
+
+          // Scenario range highlight + both markers
+          rangeBarContent = `
+            <div class="scenario-range-highlight ${colorClass}" style="left: ${scenarioLowPos}%; width: ${scenarioHighPos - scenarioLowPos}%"></div>
+            <div class="range-marker baseline" style="left: ${baselinePos}%" title="E[X]: ${formatValue(expectedValue, question.unit)}"></div>
+            <div class="range-marker scenario ${colorClass}" style="left: ${scenarioMidPos}%"></div>
+          `;
+        }
+      } else {
+        // Just the baseline marker
+        rangeBarContent = `<div class="range-marker" style="left: ${baselinePos}%"></div>`;
+      }
+
+      card.innerHTML = `
+        <div class="question-text">${escapeHtml(question.text)}</div>
+        <div class="question-value ${valueColorClass}">${formatValue(displayValue, question.unit)}</div>
+        <div class="question-label">${escapeHtml(valueLabel)}</div>
+        <div class="question-range">
+          <span>${formatValue(minVal, question.unit)}</span>
+          <div class="range-bar">
+            ${rangeBarContent}
+          </div>
+          <span>${formatValue(maxVal, question.unit)}</span>
+        </div>
+      `;
+
+      container.appendChild(card);
+    }
+
+    function renderPaths(state) {
+      const svg = document.getElementById('connections-svg');
+      svg.innerHTML = '';
+
+      if (!state.data) return;
+
+      const explorerRect = document.getElementById('explorer').getBoundingClientRect();
+      svg.setAttribute('viewBox', `0 0 ${explorerRect.width} ${explorerRect.height}`);
+
+      const { signalId, scenarioName } = state.selection;
+      const scenarios = state.data.scenarios || [];
+      const signals = state.data.signals || [];
+
+      // Build signal text -> id map
+      const signalTextToId = {};
+      signals.forEach(s => {
+        signalTextToId[s.text.toLowerCase().slice(0, 50)] = s.id;
+      });
+
+      // Draw signal -> scenario paths
+      document.querySelectorAll('.scenario-card').forEach(scenarioCard => {
+        const sName = scenarioCard.dataset.scenarioName;
+        const scenario = scenarios.find(s => s.name === sName);
+        if (!scenario) return;
+
+        const scenarioRect = scenarioCard.getBoundingClientRect();
+
+        (scenario.mapped_signals || []).forEach(mappedText => {
+          // Find the signal card
+          const matchingSignal = signals.find(s =>
+            s.text.toLowerCase().startsWith(mappedText.toLowerCase().slice(0, 50))
+          );
+          if (!matchingSignal) return;
+
+          const signalCard = document.querySelector(`.signal-card[data-signal-id="${matchingSignal.id}"]`);
+          if (!signalCard) return;
+
+          const signalRect = signalCard.getBoundingClientRect();
+
+          const startX = signalRect.right - explorerRect.left;
+          const startY = signalRect.top + signalRect.height / 2 - explorerRect.top;
+          const endX = scenarioRect.left - explorerRect.left;
+          const endY = scenarioRect.top + scenarioRect.height / 2 - explorerRect.top;
+          const midX = (startX + endX) / 2;
+
+          const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          path.setAttribute('d', `M ${startX} ${startY} C ${midX} ${startY}, ${midX} ${endY}, ${endX} ${endY}`);
+          path.setAttribute('class', 'flow-path');
+
+          // Determine visibility and color
+          const isRelevant = (signalId === matchingSignal.id) || (scenarioName === sName);
+
+          if (signalId || scenarioName) {
+            if (isRelevant) {
+              path.classList.add('highlighted');
+              path.classList.add(matchingSignal.rho >= 0 ? 'up' : 'down');
+              path.setAttribute('stroke-width', 2 + Math.abs(matchingSignal.rho || 0) * 3);
+            } else {
+              path.classList.add('dimmed');
+            }
+          }
+
+          svg.appendChild(path);
+        });
+      });
+
+      // Draw scenario -> question paths
+      const questionCard = document.querySelector('.question-card');
+      if (questionCard) {
+        const questionRect = questionCard.getBoundingClientRect();
+
+        // Compute E[X] for comparison
+        let expectedValue = 0;
+        if (scenarios.length > 0) {
+          const midpoints = scenarios.map(s => (s.outcome_low + s.outcome_high) / 2);
+          expectedValue = midpoints.reduce((a, b) => a + b, 0) / midpoints.length;
+        }
+
+        document.querySelectorAll('.scenario-card').forEach(scenarioCard => {
+          const sName = scenarioCard.dataset.scenarioName;
+          const scenario = scenarios.find(s => s.name === sName);
+          const scenarioRect = scenarioCard.getBoundingClientRect();
+
+          const startX = scenarioRect.right - explorerRect.left;
+          const startY = scenarioRect.top + scenarioRect.height / 2 - explorerRect.top;
+          const endX = questionRect.left - explorerRect.left;
+          const endY = questionRect.top + questionRect.height / 2 - explorerRect.top;
+          const midX = (startX + endX) / 2;
+
+          const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          path.setAttribute('d', `M ${startX} ${startY} C ${midX} ${startY}, ${midX} ${endY}, ${endX} ${endY}`);
+          path.setAttribute('class', 'flow-path');
+
+          // Determine if scenario pushes outcome up or down vs E[X]
+          const scenarioMid = scenario ? (scenario.outcome_low + scenario.outcome_high) / 2 : expectedValue;
+          const isUp = scenarioMid >= expectedValue;
+
+          if (scenarioName) {
+            if (scenarioName === sName) {
+              path.classList.add('highlighted');
+              path.classList.add(isUp ? 'up' : 'down');
+              path.setAttribute('stroke-width', 4);
+            } else {
+              path.classList.add('dimmed');
+            }
+          }
+
+          svg.appendChild(path);
+        });
+      }
+    }
+
+    // =============================================================
+    // Event handlers (update state, then render)
+    // =============================================================
+
+    function onSignalClick(id) {
+      if (state.selection.signalId === id) {
+        // Deselect
+        state.selection.signalId = null;
+      } else {
+        state.selection.signalId = id;
+        state.selection.scenarioName = null;
+      }
+      render(state);
+    }
+
+    function onScenarioClick(name) {
+      if (state.selection.scenarioName === name) {
+        // Deselect
+        state.selection.scenarioName = null;
+      } else {
+        state.selection.scenarioName = name;
+        state.selection.signalId = null;
+      }
+      render(state);
+    }
+
+    // =============================================================
+    // Utilities
+    // =============================================================
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text || '';
+      return div.innerHTML;
+    }
+
+    function formatValue(value, unit) {
+      if (unit === 'usd_trillions') return `$${value.toFixed(1)}T`;
+      if (unit === 'percent') return `${value.toFixed(1)}%`;
+      return value.toFixed(1);
+    }
+
+    // =============================================================
+    // Data loading
+    // =============================================================
+
+    async function loadData(url) {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Failed to load: ${response.status}`);
+        state.data = await response.json();
+        state.selection = { signalId: null, scenarioName: null };
+        render(state);
+      } catch (error) {
+        document.getElementById('signals-container').innerHTML = `<div class="error">${error.message}</div>`;
+        console.error(error);
+      }
+    }
+
+    // =============================================================
+    // Initialization
+    // =============================================================
+
+    function init() {
+      const params = new URLSearchParams(window.location.search);
+      const file = params.get('file');
+
+      if (file) {
+        loadData('../' + file);
+      } else {
+        document.getElementById('signals-container').innerHTML =
+          '<div class="loading">No file specified. Use ?file=path/to/file.json</div>';
+      }
+
+      // Rebuild paths on scroll/resize
+      ['signals-col', 'scenarios-col', 'question-col'].forEach(id => {
+        document.getElementById(id).addEventListener('scroll', () => {
+          requestAnimationFrame(() => renderPaths(state));
+        });
+      });
+
+      window.addEventListener('resize', () => {
+        requestAnimationFrame(() => renderPaths(state));
+      });
+    }
+
+    init();
+  </script>
+</body>
+</html>
