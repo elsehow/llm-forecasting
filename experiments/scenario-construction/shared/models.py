@@ -6,7 +6,7 @@ designed to hydrate a scenario explorer UI.
 
 from pydantic import BaseModel, Field
 
-from llm_forecasting.models import Question, Signal
+from llm_forecasting.models import Question
 
 from .scenarios import MECEScenario
 from .uncertainties import Uncertainty
