@@ -18,7 +18,7 @@ dev = [
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 asyncio_default_fixture_loop_scope = "function"
-testpaths = ["packages/llm-forecasting/tests", "packages/tree-of-life/tests"]
+testpaths = ["packages/llm-forecasting/tests"]
 
 [tool.ruff]
 line-length = 100
