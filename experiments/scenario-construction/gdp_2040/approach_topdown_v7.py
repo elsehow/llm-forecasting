@@ -295,7 +295,7 @@ async def main():
             "outcome_high": s.outcome_high,
             "key_drivers": s.key_drivers,
             "why_exclusive": s.why_exclusive,
-            "mapped_signals": s.mapped_signals,
+            "signal_impacts": [{"signal_index": si.signal_index, "effect": si.effect} for si in s.signal_impacts],
             "indicator_bundle": s.indicator_bundle,
         }
         for s in result.scenarios

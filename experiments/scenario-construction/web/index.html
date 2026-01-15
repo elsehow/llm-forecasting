@@ -483,13 +483,31 @@
       text-align: center;
       padding: 2rem;
     }
+
+    /* Dropdown */
+    .file-selector {
+      padding: 0.4rem 0.75rem;
+      font-size: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      cursor: pointer;
+      min-width: 200px;
+    }
+    .file-selector:focus {
+      outline: none;
+      border-color: var(--question-border);
+    }
   </style>
 </head>
 <body>
   <div class="header">
     <div class="header-left">
       <h1>Scenario Explorer</h1>
-      <span class="subtitle" id="set-name">Loading...</span>
+      <select id="file-selector" class="file-selector">
+        <option value="">Select scenario set...</option>
+      </select>
     </div>
     <div class="stats-bar">
       <div class="stat">Signals: <span class="stat-value" id="stat-signals">-</span></div>
@@ -552,42 +570,64 @@
       document.getElementById('stat-approach').textContent = state.data.approach || '-';
     }
 
+    // Helper: get signal indices mapped to a scenario (supports both old and new format)
+    function getScenarioSignalIndices(scenario, signals) {
+      // New format: signal_impacts with indices
+      if (scenario.signal_impacts?.length > 0) {
+        return scenario.signal_impacts.map(si => si.signal_index);
+      }
+      // Old format: mapped_signals with text (fallback)
+      if (scenario.mapped_signals?.length > 0) {
+        const indices = [];
+        scenario.mapped_signals.forEach(text => {
+          const textLower = text.toLowerCase().slice(0, 50);
+          signals.forEach((s, idx) => {
+            if (s.text.toLowerCase().startsWith(textLower)) {
+              indices.push(idx);
+            }
+          });
+        });
+        return indices;
+      }
+      return [];
+    }
+
+    // Helper: get signal impact for a signal in a scenario
+    function getSignalImpact(scenario, signalIndex) {
+      if (scenario.signal_impacts?.length > 0) {
+        return scenario.signal_impacts.find(si => si.signal_index === signalIndex);
+      }
+      return null;
+    }
+
     function renderSignals(state) {
       const container = document.getElementById('signals-container');
       container.innerHTML = '';
 
       const signals = state.data.signals || [];
+      const scenarios = state.data.scenarios || [];
       const { signalId, scenarioName } = state.selection;
 
-      // Find which signals are mapped to selected scenario
-      let mappedSignalTexts = new Set();
+      // Find which signal indices are mapped to selected scenario
+      let mappedSignalIndices = new Set();
       if (scenarioName) {
-        const scenario = state.data.scenarios?.find(s => s.name === scenarioName);
-        if (scenario?.mapped_signals) {
-          scenario.mapped_signals.forEach(text => {
-            // Match by partial text (mapped_signals contains truncated versions)
-            mappedSignalTexts.add(text.toLowerCase().slice(0, 50));
-          });
+        const scenario = scenarios.find(s => s.name === scenarioName);
+        if (scenario) {
+          getScenarioSignalIndices(scenario, signals).forEach(idx => mappedSignalIndices.add(idx));
         }
       }
 
-      // Build set of all signals mapped to any scenario
-      const allMappedSignals = new Set();
-      (state.data.scenarios || []).forEach(scenario => {
-        (scenario.mapped_signals || []).forEach(text => {
-          allMappedSignals.add(text.toLowerCase().slice(0, 50));
-        });
+      // Build set of all signal indices mapped to any scenario
+      const allMappedIndices = new Set();
+      scenarios.forEach(scenario => {
+        getScenarioSignalIndices(scenario, signals).forEach(idx => allMappedIndices.add(idx));
       });
 
-      signals.forEach(signal => {
+      signals.forEach((signal, signalIndex) => {
         const isObserved = OBSERVED_SOURCES.includes(signal.source);
         const isSelected = signalId === signal.id;
-        const isMapped = scenarioName && Array.from(mappedSignalTexts).some(t =>
-          signal.text.toLowerCase().startsWith(t)
-        );
-        const isZeroVoi = signal.voi === 0 || !Array.from(allMappedSignals).some(t =>
-          signal.text.toLowerCase().startsWith(t)
-        );
+        const isMapped = scenarioName && mappedSignalIndices.has(signalIndex);
+        const isZeroVoi = signal.voi === 0 || !allMappedIndices.has(signalIndex);
 
         let classes = ['card', 'signal-card'];
         if (!isObserved) classes.push('synthetic');
@@ -626,6 +666,7 @@
       const container = document.getElementById('scenarios-container');
       container.innerHTML = '';
 
+      const signals = state.data.signals || [];
       const scenarios = state.data.scenarios || [];
       const numScenarios = scenarios.length;
       const { signalId, scenarioName } = state.selection;
@@ -633,12 +674,11 @@
       // Find which scenarios contain the selected signal
       let scenariosWithSignal = new Set();
       if (signalId) {
-        const signal = state.data.signals?.find(s => s.id === signalId);
-        if (signal) {
+        const signalIndex = signals.findIndex(s => s.id === signalId);
+        if (signalIndex >= 0) {
           scenarios.forEach(scenario => {
-            if (scenario.mapped_signals?.some(text =>
-              signal.text.toLowerCase().startsWith(text.toLowerCase().slice(0, 50))
-            )) {
+            const indices = getScenarioSignalIndices(scenario, signals);
+            if (indices.includes(signalIndex)) {
               scenariosWithSignal.add(scenario.name);
             }
           });
@@ -768,12 +808,6 @@
       const scenarios = state.data.scenarios || [];
       const signals = state.data.signals || [];
 
-      // Build signal text -> id map
-      const signalTextToId = {};
-      signals.forEach(s => {
-        signalTextToId[s.text.toLowerCase().slice(0, 50)] = s.id;
-      });
-
       // Draw signal -> scenario paths
       document.querySelectorAll('.scenario-card').forEach(scenarioCard => {
         const sName = scenarioCard.dataset.scenarioName;
@@ -782,11 +816,11 @@
 
         const scenarioRect = scenarioCard.getBoundingClientRect();
 
-        (scenario.mapped_signals || []).forEach(mappedText => {
-          // Find the signal card
-          const matchingSignal = signals.find(s =>
-            s.text.toLowerCase().startsWith(mappedText.toLowerCase().slice(0, 50))
-          );
+        // Get signal indices for this scenario
+        const signalIndices = getScenarioSignalIndices(scenario, signals);
+
+        signalIndices.forEach(signalIndex => {
+          const matchingSignal = signals[signalIndex];
           if (!matchingSignal) return;
 
           const signalCard = document.querySelector(`.signal-card[data-signal-id="${matchingSignal.id}"]`);
@@ -807,11 +841,15 @@
           // Determine visibility and color
           const isRelevant = (signalId === matchingSignal.id) || (scenarioName === sName);
 
+          // Get impact direction from signal_impacts (new format) or fall back to rho (old format)
+          const impact = getSignalImpact(scenario, signalIndex);
+          const isEnhancing = impact ? impact.effect === 'enhances' : (matchingSignal.rho >= 0);
+
           if (signalId || scenarioName) {
             if (isRelevant) {
               path.classList.add('highlighted');
-              path.classList.add(matchingSignal.rho >= 0 ? 'up' : 'down');
-              path.setAttribute('stroke-width', 2 + Math.abs(matchingSignal.rho || 0) * 3);
+              path.classList.add(isEnhancing ? 'up' : 'down');
+              path.setAttribute('stroke-width', 3);
             } else {
               path.classList.add('dimmed');
             }
@@ -930,7 +968,38 @@
     // Initialization
     // =============================================================
 
+    // Known scenario files (manually maintained for now)
+    const AVAILABLE_FILES = [
+      { path: 'gdp_2040/results/gdp_2050/bottomup_v7_20260115_133436.json', label: 'GDP 2050 - Bottom-up' },
+      { path: 'gdp_2040/results/gdp_2050/topdown_v7_20260115_130027.json', label: 'GDP 2050 - Top-down' },
+      { path: 'gdp_2040/results/gdp_2050/hybrid_v7_20260115_133939.json', label: 'GDP 2050 - Hybrid' },
+      { path: 'gdp_2040/results/renewable_2050/bottomup_v7_20260115_133443.json', label: 'Renewable 2050 - Bottom-up' },
+      { path: 'gdp_2040/results/renewable_2050/topdown_v7_20260115_130042.json', label: 'Renewable 2050 - Top-down' },
+      { path: 'gdp_2040/results/renewable_2050/hybrid_v7_20260115_133932.json', label: 'Renewable 2050 - Hybrid' },
+    ];
+
+    function populateFileSelector() {
+      const selector = document.getElementById('file-selector');
+      const currentFile = new URLSearchParams(window.location.search).get('file');
+
+      AVAILABLE_FILES.forEach(f => {
+        const option = document.createElement('option');
+        option.value = f.path;
+        option.textContent = f.label;
+        if (f.path === currentFile) option.selected = true;
+        selector.appendChild(option);
+      });
+
+      selector.addEventListener('change', (e) => {
+        if (e.target.value) {
+          window.location.search = `?file=${e.target.value}`;
+        }
+      });
+    }
+
     function init() {
+      populateFileSelector();
+
       const params = new URLSearchParams(window.location.search);
       const file = params.get('file');
 
@@ -938,7 +1007,7 @@
         loadData('../' + file);
       } else {
         document.getElementById('signals-container').innerHTML =
-          '<div class="loading">No file specified. Use ?file=path/to/file.json</div>';
+          '<div class="loading">Select a scenario set from the dropdown above</div>';
       }
 
       // Rebuild paths on scroll/resize

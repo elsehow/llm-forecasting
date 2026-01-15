@@ -1,0 +1,403 @@
+{
+  "id": "bottomup_gdp_2050_3b86d722",
+  "name": "gdp_2050 (bottom-up)",
+  "target": "gdp_2050",
+  "approach": "bottomup_v7",
+  "question": {
+    "id": "gdp_2050",
+    "source": "scenario_construction",
+    "text": "What will US real GDP be in 2050 (in 2024 dollars)?",
+    "question_type": "continuous",
+    "unit": "usd_trillions",
+    "base_rate": 29.0,
+    "value_range": [
+      25.0,
+      150.0
+    ]
+  },
+  "config": {
+    "context": "Current US GDP: ~$29 trillion (2024). 26-year horizon allows for transformative changes. Key uncertainties: AI/automation impact, transformative tech (quantum, fusion), geopolitical realignment, climate adaptation costs, demographic shifts, institutional stability.",
+    "cruxiness_normalizer": 40.0,
+    "voi_floor": 0.1
+  },
+  "knowledge_cutoff": "2025-10-01",
+  "current_date": "2026-01-15",
+  "sources_used": [
+    "polymarket",
+    "metaculus",
+    "kalshi",
+    "fred",
+    "infer",
+    "manifold"
+  ],
+  "signals_retrieved": 200,
+  "signals_after_dedup": 12,
+  "signals_above_floor": 8,
+  "source_breakdown": {
+    "metaculus": 8,
+    "polymarket": 1,
+    "fred": 1,
+    "manifold": 1,
+    "infer": 1
+  },
+  "category_breakdown": {
+    "future": 99,
+    "near_term": 97,
+    "unknown": 4
+  },
+  "signals": [
+    {
+      "id": "8968",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will the Federal Reserve set a target policy rate that is negative by 2050?",
+      "url": "https://www.metaculus.com/questions/8968",
+      "question_type": "binary",
+      "created_at": "2026-01-15T23:17:03.605487Z",
+      "resolution_date": "2050-01-01",
+      "resolved": false,
+      "voi": 0.35,
+      "rho": -0.7,
+      "rho_reasoning": "The two questions are related, as the level of real GDP in 2050 and whether the Federal Reserve has a negative target policy rate by 2050 are likely to be inversely correlated. A higher level of real GDP in 2050 would generally indicate a stronger economy, which would make it less likely for the Federal Reserve to have a negative target policy rate. Conversely, a weaker economy in 2050 with lower real GDP would increase the probability of the Federal Reserve needing to implement negative interest rates. Therefore, I estimate a moderately strong negative correlation coefficient of -0.7 between these two prediction market questions."
+    },
+    {
+      "id": "0xbad74413f87762c2b4423dfcd72ccce4c561bc59f33e7ed474b33ef917b802a0",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "US defaults on debt in 2025?",
+      "url": "https://polymarket.com/market/us-defaults-on-debt-in-2025",
+      "question_type": "binary",
+      "created_at": "2026-01-15T23:17:03.605499Z",
+      "resolution_date": "2025-12-31",
+      "resolved": false,
+      "voi": 0.35,
+      "rho": -0.7,
+      "rho_reasoning": "These two questions are related, as a default on US debt in 2025 would likely have a significant negative impact on the US economy, which could manifest in lower real GDP in 2050. Therefore, a 'Yes' answer to the debt default question would make a 'Yes' answer to the GDP question less likely, suggesting a negative correlation between the two. The magnitude of the correlation (-0.7) indicates a relatively strong, but not perfect, negative relationship between the two events."
+    },
+    {
+      "id": "9060",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "If a global catastrophe occurs, will it reduce the human population by 95% or more?",
+      "url": "https://www.metaculus.com/questions/9060",
+      "question_type": "binary",
+      "created_at": "2026-01-15T23:17:03.605503Z",
+      "resolution_date": "2100-01-01",
+      "resolved": false,
+      "voi": 0.30000000000000004,
+      "rho": -0.6,
+      "rho_reasoning": "The two questions are not directly related, but there is likely some negative correlation between them. A high GDP in 2050 would suggest a healthy, thriving global economy and society, which would make a catastrophe that reduces the human population by 95% or more less likely. Conversely, a catastrophe of that magnitude would likely have severe negative impacts on economic output and growth, reducing the expected 2050 GDP. Therefore, I estimate a moderate negative correlation coefficient of around -0.6 between these two questions."
+    },
+    {
+      "id": "CURRCIR",
+      "source": "fred",
+      "source_type": "market",
+      "text": "Will the number of US dollars in circulation have increased by {resolution_date} as compared to its value on {forecast_due_date}?",
+      "url": "https://fred.stlouisfed.org/series/CURRCIR",
+      "question_type": "binary",
+      "created_at": "2026-01-15T23:17:03.605505Z",
+      "resolved": false,
+      "voi": 0.25,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related, as higher real GDP in 2050 would likely be associated with a larger money supply. However, the relationship is not direct, as the money supply can increase for reasons other than just economic growth. Additionally, the time horizons are different, with the GDP question looking at 2050 and the money supply question looking at a shorter-term change. Therefore, the correlation is expected to be positive but not perfect."
+    },
+    {
+      "id": "zg7xJ5ZkJJ4wJPJDPjWO",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "By 2028, will there be a visible break in trend line on US GDP, GDP per capita, unemployment, or productivity, which most economists attribute directly to the effects of AI?",
+      "url": "https://manifold.markets/ScottAlexander/by-2028-will-there-be-a-visible-bre",
+      "question_type": "binary",
+      "created_at": "2026-01-15T23:17:03.605508Z",
+      "resolution_date": "2028-01-02",
+      "resolved": false,
+      "base_rate": 0.42,
+      "voi": 0.2467792535850613,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related, as they both concern the long-term economic trends and the potential impact of AI on the economy. A higher GDP in 2050 (Question A) would make it less likely for there to be a visible break in trend lines by 2028 (Question B), as a stronger overall economy is less likely to be disrupted by the effects of AI in the short term. However, the connection is not perfect, as other factors beyond AI could also influence economic trends. Therefore, the correlation coefficient is estimated to be moderately positive at 0.5."
+    },
+    {
+      "id": "899",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will the richest person in the world in 2033 have a net worth equivalent to or greater than 2% of the United States' GDP at the time?",
+      "url": "https://www.metaculus.com/questions/899",
+      "question_type": "binary",
+      "created_at": "2026-01-15T23:17:03.605511Z",
+      "resolution_date": "2033-01-01",
+      "resolved": false,
+      "voi": 0.15000000000000002,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are related, as the GDP of the United States in 2050 could affect the net worth of the richest person in the world in 2033. A higher GDP could lead to a higher net worth for the richest person, and vice versa. However, the relationship is not direct, as there are many other factors that could influence the net worth of the richest person. Therefore, the correlation between the two questions is likely to be positive but moderate, around 0.3."
+    },
+    {
+      "id": "1707",
+      "source": "infer",
+      "source_type": "market",
+      "text": "Will China's year-over-year GDP growth rate for Q2 2026 equal or exceed 5.0%, according to the National Bureau of Statistics of China?",
+      "url": "https://www.randforecastinginitiative.org/questions/1707",
+      "question_type": "binary",
+      "created_at": "2026-01-15T23:17:03.605513Z",
+      "resolution_date": "2026-07-01",
+      "resolved": false,
+      "voi": 0.15000000000000002,
+      "rho": 0.3,
+      "rho_reasoning": "The two prediction market questions are related to the economic performance of the US and China, but they are measuring different aspects of the economy. Question A about US real GDP in 2050 is a long-term macroeconomic indicator, while Question B about China's GDP growth rate in Q2 2026 is a shorter-term, more specific economic metric. While the performance of the two economies may be somewhat correlated, knowing the outcome of one question does not provide a strong signal about the other. Therefore, I estimate a moderately positive correlation coefficient of 0.3 between the two questions."
+    },
+    {
+      "id": "2534",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will there be a \"World War Three\" before 2050?",
+      "url": "https://www.metaculus.com/questions/2534",
+      "question_type": "binary",
+      "created_at": "2026-01-15T23:17:03.605515Z",
+      "resolution_date": "2050-01-01",
+      "resolved": false,
+      "voi": 0.15000000000000002,
+      "rho": -0.3,
+      "rho_reasoning": "The two questions are not directly related. The US GDP in 2050 is an economic measure, while the occurrence of World War Three is a geopolitical event. A higher GDP does not necessarily make a world war less likely, and vice versa. There may be some indirect relationship, as a strong economy could increase a country's military capabilities and global influence, potentially affecting the risk of war. However, the correlation is likely to be weak and negative, as a major war could disrupt economic growth. Overall, knowing the outcome of one question provides limited information about the other."
+    },
+    {
+      "id": "15206",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will the global methane output from the energy sector be at least 145 Mt for the year 2025?",
+      "url": "https://www.metaculus.com/questions/15206",
+      "question_type": "binary",
+      "created_at": "2026-01-15T23:17:03.605520Z",
+      "resolution_date": "2025-12-31",
+      "resolved": false,
+      "voi": 0.09999999999999998,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are not directly related. The first question is about the future level of US real GDP, while the second question is about global methane output from the energy sector. While there may be some indirect relationship, as economic growth and energy sector emissions are not completely independent, the correlation is likely to be relatively weak. The two questions are measuring different underlying phenomena, so the correlation coefficient is expected to be close to 0, indicating independence."
+    },
+    {
+      "id": "1469",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will we know what Dark Matter is before 2050?",
+      "url": "https://www.metaculus.com/questions/1469",
+      "question_type": "binary",
+      "created_at": "2026-01-15T23:17:03.605522Z",
+      "resolution_date": "2049-12-08",
+      "resolved": false,
+      "voi": 0.09999999999999998,
+      "rho": 0.2,
+      "rho_reasoning": "While the two questions are not directly related, there may be some indirect relationship between the state of the economy and the advancement of scientific understanding. A strong economy with robust funding for scientific research could potentially lead to more progress in understanding dark matter, which would increase the likelihood of a 'YES' answer to the second question. However, the relationship is likely to be quite weak, as there are many other factors that could influence the progress of dark matter research. Therefore, I estimate a modest positive correlation coefficient of 0.2."
+    },
+    {
+      "id": "18601",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will a retail CBDC (central bank digital currency) go live in the USA and become available for public use before 2031?",
+      "url": "https://www.metaculus.com/questions/18601",
+      "question_type": "binary",
+      "created_at": "2026-01-15T23:17:03.605524Z",
+      "resolution_date": "2030-12-31",
+      "resolved": false,
+      "voi": 0.09999999999999998,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are not directly related. The first question about US GDP in 2050 is a general macroeconomic indicator, while the second question is about the specific event of a retail CBDC going live in the USA. While there could be some indirect relationship, such as the development of a CBDC potentially affecting economic growth, the connection is not strong enough to expect a high correlation. A correlation coefficient of 0.2 suggests a weak positive relationship, indicating that knowing the outcome of one question provides limited information about the other."
+    },
+    {
+      "id": "7481",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will the S&P 500 rise or fall more than 15% in a single day during the 2020s?",
+      "url": "https://www.metaculus.com/questions/7481",
+      "question_type": "binary",
+      "created_at": "2026-01-15T23:17:03.605526Z",
+      "resolution_date": "2029-12-31",
+      "resolved": false,
+      "voi": 0.09999999999999998,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are not directly related, as they are measuring different economic phenomena. However, there could be some indirect relationship, as a stronger US economy (higher real GDP) could potentially lead to a more stable stock market, reducing the likelihood of large single-day moves in the S&P 500. Therefore, I estimate a moderate positive correlation between the two questions, with a coefficient of 0.2."
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Crisis & Collapse",
+      "description": "The US economy contracts significantly due to a combination of systemic shocks including debt default, global catastrophe, or major war. Economic institutions break down and productivity collapses. Recovery is slow and incomplete by 2050.",
+      "outcome_range": "$15-25T",
+      "outcome_low": 15.0,
+      "outcome_high": 25.0,
+      "key_drivers": [
+        "US debt default triggers financial crisis",
+        "Global catastrophic events reduce productive capacity",
+        "World War Three destroys infrastructure and trade",
+        "Institutional breakdown undermines economic coordination",
+        "Massive population decline reduces labor force"
+      ],
+      "why_exclusive": "This scenario involves fundamental economic breakdown that is incompatible with the growth or stability seen in other scenarios. You cannot have both economic collapse and sustained growth simultaneously.",
+      "signal_impacts": [
+        {
+          "signal_index": 1,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 2,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 7,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 0,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 4,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Unemployment Rate": ">15% by 2040",
+        "Government Debt-to-GDP": ">200% by 2035",
+        "Infrastructure Quality Index": "<6.0/10 by 2040",
+        "Trade Volume (% of GDP)": "<15% by 2045",
+        "Political Stability Index": "<40/100 by 2030"
+      }
+    },
+    {
+      "name": "Stagnant Muddle",
+      "description": "Economic growth slows substantially due to demographic decline, institutional dysfunction, and failure to capture AI productivity gains. The economy muddles through with low growth, high inequality, and persistent structural problems.",
+      "outcome_range": "$35-45T",
+      "outcome_low": 35.0,
+      "outcome_high": 45.0,
+      "key_drivers": [
+        "Aging population reduces labor force growth",
+        "AI adoption fails to boost productivity significantly",
+        "High inequality concentrates wealth inefficiently",
+        "Institutional gridlock prevents necessary reforms",
+        "Climate adaptation costs drag on growth"
+      ],
+      "why_exclusive": "This represents sustained low growth that excludes both economic collapse and the high growth rates of other scenarios. An economy cannot simultaneously experience stagnation and rapid expansion.",
+      "signal_impacts": [
+        {
+          "signal_index": 5,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 4,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 0,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 6,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 1,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 7,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Annual GDP Growth": "<1.5% average 2030-2050",
+        "Productivity Growth": "<0.8% annually post-2030",
+        "Gini Coefficient": ">0.55 by 2040",
+        "Government Effectiveness": "<60/100 by 2035",
+        "R&D Spending": "<2.5% of GDP by 2040"
+      }
+    },
+    {
+      "name": "Moderate Progress",
+      "description": "The US maintains steady but unspectacular growth through incremental technological progress, reasonable policy management, and avoidance of major shocks. AI provides modest productivity gains while institutions adapt gradually to new challenges.",
+      "outcome_range": "$55-70T",
+      "outcome_low": 55.0,
+      "outcome_high": 70.0,
+      "key_drivers": [
+        "Steady 2-2.5% annual growth maintained",
+        "AI adoption proceeds at measured pace with moderate gains",
+        "Climate adaptation managed without crisis",
+        "Institutional reforms address key challenges incrementally",
+        "Demographic transition managed through immigration and automation"
+      ],
+      "why_exclusive": "This baseline growth path cannot coexist with either economic crisis/stagnation or transformative acceleration. It represents a middle path that excludes both extreme outcomes.",
+      "signal_impacts": [
+        {
+          "signal_index": 1,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 2,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 7,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 4,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 3,
+          "effect": "enhances"
+        }
+      ],
+      "indicator_bundle": {
+        "Annual GDP Growth": "2.0-2.5% average 2030-2050",
+        "Productivity Growth": "1.5-2.0% annually post-2030",
+        "Debt-to-GDP Ratio": "<150% through 2050",
+        "Climate Investment": "3-5% of GDP by 2040",
+        "AI Adoption Rate": "60-80% of firms by 2040"
+      }
+    },
+    {
+      "name": "AI Transformation",
+      "description": "Artificial intelligence drives unprecedented productivity growth and economic transformation. Breakthrough AI capabilities arrive earlier than expected, revolutionizing most sectors and enabling sustained high growth despite other challenges.",
+      "outcome_range": "$80-120T",
+      "outcome_low": 80.0,
+      "outcome_high": 120.0,
+      "key_drivers": [
+        "AGI achieved by 2035 drives massive productivity gains",
+        "AI automation solves labor shortage from aging",
+        "New AI-enabled industries create enormous value",
+        "Scientific breakthroughs accelerate via AI assistance",
+        "Efficient resource allocation through AI optimization"
+      ],
+      "why_exclusive": "This scenario requires transformative AI capabilities that fundamentally alter economic production functions. Such transformation is incompatible with stagnation or moderate growth scenarios, representing a phase change in economic capacity.",
+      "signal_impacts": [
+        {
+          "signal_index": 4,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 5,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 1,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 2,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 7,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Annual GDP Growth": ">4% average 2035-2050",
+        "Productivity Growth": ">5% annually post-2035",
+        "AI Contribution to GDP": ">30% by 2045",
+        "Patent Applications": ">1M annually by 2040",
+        "Automation Rate": ">70% of jobs AI-assisted by 2045"
+      }
+    }
+  ],
+  "mece_reasoning": "These scenarios are MECE because they partition the outcome space along GDP ranges that cannot overlap:\n- Crisis & Collapse ($15-25T): Fundamental economic breakdown\n- Stagnant Muddle ($35-45T): Persistent low growth \n- Moderate Progress ($55-70T): Steady baseline growth\n- AI Transformation ($80-120T): Transformative acceleration\n\nEach represents a distinct economic trajectory that precludes the others. You cannot simultaneously have economic collapse and AI-driven boom, or stagnation and transformative growth. The scenarios are differentiated by their core growth dynamics and institutional capacity, creating mutually exclusive world-states while covering the full range of plausible 2050 GDP outcomes from crisis to transformation.",
+  "coverage_gaps": [],
+  "created_at": "2026-01-15T15:17:03.605652"
+}
