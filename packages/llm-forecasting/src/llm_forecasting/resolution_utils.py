@@ -39,7 +39,8 @@ def binary_resolution_to_float(
 def kalshi_resolution_to_float(result: str | None) -> float | None:
     """Convert Kalshi-style resolution to float.
 
-    Kalshi uses lowercase "yes"/"no" for results.
+    Kalshi uses lowercase "yes"/"no" for results. This is a thin wrapper
+    around binary_resolution_to_float for API compatibility.
 
     Args:
         result: Result string from Kalshi API.
@@ -47,14 +48,4 @@ def kalshi_resolution_to_float(result: str | None) -> float | None:
     Returns:
         1.0 for yes, 0.0 for no, None otherwise.
     """
-    if result is None:
-        return None
-
-    result_lower = result.lower().strip()
-
-    if result_lower == "yes":
-        return 1.0
-    elif result_lower == "no":
-        return 0.0
-    else:
-        return None
+    return binary_resolution_to_float(result)
