@@ -11,11 +11,28 @@ steep gradients at probability extremes that amplify errors.
 
 from __future__ import annotations
 
-import math
 from typing import TYPE_CHECKING, Literal
+
+# Import core VOI functions from llm-forecasting
+from llm_forecasting.voi import entropy, entropy_voi, linear_voi
 
 if TYPE_CHECKING:
     from .models import ForecastTree, GlobalScenario, Signal
+
+# Re-export core functions for backwards compatibility
+__all__ = [
+    "linear_voi",
+    "entropy_voi",
+    "entropy",
+    "estimate_posteriors",
+    "compute_signal_voi",
+    "compute_signal_voi_with_posteriors",
+    "rank_signals_by_voi",
+    "top_signals_by_voi",
+    "signals_by_voi_threshold",
+    "compare_voi_methods",
+    "MAGNITUDE_SHIFTS",
+]
 
 
 # Default magnitude shift factors (proportion of distance to 0 or 1)
@@ -25,70 +42,6 @@ MAGNITUDE_SHIFTS: dict[str, float] = {
     "medium": 0.25,  # 25% of available probability space
     "large": 0.50,   # 50% of available probability space
 }
-
-
-def linear_voi(
-    p_x: float,
-    p_q: float,
-    p_x_given_q_yes: float,
-    p_x_given_q_no: float,
-) -> float:
-    """Compute Linear VOI: expected absolute belief shift.
-
-    More stable than entropy VOI under magnitude noise.
-    Especially valuable for rare events (P < 0.10).
-
-    Args:
-        p_x: Prior P(X) - scenario probability
-        p_q: P(Q=yes) - probability signal fires/resolves yes
-        p_x_given_q_yes: P(X|Q=yes) - scenario prob if signal fires
-        p_x_given_q_no: P(X|Q=no) - scenario prob if signal doesn't fire
-
-    Returns:
-        Linear VOI value (expected absolute belief shift)
-    """
-    shift_yes = abs(p_x_given_q_yes - p_x)
-    shift_no = abs(p_x_given_q_no - p_x)
-    return p_q * shift_yes + (1 - p_q) * shift_no
-
-
-def entropy(p: float) -> float:
-    """Binary entropy in bits.
-
-    Args:
-        p: Probability value
-
-    Returns:
-        Entropy value in bits (0 for p=0 or p=1)
-    """
-    if p <= 0 or p >= 1:
-        return 0.0
-    return -p * math.log2(p) - (1 - p) * math.log2(1 - p)
-
-
-def entropy_voi(
-    p_x: float,
-    p_q: float,
-    p_x_given_q_yes: float,
-    p_x_given_q_no: float,
-) -> float:
-    """Compute entropy-based VOI (information gain in bits).
-
-    Standard information-theoretic VOI. Has steep gradients at probability
-    extremes which can amplify estimation errors.
-
-    Args:
-        p_x: Prior P(X) - scenario probability
-        p_q: P(Q=yes) - probability signal fires/resolves yes
-        p_x_given_q_yes: P(X|Q=yes) - scenario prob if signal fires
-        p_x_given_q_no: P(X|Q=no) - scenario prob if signal doesn't fire
-
-    Returns:
-        Entropy VOI value (information gain in bits)
-    """
-    h_prior = entropy(p_x)
-    h_posterior = p_q * entropy(p_x_given_q_yes) + (1 - p_q) * entropy(p_x_given_q_no)
-    return h_prior - h_posterior
 
 
 def estimate_posteriors(

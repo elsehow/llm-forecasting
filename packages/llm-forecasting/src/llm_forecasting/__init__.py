@@ -19,6 +19,14 @@ from llm_forecasting.registry import (
     get_models_released_before,
     get_models_with_structured_output,
 )
+from llm_forecasting.voi import (
+    entropy,
+    entropy_voi,
+    entropy_voi_from_rho,
+    linear_voi,
+    linear_voi_from_rho,
+    rho_to_posteriors,
+)
 
 __all__ = [
     # Core models
@@ -38,5 +46,12 @@ __all__ = [
     "get_active_models",
     "get_models_released_before",
     "get_models_with_structured_output",
+    # VOI
+    "linear_voi",
+    "entropy_voi",
+    "entropy",
+    "rho_to_posteriors",
+    "linear_voi_from_rho",
+    "entropy_voi_from_rho",
 ]
 __version__ = "2.0.0"

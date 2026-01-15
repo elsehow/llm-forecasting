@@ -250,3 +250,40 @@ Some tests require API keys:
 - End-to-end pipeline tests to verify full workflow
 - Use pytest fixtures for common setup
 - Keep tests simple and readable
+
+## Value of Information (VOI)
+
+The canonical VOI implementation lives in `llm_forecasting/voi.py`. **Always use this module** — do not create new VOI implementations elsewhere.
+
+### Core Functions
+
+```python
+from llm_forecasting.voi import (
+    linear_voi,           # Core formula with explicit posteriors
+    linear_voi_from_rho,  # When you have correlation coefficient ρ
+    rho_to_posteriors,    # Convert ρ → P(A|B=yes), P(A|B=no)
+    entropy_voi,          # Alternative (less stable at extremes)
+)
+```
+
+### When to Use Which
+
+| Situation | Function |
+|-----------|----------|
+| Have explicit P(A\|B=yes), P(A\|B=no) | `linear_voi(p_a, p_b, p_a_given_b_yes, p_a_given_b_no)` |
+| Have correlation ρ between markets | `linear_voi_from_rho(rho, p_a, p_b)` |
+| Need posteriors for other calculations | `rho_to_posteriors(rho, p_a, p_b)` |
+
+### Why Linear VOI?
+
+Linear VOI (expected absolute belief shift) is preferred over entropy-based VOI because:
+- Constant gradient → stable under magnitude estimation errors
+- +0.16 τ stability advantage at moderate base rates
+- +0.35 τ stability advantage at extreme base rates (<0.10 or >0.90)
+
+See `experiments/magnitude/linear-voi/` for the empirical analysis.
+
+### Relationship to Other Packages
+
+- `tree-of-life` imports from this module and adds tree-specific helpers (`estimate_posteriors` from direction/magnitude, signal ranking functions)
+- Validation experiments in `experiments/question-generation/voi-validation/` use `linear_voi_from_rho`

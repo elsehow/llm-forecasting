@@ -15,46 +15,14 @@ Usage:
 
 import argparse
 import json
-import math
 from datetime import datetime
 from pathlib import Path
 
 import numpy as np
 from scipy.stats import kendalltau
 
-
-def entropy(p: float) -> float:
-    """Binary entropy in bits."""
-    if p <= 0 or p >= 1:
-        return 0.0
-    return -p * math.log2(p) - (1 - p) * math.log2(1 - p)
-
-
-def entropy_voi(p_x: float, p_q: float, p_x_given_q_yes: float, p_x_given_q_no: float) -> float:
-    """
-    Standard entropy-based VOI.
-
-    p_x: prior P(X)
-    p_q: P(Q=yes) - probability the signal question resolves yes
-    p_x_given_q_yes: P(X|Q=yes)
-    p_x_given_q_no: P(X|Q=no)
-
-    Returns expected reduction in entropy (information gain).
-    """
-    h_prior = entropy(p_x)
-    h_posterior = p_q * entropy(p_x_given_q_yes) + (1 - p_q) * entropy(p_x_given_q_no)
-    return h_prior - h_posterior
-
-
-def linear_voi(p_x: float, p_q: float, p_x_given_q_yes: float, p_x_given_q_no: float) -> float:
-    """
-    Linear VOI: expected absolute belief shift.
-
-    More robust to estimation errors because gradients are constant.
-    """
-    shift_yes = abs(p_x_given_q_yes - p_x)
-    shift_no = abs(p_x_given_q_no - p_x)
-    return p_q * shift_yes + (1 - p_q) * shift_no
+# Import canonical VOI from core
+from llm_forecasting.voi import entropy, entropy_voi, linear_voi
 
 
 def add_noise(conditionals: dict, noise_std: float, rng: np.random.Generator) -> dict:
