@@ -272,3 +272,51 @@ async def generate_mece_scenarios(
     return MECEScenariosResponse.model_validate_json(
         response.choices[0].message.content
     )
+
+
+async def generate_and_print_scenarios(
+    signals: list[dict],
+    question: str,
+    context: str,
+    question_type: str = "continuous",
+    voi_floor: float = 0.0,
+    model: str | None = None,
+) -> MECEScenariosResponse:
+    """Generate MECE scenarios and print results.
+
+    Wrapper around generate_mece_scenarios that also:
+    - Restructures signals for the prompt
+    - Prints results using print_results()
+
+    Args:
+        signals: List of signal dicts (with text, source, voi keys)
+        question: Target question text
+        context: Question context
+        question_type: "continuous" or "binary"
+        voi_floor: Minimum VOI for signals to include
+        model: LLM model to use
+
+    Returns:
+        MECEScenariosResponse with scenarios
+    """
+    from .output import print_results
+
+    print("Generating MECE scenarios...")
+
+    # Restructure signals for the prompt
+    signals_for_prompt = [
+        {"text": s.get("text") or s.get("question", ""), "source": s["source"], "voi": s.get("voi", 0)}
+        for s in signals
+    ]
+
+    result = await generate_mece_scenarios(
+        signals=signals_for_prompt,
+        question=question,
+        context=context,
+        question_type=question_type,
+        voi_floor=voi_floor,
+        model=model,
+    )
+
+    print_results(result)
+    return result

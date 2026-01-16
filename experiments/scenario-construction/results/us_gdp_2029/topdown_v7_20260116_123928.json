@@ -1,0 +1,873 @@
+{
+  "id": "topdown_us_gdp_2029_cfb672e7",
+  "name": "us_gdp_2029 (topdown)",
+  "target": "us_gdp_2029",
+  "approach": "topdown_v7",
+  "question": {
+    "id": "us_gdp_2029",
+    "source": "scenario_construction",
+    "text": "What will US real GDP be in 2029 (in 2024 dollars)?",
+    "question_type": "continuous",
+    "unit": "usd_trillions",
+    "base_rate": null,
+    "value_range": null
+  },
+  "config": {
+    "context": "Current US real GDP: $31.1 trillion (BEA Q3 2025, seasonally adjusted annual rate). Historical growth averages 2-3% annually. Key uncertainties: Trump administration economic policies, tariff impacts, Fed monetary policy, labor market conditions, AI productivity effects.",
+    "cruxiness_normalizer": 5.0,
+    "voi_floor": 0.1
+  },
+  "current_date": "2026-01-16",
+  "signals": [
+    {
+      "id": "llm_3f1f4e13",
+      "source": "llm",
+      "source_type": "market",
+      "text": "US GDP growth exceeds 3.5% annualized in at least 2 consecutive quarters during 2026 according to Bureau of Economic Analysis data",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.776959Z",
+      "resolution_date": "2027-01-01",
+      "resolved": false,
+      "base_rate": 0.35,
+      "voi": 0.2861817604250837,
+      "rho": 0.6,
+      "rho_reasoning": "The two questions are related, as US real GDP growth is a key driver of whether GDP growth exceeds 3.5% in consecutive quarters. A higher real GDP in 2029 would make it more likely that GDP growth exceeds 3.5% in 2026, suggesting a positive correlation between the two. However, they are not perfectly correlated, as other factors like inflation, consumer spending, and business investment can also impact short-term GDP growth rates.",
+      "uncertainty_source": "AI Productivity Boost",
+      "p_target_given_yes": 0.9088310863215482,
+      "p_target_given_no": 0.27986018428839715,
+      "cruxiness_spread": 0.6289709020331511
+    },
+    {
+      "id": "llm_656b1c33",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By October 31, 2026, at least 15 major US corporations (Fortune 500) announce supply chain relocations from China costing >$1B each, per company earnings calls and SEC filings",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.776976Z",
+      "resolution_date": "2026-11-15",
+      "resolved": false,
+      "base_rate": 0.45,
+      "voi": 0.24874685927665502,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related, as a strong US economy (high GDP) may make it more likely for major US corporations to relocate supply chains out of China, due to improved domestic economic conditions and profitability. However, the relationship is not perfect, as other factors beyond just GDP growth could influence corporate supply chain decisions. Therefore, I estimate a moderately positive correlation coefficient of 0.5 between the two questions.",
+      "uncertainty_source": "Trade Policy Regime",
+      "p_target_given_yes": 0.7763853991962834,
+      "p_target_given_no": 0.27386649156667725,
+      "cruxiness_spread": 0.5025189076296062
+    },
+    {
+      "id": "llm_11535187",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 31, 2026, the Federal Reserve will have raised the federal funds rate by at least 100 basis points from its January 15, 2026 level, per FOMC announcements",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.776982Z",
+      "resolution_date": "2026-12-31",
+      "resolved": false,
+      "base_rate": 0.35,
+      "voi": 0.23848480035423644,
+      "rho": -0.5,
+      "rho_reasoning": "The two questions are related, as they both concern macroeconomic conditions in the U.S. However, they measure different aspects of the economy - GDP growth and interest rate policy. If the U.S. economy experiences slower GDP growth, this would likely lead the Federal Reserve to be less aggressive in raising interest rates, as they would want to avoid further slowing the economy. Therefore, there is a moderate negative correlation between the two outcomes, with an estimated correlation coefficient of -0.5.",
+      "uncertainty_source": "Monetary Policy Cycle",
+      "p_target_given_yes": 0.15930742806537654,
+      "p_target_given_no": 0.6834498464263358,
+      "cruxiness_spread": 0.5241424183609592
+    },
+    {
+      "id": "llm_2da27e8d",
+      "source": "llm",
+      "source_type": "market",
+      "text": "US manufacturing productivity index increases by at least 8% year-over-year by December 2026 according to Federal Reserve industrial production data",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.776985Z",
+      "resolution_date": "2027-01-10",
+      "resolved": false,
+      "base_rate": 0.3,
+      "voi": 0.22912878474779197,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related in that they both measure aspects of economic performance, but they are not directly measuring the same underlying phenomenon. Strong GDP growth and rising manufacturing productivity are typically correlated, but not perfectly so. Knowing the GDP outcome would provide some information about the likelihood of the manufacturing productivity outcome, but not fully determine it. Therefore, a moderate positive correlation coefficient of 0.5 seems reasonable.",
+      "uncertainty_source": "AI Productivity Boost",
+      "p_target_given_yes": 0.8818813079129867,
+      "p_target_given_no": 0.33633658232300573,
+      "cruxiness_spread": 0.545544725589981
+    },
+    {
+      "id": "llm_78a5bfc7",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 31, 2026, US labor productivity (output per hour) grows by at least 3.5% year-over-year according to Bureau of Labor Statistics data",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.776989Z",
+      "resolution_date": "2027-01-15",
+      "resolved": false,
+      "base_rate": 0.25,
+      "voi": 0.2165063509461096,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related, as US real GDP and labor productivity growth are closely linked economic indicators. Higher GDP growth would generally be associated with stronger labor productivity, making the outcomes of the two questions positively correlated. However, the correlation is not perfect, as there are other factors that can influence each outcome independently. Therefore, I estimate the correlation coefficient (\u03c1) to be around 0.5, indicating a moderately positive relationship between the two questions.",
+      "uncertainty_source": "AI Productivity Boost",
+      "p_target_given_yes": 0.9330127018922193,
+      "p_target_given_no": 0.3556624327025936,
+      "cruxiness_spread": 0.5773502691896257
+    },
+    {
+      "id": "llm_b2973ca6",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Before September 30, 2026, core PCE inflation will exceed 3.0% year-over-year for at least two consecutive months, per Bureau of Economic Analysis data",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.776992Z",
+      "resolution_date": "2026-09-30",
+      "resolved": false,
+      "base_rate": 0.25,
+      "voi": 0.2165063509461096,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related, as they both concern the state of the US economy. A higher GDP growth rate (Question A) would likely be associated with higher inflation (Question B), as increased economic activity could drive up prices. However, the relationship is not perfectly linear, as other factors can influence inflation beyond just GDP growth. Therefore, I estimate a moderately positive correlation coefficient of 0.5, indicating that knowing the outcome of one question provides some useful information about the other, but does not completely determine it.",
+      "uncertainty_source": "Monetary Policy Cycle",
+      "p_target_given_yes": 0.9330127018922193,
+      "p_target_given_no": 0.3556624327025936,
+      "cruxiness_spread": 0.5773502691896257
+    },
+    {
+      "id": "llm_aa5329aa",
+      "source": "llm",
+      "source_type": "market",
+      "text": "The EU implements retaliatory tariffs on >$100B of US exports by September 30, 2026, per European Commission trade data",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.776995Z",
+      "resolution_date": "2026-10-15",
+      "resolved": false,
+      "base_rate": 0.55,
+      "voi": 0.19899748742132403,
+      "rho": -0.4,
+      "rho_reasoning": "The two questions are related, as a slowdown in US economic growth (lower real GDP) could potentially lead to increased trade tensions and retaliatory tariffs from the EU. However, the relationship is not perfectly negative - other factors such as geopolitics, trade negotiations, and economic policy could also influence the likelihood of EU tariffs on US exports. Overall, there is a moderate negative correlation between the two outcomes, as weaker US economic performance would make EU retaliatory tariffs more likely, but not with certainty.",
+      "uncertainty_source": "Trade Policy Regime",
+      "p_target_given_yes": 0.31909319325334184,
+      "p_target_given_no": 0.7211083193570268,
+      "cruxiness_spread": 0.40201512610368495
+    },
+    {
+      "id": "llm_41f437e8",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By October 31, 2026, the Federal Reserve will announce a quantitative tightening program reducing their balance sheet by at least $2 trillion over 24 months, per FOMC statements",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.776998Z",
+      "resolution_date": "2026-10-31",
+      "resolved": false,
+      "base_rate": 0.2,
+      "voi": 0.19800000000000006,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related, as the Federal Reserve's quantitative tightening program could impact economic growth, which is measured by US real GDP. A more aggressive tightening program (Question B) could slow economic growth (Question A), suggesting a positive correlation between the two outcomes. However, the impact is not direct, and other factors could also influence GDP, so the correlation is not perfect.",
+      "uncertainty_source": "Monetary Policy Cycle",
+      "p_target_given_yes": 0.99,
+      "p_target_given_no": 0.37499999999999994,
+      "cruxiness_spread": 0.615
+    },
+    {
+      "id": "llm_982bbab3",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By October 2026, total US business investment in AI software and hardware exceeds $200 billion annually according to Bureau of Economic Analysis data",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.777003Z",
+      "resolution_date": "2026-12-31",
+      "resolved": false,
+      "base_rate": 0.4,
+      "voi": 0.19595917942265428,
+      "rho": 0.4,
+      "rho_reasoning": "The two questions are related, as economic growth (GDP) and business investment in AI are likely correlated. Strong GDP growth may indicate a favorable environment for business investment, including in AI. However, they are not measuring the same underlying phenomenon, and there are many other factors that could influence each outcome independently. Therefore, I estimate a moderate positive correlation coefficient of 0.4.",
+      "uncertainty_source": "AI Productivity Boost",
+      "p_target_given_yes": 0.7449489742783179,
+      "p_target_given_no": 0.3367006838144548,
+      "cruxiness_spread": 0.4082482904638631
+    },
+    {
+      "id": "llm_4de23185",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Consumer Price Index inflation exceeds 5% year-over-year by August 31, 2026, per BLS CPI data",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.777006Z",
+      "resolution_date": "2026-09-15",
+      "resolved": false,
+      "base_rate": 0.4,
+      "voi": 0.19595917942265428,
+      "rho": 0.4,
+      "rho_reasoning": "The two questions are related, as real GDP growth and inflation are closely linked economic indicators. Strong GDP growth tends to drive higher inflation, and vice versa. However, they are not perfectly correlated, as other factors such as monetary policy, supply shocks, and consumer/business behavior can also influence inflation. Therefore, I estimate a moderate positive correlation coefficient of 0.4 between these two prediction market questions.",
+      "uncertainty_source": "Trade Policy Regime",
+      "p_target_given_yes": 0.7449489742783179,
+      "p_target_given_no": 0.3367006838144548,
+      "cruxiness_spread": 0.4082482904638631
+    },
+    {
+      "id": "llm_626cd350",
+      "source": "llm",
+      "source_type": "market",
+      "text": "At least 5 Fortune 500 companies report productivity improvements exceeding 15% from AI implementation in their 2026 annual SEC filings",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.777009Z",
+      "resolution_date": "2027-01-10",
+      "resolved": false,
+      "base_rate": 0.35,
+      "voi": 0.19078784028338913,
+      "rho": 0.4,
+      "rho_reasoning": "The two questions are related, as the implementation of AI by large companies could impact economic growth. If AI leads to significant productivity improvements, it could boost GDP. However, the relationship is not direct or guaranteed, as there are many other factors that influence GDP. So the correlation is positive but not perfect.",
+      "uncertainty_source": "AI Productivity Boost",
+      "p_target_given_yes": 0.7725540575476988,
+      "p_target_given_no": 0.3532401228589314,
+      "cruxiness_spread": 0.4193139346887674
+    },
+    {
+      "id": "llm_cad9fb6c",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 31, 2026, the Trump administration imposes tariffs exceeding 25% on imports from China totaling >$200B in annual trade value, per USTR data",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.777012Z",
+      "resolution_date": "2027-01-16",
+      "resolved": false,
+      "base_rate": 0.65,
+      "voi": 0.19078784028338913,
+      "rho": 0.4,
+      "rho_reasoning": "The two questions are related to the US economy and trade policy, but measure different phenomena. The GDP question is a direct economic indicator, while the tariff question is a policy decision. A stronger US economy may make the imposition of tariffs less likely, as the government may have less incentive to take protectionist measures. However, the connection is not direct, and other factors could influence both outcomes. Therefore, I estimate a moderate positive correlation between the two questions.",
+      "uncertainty_source": "Trade Policy Regime",
+      "p_target_given_yes": 0.6467598771410685,
+      "p_target_given_no": 0.22744594245230124,
+      "cruxiness_spread": 0.4193139346887673
+    },
+    {
+      "id": "llm_232c8bc0",
+      "source": "llm",
+      "source_type": "market",
+      "text": "US manufacturing employment increases by >500,000 jobs between January 2026 and December 2026, per BLS data",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.777016Z",
+      "resolution_date": "2027-01-10",
+      "resolved": false,
+      "base_rate": 0.3,
+      "voi": 0.18330302779823354,
+      "rho": 0.4,
+      "rho_reasoning": "The two questions are related, as strong economic growth (high GDP) would likely lead to increased manufacturing employment. However, they are not measuring the same underlying phenomenon, and other factors could influence manufacturing employment besides GDP growth. Therefore, the correlation is likely to be positive but not perfect.",
+      "uncertainty_source": "Trade Policy Regime",
+      "p_target_given_yes": 0.8055050463303893,
+      "p_target_given_no": 0.36906926585840466,
+      "cruxiness_spread": 0.43643578047198467
+    },
+    {
+      "id": "llm_3f9d4d4d",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Before December 31, 2026, the Federal Reserve will announce a new round of quantitative easing exceeding $1 trillion in asset purchases, per FOMC statements",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.777020Z",
+      "resolution_date": "2026-12-31",
+      "resolved": false,
+      "base_rate": 0.3,
+      "voi": 0.18330302779823354,
+      "rho": 0.4,
+      "rho_reasoning": "The two questions are related, as the Federal Reserve's monetary policy decisions (such as quantitative easing) can have an impact on economic growth and real GDP. A new round of quantitative easing is likely to stimulate the economy and increase real GDP, though the magnitude of the effect is uncertain. Therefore, the outcomes of the two questions are positively correlated, but not perfectly so, as other factors also influence real GDP. A correlation coefficient of 0.4 suggests a moderate positive relationship between the two.",
+      "uncertainty_source": "Monetary Policy Cycle",
+      "p_target_given_yes": 0.8055050463303893,
+      "p_target_given_no": 0.36906926585840466,
+      "cruxiness_spread": 0.43643578047198467
+    },
+    {
+      "id": "llm_c2f028f6",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By July 31, 2026, the federal funds rate will fall below 1.0% due to emergency Fed action in response to financial instability, per FOMC announcements",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.777023Z",
+      "resolution_date": "2026-07-31",
+      "resolved": false,
+      "base_rate": 0.18,
+      "voi": 0.17820000000000003,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related, as economic growth (represented by real GDP) and interest rate movements (represented by the federal funds rate) are closely linked. Strong economic growth is often accompanied by rising interest rates, as the Federal Reserve raises rates to manage inflation. Conversely, financial instability and the need for emergency Fed action to lower rates would likely be associated with weaker economic growth. Therefore, I estimate a moderately positive correlation coefficient (\u03c1 = 0.5) between the two questions.",
+      "uncertainty_source": "Monetary Policy Cycle",
+      "p_target_given_yes": 0.99,
+      "p_target_given_no": 0.39024390243902435,
+      "cruxiness_spread": 0.5997560975609757
+    },
+    {
+      "id": "llm_6518c63b",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By November 2026, venture capital and private equity investment in US AI startups exceeds $100 billion for the year according to PitchBook data",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.777030Z",
+      "resolution_date": "2026-12-15",
+      "resolved": false,
+      "base_rate": 0.45,
+      "voi": 0.14924811556599304,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are related to the broader topic of the performance of the US economy, but they measure different aspects of it. Question A is about the overall US real GDP in 2029, while Question B is about venture capital and private equity investment in US AI startups in 2026. These measures are related, as stronger economic performance and growth in the US could lead to increased investment in the technology sector, including AI startups. However, they are not perfectly correlated, as other factors such as global economic conditions, government policies, and technological developments could also influence the outcomes of these two questions. Therefore, the correlation coefficient is estimated to be moderately positive at 0.3.",
+      "uncertainty_source": "AI Productivity Boost",
+      "p_target_given_yes": 0.66583123951777,
+      "p_target_given_no": 0.36431989494000633,
+      "cruxiness_spread": 0.3015113445777637
+    },
+    {
+      "id": "llm_9b791db7",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By August 2026, total factor productivity in the US information sector grows by at least 10% year-over-year according to Bureau of Labor Statistics data",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.777033Z",
+      "resolution_date": "2026-12-01",
+      "resolved": false,
+      "base_rate": 0.4,
+      "voi": 0.1469693845669907,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are related to the overall performance and productivity of the US economy, but they are measuring different aspects of it. The real GDP question is a broad measure of economic growth, while the total factor productivity question is more specific to the information sector. Higher GDP growth could be associated with higher productivity growth, but not necessarily in a direct or linear way. Therefore, the correlation between these two questions is likely to be positive but moderate, around 0.3.",
+      "uncertainty_source": "AI Productivity Boost",
+      "p_target_given_yes": 0.6837117307087384,
+      "p_target_given_no": 0.3775255128608411,
+      "cruxiness_spread": 0.3061862178478973
+    },
+    {
+      "id": "llm_a5e9db39",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By June 30, 2026, China reduces imports of US agricultural products by >40% compared to 2025 levels, per USDA export data",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.777036Z",
+      "resolution_date": "2026-07-15",
+      "resolved": false,
+      "base_rate": 0.6,
+      "voi": 0.1469693845669907,
+      "rho": -0.3,
+      "rho_reasoning": "The two questions are not directly related. A higher US GDP in 2029 would not necessarily make it more or less likely that China reduces imports of US agricultural products by 2026. The two events are measuring different underlying phenomena - the overall health of the US economy and China's trade policies. Therefore, there is likely a small negative correlation, as the factors that drive these two events are not closely linked.",
+      "uncertainty_source": "Trade Policy Regime",
+      "p_target_given_yes": 0.3775255128608411,
+      "p_target_given_no": 0.6837117307087384,
+      "cruxiness_spread": 0.3061862178478973
+    },
+    {
+      "id": "llm_8a091d83",
+      "source": "llm",
+      "source_type": "market",
+      "text": "At least 15 major US companies announce workforce reductions exceeding 10% while maintaining or increasing revenue due to AI automation by October 2026",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.777039Z",
+      "resolution_date": "2026-11-30",
+      "resolved": false,
+      "base_rate": 0.3,
+      "voi": 0.1374772708486752,
+      "rho": -0.3,
+      "rho_reasoning": "The two questions are somewhat related, as higher economic growth (higher GDP) could potentially lead to lower levels of AI-driven workforce reductions. However, the relationship is not direct, as other factors like technological progress, industry dynamics, and government policies could also influence the likelihood of large-scale AI-driven job cuts. Given the complex and indirect relationship between the two events, a moderate negative correlation coefficient of around -0.3 seems reasonable.",
+      "uncertainty_source": "AI Productivity Boost",
+      "p_target_given_yes": 0.270871215252208,
+      "p_target_given_no": 0.5981980506061966,
+      "cruxiness_spread": 0.3273268353539886
+    },
+    {
+      "id": "llm_90c074e9",
+      "source": "llm",
+      "source_type": "market",
+      "text": "US merchandise trade deficit decreases by >$150B in 2026 compared to 2025, per Census Bureau data",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.777042Z",
+      "resolution_date": "2027-01-15",
+      "resolved": false,
+      "base_rate": 0.25,
+      "voi": 0.12990381056766576,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are related, as strong economic growth (higher real GDP) could potentially lead to a larger trade deficit, which would make it less likely for the trade deficit to decrease by more than $150B. However, the relationship is not direct or deterministic, as other factors like trade policy, exchange rates, and consumer behavior could also influence the trade deficit. Therefore, I estimate a moderate positive correlation between the two questions, with a correlation coefficient of 0.3.",
+      "uncertainty_source": "Trade Policy Regime",
+      "p_target_given_yes": 0.7598076211353315,
+      "p_target_given_no": 0.41339745962155616,
+      "cruxiness_spread": 0.34641016151377535
+    },
+    {
+      "id": "llm_4a029b2a",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Before January 16, 2027, the Federal Reserve will announce coordination with other major central banks on synchronized monetary policy changes, per joint policy statements",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.777045Z",
+      "resolution_date": "2027-01-16",
+      "resolved": false,
+      "base_rate": 0.25,
+      "voi": 0.12990381056766576,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are related, as the US real GDP and Federal Reserve's monetary policy coordination are both indicators of the overall economic conditions. A higher GDP growth would likely be associated with a greater need for the Fed to coordinate with other central banks on monetary policy changes. However, the relationship is not perfectly positive, as other factors could also influence the Fed's decision to coordinate monetary policy. Therefore, the correlation coefficient is estimated to be 0.3, indicating a moderate positive correlation between the two prediction market questions.",
+      "uncertainty_source": "Monetary Policy Cycle",
+      "p_target_given_yes": 0.7598076211353315,
+      "p_target_given_no": 0.41339745962155616,
+      "cruxiness_spread": 0.34641016151377535
+    },
+    {
+      "id": "llm_a93b97b5",
+      "source": "llm",
+      "source_type": "market",
+      "text": "US multifactor productivity grows by at least 2% in 2026 according to Bureau of Labor Statistics annual data",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.777047Z",
+      "resolution_date": "2027-01-15",
+      "resolved": false,
+      "base_rate": 0.2,
+      "voi": 0.12000000000000005,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are related, as higher real GDP growth in 2029 would likely be associated with higher multifactor productivity growth in 2026. However, the relationship is not perfect, as other factors can influence productivity growth. There is likely a positive but not very strong correlation between the two outcomes.",
+      "uncertainty_source": "AI Productivity Boost",
+      "p_target_given_yes": 0.7999999999999999,
+      "p_target_given_no": 0.42499999999999993,
+      "cruxiness_spread": 0.375
+    },
+    {
+      "id": "llm_8fa97387",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Before August 31, 2026, the 10-year Treasury yield will exceed 6.0% for at least 5 consecutive trading days, per Treasury Department data",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.777052Z",
+      "resolution_date": "2026-08-31",
+      "resolved": false,
+      "base_rate": 0.15,
+      "voi": 0.10712142642814274,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are related, as stronger economic growth (higher GDP) could lead to higher interest rates and a higher likelihood of the 10-year Treasury yield exceeding 6%. However, there are many other factors that influence interest rates, so the correlation is not perfect. A positive correlation of 0.3 suggests a moderate positive relationship between the two outcomes.",
+      "uncertainty_source": "Monetary Policy Cycle",
+      "p_target_given_yes": 0.8570714214271424,
+      "p_target_given_no": 0.43698739621873955,
+      "cruxiness_spread": 0.4200840252084029
+    },
+    {
+      "id": "llm_04ba4243",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 31, 2026, Mexico or Canada initiates formal USMCA dispute resolution procedures against US trade actions, per official government filings",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.777055Z",
+      "resolution_date": "2027-01-10",
+      "resolved": false,
+      "base_rate": 0.5,
+      "voi": 0.09999999999999998,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are not directly related. The first question about US GDP in 2029 is a macroeconomic indicator, while the second question is about a specific trade dispute between the US and its neighbors. While there may be some indirect relationship between the overall economic conditions and trade disputes, the correlation is likely to be relatively weak. The two events are measuring different underlying phenomena, so the correlation coefficient is estimated to be around 0.2, indicating a weak positive correlation.",
+      "uncertainty_source": "Trade Policy Regime",
+      "p_target_given_yes": 0.6,
+      "p_target_given_no": 0.4,
+      "cruxiness_spread": 0.19999999999999996
+    },
+    {
+      "id": "llm_12f8002a",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By September 30, 2026, the Federal Reserve will raise its long-term inflation target above 2.5%, per official FOMC policy statements",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.777058Z",
+      "resolution_date": "2026-09-30",
+      "resolved": false,
+      "base_rate": 0.1,
+      "voi": 0.09899999999999998,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related, as the US real GDP and the Federal Reserve's long-term inflation target are both measures of the overall health and direction of the US economy. A higher real GDP would likely be associated with the Federal Reserve's willingness to raise the long-term inflation target, as it would indicate a stronger economy that could withstand higher inflation. Therefore, the outcomes of these two questions are positively correlated, but not perfectly so, as other factors may also influence the Federal Reserve's decision on the inflation target.",
+      "uncertainty_source": "Monetary Policy Cycle",
+      "p_target_given_yes": 0.99,
+      "p_target_given_no": 0.4444444444444445,
+      "cruxiness_spread": 0.5455555555555556
+    },
+    {
+      "id": "llm_b30682a0",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By September 2026, at least 25% of US knowledge workers use AI tools daily according to a Pew Research Center or Gallup national survey",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.777061Z",
+      "resolution_date": "2026-12-01",
+      "resolved": false,
+      "base_rate": 0.6,
+      "voi": 0.09797958971132711,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are somewhat related, as the growth of AI usage among knowledge workers could impact economic productivity and GDP. However, the relationship is not direct, as GDP is influenced by many other factors beyond just AI adoption. Additionally, the timeline and measurement approaches are quite different between the two questions. Therefore, I estimate a modest positive correlation coefficient of 0.2, as the outcomes are related but not strongly dependent on one another.",
+      "uncertainty_source": "AI Productivity Boost",
+      "p_target_given_yes": 0.5816496580927726,
+      "p_target_given_no": 0.3775255128608411,
+      "cruxiness_spread": 0.2041241452319315
+    },
+    {
+      "id": "llm_cb6054ec",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Before November 30, 2026, the Federal Reserve will implement yield curve control, targeting specific yields on Treasury securities, per FOMC announcements",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.777064Z",
+      "resolution_date": "2026-11-30",
+      "resolved": false,
+      "base_rate": 0.12,
+      "voi": 0.09748846085563152,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are related in the sense that US real GDP growth and the Federal Reserve's implementation of yield curve control are both influenced by macroeconomic factors and monetary policy. However, they are not directly measuring the same underlying phenomenon. The performance of the US economy (as measured by GDP) and the Fed's policy decisions are correlated but not perfectly so. Therefore, I estimate a moderately positive correlation coefficient of 0.3 between these two questions.",
+      "uncertainty_source": "Monetary Policy Cycle",
+      "p_target_given_yes": 0.906201920231798,
+      "p_target_given_no": 0.44460882905930027,
+      "cruxiness_spread": 0.46159309117249775
+    },
+    {
+      "id": "llm_b3059c9e",
+      "source": "llm",
+      "source_type": "market",
+      "text": "US total goods imports decline by >15% in 2026 compared to 2025, per Census Bureau trade data",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.777066Z",
+      "resolution_date": "2027-01-15",
+      "resolved": false,
+      "base_rate": 0.35,
+      "voi": 0.09539392014169457,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are related to the overall state of the US economy, but they are measuring different aspects of it. The GDP question is a broad measure of economic output, while the imports question is more focused on trade flows. Knowing the GDP outcome could provide some information about the imports outcome, but there are many other factors that could also affect US imports. Overall, the correlation between these two measures is likely to be positive but relatively weak.",
+      "uncertainty_source": "Trade Policy Regime",
+      "p_target_given_yes": 0.6362770287738494,
+      "p_target_given_no": 0.42662006142946574,
+      "cruxiness_spread": 0.20965696734438366
+    },
+    {
+      "id": "llm_33f45751",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By June 30, 2026, the Federal Reserve will implement negative interest rates, setting the federal funds rate below 0%, per FOMC announcements",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.777069Z",
+      "resolution_date": "2026-06-30",
+      "resolved": false,
+      "base_rate": 0.05,
+      "voi": 0.049499999999999975,
+      "rho": -0.6,
+      "rho_reasoning": "The two questions are related, as strong economic growth (high GDP) would likely reduce the need for the Federal Reserve to implement negative interest rates. A strong economy with high GDP growth would make it less likely that the Fed would need to resort to negative rates to stimulate the economy. Therefore, I estimate a moderate negative correlation between the two questions, around -0.6.",
+      "uncertainty_source": "Monetary Policy Cycle",
+      "p_target_given_yes": 0.01,
+      "p_target_given_no": 0.5263157894736842,
+      "cruxiness_spread": 0.5163157894736842
+    },
+    {
+      "id": "llm_7b21bcf1",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By November 30, 2026, the US withdraws from or substantially renegotiates USMCA/NAFTA, per official government announcement",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:39:28.777072Z",
+      "resolution_date": "2026-12-15",
+      "resolved": false,
+      "base_rate": 0.25,
+      "voi": 0.04330127018922193,
+      "rho": 0.1,
+      "rho_reasoning": "The two questions are not directly related. The GDP question is about the overall economic performance of the US, while the USMCA/NAFTA question is about a specific trade policy decision. While there may be some indirect relationship between economic performance and trade policy, the correlation between the two outcomes is likely to be weak. Knowing the outcome of one question would not provide much information about the other, hence the correlation coefficient is estimated to be around 0.1, indicating a weak positive correlation.",
+      "uncertainty_source": "Trade Policy Regime",
+      "p_target_given_yes": 0.5866025403784438,
+      "p_target_given_no": 0.4711324865405187,
+      "cruxiness_spread": 0.11547005383792514
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "High Growth Boom",
+      "description": "AI productivity gains and successful trade policy drive robust economic expansion. Manufacturing reshoring, productivity improvements, and strong business investment fuel growth rates significantly above historical norms. The economy experiences a sustained period of high growth with manageable inflation.",
+      "scenario_probability": 0.25,
+      "key_drivers": [
+        "AI-driven productivity revolution",
+        "Successful manufacturing reshoring",
+        "Moderate tariff success without trade wars",
+        "Strong business investment in technology",
+        "Accommodative monetary policy"
+      ],
+      "why_exclusive": "Cannot co-occur with stagnation or crisis scenarios as it requires sustained high growth rates (>3.5% annually) which are incompatible with low growth or negative growth outcomes.",
+      "signal_impacts": [
+        {
+          "signal_index": 0,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 3,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 4,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 8,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 10,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 12,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 15,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 16,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 21,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 2,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 5,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 9,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 14,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "GDP_growth_rate": ">3.5% annually 2026-2029",
+        "Manufacturing_employment": "Net gain >1M jobs by 2029",
+        "AI_investment": ">$200B annually by 2027",
+        "Productivity_growth": ">3% annually 2026-2029",
+        "Core_inflation": "Stays below 3.5%"
+      },
+      "outcome_range": "$37.5-40.0T",
+      "outcome_low": 37.5,
+      "outcome_high": 40.0,
+      "probability_range": "20-30% YES",
+      "probability_low": 0.2,
+      "probability_high": 0.3
+    },
+    {
+      "name": "Moderate Expansion",
+      "description": "The economy grows at trend rates with mixed policy outcomes. Some AI benefits materialize but aren't transformational, trade tensions create headwinds but don't derail growth, and monetary policy remains balanced. This represents continuation of historical growth patterns.",
+      "scenario_probability": 0.45,
+      "key_drivers": [
+        "Gradual AI adoption with moderate gains",
+        "Mixed results from trade policy",
+        "Balanced Federal Reserve approach",
+        "Steady but unspectacular business investment",
+        "Stable labor market conditions"
+      ],
+      "why_exclusive": "Cannot co-occur with high growth boom (requires lower growth rates 2-3%) or stagnation/crisis scenarios (requires positive steady growth). Represents the middle ground that excludes extreme outcomes.",
+      "signal_impacts": [
+        {
+          "signal_index": 21,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 4,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 19,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 0,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 3,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 6,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 11,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 17,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "GDP_growth_rate": "2.0-3.5% annually",
+        "Trade_deficit": "Modest improvement <$100B",
+        "Fed_funds_rate": "Remains 3-5% range",
+        "Inflation": "Near 2% target most periods",
+        "Productivity_growth": "1.5-2.5% annually"
+      },
+      "outcome_range": "$34.5-37.5T",
+      "outcome_low": 34.5,
+      "outcome_high": 37.5,
+      "probability_range": "40-50% YES",
+      "probability_low": 0.4,
+      "probability_high": 0.5
+    },
+    {
+      "name": "Trade War Stagnation",
+      "description": "Escalating trade conflicts and retaliatory tariffs severely damage economic growth. High tariffs trigger inflation and supply chain disruptions, while trade partners retaliate. The Federal Reserve faces the difficult choice between fighting inflation and supporting growth, leading to subpar economic performance.",
+      "scenario_probability": 0.2,
+      "key_drivers": [
+        "Escalating US-China trade war",
+        "Widespread retaliatory tariffs",
+        "Supply chain disruptions",
+        "Stagflation pressures",
+        "Reduced business investment confidence"
+      ],
+      "why_exclusive": "Cannot co-occur with high growth scenarios due to structural trade disruptions causing low growth (0.5-1.5% annually). Mutually exclusive with crisis scenario as it represents stagnation rather than contraction.",
+      "signal_impacts": [
+        {
+          "signal_index": 11,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 6,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 17,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 5,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 9,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 22,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 0,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 1,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 12,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 19,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "GDP_growth_rate": "0.5-1.5% annually",
+        "Tariff_levels": ">25% on >$200B Chinese imports",
+        "Retaliatory_tariffs": ">$100B US exports affected",
+        "Core_inflation": "Persistently above 3%",
+        "Business_investment": "Declining or flat"
+      },
+      "outcome_range": "$32.0-34.5T",
+      "outcome_low": 32.0,
+      "outcome_high": 34.5,
+      "probability_range": "15-25% YES",
+      "probability_low": 0.15,
+      "probability_high": 0.25
+    },
+    {
+      "name": "Financial Crisis",
+      "description": "A major financial disruption triggered by monetary policy mistakes, market instability, or external shocks leads to economic contraction. The Federal Reserve implements emergency measures including rate cuts and quantitative easing, but the economy enters recession with significant output losses.",
+      "scenario_probability": 0.1,
+      "key_drivers": [
+        "Financial market instability",
+        "Federal Reserve policy errors",
+        "Credit market disruptions",
+        "Significant business failures",
+        "Emergency monetary interventions"
+      ],
+      "why_exclusive": "Cannot co-occur with any growth scenarios as it requires economic contraction (negative or near-zero growth). Represents the tail risk scenario with fundamentally different economic dynamics than other scenarios.",
+      "signal_impacts": [
+        {
+          "signal_index": 14,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 13,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 7,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 18,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 22,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 20,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 0,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 4,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 8,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 10,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 15,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "GDP_growth_rate": "<0.5% annually or negative",
+        "Fed_funds_rate": "Emergency cuts to <1%",
+        "QE_programs": ">$1T in new asset purchases",
+        "Unemployment_rate": "Sharp increase >6%",
+        "Credit_spreads": "Significant widening >200bps"
+      },
+      "outcome_range": "$30.0-32.0T",
+      "outcome_low": 30.0,
+      "outcome_high": 32.0,
+      "probability_range": "5-15% YES",
+      "probability_low": 0.05,
+      "probability_high": 0.15
+    }
+  ],
+  "mece_reasoning": "These four scenarios are MECE because they partition the GDP outcome space into non-overlapping ranges: High Growth Boom ($37.5-40.0T), Moderate Expansion ($34.5-37.5T), Trade War Stagnation ($32.0-34.5T), and Financial Crisis ($30.0-32.0T). Each scenario represents fundamentally different economic dynamics that cannot simultaneously occur: high sustained growth vs. moderate growth vs. low growth/stagnation vs. contraction/crisis. The scenarios are anchored on growth rate differences: >3.5% annually (boom), 2-3.5% (moderate), 0.5-1.5% (stagnation), and <0.5%/negative (crisis). These growth rate ranges are mutually exclusive by definition, and together they cover the entire plausible spectrum of economic outcomes given current conditions and signal probabilities.",
+  "coverage_gaps": "The scenarios comprehensively cover the outcome space from crisis ($30T) to boom ($40T). The only potential gap would be extreme positive scenarios above $40T (requiring >4.5% annual growth), but given current economic conditions and signal analysis, such outcomes have extremely low probability and would require unprecedented productivity gains beyond what the signals suggest is plausible.",
+  "created_at": "2026-01-16T12:39:28.777304",
+  "max_horizon_days": 365,
+  "uncertainties": [
+    {
+      "name": "AI Productivity Boost",
+      "description": "Whether artificial intelligence adoption drives significant productivity gains across the US economy by 2029. This could accelerate GDP growth beyond historical averages through automation, efficiency gains, and new business models.",
+      "search_query": "AI artificial intelligence productivity economic growth GDP impact United States"
+    },
+    {
+      "name": "Trade Policy Regime",
+      "description": "The scope and economic impact of tariffs, trade wars, and protectionist policies under the Trump administration. This affects global supply chains, consumer prices, business investment, and overall economic efficiency.",
+      "search_query": "Trump tariffs trade policy protectionism economic impact GDP growth"
+    },
+    {
+      "name": "Monetary Policy Cycle",
+      "description": "Federal Reserve interest rate trajectory and monetary policy stance through 2029, affecting investment, consumption, inflation, and overall economic growth. This includes responses to fiscal policy and external shocks.",
+      "search_query": "Federal Reserve interest rates monetary policy economic growth inflation"
+    }
+  ],
+  "signals_per_uncertainty": {
+    "AI Productivity Boost": 10,
+    "Trade Policy Regime": 10,
+    "Monetary Policy Cycle": 10
+  },
+  "total_signals": 30,
+  "signals_above_floor": 23
+}

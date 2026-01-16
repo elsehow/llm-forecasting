@@ -3,7 +3,12 @@
 from pathlib import Path
 
 from llm_forecasting.semantic_search import SemanticSignalSearcher
-from llm_forecasting.voi import estimate_rho_batch, linear_voi_from_rho, rho_to_posteriors
+from llm_forecasting.voi import (
+    estimate_rho_batch,
+    estimate_conditional_expectations_batch,
+    linear_voi_from_rho,
+    rho_to_posteriors,
+)
 
 
 # ============================================================
@@ -282,6 +287,83 @@ def categorize_signal(
 
 
 # ============================================================
+# Fetch missing probabilities from market APIs
+# ============================================================
+
+# Map source names to market data provider names
+MARKET_SOURCE_PROVIDERS = {
+    "polymarket": "polymarket",
+    "metaculus": "metaculus",
+    "manifold": "manifold",
+    "kalshi": "kalshi",
+}
+
+
+async def fetch_missing_probabilities(
+    signals: list[dict],
+    verbose: bool = True,
+) -> list[dict]:
+    """Fetch current probabilities from market APIs for signals missing base_rate.
+
+    For signals from known market sources (Polymarket, Metaculus, etc.) that
+    don't have a base_rate, fetches the current market probability.
+
+    Args:
+        signals: List of signal dicts with "id", "source", and optional "base_rate"
+        verbose: Whether to print progress
+
+    Returns:
+        Same list with base_rate populated where possible (mutates in place)
+    """
+    from llm_forecasting.market_data import market_data_registry
+
+    # Group signals by source that need probabilities
+    signals_by_source: dict[str, list[dict]] = {}
+    for s in signals:
+        if s.get("base_rate") is not None:
+            continue  # Already have probability
+        source = s.get("source", "")
+        if source in MARKET_SOURCE_PROVIDERS:
+            if source not in signals_by_source:
+                signals_by_source[source] = []
+            signals_by_source[source].append(s)
+
+    if not signals_by_source:
+        return signals
+
+    # Fetch probabilities for each source
+    for source, source_signals in signals_by_source.items():
+        provider_name = MARKET_SOURCE_PROVIDERS[source]
+        if provider_name not in market_data_registry:
+            if verbose:
+                print(f"  Warning: No provider for {source}, skipping {len(source_signals)} signals")
+            continue
+
+        provider_class = market_data_registry.get(provider_name)
+        provider = provider_class()
+
+        fetched = 0
+        failed = 0
+        for s in source_signals:
+            try:
+                market = await provider.fetch_market(s["id"])
+                if market and market.current_probability is not None:
+                    s["base_rate"] = market.current_probability
+                    fetched += 1
+                else:
+                    failed += 1
+            except Exception as e:
+                if verbose:
+                    print(f"    Error fetching {s['id']}: {e}")
+                failed += 1
+
+        if verbose:
+            print(f"  {source}: fetched {fetched}/{len(source_signals)} probabilities ({failed} failed)")
+
+    return signals
+
+
+# ============================================================
 # VOI-based signal ranking
 # ============================================================
 
@@ -289,6 +371,7 @@ async def rank_signals_by_voi(
     signals: list[dict],
     target: str,
     target_prior: float = 0.5,
+    is_continuous: bool = False,
 ) -> list[dict]:
     """
     Rank signals by VOI relative to a target outcome.
@@ -296,13 +379,18 @@ async def rank_signals_by_voi(
     Uses Anthropic batch API for efficient rho estimation (one prompt per signal,
     all submitted as single batch for 50% cost savings).
 
+    For continuous targets, also estimates E[target|signal=YES] and E[target|signal=NO]
+    via a second batch call.
+
     Args:
         signals: List of dicts with "question" or "text" key
         target: The target question (e.g., "What will US GDP be in 2050?")
         target_prior: Prior probability for target (default 0.5 for maximum uncertainty)
+        is_continuous: Whether target is a continuous question (triggers E[X|signal] estimation)
 
     Returns:
         Signals sorted by VOI descending, with added "rho", "voi", and "rho_reasoning" keys
+        For continuous targets, also adds "e_target_given_yes" and "e_target_given_no"
     """
     if not signals:
         return []
@@ -314,7 +402,14 @@ async def rank_signals_by_voi(
         pairs.append((target, signal_text))
 
     # Estimate rho for all pairs using batch API
+    print("  Estimating rho for all signals...")
     rho_results = await estimate_rho_batch(pairs)
+
+    # For continuous targets, also estimate E[target|signal]
+    cond_exp_results = None
+    if is_continuous:
+        print("  Estimating E[target|signal] for continuous target...")
+        cond_exp_results = await estimate_conditional_expectations_batch(pairs)
 
     # Compute VOI and conditional probabilities for all signals
     for i, s in enumerate(signals):
@@ -336,8 +431,88 @@ async def rank_signals_by_voi(
         s["p_target_given_no"] = p_target_given_no
         s["cruxiness_spread"] = spread
 
+        # For continuous targets, add E[target|signal] estimates
+        if cond_exp_results:
+            e_yes, e_no, _ = cond_exp_results[i]
+            s["e_target_given_yes"] = e_yes
+            s["e_target_given_no"] = e_no
+
     # Sort by VOI descending
     return sorted(signals, key=lambda x: x.get("voi", 0), reverse=True)
+
+
+async def rank_and_report_signals(
+    signals: list[dict],
+    target: str,
+    target_prior: float = 0.5,
+    voi_floor: float = 0.1,
+    is_continuous: bool = False,
+) -> list[dict]:
+    """Rank signals by VOI and print analysis.
+
+    Wrapper around rank_signals_by_voi that also prints:
+    - Count of signals above VOI floor
+    - Top 5 signals by VOI
+
+    Args:
+        signals: List of signal dicts
+        target: Target question text
+        target_prior: Prior probability for target
+        voi_floor: Minimum VOI to count as "above floor"
+        is_continuous: Whether target is continuous (triggers E[X|signal] estimation)
+
+    Returns:
+        Signals sorted by VOI descending
+    """
+    print("Ranking signals by VOI (batch API)...")
+    ranked = await rank_signals_by_voi(signals, target, target_prior, is_continuous=is_continuous)
+
+    above_floor = sum(1 for s in ranked if s.get("voi", 0) >= voi_floor)
+    print(f"  {above_floor} signals above VOI floor ({voi_floor})")
+
+    print(f"\n  Top 5 by VOI:")
+    for s in ranked[:5]:
+        voi = s.get("voi", 0)
+        text = s.get("text") or s.get("question", "")
+        print(f"    VOI={voi:.2f} {text[:50]}...")
+
+    return ranked
+
+
+def deduplicate_and_report(
+    signals: list[dict],
+    threshold: float = 0.45,
+    prefer_observed: bool = True,
+    group_by: str | None = None,
+) -> list[dict]:
+    """Deduplicate signals and print metrics.
+
+    Args:
+        signals: List of signal dicts with "text" key
+        threshold: Similarity threshold for deduplication
+        prefer_observed: Whether to prefer observed sources over LLM
+        group_by: Optional field to group counts by (e.g., "signal_category")
+
+    Returns:
+        Deduplicated signals
+    """
+    print("Deduplicating signals...")
+    before = len(signals)
+
+    # Use SemanticSignalSearcher for deduplication
+    searcher = SemanticSignalSearcher()
+    deduped = searcher.deduplicate(signals, threshold=threshold, prefer_observed=prefer_observed)
+
+    print(f"  {before} → {len(deduped)} (removed {before - len(deduped)} duplicates)")
+
+    if group_by:
+        counts = {}
+        for s in deduped:
+            key = s.get(group_by, "unknown")
+            counts[key] = counts.get(key, 0) + 1
+        print(f"  By {group_by}: {counts}")
+
+    return deduped
 
 
 # ============================================================
@@ -375,10 +550,13 @@ def build_signal_models(
             "voi": s.get("voi", 0.0),
             "rho": s.get("rho", 0.0),
             "rho_reasoning": s.get("rho_reasoning"),
-            # Conditional probability fields
+            # Conditional probability fields (binary targets)
             "p_target_given_yes": s.get("p_target_given_yes"),
             "p_target_given_no": s.get("p_target_given_no"),
             "cruxiness_spread": s.get("cruxiness_spread"),
+            # Conditional expectation fields (continuous targets)
+            "e_target_given_yes": s.get("e_target_given_yes"),
+            "e_target_given_no": s.get("e_target_given_no"),
         }
 
         if include_background:

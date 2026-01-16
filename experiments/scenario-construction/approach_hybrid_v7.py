@@ -16,7 +16,6 @@ Usage:
 import asyncio
 import sys
 from pathlib import Path
-from datetime import datetime
 
 from dotenv import load_dotenv
 
@@ -27,10 +26,9 @@ from shared.signals import (
     deduplicate_market_signals,
     rank_signals_by_voi,
     enrich_with_resolution_data,
-    build_signal_models,
 )
 from shared.uncertainties import identify_uncertainties
-from shared.scenarios import generate_mece_scenarios
+from shared.scenarios import generate_and_print_scenarios
 from shared.refresh import refresh_if_stale
 from shared.setup import (
     create_base_parser,
@@ -39,13 +37,7 @@ from shared.setup import (
     print_header,
     DEFAULT_SOURCES,
 )
-from shared.output import (
-    build_scenario_dicts,
-    build_base_results,
-    print_results,
-    save_results,
-    count_by_field,
-)
+from shared.output import count_by_field, save_approach_results
 
 load_dotenv()
 
@@ -142,65 +134,38 @@ async def main():
     print(f"  By uncertainty: {by_uncertainty}")
 
     # Step 4: Generate scenarios
-    print("\n[4/5] Generating MECE scenarios...")
-    result = await generate_mece_scenarios(
-        signals=[
-            {
-                "text": s["question"],
-                "source": s["source"],
-                "voi": s.get("voi", 0),
-                "uncertainty_source": s.get("uncertainty_source"),
-            }
-            for s in deduped_signals[:50]
-        ],
+    print("\n[4/5] Generating scenarios...")
+    result = await generate_and_print_scenarios(
+        signals=deduped_signals[:50],
         question=cfg.question_text,
         context=cfg.context,
         question_type=cfg.question_type,
         voi_floor=cfg.voi_floor,
     )
 
-    # Print results
-    print_results(result)
-
     # Save results
     print("\n[5/5] Saving results...")
-    output_file = cfg.output_dir / f"hybrid_v7_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
-
-    signals_v7 = build_signal_models(
-        deduped_signals[:50],
+    save_approach_results(
+        approach="hybrid",
+        cfg=cfg,
+        signals=deduped_signals[:50],
+        result=result,
         text_key="question",
         include_uncertainty_source=True,
+        extra_fields={
+            "sources_used": SOURCES,
+            "uncertainties": [
+                {"name": u.name, "description": u.description, "search_query": u.search_query}
+                for u in uncertainties
+            ],
+            "signals_per_uncertainty": {k: len(v) for k, v in uncertainty_signals.items()},
+            "signals_after_dedup": len(deduped_signals),
+            "signals_above_floor": sum(1 for s in deduped_signals if s.get("voi", 0) >= cfg.voi_floor),
+            "source_breakdown": count_by_field(deduped_signals, "source"),
+            "category_breakdown": count_by_field(deduped_signals, "signal_category"),
+            "uncertainty_breakdown": by_uncertainty,
+        },
     )
-    scenarios_v7 = build_scenario_dicts(result.scenarios)
-
-    results = build_base_results(
-        approach="hybrid",
-        target=cfg.target,
-        config=cfg.config,
-        signals_v7=signals_v7,
-        scenarios_v7=scenarios_v7,
-        mece_reasoning=result.mece_reasoning,
-        coverage_gaps=result.coverage_gaps,
-        voi_floor=cfg.voi_floor,
-        max_horizon_days=cfg.max_horizon_days,
-    )
-
-    # Add approach-specific fields
-    results.update({
-        "sources_used": SOURCES,
-        "uncertainties": [
-            {"name": u.name, "description": u.description, "search_query": u.search_query}
-            for u in uncertainties
-        ],
-        "signals_per_uncertainty": {k: len(v) for k, v in uncertainty_signals.items()},
-        "signals_after_dedup": len(deduped_signals),
-        "signals_above_floor": sum(1 for s in deduped_signals if s.get("voi", 0) >= cfg.voi_floor),
-        "source_breakdown": count_by_field(deduped_signals, "source"),
-        "category_breakdown": count_by_field(deduped_signals, "signal_category"),
-        "uncertainty_breakdown": by_uncertainty,
-    })
-
-    save_results(results, output_file)
 
 
 if __name__ == "__main__":

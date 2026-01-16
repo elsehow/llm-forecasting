@@ -1072,9 +1072,10 @@
       let valueLabel = 'Expected value across all scenarios';
       let valueColorClass = '';
       let valueDeltaHtml = '';
+      let quantCruxinessLabelsHtml = '';
 
       // Show shift from original if resolutions exist
-      if (hasResolutions && !scenarioName) {
+      if (hasResolutions && !scenarioName && !signalId) {
         const delta = expectedValue - originalExpectedValue;
         if (Math.abs(delta) > 0.1) {
           valueColorClass = delta > 0 ? 'positive' : 'negative';
@@ -1088,7 +1089,52 @@
         }
       }
 
-      if (scenarioName) {
+      // Handle signal selection - show cruxiness (E[X|signal=YES] and E[X|signal=NO])
+      if (signalId) {
+        const signal = signals.find(s => s.id === signalId);
+        if (signal && signal.e_target_given_yes != null && signal.e_target_given_no != null) {
+          const eGivenYes = signal.e_target_given_yes;
+          const eGivenNo = signal.e_target_given_no;
+          const yesPos = ((eGivenYes - minVal) / range) * 100;
+          const noPos = ((eGivenNo - minVal) / range) * 100;
+
+          // Replace main display with signal context
+          displayValue = null; // Don't show a single value
+          valueLabel = `If the selected signal resolves...`;
+
+          // Build cruxiness labels
+          const noFormatted = formatValue(eGivenNo, question.unit);
+          const yesFormatted = formatValue(eGivenYes, question.unit);
+          const yesIsHigher = eGivenYes >= eGivenNo;
+
+          const leftLabel = yesIsHigher
+            ? `<span style="color: var(--down-color);">${noFormatted} ← NO</span>`
+            : `<span style="color: var(--up-color);">${yesFormatted} ← YES</span>`;
+          const rightLabel = yesIsHigher
+            ? `<span style="color: var(--up-color);">YES → ${yesFormatted}</span>`
+            : `<span style="color: var(--down-color);">NO → ${noFormatted}</span>`;
+
+          quantCruxinessLabelsHtml = `
+            <div style="display: flex; justify-content: space-between; margin-top: 0.5rem; font-size: 1.1rem; font-weight: 600;">
+              ${leftLabel}
+              ${rightLabel}
+            </div>
+          `;
+
+          // Render range bar with signal cruxiness
+          const gradientDir = yesIsHigher ? 'to right' : 'to left';
+          rangeBarContent = renderRangeBar(baselinePos, {
+            baselineTitle: `E[X]: ${formatValue(expectedValue, question.unit)}`,
+            yesPos,
+            noPos,
+            yesTitle: `If YES: ${yesFormatted}`,
+            noTitle: `If NO: ${noFormatted}`,
+            gradientDir,
+          });
+        } else {
+          rangeBarContent = renderRangeBar(baselinePos);
+        }
+      } else if (scenarioName) {
         const scenario = scenarios.find(s => s.name === scenarioName);
         if (scenario) {
           const positions = getScenarioBarPositions(scenario, expectedValue, [minVal, maxVal]);
@@ -1112,10 +1158,24 @@
 
       // Different display for quantitative vs binary questions
       if (isQuantitative) {
+        // Build the main value display - either value or signal context
+        let mainValueHtml;
+        if (displayValue === null) {
+          // Signal selected - show context text as main display
+          mainValueHtml = `
+            <div class="question-label" style="font-size: 0.85rem; margin-bottom: 0.5rem; color: var(--text-secondary);">${escapeHtml(valueLabel)}</div>
+          `;
+        } else {
+          // Normal display - show value
+          mainValueHtml = `
+            <div class="question-value ${valueColorClass}">${formatValue(displayValue, question.unit)}</div>
+            <div class="question-label">${escapeHtml(valueLabel)}</div>
+          `;
+        }
+
         card.innerHTML = `
           <div class="question-text">${escapeHtml(question.text)}</div>
-          <div class="question-value ${valueColorClass}">${formatValue(displayValue, question.unit)}</div>
-          <div class="question-label">${escapeHtml(valueLabel)}</div>
+          ${mainValueHtml}
           ${valueDeltaHtml}
           <div class="question-range">
             <span>${formatValue(minVal, question.unit)}</span>
@@ -1124,6 +1184,7 @@
             </div>
             <span>${formatValue(maxVal, question.unit)}</span>
           </div>
+          ${quantCruxinessLabelsHtml}
         `;
       } else if (isBinary) {
         // Binary question - show P(YES) with probability bar

@@ -24,8 +24,8 @@ Usage:
 
 import asyncio
 import sys
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 
 from dotenv import load_dotenv
 
@@ -35,15 +35,14 @@ from llm_forecasting.semantic_search import SemanticSignalSearcher
 sys.path.insert(0, str(Path(__file__).parent))
 from shared.signals import (
     load_market_signals_semantic,
-    deduplicate_signals,
     rank_signals_by_voi,
     enrich_with_resolution_data,
     filter_by_resolution_date,
     build_signal_models,
 )
 from shared.generation import generate_signals_for_uncertainty
-from shared.uncertainties import identify_uncertainties
-from shared.scenarios import generate_mece_scenarios
+from shared.uncertainties import identify_and_report_uncertainties
+from shared.scenarios import generate_and_print_scenarios
 from shared.refresh import refresh_if_stale
 from shared.setup import (
     create_base_parser,
@@ -56,7 +55,6 @@ from shared.setup import (
 from shared.output import (
     build_scenario_dicts,
     build_base_results,
-    print_results,
     save_results,
 )
 
@@ -171,15 +169,11 @@ async def main():
 
     # Step 1.1: Identify key uncertainties
     print("\n[1.1] Identifying key uncertainties...")
-    uncertainties = await identify_uncertainties(
+    uncertainties = await identify_and_report_uncertainties(
         question=cfg.question_text,
         context=cfg.context,
         n=cfg.n_uncertainties,
     )
-
-    for i, u in enumerate(uncertainties):
-        print(f"\n  {i+1}. {u.name}")
-        print(f"     {u.description}")
 
     # Step 1.2: Generate signals per uncertainty
     print("\n[1.2] Generating signals per uncertainty...")
@@ -320,9 +314,11 @@ async def main():
 
     # Step 4.1: Rank merged signals by VOI
     print("\n[4.1] Ranking signals by VOI (batch API)...")
+    is_continuous = cfg.question_type == "continuous"
     ranked_signals = await rank_signals_by_voi(
         signals=merged_signals,
         target=cfg.question_text,
+        is_continuous=is_continuous,
     )
 
     # Count by origin
@@ -387,17 +383,14 @@ async def main():
     print(f"  {before_dedup} → {len(deduped_signals)} (removed {before_dedup - len(deduped_signals)} duplicates)")
 
     # Step 4.3: Generate scenarios
-    print("\n[4.3] Generating MECE scenarios...")
-    result = await generate_mece_scenarios(
-        signals=[{"text": s["text"], "source": s["source"], "voi": s.get("voi", 0)} for s in deduped_signals[:50]],
+    print("\n[4.3] Generating scenarios...")
+    result = await generate_and_print_scenarios(
+        signals=deduped_signals[:50],
         question=cfg.question_text,
         context=cfg.context,
         question_type=cfg.question_type,
         voi_floor=cfg.voi_floor,
     )
-
-    # Print results
-    print_results(result)
 
     # ============================================================
     # GAP ANALYSIS

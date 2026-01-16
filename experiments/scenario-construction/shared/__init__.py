@@ -12,8 +12,9 @@ from .config import (
     TargetConfig,
     TARGETS,
     get_target,
-    GDP_2040,
-    RENEWABLE_2050,
+    CARNEY_PM_2027,
+    DEMOCRAT_WHITEHOUSE_2028,
+    US_GDP_2029,
 )
 
 # Signal utilities

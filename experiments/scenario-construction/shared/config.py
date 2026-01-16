@@ -18,115 +18,7 @@ class TargetConfig:
 
 
 # =============================================================================
-# Presets
-# =============================================================================
-
-GDP_2040 = TargetConfig(
-    question=Question(
-        id="gdp_2040",
-        source="scenario_construction",
-        text="What will US real GDP be in 2040 (in 2024 dollars)?",
-        question_type=QuestionType.CONTINUOUS,
-        value_range=(20.0, 80.0),  # $20T to $80T plausible
-        base_rate=29.0,  # Current GDP
-        unit=Unit.from_type("usd_trillions"),
-    ),
-    context="Current US GDP: ~$29 trillion (2024). Historical growth: 2-3% annually. Key uncertainties: AI/automation, geopolitics, fiscal policy, demographics, energy.",
-    cruxiness_normalizer=20.0,  # $20T spread = 1.0
-)
-
-GDP_2050 = TargetConfig(
-    question=Question(
-        id="gdp_2050",
-        source="scenario_construction",
-        text="What will US real GDP be in 2050 (in 2024 dollars)?",
-        question_type=QuestionType.CONTINUOUS,
-        value_range=(25.0, 150.0),  # $25T to $150T plausible (longer horizon = wider range)
-        base_rate=29.0,  # Current GDP
-        unit=Unit.from_type("usd_trillions"),
-    ),
-    context="Current US GDP: ~$29 trillion (2024). 26-year horizon allows for transformative changes. Key uncertainties: AI/automation impact, transformative tech (quantum, fusion), geopolitical realignment, climate adaptation costs, demographic shifts, institutional stability.",
-    cruxiness_normalizer=40.0,  # $40T spread = 1.0 (wider for longer horizon)
-)
-
-# =============================================================================
-# New targets with empty context (to avoid LLM-written context bias)
-# NOTE: base_rate and value_range are not used in scenario generation.
-# We set them to None to avoid confusion (they're metadata only).
-# =============================================================================
-
-GDP_2050_NOCONTEXT = TargetConfig(
-    question=Question(
-        id="gdp_2050_nocontext",
-        source="scenario_construction",
-        text="What will US real GDP be in 2050 (in 2024 dollars)?",
-        question_type=QuestionType.CONTINUOUS,
-        value_range=None,  # Not used in scenario generation
-        base_rate=None,  # Not used in scenario generation
-        unit=Unit.from_type("usd_trillions"),
-    ),
-    context="",  # Empty to compare with GDP_2050 which has context
-    cruxiness_normalizer=40.0,
-)
-
-POPULATION_2050 = TargetConfig(
-    question=Question(
-        id="population_2050",
-        source="scenario_construction",
-        text="What will the world population be in 2050?",
-        question_type=QuestionType.CONTINUOUS,
-        value_range=None,  # Not used in scenario generation
-        base_rate=None,  # Not used in scenario generation
-        unit=Unit.from_type("population_billions"),
-    ),
-    context="",  # Empty to avoid bias
-    cruxiness_normalizer=1.0,
-)
-
-LIFE_EXPECTANCY_2050 = TargetConfig(
-    question=Question(
-        id="life_expectancy_2050",
-        source="scenario_construction",
-        text="What will global life expectancy at birth be in 2050?",
-        question_type=QuestionType.CONTINUOUS,
-        value_range=None,  # Not used in scenario generation
-        base_rate=None,  # Not used in scenario generation
-        unit=Unit.from_type("years"),
-    ),
-    context="",  # Empty to avoid bias
-    cruxiness_normalizer=5.0,
-)
-
-DEMOCRACY_2050 = TargetConfig(
-    question=Question(
-        id="democracy_2050",
-        source="scenario_construction",
-        text="What proportion of the global population will live in free democracies (per Freedom House) in 2050?",
-        question_type=QuestionType.CONTINUOUS,
-        value_range=None,  # Not used in scenario generation
-        base_rate=None,  # Not used in scenario generation
-        unit=Unit.from_type("percent"),
-    ),
-    context="",  # Empty to avoid bias
-    cruxiness_normalizer=15.0,
-)
-
-RENEWABLE_2050 = TargetConfig(
-    question=Question(
-        id="renewable_2050",
-        source="scenario_construction",
-        text="What share of global energy will come from renewable sources in 2050?",
-        question_type=QuestionType.CONTINUOUS,
-        value_range=None,  # Not used in scenario generation
-        base_rate=None,  # Not used in scenario generation
-        unit=Unit.from_type("percent"),
-    ),
-    context="",  # Empty to avoid bias
-    cruxiness_normalizer=30.0,
-)
-
-# =============================================================================
-# Near-term targets (2027-2030)
+# Active Targets (2027-2029)
 # =============================================================================
 
 CARNEY_PM_2027 = TargetConfig(
@@ -167,39 +59,16 @@ US_GDP_2029 = TargetConfig(
         base_rate=None,
         unit=Unit.from_type("usd_trillions"),
     ),
-    context="",
+    context="Current US real GDP: $31.1 trillion (BEA Q3 2025, seasonally adjusted annual rate). Historical growth averages 2-3% annually. Key uncertainties: Trump administration economic policies, tariff impacts, Fed monetary policy, labor market conditions, AI productivity effects.",
     cruxiness_normalizer=5.0,  # Shorter horizon = tighter range
-)
-
-CANADA_GDP_2030 = TargetConfig(
-    question=Question(
-        id="canada_gdp_2030",
-        source="scenario_construction",
-        text="What will Canada real GDP be in 2030 (in 2024 dollars)?",
-        question_type=QuestionType.CONTINUOUS,
-        value_range=None,
-        base_rate=None,
-        unit=Unit.from_type("usd_trillions"),
-    ),
-    context="",
-    cruxiness_normalizer=0.5,  # Canada is ~$2T economy
 )
 
 
 # Registry for CLI access
 TARGETS = {
-    "gdp_2040": GDP_2040,
-    "gdp_2050": GDP_2050,
-    "gdp_2050_nocontext": GDP_2050_NOCONTEXT,
-    "population_2050": POPULATION_2050,
-    "life_expectancy_2050": LIFE_EXPECTANCY_2050,
-    "democracy_2050": DEMOCRACY_2050,
-    "renewable_2050": RENEWABLE_2050,
-    # Near-term targets
     "carney_pm_2027": CARNEY_PM_2027,
     "democrat_whitehouse_2028": DEMOCRAT_WHITEHOUSE_2028,
     "us_gdp_2029": US_GDP_2029,
-    "canada_gdp_2030": CANADA_GDP_2030,
 }
 
 

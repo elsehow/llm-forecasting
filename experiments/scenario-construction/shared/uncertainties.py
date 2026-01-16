@@ -109,3 +109,33 @@ async def identify_uncertainties(
         )
         for u in result.uncertainties
     ]
+
+
+async def identify_and_report_uncertainties(
+    question: str,
+    context: str,
+    n: int = 3,
+    model: str | None = None,
+) -> list[Uncertainty]:
+    """Identify key uncertainties and print them.
+
+    Wrapper around identify_uncertainties that also prints
+    each uncertainty's name and description.
+
+    Args:
+        question: The target forecasting question
+        context: Additional context about the question
+        n: Number of uncertainties to identify
+        model: LLM model to use
+
+    Returns:
+        List of Uncertainty objects
+    """
+    print("Identifying key uncertainties...")
+    uncertainties = await identify_uncertainties(question, context, n, model)
+
+    for i, u in enumerate(uncertainties):
+        print(f"\n  {i+1}. {u.name}")
+        print(f"     {u.description}")
+
+    return uncertainties

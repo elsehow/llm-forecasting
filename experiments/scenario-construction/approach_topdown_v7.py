@@ -20,28 +20,22 @@ Usage:
 import asyncio
 import sys
 from pathlib import Path
-from datetime import datetime
 
 from dotenv import load_dotenv
 
 # Import shared utilities
 sys.path.insert(0, str(Path(__file__).parent))
-from shared.signals import rank_signals_by_voi, build_signal_models
+from shared.signals import rank_and_report_signals
 from shared.generation import generate_signals_for_uncertainty
-from shared.uncertainties import identify_uncertainties
-from shared.scenarios import generate_mece_scenarios
+from shared.uncertainties import identify_and_report_uncertainties
+from shared.scenarios import generate_and_print_scenarios
 from shared.setup import (
     create_base_parser,
     add_uncertainty_args,
     load_config,
     print_header,
 )
-from shared.output import (
-    build_scenario_dicts,
-    build_base_results,
-    print_results,
-    save_results,
-)
+from shared.output import save_approach_results
 
 load_dotenv()
 
@@ -62,17 +56,13 @@ async def main():
         voi_floor=cfg.voi_floor,
     )
 
-    # Step 1: Identify key uncertainties (shared with hybrid)
+    # Step 1: Identify key uncertainties
     print("\n[1/4] Identifying key uncertainties...")
-    uncertainties = await identify_uncertainties(
+    uncertainties = await identify_and_report_uncertainties(
         question=cfg.question_text,
         context=cfg.context,
         n=cfg.n_uncertainties,
     )
-
-    for i, u in enumerate(uncertainties):
-        print(f"\n  {i+1}. {u.name}")
-        print(f"     {u.description}")
 
     # Step 2: Generate signals per uncertainty (LLM-only, no market search)
     print("\n[2/4] Generating signals per uncertainty...")
@@ -87,6 +77,7 @@ async def main():
             uncertainty_name=u.name,
             uncertainty_description=u.description,
             n=10,
+            max_horizon_days=cfg.max_horizon_days,
         )
 
         print(f"    Generated {len(signals)} signals")
@@ -99,31 +90,19 @@ async def main():
 
     print(f"\n  Total signals: {len(all_signals)}")
 
-    # Step 3: Rank signals by VOI (shared with bottom-up/hybrid)
+    # Step 3: Rank signals by VOI
     print("\n[3/4] Ranking signals by VOI...")
-    ranked_signals = await rank_signals_by_voi(
+    is_continuous = cfg.question_type == "continuous"
+    ranked_signals = await rank_and_report_signals(
         signals=all_signals,
         target=cfg.question_text,
+        voi_floor=cfg.voi_floor,
+        is_continuous=is_continuous,
     )
 
-    # Count by VOI threshold
-    voi_counts = {
-        ">=0.3": sum(1 for s in ranked_signals if s.get("voi", 0) >= 0.3),
-        ">=0.2": sum(1 for s in ranked_signals if s.get("voi", 0) >= 0.2),
-        ">=0.1": sum(1 for s in ranked_signals if s.get("voi", 0) >= 0.1),
-        "<0.1": sum(1 for s in ranked_signals if s.get("voi", 0) < 0.1),
-    }
-    print(f"\n  VOI distribution:")
-    for k, v in voi_counts.items():
-        print(f"    {k}: {v}")
-
-    print(f"\n  Top 3 by VOI:")
-    for s in ranked_signals[:3]:
-        print(f"    VOI={s.get('voi', 0):.2f} [{s['uncertainty_source'][:15]}] {s['text'][:50]}...")
-
-    # Step 4: Generate scenarios (shared with bottom-up/hybrid)
-    print("\n[4/4] Generating MECE scenarios...")
-    result = await generate_mece_scenarios(
+    # Step 4: Generate scenarios
+    print("\n[4/4] Generating scenarios...")
+    result = await generate_and_print_scenarios(
         signals=ranked_signals,
         question=cfg.question_text,
         context=cfg.context,
@@ -131,45 +110,25 @@ async def main():
         voi_floor=cfg.voi_floor,
     )
 
-    # Print results
-    print_results(result)
-
     # Save results
-    output_file = cfg.output_dir / f"topdown_v7_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
-
-    signals_v7 = build_signal_models(
-        ranked_signals,
-        text_key="text",
-        include_background=True,
-        include_uncertainty_source=True,
-    )
-    scenarios_v7 = build_scenario_dicts(result.scenarios)
-
-    results = build_base_results(
-        approach="topdown",
-        target=cfg.target,
-        config=cfg.config,
-        signals_v7=signals_v7,
-        scenarios_v7=scenarios_v7,
-        mece_reasoning=result.mece_reasoning,
-        coverage_gaps=result.coverage_gaps,
-        voi_floor=cfg.voi_floor,
-    )
-
-    # Add approach-specific fields
     by_uncertainty = {k: len(v) for k, v in uncertainty_signals.items()}
-    results.update({
-        "uncertainties": [
-            {"name": u.name, "description": u.description, "search_query": u.search_query}
-            for u in uncertainties
-        ],
-        "signals_per_uncertainty": by_uncertainty,
-        "total_signals": len(all_signals),
-        "signals_above_floor": sum(1 for s in ranked_signals if s.get("voi", 0) >= cfg.voi_floor),
-        "voi_distribution": voi_counts,
-    })
-
-    save_results(results, output_file)
+    save_approach_results(
+        approach="topdown",
+        cfg=cfg,
+        signals=ranked_signals,
+        result=result,
+        text_key="text",
+        include_uncertainty_source=True,
+        extra_fields={
+            "uncertainties": [
+                {"name": u.name, "description": u.description, "search_query": u.search_query}
+                for u in uncertainties
+            ],
+            "signals_per_uncertainty": by_uncertainty,
+            "total_signals": len(all_signals),
+            "signals_above_floor": sum(1 for s in ranked_signals if s.get("voi", 0) >= cfg.voi_floor),
+        },
+    )
 
 
 if __name__ == "__main__":

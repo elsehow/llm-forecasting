@@ -1,0 +1,1094 @@
+{
+  "id": "dual_carney_pm_2027_608019e2",
+  "name": "carney_pm_2027 (dual)",
+  "target": "carney_pm_2027",
+  "approach": "dual_v7",
+  "question": {
+    "id": "carney_pm_2027",
+    "source": "scenario_construction",
+    "text": "Will Mark Carney be Prime Minister of Canada on December 31, 2027?",
+    "question_type": "binary",
+    "unit": null,
+    "base_rate": null,
+    "value_range": null
+  },
+  "config": {
+    "context": "Mark Carney became Prime Minister of Canada on March 14, 2025, after winning the Liberal Party leadership following Justin Trudeau's resignation in January 2025. Carney, former Governor of the Bank of Canada and Bank of England, won the leadership on the first ballot with strong support from the party establishment. He has not yet faced a general election as PM. The next federal election must be held by October 2025 at the latest. Current polling (January 2026) shows the Liberals with a slight lead over the Conservatives (recent polls: Nanos L39-C36, Ipsos L40-C37, Pallas L41-C38), a reversal from the significant Conservative lead before Carney took office. Key issues: cost of living, housing affordability, US-Canada trade relations under the Trump administration.",
+    "cruxiness_normalizer": 0.3,
+    "voi_floor": 0.1,
+    "match_threshold": 0.6,
+    "n_uncertainties": 3
+  },
+  "current_date": "2026-01-16",
+  "signals": [
+    {
+      "id": "llm_b1a7d292",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 15, 2026, Mark Carney's net approval rating among Liberal Party members falls below -20% in a party membership survey conducted by a recognized polling organization",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723054Z",
+      "resolution_date": "2026-12-16",
+      "resolved": false,
+      "base_rate": 0.3,
+      "voi": 0.297,
+      "rho": -0.7,
+      "rho_reasoning": "The two questions are related, as they both concern Mark Carney's political standing and approval. If Carney's net approval rating among Liberal Party members falls below -20% (Question B), it would make it less likely that he becomes Prime Minister (Question A). Conversely, if he becomes Prime Minister, it would suggest his approval rating is higher. Therefore, the two outcomes are negatively correlated, with a correlation coefficient around -0.7.",
+      "uncertainty_source": "Liberal Party Unity",
+      "p_target_given_yes": 0.01,
+      "p_target_given_no": 0.7142857142857143,
+      "cruxiness_spread": 0.7042857142857143
+    },
+    {
+      "id": "llm_efd97032",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By November 15, 2026, Liberal Party fundraising falls below $5 million in quarterly filings to Elections Canada for two consecutive quarters during Mark Carney's leadership",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723073Z",
+      "resolution_date": "2026-11-16",
+      "resolved": false,
+      "base_rate": 0.35,
+      "voi": 0.2861817604250837,
+      "rho": -0.6,
+      "rho_reasoning": "The two questions are related, as the outcome of one would affect the likelihood of the other. If Mark Carney becomes Prime Minister, it would likely lead to increased fundraising for the Liberal Party, making the second question less likely to be true. Conversely, if the Liberal Party's fundraising falls significantly, it would make it less likely for Carney to become Prime Minister. Therefore, the correlation between the two questions is expected to be moderately negative.",
+      "uncertainty_source": "Liberal Party Unity",
+      "p_target_given_yes": 0.09116891367845184,
+      "p_target_given_no": 0.7201398157116028,
+      "cruxiness_spread": 0.628970902033151
+    },
+    {
+      "id": "llm_cf22d91f",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Before August 31, 2026, a prominent Liberal Party figure (former PM, Cabinet minister, or provincial premier) publicly endorses a leadership challenge against Mark Carney, as reported in major Canadian media",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723081Z",
+      "resolution_date": "2026-09-01",
+      "resolved": false,
+      "base_rate": 0.22,
+      "voi": 0.20712315177207985,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related, as they both concern events related to Mark Carney's potential political career in Canada. A public endorsement of a leadership challenge against Carney (Question B) would likely make it less likely that he becomes Prime Minister (Question A). However, the events are not directly dependent on each other, so the correlation is not perfect. A correlation coefficient of 0.5 suggests a moderately positive relationship between the two questions.",
+      "uncertainty_source": "Liberal Party Unity",
+      "p_target_given_yes": 0.970734435845636,
+      "p_target_given_no": 0.3672287488640514,
+      "cruxiness_spread": 0.6035056869815847
+    },
+    {
+      "id": "llm_ddaa3cba",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Will the Bank of Canada raise interest rates by more than 100 basis points total between February 2026 and December 2026?",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723085Z",
+      "resolution_date": "2027-01-15",
+      "resolved": false,
+      "base_rate": 0.2,
+      "voi": 0.1600000000000001,
+      "rho": 0.4,
+      "rho_reasoning": "The two questions are related because they both concern events involving the Bank of Canada and Canadian economic policy. Carney's potential role as Prime Minister could influence the Bank of Canada's interest rate decisions. However, they are not measuring the same underlying phenomenon, so the correlation is not perfect. A positive correlation of 0.4 suggests that knowing the outcome of one question provides some information about the other, but not a complete determination.",
+      "uncertainty_source": "Economic Crisis Response",
+      "p_target_given_yes": 0.9,
+      "p_target_given_no": 0.3999999999999999,
+      "cruxiness_spread": 0.5000000000000001
+    },
+    {
+      "id": "llm_6022e20d",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Will Carney's government implement a federal wealth tax of 1% or higher on assets exceeding $10 million by December 2026?",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723090Z",
+      "resolution_date": "2026-12-31",
+      "resolved": false,
+      "base_rate": 0.15,
+      "voi": 0.14850000000000002,
+      "rho": 0.6,
+      "rho_reasoning": "The two questions are related, as Carney becoming Prime Minister and his government implementing a federal wealth tax are likely to be correlated. If Carney becomes Prime Minister, it would increase the likelihood of his government implementing policies like a wealth tax. However, the correlation is not perfect, as Carney could become Prime Minister without necessarily implementing that specific policy. Therefore, the correlation coefficient is estimated to be around 0.6, indicating a moderately strong positive correlation between the two outcomes.",
+      "uncertainty_source": "Economic Crisis Response",
+      "p_target_given_yes": 0.99,
+      "p_target_given_no": 0.4117647058823529,
+      "cruxiness_spread": 0.5782352941176471
+    },
+    {
+      "id": "llm_11507577",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Will Liberal Party membership exceed 200,000 active members by December 31, 2026, as reported in their annual disclosure?",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723094Z",
+      "resolution_date": "2027-01-16",
+      "resolved": false,
+      "base_rate": 0.6,
+      "voi": 0.1469693845669907,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are not directly related. While the Liberal Party membership and having a former central bank governor as Prime Minister may be somewhat correlated, they are measuring different underlying phenomena. The outcome of one question does not definitively determine the outcome of the other, but there may be a moderate positive relationship between the two events.",
+      "uncertainty_source": "Liberal Electoral Performance",
+      "p_target_given_yes": 0.622474487139159,
+      "p_target_given_no": 0.31628826929126164,
+      "cruxiness_spread": 0.30618621784789735
+    },
+    {
+      "id": "llm_57fbed48",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Will Canada's federal budget deficit exceed 3.5% of GDP in the 2026-27 fiscal year, per Department of Finance Canada reporting?",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723097Z",
+      "resolution_date": "2026-10-15",
+      "resolved": false,
+      "base_rate": 0.4,
+      "voi": 0.1469693845669907,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are somewhat related, as the performance of the Canadian government (as measured by the budget deficit) could influence the political career of the Prime Minister. However, the questions are not directly measuring the same underlying phenomenon, and there are many other factors that could influence both the budget deficit and the Prime Minister's status. Therefore, the correlation between the two questions is positive but moderate.",
+      "uncertainty_source": "Economic Crisis Response",
+      "p_target_given_yes": 0.6837117307087384,
+      "p_target_given_no": 0.3775255128608411,
+      "cruxiness_spread": 0.3061862178478973
+    },
+    {
+      "id": "llm_9b1315c3",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Will the Liberal Party's seat projection in 338Canada's model exceed 150 seats for at least 7 consecutive days between September 1-30, 2026?",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723101Z",
+      "resolution_date": "2026-10-01",
+      "resolved": false,
+      "base_rate": 0.3,
+      "voi": 0.13747727084867514,
+      "rho": 0.3,
+      "rho_reasoning": "The two prediction market questions are not directly related, as they are about different events (Mark Carney becoming Prime Minister of Canada and the Liberal Party's seat projection in a Canadian federal election). However, there could be some indirect relationship, as the outcome of one event may provide some information about the likelihood of the other event. For example, if the Liberal Party performs well in the 2026 election, this could make it more likely that Mark Carney, who is associated with the Liberal Party, would become Prime Minister in the future. Therefore, I estimate a moderate positive correlation (\u03c1 = 0.3) between the two questions.",
+      "uncertainty_source": "Liberal Electoral Performance",
+      "p_target_given_yes": 0.729128784747792,
+      "p_target_given_no": 0.4018019493938035,
+      "cruxiness_spread": 0.3273268353539885
+    },
+    {
+      "id": "llm_b92ae200",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Will the Liberal Party of Canada lead in at least 3 consecutive monthly Nanos polling aggregates between March 1-31, 2026?",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723105Z",
+      "resolution_date": "2026-04-01",
+      "resolved": false,
+      "base_rate": 0.25,
+      "voi": 0.12990381056766576,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are not directly related, as they are about different events (Mark Carney becoming Prime Minister and the Liberal Party leading in polls) at different time periods. However, there could be some indirect relationship, as the political landscape and public sentiment in Canada may influence both the likelihood of Carney becoming Prime Minister and the Liberal Party's standing in the polls. Therefore, I estimate a moderate positive correlation coefficient of 0.3 between these two questions.",
+      "uncertainty_source": "Liberal Electoral Performance",
+      "p_target_given_yes": 0.7598076211353315,
+      "p_target_given_no": 0.41339745962155616,
+      "cruxiness_spread": 0.34641016151377535
+    },
+    {
+      "id": "llm_1f2b810b",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Will Canada experience two consecutive quarters of negative GDP growth (technical recession) at any point between Q1 2026 and Q4 2026, per Statistics Canada?",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723109Z",
+      "resolution_date": "2027-01-16",
+      "resolved": false,
+      "base_rate": 0.25,
+      "voi": 0.12990381056766576,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are related, as the economic conditions in Canada (as measured by GDP growth) could impact the political leadership. However, there are many other factors that could influence both the likelihood of Mark Carney becoming Prime Minister and the occurrence of a technical recession, so the correlation is not expected to be strong. A correlation coefficient of 0.3 suggests a moderate positive relationship, where knowing the outcome of one question provides some information about the likelihood of the other, but does not completely determine it.",
+      "uncertainty_source": "Economic Crisis Response",
+      "p_target_given_yes": 0.7598076211353315,
+      "p_target_given_no": 0.41339745962155616,
+      "cruxiness_spread": 0.34641016151377535
+    },
+    {
+      "id": "llm_38d88630",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By September 30, 2026, at least 3 Liberal Cabinet ministers resign citing disagreements with Mark Carney's leadership or policies, per their resignation letters or public statements",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723113Z",
+      "resolution_date": "2026-10-01",
+      "resolved": false,
+      "base_rate": 0.12,
+      "voi": 0.11879999999999999,
+      "rho": 0.7,
+      "rho_reasoning": "The two questions are related, as Mark Carney becoming Prime Minister of Canada would likely influence the policies and leadership of the Liberal government, potentially leading to cabinet resignations over disagreements. The outcomes of the two questions are not perfectly correlated, as there could be other factors that lead to cabinet resignations besides Carney's leadership, but the questions are measuring related underlying phenomena, so a positive correlation coefficient of 0.7 seems reasonable.",
+      "uncertainty_source": "Liberal Party Unity",
+      "p_target_given_yes": 0.99,
+      "p_target_given_no": 0.4318181818181818,
+      "cruxiness_spread": 0.5581818181818181
+    },
+    {
+      "id": "10667",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will Elon Musk hold major political office in the United States before February 2033?",
+      "url": "https://www.metaculus.com/questions/10667",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723118Z",
+      "resolution_date": "2033-02-02",
+      "resolved": false,
+      "voi": 0.09999999999999998,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are not directly related. Whether Mark Carney becomes Prime Minister of Canada is likely independent of whether Elon Musk holds major political office in the United States. While both involve prominent public figures potentially entering politics, the events and locations are distinct. There may be some weak positive correlation if political trends or public sentiment towards non-traditional candidates were a factor in both, but the correlation is likely to be low.",
+      "p_target_given_yes": 0.6,
+      "p_target_given_no": 0.4,
+      "cruxiness_spread": 0.19999999999999996
+    },
+    {
+      "id": "llm_97194c92",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Before June 30, 2026, the Liberal Party experiences a formal split with at least 10 MPs leaving to form a new party or join another party, citing disagreements with Mark Carney's leadership, per Elections Canada registration records",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723122Z",
+      "resolution_date": "2026-07-01",
+      "resolved": false,
+      "base_rate": 0.08,
+      "voi": 0.07920000000000002,
+      "rho": 0.7,
+      "rho_reasoning": "The two questions are related, as they both involve the political future of Mark Carney in Canada. If Carney becomes Prime Minister (Question A), it would make it less likely that the Liberal Party would experience a formal split due to disagreements with his leadership (Question B). Conversely, if the Liberal Party splits, it would make it less likely that Carney would become Prime Minister. Therefore, there is a positive correlation between the two questions, though not a perfect one, as other factors could also influence the outcomes.",
+      "uncertainty_source": "Liberal Party Unity",
+      "p_target_given_yes": 0.99,
+      "p_target_given_no": 0.45652173913043476,
+      "cruxiness_spread": 0.5334782608695652
+    },
+    {
+      "id": "llm_0e33dad6",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Will any major Canadian bank (Big Six) report quarterly losses exceeding $500 million in any Q1-Q4 2026 earnings report?",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723126Z",
+      "resolution_date": "2027-01-15",
+      "resolved": false,
+      "base_rate": 0.1,
+      "voi": 0.06,
+      "rho": -0.2,
+      "rho_reasoning": "The two questions are not directly related. Mark Carney becoming Prime Minister of Canada is unlikely to have a strong impact on the financial performance of major Canadian banks. While there could be some indirect relationship, such as a potential impact on the broader economy, this would likely be weak. Therefore, the correlation coefficient is estimated to be slightly negative, suggesting a small inverse relationship, but the two events are mostly independent.",
+      "uncertainty_source": "Economic Crisis Response",
+      "p_target_given_yes": 0.19999999999999996,
+      "p_target_given_no": 0.5333333333333333,
+      "cruxiness_spread": 0.33333333333333337
+    },
+    {
+      "id": "26336",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will J.D. Vance become President of the United States before January 20, 2029?",
+      "url": "https://www.metaculus.com/questions/26336",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723136Z",
+      "resolution_date": "2029-01-19",
+      "resolved": false,
+      "base_rate": 0.2,
+      "voi": 0.040000000000000015,
+      "rho": 0.1,
+      "rho_reasoning": "The two questions are about unrelated political events in different countries, so there is likely a weak positive correlation at most. Knowing the outcome of one question would provide little information about the other.",
+      "p_target_given_yes": 0.6,
+      "p_target_given_no": 0.475,
+      "cruxiness_spread": 0.125
+    },
+    {
+      "id": "KXG7LEADEROUT-45JAN01-MCAR",
+      "source": "kalshi",
+      "source_type": "market",
+      "text": "Will Prime Minister of Canada be the first to leave office?: :: Prime Minister of Canada",
+      "url": "https://kalshi.com/markets/KXG7LEADEROUT-45JAN01-MCAR",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723145Z",
+      "resolution_date": "2045-01-01",
+      "resolved": false,
+      "base_rate": 0.04,
+      "voi": 0.03959999999999998,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related, as they both involve the leadership of the Prime Minister of Canada. If Mark Carney becomes Prime Minister (Question A), it would increase the likelihood that the current Prime Minister would be the first to leave office (Question B). However, the questions are not perfectly correlated, as there could be other factors that influence the outcome of Question B beyond just the identity of the Prime Minister.",
+      "p_target_given_yes": 0.99,
+      "p_target_given_no": 0.4791666666666667,
+      "cruxiness_spread": 0.5108333333333333
+    },
+    {
+      "id": "KXXISUCCESSOR-45JAN01-CQI",
+      "source": "kalshi",
+      "source_type": "market",
+      "text": "Will Cai Qi become the next leader of the Chinese Communist Party (CCP) before Jan 1, 2045?",
+      "url": "https://kalshi.com/markets/KXXISUCCESSOR-45JAN01-CQI",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723149Z",
+      "resolution_date": "2045-01-01",
+      "resolved": false,
+      "base_rate": 0.16,
+      "voi": 0.0366606055596467,
+      "rho": 0.1,
+      "rho_reasoning": "The two questions are about unrelated events happening in different countries (Canada and China). The outcome of one question is unlikely to have a significant impact on the outcome of the other, so the correlation between them is likely to be weak and close to 0.",
+      "p_target_given_yes": 0.614564392373896,
+      "p_target_given_no": 0.4781782109764008,
+      "cruxiness_spread": 0.13638618139749525
+    },
+    {
+      "id": "s1sb2v5t9m",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "Will MrBeast (Jimmy Donaldson) be convicted of a crime before the end of 2026?",
+      "url": "https://manifold.markets/pluffASMR/will-mrbeast-jimmy-donaldson-be-con",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723153Z",
+      "resolution_date": "2027-01-01",
+      "resolved": false,
+      "base_rate": 0.13208503748970604,
+      "voi": 0.03385831956270856,
+      "rho": 0.1,
+      "rho_reasoning": "The two questions are about unrelated events (the political career of Mark Carney and the criminal history of MrBeast). Knowing the outcome of one question would provide little to no information about the outcome of the other. Therefore, the correlation coefficient is close to 0, indicating the questions are largely independent.",
+      "p_target_given_yes": 0.6281686412261012,
+      "p_target_given_no": 0.48049444875061303,
+      "cruxiness_spread": 0.14767419247548813
+    },
+    {
+      "id": "0xefe6300fd8a053cca53df8f1bd536c5f571a136392c0516e7b16e39f1addecb0",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will JB Pritzker win the 2028 US Presidential Election?",
+      "url": "https://polymarket.com/market/will-jb-pritzker-win-the-2028-us-presidential-election",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723157Z",
+      "resolution_date": "2028-11-07",
+      "resolved": false,
+      "base_rate": 0.0265,
+      "voi": 0.016061677994530968,
+      "rho": 0.1,
+      "rho_reasoning": "The two questions are about unrelated events in different countries (Canada and the United States), so the outcomes are likely to be independent. Knowing whether Mark Carney becomes Prime Minister of Canada would not provide much information about whether JB Pritzker wins the US Presidential election. There is a small positive correlation as political events in one country can sometimes influence those in another, but it is likely to be quite weak.",
+      "p_target_given_yes": 0.8030505281986973,
+      "p_target_given_no": 0.49175055059346123,
+      "cruxiness_spread": 0.31129997760523603
+    },
+    {
+      "id": "0x67443cb1ffb2bf180f7df5b6ca7adff63f7e8e933c7e41405ba118f3e9f8befb",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will Canada win the 2026 FIFA World Cup?",
+      "url": "https://polymarket.com/market/will-canada-win-the-2026-fifa-world-cup-755",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723161Z",
+      "resolution_date": "2026-07-20",
+      "resolved": false,
+      "base_rate": 0.0045,
+      "voi": 0.00445500000000002,
+      "rho": 0.1,
+      "rho_reasoning": "The two questions are not directly related. The outcome of whether Mark Carney becomes Prime Minister of Canada is unlikely to have a strong impact on whether Canada wins the 2026 FIFA World Cup. These events measure different underlying phenomena, so the correlation is likely to be weak and positive at best.",
+      "p_target_given_yes": 0.99,
+      "p_target_given_no": 0.4977398292315419,
+      "cruxiness_spread": 0.49226017076845807
+    },
+    {
+      "id": "llm_38fb0f02",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Will the Bloc Qu\u00e9b\u00e9cois polling average in Quebec fall below 25% in any Ipsos poll between July 1 and October 31, 2026?",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723165Z",
+      "resolution_date": "2026-11-01",
+      "resolved": false,
+      "base_rate": 0.25,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "The two questions are about unrelated events that do not have a clear causal relationship. The outcome of whether Mark Carney becomes Prime Minister of Canada is independent of the polling average of the Bloc Qu\u00e9b\u00e9cois in Quebec. Therefore, the correlation coefficient between these two questions is 0, indicating they are independent.",
+      "uncertainty_source": "Liberal Electoral Performance",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0
+    },
+    {
+      "id": "KXNEXTISRAELPM-45JAN01-YGAL",
+      "source": "kalshi",
+      "source_type": "market",
+      "text": "Will Yoav Gallant be the next Prime Minister of Israel?: ::",
+      "url": "https://kalshi.com/markets/KXNEXTISRAELPM-45JAN01-YGAL",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723168Z",
+      "resolution_date": "2045-01-01",
+      "resolved": false,
+      "base_rate": 0.11,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "The two questions are about unrelated events in different countries. The outcome of one question would not provide any information about the other, as they are measuring completely separate phenomena. Therefore, the correlation coefficient between these two questions is 0, indicating they are independent.",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0
+    },
+    {
+      "id": "0x830eb792fa2f2a591b5a0610a76400f80228629105f4f5896434be777665265c",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will Henri Bontenbal become the next Prime Minister of the Netherlands?",
+      "url": "https://polymarket.com/market/will-henri-bontenbal-become-the-next-prime-minister-of-the-netherlands",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723172Z",
+      "resolution_date": "2026-12-31",
+      "resolved": false,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "The two questions are about the political leadership of different countries, which are unrelated events. The outcome of one question would not provide any information about the outcome of the other question. Therefore, the correlation coefficient between these two questions is likely to be close to 0, indicating independence.",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0
+    },
+    {
+      "id": "dgPNU5ICzP",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "Will Colbert be forced off air before May, 2026?",
+      "url": "https://manifold.markets/WrongoPhD/will-colbert-be-forced-off-air-befo",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723176Z",
+      "resolution_date": "2026-05-01",
+      "resolved": false,
+      "base_rate": 0.11432748487657439,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "The two questions are about unrelated events that are likely independent of each other. Whether Mark Carney becomes Prime Minister of Canada has no bearing on whether Colbert is forced off the air in the US. The outcomes of these two events are not correlated, so the correlation coefficient would be 0, indicating that knowing the outcome of one question provides no information about the other.",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0
+    },
+    {
+      "id": "CwCYXoj4cr07qpHDcRLo",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "Will Drake be formally charged with a crime before the end of 2028?",
+      "url": "https://manifold.markets/strutheo/will-drake-be-formally-charged-with",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723180Z",
+      "resolution_date": "2029-01-01",
+      "resolved": false,
+      "base_rate": 0.21584656587988968,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "The two questions are about completely unrelated events involving different people and domains. Knowing the outcome of one question would not provide any meaningful information about the other, so the correlation coefficient would be 0, indicating independence between the two.",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0
+    },
+    {
+      "id": "0x1e7a7b53f33712909925d133f51a3454a97f8d39bb2651761c4ee44d580ae2df",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will Vladimir Putin win the Nobel Peace Prize in 2026?",
+      "url": "https://polymarket.com/market/will-vladimir-putin-win-the-nobel-peace-prize-in-2026-126",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723183Z",
+      "resolution_date": "2026-10-10",
+      "resolved": false,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "The two questions are about completely unrelated events. The outcome of whether Mark Carney becomes Prime Minister of Canada has no bearing on whether Vladimir Putin wins the Nobel Peace Prize. The questions are measuring different underlying phenomena that are independent of each other. Therefore, the correlation coefficient between the two questions is 0, indicating they are completely independent.",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0
+    },
+    {
+      "id": "3359",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will there be a vegetarian U.S. president by the end of 2036?",
+      "url": "https://www.metaculus.com/questions/3359",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723198Z",
+      "resolution_date": "2030-01-01",
+      "resolved": false,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "The two questions are about unrelated events that are unlikely to be correlated. Whether Mark Carney becomes Prime Minister of Canada has no bearing on whether there will be a vegetarian U.S. president. These are completely independent outcomes, so the correlation coefficient would be 0, indicating no relationship between the two.",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0
+    },
+    {
+      "id": "39711",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will Lisa Cook cease to be a member of the Federal Reserve Board of Governors before November 3, 2026?",
+      "url": "https://www.metaculus.com/questions/39711",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723206Z",
+      "resolution_date": "2026-11-03",
+      "resolved": false,
+      "base_rate": 0.12,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "The two questions are not related and measure completely different underlying phenomena. The outcome of whether Mark Carney becomes Prime Minister of Canada has no bearing on whether Lisa Cook remains a member of the Federal Reserve Board of Governors. These are independent events, so the correlation coefficient would be 0, indicating no relationship between the two.",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0
+    },
+    {
+      "id": "lgxNmHNmrYvowjnSyQAM",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "Will Lionel Messi play in the 2026 World Cup?",
+      "url": "https://manifold.markets/BrunoNeira/will-lionel-messi-play-in-the-2026",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723210Z",
+      "resolution_date": "2026-06-30",
+      "resolved": false,
+      "base_rate": 0.8774726580550877,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "The two questions are about unrelated events (a Canadian Prime Minister and an Argentine soccer player) that are unlikely to be correlated. Knowing the outcome of one question would not provide any information about the other, as the events are independent.",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0
+    },
+    {
+      "id": "0x4761e83680407e28e2fe96691b4b5a00d958293d4e52b9ff0ad728710fa665b5",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will the U.S. test a nuclear weapon by December 31 2025?",
+      "url": "https://polymarket.com/market/will-the-us-test-a-nuclear-weapon-by-december-31-2025",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723214Z",
+      "resolution_date": "2026-03-31",
+      "resolved": false,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "The two questions are about completely unrelated events (whether Mark Carney becomes Canadian Prime Minister, and whether the US tests a nuclear weapon) that are unlikely to be correlated. Knowing the outcome of one question does not provide any information about the likelihood of the other, so the correlation coefficient should be 0, indicating the questions are independent.",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0
+    },
+    {
+      "id": "11424",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will Andrew Yang hold high Federal office in the United States before February 1 2037?",
+      "url": "https://www.metaculus.com/questions/11424",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723222Z",
+      "resolution_date": "2037-01-31",
+      "resolved": false,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "The two questions are about unrelated events in different countries and different time periods. The outcome of one question is unlikely to provide any meaningful information about the other. Therefore, the correlation coefficient between the two questions is likely to be close to 0, indicating independence.",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0
+    },
+    {
+      "id": "21918",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will Bryan Caplan win his bet that India's average fertility rate for 2032 & 2033  will be < 2.0?",
+      "url": "https://www.metaculus.com/questions/21918",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723225Z",
+      "resolution_date": "2034-01-01",
+      "resolved": false,
+      "base_rate": 0.973,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "The two prediction market questions are about completely unrelated events - whether Mark Carney becomes Prime Minister of Canada and whether Bryan Caplan wins a bet on India's fertility rate. Knowing the outcome of one question would not provide any information about the other, so the correlation coefficient between them is 0, indicating they are independent.",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0
+    },
+    {
+      "id": "1678",
+      "source": "infer",
+      "source_type": "market",
+      "text": "Will any country announce a new national carbon tax or emissions trading system by 31 July 2026?",
+      "url": "https://www.randforecastinginitiative.org/questions/1678",
+      "question_type": "binary",
+      "created_at": "2026-01-16T19:50:01.723229Z",
+      "resolution_date": "2026-08-01",
+      "resolved": false,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "The two questions are not directly related. The outcome of whether Mark Carney becomes Prime Minister of Canada is unlikely to have a significant impact on whether a country announces a new carbon tax or emissions trading system. These are separate events measuring different underlying phenomena, and knowing the outcome of one does not provide much information about the other. Therefore, the correlation coefficient is likely to be close to 0, indicating independence between the two questions.",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Secure Leadership",
+      "description": "Carney maintains strong party support and political momentum throughout 2026-2027. The Liberal Party remains unified, polls well, and wins the next election comfortably, allowing Carney to serve as PM through December 31, 2027. Economic challenges are manageable and don't significantly damage his standing.",
+      "scenario_probability": 0.35,
+      "key_drivers": [
+        "Strong Liberal Party unity and support",
+        "Sustained polling leads and electoral success",
+        "Effective economic management",
+        "Minimal internal party dissent",
+        "Successful navigation of external challenges"
+      ],
+      "why_exclusive": "This scenario requires sustained party support and electoral success, which cannot co-occur with scenarios involving leadership challenges, major electoral defeats, or severe party fractures.",
+      "signal_impacts": [
+        {
+          "signal_index": 5,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 7,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 8,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 0,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 1,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 2,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 10,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Liberal approval rating": "Above 40% consistently",
+        "Party membership growth": "Exceeds 200,000 active members",
+        "Seat projections": "Above 150 seats regularly",
+        "Internal party dissent": "Minimal resignations or challenges"
+      },
+      "outcome_range": "75-90% YES",
+      "outcome_low": null,
+      "outcome_high": null,
+      "probability_range": "75-90% YES",
+      "probability_low": 0.75,
+      "probability_high": 0.9
+    },
+    {
+      "name": "Internal Collapse",
+      "description": "Carney faces a severe internal party crisis with widespread dissatisfaction among Liberal MPs and members. Multiple cabinet resignations, leadership challenges, and fundraising difficulties force him to step down or lead the party to electoral defeat before December 2027.",
+      "scenario_probability": 0.25,
+      "key_drivers": [
+        "Severe internal party discord",
+        "Multiple cabinet resignations",
+        "Leadership challenge from within",
+        "Fundraising collapse",
+        "Loss of party member confidence"
+      ],
+      "why_exclusive": "This scenario involves fundamental party breakdown and loss of internal support, which cannot happen simultaneously with scenarios requiring party unity or external electoral defeat without internal collapse.",
+      "signal_impacts": [
+        {
+          "signal_index": 0,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 2,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 10,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 1,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 5,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 8,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Net approval among Liberals": "Below -20%",
+        "Cabinet stability": "3+ minister resignations",
+        "Leadership challenges": "Public endorsement by prominent figures",
+        "Party fundraising": "Below $5M for consecutive quarters"
+      },
+      "outcome_range": "5-25% YES",
+      "outcome_low": null,
+      "outcome_high": null,
+      "probability_range": "5-25% YES",
+      "probability_low": 0.05,
+      "probability_high": 0.25
+    },
+    {
+      "name": "Electoral Defeat",
+      "description": "While Carney maintains reasonable internal party support, the Liberals lose the next federal election due to external factors like economic recession, policy failures, or effective Conservative opposition. Carney remains party leader but loses the Prime Ministership before December 2027.",
+      "scenario_probability": 0.3,
+      "key_drivers": [
+        "Economic downturn and recession",
+        "Unpopular policy decisions",
+        "Strong Conservative campaign",
+        "External shocks beyond party control",
+        "Voter fatigue with Liberal governance"
+      ],
+      "why_exclusive": "This scenario involves losing power through electoral defeat while maintaining internal party cohesion, distinct from scenarios with internal collapse or continued electoral success.",
+      "signal_impacts": [
+        {
+          "signal_index": 9,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 3,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 6,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 4,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 7,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 8,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Economic indicators": "Technical recession occurs",
+        "Polling trends": "Sustained Conservative leads",
+        "Fiscal position": "Budget deficit exceeds 3.5% GDP",
+        "Interest rates": "Significant Bank of Canada increases"
+      },
+      "outcome_range": "10-30% YES",
+      "outcome_low": null,
+      "outcome_high": null,
+      "probability_range": "10-30% YES",
+      "probability_low": 0.1,
+      "probability_high": 0.3
+    },
+    {
+      "name": "Narrow Survival",
+      "description": "Carney faces significant challenges but manages to survive through December 2027 despite close calls. This includes scenarios like winning a very narrow election, surviving a leadership review, or forming a minority government that barely lasts through the target date.",
+      "scenario_probability": 0.1,
+      "key_drivers": [
+        "Mixed performance with some successes",
+        "Narrow electoral margins",
+        "Volatile polling and public opinion",
+        "External events providing temporary boosts",
+        "Opposition inability to capitalize fully"
+      ],
+      "why_exclusive": "This scenario represents a precarious middle ground between clear success and clear failure, characterized by volatility and narrow margins that distinguish it from other more definitive outcomes.",
+      "signal_impacts": [
+        {
+          "signal_index": 8,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 5,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 1,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 9,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 0,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Polling volatility": "Frequent lead changes",
+        "Electoral margins": "Seat counts near majority threshold",
+        "Party metrics": "Mixed indicators across measures",
+        "Crisis management": "Survives major challenges narrowly"
+      },
+      "outcome_range": "50-75% YES",
+      "outcome_low": null,
+      "outcome_high": null,
+      "probability_range": "50-75% YES",
+      "probability_low": 0.5,
+      "probability_high": 0.75
+    }
+  ],
+  "mece_reasoning": "These four scenarios are mutually exclusive because they represent fundamentally different political trajectories that cannot occur simultaneously: (1) Secure Leadership requires sustained party unity and electoral success; (2) Internal Collapse involves party breakdown from within; (3) Electoral Defeat means losing power despite internal cohesion; (4) Narrow Survival represents a precarious middle state with high volatility. They are collectively exhaustive as they cover the full spectrum from clear success to clear failure, including the volatile middle ground where outcomes remain uncertain until the end.",
+  "coverage_gaps": "Minimal gaps - the scenarios cover success, failure through internal collapse, failure through electoral defeat, and precarious survival. The only minor gap might be extraordinary external events (like major constitutional crisis), but these would likely manifest through one of the existing scenario types.",
+  "created_at": "2026-01-16T11:50:01.723500",
+  "max_horizon_days": 365,
+  "sources_used": [
+    "polymarket",
+    "metaculus",
+    "kalshi",
+    "infer",
+    "manifold"
+  ],
+  "uncertainties": [
+    {
+      "name": "Liberal Electoral Performance",
+      "description": "Whether Carney can maintain or improve the Liberal Party's polling position and win the next federal election in 2025. This is the most immediate threat to his tenure as PM.",
+      "search_query": "Canada federal election 2025 Liberal Party polls Carney vs Conservative"
+    },
+    {
+      "name": "Economic Crisis Response",
+      "description": "How effectively Carney handles major economic challenges like housing affordability, cost of living, and potential recession during his term. Economic performance historically drives Canadian electoral outcomes.",
+      "search_query": "Canada economic performance housing crisis inflation recession 2025-2027"
+    },
+    {
+      "name": "Liberal Party Unity",
+      "description": "Whether Carney maintains support within the Liberal Party or faces internal challenges, leadership reviews, or party splits that could force his resignation. Internal party dynamics can end PM tenures even with electoral success.",
+      "search_query": "Liberal Party Canada leadership challenge internal conflict Carney support caucus"
+    }
+  ],
+  "topdown_signals_generated": 30,
+  "market_signals_retrieved": 84,
+  "matched_signals": 1,
+  "gap_signals": 29,
+  "market_only_signals": 83,
+  "merged_signals_total": 80,
+  "signals_above_floor": 17,
+  "signals_above_floor_by_origin": {
+    "matched": 0,
+    "gap": 17,
+    "market_only": 0
+  },
+  "gaps": [
+    {
+      "text": "Will the Liberal Party of Canada lead in at least 3 consecutive monthly Nanos polling aggregates between March 1-31, 2026?",
+      "resolution_source": "Nanos Research monthly polling aggregates",
+      "uncertainty_source": "Liberal Electoral Performance",
+      "base_rate": 0.25,
+      "best_market_similarity": 0.4962533414363861
+    },
+    {
+      "text": "Will Mark Carney's personal approval rating exceed 50% in at least one Angus Reid poll between June 1-30, 2026?",
+      "resolution_source": "Angus Reid Institute polling data",
+      "uncertainty_source": "Liberal Electoral Performance",
+      "base_rate": 0.4,
+      "best_market_similarity": 0.539617121219635
+    },
+    {
+      "text": "Will the Liberal Party's seat projection in 338Canada's model exceed 150 seats for at least 7 consecutive days between September 1-30, 2026?",
+      "resolution_source": "338Canada.com seat projection model",
+      "uncertainty_source": "Liberal Electoral Performance",
+      "base_rate": 0.3,
+      "best_market_similarity": 0.49465370178222656
+    },
+    {
+      "text": "Will the Conservative Party's national polling average fall below 35% in at least 2 consecutive L\u00e9ger quarterly polls in 2026?",
+      "resolution_source": "L\u00e9ger quarterly polling reports",
+      "uncertainty_source": "Liberal Electoral Performance",
+      "base_rate": 0.2,
+      "best_market_similarity": 0.4821959435939789
+    },
+    {
+      "text": "Will the NDP's national polling average exceed 22% in any EKOS poll between April 1 and August 31, 2026?",
+      "resolution_source": "EKOS Research polling data",
+      "uncertainty_source": "Liberal Electoral Performance",
+      "base_rate": 0.45,
+      "best_market_similarity": 0.43270355463027954
+    },
+    {
+      "text": "Will the Liberal Party lead in popular vote intention in Quebec in at least 2 out of 4 consecutive monthly Mainstreet polls between May-August 2026?",
+      "resolution_source": "Mainstreet Research Quebec polling data",
+      "uncertainty_source": "Liberal Electoral Performance",
+      "base_rate": 0.15,
+      "best_market_similarity": 0.49227795004844666
+    },
+    {
+      "text": "Will the Bloc Qu\u00e9b\u00e9cois polling average in Quebec fall below 25% in any Ipsos poll between July 1 and October 31, 2026?",
+      "resolution_source": "Ipsos polling data for Quebec",
+      "uncertainty_source": "Liberal Electoral Performance",
+      "base_rate": 0.25,
+      "best_market_similarity": 0.4265516698360443
+    },
+    {
+      "text": "Will the Liberal Party win at least 25% of decided vote intention in Alberta in any Leger poll between August 1 and November 30, 2026?",
+      "resolution_source": "Leger polling data for Alberta",
+      "uncertainty_source": "Liberal Electoral Performance",
+      "base_rate": 0.1,
+      "best_market_similarity": 0.49068981409072876
+    },
+    {
+      "text": "Will Liberal Party membership exceed 200,000 active members by December 31, 2026, as reported in their annual disclosure?",
+      "resolution_source": "Liberal Party of Canada annual membership disclosure to Elections Canada",
+      "uncertainty_source": "Liberal Electoral Performance",
+      "base_rate": 0.6,
+      "best_market_similarity": 0.48443812131881714
+    },
+    {
+      "text": "Will Canada's unemployment rate exceed 7.5% in any monthly Statistics Canada report between March 2026 and December 2026?",
+      "resolution_source": "Statistics Canada Labour Force Survey monthly releases",
+      "uncertainty_source": "Economic Crisis Response",
+      "base_rate": 0.35,
+      "best_market_similarity": 0.49366849660873413
+    },
+    {
+      "text": "Will Canada's average home price fall by more than 15% from January 2026 levels by December 2026, according to CREA data?",
+      "resolution_source": "Canadian Real Estate Association (CREA) monthly housing statistics",
+      "uncertainty_source": "Economic Crisis Response",
+      "base_rate": 0.25,
+      "best_market_similarity": 0.5282083749771118
+    },
+    {
+      "text": "Will Canada's annual inflation rate exceed 4.5% in any Statistics Canada CPI report between June 2026 and December 2026?",
+      "resolution_source": "Statistics Canada Consumer Price Index monthly releases",
+      "uncertainty_source": "Economic Crisis Response",
+      "base_rate": 0.3,
+      "best_market_similarity": 0.5468543171882629
+    },
+    {
+      "text": "Will Canada's federal budget deficit exceed 3.5% of GDP in the 2026-27 fiscal year, per Department of Finance Canada reporting?",
+      "resolution_source": "Department of Finance Canada Annual Financial Report",
+      "uncertainty_source": "Economic Crisis Response",
+      "base_rate": 0.4,
+      "best_market_similarity": 0.5208909511566162
+    },
+    {
+      "text": "Will the Bank of Canada raise interest rates by more than 100 basis points total between February 2026 and December 2026?",
+      "resolution_source": "Bank of Canada overnight rate announcements",
+      "uncertainty_source": "Economic Crisis Response",
+      "base_rate": 0.2,
+      "best_market_similarity": 0.5711446404457092
+    },
+    {
+      "text": "Will Canada experience two consecutive quarters of negative GDP growth (technical recession) at any point between Q1 2026 and Q4 2026, per Statistics Canada?",
+      "resolution_source": "Statistics Canada Quarterly GDP releases",
+      "uncertainty_source": "Economic Crisis Response",
+      "base_rate": 0.25,
+      "best_market_similarity": 0.48211947083473206
+    },
+    {
+      "text": "Will Canada's household debt-to-income ratio exceed 185% in any Statistics Canada quarterly report between Q1 2026 and Q4 2026?",
+      "resolution_source": "Statistics Canada National Balance Sheet quarterly releases",
+      "uncertainty_source": "Economic Crisis Response",
+      "base_rate": 0.45,
+      "best_market_similarity": 0.4539411664009094
+    },
+    {
+      "text": "Will Carney's government implement a federal wealth tax of 1% or higher on assets exceeding $10 million by December 2026?",
+      "resolution_source": "Parliament of Canada legislative records and Royal Assent confirmations",
+      "uncertainty_source": "Economic Crisis Response",
+      "base_rate": 0.15,
+      "best_market_similarity": 0.4561941623687744
+    },
+    {
+      "text": "Will Canada's productivity growth (GDP per hour worked) be negative in any Statistics Canada quarterly report between Q1 2026 and Q3 2026?",
+      "resolution_source": "Statistics Canada Productivity Accounts quarterly releases",
+      "uncertainty_source": "Economic Crisis Response",
+      "base_rate": 0.3,
+      "best_market_similarity": 0.37997573614120483
+    },
+    {
+      "text": "Will any major Canadian bank (Big Six) report quarterly losses exceeding $500 million in any Q1-Q4 2026 earnings report?",
+      "resolution_source": "TSX earnings filings and quarterly reports from RBC, TD, BMO, Scotiabank, CIBC, National Bank",
+      "uncertainty_source": "Economic Crisis Response",
+      "base_rate": 0.1,
+      "best_market_similarity": 0.38208141922950745
+    },
+    {
+      "text": "By December 31, 2026, Mark Carney's approval rating among Liberal Party MPs falls below 40% in at least one survey conducted by a major Canadian polling firm (Nanos, Ipsos, or Abacus Data)",
+      "resolution_source": "Major Canadian polling firm reports (Nanos, Ipsos, Abacus Data)",
+      "uncertainty_source": "Liberal Party Unity",
+      "base_rate": 0.25,
+      "best_market_similarity": 0.36372506618499756
+    },
+    {
+      "text": "Before December 31, 2026, at least 15 Liberal MPs publicly call for Mark Carney's resignation or a leadership review, as reported by CBC News or Globe and Mail",
+      "resolution_source": "CBC News or Globe and Mail reporting",
+      "uncertainty_source": "Liberal Party Unity",
+      "base_rate": 0.15,
+      "best_market_similarity": 0.47283944487571716
+    },
+    {
+      "text": "By October 31, 2026, the Liberal Party National Executive or a provincial Liberal organization formally calls for a leadership review of Mark Carney, per official party communications",
+      "resolution_source": "Liberal Party of Canada official communications and press releases",
+      "uncertainty_source": "Liberal Party Unity",
+      "base_rate": 0.2,
+      "best_market_similarity": 0.4140150845050812
+    },
+    {
+      "text": "Before November 30, 2026, Mark Carney's Liberal Party faces a caucus revolt where more than 25% of MPs vote non-confidence in his leadership in an internal caucus vote, as reported by Parliamentary Hill media",
+      "resolution_source": "Parliamentary Hill media reports (Hill Times, iPolitics, CBC Politics)",
+      "uncertainty_source": "Liberal Party Unity",
+      "base_rate": 0.18,
+      "best_market_similarity": 0.41185474395751953
+    },
+    {
+      "text": "By September 30, 2026, at least 3 Liberal Cabinet ministers resign citing disagreements with Mark Carney's leadership or policies, per their resignation letters or public statements",
+      "resolution_source": "Official resignation letters and public statements by Cabinet ministers",
+      "uncertainty_source": "Liberal Party Unity",
+      "base_rate": 0.12,
+      "best_market_similarity": 0.48146164417266846
+    },
+    {
+      "text": "Before August 31, 2026, a prominent Liberal Party figure (former PM, Cabinet minister, or provincial premier) publicly endorses a leadership challenge against Mark Carney, as reported in major Canadian media",
+      "resolution_source": "Major Canadian media reports (CBC, Globe and Mail, National Post, CTV)",
+      "uncertainty_source": "Liberal Party Unity",
+      "base_rate": 0.22,
+      "best_market_similarity": 0.47168299555778503
+    },
+    {
+      "text": "By December 15, 2026, Mark Carney's net approval rating among Liberal Party members falls below -20% in a party membership survey conducted by a recognized polling organization",
+      "resolution_source": "Recognized polling organization surveys of Liberal Party membership",
+      "uncertainty_source": "Liberal Party Unity",
+      "base_rate": 0.3,
+      "best_market_similarity": 0.4257858097553253
+    },
+    {
+      "text": "Before June 30, 2026, the Liberal Party experiences a formal split with at least 10 MPs leaving to form a new party or join another party, citing disagreements with Mark Carney's leadership, per Elections Canada registration records",
+      "resolution_source": "Elections Canada party registration records and MP declarations",
+      "uncertainty_source": "Liberal Party Unity",
+      "base_rate": 0.08,
+      "best_market_similarity": 0.4981856942176819
+    },
+    {
+      "text": "By November 15, 2026, Liberal Party fundraising falls below $5 million in quarterly filings to Elections Canada for two consecutive quarters during Mark Carney's leadership",
+      "resolution_source": "Elections Canada quarterly financial filings",
+      "uncertainty_source": "Liberal Party Unity",
+      "base_rate": 0.35,
+      "best_market_similarity": 0.3547401428222656
+    },
+    {
+      "text": "Before January 15, 2027, Mark Carney faces a formal confidence vote in the Liberal Party caucus and receives support from fewer than 60% of Liberal MPs, as reported by Parliamentary correspondents",
+      "resolution_source": "Parliamentary correspondent reports from major Canadian media outlets",
+      "uncertainty_source": "Liberal Party Unity",
+      "base_rate": 0.28,
+      "best_market_similarity": 0.4099991023540497
+    }
+  ],
+  "gaps_by_resolution_source": {
+    "Nanos Research monthly polling aggregates": 1,
+    "Angus Reid Institute polling data": 1,
+    "338Canada.com seat projection model": 1,
+    "L\u00e9ger quarterly polling reports": 1,
+    "EKOS Research polling data": 1,
+    "Mainstreet Research Quebec polling data": 1,
+    "Ipsos polling data for Quebec": 1,
+    "Leger polling data for Alberta": 1,
+    "Liberal Party of Canada annual membership disclosure to Elections Canada": 1,
+    "Statistics Canada Labour Force Survey monthly releases": 1,
+    "Canadian Real Estate Association (CREA) monthly housing statistics": 1,
+    "Statistics Canada Consumer Price Index monthly releases": 1,
+    "Department of Finance Canada Annual Financial Report": 1,
+    "Bank of Canada overnight rate announcements": 1,
+    "Statistics Canada Quarterly GDP releases": 1,
+    "Statistics Canada National Balance Sheet quarterly releases": 1,
+    "Parliament of Canada legislative records and Royal Assent confirmations": 1,
+    "Statistics Canada Productivity Accounts quarterly releases": 1,
+    "TSX earnings filings and quarterly reports from RBC, TD, BMO, Scotiabank, CIBC, National Bank": 1,
+    "Major Canadian polling firm reports (Nanos, Ipsos, Abacus Data)": 1,
+    "CBC News or Globe and Mail reporting": 1,
+    "Liberal Party of Canada official communications and press releases": 1,
+    "Parliamentary Hill media reports (Hill Times, iPolitics, CBC Politics)": 1,
+    "Official resignation letters and public statements by Cabinet ministers": 1,
+    "Major Canadian media reports (CBC, Globe and Mail, National Post, CTV)": 1,
+    "Recognized polling organization surveys of Liberal Party membership": 1,
+    "Elections Canada party registration records and MP declarations": 1,
+    "Elections Canada quarterly financial filings": 1,
+    "Parliamentary correspondent reports from major Canadian media outlets": 1
+  }
+}

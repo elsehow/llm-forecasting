@@ -1,0 +1,397 @@
+{
+  "id": "bottomup_us_gdp_2029_757953ff",
+  "name": "us_gdp_2029 (bottomup)",
+  "target": "us_gdp_2029",
+  "approach": "bottomup_v7",
+  "question": {
+    "id": "us_gdp_2029",
+    "source": "scenario_construction",
+    "text": "What will US real GDP be in 2029 (in 2024 dollars)?",
+    "question_type": "continuous",
+    "unit": "usd_trillions",
+    "base_rate": null,
+    "value_range": null
+  },
+  "config": {
+    "context": "Current US real GDP: $31.1 trillion (BEA Q3 2025, seasonally adjusted annual rate). Historical growth averages 2-3% annually. Key uncertainties: Trump administration economic policies, tariff impacts, Fed monetary policy, labor market conditions, AI productivity effects.",
+    "cruxiness_normalizer": 5.0,
+    "voi_floor": 0.1
+  },
+  "current_date": "2026-01-16",
+  "signals": [
+    {
+      "id": "0xfa48a99317daef1654d5b03e30557c4222f276657275628d9475e141c64b545d",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "US recession in 2025?",
+      "url": "https://polymarket.com/market/us-recession-in-2025",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:38:03.440041Z",
+      "resolution_date": "2026-02-28",
+      "resolved": false,
+      "voi": 0.30000000000000004,
+      "rho": -0.6,
+      "rho_reasoning": "The two questions are related, as a strong economic performance (high GDP in 2029) is likely to make a recession in 2025 less likely. Conversely, a recession in 2025 could dampen economic growth and lead to lower GDP in 2029. Therefore, there is likely to be a negative correlation between the two outcomes, though not a perfect negative correlation, as other factors can also influence GDP and recessions.",
+      "p_target_given_yes": 0.2,
+      "p_target_given_no": 0.8,
+      "cruxiness_spread": 0.6000000000000001
+    },
+    {
+      "id": "8646",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "If >100 offensive nuclear detonations occur by 2050, will international trade of goods decline by at least 10% for at least 1 year in the following 5 years?",
+      "url": "https://www.metaculus.com/questions/8646",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:38:03.440061Z",
+      "resolution_date": "2049-12-31",
+      "resolved": false,
+      "voi": 0.25,
+      "rho": -0.5,
+      "rho_reasoning": "The two questions are not directly related and measure different underlying phenomena. However, a very negative economic outcome like a significant decline in international trade could potentially impact GDP growth, making the two questions somewhat negatively correlated. The occurrence of over 100 nuclear detonations would likely have a substantial negative impact on the global economy and trade, which in turn could reduce GDP growth. Therefore, I estimate a moderate negative correlation coefficient of -0.5 between these two questions.",
+      "p_target_given_yes": 0.25,
+      "p_target_given_no": 0.75,
+      "cruxiness_spread": 0.5
+    },
+    {
+      "id": "15146",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will Russia\u2019s GDP (in 2015 USD) be at least $1.50 trillion in 2030?",
+      "url": "https://www.metaculus.com/questions/15146",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:38:03.440069Z",
+      "resolution_date": "2029-12-31",
+      "resolved": false,
+      "voi": 0.15000000000000002,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are related to the overall state of the economy, but they are measuring different aspects of it. Question A is about the real GDP of the United States, while Question B is about Russia's GDP. While there may be some correlation between the two economies, they are not measuring the same underlying phenomenon. Additionally, the outcomes of the two questions are not necessarily directly related - a higher US GDP does not guarantee a higher Russian GDP, and vice versa. Therefore, the correlation coefficient is likely to be positive but not very strong, around 0.3.",
+      "p_target_given_yes": 0.65,
+      "p_target_given_no": 0.35,
+      "cruxiness_spread": 0.30000000000000004
+    },
+    {
+      "id": "18601",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will a retail CBDC (central bank digital currency) go live in the USA and become available for public use before 2031?",
+      "url": "https://www.metaculus.com/questions/18601",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:38:03.440073Z",
+      "resolution_date": "2030-12-31",
+      "resolved": false,
+      "voi": 0.15000000000000002,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are not directly related, but there may be some indirect connection. A strong US economy (high real GDP) could make a retail CBDC more likely, as the government may be more willing to invest in new financial infrastructure. However, the connection is not strong, and many other factors could influence the CBDC decision. Overall, the correlation is likely to be moderately positive, but not very high.",
+      "p_target_given_yes": 0.65,
+      "p_target_given_no": 0.35,
+      "cruxiness_spread": 0.30000000000000004
+    },
+    {
+      "id": "0UdWQ4tNgqKk44XlX8JU",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "Will most digital entertainment be Al\ngenerated by 2045?",
+      "url": "https://manifold.markets/CelebratedWhale/will-most-digital-entertainment-be-53006b104265",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:38:03.440078Z",
+      "resolution_date": "2046-01-01",
+      "resolved": false,
+      "base_rate": 0.6353914067266064,
+      "voi": 0.14439606999019453,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are not directly related, but there may be some underlying connection. The performance of the US economy (GDP) and the rise of AI-generated digital entertainment could both be influenced by technological and economic factors. For example, a strong economy may enable more investment in AI and digital entertainment, while AI advances could also boost economic productivity. However, the relationship is not straightforward, and the outcomes of the two questions are not strongly correlated.",
+      "p_target_given_yes": 0.6136276541211744,
+      "p_target_given_no": 0.30198482337754123,
+      "cruxiness_spread": 0.31164283074363314
+    },
+    {
+      "id": "1679",
+      "source": "infer",
+      "source_type": "market",
+      "text": "Will the United States government implement new or expanded export controls or restrictions explicitly targeting frontier AI model development by 31 July 2026?",
+      "url": "https://www.randforecastinginitiative.org/questions/1679",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:38:03.440091Z",
+      "resolution_date": "2026-08-01",
+      "resolved": false,
+      "voi": 0.09999999999999998,
+      "rho": 0.2,
+      "rho_reasoning": "While the two questions are not directly related, there could be some indirect connection. The level of US real GDP in 2029 could affect the government's propensity to implement new export controls on frontier AI, as stronger economic growth may make the government more willing to take such actions. However, the connection is not strong, and there are many other factors that would influence the decision on export controls. Overall, the correlation between these two questions is likely to be weak and positive.",
+      "p_target_given_yes": 0.6,
+      "p_target_given_no": 0.4,
+      "cruxiness_spread": 0.19999999999999996
+    },
+    {
+      "id": "10709",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will China's CO2 emissions peak before 2030?",
+      "url": "https://www.metaculus.com/questions/10709",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:38:03.440095Z",
+      "resolution_date": "2029-12-31",
+      "resolved": false,
+      "voi": 0.09999999999999998,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are related to economic and environmental factors, but they measure distinct phenomena that are not directly dependent on each other. Economic growth (as measured by GDP) and China's CO2 emissions are correlated, but other factors like policy, technology, and international cooperation also play a significant role in determining emissions. Therefore, the correlation between the two questions is likely to be positive but relatively weak.",
+      "p_target_given_yes": 0.6,
+      "p_target_given_no": 0.4,
+      "cruxiness_spread": 0.19999999999999996
+    },
+    {
+      "id": "1469",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will we know what Dark Matter is before 2050?",
+      "url": "https://www.metaculus.com/questions/1469",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:38:03.440099Z",
+      "resolution_date": "2049-12-08",
+      "resolved": false,
+      "voi": 0.050000000000000044,
+      "rho": 0.1,
+      "rho_reasoning": "The two questions are about unrelated events (economic growth and dark matter) that are unlikely to be strongly correlated. While there could be some indirect connection, such as increased scientific research funding leading to progress on both fronts, the correlation is expected to be weak at best. Therefore, a low positive correlation coefficient around 0.1 is a reasonable estimate.",
+      "p_target_given_yes": 0.55,
+      "p_target_given_no": 0.44999999999999996,
+      "cruxiness_spread": 0.10000000000000009
+    },
+    {
+      "id": "15150",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will the US and the EU (or one of its member states) cut diplomatic ties before 2051?",
+      "url": "https://www.metaculus.com/questions/15150/eu-and-us-cut-diplomatic-ties-before-2051/",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:38:03.440108Z",
+      "resolution_date": "2050-12-31",
+      "resolved": false,
+      "base_rate": 0.04,
+      "voi": 0.039191835884530846,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are not directly related. The US real GDP in 2029 is primarily influenced by economic factors, while the diplomatic ties between the US and the EU are more dependent on political factors. While there may be some indirect relationship between economic conditions and diplomatic relations, the correlation is likely to be relatively weak. Therefore, I estimate the correlation coefficient (\u03c1) between the two questions to be around 0.2, indicating a weak positive correlation.",
+      "p_target_given_yes": 0.9898979485566356,
+      "p_target_given_no": 0.47958758547680685,
+      "cruxiness_spread": 0.5103103630798287
+    },
+    {
+      "id": "0x16df76a155e148ef925c2a808204d5f2e2ac68d9585363616b82a6c6df765e84",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "10.0 or above earthquake before 2027?",
+      "url": "https://polymarket.com/market/10pt0-or-above-earthquake-before-2027",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:38:03.440113Z",
+      "resolution_date": "2026-12-31",
+      "resolved": false,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "The two questions are about completely unrelated events - US GDP in 2029 and the occurrence of a large earthquake before 2027. The outcomes of these two events are independent and knowing the result of one question would not provide any information about the other. Therefore, the correlation coefficient between these two questions is 0, indicating they are independent.",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Crisis & Stagnation",
+      "description": "The US economy experiences significant disruption from recession, geopolitical instability, and structural challenges. Growth remains persistently weak due to trade disruptions, financial instability, or prolonged policy uncertainty. Recovery is slow and incomplete by 2029.",
+      "scenario_probability": 0.2,
+      "key_drivers": [
+        "2025 recession materializes and has lasting effects",
+        "Major geopolitical disruptions reduce trade and investment",
+        "Policy uncertainty suppresses business investment",
+        "Financial system instability from new monetary mechanisms",
+        "Slow productivity growth despite technological advances"
+      ],
+      "why_exclusive": "This scenario requires persistently weak growth (0-1% annually), which cannot coexist with the sustained moderate or high growth rates that define the other scenarios.",
+      "signal_impacts": [
+        {
+          "signal_index": 0,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 1,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 2,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 3,
+          "effect": "enhances"
+        }
+      ],
+      "indicator_bundle": {
+        "Annual GDP Growth": "<1.5% average 2025-2029",
+        "Unemployment Rate": ">6% by 2029",
+        "Business Investment": "<15% of GDP",
+        "Trade Volume": "Down >20% from 2024 levels",
+        "Financial Volatility": "VIX >25 sustained periods"
+      },
+      "outcome_range": "$32-36T",
+      "outcome_low": 32.0,
+      "outcome_high": 36.0,
+      "probability_range": "15-25%",
+      "probability_low": 0.15,
+      "probability_high": 0.25
+    },
+    {
+      "name": "Moderate Recovery",
+      "description": "The US economy follows a baseline path with typical cyclical patterns and gradual structural changes. Growth approximates historical averages despite some headwinds. Policy and technological changes occur but don't dramatically alter the growth trajectory.",
+      "scenario_probability": 0.45,
+      "key_drivers": [
+        "Economic resilience despite short-term volatility",
+        "Gradual technological adoption without disruption",
+        "Balanced monetary and fiscal policy responses",
+        "Stable international relations and trade flows",
+        "Steady productivity improvements from AI integration"
+      ],
+      "why_exclusive": "This scenario represents steady-state growth (2-3% annually) that cannot occur simultaneously with either the prolonged weakness of Crisis & Stagnation or the accelerated growth of Technology Boom or Trump Policy Surge.",
+      "signal_impacts": [
+        {
+          "signal_index": 0,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 1,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 2,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 4,
+          "effect": "enhances"
+        }
+      ],
+      "indicator_bundle": {
+        "Annual GDP Growth": "2.0-3.0% average 2025-2029",
+        "Unemployment Rate": "3.5-5.0% range",
+        "Business Investment": "15-18% of GDP",
+        "Productivity Growth": "1.5-2.0% annually",
+        "Inflation Rate": "2.0-3.0% target range"
+      },
+      "outcome_range": "$36-42T",
+      "outcome_low": 36.0,
+      "outcome_high": 42.0,
+      "probability_range": "40-50%",
+      "probability_low": 0.4,
+      "probability_high": 0.5
+    },
+    {
+      "name": "Trump Policy Surge",
+      "description": "Aggressive pro-business policies, deregulation, and infrastructure spending drive above-trend growth, while tariff and immigration policies create some offsetting drags. The net effect is stimulative, leading to robust but potentially unsustainable growth patterns.",
+      "scenario_probability": 0.25,
+      "key_drivers": [
+        "Major tax cuts and deregulation boost business investment",
+        "Infrastructure spending drives public sector demand",
+        "Reshoring initiatives increase domestic production",
+        "Energy sector expansion from policy support",
+        "Temporary growth surge before structural constraints emerge"
+      ],
+      "why_exclusive": "This scenario requires policy-driven growth acceleration (3-4% annually) that is incompatible with the moderate baseline growth or crisis scenarios, and represents a different growth driver than technology-led expansion.",
+      "signal_impacts": [
+        {
+          "signal_index": 0,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 1,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 3,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 4,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Annual GDP Growth": "3.0-4.0% average 2025-2029",
+        "Business Investment": ">20% of GDP",
+        "Government Spending": ">22% of GDP",
+        "Manufacturing Share": "Increases >1% of GDP",
+        "Trade Deficit": "Narrows by >30%"
+      },
+      "outcome_range": "$42-46T",
+      "outcome_low": 42.0,
+      "outcome_high": 46.0,
+      "probability_range": "20-30%",
+      "probability_low": 0.2,
+      "probability_high": 0.3
+    },
+    {
+      "name": "Technology Boom",
+      "description": "AI and digital transformation drive unprecedented productivity gains across sectors. Early adoption of AI-generated content and new financial technologies creates new industries and transforms existing ones, leading to sustained high growth despite some displacement effects.",
+      "scenario_probability": 0.1,
+      "key_drivers": [
+        "Rapid AI adoption drives productivity revolution",
+        "Digital entertainment transformation creates new value chains",
+        "CBDC implementation enhances financial efficiency",
+        "Automation complements rather than displaces workers",
+        "Network effects accelerate innovation and growth"
+      ],
+      "why_exclusive": "This scenario requires technology-driven productivity acceleration (4%+ annually) that represents a structural break from historical patterns, making it incompatible with baseline, policy-driven, or crisis scenarios.",
+      "signal_impacts": [
+        {
+          "signal_index": 0,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 1,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 3,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 4,
+          "effect": "enhances"
+        }
+      ],
+      "indicator_bundle": {
+        "Annual GDP Growth": ">4.0% average 2025-2029",
+        "Productivity Growth": ">3.0% annually",
+        "Tech Sector Share": ">15% of GDP",
+        "AI Investment": ">$500B annually",
+        "Digital Transaction Share": ">50% of payments"
+      },
+      "outcome_range": "$46-52T",
+      "outcome_low": 46.0,
+      "outcome_high": 52.0,
+      "probability_range": "5-15%",
+      "probability_low": 0.05,
+      "probability_high": 0.15
+    }
+  ],
+  "mece_reasoning": "These scenarios are MECE because they partition the GDP outcome space into non-overlapping ranges: Crisis & Stagnation ($32-36T), Moderate Recovery ($36-42T), Trump Policy Surge ($42-46T), and Technology Boom ($46-52T). Each scenario represents a fundamentally different growth regime: (1) structural weakness/crisis with <1.5% growth, (2) historical baseline with 2-3% growth, (3) policy-driven acceleration with 3-4% growth, and (4) technology-driven transformation with >4% growth. These growth patterns are mutually exclusive - the economy cannot simultaneously experience crisis-level weakness and policy-driven acceleration, or follow both baseline trends and technology-driven transformation. The scenarios are collectively exhaustive, covering the full plausible range from economic crisis (reflecting current recession fears and geopolitical risks) to technology-driven boom (reflecting AI potential), with baseline and policy-driven scenarios covering the middle ground.",
+  "coverage_gaps": "The scenarios cover the full plausible range of outcomes. The only potential gap might be extreme tail scenarios (major financial collapse <$32T or transformational breakthrough >$52T), but these represent <5% probability events that are reasonably excluded from the core scenario set.",
+  "created_at": "2026-01-16T12:38:03.440308",
+  "max_horizon_days": 365,
+  "sources_used": [
+    "polymarket",
+    "metaculus",
+    "kalshi",
+    "infer",
+    "manifold"
+  ],
+  "signals_retrieved": 89,
+  "signals_after_dedup": 10,
+  "signals_above_floor": 5,
+  "source_breakdown": {
+    "polymarket": 2,
+    "metaculus": 6,
+    "manifold": 1,
+    "infer": 1
+  },
+  "category_breakdown": {
+    "future": 68,
+    "actionable": 21
+  }
+}

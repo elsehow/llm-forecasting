@@ -1,0 +1,406 @@
+{
+  "id": "hybrid_us_gdp_2029_a4eec691",
+  "name": "us_gdp_2029 (hybrid)",
+  "target": "us_gdp_2029",
+  "approach": "hybrid_v7",
+  "question": {
+    "id": "us_gdp_2029",
+    "source": "scenario_construction",
+    "text": "What will US real GDP be in 2029 (in 2024 dollars)?",
+    "question_type": "continuous",
+    "unit": "usd_trillions",
+    "base_rate": null,
+    "value_range": null
+  },
+  "config": {
+    "context": "Current US real GDP: $31.1 trillion (BEA Q3 2025, seasonally adjusted annual rate). Historical growth averages 2-3% annually. Key uncertainties: Trump administration economic policies, tariff impacts, Fed monetary policy, labor market conditions, AI productivity effects.",
+    "cruxiness_normalizer": 5.0,
+    "voi_floor": 0.1
+  },
+  "current_date": "2026-01-16",
+  "signals": [
+    {
+      "id": "0x7ee722a07e0f84405f1267bc1c84eb95bd6348454453abf445618e778af8fd18",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will 5 Fed rate cuts happen in 2026?",
+      "url": "https://polymarket.com/market/will-5-fed-rate-cuts-happen-in-2026",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:42:04.806465Z",
+      "resolution_date": "2026-12-31",
+      "resolved": false,
+      "voi": 0.4,
+      "rho": 0.8,
+      "rho_reasoning": "The two questions are closely related, as they both pertain to the Federal Reserve's monetary policy and its effects on the economy. The outcome of the first question, which assesses the Federal Reserve's overall policy approach and effectiveness, would likely have a significant influence on the likelihood of the second question, which focuses on a specific future interest rate trajectory. A more effective monetary policy that manages inflation and supports growth would make it more likely that the Federal Reserve would implement the series of rate cuts described in the second question. Therefore, the correlation between the two questions is expected to be strongly positive.",
+      "uncertainty_source": "Monetary Policy Regime",
+      "p_target_given_yes": 0.9,
+      "p_target_given_no": 0.09999999999999998,
+      "cruxiness_spread": 0.8
+    },
+    {
+      "id": "9t61v9e7x4",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "Trump impose large tariffs in first year?",
+      "url": "https://manifold.markets/RichardHanania/trump-impose-large-tariffs-in-first",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:42:04.806486Z",
+      "resolution_date": "2026-04-02",
+      "resolved": false,
+      "voi": 0.35,
+      "rho": 0.7,
+      "rho_reasoning": "The two questions are related, as the Trump administration's trade policies and tariffs (Question A) would likely lead to the administration imposing large tariffs in the first year (Question B). While not a perfect correlation, as there could be other factors that influence the tariff decision, the outcomes of the two questions are positively correlated, with a high likelihood that a significant trade policy impact (Question A) would lead to large tariffs being imposed (Question B).",
+      "uncertainty_source": "Trade Policy Impact",
+      "p_target_given_yes": 0.85,
+      "p_target_given_no": 0.15000000000000002,
+      "cruxiness_spread": 0.7
+    },
+    {
+      "id": "19298",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will an international AI regulatory agency, like IAEA, for oversight of transformative AI systems be established before 2030?",
+      "url": "https://www.metaculus.com/questions/19298",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:42:04.806496Z",
+      "resolution_date": "2029-12-31",
+      "resolved": false,
+      "voi": 0.35,
+      "rho": 0.7,
+      "rho_reasoning": "The two questions are related, as the establishment of an international AI regulatory agency is likely to be influenced by the economic and productivity impacts of AI. If AI delivers a sustained productivity boom, it may make the establishment of such an agency more likely, as policymakers would seek to better govern the development of transformative AI systems. Conversely, if AI has limited productivity impacts, the urgency for an international regulatory body may be reduced. Therefore, I estimate a moderately positive correlation between the two questions.",
+      "uncertainty_source": "AI Productivity Revolution",
+      "p_target_given_yes": 0.85,
+      "p_target_given_no": 0.15000000000000002,
+      "cruxiness_spread": 0.7
+    },
+    {
+      "id": "8646",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "If >100 offensive nuclear detonations occur by 2050, will international trade of goods decline by at least 10% for at least 1 year in the following 5 years?",
+      "url": "https://www.metaculus.com/questions/8646",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:42:04.806503Z",
+      "resolution_date": "2049-12-31",
+      "resolved": false,
+      "voi": 0.25,
+      "rho": -0.5,
+      "rho_reasoning": "The two questions are not directly related, as one is about the impact of US trade policy on the economy, while the other is about the impact of nuclear detonations on international trade. However, there could be an indirect relationship - if the US trade policy causes significant economic disruption, it could make a nuclear war more likely, which in turn would lead to a decline in international trade. Conversely, a nuclear war would likely have a negative impact on the global economy, including trade, independent of US trade policy. Therefore, I estimate a moderate negative correlation between the two questions.",
+      "uncertainty_source": "Trade Policy Impact",
+      "p_target_given_yes": 0.25,
+      "p_target_given_no": 0.75,
+      "cruxiness_spread": 0.5
+    },
+    {
+      "id": "dI5U6ps6IP",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "Will an AI achieve >85% performance on the FrontierMath benchmark before 2028?",
+      "url": "https://manifold.markets/MatthewBarnett/will-an-ai-achieve-85-performance-o",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:42:04.806509Z",
+      "resolution_date": "2028-01-02",
+      "resolved": false,
+      "base_rate": 0.6212593599668761,
+      "voi": 0.24253668156612085,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related, as both are about the impact of AI on productivity and economic growth. A positive AI productivity revolution (question A) would likely make it more likely that an AI achieves high performance on a benchmark (question B), as more advanced AI capabilities would be expected to drive such a productivity boom. However, the questions are not perfectly correlated, as other factors beyond just AI progress could also influence economic growth rates. Therefore, I estimate a moderately positive correlation coefficient of 0.5 between these two questions.",
+      "uncertainty_source": "AI Productivity Revolution",
+      "p_target_given_yes": 0.6951976076296479,
+      "p_target_given_no": 0.17981164954345927,
+      "cruxiness_spread": 0.5153859580861886
+    },
+    {
+      "id": "1495",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Ragnar\u00f6k Question Series: If a global catastrophe occurs, will it be due to an artificial intelligence failure-mode?",
+      "url": "https://www.metaculus.com/questions/1495",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:42:04.806516Z",
+      "resolution_date": "2100-01-01",
+      "resolved": false,
+      "base_rate": 0.28,
+      "voi": 0.22449944320643642,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related in that an AI productivity boom could potentially lead to or increase the risk of an AI-related global catastrophe. If AI technology advances rapidly and is widely adopted, it could also increase the risk of an AI failure mode. However, the two outcomes are not perfectly correlated, as other factors beyond just AI productivity could also contribute to a global catastrophe. Therefore, I estimate a moderately positive correlation coefficient of 0.5 between these two questions.",
+      "uncertainty_source": "AI Productivity Revolution",
+      "p_target_given_yes": 0.9008918628686364,
+      "p_target_given_no": 0.34409760888441915,
+      "cruxiness_spread": 0.5567942539842172
+    },
+    {
+      "id": "15146",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will Russia\u2019s GDP (in 2015 USD) be at least $1.50 trillion in 2030?",
+      "url": "https://www.metaculus.com/questions/15146",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:42:04.806523Z",
+      "resolution_date": "2029-12-31",
+      "resolved": false,
+      "voi": 0.09999999999999998,
+      "rho": -0.2,
+      "rho_reasoning": "The two questions are not directly related. The trade policy impact question is about the economic effects of the Trump administration's trade policies, while the Russia GDP question is about the future size of the Russian economy. While there could be some indirect connection between trade policy and economic growth, it is not strong enough to expect a significant correlation between the two questions. The correlation is likely to be small and negative, as trade restrictions that negatively impact US economic growth could potentially benefit Russia's economy through reduced competition.",
+      "uncertainty_source": "Trade Policy Impact",
+      "p_target_given_yes": 0.4,
+      "p_target_given_no": 0.6,
+      "cruxiness_spread": 0.19999999999999996
+    },
+    {
+      "id": "21930",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will Bryan Caplan win his bet that there will be no civil war in a European country (that wasn't communist in 1988) by 2046?",
+      "url": "https://www.metaculus.com/questions/21930",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:42:04.806530Z",
+      "resolution_date": "2045-12-31",
+      "resolved": false,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "The two questions are about completely unrelated events. The outcome of the first question about the impact of Trump's trade policies on the US economy has no bearing on the outcome of the second question about whether Bryan Caplan will win a bet about civil war in Europe. The two events are independent, so the correlation coefficient between them is 0.",
+      "uncertainty_source": "Trade Policy Impact",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0
+    },
+    {
+      "id": "0xc2db6688c6df422104ee751fad721b03ade9c50a8b3c85588cfe4a20ae62ff63",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will Apple be the largest company in the world by market cap on June 30?",
+      "url": "https://polymarket.com/market/will-apple-be-the-largest-company-in-the-world-by-market-cap-on-june-30-416",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:42:04.806536Z",
+      "resolution_date": "2026-06-30",
+      "resolved": false,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "The two questions are not related to each other. The first question is about the impact of Trump administration's trade policies on the US economic growth, while the second question is about whether Apple will be the largest company by market cap on a specific date. Knowing the outcome of one question does not provide any information about the outcome of the other question, so the correlation coefficient between them is 0, indicating they are independent.",
+      "uncertainty_source": "Trade Policy Impact",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Robust Growth",
+      "description": "Strong economic expansion driven by accommodative monetary policy and AI productivity gains, with manageable trade disruptions. GDP growth averages 3.5-4% annually through 2029.",
+      "scenario_probability": 0.25,
+      "key_drivers": [
+        "Fed cuts rates aggressively, lowering borrowing costs",
+        "AI breakthroughs boost productivity across sectors",
+        "Moderate tariff implementation with limited economic damage",
+        "Strong consumer demand and business investment"
+      ],
+      "why_exclusive": "Cannot co-occur with economic stagnation or contraction scenarios due to mutually exclusive growth rate assumptions and underlying economic conditions.",
+      "signal_impacts": [
+        {
+          "signal_index": 0,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 1,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 2,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 4,
+          "effect": "enhances"
+        }
+      ],
+      "indicator_bundle": {
+        "Real GDP Growth Rate": ">3.5% annually",
+        "Unemployment Rate": "<4.0%",
+        "Fed Funds Rate": "<3.0% by 2026",
+        "Trade Balance": "Deficit <$900B annually"
+      },
+      "outcome_range": "$37.5-40T",
+      "outcome_low": 37.5,
+      "outcome_high": 40.0,
+      "probability_range": "20-30%",
+      "probability_low": 0.2,
+      "probability_high": 0.3
+    },
+    {
+      "name": "Moderate Expansion",
+      "description": "Steady but unspectacular growth in line with historical averages, with mixed policy impacts and gradual AI adoption. GDP grows 2.5-3% annually.",
+      "scenario_probability": 0.4,
+      "key_drivers": [
+        "Balanced Fed policy with modest rate adjustments",
+        "Tariffs implemented but with negotiated exemptions",
+        "Gradual AI deployment with moderate productivity gains",
+        "Stable labor markets and consumer spending"
+      ],
+      "why_exclusive": "Represents the middle ground between high and low growth scenarios, with specific GDP range that doesn't overlap with other scenarios.",
+      "signal_impacts": [
+        {
+          "signal_index": 0,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 1,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 2,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 4,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Real GDP Growth Rate": "2.5-3.0% annually",
+        "Unemployment Rate": "4.0-5.0%",
+        "Fed Funds Rate": "3.0-4.5%",
+        "AI Productivity Contribution": "0.3-0.5% of GDP growth"
+      },
+      "outcome_range": "$35-37.5T",
+      "outcome_low": 35.0,
+      "outcome_high": 37.5,
+      "probability_range": "35-45%",
+      "probability_low": 0.35,
+      "probability_high": 0.45
+    },
+    {
+      "name": "Economic Stagnation",
+      "description": "Sluggish growth below historical norms due to trade wars, tight monetary policy, and slow AI adoption. GDP grows only 1-2% annually with periodic contractions.",
+      "scenario_probability": 0.3,
+      "key_drivers": [
+        "Aggressive tariffs trigger retaliatory trade war",
+        "Fed maintains restrictive policy to combat inflation",
+        "AI development stalls or faces heavy regulation",
+        "Business investment declines due to policy uncertainty"
+      ],
+      "why_exclusive": "Characterized by persistently low growth rates that are incompatible with the higher growth assumptions in other scenarios.",
+      "signal_impacts": [
+        {
+          "signal_index": 1,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 2,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 3,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 4,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Real GDP Growth Rate": "1.0-2.0% annually",
+        "Unemployment Rate": ">5.5%",
+        "Trade War Intensity": "Tariffs >25% on major partners",
+        "Business Investment Growth": "<1% annually"
+      },
+      "outcome_range": "$32.5-35T",
+      "outcome_low": 32.5,
+      "outcome_high": 35.0,
+      "probability_range": "25-35%",
+      "probability_low": 0.25,
+      "probability_high": 0.35
+    },
+    {
+      "name": "Crisis Contraction",
+      "description": "Severe economic disruption from catastrophic events, major AI failures, or complete breakdown in international trade. GDP contracts or grows minimally over the period.",
+      "scenario_probability": 0.05,
+      "key_drivers": [
+        "Major AI system failure causes widespread economic disruption",
+        "Nuclear conflict or catastrophic event collapses trade",
+        "Financial crisis triggered by policy mistakes",
+        "Mass unemployment from rapid technological displacement"
+      ],
+      "why_exclusive": "Involves economic contraction or near-zero growth, fundamentally incompatible with any positive growth scenarios due to catastrophic underlying conditions.",
+      "signal_impacts": [
+        {
+          "signal_index": 3,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 5,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 2,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 0,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Real GDP Growth Rate": "0-1% annually or negative",
+        "Unemployment Rate": ">8%",
+        "International Trade Volume": "Decline >20%",
+        "Financial Stability Index": "Critical/Crisis levels"
+      },
+      "outcome_range": "$29-32.5T",
+      "outcome_low": 29.0,
+      "outcome_high": 32.5,
+      "probability_range": "3-7%",
+      "probability_low": 0.03,
+      "probability_high": 0.07
+    }
+  ],
+  "mece_reasoning": "These scenarios are MECE because they partition the outcome space along GDP ranges that don't overlap: Robust Growth ($37.5-40T), Moderate Expansion ($35-37.5T), Economic Stagnation ($32.5-35T), and Crisis Contraction ($29-32.5T). They are mutually exclusive because each represents fundamentally different economic growth trajectories that cannot occur simultaneously - an economy cannot experience both robust expansion and stagnation in the same time period. They are collectively exhaustive because they cover the full spectrum of plausible GDP outcomes from 2024 to 2029, ranging from crisis-level performance to strong growth, with the baseline current GDP of $31.1T falling naturally into the progression toward these future states.",
+  "coverage_gaps": "Minimal gaps exist. The scenarios cover GDP outcomes from $29T to $40T, which encompasses the realistic range given current GDP of $31.1T. Extreme outlier scenarios (GDP >$40T or <$29T) are excluded as highly implausible given economic constraints and historical precedent.",
+  "created_at": "2026-01-16T12:42:04.806758",
+  "max_horizon_days": 365,
+  "sources_used": [
+    "polymarket",
+    "metaculus",
+    "kalshi",
+    "infer",
+    "manifold"
+  ],
+  "uncertainties": [
+    {
+      "name": "Trade Policy Impact",
+      "description": "The extent to which Trump administration tariffs and trade restrictions affect US economic growth through supply chain costs, retaliatory measures, and trade volume changes. This includes both direct costs to consumers and businesses as well as second-order effects on investment and productivity.",
+      "search_query": "Trump tariffs trade war economic impact GDP growth prediction markets"
+    },
+    {
+      "name": "AI Productivity Revolution",
+      "description": "Whether artificial intelligence delivers a sustained productivity boom that accelerates economic growth beyond historical averages. This encompasses the speed of AI adoption across industries and its net impact on labor productivity after accounting for displacement effects.",
+      "search_query": "artificial intelligence productivity growth economic impact automation GDP forecast"
+    },
+    {
+      "name": "Monetary Policy Regime",
+      "description": "The Federal Reserve's interest rate trajectory and its effectiveness in managing inflation while supporting growth. This includes whether the Fed can achieve a soft landing, the neutral rate level, and how monetary policy interacts with fiscal stimulus.",
+      "search_query": "Federal Reserve interest rates inflation monetary policy economic growth forecast"
+    }
+  ],
+  "signals_per_uncertainty": {
+    "Trade Policy Impact": 27,
+    "AI Productivity Revolution": 30,
+    "Monetary Policy Regime": 8
+  },
+  "signals_after_dedup": 9,
+  "signals_above_floor": 6,
+  "source_breakdown": {
+    "polymarket": 2,
+    "manifold": 2,
+    "metaculus": 5
+  },
+  "category_breakdown": {
+    "actionable": 3,
+    "future": 6
+  },
+  "uncertainty_breakdown": {
+    "Monetary Policy Regime": 1,
+    "Trade Policy Impact": 5,
+    "AI Productivity Revolution": 3
+  }
+}

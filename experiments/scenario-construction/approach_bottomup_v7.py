@@ -16,7 +16,6 @@ Usage:
 import asyncio
 import sys
 from pathlib import Path
-from datetime import datetime
 
 from dotenv import load_dotenv
 
@@ -25,11 +24,10 @@ sys.path.insert(0, str(Path(__file__).parent))
 from shared.signals import (
     load_market_signals_semantic,
     deduplicate_market_signals,
-    rank_signals_by_voi,
+    rank_and_report_signals,
     enrich_with_resolution_data,
-    build_signal_models,
 )
-from shared.scenarios import generate_mece_scenarios
+from shared.scenarios import generate_and_print_scenarios
 from shared.refresh import refresh_if_stale
 from shared.setup import (
     create_base_parser,
@@ -37,13 +35,7 @@ from shared.setup import (
     print_header,
     DEFAULT_SOURCES,
 )
-from shared.output import (
-    build_scenario_dicts,
-    build_base_results,
-    print_results,
-    save_results,
-    count_by_field,
-)
+from shared.output import count_by_field, save_approach_results
 
 load_dotenv()
 
@@ -92,18 +84,14 @@ async def main():
     print(f"  Categories: {by_category}")
 
     # Step 2: Rank by VOI
-    print("\n[2/4] Ranking signals by VOI (batch API)...")
-    ranked_signals = await rank_signals_by_voi(
+    print("\n[2/4] Ranking signals by VOI...")
+    is_continuous = cfg.question_type == "continuous"
+    ranked_signals = await rank_and_report_signals(
         signals=raw_signals,
         target=cfg.question_text,
-        target_prior=0.5,
+        voi_floor=cfg.voi_floor,
+        is_continuous=is_continuous,
     )
-    print(f"  Ranked {len(ranked_signals)} signals by VOI")
-
-    # Show top signals
-    print("\n  Top 5 by VOI:")
-    for s in ranked_signals[:5]:
-        print(f"    VOI={s['voi']:.3f} ρ={s['rho']:.2f} [{s['source']}] {s['question'][:50]}...")
 
     # Step 3: Deduplicate
     print("\n[3/4] Deduplicating...")
@@ -113,46 +101,31 @@ async def main():
     print(f"  {before_dedup} → {len(deduped_signals)} (removed {before_dedup - len(deduped_signals)} duplicates)")
 
     # Step 4: Generate scenarios
-    print("\n[4/4] Generating MECE scenarios...")
-    result = await generate_mece_scenarios(
-        signals=[{"text": s["question"], "source": s["source"], "voi": s.get("voi", 0)} for s in deduped_signals[:50]],
+    print("\n[4/4] Generating scenarios...")
+    result = await generate_and_print_scenarios(
+        signals=deduped_signals[:50],
         question=cfg.question_text,
         context=cfg.context,
         question_type=cfg.question_type,
         voi_floor=cfg.voi_floor,
     )
 
-    # Print results
-    print_results(result)
-
-    # Build output
-    output_file = cfg.output_dir / f"bottomup_v7_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
-    signals_v7 = build_signal_models(deduped_signals[:50], text_key="question")
-    scenarios_v7 = build_scenario_dicts(result.scenarios)
-
-    results = build_base_results(
+    # Save results
+    save_approach_results(
         approach="bottomup",
-        target=cfg.target,
-        config=cfg.config,
-        signals_v7=signals_v7,
-        scenarios_v7=scenarios_v7,
-        mece_reasoning=result.mece_reasoning,
-        coverage_gaps=result.coverage_gaps,
-        voi_floor=cfg.voi_floor,
-        max_horizon_days=cfg.max_horizon_days,
+        cfg=cfg,
+        signals=deduped_signals[:50],
+        result=result,
+        text_key="question",
+        extra_fields={
+            "sources_used": SOURCES,
+            "signals_retrieved": len(raw_signals),
+            "signals_after_dedup": len(deduped_signals),
+            "signals_above_floor": sum(1 for s in deduped_signals if s.get("voi", 0) >= cfg.voi_floor),
+            "source_breakdown": count_by_field(deduped_signals, "source"),
+            "category_breakdown": by_category,
+        },
     )
-
-    # Add approach-specific fields
-    results.update({
-        "sources_used": SOURCES,
-        "signals_retrieved": len(raw_signals),
-        "signals_after_dedup": len(deduped_signals),
-        "signals_above_floor": sum(1 for s in deduped_signals if s.get("voi", 0) >= cfg.voi_floor),
-        "source_breakdown": count_by_field(deduped_signals, "source"),
-        "category_breakdown": by_category,
-    })
-
-    save_results(results, output_file)
 
 
 if __name__ == "__main__":

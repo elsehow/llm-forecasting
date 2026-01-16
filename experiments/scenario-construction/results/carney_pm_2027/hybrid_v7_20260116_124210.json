@@ -1,0 +1,453 @@
+{
+  "id": "hybrid_carney_pm_2027_3a44fc5d",
+  "name": "carney_pm_2027 (hybrid)",
+  "target": "carney_pm_2027",
+  "approach": "hybrid_v7",
+  "question": {
+    "id": "carney_pm_2027",
+    "source": "scenario_construction",
+    "text": "Will Mark Carney be Prime Minister of Canada on December 31, 2027?",
+    "question_type": "binary",
+    "unit": null,
+    "base_rate": null,
+    "value_range": null
+  },
+  "config": {
+    "context": "Mark Carney became Prime Minister of Canada on March 14, 2025, after winning the Liberal Party leadership following Justin Trudeau's resignation in January 2025. Carney, former Governor of the Bank of Canada and Bank of England, won the leadership on the first ballot with strong support from the party establishment. He has not yet faced a general election as PM. The next federal election must be held by October 2025 at the latest. Current polling (January 2026) shows the Liberals with a slight lead over the Conservatives (recent polls: Nanos L39-C36, Ipsos L40-C37, Pallas L41-C38), a reversal from the significant Conservative lead before Carney took office. Key issues: cost of living, housing affordability, US-Canada trade relations under the Trump administration.",
+    "cruxiness_normalizer": 0.3,
+    "voi_floor": 0.1
+  },
+  "current_date": "2026-01-16",
+  "signals": [
+    {
+      "id": "Qgg9Rc8PIy",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "Will the U.S. enter a recession in Trump's second term?",
+      "url": "https://manifold.markets/JRR/will-the-us-enter-a-recession-in-tr",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:42:10.745998Z",
+      "resolution_date": "2030-01-21",
+      "resolved": false,
+      "base_rate": 0.5499999999999999,
+      "voi": 0.348245602987317,
+      "rho": 0.7,
+      "rho_reasoning": "The two prediction market questions are related, as they both concern the impact of economic downturns or recessions. A significant economic crisis in Canada would likely have ripple effects on the US economy, and a US recession during Trump's second term would also impact the Canadian economy. Therefore, the outcomes of these two questions are positively correlated, with a correlation coefficient of around 0.7, indicating a strong, but not perfect, positive relationship.",
+      "uncertainty_source": "Economic Crisis Impact",
+      "p_target_given_yes": 0.8165869118066519,
+      "p_target_given_no": 0.1130604411252034,
+      "cruxiness_spread": 0.7035264706814485
+    },
+    {
+      "id": "0x998bc71817b2d76921d1999ce0f3431cfd5945583667a371280ca2b430b0c06e",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "2026 Balance of Power: R Senate, D House",
+      "url": "https://polymarket.com/market/2026-balance-of-power-r-senate-d-house-444",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:42:10.746021Z",
+      "resolution_date": "2026-11-03",
+      "resolved": false,
+      "base_rate": 0.445,
+      "voi": 0.19878631743658814,
+      "rho": 0.4,
+      "rho_reasoning": "The two questions are somewhat related, as the internal stability of the Liberal Party (Question A) could impact the 2026 balance of power in the Senate and House (Question B). If Carney maintains control and avoids leadership challenges, it could boost the Liberal Party's electoral prospects in 2026. However, the relationship is not perfectly correlated, as other factors such as the broader political climate and voter preferences will also influence the 2026 election outcomes. Therefore, a moderately positive correlation coefficient of 0.4 seems reasonable.",
+      "uncertainty_source": "Internal Party Stability",
+      "p_target_given_yes": 0.7233554128500991,
+      "p_target_given_no": 0.32091322753460527,
+      "cruxiness_spread": 0.4024421853154938
+    },
+    {
+      "id": "0x12b727031b38130d945b3e164386874360d9a32fdd7e3d00ed2adb13857e089b",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will the Democrats win the Texas governor race in 2026?",
+      "url": "https://polymarket.com/market/will-the-democrats-win-the-texas-governor-race-in-2026",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:42:10.746034Z",
+      "resolution_date": "2026-11-03",
+      "resolved": false,
+      "voi": 0.15000000000000002,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are not directly related, as they are about different elections in different countries. However, there may be some indirect relationship, as a strong performance by the Liberal Party in Canada could potentially boost confidence in the Democratic Party in the US and make a Texas governor win more likely. But this relationship is fairly weak, so I estimate a moderate positive correlation of 0.3.",
+      "uncertainty_source": "Liberal Electoral Performance",
+      "p_target_given_yes": 0.65,
+      "p_target_given_no": 0.35,
+      "cruxiness_spread": 0.30000000000000004
+    },
+    {
+      "id": "0xfaa433e162e020c56c522acb2f9f7215ce6e4e4391c4fb42beba14275c0a43fe",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "New pandemic in 2026?",
+      "url": "https://polymarket.com/market/new-pandemic-in-2026",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:42:10.746045Z",
+      "resolution_date": "2026-12-31",
+      "resolved": false,
+      "voi": 0.15000000000000002,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are related, as an economic crisis or downturn could potentially increase the likelihood of a new pandemic. However, the relationship is not direct or certain, as there are many other factors that could influence the occurrence of a new pandemic. Therefore, the correlation coefficient is positive but moderate, indicating a partial relationship between the two events.",
+      "uncertainty_source": "Economic Crisis Impact",
+      "p_target_given_yes": 0.65,
+      "p_target_given_no": 0.35,
+      "cruxiness_spread": 0.30000000000000004
+    },
+    {
+      "id": "3858",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will the USD be the dominant global reserve currency in 2050?",
+      "url": "https://www.metaculus.com/questions/3858",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:42:10.746052Z",
+      "resolution_date": "2050-12-31",
+      "resolved": false,
+      "voi": 0.15000000000000002,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are somewhat related, as a significant economic downturn in Canada could impact the global economy and the status of the US dollar as the dominant reserve currency. However, the connection is not direct or strong. A Canadian economic crisis may not have a major effect on the global reserve currency status, which depends on a wide range of macroeconomic, political, and geopolitical factors. Therefore, I estimate a moderately positive correlation coefficient of 0.3, indicating that knowing the outcome of one question provides some information about the other, but there is still a substantial amount of independence between the two.",
+      "uncertainty_source": "Economic Crisis Impact",
+      "p_target_given_yes": 0.65,
+      "p_target_given_no": 0.35,
+      "cruxiness_spread": 0.30000000000000004
+    },
+    {
+      "id": "KXXISUCCESSOR-45JAN01-LQIA",
+      "source": "kalshi",
+      "source_type": "market",
+      "text": "Will Li Qiang become the next leader of the Chinese Communist Party (CCP) before Jan 1, 2045?",
+      "url": "https://kalshi.com/markets/KXXISUCCESSOR-45JAN01-LQIA",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:42:10.746059Z",
+      "resolution_date": "2045-01-01",
+      "resolved": false,
+      "base_rate": 0.21,
+      "voi": 0.12219247112649786,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are related, as they both concern the stability and leadership of major political parties. However, they are measuring distinct phenomena - one about the internal dynamics of the Liberal Party in Canada, and the other about the leadership transition in the Chinese Communist Party. While the outcomes may be somewhat related (e.g. instability in one party could impact the other), they are not direct measures of the same underlying phenomenon. Therefore, the correlation between the two questions is likely to be positive but moderate, around 0.3.",
+      "uncertainty_source": "Internal Party Stability",
+      "p_target_given_yes": 0.79093445506309,
+      "p_target_given_no": 0.4226629929579127,
+      "cruxiness_spread": 0.3682714621051773
+    },
+    {
+      "id": "0x8be38f21b6c39fff2de0258b1d18fc9feafdef9e95f14d7f81db3bd3d7effeff",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will the Farmer\u2013Citizen Movement win the most seats in the 2025 Netherlands parliamentary election?",
+      "url": "https://polymarket.com/market/will-the-farmercitizen-movement-win-the-most-seats-in-the-2025-netherlands-parliamentary-election",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:42:10.746069Z",
+      "resolution_date": "2026-07-31",
+      "resolved": false,
+      "voi": 0.09999999999999998,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are not directly related. The first question is about the electoral performance of the Liberal Party in Canada, while the second question is about the outcome of the parliamentary election in the Netherlands. While there may be some indirect relationship between the political trends in different countries, the connection is likely weak. The outcomes of these two events are mostly independent of each other, so the correlation coefficient is likely to be close to 0.",
+      "uncertainty_source": "Liberal Electoral Performance",
+      "p_target_given_yes": 0.6,
+      "p_target_given_no": 0.4,
+      "cruxiness_spread": 0.19999999999999996
+    },
+    {
+      "id": "0x1ca2465222c60f5803c22fd94c6c40fa2321447f9af5be6f77dd1a5644355dd5",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will Pierre-Yves Bournazel win the Paris mayor election?",
+      "url": "https://polymarket.com/market/will-pierre-yves-bournazel-win-the-paris-mayor-election",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:42:10.746075Z",
+      "resolution_date": "2026-03-31",
+      "resolved": false,
+      "voi": 0.09999999999999998,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are not directly related. The outcome of the Liberal Party leadership stability in the UK does not have a strong bearing on the results of the Paris mayoral election. While there could be some indirect connections, such as a change in the UK government potentially affecting French politics, the correlation between these two events is likely to be weak. Therefore, the estimated correlation coefficient is around 0.2, indicating a small positive correlation.",
+      "uncertainty_source": "Internal Party Stability",
+      "p_target_given_yes": 0.6,
+      "p_target_given_no": 0.4,
+      "cruxiness_spread": 0.19999999999999996
+    },
+    {
+      "id": "1700",
+      "source": "infer",
+      "source_type": "market",
+      "text": "Will Hezbollah and/or Amal Movement candidates maintain control of all Shia-majority seats in the 2026 Lebanese Parliament?",
+      "url": "https://www.randforecastinginitiative.org/questions/1700",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:42:10.746082Z",
+      "resolution_date": "2026-06-01",
+      "resolved": false,
+      "voi": 0.09999999999999998,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are not directly related. The first question is about internal party stability in the Canadian Liberal Party, while the second is about the electoral performance of Hezbollah and Amal Movement in the Lebanese parliament. While there may be some high-level geopolitical factors that could influence both, there is no clear mechanism by which the outcome of one question would directly impact the other. Therefore, the correlation between the two is likely to be weak and positive, as some shared global factors may contribute to both outcomes, but they are largely independent events.",
+      "uncertainty_source": "Internal Party Stability",
+      "p_target_given_yes": 0.6,
+      "p_target_given_no": 0.4,
+      "cruxiness_spread": 0.19999999999999996
+    },
+    {
+      "id": "0xf0d4ee47d3abe6161f1e8f93bfe46d06d1ffd63f48e71c49aa81b2250e152e8b",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Israel x Iran ceasefire broken by June 30, 2026?",
+      "url": "https://polymarket.com/market/israel-x-iran-ceasefire-broken-by-june-30-2026",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:42:10.746088Z",
+      "resolution_date": "2026-03-31",
+      "resolved": false,
+      "voi": 0.09999999999999998,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are not directly related, as they are about different events (internal party stability in Canada and a ceasefire between Israel and Iran). However, there could be some indirect relationship - for example, if Carney is able to maintain control of the Liberal Party, this could influence Canada's foreign policy and potentially impact the relationship between Israel and Iran. Therefore, I estimate a weak positive correlation between the two questions.",
+      "uncertainty_source": "Internal Party Stability",
+      "p_target_given_yes": 0.6,
+      "p_target_given_no": 0.4,
+      "cruxiness_spread": 0.19999999999999996
+    },
+    {
+      "id": "21140",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will the Christian Democratic Union of Germany announce that it is open to negotiating a coalition with the Alternative for Germany before 2030?",
+      "url": "https://www.metaculus.com/questions/21140",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:42:10.746100Z",
+      "resolution_date": "2029-12-31",
+      "resolved": false,
+      "base_rate": 0.075,
+      "voi": 0.07425000000000002,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are not directly related, as they are about events in different countries (Canada and Germany). However, there could be some indirect relationship, as the stability of political parties and their willingness to form coalitions are both related to the broader political landscape. Knowing the outcome of one question may provide some information about the other, but the relationship is not expected to be very strong.",
+      "uncertainty_source": "Internal Party Stability",
+      "p_target_given_yes": 0.99,
+      "p_target_given_no": 0.45945945945945943,
+      "cruxiness_spread": 0.5305405405405406
+    },
+    {
+      "id": "KXNEXTISRAELPM-45JAN01-NBEN",
+      "source": "kalshi",
+      "source_type": "market",
+      "text": "Will Naftali Bennett be the next Prime Minister of Israel?",
+      "url": "https://kalshi.com/markets/KXNEXTISRAELPM-45JAN01-NBEN",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:42:10.746107Z",
+      "resolution_date": "2045-01-01",
+      "resolved": false,
+      "base_rate": 0.4,
+      "voi": 0.04898979485566357,
+      "rho": 0.1,
+      "rho_reasoning": "The two questions appear to be largely independent events. The outcome of the Canadian federal election and the leadership of the Liberal Party under Carney's leadership does not seem to have a strong connection to whether Naftali Bennett becomes the next Prime Minister of Israel. While there may be some minor geopolitical factors that could create a slight correlation, the events are primarily localized to their respective countries and political systems. Therefore, the correlation coefficient is estimated to be around 0.1, indicating a weak positive correlation at most.",
+      "uncertainty_source": "Liberal Electoral Performance",
+      "p_target_given_yes": 0.5612372435695795,
+      "p_target_given_no": 0.4591751709536137,
+      "cruxiness_spread": 0.10206207261596578
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Economic Turmoil Tenure",
+      "description": "A U.S. recession and global economic instability create a crisis environment that initially benefits Carney due to his central banking credentials. However, prolonged economic hardship eventually turns voters against the incumbent government, leading to his electoral defeat in 2025 or forcing resignation before 2027.",
+      "scenario_probability": 0.25,
+      "key_drivers": [
+        "U.S. recession spillover effects on Canada",
+        "Economic crisis initially boosting technocratic leader appeal",
+        "Prolonged hardship eroding government support",
+        "Potential early election call backfiring"
+      ],
+      "why_exclusive": "This scenario requires sustained economic crisis conditions that would preclude the stable growth environment of other scenarios. The economic trajectory determines political dynamics - you can't have both crisis-driven political changes and stable prosperity simultaneously.",
+      "signal_impacts": [
+        {
+          "signal_index": 0,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 1,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 3,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 4,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Canadian GDP growth": "Below -1% for 2+ quarters",
+        "Liberal polling": "Falls below 35% by mid-2025",
+        "USD/CAD exchange rate": "Above 1.45",
+        "Unemployment rate": "Above 8%"
+      },
+      "probability_range": "15-25% YES",
+      "probability_low": 0.15,
+      "probability_high": 0.25
+    },
+    {
+      "name": "Stable Succession",
+      "description": "Economic conditions remain relatively stable with moderate growth, allowing Carney to consolidate power within the Liberal Party and win the 2025 election with a workable majority. No major crises emerge, and his technocratic approach proves effective in managing Canada-U.S. relations and domestic policy challenges.",
+      "scenario_probability": 0.45,
+      "key_drivers": [
+        "Moderate economic growth maintaining status quo",
+        "No major external shocks or crises",
+        "Successful navigation of Trump-era trade relations",
+        "Liberal Party unity behind Carney's leadership"
+      ],
+      "why_exclusive": "This scenario requires the absence of major economic or political disruptions that define other scenarios. It represents a 'normal' political trajectory incompatible with crisis scenarios or major geopolitical shifts that would fundamentally alter the political landscape.",
+      "signal_impacts": [
+        {
+          "signal_index": 0,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 3,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 4,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 5,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Canadian GDP growth": "1-3% annually",
+        "Liberal polling": "Consistently above 38%",
+        "Trade dispute incidents": "Fewer than 2 major issues",
+        "PM approval rating": "Above 45%"
+      },
+      "probability_range": "70-85% YES",
+      "probability_low": 0.7,
+      "probability_high": 0.85
+    },
+    {
+      "name": "Geopolitical Upheaval",
+      "description": "Major geopolitical shifts including potential pandemic, changing U.S.-China dynamics, and dollar instability create a complex international environment. Carney's international experience initially helps, but the scale of global changes overwhelms domestic political considerations, leading to unexpected electoral outcomes or early political transitions.",
+      "scenario_probability": 0.2,
+      "key_drivers": [
+        "New pandemic creating governance challenges",
+        "Shifting global monetary system affecting Canada",
+        "Major changes in Chinese leadership impacting trade",
+        "Unpredictable geopolitical crisis responses"
+      ],
+      "why_exclusive": "This scenario involves systemic global disruptions that would fundamentally reshape political calculations beyond normal economic or domestic political cycles. The scale of international upheaval precludes the stable domestic focus of other scenarios.",
+      "signal_impacts": [
+        {
+          "signal_index": 3,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 4,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 5,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 0,
+          "effect": "enhances"
+        }
+      ],
+      "indicator_bundle": {
+        "Global crisis events": "2+ major international incidents",
+        "Canadian foreign policy shifts": "3+ major position changes",
+        "International trade disruption": "Above 15% volatility",
+        "Emergency measures invoked": "At least 1 instance"
+      },
+      "probability_range": "30-50% YES",
+      "probability_low": 0.3,
+      "probability_high": 0.5
+    },
+    {
+      "name": "Conservative Resurgence",
+      "description": "The Conservative Party capitalizes on cost-of-living concerns and anti-incumbent sentiment to win decisively in 2025. Carney's honeymoon period proves brief as voters prioritize change over continuity, and his technocratic style fails to connect with populist sentiment during challenging times.",
+      "scenario_probability": 0.1,
+      "key_drivers": [
+        "Conservative Party unity and effective messaging",
+        "Persistent inflation and housing affordability issues",
+        "Voter fatigue with Liberal governance after 10+ years",
+        "Carney's failure to connect with working-class voters"
+      ],
+      "why_exclusive": "This scenario requires a Conservative electoral victory, which by definition means Carney loses power. It cannot coexist with scenarios where he maintains the Prime Ministership through successful Liberal governance or crisis management.",
+      "signal_impacts": [
+        {
+          "signal_index": 1,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 2,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 0,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 3,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Conservative polling": "Consistently above 42%",
+        "Liberal seat projections": "Below 120 seats",
+        "Cost of living index": "Above 8% year-over-year",
+        "Carney approval rating": "Below 35%"
+      },
+      "probability_range": "5-15% YES",
+      "probability_low": 0.05,
+      "probability_high": 0.15
+    }
+  ],
+  "mece_reasoning": "These scenarios are MECE because they partition the possibility space along two key axes: (1) the nature and severity of external shocks (economic crisis, geopolitical upheaval, or stability), and (2) the electoral outcome (Liberal success vs Conservative victory). Economic Turmoil Tenure captures recession-driven initial support followed by backlash. Stable Succession represents normal governance without major disruptions. Geopolitical Upheaval involves systemic global changes beyond typical economic cycles. Conservative Resurgence covers the distinct possibility of opposition victory. Each scenario represents a fundamentally different world-state with different causal mechanisms, and they cannot occur simultaneously - you cannot have both stable governance and major crisis, both Liberal and Conservative victory, or both isolated domestic focus and global upheaval.",
+  "coverage_gaps": "Minimal gaps. The scenarios cover the main pathways: crisis-driven politics, stable governance, global disruption, and opposition victory. The only minor gap might be internal Liberal Party challenges (leadership challenges from within), but this is less likely given Carney's recent strong leadership victory and would likely manifest within the existing scenarios.",
+  "created_at": "2026-01-16T12:42:10.746351",
+  "max_horizon_days": 365,
+  "sources_used": [
+    "polymarket",
+    "metaculus",
+    "kalshi",
+    "infer",
+    "manifold"
+  ],
+  "uncertainties": [
+    {
+      "name": "Liberal Electoral Performance",
+      "description": "Whether the Liberal Party can maintain public support and win the next federal election under Carney's leadership. This depends on his ability to address key issues like cost of living and housing while differentiating from previous Liberal governance.",
+      "search_query": "Canada Liberal Party election polls Carney prime minister 2025 federal election"
+    },
+    {
+      "name": "Economic Crisis Impact",
+      "description": "Whether Canada experiences a significant economic downturn or crisis that could trigger early elections or severely damage the governing party's standing. Economic shocks often lead to changes in government leadership.",
+      "search_query": "Canada economic recession crisis inflation unemployment 2025 2026 2027"
+    },
+    {
+      "name": "Internal Party Stability",
+      "description": "Whether Carney maintains control of the Liberal Party and avoids leadership challenges or party splits that could force his resignation. New leaders often face internal party tensions and may struggle to consolidate power.",
+      "search_query": "Mark Carney Liberal Party leadership challenge internal party conflict Canada"
+    }
+  ],
+  "signals_per_uncertainty": {
+    "Liberal Electoral Performance": 30,
+    "Economic Crisis Impact": 29,
+    "Internal Party Stability": 30
+  },
+  "signals_after_dedup": 12,
+  "signals_above_floor": 6,
+  "source_breakdown": {
+    "manifold": 1,
+    "polymarket": 6,
+    "metaculus": 2,
+    "kalshi": 2,
+    "infer": 1
+  },
+  "category_breakdown": {
+    "future": 5,
+    "actionable": 7
+  },
+  "uncertainty_breakdown": {
+    "Economic Crisis Impact": 3,
+    "Internal Party Stability": 6,
+    "Liberal Electoral Performance": 3
+  }
+}

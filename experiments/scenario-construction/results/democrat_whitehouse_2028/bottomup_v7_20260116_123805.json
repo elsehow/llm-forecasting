@@ -1,0 +1,386 @@
+{
+  "id": "bottomup_democrat_whitehouse_2028_33230bdd",
+  "name": "democrat_whitehouse_2028 (bottomup)",
+  "target": "democrat_whitehouse_2028",
+  "approach": "bottomup_v7",
+  "question": {
+    "id": "democrat_whitehouse_2028",
+    "source": "scenario_construction",
+    "text": "Will a Democrat win the White House in 2028?",
+    "question_type": "binary",
+    "unit": null,
+    "base_rate": null,
+    "value_range": null
+  },
+  "config": {
+    "context": "Donald Trump won the 2024 presidential election and began his second term in January 2025. He is constitutionally barred from seeking a third term in 2028, making the 2028 election an open race on the Republican side. Current polling (January 2026): Trump approval 41.9%, disapproval 55% (Silver Bulletin). Generic congressional ballot: Democrats 42.6%, Republicans 38.8% (Decision Desk HQ) - a reversal from the 2024 election environment. Democratic field: No clear frontrunner. Potential candidates include governors Gavin Newsom (CA), Gretchen Whitmer (MI), Josh Shapiro (PA), and JB Pritzker (IL). Vice President Kamala Harris's 2024 loss may complicate another run. Republican field: Wide open with no obvious Trump successor. JD Vance (current VP) is positioned but untested. Other potential candidates include Ron DeSantis, Nikki Haley, and figures from the 2024 primary. Key factors: Trump administration performance over next 2 years, economic conditions, tariff/trade policy outcomes, Democratic party rebuilding post-2024.",
+    "cruxiness_normalizer": 0.3,
+    "voi_floor": 0.1
+  },
+  "current_date": "2026-01-16",
+  "signals": [
+    {
+      "id": "11045",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will a Democrat win the 2028 US presidential election?",
+      "url": "https://www.metaculus.com/questions/11045",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:38:05.075300Z",
+      "resolution_date": "2028-11-07",
+      "resolved": false,
+      "voi": 0.475,
+      "rho": 0.95,
+      "rho_reasoning": "The two questions are about the same underlying event - the 2028 US presidential election and whether a Democrat will win. Knowing the outcome of one question would provide strong information about the other, as they are measuring the same phenomenon. The correlation is not perfect (1.0) because there could be some uncertainty or nuance in the way the questions are phrased or interpreted, but they are very closely related.",
+      "p_target_given_yes": 0.975,
+      "p_target_given_no": 0.025000000000000022,
+      "cruxiness_spread": 0.95
+    },
+    {
+      "id": "0x16c63b7cc37f012b9f59ee164ec03877914c701d06d48291ae8d6fc08a088b0d",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "2026 Balance of Power: D Senate, D House",
+      "url": "https://polymarket.com/market/2026-balance-of-power-d-senate-d-house-949",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:38:05.075315Z",
+      "resolution_date": "2026-11-03",
+      "resolved": false,
+      "voi": 0.4,
+      "rho": 0.8,
+      "rho_reasoning": "The two questions are related, as a Democratic victory in the 2028 presidential election would likely lead to a Democratic-controlled Congress in 2026. A Democratic president would likely increase the chances of a Democratic-controlled House and Senate. Therefore, the outcomes of the two questions are positively correlated, with a correlation coefficient of around 0.8, indicating a strong positive relationship.",
+      "p_target_given_yes": 0.9,
+      "p_target_given_no": 0.09999999999999998,
+      "cruxiness_spread": 0.8
+    },
+    {
+      "id": "0xfa48a99317daef1654d5b03e30557c4222f276657275628d9475e141c64b545d",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "US recession in 2025?",
+      "url": "https://polymarket.com/market/us-recession-in-2025",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:38:05.075324Z",
+      "resolution_date": "2026-02-28",
+      "resolved": false,
+      "voi": 0.25,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related, as the outcome of the 2028 presidential election could impact the likelihood of a recession in 2025. A Democratic win in 2028 may suggest economic policies that could influence the probability of a recession. However, the relationship is not perfect, as many other factors also contribute to the likelihood of a recession. Therefore, I estimate a moderately positive correlation coefficient of 0.5.",
+      "p_target_given_yes": 0.75,
+      "p_target_given_no": 0.25,
+      "cruxiness_spread": 0.5
+    },
+    {
+      "id": "nOXCmJFNsLx08PjOc4Qk",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "In 2028, will AI be at least as big a political issue as abortion?",
+      "url": "https://manifold.markets/ScottAlexander/in-2028-will-ai-be-at-least-as-big",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:38:05.075331Z",
+      "resolution_date": "2028-01-02",
+      "resolved": false,
+      "base_rate": 0.7729305115909695,
+      "voi": 0.2094689331635432,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related in that they both deal with political issues in 2028. The outcome of the presidential election could influence the prominence of AI as a political issue, as the party in power may prioritize AI-related policies and regulation. Additionally, AI could be a more salient issue if a Democrat wins the White House, as the Democratic party has generally been more receptive to technology and innovation. Therefore, there is a moderate positive correlation between the two questions.",
+      "p_target_given_yes": 0.63550308211561,
+      "p_target_given_no": 0.038755879023655175,
+      "cruxiness_spread": 0.5967472030919548
+    },
+    {
+      "id": "cNmTnf0Q0OqH2clJS26c",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "Instant deepfakes of anyone (doing anything) by the end of 2027?",
+      "url": "https://manifold.markets/dreev/instant-deepfakes-of-anyone-within",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:38:05.075336Z",
+      "resolution_date": "2028-01-01",
+      "resolved": false,
+      "base_rate": 0.7858490752457651,
+      "voi": 0.12306960451834835,
+      "rho": 0.3,
+      "rho_reasoning": "While a Democratic presidency in 2028 and the emergence of widespread deepfake technology by the end of 2027 are not directly related events, there could be some indirect relationship between them. A Democratic administration might be more likely to enact regulations or policies that could impact the development of deepfake technology, either positively or negatively. Additionally, the social and political climate during a Democratic presidency could affect public attitudes and perceptions around emerging technologies like deepfakes. However, the relationship is not straightforward, and many other factors could also influence the development of deepfake technology, so the correlation is moderate and positive, but not very strong.",
+      "p_target_given_yes": 0.5783035880521077,
+      "p_target_given_no": 0.21265684549439562,
+      "cruxiness_spread": 0.36564674255771207
+    },
+    {
+      "id": "x0N5kcbmFRaaxlj49kzO",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "Will China attempt to invade Taiwan by the end of 2027?",
+      "url": "https://manifold.markets/MarlonK/will-china-attempt-to-invade-taiwan",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:38:05.075340Z",
+      "resolution_date": "2027-12-31",
+      "resolved": false,
+      "base_rate": 0.19957680028469407,
+      "voi": 0.11990467504044021,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are related in that the outcome of the US presidential election could influence the geopolitical landscape and China's actions regarding Taiwan. However, the two events are not directly dependent on each other, and the outcome of one does not necessarily determine the other. There are many other factors that could influence China's decision to invade Taiwan, so the correlation between the two questions is moderate and positive, but not strong.",
+      "p_target_given_yes": 0.8003973279193712,
+      "p_target_given_no": 0.42509920059595485,
+      "cruxiness_spread": 0.3752981273234164
+    },
+    {
+      "id": "13449",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will Congress call an Article V convention before 2028?",
+      "url": "https://www.metaculus.com/questions/13449",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:38:05.075345Z",
+      "resolution_date": "2028-01-01",
+      "resolved": false,
+      "voi": 0.09999999999999998,
+      "rho": 0.2,
+      "rho_reasoning": "While the two questions are related in that they both involve the political landscape in the United States, they are not directly measuring the same underlying phenomenon. The outcome of the 2028 presidential election would not necessarily have a strong impact on the likelihood of Congress calling an Article V convention, as these are separate political processes. Therefore, the correlation between the two questions is likely to be relatively weak, but positive, as a Democratic presidency may slightly increase the chances of a Article V convention being called.",
+      "p_target_given_yes": 0.6,
+      "p_target_given_no": 0.4,
+      "cruxiness_spread": 0.19999999999999996
+    },
+    {
+      "id": "15150",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will the US and the EU (or one of its member states) cut diplomatic ties before 2051?",
+      "url": "https://www.metaculus.com/questions/15150/eu-and-us-cut-diplomatic-ties-before-2051/",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:38:05.075348Z",
+      "resolution_date": "2050-12-31",
+      "resolved": false,
+      "base_rate": 0.04,
+      "voi": 0.039191835884530846,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are related, as the outcome of the 2028 US presidential election could impact the US's diplomatic relations with the EU. However, the relationship is not direct or guaranteed - a Democratic president may not necessarily lead to a diplomatic rift, and a Republican president may not necessarily prevent one. There are many other factors that could influence diplomatic ties between the US and EU. Therefore, the correlation between the two outcomes is expected to be moderately positive, but not very strong.",
+      "p_target_given_yes": 0.9898979485566356,
+      "p_target_given_no": 0.47958758547680685,
+      "cruxiness_spread": 0.5103103630798287
+    },
+    {
+      "id": "dgPNU5ICzP",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "Will Colbert be forced off air before May, 2026?",
+      "url": "https://manifold.markets/WrongoPhD/will-colbert-be-forced-off-air-befo",
+      "question_type": "binary",
+      "created_at": "2026-01-16T20:38:05.075352Z",
+      "resolution_date": "2026-05-01",
+      "resolved": false,
+      "base_rate": 0.11432748487657439,
+      "voi": 0.031820859680148667,
+      "rho": 0.1,
+      "rho_reasoning": "The two questions are not directly related. The outcome of whether a Democrat wins the White House in 2028 is not strongly correlated with whether Stephen Colbert is forced off the air before May 2026. These are separate political and media events that are likely to be influenced by different factors. Therefore, the correlation coefficient between these two questions is expected to be close to 0, indicating little to no relationship between the outcomes.",
+      "p_target_given_yes": 0.6391653971680642,
+      "p_target_given_no": 0.4820357642713378,
+      "cruxiness_spread": 0.15712963289672638
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Democratic Resurgence",
+      "description": "Trump's second term proves deeply unpopular with ongoing economic struggles and policy failures. Democrats capitalize on anti-incumbent sentiment, win back Congress in 2026, and field a strong unity candidate. The political environment strongly favors Democrats by 2028.",
+      "scenario_probability": 0.3,
+      "key_drivers": [
+        "Trump administration unpopularity and policy failures",
+        "Strong Democratic congressional gains in 2026",
+        "Economic downturn hurting incumbent party",
+        "Unified Democratic party with compelling candidate",
+        "Clear anti-Republican electoral environment"
+      ],
+      "why_exclusive": "This scenario requires sustained Trump unpopularity and Democratic electoral success, which cannot coexist with scenarios where Republicans maintain strength or the political environment remains competitive.",
+      "signal_impacts": [
+        {
+          "signal_index": 1,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 2,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 3,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 5,
+          "effect": "enhances"
+        }
+      ],
+      "indicator_bundle": {
+        "Trump approval rating": "Below 38%",
+        "2026 Democratic House seats": "230+ seats",
+        "2026 Democratic Senate seats": "52+ seats",
+        "Generic ballot margin": "Democrats +8 or better",
+        "Economic growth 2025-2027": "Below 1.5% annually"
+      },
+      "outcome_range": "70-85% YES",
+      "outcome_low": 0.7,
+      "outcome_high": 0.85,
+      "probability_range": "70-85% YES",
+      "probability_low": 0.7,
+      "probability_high": 0.85
+    },
+    {
+      "name": "Republican Renewal",
+      "description": "Trump's policies succeed economically and Republicans successfully transition to post-Trump leadership. A strong Republican nominee emerges while Democrats struggle with internal divisions and weak candidates. The GOP maintains political momentum into 2028.",
+      "scenario_probability": 0.25,
+      "key_drivers": [
+        "Successful Trump economic policies and rising approval",
+        "Smooth Republican succession planning",
+        "Democratic party infighting and weak nominees",
+        "Strong economic performance favoring incumbents",
+        "Republican unity behind post-Trump candidate"
+      ],
+      "why_exclusive": "This scenario requires Republican strength and Democratic weakness, which contradicts scenarios where Democrats are ascendant or the political environment favors change.",
+      "signal_impacts": [
+        {
+          "signal_index": 1,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 2,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 3,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 4,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Trump approval rating": "Above 48%",
+        "2026 Republican House retention": "220+ seats",
+        "GDP growth 2025-2027": "Above 2.5% annually",
+        "Republican primary unity": "Nominee by Super Tuesday",
+        "Democratic primary divisions": "Convention goes past first ballot"
+      },
+      "outcome_range": "20-35% YES",
+      "outcome_low": 0.2,
+      "outcome_high": 0.35,
+      "probability_range": "20-35% YES",
+      "probability_low": 0.2,
+      "probability_high": 0.35
+    },
+    {
+      "name": "Chaotic Realignment",
+      "description": "Major disruptive events reshape American politics entirely. AI emerges as the dominant issue, deepfake technology undermines traditional campaigning, and geopolitical crises create unprecedented electoral dynamics. Traditional partisan patterns break down.",
+      "scenario_probability": 0.2,
+      "key_drivers": [
+        "AI and technology fundamentally disrupting politics",
+        "Deepfakes undermining candidate credibility",
+        "Major geopolitical crises reshaping priorities",
+        "Traditional party coalitions fragmenting",
+        "New political movements emerging around tech issues"
+      ],
+      "why_exclusive": "This scenario involves fundamental disruption to normal political patterns, which cannot occur alongside scenarios based on traditional political dynamics and party strength.",
+      "signal_impacts": [
+        {
+          "signal_index": 3,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 4,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 5,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 2,
+          "effect": "enhances"
+        }
+      ],
+      "indicator_bundle": {
+        "AI political salience": "Top 3 voter concern",
+        "Deepfake incidents": "10+ major campaign disruptions",
+        "Third party support": "Above 15% in polling",
+        "Geopolitical crisis count": "2+ major international incidents",
+        "Traditional media trust": "Below 25%"
+      },
+      "outcome_range": "40-60% YES",
+      "outcome_low": 0.4,
+      "outcome_high": 0.6,
+      "probability_range": "40-60% YES",
+      "probability_low": 0.4,
+      "probability_high": 0.6
+    },
+    {
+      "name": "Competitive Balance",
+      "description": "American politics settles into a stable but closely divided equilibrium. Both parties field competent candidates, economic conditions are mixed, and no major disruptions occur. The election becomes a traditional contest decided by turnout and swing voters in battleground states.",
+      "scenario_probability": 0.25,
+      "key_drivers": [
+        "Moderate Trump approval and mixed economic performance",
+        "Both parties nominate mainstream, competent candidates",
+        "Stable political environment without major disruptions",
+        "Traditional swing state dynamics dominating",
+        "High-turnout election with narrow margins"
+      ],
+      "why_exclusive": "This scenario assumes political stability and balance, which cannot coexist with scenarios featuring major partisan waves, technological disruption, or extreme political environments.",
+      "signal_impacts": [
+        {
+          "signal_index": 1,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 2,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 3,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 4,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 5,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Trump approval rating": "42-47%",
+        "Generic ballot margin": "Within 3 points",
+        "Economic indicators": "Mixed signals, no clear trend",
+        "Primary competitiveness": "Both parties have contested but civil primaries",
+        "Major disruption events": "Fewer than 2 significant crises"
+      },
+      "outcome_range": "45-55% YES",
+      "outcome_low": 0.45,
+      "outcome_high": 0.55,
+      "probability_range": "45-55% YES",
+      "probability_low": 0.45,
+      "probability_high": 0.55
+    }
+  ],
+  "mece_reasoning": "These scenarios are MECE because they partition the political landscape along two key dimensions: (1) the overall political environment (pro-Democratic wave, pro-Republican strength, technological disruption, or balanced competition) and (2) the stability vs. disruption of traditional political patterns. Each scenario represents a fundamentally different world-state:\n\n- Democratic Resurgence assumes sustained Republican weakness and Democratic ascendance\n- Republican Renewal assumes continued GOP strength and Democratic struggles  \n- Chaotic Realignment assumes fundamental disruption to normal politics via technology and crises\n- Competitive Balance assumes stable, traditional political competition\n\nThese cannot occur simultaneously because they represent mutually exclusive political environments. The scenarios exhaust the possibility space by covering the spectrum from strong Democratic advantage through balanced competition to strong Republican advantage, plus the orthogonal possibility of technological/geopolitical disruption.",
+  "coverage_gaps": "Minimal gaps. The scenarios cover the full spectrum of political environments from Democratic wave to Republican strength to technological disruption to balanced competition. One minor gap might be a specific scenario focused solely on a major economic boom favoring Republicans, but this is largely captured within the Republican Renewal scenario.",
+  "created_at": "2026-01-16T12:38:05.075522",
+  "max_horizon_days": 365,
+  "sources_used": [
+    "polymarket",
+    "metaculus",
+    "kalshi",
+    "infer",
+    "manifold"
+  ],
+  "signals_retrieved": 81,
+  "signals_after_dedup": 9,
+  "signals_above_floor": 6,
+  "source_breakdown": {
+    "metaculus": 3,
+    "polymarket": 2,
+    "manifold": 4
+  },
+  "category_breakdown": {
+    "future": 52,
+    "actionable": 29
+  }
+}

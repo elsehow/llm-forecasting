@@ -178,3 +178,59 @@ def count_by_field(items: list[dict], field: str, default: str = "unknown") -> d
         value = item.get(field, default)
         counts[value] = counts.get(value, 0) + 1
     return counts
+
+
+def save_approach_results(
+    approach: str,
+    cfg,
+    signals: list[dict],
+    result,
+    extra_fields: dict | None = None,
+    text_key: str = "text",
+    include_uncertainty_source: bool = False,
+) -> str:
+    """Build and save results for any approach.
+
+    Consolidates the common pattern of building signals, scenarios,
+    base results, adding extras, and saving to JSON.
+
+    Args:
+        approach: Approach name (e.g., "bottomup", "hybrid", "dual")
+        cfg: Config object with target, config, output_dir, voi_floor, max_horizon_days
+        signals: List of signal dicts to include in output
+        result: MECEScenariosResponse from generate_mece_scenarios
+        extra_fields: Approach-specific fields to add to results
+        text_key: Key for signal text ("text" or "question")
+        include_uncertainty_source: Whether to include uncertainty_source field
+
+    Returns:
+        Path to saved output file (as string)
+    """
+    from .signals import build_signal_models
+
+    output_file = cfg.output_dir / f"{approach}_v7_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+
+    signals_v7 = build_signal_models(
+        signals,
+        text_key=text_key,
+        include_uncertainty_source=include_uncertainty_source,
+    )
+    scenarios_v7 = build_scenario_dicts(result.scenarios)
+
+    results = build_base_results(
+        approach=approach,
+        target=cfg.target,
+        config=cfg.config,
+        signals_v7=signals_v7,
+        scenarios_v7=scenarios_v7,
+        mece_reasoning=result.mece_reasoning,
+        coverage_gaps=result.coverage_gaps,
+        voi_floor=cfg.voi_floor,
+        max_horizon_days=cfg.max_horizon_days,
+    )
+
+    if extra_fields:
+        results.update(extra_fields)
+
+    save_results(results, output_file)
+    return str(output_file)
