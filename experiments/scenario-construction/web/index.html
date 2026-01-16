@@ -585,6 +585,72 @@
       background: rgba(220, 38, 38, 0.1);
       color: var(--down-color);
     }
+
+    /* Cruxiness Bar */
+    .cruxiness-bar {
+      display: none;
+      margin-top: 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--signal-border);
+    }
+    .signal-card.highlighted .cruxiness-bar,
+    .signal-card:hover .cruxiness-bar {
+      display: block;
+    }
+    .cruxiness-label {
+      font-size: 0.55rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .cruxiness-track {
+      height: 20px;
+      background: linear-gradient(to right, var(--bg-secondary) 0%, var(--bg-secondary) 100%);
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .cruxiness-range {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      background: linear-gradient(to right, var(--down-color), var(--up-color));
+      opacity: 0.25;
+      border-radius: 3px;
+    }
+    .cruxiness-endpoint {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.55rem;
+      font-weight: 600;
+      padding: 0.1rem 0.25rem;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+    .cruxiness-endpoint.left {
+      left: 2px;
+      background: rgba(220, 38, 38, 0.15);
+      color: var(--down-color);
+    }
+    .cruxiness-endpoint.right {
+      right: 2px;
+      background: rgba(22, 163, 74, 0.15);
+      color: var(--up-color);
+    }
+    .cruxiness-spread-label {
+      text-align: center;
+      font-size: 0.6rem;
+      color: var(--text-secondary);
+      margin-top: 0.25rem;
+    }
+    .cruxiness-spread-value {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
   </style>
 </head>
 <body>
@@ -773,6 +839,38 @@
         const prob = signal.base_rate != null ? `${(signal.base_rate * 100).toFixed(0)}%` : '-';
         const resDate = signal.resolution_date ? new Date(signal.resolution_date).toLocaleDateString() : '-';
 
+        // Build cruxiness bar if conditional probability data exists
+        let cruxinessBarHtml = '';
+        if (signal.p_target_given_yes != null && signal.p_target_given_no != null) {
+          const pYes = signal.p_target_given_yes;
+          const pNo = signal.p_target_given_no;
+          const spread = signal.cruxiness_spread || Math.abs(pYes - pNo);
+
+          // Determine which is low/high for proper positioning
+          const pLow = Math.min(pYes, pNo);
+          const pHigh = Math.max(pYes, pNo);
+
+          // For the bar: left position and width as percentages
+          const leftPos = pLow * 100;
+          const barWidth = (pHigh - pLow) * 100;
+
+          // Labels: always show "If NO" on left side of text, "If YES" on right
+          const noLabel = `NO→${(pNo * 100).toFixed(0)}%`;
+          const yesLabel = `${(pYes * 100).toFixed(0)}%←YES`;
+
+          cruxinessBarHtml = `
+            <div class="cruxiness-bar">
+              <div class="cruxiness-label">If signal resolves...</div>
+              <div class="cruxiness-track">
+                <div class="cruxiness-range" style="left: ${leftPos}%; width: ${barWidth}%;"></div>
+                <span class="cruxiness-endpoint left">${noLabel}</span>
+                <span class="cruxiness-endpoint right">${yesLabel}</span>
+              </div>
+              <div class="cruxiness-spread-label">Spread: <span class="cruxiness-spread-value">${(spread * 100).toFixed(0)}pp</span></div>
+            </div>
+          `;
+        }
+
         card.innerHTML = `
           <div class="signal-header">
             <div class="signal-name">${escapeHtml(signal.text)}</div>
@@ -785,6 +883,7 @@
             <span>${resDate}</span>
           </div>
           <div class="signal-rho">${escapeHtml(signal.rho_reasoning || '')}</div>
+          ${cruxinessBarHtml}
         `;
 
         card.addEventListener('click', () => onSignalClick(signal.id));
