@@ -1193,18 +1193,15 @@
           path.setAttribute('d', `M ${startX} ${startY} C ${midX} ${startY}, ${midX} ${endY}, ${endX} ${endY}`);
           path.setAttribute('class', 'flow-path');
 
-          // Determine visibility and color
+          // Determine visibility - signals are neutral (can go either way based on resolution)
           const isRelevant = (signalId === matchingSignal.id) || (scenarioName === sName);
-
-          // Get impact direction from signal_impacts (new format) or fall back to rho (old format)
-          const impact = getSignalImpact(scenario, signalIndex);
-          const isEnhancing = impact ? impact.effect === 'enhances' : (matchingSignal.rho >= 0);
 
           if (signalId || scenarioName) {
             if (isRelevant) {
               path.classList.add('highlighted');
-              path.classList.add(isEnhancing ? 'up' : 'down');
-              path.setAttribute('stroke-width', 3);
+              // Neutral color - signal could push either direction depending on resolution
+              path.setAttribute('stroke', 'var(--text-secondary)');
+              path.setAttribute('stroke-width', 2.5);
             } else {
               path.classList.add('dimmed');
             }
