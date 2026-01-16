@@ -773,6 +773,124 @@
       return null;
     }
 
+    // Helper: render probability shift display (original → current with delta)
+    function renderProbabilityShift(original, current, formatFn = (v) => `${(v * 100).toFixed(0)}%`, options = {}) {
+      const { centered = false, deltaUnit = 'pp' } = options;
+      const delta = current - original;
+      const deltaClass = delta > 0 ? 'up' : 'down';
+      const deltaSign = delta > 0 ? '+' : '';
+      const style = centered ? ' style="justify-content: center;"' : '';
+
+      return `
+        <div class="prob-shift"${style}>
+          <span class="prob-original">${formatFn(original)}</span>
+          <span class="prob-arrow">→</span>
+          <span class="prob-current ${deltaClass}">${formatFn(current)}</span>
+          <span class="prob-delta ${deltaClass}">${deltaSign}${deltaUnit === 'pp' ? (delta * 100).toFixed(0) + 'pp' : formatFn(Math.abs(delta))}</span>
+        </div>
+      `;
+    }
+
+    // Helper: render range bar content with optional markers and highlights
+    function renderRangeBar(baselinePos, options = {}) {
+      const {
+        baselineTitle = '',
+        scenarioPos = null,
+        scenarioLowPos = null,
+        scenarioHighPos = null,
+        colorClass = '',
+        // For signal cruxiness display
+        yesPos = null,
+        noPos = null,
+        yesTitle = '',
+        noTitle = '',
+        gradientDir = 'to right',
+      } = options;
+
+      // Just baseline marker (default)
+      if (scenarioPos === null && yesPos === null) {
+        return `<div class="range-marker" style="left: ${baselinePos}%"></div>`;
+      }
+
+      // Signal cruxiness display (two markers: YES and NO)
+      if (yesPos !== null && noPos !== null) {
+        const spreadLeft = Math.min(yesPos, noPos);
+        const spread = Math.abs(yesPos - noPos);
+        return `
+          <div class="scenario-range-highlight" style="left: ${spreadLeft}%; width: ${spread}%; background: linear-gradient(${gradientDir}, var(--down-color), var(--up-color)); opacity: 0.25;"></div>
+          <div class="range-marker baseline" style="left: ${baselinePos}%" title="${baselineTitle}"></div>
+          <div class="range-marker scenario down" style="left: ${noPos}%" title="${noTitle}"></div>
+          <div class="range-marker scenario up" style="left: ${yesPos}%" title="${yesTitle}"></div>
+        `;
+      }
+
+      // Scenario comparison display (highlight range + scenario marker)
+      if (scenarioLowPos !== null && scenarioHighPos !== null) {
+        return `
+          <div class="scenario-range-highlight ${colorClass}" style="left: ${scenarioLowPos}%; width: ${scenarioHighPos - scenarioLowPos}%"></div>
+          <div class="range-marker baseline" style="left: ${baselinePos}%" title="${baselineTitle}"></div>
+          <div class="range-marker scenario ${colorClass}" style="left: ${scenarioPos}%"></div>
+        `;
+      }
+
+      // Fallback: just baseline
+      return `<div class="range-marker" style="left: ${baselinePos}%"></div>`;
+    }
+
+    // Helper: get scenario midpoint value (works for both quantitative and binary)
+    function getScenarioMidpoint(scenario) {
+      // Quantitative questions use outcome_low/high
+      if (scenario.outcome_low != null && scenario.outcome_high != null) {
+        return (scenario.outcome_low + scenario.outcome_high) / 2;
+      }
+      // Binary questions use probability_low/high
+      if (scenario.probability_low != null && scenario.probability_high != null) {
+        return (scenario.probability_low + scenario.probability_high) / 2;
+      }
+      return null;
+    }
+
+    // Helper: compute expected value across scenarios (works for both question types)
+    function computeExpectedValue(scenarios, probabilities) {
+      let total = 0;
+      scenarios.forEach((scenario, i) => {
+        const midpoint = getScenarioMidpoint(scenario);
+        if (midpoint != null) {
+          total += midpoint * probabilities[i];
+        }
+      });
+      return total;
+    }
+
+    // Helper: get scenario bar positions for comparison display
+    function getScenarioBarPositions(scenario, baseline, valueRange) {
+      const [minVal, maxVal] = valueRange;
+      const range = maxVal - minVal;
+      const midpoint = getScenarioMidpoint(scenario);
+      if (midpoint == null) return null;
+
+      // Get low/high bounds based on question type
+      const isQuantitative = scenario.outcome_low != null;
+      const low = isQuantitative ? scenario.outcome_low : scenario.probability_low;
+      const high = isQuantitative ? scenario.outcome_high : scenario.probability_high;
+
+      // Convert to percentage positions
+      const lowPos = ((low - minVal) / range) * 100;
+      const highPos = ((high - minVal) / range) * 100;
+      const midPos = ((midpoint - minVal) / range) * 100;
+      const isUp = midpoint >= baseline;
+
+      return {
+        lowPos,
+        highPos,
+        midPos,
+        midpoint,
+        isUp,
+        colorClass: isUp ? 'up' : 'down',
+        valueColorClass: isUp ? 'positive' : 'negative',
+      };
+    }
+
     function renderSignals(state) {
       const container = document.getElementById('signals-container');
       container.innerHTML = '';
@@ -860,10 +978,8 @@
       const scenarios = state.data.scenarios || [];
       const { signalId, scenarioName } = state.selection;
 
-      // Compute probabilities: original (no resolutions) and current (with resolutions)
-      const originalProbs = computeOriginalProbabilities(scenarios, signals);
+      // Compute scenario probabilities
       const probabilities = computeScenarioProbabilities(scenarios, signals, state.resolutions);
-      const hasResolutions = Object.keys(state.resolutions).length > 0;
 
       // Find which scenarios contain the selected signal
       let scenariosWithSignal = new Set();
@@ -893,28 +1009,8 @@
         card.dataset.scenarioName = scenario.name;
 
         const prob = probabilities[idx];
-        const origProb = originalProbs[idx];
-        const probDelta = prob - origProb;
-        const hasDelta = hasResolutions && Math.abs(probDelta) > 0.005;
 
-        // Build probability display
-        let probDisplay;
-        if (hasDelta) {
-          const deltaClass = probDelta > 0 ? 'up' : 'down';
-          const deltaSign = probDelta > 0 ? '+' : '';
-          probDisplay = `
-            <div class="prob-shift">
-              <span class="prob-original">${(origProb * 100).toFixed(0)}%</span>
-              <span class="prob-arrow">→</span>
-              <span class="prob-current ${deltaClass}">${(prob * 100).toFixed(0)}%</span>
-              <span class="prob-delta ${deltaClass}">${deltaSign}${(probDelta * 100).toFixed(0)}pp</span>
-            </div>
-          `;
-        } else {
-          probDisplay = `<div style="font-size: 0.65rem; color: var(--text-muted); margin-bottom: 0.25rem;">${(prob * 100).toFixed(0)}% probability</div>`;
-        }
-
-        // Show scenario probability in header (replaces outcome/probability range which is shown in outcome bar overlay)
+        // Show scenario probability in header
         const scenarioProbPercent = (prob * 100).toFixed(0);
 
         card.innerHTML = `
@@ -954,27 +1050,13 @@
       const probabilities = computeScenarioProbabilities(scenarios, signals, state.resolutions);
       const originalProbs = computeOriginalProbabilities(scenarios, signals);
 
-      // Check question type
+      // Check question type based on first scenario
       const isQuantitative = scenarios.some(s => s.outcome_low != null && s.outcome_high != null);
       const isBinary = scenarios.some(s => s.probability_low != null && s.probability_high != null);
 
-      let expectedValue = 0;
-      let originalExpectedValue = 0;
-      if (isQuantitative && scenarios.length > 0) {
-        // E[X] for continuous questions
-        scenarios.forEach((s, i) => {
-          const midpoint = ((s.outcome_low || 0) + (s.outcome_high || 0)) / 2;
-          expectedValue += midpoint * probabilities[i];
-          originalExpectedValue += midpoint * originalProbs[i];
-        });
-      } else if (isBinary && scenarios.length > 0) {
-        // P(YES) for binary questions
-        scenarios.forEach((s, i) => {
-          const midpoint = ((s.probability_low || 0) + (s.probability_high || 0)) / 2;
-          expectedValue += midpoint * probabilities[i];
-          originalExpectedValue += midpoint * originalProbs[i];
-        });
-      }
+      // Use unified helper for expected value computation
+      const expectedValue = computeExpectedValue(scenarios, probabilities);
+      const originalExpectedValue = computeExpectedValue(scenarios, originalProbs);
       const hasResolutions = Object.keys(state.resolutions).length > 0;
 
       const [minVal, maxVal] = question.value_range || [0, 100];
@@ -996,13 +1078,12 @@
         const delta = expectedValue - originalExpectedValue;
         if (Math.abs(delta) > 0.1) {
           valueColorClass = delta > 0 ? 'positive' : 'negative';
-          const deltaSign = delta > 0 ? '+' : '';
-          valueDeltaHtml = `<div class="prob-shift" style="justify-content: center;">
-            <span class="prob-original">${formatValue(originalExpectedValue, question.unit)}</span>
-            <span class="prob-arrow">→</span>
-            <span class="prob-current ${delta > 0 ? 'up' : 'down'}">${formatValue(expectedValue, question.unit)}</span>
-            <span class="prob-delta ${delta > 0 ? 'up' : 'down'}">${deltaSign}${formatValue(Math.abs(delta), question.unit)}</span>
-          </div>`;
+          valueDeltaHtml = renderProbabilityShift(
+            originalExpectedValue,
+            expectedValue,
+            (v) => formatValue(v, question.unit),
+            { centered: true, deltaUnit: 'value' }
+          );
           valueLabel = 'Updated expected value';
         }
       }
@@ -1010,27 +1091,23 @@
       if (scenarioName) {
         const scenario = scenarios.find(s => s.name === scenarioName);
         if (scenario) {
-          const scenarioMid = (scenario.outcome_low + scenario.outcome_high) / 2;
-          const scenarioLowPos = ((scenario.outcome_low - minVal) / range) * 100;
-          const scenarioHighPos = ((scenario.outcome_high - minVal) / range) * 100;
-          const scenarioMidPos = ((scenarioMid - minVal) / range) * 100;
-          const isUp = scenarioMid >= expectedValue;
-          const colorClass = isUp ? 'up' : 'down';
+          const positions = getScenarioBarPositions(scenario, expectedValue, [minVal, maxVal]);
+          if (positions) {
+            displayValue = positions.midpoint;
+            valueLabel = `If "${scenario.name}"`;
+            valueColorClass = positions.valueColorClass;
 
-          displayValue = scenarioMid;
-          valueLabel = `If "${scenario.name}"`;
-          valueColorClass = isUp ? 'positive' : 'negative';
-
-          // Scenario range highlight + both markers
-          rangeBarContent = `
-            <div class="scenario-range-highlight ${colorClass}" style="left: ${scenarioLowPos}%; width: ${scenarioHighPos - scenarioLowPos}%"></div>
-            <div class="range-marker baseline" style="left: ${baselinePos}%" title="E[X]: ${formatValue(expectedValue, question.unit)}"></div>
-            <div class="range-marker scenario ${colorClass}" style="left: ${scenarioMidPos}%"></div>
-          `;
+            rangeBarContent = renderRangeBar(baselinePos, {
+              baselineTitle: `E[X]: ${formatValue(expectedValue, question.unit)}`,
+              scenarioPos: positions.midPos,
+              scenarioLowPos: positions.lowPos,
+              scenarioHighPos: positions.highPos,
+              colorClass: positions.colorClass,
+            });
+          }
         }
       } else {
-        // Just the baseline marker
-        rangeBarContent = `<div class="range-marker" style="left: ${baselinePos}%"></div>`;
+        rangeBarContent = renderRangeBar(baselinePos);
       }
 
       // Different display for quantitative vs binary questions
@@ -1051,7 +1128,6 @@
       } else if (isBinary) {
         // Binary question - show P(YES) with probability bar
         const pYes = expectedValue;
-        const pYesOriginal = originalExpectedValue;
         const pYesPercent = (pYes * 100).toFixed(0);
         const baselinePos = pYes * 100;
 
@@ -1100,44 +1176,40 @@
               </div>
             `;
 
-            // Spread highlight + both markers + baseline
-            // Gradient goes from red (NO position) to green (YES position)
+            // Render range bar with signal cruxiness
             const gradientDir = yesIsHigher ? 'to right' : 'to left';
-
-            binaryRangeBarContent = `
-              <div class="scenario-range-highlight" style="left: ${spreadLeft}%; width: ${spread}%; background: linear-gradient(${gradientDir}, var(--down-color), var(--up-color)); opacity: 0.25;"></div>
-              <div class="range-marker baseline" style="left: ${baselinePos}%" title="P(YES): ${pYesPercent}%"></div>
-              <div class="range-marker scenario down" style="left: ${noPos}%" title="If NO: ${noPercent}%"></div>
-              <div class="range-marker scenario up" style="left: ${yesPos}%" title="If YES: ${yesPercent}%"></div>
-            `;
+            binaryRangeBarContent = renderRangeBar(baselinePos, {
+              baselineTitle: `P(YES): ${pYesPercent}%`,
+              yesPos,
+              noPos,
+              yesTitle: `If YES: ${yesPercent}%`,
+              noTitle: `If NO: ${noPercent}%`,
+              gradientDir,
+            });
           } else {
-            binaryRangeBarContent = `<div class="range-marker" style="left: ${baselinePos}%"></div>`;
+            binaryRangeBarContent = renderRangeBar(baselinePos);
           }
         // Handle scenario selection - show comparison like continuous questions
         } else if (scenarioName) {
           const scenario = scenarios.find(s => s.name === scenarioName);
           if (scenario) {
-            const scenarioPYes = (scenario.probability_low + scenario.probability_high) / 2;
-            const scenarioLowPos = scenario.probability_low * 100;
-            const scenarioHighPos = scenario.probability_high * 100;
-            const scenarioMidPos = scenarioPYes * 100;
-            const isUp = scenarioPYes >= pYes;
-            const colorClass = isUp ? 'up' : 'down';
+            const positions = getScenarioBarPositions(scenario, pYes, [0, 1]);
+            if (positions) {
+              displayProbability = positions.midpoint;
+              binaryValueLabel = `P(YES) if "${scenario.name}"`;
+              binaryColorClass = positions.valueColorClass;
 
-            displayProbability = scenarioPYes;
-            binaryValueLabel = `P(YES) if "${scenario.name}"`;
-            binaryColorClass = isUp ? 'positive' : 'negative';
-
-            // Scenario range highlight + both markers
-            binaryRangeBarContent = `
-              <div class="scenario-range-highlight ${colorClass}" style="left: ${scenarioLowPos}%; width: ${scenarioHighPos - scenarioLowPos}%"></div>
-              <div class="range-marker baseline" style="left: ${baselinePos}%" title="P(YES): ${pYesPercent}%"></div>
-              <div class="range-marker scenario ${colorClass}" style="left: ${scenarioMidPos}%"></div>
-            `;
+              binaryRangeBarContent = renderRangeBar(baselinePos, {
+                baselineTitle: `P(YES): ${pYesPercent}%`,
+                scenarioPos: positions.midPos,
+                scenarioLowPos: positions.lowPos,
+                scenarioHighPos: positions.highPos,
+                colorClass: positions.colorClass,
+              });
+            }
           }
         } else {
-          // No selection - just show baseline marker
-          binaryRangeBarContent = `<div class="range-marker" style="left: ${baselinePos}%"></div>`;
+          binaryRangeBarContent = renderRangeBar(baselinePos);
         }
 
         // Build the main value display - either probability or signal context
