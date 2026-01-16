@@ -113,10 +113,11 @@
       stroke-width: 2;
       transition: stroke 0.2s, stroke-width 0.2s, opacity 0.2s;
     }
-    .flow-path.highlighted { opacity: 1; }
+    .flow-path.highlighted {
+      opacity: 1;
+      stroke: #1a1a1a;
+    }
     .flow-path.dimmed { opacity: 0.1; }
-    .flow-path.up { stroke: var(--up-color); }
-    .flow-path.down { stroke: var(--down-color); }
 
     .column {
       display: flex;
@@ -1199,9 +1200,6 @@
           if (signalId || scenarioName) {
             if (isRelevant) {
               path.classList.add('highlighted');
-              // Neutral color - signal could push either direction depending on resolution
-              path.setAttribute('stroke', 'var(--text-primary)');
-              path.setAttribute('stroke-width', 2);
             } else {
               path.classList.add('dimmed');
             }
