@@ -133,6 +133,73 @@ def deduplicate_market_signals(
 DEFAULT_KNOWLEDGE_CUTOFF = "2025-10-01"
 
 
+def parse_date(d: str | None):
+    """Parse ISO date string to date object, returning None on failure."""
+    from datetime import date as date_type
+
+    if d is None:
+        return None
+    try:
+        return date_type.fromisoformat(str(d)[:10])
+    except ValueError:
+        return None
+
+
+def enrich_with_resolution_data(
+    signals: list[dict],
+    db_path,
+    knowledge_cutoff: str = DEFAULT_KNOWLEDGE_CUTOFF,
+) -> list[dict]:
+    """
+    Add resolution metadata and URL to signals from database.
+
+    Enriches each signal dict with:
+    - resolution_date: ISO date string or None
+    - resolved: bool
+    - resolution_value: float or None
+    - base_rate: float or None
+    - url: str or None
+    - signal_category: one of "exclude", "gold", "near_term", "future", "unknown"
+
+    Args:
+        signals: List of dicts with "id" and "source" keys
+        db_path: Path to forecastbench.db
+        knowledge_cutoff: Date string for categorization
+
+    Returns:
+        The same list with added fields (mutates in place and returns)
+    """
+    import sqlite3
+
+    conn = sqlite3.connect(db_path)
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+
+    for s in signals:
+        cursor.execute(
+            "SELECT resolution_date, resolved, resolution_value, base_rate, url FROM questions WHERE id = ? AND source = ?",
+            (s["id"], s["source"])
+        )
+        row = cursor.fetchone()
+        if row:
+            res_date = row["resolution_date"]
+            resolved = bool(row["resolved"])
+            s["resolution_date"] = str(res_date) if res_date else None
+            s["resolved"] = resolved
+            s["resolution_value"] = row["resolution_value"]
+            s["base_rate"] = row["base_rate"]
+            s["url"] = row["url"]
+            s["signal_category"] = categorize_signal(s["resolution_date"], resolved, knowledge_cutoff)
+        else:
+            s["resolution_date"] = None
+            s["resolved"] = False
+            s["url"] = None
+            s["signal_category"] = "unknown"
+
+    conn.close()
+    return signals
+
+
 def resolution_proximity_score(
     resolution_date: str | None,
     cutoff: str = DEFAULT_KNOWLEDGE_CUTOFF,

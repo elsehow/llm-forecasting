@@ -505,6 +505,7 @@
   <div class="header">
     <div class="header-left">
       <h1>Scenario Explorer</h1>
+      <span id="set-name" class="subtitle"></span>
       <select id="file-selector" class="file-selector">
         <option value="">Select scenario set...</option>
       </select>
@@ -623,7 +624,11 @@
         getScenarioSignalIndices(scenario, signals).forEach(idx => allMappedIndices.add(idx));
       });
 
-      signals.forEach((signal, signalIndex) => {
+      // Sort signals by VOI (descending), preserving original indices for mapping
+      const signalsWithIndex = signals.map((signal, idx) => ({ signal, originalIndex: idx }));
+      signalsWithIndex.sort((a, b) => (b.signal.voi || 0) - (a.signal.voi || 0));
+
+      signalsWithIndex.forEach(({ signal, originalIndex: signalIndex }) => {
         const isObserved = OBSERVED_SOURCES.includes(signal.source);
         const isSelected = signalId === signal.id;
         const isMapped = scenarioName && mappedSignalIndices.has(signalIndex);

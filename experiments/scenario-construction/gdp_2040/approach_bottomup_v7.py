@@ -20,10 +20,9 @@ Usage:
 import argparse
 import json
 import asyncio
-import sqlite3
 import sys
 from pathlib import Path
-from datetime import datetime, date
+from datetime import datetime
 from uuid import uuid4
 
 from dotenv import load_dotenv
@@ -36,8 +35,9 @@ from shared.signals import (
     load_market_signals_semantic,
     deduplicate_market_signals,
     rank_signals_by_voi,
+    enrich_with_resolution_data,
+    parse_date,
     DEFAULT_KNOWLEDGE_CUTOFF,
-    categorize_signal,
 )
 from shared.scenarios import generate_mece_scenarios
 from shared.config import get_target, TARGETS
@@ -105,30 +105,7 @@ async def main():
     print(f"  Retrieved {len(raw_signals)} semantically relevant signals")
 
     # Enrich with resolution data and URL
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    cursor = conn.cursor()
-    for s in raw_signals:
-        cursor.execute(
-            "SELECT resolution_date, resolved, resolution_value, base_rate, url FROM questions WHERE id = ? AND source = ?",
-            (s["id"], s["source"])
-        )
-        row = cursor.fetchone()
-        if row:
-            res_date = row["resolution_date"]
-            resolved = bool(row["resolved"])
-            s["resolution_date"] = str(res_date) if res_date else None
-            s["resolved"] = resolved
-            s["resolution_value"] = row["resolution_value"]
-            s["base_rate"] = row["base_rate"]
-            s["url"] = row["url"]
-            s["signal_category"] = categorize_signal(s["resolution_date"], resolved, KNOWLEDGE_CUTOFF)
-        else:
-            s["resolution_date"] = None
-            s["resolved"] = False
-            s["url"] = None
-            s["signal_category"] = "unknown"
-    conn.close()
+    enrich_with_resolution_data(raw_signals, DB_PATH, KNOWLEDGE_CUTOFF)
 
     # Filter out pre-cutoff resolved signals
     before_filter = len(raw_signals)
@@ -202,14 +179,6 @@ async def main():
         source_counts[s["source"]] = source_counts.get(s["source"], 0) + 1
 
     # Build Signal instances
-    def parse_date(d: str | None) -> date | None:
-        if d is None:
-            return None
-        try:
-            return date.fromisoformat(str(d)[:10])
-        except ValueError:
-            return None
-
     signals_v7 = [
         Signal(
             id=s["id"],
