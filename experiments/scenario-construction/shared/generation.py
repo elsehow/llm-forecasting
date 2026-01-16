@@ -3,12 +3,13 @@
 Used by top-down and dual approaches to generate signals from uncertainties.
 """
 
+from datetime import datetime, timedelta
 from uuid import uuid4
 
 from pydantic import BaseModel, Field
 import litellm
 
-from .signals import RESOLVABILITY_REQUIREMENTS
+from .signals import RESOLVABILITY_REQUIREMENTS, DEFAULT_MAX_HORIZON_DAYS
 
 # Model for signal generation
 DEFAULT_MODEL = "claude-sonnet-4-20250514"
@@ -44,6 +45,9 @@ TARGET QUESTION: {question}
 UNCERTAINTY AXIS: {uncertainty_name}
 DESCRIPTION: {uncertainty_description}
 
+TODAY'S DATE: {today}
+RESOLUTION WINDOW: Signals must resolve between {min_date} and {max_date}
+
 Generate {n} signals that would most inform this uncertainty.
 
 {resolvability}
@@ -51,13 +55,13 @@ Generate {n} signals that would most inform this uncertainty.
 For EACH signal, provide:
 1. **text**: The signal as a resolvable prediction market question
 2. **background**: Why this signal is cruxy for this uncertainty (1-2 sentences)
-3. **resolution_date**: ISO date when this should resolve (e.g., "2028-12-31")
+3. **resolution_date**: ISO date when this should resolve (MUST be between {min_date} and {max_date})
 4. **resolution_source**: Where to check if this resolved (e.g., "BLS productivity data", "UN population report", "SEC 10-K filings")
 5. **base_rate**: Your estimate of P(signal=yes), or null if highly uncertain
 
 Focus on signals that:
 1. Directly relate to this uncertainty axis
-2. Resolve in 2-5 years (trackable timeframe)
+2. Resolve within the specified window ({min_date} to {max_date})
 3. Would significantly update probability if observed
 4. Cover different aspects of this uncertainty
 """
@@ -68,6 +72,7 @@ async def generate_signals_for_uncertainty(
     uncertainty_name: str,
     uncertainty_description: str,
     n: int = 10,
+    max_horizon_days: int = DEFAULT_MAX_HORIZON_DAYS,
     model: str = DEFAULT_MODEL,
 ) -> list[dict]:
     """
@@ -78,6 +83,7 @@ async def generate_signals_for_uncertainty(
         uncertainty_name: Name of the uncertainty axis
         uncertainty_description: Description of the uncertainty
         n: Number of signals to generate
+        max_horizon_days: Signals must resolve within this many days from today
         model: LLM model to use
 
     Returns:
@@ -91,6 +97,11 @@ async def generate_signals_for_uncertainty(
         - source: "llm"
         - uncertainty_source: Which uncertainty axis
     """
+    # Compute date window
+    today = datetime.now().date()
+    min_date = today + timedelta(days=1)  # Tomorrow (not already resolved)
+    max_date = today + timedelta(days=max_horizon_days)
+
     response = await litellm.acompletion(
         model=model,
         messages=[
@@ -101,6 +112,9 @@ async def generate_signals_for_uncertainty(
                     uncertainty_name=uncertainty_name,
                     uncertainty_description=uncertainty_description,
                     n=n,
+                    today=today.isoformat(),
+                    min_date=min_date.isoformat(),
+                    max_date=max_date.isoformat(),
                     resolvability=RESOLVABILITY_REQUIREMENTS,
                 ),
             }

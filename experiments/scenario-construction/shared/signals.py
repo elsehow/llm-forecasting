@@ -200,6 +200,39 @@ def enrich_with_resolution_data(
     return signals
 
 
+def filter_by_resolution_date(
+    signals: list[dict],
+    max_horizon_days: int = DEFAULT_MAX_HORIZON_DAYS,
+) -> list[dict]:
+    """
+    Filter signals by resolution date, keeping only actionable ones.
+
+    Works on any signals (market or LLM-generated) as long as they have:
+    - resolution_date: ISO date string or None
+    - resolved: bool (defaults to False if not present)
+
+    Sets signal_category on each signal and returns only non-excluded signals.
+
+    Args:
+        signals: List of signal dicts
+        max_horizon_days: Only keep signals resolving within this many days
+
+    Returns:
+        Filtered list (signals with category != "exclude")
+    """
+    result = []
+    for s in signals:
+        category = categorize_signal(
+            resolution_date=s.get("resolution_date"),
+            resolved=s.get("resolved", False),
+            max_horizon_days=max_horizon_days,
+        )
+        s["signal_category"] = category
+        if category != "exclude":
+            result.append(s)
+    return result
+
+
 def categorize_signal(
     resolution_date: str | None,
     resolved: bool,

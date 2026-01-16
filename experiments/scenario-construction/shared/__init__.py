@@ -25,4 +25,5 @@ from .signals import (
     # Resolution date utilities
     DEFAULT_MAX_HORIZON_DAYS,
     categorize_signal,
+    filter_by_resolution_date,
 )

@@ -38,6 +38,7 @@ from shared.signals import (
     deduplicate_signals,
     rank_signals_by_voi,
     enrich_with_resolution_data,
+    filter_by_resolution_date,
     build_signal_models,
 )
 from shared.generation import generate_signals_for_uncertainty
@@ -191,26 +192,16 @@ async def main():
             uncertainty_name=u.name,
             uncertainty_description=u.description,
             n=10,
+            max_horizon_days=cfg.max_horizon_days,
         )
         print(f"    Generated {len(signals)} signals")
         topdown_signals.extend(signals)
 
     print(f"\n  Total top-down signals: {len(topdown_signals)}")
 
-    # Filter top-down signals by resolution date (same rules as market signals)
-    from shared.signals import categorize_signal
+    # Filter by resolution date (same function used for all signals)
     before_filter = len(topdown_signals)
-    filtered_topdown = []
-    for s in topdown_signals:
-        category = categorize_signal(
-            resolution_date=s.get("resolution_date"),
-            resolved=False,  # LLM signals are never pre-resolved
-            max_horizon_days=cfg.max_horizon_days,
-        )
-        if category != "exclude":
-            s["signal_category"] = category
-            filtered_topdown.append(s)
-    topdown_signals = filtered_topdown
+    topdown_signals = filter_by_resolution_date(topdown_signals, cfg.max_horizon_days)
     print(f"  After date filtering: {len(topdown_signals)} (excluded {before_filter - len(topdown_signals)} outside horizon)")
 
     # ============================================================
@@ -234,13 +225,13 @@ async def main():
     )
     print(f"  Retrieved {len(market_signals)} semantically relevant signals")
 
-    # Enrich with resolution data
+    # Enrich with resolution data from DB
     enrich_with_resolution_data(market_signals, cfg.db_path, cfg.max_horizon_days)
 
-    # Filter out pre-cutoff resolved signals
+    # Filter by resolution date (same function used for all signals)
     before_filter = len(market_signals)
-    market_signals = [s for s in market_signals if s["signal_category"] != "exclude"]
-    print(f"  After resolution filtering: {len(market_signals)} (excluded {before_filter - len(market_signals)} pre-cutoff)")
+    market_signals = filter_by_resolution_date(market_signals, cfg.max_horizon_days)
+    print(f"  After date filtering: {len(market_signals)} (excluded {before_filter - len(market_signals)} outside horizon)")
 
     # ============================================================
     # PHASE 3: Match and Merge
