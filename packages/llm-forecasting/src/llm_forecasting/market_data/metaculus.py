@@ -72,7 +72,7 @@ class MetaculusData(MarketDataProvider, HTTPClientMixin):
         for category in categories:
             params = {
                 "statuses": "open" if active_only else "open,resolved",
-                "with_cp": "false",
+                "with_cp": "true",
                 "forecast_type": "binary",
                 "order_by": "-hotness",
                 "limit": limit or 100,
@@ -111,7 +111,7 @@ class MetaculusData(MarketDataProvider, HTTPClientMixin):
         """Fetch a single question by ID."""
         client = await self._get_client()
         try:
-            response = await client.get(f"{BASE_URL}/posts/{market_id}")
+            response = await client.get(f"{BASE_URL}/posts/{market_id}/")
             response.raise_for_status()
             data = response.json()
             return self._parse_market(data)
@@ -172,13 +172,31 @@ class MetaculusData(MarketDataProvider, HTTPClientMixin):
         )
 
     def _extract_community_prediction(self, data: dict) -> float | None:
-        """Extract community prediction from question data."""
+        """Extract community prediction from question data.
+
+        The API returns aggregations in question.aggregations with recency_weighted
+        and unweighted methods. Each has a 'latest' object with 'centers' array.
+        For binary questions, centers[0] is the median probability.
+        """
         try:
+            question = data.get("question", {})
+            aggregations = question.get("aggregations", {})
+
+            # Try recency_weighted first, then unweighted
+            for method in ["recency_weighted", "unweighted"]:
+                agg = aggregations.get(method, {})
+                latest = agg.get("latest")
+                if latest and isinstance(latest, dict):
+                    centers = latest.get("centers")
+                    if centers and isinstance(centers, list) and len(centers) > 0:
+                        return centers[0]  # Median for binary questions
+
+            # Fallback to old format for backwards compatibility
             cp = data.get("community_prediction", {})
             if isinstance(cp, dict):
                 full = cp.get("full", {})
                 if isinstance(full, dict):
-                    return full.get("q2")  # Median prediction
-        except (KeyError, TypeError):
+                    return full.get("q2")
+        except (KeyError, TypeError, IndexError):
             pass
         return None
