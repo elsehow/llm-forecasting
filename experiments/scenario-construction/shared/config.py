@@ -153,7 +153,7 @@ DEMOCRAT_WHITEHOUSE_2028 = TargetConfig(
         base_rate=None,
         unit=None,
     ),
-    context="",
+    context="Donald Trump won the 2024 presidential election and began his second term in January 2025. He is constitutionally barred from seeking a third term in 2028, making the 2028 election an open race on the Republican side. Current polling (January 2026): Trump approval 41.9%, disapproval 55% (Silver Bulletin). Generic congressional ballot: Democrats 42.6%, Republicans 38.8% (Decision Desk HQ) - a reversal from the 2024 election environment. Democratic field: No clear frontrunner. Potential candidates include governors Gavin Newsom (CA), Gretchen Whitmer (MI), Josh Shapiro (PA), and JB Pritzker (IL). Vice President Kamala Harris's 2024 loss may complicate another run. Republican field: Wide open with no obvious Trump successor. JD Vance (current VP) is positioned but untested. Other potential candidates include Ron DeSantis, Nikki Haley, and figures from the 2024 primary. Key factors: Trump administration performance over next 2 years, economic conditions, tariff/trade policy outcomes, Democratic party rebuilding post-2024.",
     cruxiness_normalizer=0.3,  # 30pp probability spread = 1.0 cruxiness
 )
 

@@ -354,11 +354,11 @@ async def main():
     if cruxy_signals:
         print(f"\nTop {len(cruxy_signals)} signals by VOI (showing P(target|signal resolution)):\n")
         for i, s in enumerate(cruxy_signals, 1):
-            p_yes = s.get("p_target_given_yes", 0.5)
-            p_no = s.get("p_target_given_no", 0.5)
-            spread = s.get("cruxiness_spread", 0)
-            base_rate = s.get("base_rate", 0.5)
-            rho = s.get("rho", 0)
+            p_yes = s.get("p_target_given_yes") or 0.5
+            p_no = s.get("p_target_given_no") or 0.5
+            spread = s.get("cruxiness_spread") or 0
+            base_rate = s.get("base_rate") or 0.5
+            rho = s.get("rho") or 0
 
             print(f"  {i}. {s['text'][:70]}...")
             print(f"     P(signal=YES): {base_rate:.0%} | ρ={rho:+.2f}")
