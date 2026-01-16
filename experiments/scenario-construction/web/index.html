@@ -606,6 +606,14 @@
       border: 1px solid var(--border);
       margin: 0 0.25rem;
     }
+    .cruxiness-spread-fill {
+      position: absolute;
+      top: 2px;
+      bottom: 2px;
+      background: linear-gradient(to right, var(--down-color), var(--up-color));
+      opacity: 0.2;
+      border-radius: 2px;
+    }
     .cruxiness-marker {
       position: absolute;
       top: 1px;
@@ -844,9 +852,14 @@
           const leftClass = yesIncreasesProb ? 'no' : 'yes';
           const rightClass = yesIncreasesProb ? 'yes' : 'no';
 
+          // Calculate spread fill position
+          const fillLeft = Math.min(noPos, yesPos);
+          const fillWidth = Math.abs(yesPos - noPos);
+
           cruxinessBarHtml = `
             <div class="cruxiness-bar">
               <div class="cruxiness-track">
+                <div class="cruxiness-spread-fill" style="left: ${fillLeft}%; width: ${fillWidth}%;"></div>
                 <div class="cruxiness-marker no" style="left: ${noPos}%;"></div>
                 <div class="cruxiness-marker yes" style="left: ${yesPos}%;"></div>
               </div>
