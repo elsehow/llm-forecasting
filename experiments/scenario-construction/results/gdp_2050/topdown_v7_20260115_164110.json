@@ -1,0 +1,797 @@
+{
+  "id": "topdown_gdp_2050_291094ce",
+  "name": "gdp_2050 (topdown)",
+  "target": "gdp_2050",
+  "approach": "topdown_v7",
+  "question": {
+    "id": "gdp_2050",
+    "source": "scenario_construction",
+    "text": "What will US real GDP be in 2050 (in 2024 dollars)?",
+    "question_type": "continuous",
+    "unit": "usd_trillions",
+    "base_rate": 29.0,
+    "value_range": [
+      25.0,
+      150.0
+    ]
+  },
+  "config": {
+    "context": "Current US GDP: ~$29 trillion (2024). 26-year horizon allows for transformative changes. Key uncertainties: AI/automation impact, transformative tech (quantum, fusion), geopolitical realignment, climate adaptation costs, demographic shifts, institutional stability.",
+    "cruxiness_normalizer": 40.0,
+    "voi_floor": 0.1
+  },
+  "current_date": "2026-01-15",
+  "signals": [
+    {
+      "id": "llm_5df09ad6",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 31, 2028, climate-related natural disasters cause >$150 billion in US economic losses in a single year, per NOAA National Centers for Environmental Information",
+      "background": "High annual disaster costs indicate the scale of climate disruption requiring ongoing adaptation investment and emergency response resources.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296730Z",
+      "resolution_date": "2029-01-31",
+      "resolved": false,
+      "base_rate": 0.5,
+      "voi": 0.25,
+      "rho": -0.5,
+      "rho_reasoning": "While the two questions are related in that they both concern the US economy, the outcomes are likely to be negatively correlated. A higher real GDP in 2050 (Question A) would likely indicate a more robust and resilient economy, which would make it less likely for climate-related natural disasters to cause over $150 billion in economic losses in a single year by 2028 (Question B). Conversely, lower economic growth and a weaker economy (as indicated by lower real GDP) could make the economy more vulnerable to large climate-related losses. Therefore, I estimate a moderately negative correlation coefficient of -0.5 between these two questions.",
+      "uncertainty_source": "Climate Adaptation Costs"
+    },
+    {
+      "id": "llm_a21f7ba2",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Before January 1, 2029, US homeowner insurance premiums increase by >50% in at least 5 coastal states due to climate risk, per National Association of Insurance Commissioners data",
+      "background": "Dramatic insurance cost increases signal massive adaptation costs being passed to consumers and reduced disposable income available for productive economic activity.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296752Z",
+      "resolution_date": "2029-01-31",
+      "resolved": false,
+      "base_rate": 0.6,
+      "voi": 0.24494897427831785,
+      "rho": 0.5,
+      "rho_reasoning": "The two prediction market questions are related, as they both deal with the economic and environmental impacts of climate change. A higher GDP in 2050 (Question A) could make it less likely that coastal states will see a large increase in homeowner insurance premiums due to climate risk (Question B), as a stronger economy may allow for better climate adaptation and mitigation measures. However, the correlation is not perfect, as there are many other factors that could influence both GDP and insurance premiums. Therefore, I estimate the correlation coefficient (\u03c1) to be around 0.5, indicating a moderate positive correlation between the two questions.",
+      "uncertainty_source": "Climate Adaptation Costs"
+    },
+    {
+      "id": "llm_4e714ab0",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 31, 2027, at least 10 Fortune 500 companies report >$1 billion annually in climate adaptation costs in SEC 10-K filings",
+      "background": "Corporate adaptation spending reveals how climate costs are being internalized by major businesses, indicating broader economic impacts on productivity and profitability.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296758Z",
+      "resolution_date": "2028-03-31",
+      "resolved": false,
+      "base_rate": 0.35,
+      "voi": 0.23848480035423647,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related, as higher economic growth (higher US real GDP in 2050) would likely lead to increased climate adaptation costs for large companies. However, the relationship is not direct or perfect, as other factors like government policies and technological progress could also influence climate adaptation costs. Therefore, I estimate a moderately positive correlation coefficient of 0.5, as knowing the outcome of one question provides some but not complete information about the other.",
+      "uncertainty_source": "Climate Adaptation Costs"
+    },
+    {
+      "id": "llm_ecc399f3",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 2028, energy consumption per dollar of US GDP falls by >20% from 2024 levels, per Energy Information Administration data",
+      "background": "AI-optimized systems and processes could dramatically improve energy efficiency across the economy, creating a multiplier effect on productivity gains and economic output.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296761Z",
+      "resolution_date": "2028-12-31",
+      "resolved": false,
+      "base_rate": 0.3,
+      "voi": 0.22912878474779197,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related, as higher GDP (Question A) would generally lead to higher energy consumption and a lower likelihood of a 20% reduction in energy consumption per dollar of GDP (Question B). However, the relationship is not perfect, as improvements in energy efficiency could offset some of the impact of higher GDP on total energy consumption. Therefore, a moderately positive correlation (\u03c1 = 0.5) seems reasonable.",
+      "uncertainty_source": "AI Productivity Revolution"
+    },
+    {
+      "id": "llm_a53b2711",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 2028, total factor productivity in the US grows by >15% cumulatively from 2024 levels, as measured by the Congressional Budget Office",
+      "background": "Total factor productivity captures economy-wide efficiency gains beyond just labor and capital, making it the gold standard measure for detecting a true productivity revolution.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296763Z",
+      "resolution_date": "2028-12-31",
+      "resolved": false,
+      "base_rate": 0.2,
+      "voi": 0.19800000000000006,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related, as US real GDP growth and total factor productivity growth are closely linked. Higher GDP growth would likely be associated with higher productivity growth, and vice versa. However, they are not perfectly correlated, as other factors can influence each metric independently. Therefore, I estimate a moderately positive correlation coefficient of 0.5 between these two questions.",
+      "uncertainty_source": "AI Productivity Revolution"
+    },
+    {
+      "id": "llm_70136fdc",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 31, 2027, US crop insurance payouts exceed $25 billion in a single year due to climate-related losses, per USDA Risk Management Agency data",
+      "background": "Escalating agricultural insurance costs signal rising climate adaptation expenses that reduce agricultural productivity and increase food system costs.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296770Z",
+      "resolution_date": "2028-01-31",
+      "resolved": false,
+      "base_rate": 0.4,
+      "voi": 0.19595917942265428,
+      "rho": 0.4,
+      "rho_reasoning": "The two questions are related, as higher economic growth (as measured by real GDP in 2050) would likely lead to increased crop insurance payouts due to climate-related losses (by 2027). However, the relationship is not perfect, as there are many other factors that could influence crop insurance payouts besides just economic growth. Therefore, I estimate a moderately positive correlation coefficient of 0.4 between the two questions.",
+      "uncertainty_source": "Climate Adaptation Costs"
+    },
+    {
+      "id": "llm_4d84e42f",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 31, 2028, US transportation infrastructure climate adaptation spending exceeds $75 billion annually, per Department of Transportation budget allocations",
+      "background": "Transportation adaptation costs directly impact logistics efficiency and economic connectivity, representing major drags on productivity and trade flows.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296773Z",
+      "resolution_date": "2029-01-31",
+      "resolved": false,
+      "base_rate": 0.3,
+      "voi": 0.18330302779823354,
+      "rho": 0.4,
+      "rho_reasoning": "The two questions are related, as higher real GDP in 2050 could lead to increased spending on transportation infrastructure climate adaptation. However, the relationship is not direct, as other factors like government priorities and budget allocations could also influence the climate adaptation spending. Additionally, the time horizons of the two questions are different, with one looking at 2050 GDP and the other at 2028 spending, which could reduce the correlation. Therefore, I estimate a moderately positive correlation coefficient of 0.4 between these two prediction market questions.",
+      "uncertainty_source": "Climate Adaptation Costs"
+    },
+    {
+      "id": "llm_681cbd13",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 2027, US nonfarm business productivity growth averages >3% annually over any consecutive 3-year period since 2024, per BLS data",
+      "background": "Sustained high productivity growth would be the most direct early indicator of an AI-driven productivity revolution, comparable to historical productivity booms during major technological revolutions.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296778Z",
+      "resolution_date": "2027-12-31",
+      "resolved": false,
+      "base_rate": 0.25,
+      "voi": 0.17320508075688773,
+      "rho": 0.4,
+      "rho_reasoning": "The two questions are related, as US real GDP growth and US nonfarm business productivity growth are related economic indicators. However, they do not measure the exact same underlying phenomenon, and the outcomes of the two questions are not perfectly correlated. A higher real GDP in 2050 would make it more likely that US productivity growth averages over 3% in the 2024-2027 period, but this relationship is not deterministic. Therefore, the correlation coefficient is likely to be positive but less than 1.",
+      "uncertainty_source": "AI Productivity Revolution"
+    },
+    {
+      "id": "llm_d696048f",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Before January 1, 2029, China implements export controls on at least 3 critical mineral categories (lithium, cobalt, rare earths, graphite) lasting >6 months, per US Geological Survey reports",
+      "background": "Chinese control over critical minerals could weaponize supply chains for green technology and electronics, forcing costly diversification and potentially slowing the US energy transition and technology sectors crucial for long-term GDP growth.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296781Z",
+      "resolution_date": "2029-01-01",
+      "resolved": false,
+      "base_rate": 0.45,
+      "voi": 0.149248115565993,
+      "rho": -0.3,
+      "rho_reasoning": "The two questions are not directly related, as one is about the future trajectory of the US economy and the other is about China's implementation of export controls on critical minerals. While there could be some indirect connections (e.g., a weaker US economy may affect China's policies), these are not strong enough to suggest a strong positive correlation. However, the two events are also not completely independent, as China's export controls could have some impact on the US economy. Therefore, a moderate negative correlation is a reasonable estimate, as a positive outcome for one question (e.g., high US GDP, no Chinese export controls) may make a positive outcome for the other question less likely.",
+      "uncertainty_source": "Geopolitical Economic Order"
+    },
+    {
+      "id": "llm_6e04f850",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Before January 1, 2030, at least 5 major US coastal cities (population >500k) implement managed retreat programs costing >$10 billion each, per FEMA documentation",
+      "background": "Large-scale managed retreat programs represent massive adaptation costs that directly reduce productive economic activity and require enormous resource reallocation.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296783Z",
+      "resolution_date": "2030-01-01",
+      "resolved": false,
+      "base_rate": 0.15,
+      "voi": 0.14850000000000002,
+      "rho": -0.5,
+      "rho_reasoning": "The two questions are related to climate change and its economic impacts, but they measure different aspects. A higher GDP in 2050 (Question A) may make coastal cities less likely to implement expensive managed retreat programs (Question B), as they may have more resources to invest in other climate change adaptation measures. Conversely, the need for managed retreat programs (Question B) could reduce economic growth, thereby lowering GDP in 2050 (Question A). Therefore, I estimate a moderate negative correlation between the two questions, with a correlation coefficient of -0.5.",
+      "uncertainty_source": "Climate Adaptation Costs"
+    },
+    {
+      "id": "llm_473cdccc",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By June 30, 2029, US manufacturing output in electronics/semiconductors exceeds 2019 levels by >50%, per Federal Reserve industrial production data",
+      "background": "Successful reshoring of critical manufacturing would reduce supply chain vulnerabilities and create high-value domestic jobs, but the transition costs and efficiency losses from moving production from optimized Asian facilities could impact near-term growth.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296789Z",
+      "resolution_date": "2029-08-31",
+      "resolved": false,
+      "base_rate": 0.4,
+      "voi": 0.1469693845669907,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are related, as US real GDP and manufacturing output in electronics/semiconductors are likely correlated. A strong US economy and growth in 2050 would make it more likely that manufacturing output exceeds 2019 levels by 2029. However, the connection is not direct or perfect, as factors like trade, technology, and policy could also influence manufacturing output. So the correlation is positive but moderate.",
+      "uncertainty_source": "Geopolitical Economic Order"
+    },
+    {
+      "id": "llm_e146fc04",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 31, 2027, US-China bilateral trade volume falls below $400 billion annually, per US Trade Representative data",
+      "background": "A significant decline in US-China trade would indicate successful economic decoupling, forcing both economies to develop alternative supply chains and trading relationships, fundamentally reshaping global economic flows and reducing efficiency gains from specialization.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296792Z",
+      "resolution_date": "2028-01-31",
+      "resolved": false,
+      "base_rate": 0.35,
+      "voi": 0.14309088021254182,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are not directly related to each other. US real GDP in 2050 and US-China bilateral trade volume in 2027 are measuring different economic phenomena. However, there could be some indirect relationship between the two, as higher US GDP could be associated with higher trade volumes. Therefore, I estimate a moderate positive correlation coefficient of 0.3.",
+      "uncertainty_source": "Geopolitical Economic Order"
+    },
+    {
+      "id": "llm_fb15c408",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 2026, US business investment in AI and automation equipment exceeds $500 billion annually, per Bureau of Economic Analysis data",
+      "background": "Massive capital investment in AI infrastructure would signal business confidence in AI's productivity potential and provide the foundation for economy-wide transformation.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296794Z",
+      "resolution_date": "2026-12-31",
+      "resolved": false,
+      "base_rate": 0.3,
+      "voi": 0.13747727084867514,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are related, as stronger economic growth (higher real GDP) could lead to higher business investment in AI and automation equipment. However, the relationship is not direct or certain, as other factors like technological progress, policy, and economic conditions could also influence business investment. Therefore, there is a moderate positive correlation between the two questions.",
+      "uncertainty_source": "AI Productivity Revolution"
+    },
+    {
+      "id": "llm_187665e6",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 31, 2028, total US federal climate adaptation spending exceeds $200 billion annually, per Congressional Budget Office reports",
+      "background": "Federal adaptation spending serves as a direct measure of government-recognized climate costs and sets baseline for broader economic impacts on GDP growth.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296797Z",
+      "resolution_date": "2029-01-31",
+      "resolved": false,
+      "base_rate": 0.3,
+      "voi": 0.13747727084867514,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are related, as higher real GDP growth in the US could lead to higher federal spending on climate adaptation, as the government would have more resources to allocate towards that purpose. However, the relationship is not perfect, as there are many other factors that could influence climate adaptation spending, such as political priorities, international agreements, and the severity of climate impacts. Therefore, the correlation coefficient is positive but moderate, around 0.3.",
+      "uncertainty_source": "Climate Adaptation Costs"
+    },
+    {
+      "id": "llm_354423fc",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 2026, US manufacturing output per worker increases by >25% from 2024 levels, according to Federal Reserve industrial production data",
+      "background": "Manufacturing is particularly amenable to AI-driven automation, so exceptional gains here would signal AI's ability to drive productivity revolutions in physical production sectors.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296800Z",
+      "resolution_date": "2026-12-31",
+      "resolved": false,
+      "base_rate": 0.25,
+      "voi": 0.12990381056766576,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are related in that economic growth, as measured by real GDP, could influence manufacturing output per worker. However, the relationship is not direct or causal. Many other factors, such as technology, labor force, and productivity, can also impact manufacturing output per worker. So knowing the outcome of one question would provide some information about the other, but not a strong or deterministic relationship.",
+      "uncertainty_source": "AI Productivity Revolution"
+    },
+    {
+      "id": "llm_55356a0b",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Before January 1, 2029, US electric utilities spend >$300 billion annually on grid hardening and climate resilience, per Energy Information Administration reports",
+      "background": "Massive utility infrastructure adaptation costs directly impact energy prices and industrial competitiveness, creating drag on overall economic productivity.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296803Z",
+      "resolution_date": "2029-01-31",
+      "resolved": false,
+      "base_rate": 0.25,
+      "voi": 0.12990381056766576,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are somewhat related, as stronger economic growth (higher real GDP) could drive increased investment in grid hardening and climate resilience. However, the relationship is not direct - there are many other factors that influence utility spending decisions beyond just GDP. So I estimate a moderate positive correlation between the two, but not a strong one.",
+      "uncertainty_source": "Climate Adaptation Costs"
+    },
+    {
+      "id": "llm_e67e419b",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 31, 2027, at least 20 countries representing >40% of global GDP join a China-led trade bloc (excluding existing China FTAs), per World Trade Organization data",
+      "background": "Formation of a large China-centric economic bloc would create parallel global economic institutions, potentially isolating the US from major growth markets and forcing costly adaptation to competing standards and trade rules.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296809Z",
+      "resolution_date": "2028-03-31",
+      "resolved": false,
+      "base_rate": 0.2,
+      "voi": 0.12000000000000005,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are related, as the growth of the US economy (Question A) and the formation of a China-led trade bloc (Question B) could be influenced by similar underlying factors, such as geopolitical and economic trends. However, the correlation is not expected to be very strong, as the outcome of one question does not necessarily determine the outcome of the other. A positive correlation coefficient of 0.3 suggests that knowing the outcome of one question provides some information about the other, but there are many other factors that could also influence the outcomes.",
+      "uncertainty_source": "Geopolitical Economic Order"
+    },
+    {
+      "id": "llm_00fbad92",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Before January 1, 2030, US water infrastructure adaptation projects exceed $100 billion annually, per EPA State Revolving Fund and infrastructure tracking",
+      "background": "Water system adaptation represents a critical infrastructure cost that affects all economic sectors and indicates the scale of climate resilience investment needed.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296812Z",
+      "resolution_date": "2030-01-31",
+      "resolved": false,
+      "base_rate": 0.2,
+      "voi": 0.12000000000000005,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are related, as the overall economic performance of the US (as measured by real GDP) could impact the government's investment in water infrastructure adaptation projects. A stronger economy may make it more likely that the US exceeds $100 billion in annual water infrastructure spending by 2030. However, the relationship is not perfectly correlated, as there are many other factors that could influence water infrastructure investment beyond just GDP. Therefore, the correlation coefficient is estimated to be moderately positive at 0.3.",
+      "uncertainty_source": "Climate Adaptation Costs"
+    },
+    {
+      "id": "llm_a3f9d66c",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Before January 1, 2030, a military conflict between US/Taiwan and China lasts >30 days with confirmed naval/air engagements, per US Department of Defense statements",
+      "background": "A sustained Taiwan conflict would devastate global supply chains, particularly semiconductors, while forcing massive defense spending increases and potentially triggering a global recession that would severely impact US GDP growth through 2050.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296815Z",
+      "resolution_date": "2030-01-01",
+      "resolved": false,
+      "base_rate": 0.15,
+      "voi": 0.1071214264281428,
+      "rho": -0.3,
+      "rho_reasoning": "The two questions are not directly related, as one is about future GDP and the other is about a potential military conflict between the US/Taiwan and China. However, a military conflict could potentially have an impact on the US economy, making it more likely to see lower GDP growth in 2050. Therefore, there is a small negative correlation between the two questions, as a positive outcome for one (higher GDP or no military conflict) would make a negative outcome for the other more likely.",
+      "uncertainty_source": "Geopolitical Economic Order"
+    },
+    {
+      "id": "llm_ce4c6de1",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 2026, at least 25 Fortune 500 companies report >30% workforce productivity gains attributed to AI implementation in their annual SEC filings",
+      "background": "Widespread corporate reporting of substantial AI-driven productivity gains would signal that AI is delivering transformational rather than incremental improvements at scale.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296818Z",
+      "resolution_date": "2026-12-31",
+      "resolved": false,
+      "base_rate": 0.15,
+      "voi": 0.10712142642814274,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are related in that they both concern the adoption and impact of AI technology. If the US economy is stronger in 2050 (Question A), that may make it more likely that AI adoption and productivity gains are higher among Fortune 500 companies by 2026 (Question B). However, the relationship is not direct or deterministic, as there are many other factors that could influence AI adoption and economic performance. Therefore, I estimate a moderately positive correlation coefficient of 0.3 between the two questions.",
+      "uncertainty_source": "AI Productivity Revolution"
+    },
+    {
+      "id": "llm_3afea541",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 2028, the US experiences net job displacement of >10 million positions due to automation, as measured by the Bureau of Labor Statistics job displacement survey",
+      "background": "Large-scale job displacement would indicate AI/automation is powerful enough to fundamentally restructure the labor market, a prerequisite for revolutionary productivity gains.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296821Z",
+      "resolution_date": "2028-12-31",
+      "resolved": false,
+      "base_rate": 0.1,
+      "voi": 0.09900000000000003,
+      "rho": -0.5,
+      "rho_reasoning": "The two questions are related, as a higher US real GDP in 2050 would likely indicate a stronger economy and lower job displacement due to automation by 2028. Conversely, significant job displacement from automation could negatively impact economic growth and GDP. However, the relationship is not perfectly negative, as there are other factors that could affect GDP and job displacement independently. Therefore, a moderately negative correlation coefficient of -0.5 is a reasonable estimate.",
+      "uncertainty_source": "AI Productivity Revolution"
+    },
+    {
+      "id": "llm_d22c9222",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Before January 1, 2030, climate migration within the US displaces >2 million people requiring >$50 billion in federal relocation assistance, per Census Bureau and FEMA tracking",
+      "background": "Large-scale internal climate migration represents enormous adaptation costs and economic disruption, reducing productivity in affected regions while requiring massive resettlement investment.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296823Z",
+      "resolution_date": "2030-01-31",
+      "resolved": false,
+      "base_rate": 0.1,
+      "voi": 0.09899999999999998,
+      "rho": 0.6,
+      "rho_reasoning": "The two questions are related, as higher economic growth (measured by GDP) may make it easier for the government to provide relocation assistance for climate migration, making the occurrence of the climate migration event less likely. Conversely, lower economic growth could make the climate migration event more likely. Therefore, the correlation between the two questions is likely to be positive, but not perfect, as other factors besides GDP growth can also influence the likelihood of the climate migration event.",
+      "uncertainty_source": "Climate Adaptation Costs"
+    },
+    {
+      "id": "llm_9179ee06",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Before July 1, 2028, at least 5 US allies (Japan, South Korea, Australia, UK, Canada, Germany, France) implement semiconductor export controls to China matching >80% of US CHIPS Act restrictions, per government announcements",
+      "background": "Coordinated tech export controls would create a bifurcated global technology ecosystem, forcing parallel innovation tracks and reducing technology spillovers that have historically boosted productivity growth across economies.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296826Z",
+      "resolution_date": "2028-07-01",
+      "resolved": false,
+      "base_rate": 0.6,
+      "voi": 0.09797958971132711,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are not directly related. US real GDP in 2050 is primarily driven by long-term economic and demographic factors, while the semiconductor export controls by US allies are more influenced by geopolitical factors. While these factors may be somewhat correlated, knowing the GDP outcome does not strongly predict the likelihood of the semiconductor export controls, and vice versa. Therefore, the correlation coefficient is estimated to be moderately positive at 0.2.",
+      "uncertainty_source": "Geopolitical Economic Order"
+    },
+    {
+      "id": "llm_a0469d01",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 2027, AI systems achieve >90% accuracy on standardized professional certification exams (CPA, Bar, Medical Board) across all three domains simultaneously",
+      "background": "AI mastery of complex professional tasks would indicate the technology has reached a threshold where it can meaningfully substitute for high-skilled human labor across the economy.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296828Z",
+      "resolution_date": "2027-12-31",
+      "resolved": false,
+      "base_rate": 0.35,
+      "voi": 0.09539392014169457,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are not directly related. The first question is about the future level of US GDP, while the second is about the accuracy of AI systems on professional certification exams. While there may be some indirect relationship, such as improved AI capabilities potentially contributing to economic growth, the connection is not strong enough to expect a high correlation. A correlation coefficient of 0.2 suggests a modest positive relationship, but knowing the outcome of one question would not provide much information about the other.",
+      "uncertainty_source": "AI Productivity Revolution"
+    },
+    {
+      "id": "llm_40a97ff4",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Before December 31, 2028, China's GDP growth rate falls below 3% annually for two consecutive years, per IMF World Economic Outlook data",
+      "background": "Chinese economic stagnation would reduce a major source of global demand and innovation competition, potentially reducing competitive pressures that drive US productivity growth while also eliminating a large export market for US goods and services.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296835Z",
+      "resolution_date": "2029-04-30",
+      "resolved": false,
+      "base_rate": 0.35,
+      "voi": 0.09539392014169457,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are related, as US GDP growth and China's GDP growth are interconnected aspects of the global economy. However, the outcome of one question does not directly determine the outcome of the other, as there are many other factors that influence each variable. The correlation is likely to be positive but relatively weak, as higher US GDP growth could be associated with higher Chinese GDP growth, but not in a perfectly predictable way.",
+      "uncertainty_source": "Geopolitical Economic Order"
+    },
+    {
+      "id": "llm_ae5ebb90",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 31, 2027, foreign direct investment flows between US and China fall below $10 billion annually in both directions combined, per Bureau of Economic Analysis data",
+      "background": "Collapse in FDI flows would signal complete financial decoupling, eliminating technology transfer, management expertise sharing, and capital efficiency gains that cross-border investment typically provides to both economies.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296838Z",
+      "resolution_date": "2028-06-30",
+      "resolved": false,
+      "base_rate": 0.3,
+      "voi": 0.0916515138991168,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are somewhat related, as US real GDP and US-China foreign direct investment flows are both macroeconomic indicators that are influenced by similar underlying factors like economic growth, trade, and geopolitics. However, they are measuring distinct phenomena and the outcomes of the two questions are not directly dependent on each other. Knowing the outcome of the GDP question would provide some information about the likelihood of the foreign investment question, but the relationship is not particularly strong, hence the relatively low positive correlation coefficient.",
+      "uncertainty_source": "Geopolitical Economic Order"
+    },
+    {
+      "id": "llm_b991a9fa",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 31, 2028, US defense spending exceeds 4% of GDP for a full calendar year, per OMB budget data",
+      "background": "Sustained high defense spending to counter China would divert resources from productive civilian investment, potentially reducing long-term GDP growth through crowding out of private capital formation and R&D spending.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296840Z",
+      "resolution_date": "2029-03-31",
+      "resolved": false,
+      "base_rate": 0.25,
+      "voi": 0.08660254037844382,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are not directly related. The first question about US real GDP in 2050 is a macroeconomic indicator, while the second question is about US defense spending relative to GDP in 2028. While there could be some indirect connection, as higher GDP could potentially lead to increased defense spending, the two events are measuring different underlying phenomena. Therefore, the correlation between the two questions is likely to be small, around 0.2, indicating a weak positive relationship.",
+      "uncertainty_source": "Geopolitical Economic Order"
+    },
+    {
+      "id": "llm_4a09ad43",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Before January 1, 2029, US imposes financial sanctions affecting >$500 billion in Chinese assets or transactions annually, per Treasury Department enforcement data",
+      "background": "Massive financial sanctions would accelerate de-dollarization efforts and force development of parallel financial systems, potentially undermining US financial sector advantages and the dollar's role in facilitating efficient global capital allocation.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296855Z",
+      "resolution_date": "2029-02-28",
+      "resolved": false,
+      "base_rate": 0.25,
+      "voi": 0.08660254037844382,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are related in that they both deal with the future state of the US economy and its relationship with China. However, they are measuring different and largely independent phenomena. The level of US GDP in 2050 is not strongly predictive of whether the US will impose financial sanctions on China before 2029. The outcomes of the two events are correlated to some degree, but not strongly so, which suggests a moderately positive correlation coefficient around 0.2.",
+      "uncertainty_source": "Geopolitical Economic Order"
+    },
+    {
+      "id": "llm_17af2d43",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 2027, at least one AI system achieves >$10 billion in annual revenue while operating with <1,000 human employees, per company SEC filings",
+      "background": "An AI company achieving massive scale with minimal human input would demonstrate the potential for AI to generate enormous economic value with unprecedented efficiency.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296860Z",
+      "resolution_date": "2027-12-31",
+      "resolved": false,
+      "base_rate": 0.2,
+      "voi": 0.08000000000000004,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are not directly related, as they are measuring different phenomena - long-term economic growth and the development of a specific AI system. However, there could be some indirect relationship, as the growth of a successful AI system could contribute to overall economic growth. Therefore, I estimate a small positive correlation between the two outcomes, reflecting the possibility that developments in AI could have a modest impact on long-term GDP.",
+      "uncertainty_source": "AI Productivity Revolution"
+    },
+    {
+      "id": "llm_cb503b9a",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 2027, the median time to complete standard business processes (contract review, financial analysis, code development) decreases by >50% in surveyed Fortune 1000 companies, per McKinsey Global Institute annual productivity survey",
+      "background": "Dramatic acceleration of core business processes would indicate AI is delivering the kind of efficiency gains that compound into economy-wide productivity revolutions.",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:10.296863Z",
+      "resolution_date": "2027-12-31",
+      "resolved": false,
+      "base_rate": 0.4,
+      "voi": 0.04898979485566357,
+      "rho": 0.1,
+      "rho_reasoning": "The two questions are about somewhat related but distinct phenomena. Question A is about the overall level of US real GDP in 2050, while Question B is about the pace of business process improvements by 2027. While strong economic growth could potentially enable more business process automation, the two outcomes are not directly linked. There is likely a small positive correlation, as stronger economic conditions may facilitate more technology investments and productivity gains, but knowing the answer to one question does not provide much information about the other. Overall, the correlation is expected to be weakly positive but relatively low.",
+      "uncertainty_source": "AI Productivity Revolution"
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Climate Collapse Stagnation",
+      "description": "Severe climate impacts overwhelm adaptation capacity, causing massive economic disruption. Infrastructure damage, agricultural losses, and constant crisis response consume resources that would otherwise drive growth. The economy enters a prolonged period of low growth despite technological advances.",
+      "outcome_range": "$35-42T",
+      "outcome_low": 35.0,
+      "outcome_high": 42.0,
+      "key_drivers": [
+        "Catastrophic climate damage exceeding adaptation capacity",
+        "Massive infrastructure replacement costs",
+        "Agricultural system breakdown",
+        "Resource allocation toward crisis response over growth investments",
+        "Supply chain disruptions from extreme weather"
+      ],
+      "why_exclusive": "This scenario assumes climate impacts are so severe they dominate economic outcomes, precluding the high productivity growth seen in other scenarios. The resource drain from constant crisis response prevents the capital accumulation and productivity gains required for higher growth paths.",
+      "signal_impacts": [
+        {
+          "signal_index": 0,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 1,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 2,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 5,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 6,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 9,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 13,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 15,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 17,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 4,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 7,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Annual climate damage as % of GDP": ">3%",
+        "Federal climate adaptation spending": ">$200B annually",
+        "Coastal city retreat programs": ">5 major cities",
+        "Average annual GDP growth 2025-2050": "<1.5%",
+        "Total factor productivity growth": "<10% cumulative by 2028"
+      }
+    },
+    {
+      "name": "Moderate Adaptation Growth",
+      "description": "Climate impacts are significant but manageable through adaptation investments. Moderate productivity gains from AI/automation offset some climate costs. The economy grows at historically normal rates despite headwinds from geopolitical tensions and adaptation expenses.",
+      "outcome_range": "$50-65T",
+      "outcome_low": 50.0,
+      "outcome_high": 65.0,
+      "key_drivers": [
+        "Successful but costly climate adaptation",
+        "Moderate AI/automation productivity gains",
+        "Stable geopolitical environment with some tensions",
+        "Balanced resource allocation between growth and resilience",
+        "Gradual energy transition reducing vulnerabilities"
+      ],
+      "why_exclusive": "This represents a middle path where neither climate catastrophe nor transformative technological breakthroughs dominate. It assumes climate impacts are manageable (unlike Climate Collapse) but without the dramatic productivity surges of the AI Boom scenario or the severe disruptions of the Conflict/Crisis scenario.",
+      "signal_impacts": [
+        {
+          "signal_index": 3,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 12,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 14,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 6,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 13,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 0,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 9,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 18,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 16,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Annual climate damage as % of GDP": "1-2%",
+        "Business AI investment": "$500B+ annually by 2026",
+        "Manufacturing productivity gain": "25-40% by 2026",
+        "Average annual GDP growth 2025-2050": "2.0-2.8%",
+        "Major geopolitical conflicts": "None lasting >30 days"
+      }
+    },
+    {
+      "name": "AI-Led Productivity Boom",
+      "description": "Transformative AI and automation technologies drive unprecedented productivity growth, more than offsetting climate adaptation costs. The US successfully reshores manufacturing and achieves energy efficiency gains that reduce both costs and vulnerabilities.",
+      "outcome_range": "$70-85T",
+      "outcome_low": 70.0,
+      "outcome_high": 85.0,
+      "key_drivers": [
+        "Breakthrough AI productivity gains across sectors",
+        "Successful manufacturing reshoring and automation",
+        "Major energy efficiency improvements",
+        "Technology-enabled climate adaptation",
+        "Sustained high business investment in automation"
+      ],
+      "why_exclusive": "This scenario requires transformative technological breakthroughs that fundamentally change productivity growth rates. It cannot coexist with scenarios where climate costs overwhelm the economy or where technological progress is moderate. The productivity gains must be large enough to overcome all other economic drags.",
+      "signal_impacts": [
+        {
+          "signal_index": 4,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 7,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 12,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 19,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 10,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 14,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 3,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 0,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 5,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 18,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 11,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Total factor productivity growth": ">15% cumulative by 2028",
+        "Fortune 500 AI productivity gains": ">25 companies report >30%",
+        "Manufacturing output growth": ">50% above 2019 by 2029",
+        "Energy efficiency improvement": ">20% reduction per GDP dollar",
+        "Average annual GDP growth 2025-2050": "3.2-4.0%"
+      }
+    },
+    {
+      "name": "Geopolitical Crisis Decline",
+      "description": "Military conflict with China and severe trade disruptions trigger a prolonged economic crisis. Supply chain breakdowns, reduced international trade, and massive defense spending redirect resources away from productive investments, leading to economic decline despite some technological progress.",
+      "outcome_range": "$25-35T",
+      "outcome_low": 25.0,
+      "outcome_high": 35.0,
+      "key_drivers": [
+        "Extended US-China military conflict",
+        "Collapse of global trade relationships",
+        "Critical mineral supply chain disruptions",
+        "Massive increase in defense spending",
+        "International isolation and reduced technology sharing"
+      ],
+      "why_exclusive": "This scenario assumes a fundamental breakdown in the global economic system through military conflict. It cannot coexist with scenarios of continued growth because war and trade collapse would overwhelm any productivity gains. The resource allocation toward military purposes precludes the investments needed for other growth scenarios.",
+      "signal_impacts": [
+        {
+          "signal_index": 18,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 11,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 16,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 8,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 4,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 7,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 10,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 12,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 19,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "US-China trade volume": "<$400B annually by 2027",
+        "Military conflict duration": ">30 days with naval/air engagement",
+        "China-led trade bloc membership": ">40% global GDP",
+        "Critical mineral export controls": ">3 categories for >6 months",
+        "Average annual GDP growth 2025-2050": "-0.5% to +0.5%"
+      }
+    }
+  ],
+  "mece_reasoning": "These scenarios are MECE by partitioning the outcome space along two key dimensions: (1) the severity of disruptive shocks (climate, geopolitical) and (2) the magnitude of technological productivity gains. \n\nThe scenarios are mutually exclusive because they represent fundamentally different states of these key drivers:\n- Climate Collapse assumes climate impacts overwhelm adaptation capacity\n- Geopolitical Crisis assumes military conflict destroys trade relationships  \n- AI Boom assumes transformative technological breakthroughs\n- Moderate Adaptation assumes manageable challenges with normal technological progress\n\nThey are collectively exhaustive because they cover the full range of plausible 2050 GDP outcomes ($25-85T) by combining different levels of these key uncertainties. The outcome ranges are non-overlapping and span from economic decline through normal growth to exceptional boom conditions.",
+  "coverage_gaps": [],
+  "created_at": "2026-01-15T16:41:10.297088",
+  "uncertainties": [
+    {
+      "name": "AI Productivity Revolution",
+      "description": "Whether AI and automation will drive a sustained productivity boom comparable to the industrial revolution, or face diminishing returns and integration challenges. This determines if the US achieves transformational vs. incremental growth rates.",
+      "search_query": "AI productivity growth automation economic impact GDP forecast"
+    },
+    {
+      "name": "Geopolitical Economic Order",
+      "description": "The extent to which US-China competition, trade fragmentation, and potential conflicts will reshape global economic relationships. This affects trade flows, supply chains, innovation networks, and defense spending burdens on GDP.",
+      "search_query": "US China trade war decoupling geopolitics economic impact"
+    },
+    {
+      "name": "Climate Adaptation Costs",
+      "description": "The scale of economic resources required for climate change mitigation, adaptation infrastructure, and managing climate-related disruptions. Higher costs could significantly drag on net economic output over the 26-year horizon.",
+      "search_query": "climate change economic costs adaptation infrastructure GDP impact"
+    }
+  ],
+  "signals_per_uncertainty": {
+    "AI Productivity Revolution": 10,
+    "Geopolitical Economic Order": 10,
+    "Climate Adaptation Costs": 10
+  },
+  "total_signals": 30,
+  "signals_above_floor": 20,
+  "voi_distribution": {
+    ">=0.3": 0,
+    ">=0.2": 4,
+    ">=0.1": 20,
+    "<0.1": 10
+  }
+}

@@ -1,0 +1,604 @@
+{
+  "id": "dual_gdp_2050_0bc5cb31",
+  "name": "gdp_2050 (dual)",
+  "target": "gdp_2050",
+  "approach": "dual_v7",
+  "question": {
+    "id": "gdp_2050",
+    "source": "scenario_construction",
+    "text": "What will US real GDP be in 2050 (in 2024 dollars)?",
+    "question_type": "continuous",
+    "unit": "usd_trillions",
+    "base_rate": 29.0,
+    "value_range": [
+      25.0,
+      150.0
+    ]
+  },
+  "config": {
+    "context": "Current US GDP: ~$29 trillion (2024). 26-year horizon allows for transformative changes. Key uncertainties: AI/automation impact, transformative tech (quantum, fusion), geopolitical realignment, climate adaptation costs, demographic shifts, institutional stability.",
+    "cruxiness_normalizer": 40.0,
+    "voi_floor": 0.1,
+    "match_threshold": 0.6,
+    "n_uncertainties": 3
+  },
+  "current_date": "2026-01-15",
+  "signals": [
+    {
+      "id": "3858",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will the USD be the dominant global reserve currency in 2050?",
+      "url": "https://www.metaculus.com/questions/3858",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:08.080061Z",
+      "resolution_date": "2050-12-31",
+      "resolved": false,
+      "voi": 0.35,
+      "rho": 0.7,
+      "rho_reasoning": "The two questions are related, as the performance of the US economy (as measured by real GDP) and the status of the US dollar as the global reserve currency are likely to be correlated. If the US economy performs well, it would increase the likelihood of the US dollar remaining the dominant reserve currency. Conversely, if the US economy falters, it could undermine the US dollar's reserve currency status. Therefore, I estimate a moderately positive correlation coefficient of 0.7 between these two questions."
+    },
+    {
+      "id": "zg7xJ5ZkJJ4wJPJDPjWO",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "By 2028, will there be a visible break in trend line on US GDP, GDP per capita, unemployment, or productivity, which most economists attribute directly to the effects of AI?",
+      "url": "https://manifold.markets/ScottAlexander/by-2028-will-there-be-a-visible-bre",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:08.080075Z",
+      "resolution_date": "2028-01-02",
+      "resolved": false,
+      "base_rate": 0.435328389045067,
+      "voi": 0.24789997112570106,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related, as they both deal with the long-term economic and technological trends in the US. Knowing the GDP outlook for 2050 could provide some insight into the likelihood of a visible break in the GDP, productivity, or unemployment trend lines by 2028, potentially due to the effects of AI. However, the relationship is not perfectly correlated, as there are many other factors that could influence the latter outcome besides just the overall GDP trajectory."
+    },
+    {
+      "id": "1629",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will alien technosignatures be detected before 2050?",
+      "url": "https://www.metaculus.com/questions/1629",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:08.080080Z",
+      "resolution_date": "2049-12-31",
+      "resolved": false,
+      "voi": 0.09999999999999998,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions do not appear to be closely related. The GDP in 2050 is likely to be influenced by a wide range of economic and political factors, while the detection of alien technosignatures is dependent on technological progress and the existence of advanced alien civilizations. While some factors like technological advancement could potentially impact both, the correlation between the two outcomes is likely to be weak. Therefore, I estimate a moderately positive correlation coefficient of 0.2."
+    },
+    {
+      "id": "llm_83a975d2",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 2028, US corporate profit margins (net income/revenue) for S&P 500 companies average >12% for 2026-2028, per S&P Global data",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:08.080084Z",
+      "resolution_date": "2029-03-31",
+      "resolved": false,
+      "base_rate": 0.45,
+      "voi": 0.24874685927665502,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related, as higher real GDP in 2050 is likely to be associated with higher corporate profit margins in the 2026-2028 period. A strong economy would be conducive to higher corporate profitability. However, the correlation is not perfect, as other factors such as inflation, tax policy, and industry dynamics can also affect profit margins. Therefore, a moderately positive correlation coefficient of 0.5 seems reasonable.",
+      "uncertainty_source": "AI Productivity Impact"
+    },
+    {
+      "id": "llm_81bc8a1a",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 2027, US property insurance premiums in coastal states increase by >50% compared to 2024 levels, per NAIC data",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:08.080087Z",
+      "resolution_date": "2027-12-31",
+      "resolved": false,
+      "base_rate": 0.45,
+      "voi": 0.19899748742132406,
+      "rho": 0.4,
+      "rho_reasoning": "The two questions are related, as a higher US real GDP in 2050 could be associated with more economic activity and development, which could in turn increase property insurance premiums in coastal states. However, the connection is not direct or guaranteed, as other factors like climate change and policy decisions could also affect insurance premiums. Therefore, the correlation is positive but moderate, reflecting the indirect relationship between the two outcomes.",
+      "uncertainty_source": "Climate Adaptation Costs"
+    },
+    {
+      "id": "llm_6f730bad",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 2027, US achieves <30% reduction in climate vulnerability as measured by Notre Dame Global Adaptation Initiative rankings compared to 2024",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:08.080089Z",
+      "resolution_date": "2027-12-31",
+      "resolved": false,
+      "base_rate": 0.3,
+      "voi": 0.18330302779823354,
+      "rho": 0.4,
+      "rho_reasoning": "The two questions are related, as US real GDP growth and climate vulnerability are likely correlated. Higher GDP growth could enable greater investment in climate adaptation and mitigation, making the achievement of a 30% reduction in climate vulnerability more likely. However, the relationship is not perfect, as other factors like policy choices and technological progress also play a role. Therefore, the estimated correlation coefficient is 0.4, indicating a moderate positive relationship between the two outcomes.",
+      "uncertainty_source": "Climate Adaptation Costs"
+    },
+    {
+      "id": "llm_bf21c91c",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 31, 2026, US battery storage capacity exceeds 100 GWh of installed grid-scale storage, per EIA energy storage reports",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:08.080091Z",
+      "resolution_date": "2026-12-31",
+      "resolved": false,
+      "base_rate": 0.4,
+      "voi": 0.1469693845669907,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are somewhat related, as economic growth (GDP) and energy storage capacity are both indicators of technological and infrastructure development. However, they are measuring different, albeit related, phenomena. A higher GDP could make it more likely that the US invests in energy storage, but there are many other factors that would also influence energy storage capacity. Therefore, the correlation between the two questions is likely to be positive but relatively weak.",
+      "uncertainty_source": "Energy Transition Speed"
+    },
+    {
+      "id": "llm_feb5cdcc",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 31, 2028, US clean energy employment exceeds 5 million jobs, per Bureau of Labor Statistics energy employment reports",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:08.080094Z",
+      "resolution_date": "2028-12-31",
+      "resolved": false,
+      "base_rate": 0.4,
+      "voi": 0.1469693845669907,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are related, as the level of US real GDP in 2050 could be an indicator of the overall economic and energy landscape, which could impact the likelihood of clean energy employment exceeding 5 million jobs by 2028. However, they are not directly measuring the same underlying phenomenon, and there are many other factors that could influence each outcome independently. Therefore, a moderate positive correlation of 0.3 seems reasonable.",
+      "uncertainty_source": "Energy Transition Speed"
+    },
+    {
+      "id": "llm_44255949",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 31, 2027, average US residential electricity prices fall below $0.10/kWh (2024 dollars), per EIA residential electricity price data",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:08.080096Z",
+      "resolution_date": "2027-12-31",
+      "resolved": false,
+      "base_rate": 0.15,
+      "voi": 0.14282856857085693,
+      "rho": 0.4,
+      "rho_reasoning": "The two questions are related, as higher GDP growth (Question A) is likely to be associated with higher energy demand and higher electricity prices (Question B). However, the relationship is not perfect, as factors like energy efficiency improvements and changes in the energy mix could offset the impact of GDP growth on electricity prices. Therefore, I estimate a moderately positive correlation coefficient of 0.4 between the two questions.",
+      "uncertainty_source": "Energy Transition Speed"
+    },
+    {
+      "id": "llm_ce9aadaa",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Before January 2029, FEMA disaster relief payments exceed $100 billion in any single calendar year, per FEMA financial reports",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:08.080098Z",
+      "resolution_date": "2029-01-31",
+      "resolved": false,
+      "base_rate": 0.25,
+      "voi": 0.08660254037844382,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are related to the overall economic and environmental conditions in the United States, but they are not directly measuring the same underlying phenomenon. Higher economic growth (as measured by GDP) could potentially increase the likelihood of more frequent and severe natural disasters, which could lead to increased FEMA disaster relief payments. However, this relationship is not guaranteed, and other factors such as disaster preparedness, climate change, and government policies would also play a role. Given the complex and indirect nature of the relationship between these two variables, a moderate positive correlation coefficient of 0.2 is a reasonable estimate.",
+      "uncertainty_source": "Climate Adaptation Costs"
+    },
+    {
+      "id": "llm_07dc2c07",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 31, 2028, at least 20 new Small Modular Reactor (SMR) projects receive NRC construction permits, per Nuclear Regulatory Commission licensing records",
+      "question_type": "binary",
+      "created_at": "2026-01-16T00:41:08.080100Z",
+      "resolution_date": "2028-12-31",
+      "resolved": false,
+      "base_rate": 0.2,
+      "voi": 0.08000000000000004,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are related, as economic growth (GDP) and the development of new nuclear power technology (SMR projects) could be linked. However, the relationship is not direct or deterministic - high GDP growth does not necessarily guarantee the development of new SMR projects, and vice versa. There are many other factors that could influence each outcome independently. Therefore, a modest positive correlation coefficient of 0.2 seems reasonable, indicating a weak positive relationship between the two variables.",
+      "uncertainty_source": "Energy Transition Speed"
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "AI Transformation Boom",
+      "description": "AI drives unprecedented productivity gains and economic transformation by the late 2020s. The economy experiences structural acceleration with new industries, massive efficiency gains, and strong corporate profitability. US maintains global technological and financial leadership.",
+      "outcome_range": "$65-85T",
+      "outcome_low": 65.0,
+      "outcome_high": 85.0,
+      "key_drivers": [
+        "Visible AI-driven productivity breakthrough by 2028",
+        "Sustained corporate profit margin expansion",
+        "Continued USD dominance enabling global capital flows",
+        "Technology sector-led economic transformation"
+      ],
+      "why_exclusive": "This high-growth scenario requires AI to deliver transformative economic benefits, which cannot coexist with scenarios where AI fails to materialize or where economic growth remains constrained by other factors.",
+      "signal_impacts": [
+        {
+          "signal_index": 0,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 1,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 2,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 3,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "AI productivity impact": "Visible in GDP metrics by 2028",
+        "Corporate margins": ">12% for S&P 500 (2026-2028)",
+        "USD reserve status": "Maintained through 2050",
+        "Real GDP growth": "Average >3.5% annually 2025-2050"
+      }
+    },
+    {
+      "name": "Green Transition Economy",
+      "description": "Clean energy revolution drives steady growth through massive infrastructure investment and energy cost reductions. Climate adaptation succeeds while creating new economic opportunities, though AI impact remains modest.",
+      "outcome_range": "$50-65T",
+      "outcome_low": 50.0,
+      "outcome_high": 65.0,
+      "key_drivers": [
+        "Successful clean energy scale-up with falling costs",
+        "Large-scale battery storage deployment",
+        "Effective climate adaptation reducing vulnerability",
+        "Green jobs growth offsetting traditional sector decline"
+      ],
+      "why_exclusive": "This moderate-growth scenario assumes AI doesn't deliver transformative gains (unlike AI Boom) but climate/energy transitions succeed (unlike Stagnation). Growth rate is fundamentally different from other scenarios.",
+      "signal_impacts": [
+        {
+          "signal_index": 1,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 4,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 5,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 6,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 7,
+          "effect": "enhances"
+        }
+      ],
+      "indicator_bundle": {
+        "Battery storage capacity": ">100 GWh by 2026",
+        "Clean energy jobs": ">5M by 2028",
+        "Climate adaptation": "<30% vulnerability reduction by 2027",
+        "Electricity costs": "<$0.10/kWh by 2027",
+        "Real GDP growth": "Average 2.5-3.0% annually 2025-2050"
+      }
+    },
+    {
+      "name": "Constrained Growth",
+      "description": "Multiple headwinds limit growth despite some technological progress. Climate costs mount, AI delivers modest gains, and various structural challenges prevent breakthrough growth. Economy grows but below historical trends.",
+      "outcome_range": "$40-50T",
+      "outcome_low": 40.0,
+      "outcome_high": 50.0,
+      "key_drivers": [
+        "Modest AI impact insufficient for productivity breakthrough",
+        "Rising climate adaptation and insurance costs",
+        "Energy transition challenges and high costs",
+        "Demographic headwinds and institutional constraints"
+      ],
+      "why_exclusive": "This below-trend growth scenario cannot coexist with either high AI-driven growth or successful green transition growth. It represents a fundamentally different economic trajectory with structural constraints.",
+      "signal_impacts": [
+        {
+          "signal_index": 1,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 2,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 3,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 4,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 7,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "AI productivity": "No visible GDP impact by 2028",
+        "Corporate margins": "Remain <12% through 2028",
+        "Property insurance": ">50% increase in coastal premiums by 2027",
+        "Climate adaptation": "Fails to achieve 30% vulnerability reduction",
+        "Real GDP growth": "Average 1.5-2.0% annually 2025-2050"
+      }
+    },
+    {
+      "name": "Economic Crisis",
+      "description": "Major systemic shocks derail long-term growth through financial instability, geopolitical disruption, or cascading climate/technological failures. Recovery is slow and incomplete, fundamentally altering the growth trajectory.",
+      "outcome_range": "$30-40T",
+      "outcome_low": 30.0,
+      "outcome_high": 40.0,
+      "key_drivers": [
+        "Loss of USD reserve currency status",
+        "Major financial or geopolitical crisis",
+        "Climate tipping points overwhelming adaptation",
+        "Technology deployment failures or backlash"
+      ],
+      "why_exclusive": "This crisis scenario represents economic disruption that cannot coexist with any of the growth scenarios. It involves fundamental breaks in economic continuity that preclude the sustained growth assumed in other scenarios.",
+      "signal_impacts": [
+        {
+          "signal_index": 0,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 2,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 3,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 4,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 5,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "USD dominance": "Lost by 2050",
+        "Corporate margins": "Compressed below 8% average",
+        "Insurance costs": "Extreme increases >50% in multiple regions",
+        "Climate vulnerability": "Worsening despite adaptation efforts",
+        "Real GDP growth": "Average <1.0% annually 2025-2050"
+      }
+    }
+  ],
+  "mece_reasoning": "These scenarios are MECE because they partition the outcome space along non-overlapping GDP ranges: $65-85T (AI Boom), $50-65T (Green Transition), $40-50T (Constrained), and $30-40T (Crisis). Each represents a fundamentally different economic trajectory that cannot coexist: transformative AI-driven growth vs. steady green-led growth vs. below-trend constrained growth vs. crisis-disrupted growth. The scenarios are differentiated by distinct combinations of key drivers - AI impact, climate/energy transitions, financial stability, and institutional continuity - that are mutually exclusive in their extreme manifestations while collectively covering the full possibility space from crisis to boom.",
+  "coverage_gaps": [],
+  "created_at": "2026-01-15T16:41:08.080327",
+  "knowledge_cutoff": "2025-10-01",
+  "sources_used": [
+    "polymarket",
+    "metaculus",
+    "kalshi",
+    "infer",
+    "manifold"
+  ],
+  "uncertainties": [
+    {
+      "name": "AI Productivity Impact",
+      "description": "The degree to which artificial intelligence and automation drive labor productivity growth versus displacement effects. This determines whether AI creates a productivity boom or stagnates wages and consumption.",
+      "search_query": "AI automation productivity growth GDP economic impact labor displacement"
+    },
+    {
+      "name": "Climate Adaptation Costs",
+      "description": "The scale of economic resources required for climate change adaptation, mitigation, and recovery from extreme weather events. High costs could significantly drag on growth while effective adaptation could enable continued expansion.",
+      "search_query": "climate change economic costs adaptation infrastructure extreme weather GDP impact"
+    },
+    {
+      "name": "Energy Transition Speed",
+      "description": "The pace of transition to renewable energy sources and breakthrough technologies like fusion or advanced nuclear. Faster transitions could unlock cheaper energy and drive growth, while slow transitions maintain higher energy costs.",
+      "search_query": "renewable energy transition fusion nuclear breakthrough cheap energy economic growth"
+    }
+  ],
+  "topdown_signals_generated": 30,
+  "market_signals_retrieved": 196,
+  "matched_signals": 5,
+  "gap_signals": 25,
+  "market_only_signals": 193,
+  "merged_signals_total": 80,
+  "signals_above_floor": 45,
+  "signals_above_floor_by_origin": {
+    "matched": 3,
+    "gap": 18,
+    "market_only": 24
+  },
+  "gaps": [
+    {
+      "text": "By December 2027, US nonfarm business labor productivity growth averages >3.0% annually for 2025-2027, per Bureau of Labor Statistics quarterly reports",
+      "resolution_source": "Bureau of Labor Statistics Productivity and Costs reports",
+      "uncertainty_source": "AI Productivity Impact",
+      "base_rate": 0.25,
+      "best_market_similarity": 0.5330693125724792
+    },
+    {
+      "text": "By June 2028, at least 20% of S&P 500 companies report AI-driven cost savings exceeding $100M annually in their 10-K filings",
+      "resolution_source": "SEC 10-K filings analysis",
+      "uncertainty_source": "AI Productivity Impact",
+      "base_rate": 0.35,
+      "best_market_similarity": 0.5460877418518066
+    },
+    {
+      "text": "By December 2027, median real wage growth in the US averages <1.0% annually for 2025-2027, per Bureau of Labor Statistics real earnings data",
+      "resolution_source": "Bureau of Labor Statistics Real Earnings reports",
+      "uncertainty_source": "AI Productivity Impact",
+      "base_rate": 0.3,
+      "best_market_similarity": 0.5151138305664062
+    },
+    {
+      "text": "By December 2027, US business investment in software and intellectual property products grows >15% annually for 2025-2027, per Bureau of Economic Analysis data",
+      "resolution_source": "Bureau of Economic Analysis Fixed Assets tables",
+      "uncertainty_source": "AI Productivity Impact",
+      "base_rate": 0.4,
+      "best_market_similarity": 0.5853768587112427
+    },
+    {
+      "text": "By June 2028, the share of US workers in occupations classified as 'high AI exposure risk' by BLS decreases by >10% from 2024 levels",
+      "resolution_source": "Bureau of Labor Statistics Occupational Employment and Wage Statistics",
+      "uncertainty_source": "AI Productivity Impact",
+      "base_rate": 0.25,
+      "best_market_similarity": 0.5610657930374146
+    },
+    {
+      "text": "By December 2028, US corporate profit margins (net income/revenue) for S&P 500 companies average >12% for 2026-2028, per S&P Global data",
+      "resolution_source": "S&P Global Market Intelligence corporate earnings data",
+      "uncertainty_source": "AI Productivity Impact",
+      "base_rate": 0.45,
+      "best_market_similarity": 0.56496262550354
+    },
+    {
+      "text": "By December 2027, new business formation rate in the US increases by >25% from 2024 levels, per Bureau of Labor Statistics Business Employment Dynamics data",
+      "resolution_source": "Bureau of Labor Statistics Business Employment Dynamics reports",
+      "uncertainty_source": "AI Productivity Impact",
+      "base_rate": 0.3,
+      "best_market_similarity": 0.5102729201316833
+    },
+    {
+      "text": "By December 2027, total US climate adaptation spending (federal, state, and private) exceeds $200 billion annually, per Congressional Budget Office estimates",
+      "resolution_source": "Congressional Budget Office climate spending reports",
+      "uncertainty_source": "Climate Adaptation Costs",
+      "base_rate": 0.35,
+      "best_market_similarity": 0.5319235324859619
+    },
+    {
+      "text": "Before January 2029, FEMA disaster relief payments exceed $100 billion in any single calendar year, per FEMA financial reports",
+      "resolution_source": "FEMA Disaster Relief Fund annual reports",
+      "uncertainty_source": "Climate Adaptation Costs",
+      "base_rate": 0.25,
+      "best_market_similarity": 0.4341355562210083
+    },
+    {
+      "text": "By December 2028, US crop insurance payouts exceed $25 billion in any single year, per USDA Risk Management Agency data",
+      "resolution_source": "USDA Risk Management Agency annual reports",
+      "uncertainty_source": "Climate Adaptation Costs",
+      "base_rate": 0.4,
+      "best_market_similarity": 0.473140150308609
+    },
+    {
+      "text": "Before January 2030, at least 10 US cities implement mandatory climate resilience infrastructure bonds totaling >$50 billion combined, per municipal bond databases",
+      "resolution_source": "Municipal Securities Rulemaking Board EMMA database",
+      "uncertainty_source": "Climate Adaptation Costs",
+      "base_rate": 0.3,
+      "best_market_similarity": 0.40912625193595886
+    },
+    {
+      "text": "By December 2027, US property insurance premiums in coastal states increase by >50% compared to 2024 levels, per NAIC data",
+      "resolution_source": "National Association of Insurance Commissioners annual reports",
+      "uncertainty_source": "Climate Adaptation Costs",
+      "base_rate": 0.45,
+      "best_market_similarity": 0.4013189375400543
+    },
+    {
+      "text": "Before January 2029, US experiences >$500 billion in combined climate disaster damages in any 12-month period, per NOAA National Centers for Environmental Information",
+      "resolution_source": "NOAA National Centers for Environmental Information billion-dollar disaster database",
+      "uncertainty_source": "Climate Adaptation Costs",
+      "base_rate": 0.15,
+      "best_market_similarity": 0.4954339861869812
+    },
+    {
+      "text": "By December 2028, US federal climate adaptation budget allocation exceeds $75 billion annually, per Office of Management and Budget reports",
+      "resolution_source": "Office of Management and Budget annual budget documents",
+      "uncertainty_source": "Climate Adaptation Costs",
+      "base_rate": 0.25,
+      "best_market_similarity": 0.4577910602092743
+    },
+    {
+      "text": "Before January 2030, >25% of Fortune 500 companies report climate adaptation costs exceeding 2% of revenues in SEC 10-K filings",
+      "resolution_source": "SEC EDGAR database 10-K filings analysis",
+      "uncertainty_source": "Climate Adaptation Costs",
+      "base_rate": 0.2,
+      "best_market_similarity": 0.4626663029193878
+    },
+    {
+      "text": "By December 2027, US achieves <30% reduction in climate vulnerability as measured by Notre Dame Global Adaptation Initiative rankings compared to 2024",
+      "resolution_source": "Notre Dame Global Adaptation Initiative ND-GAIN Index annual reports",
+      "uncertainty_source": "Climate Adaptation Costs",
+      "base_rate": 0.3,
+      "best_market_similarity": 0.5399224758148193
+    },
+    {
+      "text": "Before January 2029, US grid resilience investments exceed $150 billion annually (public and private combined), per Department of Energy infrastructure reports",
+      "resolution_source": "Department of Energy Grid Deployment Office annual investment reports",
+      "uncertainty_source": "Climate Adaptation Costs",
+      "base_rate": 0.35,
+      "best_market_similarity": 0.45720645785331726
+    },
+    {
+      "text": "By December 31, 2028, at least one commercial fusion power plant begins delivering electricity to the grid for >30 consecutive days, per International Atomic Energy Agency records",
+      "resolution_source": "International Atomic Energy Agency records and power grid operator reports",
+      "uncertainty_source": "Energy Transition Speed",
+      "base_rate": 0.05,
+      "best_market_similarity": 0.48550936579704285
+    },
+    {
+      "text": "By December 31, 2026, US battery storage capacity exceeds 100 GWh of installed grid-scale storage, per EIA energy storage reports",
+      "resolution_source": "EIA energy storage monitoring reports",
+      "uncertainty_source": "Energy Transition Speed",
+      "base_rate": 0.4,
+      "best_market_similarity": 0.4774857759475708
+    },
+    {
+      "text": "By June 30, 2027, US federal government commits >$200 billion in additional clean energy subsidies/investments through new legislation, per Congressional Budget Office scoring",
+      "resolution_source": "Congressional Budget Office legislative cost estimates",
+      "uncertainty_source": "Energy Transition Speed",
+      "base_rate": 0.3,
+      "best_market_similarity": 0.506241500377655
+    },
+    {
+      "text": "By December 31, 2027, average US residential electricity prices fall below $0.10/kWh (2024 dollars), per EIA residential electricity price data",
+      "resolution_source": "EIA residential electricity price reports, adjusted for inflation",
+      "uncertainty_source": "Energy Transition Speed",
+      "base_rate": 0.15,
+      "best_market_similarity": 0.5095625519752502
+    },
+    {
+      "text": "By December 31, 2028, at least 20 new Small Modular Reactor (SMR) projects receive NRC construction permits, per Nuclear Regulatory Commission licensing records",
+      "resolution_source": "Nuclear Regulatory Commission construction permit database",
+      "uncertainty_source": "Energy Transition Speed",
+      "base_rate": 0.2,
+      "best_market_similarity": 0.5195695757865906
+    },
+    {
+      "text": "By December 31, 2026, US offshore wind capacity exceeds 15 GW of installed capacity, per American Clean Power Association tracking",
+      "resolution_source": "American Clean Power Association offshore wind capacity reports",
+      "uncertainty_source": "Energy Transition Speed",
+      "base_rate": 0.3,
+      "best_market_similarity": 0.5009219646453857
+    },
+    {
+      "text": "By December 31, 2027, US green hydrogen production capacity exceeds 10 million tonnes per year, per Department of Energy hydrogen production tracking",
+      "resolution_source": "US Department of Energy hydrogen production capacity reports",
+      "uncertainty_source": "Energy Transition Speed",
+      "base_rate": 0.1,
+      "best_market_similarity": 0.5546476244926453
+    },
+    {
+      "text": "By December 31, 2028, US clean energy employment exceeds 5 million jobs, per Bureau of Labor Statistics energy employment reports",
+      "resolution_source": "Bureau of Labor Statistics energy employment and wages reports",
+      "uncertainty_source": "Energy Transition Speed",
+      "base_rate": 0.4,
+      "best_market_similarity": 0.5039629340171814
+    }
+  ],
+  "gaps_by_resolution_source": {
+    "Bureau of Labor Statistics Productivity and Costs reports": 1,
+    "SEC 10-K filings analysis": 1,
+    "Bureau of Labor Statistics Real Earnings reports": 1,
+    "Bureau of Economic Analysis Fixed Assets tables": 1,
+    "Bureau of Labor Statistics Occupational Employment and Wage Statistics": 1,
+    "S&P Global Market Intelligence corporate earnings data": 1,
+    "Bureau of Labor Statistics Business Employment Dynamics reports": 1,
+    "Congressional Budget Office climate spending reports": 1,
+    "FEMA Disaster Relief Fund annual reports": 1,
+    "USDA Risk Management Agency annual reports": 1,
+    "Municipal Securities Rulemaking Board EMMA database": 1,
+    "National Association of Insurance Commissioners annual reports": 1,
+    "NOAA National Centers for Environmental Information billion-dollar disaster database": 1,
+    "Office of Management and Budget annual budget documents": 1,
+    "SEC EDGAR database 10-K filings analysis": 1,
+    "Notre Dame Global Adaptation Initiative ND-GAIN Index annual reports": 1,
+    "Department of Energy Grid Deployment Office annual investment reports": 1,
+    "International Atomic Energy Agency records and power grid operator reports": 1,
+    "EIA energy storage monitoring reports": 1,
+    "Congressional Budget Office legislative cost estimates": 1,
+    "EIA residential electricity price reports, adjusted for inflation": 1,
+    "Nuclear Regulatory Commission construction permit database": 1,
+    "American Clean Power Association offshore wind capacity reports": 1,
+    "US Department of Energy hydrogen production capacity reports": 1,
+    "Bureau of Labor Statistics energy employment and wages reports": 1
+  }
+}
