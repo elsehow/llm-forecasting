@@ -34,6 +34,11 @@ class MECEScenario(BaseModel):
     name: str = Field(description="2-4 word memorable name")
     description: str = Field(description="2-3 sentences describing this world state")
 
+    # LLM-estimated probability of this scenario occurring (E2E approach)
+    scenario_probability: float = Field(
+        description="Estimated probability of this scenario occurring (0.0-1.0). Must sum to 1.0 across all scenarios."
+    )
+
     # For continuous questions (GDP, population, etc.)
     outcome_range: str | None = Field(default=None, description="Expected outcome range, e.g., '$45-55T' for GDP")
     outcome_low: float | None = Field(default=None, description="Numeric lower bound (e.g., 45.0 for $45T)")
@@ -57,7 +62,10 @@ class MECEScenariosResponse(BaseModel):
     """Response from MECE scenario generation."""
     scenarios: list[MECEScenario]
     mece_reasoning: str = Field(description="Explanation of why these scenarios are MECE")
-    coverage_gaps: list[str] = Field(description="Any outcomes not covered (should be empty or minimal)")
+    coverage_gaps: list[str] | str | None = Field(
+        default=None,
+        description="Any outcomes not covered (should be empty or minimal)"
+    )
 
 
 # ============================================================
@@ -110,10 +118,18 @@ CRITICAL REQUIREMENTS:
 
 6. Acknowledge any coverage gaps honestly (ideally there are none).
 
+7. SCENARIO PROBABILITY (scenario_probability):
+   - For each scenario, estimate P(scenario) - the probability that THIS scenario occurs
+   - Consider all signals holistically when making this estimate
+   - Think about: current trends, signal base rates, geopolitical context, expert forecasts
+   - Probabilities across ALL scenarios MUST sum to 1.0 (they are MECE)
+   - Provide scenario_probability as a decimal (e.g., 0.35 for 35%)
+
 Think step by step:
 - What are the key axes of uncertainty implied by these signals?
 - How can we partition the outcome space so scenarios don't overlap?
 - For each scenario, which signals would make it more/less likely?
+- Given current evidence, what is the probability of each scenario?
 """
 
 MECE_SCENARIO_PROMPT_BINARY = """You are constructing MECE scenarios for a BINARY forecasting question.
@@ -166,11 +182,19 @@ CRITICAL REQUIREMENTS:
 
 6. Acknowledge any coverage gaps honestly (ideally there are none).
 
+7. SCENARIO PROBABILITY (scenario_probability):
+   - For each scenario, estimate P(scenario) - the probability that THIS scenario occurs
+   - Consider all signals holistically when making this estimate
+   - Think about: current trends, signal base rates, geopolitical context, expert forecasts
+   - Probabilities across ALL scenarios MUST sum to 1.0 (they are MECE)
+   - Provide scenario_probability as a decimal (e.g., 0.35 for 35%)
+
 Think step by step:
 - What are the key axes of uncertainty implied by these signals?
 - How can we partition the world-state space so scenarios don't overlap?
 - For each scenario, what probability would we assign to the target question's YES outcome?
 - For each scenario, which signals would make it more/less likely?
+- Given current evidence, what is the probability of each scenario?
 """
 
 
