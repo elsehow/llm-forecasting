@@ -197,6 +197,22 @@ async def main():
 
     print(f"\n  Total top-down signals: {len(topdown_signals)}")
 
+    # Filter top-down signals by resolution date (same rules as market signals)
+    from shared.signals import categorize_signal
+    before_filter = len(topdown_signals)
+    filtered_topdown = []
+    for s in topdown_signals:
+        category = categorize_signal(
+            resolution_date=s.get("resolution_date"),
+            resolved=False,  # LLM signals are never pre-resolved
+            max_horizon_days=cfg.max_horizon_days,
+        )
+        if category != "exclude":
+            s["signal_category"] = category
+            filtered_topdown.append(s)
+    topdown_signals = filtered_topdown
+    print(f"  After date filtering: {len(topdown_signals)} (excluded {before_filter - len(topdown_signals)} outside horizon)")
+
     # ============================================================
     # PHASE 2: Bottom-Up (Market signals)
     # ============================================================
