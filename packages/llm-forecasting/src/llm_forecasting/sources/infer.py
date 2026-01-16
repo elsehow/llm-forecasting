@@ -10,6 +10,8 @@ from datetime import date, datetime, timezone
 
 import httpx
 
+from llm_forecasting.date_utils import parse_iso_datetime
+from llm_forecasting.http_utils import HTTPClientMixin
 from llm_forecasting.models import Question, QuestionType, Resolution, SourceType
 from llm_forecasting.sources.base import QuestionSource, registry
 
@@ -19,7 +21,7 @@ BASE_URL = "https://www.randforecastinginitiative.org"
 
 
 @registry.register
-class INFERSource(QuestionSource):
+class INFERSource(QuestionSource, HTTPClientMixin):
     """Fetch questions from INFER prediction market."""
 
     name = "infer"
@@ -37,11 +39,6 @@ class INFERSource(QuestionSource):
         """
         self._api_key = api_key or os.environ.get("INFER_API_KEY")
         self._client = http_client
-
-    async def _get_client(self) -> httpx.AsyncClient:
-        if self._client is None:
-            self._client = httpx.AsyncClient(timeout=30.0)
-        return self._client
 
     def _get_headers(self) -> dict:
         """Get authorization headers."""
@@ -93,18 +90,6 @@ class INFERSource(QuestionSource):
 
         return all_questions
 
-    def _parse_datetime(self, dt_str: str | None) -> datetime | None:
-        """Parse INFER datetime string to datetime object."""
-        if not dt_str or dt_str == "N/A":
-            return None
-        try:
-            # INFER uses ISO format with Z suffix
-            if dt_str.endswith("Z"):
-                dt_str = dt_str[:-1] + "+00:00"
-            return datetime.fromisoformat(dt_str).replace(tzinfo=timezone.utc)
-        except (ValueError, TypeError):
-            return None
-
     def _question_to_model(self, q: dict) -> Question | None:
         """Convert INFER question dict to Question model."""
         # Only include binary (Yes/No) questions
@@ -128,13 +113,13 @@ class INFERSource(QuestionSource):
                 break
 
         # Parse dates
-        created_at = self._parse_datetime(q.get("scoring_start_time"))
+        created_at = parse_iso_datetime(q.get("scoring_start_time"))
         if not created_at:
             created_at = datetime.now(timezone.utc)
 
         # Resolution date is the earlier of scoring_end_time or ends_at
-        scoring_end = self._parse_datetime(q.get("scoring_end_time"))
-        ends_at = self._parse_datetime(q.get("ends_at"))
+        scoring_end = parse_iso_datetime(q.get("scoring_end_time"))
+        ends_at = parse_iso_datetime(q.get("ends_at"))
         resolution_date = None
         if scoring_end and ends_at:
             resolution_date = min(scoring_end, ends_at).date()
@@ -226,9 +211,9 @@ class INFERSource(QuestionSource):
         # Determine resolution date
         if q.get("resolved?"):
             # Use resolved_at or scoring_end_time
-            res_dt = self._parse_datetime(q.get("resolved_at"))
+            res_dt = parse_iso_datetime(q.get("resolved_at"))
             if not res_dt:
-                res_dt = self._parse_datetime(q.get("scoring_end_time"))
+                res_dt = parse_iso_datetime(q.get("scoring_end_time"))
             res_date = res_dt.date() if res_dt else date.today()
 
             # For resolved questions, probability should be 0 or 1
@@ -247,9 +232,3 @@ class INFERSource(QuestionSource):
             date=date.today(),
             value=probability,
         )
-
-    async def close(self):
-        """Close the HTTP client."""
-        if self._client:
-            await self._client.aclose()
-            self._client = None

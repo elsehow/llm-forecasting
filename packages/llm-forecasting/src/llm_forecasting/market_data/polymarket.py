@@ -6,6 +6,8 @@ from datetime import datetime, timedelta, timezone
 
 import httpx
 
+from llm_forecasting.date_utils import parse_iso_datetime
+from llm_forecasting.http_utils import HTTPClientMixin
 from llm_forecasting.market_data.base import MarketDataProvider, market_data_registry
 from llm_forecasting.market_data.models import Market, MarketStatus, PricePoint
 
@@ -16,7 +18,7 @@ CLOB_API_URL = "https://clob.polymarket.com"
 
 
 @market_data_registry.register
-class PolymarketData(MarketDataProvider):
+class PolymarketData(MarketDataProvider, HTTPClientMixin):
     """Polymarket market data provider.
 
     Uses two APIs:
@@ -32,13 +34,7 @@ class PolymarketData(MarketDataProvider):
         Args:
             http_client: Optional httpx client for connection reuse.
         """
-        self._client = http_client
-        self._owns_client = http_client is None
-
-    async def _get_client(self) -> httpx.AsyncClient:
-        if self._client is None:
-            self._client = httpx.AsyncClient(timeout=30.0)
-        return self._client
+        self._init_client(http_client)
 
     async def fetch_markets(
         self,
@@ -238,7 +234,7 @@ class PolymarketData(MarketDataProvider):
             yes_idx = 0
 
         # Parse timestamps
-        created_at = self._parse_datetime(raw.get("startDateIso"))
+        created_at = parse_iso_datetime(raw.get("startDateIso"))
         if not created_at:
             created_at = datetime.now(timezone.utc)
 
@@ -248,7 +244,7 @@ class PolymarketData(MarketDataProvider):
             if events:
                 end_date_str = events[0].get("endDate")
 
-        close_date = self._parse_datetime(end_date_str)
+        close_date = parse_iso_datetime(end_date_str)
         resolution_date = close_date.date() if close_date else None
 
         # Status and resolution
@@ -297,20 +293,3 @@ class PolymarketData(MarketDataProvider):
             volume_total=float(raw.get("volume", 0) or 0),
             clob_token_ids=clob_token_ids if clob_token_ids else None,
         )
-
-    def _parse_datetime(self, dt_str: str | None) -> datetime | None:
-        """Parse ISO datetime string."""
-        if not dt_str:
-            return None
-        try:
-            if dt_str.endswith("Z"):
-                dt_str = dt_str[:-1] + "+00:00"
-            return datetime.fromisoformat(dt_str)
-        except ValueError:
-            return None
-
-    async def close(self) -> None:
-        """Close the HTTP client if we own it."""
-        if self._client and self._owns_client:
-            await self._client.aclose()
-            self._client = None

@@ -14,6 +14,7 @@ from datetime import date, datetime, timezone
 import httpx
 from bs4 import BeautifulSoup
 
+from llm_forecasting.http_utils import HTTPClientMixin
 from llm_forecasting.models import Question, QuestionType, Resolution, SourceType
 from llm_forecasting.sources.base import QuestionSource, registry
 
@@ -28,7 +29,7 @@ RETRY_DELAY = 5.0  # Wait longer on rate limit
 
 
 @registry.register
-class GoodJudgmentSource(QuestionSource):
+class GoodJudgmentSource(QuestionSource, HTTPClientMixin):
     """Fetch questions from Good Judgment Open via HTML scraping.
 
     Good Judgment Open is a public forecasting platform run by Good Judgment Inc.,
@@ -43,6 +44,7 @@ class GoodJudgmentSource(QuestionSource):
         self._client = http_client
 
     async def _get_client(self) -> httpx.AsyncClient:
+        """Override to add custom headers for GJO."""
         if self._client is None:
             self._client = httpx.AsyncClient(
                 timeout=30.0,
@@ -287,9 +289,3 @@ class GoodJudgmentSource(QuestionSource):
             )
 
         return None
-
-    async def close(self):
-        """Close the HTTP client."""
-        if self._client:
-            await self._client.aclose()
-            self._client = None

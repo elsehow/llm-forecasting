@@ -1,11 +1,14 @@
 """Manifold Markets question source."""
 
 import logging
-from datetime import date, datetime, timezone
+from datetime import date
 
 import httpx
 
+from llm_forecasting.date_utils import epoch_ms_to_datetime
+from llm_forecasting.http_utils import HTTPClientMixin
 from llm_forecasting.models import Question, QuestionType, Resolution
+from llm_forecasting.resolution_utils import binary_resolution_to_float
 from llm_forecasting.sources.base import QuestionSource, registry
 
 logger = logging.getLogger(__name__)
@@ -15,18 +18,13 @@ TOPIC_SLUGS = ["entertainment", "sports-default", "technology-default"]
 
 
 @registry.register
-class ManifoldSource(QuestionSource):
+class ManifoldSource(QuestionSource, HTTPClientMixin):
     """Fetch questions from Manifold Markets prediction market."""
 
     name = "manifold"
 
     def __init__(self, http_client: httpx.AsyncClient | None = None):
         self._client = http_client
-
-    async def _get_client(self) -> httpx.AsyncClient:
-        if self._client is None:
-            self._client = httpx.AsyncClient(timeout=30.0)
-        return self._client
 
     async def _search_markets(
         self,
@@ -76,28 +74,21 @@ class ManifoldSource(QuestionSource):
 
         return all_bets
 
-    def _epoch_ms_to_datetime(self, epoch_ms: int) -> datetime:
-        return datetime.fromtimestamp(epoch_ms / 1000, tz=timezone.utc)
-
     def _market_to_question(self, market: dict) -> Question:
         """Convert a Manifold market to a Question."""
-        created_at = self._epoch_ms_to_datetime(market["createdTime"])
+        created_at = epoch_ms_to_datetime(market["createdTime"])
         close_time = market.get("closeTime")
         resolution_date = None
         if close_time:
-            resolution_date = self._epoch_ms_to_datetime(close_time).date()
+            resolution_date = epoch_ms_to_datetime(close_time).date()
 
         resolved = market.get("isResolved", False)
         resolution_value = None
         if resolved:
-            res = market.get("resolution")
-            if res == "YES":
-                resolution_value = 1.0
-            elif res == "NO":
-                resolution_value = 0.0
-            elif res == "MKT":
-                resolution_value = market.get("resolutionProbability")
-            # CANCEL -> None (nullified)
+            resolution_value = binary_resolution_to_float(
+                market.get("resolution"),
+                mkt_probability=market.get("resolutionProbability"),
+            )
 
         return Question(
             id=market["id"],
@@ -137,18 +128,15 @@ class ManifoldSource(QuestionSource):
         market = await self._get_market(question_id)
 
         if market.get("isResolved"):
-            res = market.get("resolution")
-            if res == "YES":
-                value = 1.0
-            elif res == "NO":
-                value = 0.0
-            elif res == "MKT":
-                value = market.get("resolutionProbability")
-            else:
+            value = binary_resolution_to_float(
+                market.get("resolution"),
+                mkt_probability=market.get("resolutionProbability"),
+            )
+            if value is None:
                 return None  # CANCEL/N/A
 
             res_time = market.get("resolutionTime")
-            res_date = self._epoch_ms_to_datetime(res_time).date() if res_time else date.today()
+            res_date = epoch_ms_to_datetime(res_time).date() if res_time else date.today()
 
             return Resolution(
                 question_id=question_id,
@@ -168,9 +156,3 @@ class ManifoldSource(QuestionSource):
             )
 
         return None
-
-    async def close(self):
-        """Close the HTTP client."""
-        if self._client:
-            await self._client.aclose()
-            self._client = None

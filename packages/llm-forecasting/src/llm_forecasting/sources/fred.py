@@ -12,6 +12,8 @@ from datetime import date, datetime, timezone
 import httpx
 
 from llm_forecasting.config import settings
+from llm_forecasting.date_utils import parse_date_string
+from llm_forecasting.http_utils import HTTPClientMixin
 from llm_forecasting.models import Question, QuestionType, Resolution, SourceType
 from llm_forecasting.sources.base import QuestionSource, registry
 
@@ -93,7 +95,7 @@ DEFAULT_SERIES = [
 
 
 @registry.register
-class FREDSource(QuestionSource):
+class FREDSource(QuestionSource, HTTPClientMixin):
     """Fetch economic data from FRED and generate forecasting questions.
 
     Unlike market sources, FRED questions ask whether a value will
@@ -120,11 +122,6 @@ class FREDSource(QuestionSource):
         self._api_key = api_key if api_key is not None else settings.fred_api_key
         self._series_list = series_list or DEFAULT_SERIES
         self._client = http_client
-
-    async def _get_client(self) -> httpx.AsyncClient:
-        if self._client is None:
-            self._client = httpx.AsyncClient(timeout=30.0)
-        return self._client
 
     async def _get_series_info(self, series_id: str) -> dict | None:
         """Get metadata about a series."""
@@ -264,13 +261,11 @@ class FREDSource(QuestionSource):
             return None
 
         obs_date = latest_obs.get("date")
+        resolution_date = date.today()
         if obs_date:
-            try:
-                resolution_date = datetime.strptime(obs_date, "%Y-%m-%d").date()
-            except ValueError:
-                resolution_date = date.today()
-        else:
-            resolution_date = date.today()
+            parsed = parse_date_string(obs_date, "%Y-%m-%d")
+            if parsed:
+                resolution_date = parsed.date()
 
         return Resolution(
             question_id=question_id,
@@ -278,8 +273,3 @@ class FREDSource(QuestionSource):
             date=resolution_date,
             value=value,
         )
-
-    async def close(self):
-        if self._client:
-            await self._client.aclose()
-            self._client = None

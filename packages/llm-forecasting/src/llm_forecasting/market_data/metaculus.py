@@ -6,6 +6,8 @@ from datetime import datetime, timedelta, timezone
 import httpx
 
 from llm_forecasting.config import settings
+from llm_forecasting.date_utils import parse_iso_datetime
+from llm_forecasting.http_utils import HTTPClientMixin
 from llm_forecasting.market_data.base import MarketDataProvider, market_data_registry
 from llm_forecasting.market_data.models import Market, MarketStatus
 
@@ -15,7 +17,7 @@ BASE_URL = "https://www.metaculus.com/api"
 
 
 @market_data_registry.register
-class MetaculusData(MarketDataProvider):
+class MetaculusData(MarketDataProvider, HTTPClientMixin):
     """Metaculus market data provider."""
 
     name = "metaculus"
@@ -33,16 +35,8 @@ class MetaculusData(MarketDataProvider):
             http_client: Optional httpx client for connection reuse.
         """
         self._api_key = api_key if api_key is not None else settings.metaculus_api_key
-        self._client = http_client
-        self._owns_client = http_client is None
-
-    async def _get_client(self) -> httpx.AsyncClient:
-        if self._client is None:
-            headers = {}
-            if self._api_key:
-                headers["Authorization"] = f"Token {self._api_key}"
-            self._client = httpx.AsyncClient(timeout=30.0, headers=headers)
-        return self._client
+        headers = {"Authorization": f"Token {self._api_key}"} if self._api_key else None
+        self._init_client(http_client, headers=headers)
 
     async def fetch_markets(
         self,
@@ -132,19 +126,19 @@ class MetaculusData(MarketDataProvider):
         # Check CP reveal time
         cp_reveal = question_data.get("cp_reveal_time")
         if cp_reveal:
-            reveal_dt = self._parse_datetime(cp_reveal)
+            reveal_dt = parse_iso_datetime(cp_reveal)
             if reveal_dt and reveal_dt > datetime.now(timezone.utc):
                 return None  # CP not yet revealed
 
         # Parse timestamps
-        created_at = self._parse_datetime(question_data.get("open_time"))
+        created_at = parse_iso_datetime(question_data.get("open_time"))
         if not created_at:
             created_at = datetime.now(timezone.utc)
 
         close_time = question_data.get("actual_close_time") or question_data.get(
             "scheduled_close_time"
         )
-        close_date = self._parse_datetime(close_time)
+        close_date = parse_iso_datetime(close_time)
         resolution_date = close_date.date() if close_date else None
 
         # Status and resolution
@@ -188,20 +182,3 @@ class MetaculusData(MarketDataProvider):
         except (KeyError, TypeError):
             pass
         return None
-
-    def _parse_datetime(self, dt_str: str | None) -> datetime | None:
-        """Parse ISO datetime string."""
-        if not dt_str:
-            return None
-        try:
-            if dt_str.endswith("Z"):
-                dt_str = dt_str[:-1] + "+00:00"
-            return datetime.fromisoformat(dt_str)
-        except ValueError:
-            return None
-
-    async def close(self) -> None:
-        """Close the HTTP client if we own it."""
-        if self._client and self._owns_client:
-            await self._client.aclose()
-            self._client = None
