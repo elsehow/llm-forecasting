@@ -688,6 +688,7 @@
           <select id="signal-sort" style="margin-left: 0.5rem; font-size: 0.6rem; padding: 0.15rem 0.3rem;">
             <option value="resolution_date">By resolution date</option>
             <option value="voi">By VOI</option>
+            <option value="cruxiness">By cruxiness</option>
           </select>
         </div>
         <div class="cards-container" id="signals-container"></div>
@@ -812,6 +813,8 @@
       // Sort based on user selection
       if (state.signalSort === 'voi') {
         signalsWithIndex.sort((a, b) => (b.signal.voi || 0) - (a.signal.voi || 0));
+      } else if (state.signalSort === 'cruxiness') {
+        signalsWithIndex.sort((a, b) => (b.signal.cruxiness_spread || 0) - (a.signal.cruxiness_spread || 0));
       } else {
         // Sort by resolution date (soonest first, nulls last)
         signalsWithIndex.sort((a, b) => {
