@@ -22,6 +22,7 @@ def build_scenario_dicts(scenarios) -> list[dict]:
         d = {
             "name": s.name,
             "description": s.description,
+            "scenario_probability": s.scenario_probability,  # E2E LLM-estimated probability
             "key_drivers": s.key_drivers,
             "why_exclusive": s.why_exclusive,
             "signal_impacts": [
@@ -136,12 +137,13 @@ def print_results(result) -> None:
 
     print("\n" + "-" * 40)
     for s in result.scenarios:
-        print(f"\n### {s.name}")
+        prob_pct = s.scenario_probability * 100
+        print(f"\n### {s.name} ({prob_pct:.0f}% likely)")
         # Handle both continuous (outcome_range) and binary (probability_range)
         if s.outcome_range is not None:
             print(f"  Outcome Range: {s.outcome_range} (low={s.outcome_low}, high={s.outcome_high})")
         elif s.probability_range is not None:
-            print(f"  Probability: {s.probability_range} (low={s.probability_low}, high={s.probability_high})")
+            print(f"  P(YES|scenario): {s.probability_range} (low={s.probability_low}, high={s.probability_high})")
         print(f"  {s.description}")
         print(f"\n  Why Exclusive: {s.why_exclusive[:80]}...")
         print(f"\n  Key Drivers: {', '.join(s.key_drivers[:3])}")

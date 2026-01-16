@@ -113,10 +113,14 @@
       stroke-width: 2;
       transition: stroke 0.2s, stroke-width 0.2s, opacity 0.2s;
     }
+    .flow-path.up { stroke: rgba(22, 163, 74, 0.4); }
+    .flow-path.down { stroke: rgba(220, 38, 38, 0.4); }
     .flow-path.highlighted {
       opacity: 1;
       stroke: #1a1a1a;
     }
+    .flow-path.highlighted.up { stroke: var(--up-color); }
+    .flow-path.highlighted.down { stroke: var(--down-color); }
     .flow-path.dimmed { opacity: 0.1; }
 
     .column {
@@ -829,48 +833,6 @@
         const prob = signal.base_rate != null ? `${(signal.base_rate * 100).toFixed(0)}%` : '-';
         const resDate = signal.resolution_date ? new Date(signal.resolution_date).toLocaleDateString() : '-';
 
-        // Build cruxiness bar if conditional probability data exists
-        let cruxinessBarHtml = '';
-        if (signal.p_target_given_yes != null && signal.p_target_given_no != null) {
-          const pYes = signal.p_target_given_yes;
-          const pNo = signal.p_target_given_no;
-
-          // Position markers at their respective probabilities (0-100% scale)
-          const yesPos = pYes * 100;
-          const noPos = pNo * 100;
-
-          // Determine which is left/right for labels
-          // If YES increases probability, NO is on left, YES on right
-          // If YES decreases probability, flip them
-          const yesIncreasesProb = pYes >= pNo;
-          const leftLabel = yesIncreasesProb
-            ? `<span class="cruxiness-label-value">${(pNo * 100).toFixed(0)}%</span> ← No`
-            : `<span class="cruxiness-label-value">${(pYes * 100).toFixed(0)}%</span> ← Yes`;
-          const rightLabel = yesIncreasesProb
-            ? `Yes → <span class="cruxiness-label-value">${(pYes * 100).toFixed(0)}%</span>`
-            : `No → <span class="cruxiness-label-value">${(pNo * 100).toFixed(0)}%</span>`;
-          const leftClass = yesIncreasesProb ? 'no' : 'yes';
-          const rightClass = yesIncreasesProb ? 'yes' : 'no';
-
-          // Calculate spread fill position
-          const fillLeft = Math.min(noPos, yesPos);
-          const fillWidth = Math.abs(yesPos - noPos);
-
-          cruxinessBarHtml = `
-            <div class="cruxiness-bar">
-              <div class="cruxiness-track">
-                <div class="cruxiness-spread-fill" style="left: ${fillLeft}%; width: ${fillWidth}%;"></div>
-                <div class="cruxiness-marker no" style="left: ${noPos}%;"></div>
-                <div class="cruxiness-marker yes" style="left: ${yesPos}%;"></div>
-              </div>
-              <div class="cruxiness-labels">
-                <span class="cruxiness-label-item ${leftClass}">${leftLabel}</span>
-                <span class="cruxiness-label-item ${rightClass}">${rightLabel}</span>
-              </div>
-            </div>
-          `;
-        }
-
         card.innerHTML = `
           <div class="signal-header">
             <div class="signal-name">${escapeHtml(signal.text)}</div>
@@ -883,7 +845,6 @@
             <span>${resDate}</span>
           </div>
           <div class="signal-rho">${escapeHtml(signal.rho_reasoning || '')}</div>
-          ${cruxinessBarHtml}
         `;
 
         card.addEventListener('click', () => onSignalClick(signal.id));
@@ -953,15 +914,17 @@
           probDisplay = `<div style="font-size: 0.65rem; color: var(--text-muted); margin-bottom: 0.25rem;">${(prob * 100).toFixed(0)}% probability</div>`;
         }
 
+        // Show scenario probability in header (replaces outcome/probability range which is shown in outcome bar overlay)
+        const scenarioProbPercent = (prob * 100).toFixed(0);
+
         card.innerHTML = `
           <div class="scenario-header">
             <span class="scenario-name">${escapeHtml(scenario.name)}</span>
-            <span class="scenario-range">${escapeHtml(scenario.outcome_range || '')}</span>
+            <span class="scenario-range">${scenarioProbPercent}%</span>
           </div>
           <div class="scenario-prob-bar">
             <div class="scenario-prob-fill" style="width: ${prob * 100}%"></div>
           </div>
-          ${probDisplay}
           <div class="scenario-description">${escapeHtml(scenario.description || '')}</div>
           <div class="scenario-drivers">
             <div class="driver-label">Key Drivers:</div>
@@ -985,7 +948,7 @@
 
       const signals = state.data.signals || [];
       const scenarios = state.data.scenarios || [];
-      const { scenarioName } = state.selection;
+      const { signalId, scenarioName } = state.selection;
 
       // Compute E[X] across all scenarios (weighted by probability)
       const probabilities = computeScenarioProbabilities(scenarios, signals, state.resolutions);
@@ -1090,49 +1053,119 @@
         const pYes = expectedValue;
         const pYesOriginal = originalExpectedValue;
         const pYesPercent = (pYes * 100).toFixed(0);
-        const barPos = pYes * 100;
+        const baselinePos = pYes * 100;
 
-        let binaryDeltaHtml = '';
+        let binaryRangeBarContent = '';
+        let displayProbability = pYes;
+        let binaryValueLabel = 'P(YES) across all scenarios';
         let binaryColorClass = '';
-        if (hasResolutions && !scenarioName) {
-          const delta = pYes - pYesOriginal;
-          if (Math.abs(delta) > 0.01) {
-            binaryColorClass = delta > 0 ? 'positive' : 'negative';
-            const deltaSign = delta > 0 ? '+' : '';
-            binaryDeltaHtml = `<div class="prob-shift" style="justify-content: center;">
-              <span class="prob-original">${(pYesOriginal * 100).toFixed(0)}%</span>
-              <span class="prob-arrow">→</span>
-              <span class="prob-current ${delta > 0 ? 'up' : 'down'}">${pYesPercent}%</span>
-              <span class="prob-delta ${delta > 0 ? 'up' : 'down'}">${deltaSign}${(Math.abs(delta) * 100).toFixed(0)}pp</span>
-            </div>`;
+
+        // Track if we need cruxiness labels
+        let cruxinessLabelsHtml = '';
+
+        // Handle signal selection - show cruxiness (P(YES|signal=YES) and P(YES|signal=NO))
+        if (signalId) {
+          const signal = signals.find(s => s.id === signalId);
+          if (signal && signal.p_target_given_yes != null && signal.p_target_given_no != null) {
+            const pYesGivenSignalYes = signal.p_target_given_yes;
+            const pYesGivenSignalNo = signal.p_target_given_no;
+            const yesPos = pYesGivenSignalYes * 100;
+            const noPos = pYesGivenSignalNo * 100;
+            const spread = Math.abs(yesPos - noPos);
+            const spreadLeft = Math.min(yesPos, noPos);
+
+            // Replace main display with signal context
+            displayProbability = null; // Don't show a single probability
+            binaryValueLabel = `If the selected signal resolves...`;
+
+            // Build cruxiness labels - position based on which outcome has higher probability
+            // Colors are semantic: YES = green (up), NO = red (down), always
+            const noPercent = (pYesGivenSignalNo * 100).toFixed(0);
+            const yesPercent = (pYesGivenSignalYes * 100).toFixed(0);
+            const yesIsHigher = pYesGivenSignalYes >= pYesGivenSignalNo;
+
+            // Left label is lower probability, right label is higher probability
+            // YES is always green, NO is always red
+            const leftLabel = yesIsHigher
+              ? `<span style="color: var(--down-color);">${noPercent}% ← NO</span>`
+              : `<span style="color: var(--up-color);">${yesPercent}% ← YES</span>`;
+            const rightLabel = yesIsHigher
+              ? `<span style="color: var(--up-color);">YES → ${yesPercent}%</span>`
+              : `<span style="color: var(--down-color);">NO → ${noPercent}%</span>`;
+
+            cruxinessLabelsHtml = `
+              <div style="display: flex; justify-content: space-between; margin-top: 0.5rem; font-size: 1.1rem; font-weight: 600;">
+                ${leftLabel}
+                ${rightLabel}
+              </div>
+            `;
+
+            // Spread highlight + both markers + baseline
+            // Gradient goes from red (NO position) to green (YES position)
+            const gradientDir = yesIsHigher ? 'to right' : 'to left';
+
+            binaryRangeBarContent = `
+              <div class="scenario-range-highlight" style="left: ${spreadLeft}%; width: ${spread}%; background: linear-gradient(${gradientDir}, var(--down-color), var(--up-color)); opacity: 0.25;"></div>
+              <div class="range-marker baseline" style="left: ${baselinePos}%" title="P(YES): ${pYesPercent}%"></div>
+              <div class="range-marker scenario down" style="left: ${noPos}%" title="If NO: ${noPercent}%"></div>
+              <div class="range-marker scenario up" style="left: ${yesPos}%" title="If YES: ${yesPercent}%"></div>
+            `;
+          } else {
+            binaryRangeBarContent = `<div class="range-marker" style="left: ${baselinePos}%"></div>`;
           }
+        // Handle scenario selection - show comparison like continuous questions
+        } else if (scenarioName) {
+          const scenario = scenarios.find(s => s.name === scenarioName);
+          if (scenario) {
+            const scenarioPYes = (scenario.probability_low + scenario.probability_high) / 2;
+            const scenarioLowPos = scenario.probability_low * 100;
+            const scenarioHighPos = scenario.probability_high * 100;
+            const scenarioMidPos = scenarioPYes * 100;
+            const isUp = scenarioPYes >= pYes;
+            const colorClass = isUp ? 'up' : 'down';
+
+            displayProbability = scenarioPYes;
+            binaryValueLabel = `P(YES) if "${scenario.name}"`;
+            binaryColorClass = isUp ? 'positive' : 'negative';
+
+            // Scenario range highlight + both markers
+            binaryRangeBarContent = `
+              <div class="scenario-range-highlight ${colorClass}" style="left: ${scenarioLowPos}%; width: ${scenarioHighPos - scenarioLowPos}%"></div>
+              <div class="range-marker baseline" style="left: ${baselinePos}%" title="P(YES): ${pYesPercent}%"></div>
+              <div class="range-marker scenario ${colorClass}" style="left: ${scenarioMidPos}%"></div>
+            `;
+          }
+        } else {
+          // No selection - just show baseline marker
+          binaryRangeBarContent = `<div class="range-marker" style="left: ${baselinePos}%"></div>`;
         }
 
-        // Show scenario breakdown with their P(YES|scenario)
-        const scenarioList = scenarios.map((s, i) => {
-          const scenarioProb = (probabilities[i] * 100).toFixed(0);
-          const pYesGivenScenario = ((s.probability_low + s.probability_high) / 2 * 100).toFixed(0);
-          return `<div style="display: flex; justify-content: space-between; padding: 0.25rem 0; border-bottom: 1px solid var(--border); font-size: 0.65rem;">
-            <span style="color: var(--text-secondary);">${escapeHtml(s.name)}</span>
-            <span><span style="color: var(--text-muted);">P(scenario)=${scenarioProb}%</span> <span style="font-weight: 600;">P(YES)=${pYesGivenScenario}%</span></span>
-          </div>`;
-        }).join('');
+        // Build the main value display - either probability or signal context
+        let mainValueHtml;
+        if (displayProbability === null) {
+          // Signal selected - show context text as main display
+          mainValueHtml = `
+            <div class="question-label" style="font-size: 0.85rem; margin-bottom: 0.5rem; color: var(--text-secondary);">${escapeHtml(binaryValueLabel)}</div>
+          `;
+        } else {
+          // Normal display - show probability
+          mainValueHtml = `
+            <div class="question-value ${binaryColorClass}" style="font-size: 2rem;">${(displayProbability * 100).toFixed(0)}% YES</div>
+            <div class="question-label">${escapeHtml(binaryValueLabel)}</div>
+          `;
+        }
 
         card.innerHTML = `
           <div class="question-text">${escapeHtml(question.text)}</div>
-          <div class="question-value ${binaryColorClass}" style="font-size: 2rem;">${pYesPercent}% YES</div>
-          <div class="question-label">P(YES) across all scenarios</div>
-          ${binaryDeltaHtml}
+          ${mainValueHtml}
           <div class="question-range" style="margin-top: 0.5rem;">
             <span>0%</span>
             <div class="range-bar">
-              <div class="range-marker" style="left: ${barPos}%"></div>
+              ${binaryRangeBarContent}
             </div>
             <span>100%</span>
           </div>
-          <div style="margin-top: 0.75rem;">
-            ${scenarioList}
-          </div>
+          ${cruxinessLabelsHtml}
         `;
       } else {
         // Fallback for questions without outcome/probability ranges
@@ -1210,11 +1243,23 @@
       if (questionCard) {
         const questionRect = questionCard.getBoundingClientRect();
 
-        // Compute E[X] for comparison
+        // Detect question type and compute expected value
+        const isQuantitative = scenarios.some(s => s.outcome_low != null && s.outcome_high != null);
+        const isBinary = scenarios.some(s => s.probability_low != null && s.probability_high != null);
+
+        // Compute E[X] or P(YES) using scenario probabilities
+        const probabilities = computeScenarioProbabilities(scenarios, signals, {});
         let expectedValue = 0;
         if (scenarios.length > 0) {
-          const midpoints = scenarios.map(s => (s.outcome_low + s.outcome_high) / 2);
-          expectedValue = midpoints.reduce((a, b) => a + b, 0) / midpoints.length;
+          scenarios.forEach((s, i) => {
+            if (isQuantitative) {
+              const mid = ((s.outcome_low || 0) + (s.outcome_high || 0)) / 2;
+              expectedValue += mid * probabilities[i];
+            } else if (isBinary) {
+              const mid = ((s.probability_low || 0) + (s.probability_high || 0)) / 2;
+              expectedValue += mid * probabilities[i];
+            }
+          });
         }
 
         document.querySelectorAll('.scenario-card').forEach(scenarioCard => {
@@ -1232,14 +1277,23 @@
           path.setAttribute('d', `M ${startX} ${startY} C ${midX} ${startY}, ${midX} ${endY}, ${endX} ${endY}`);
           path.setAttribute('class', 'flow-path');
 
-          // Determine if scenario pushes outcome up or down vs E[X]
-          const scenarioMid = scenario ? (scenario.outcome_low + scenario.outcome_high) / 2 : expectedValue;
+          // Determine if scenario pushes outcome up or down vs expected value
+          let scenarioMid = expectedValue;
+          if (scenario) {
+            if (isQuantitative) {
+              scenarioMid = ((scenario.outcome_low || 0) + (scenario.outcome_high || 0)) / 2;
+            } else if (isBinary) {
+              scenarioMid = ((scenario.probability_low || 0) + (scenario.probability_high || 0)) / 2;
+            }
+          }
           const isUp = scenarioMid >= expectedValue;
+
+          // Always color the path based on direction
+          path.classList.add(isUp ? 'up' : 'down');
 
           if (scenarioName) {
             if (scenarioName === sName) {
               path.classList.add('highlighted');
-              path.classList.add(isUp ? 'up' : 'down');
               path.setAttribute('stroke-width', 4);
             } else {
               path.classList.add('dimmed');
