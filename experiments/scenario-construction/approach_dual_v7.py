@@ -18,8 +18,8 @@ Value proposition:
 See: Obsidian/projects/Scenario Generation.md#Approach Comparison
 
 Usage:
-    uv run python experiments/scenario-construction/gdp_2040/approach_dual_v7.py --target gdp_2050
-    uv run python experiments/scenario-construction/gdp_2040/approach_dual_v7.py --target renewable_2050
+    uv run python experiments/scenario-construction/approach_dual_v7.py --target gdp_2050
+    uv run python experiments/scenario-construction/approach_dual_v7.py --target renewable_2050
 """
 
 import argparse
@@ -36,7 +36,7 @@ from llm_forecasting.models import Signal
 from llm_forecasting.semantic_search import SemanticSignalSearcher
 
 # Import shared utilities
-sys.path.insert(0, str(Path(__file__).parent.parent))
+sys.path.insert(0, str(Path(__file__).parent))
 from shared.signals import (
     load_market_signals_semantic,
     deduplicate_signals,
@@ -87,7 +87,7 @@ TARGET_QUESTION = config.question.text
 CONTEXT = config.context
 
 # Paths
-REPO_ROOT = Path(__file__).parent.parent.parent.parent
+REPO_ROOT = Path(__file__).parent.parent.parent
 DB_PATH = REPO_ROOT / "data" / "forecastbench.db"
 OUTPUT_DIR = Path(__file__).parent / "results" / args.target
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)

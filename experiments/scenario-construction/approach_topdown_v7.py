@@ -13,8 +13,8 @@ v7 changes: Enhanced signal/scenario output for UI hydration.
 - Scenarios include outcome_low, outcome_high (numeric)
 
 Usage:
-    uv run python experiments/scenario-construction/gdp_2040/approach_topdown_v7.py --target gdp_2050
-    uv run python experiments/scenario-construction/gdp_2040/approach_topdown_v7.py --target renewable_2050
+    uv run python experiments/scenario-construction/approach_topdown_v7.py --target gdp_2050
+    uv run python experiments/scenario-construction/approach_topdown_v7.py --target renewable_2050
 """
 
 import argparse
@@ -30,7 +30,7 @@ from dotenv import load_dotenv
 from llm_forecasting.models import Signal
 
 # Import shared utilities
-sys.path.insert(0, str(Path(__file__).parent.parent))
+sys.path.insert(0, str(Path(__file__).parent))
 from shared.signals import rank_signals_by_voi, parse_date
 from shared.generation import generate_signals_for_uncertainty
 from shared.uncertainties import identify_uncertainties
