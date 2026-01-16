@@ -377,3 +377,51 @@ async def rank_signals_by_voi(
 
     # Sort by VOI descending
     return sorted(signals, key=lambda x: x.get("voi", 0), reverse=True)
+
+
+# ============================================================
+# Signal model construction
+# ============================================================
+
+def build_signal_models(
+    signals: list[dict],
+    text_key: str = "question",
+    include_background: bool = False,
+    include_uncertainty_source: bool = False,
+) -> list:
+    """Build Signal model instances from signal dicts.
+
+    Args:
+        signals: List of signal dicts with id, source, text/question, etc.
+        text_key: Key to use for signal text ("question" for market, "text" for LLM)
+        include_background: Whether to include background field (for LLM signals)
+        include_uncertainty_source: Whether to include uncertainty_source field
+
+    Returns:
+        List of Signal model instances
+    """
+    from llm_forecasting.models import Signal
+
+    result = []
+    for s in signals:
+        kwargs = {
+            "id": s["id"],
+            "source": s["source"],
+            "text": s.get(text_key) or s.get("text") or s.get("question"),
+            "url": s.get("url"),
+            "resolution_date": parse_date(s.get("resolution_date")),
+            "base_rate": s.get("base_rate"),
+            "voi": s.get("voi", 0.0),
+            "rho": s.get("rho", 0.0),
+            "rho_reasoning": s.get("rho_reasoning"),
+        }
+
+        if include_background:
+            kwargs["background"] = s.get("background")
+
+        if include_uncertainty_source:
+            kwargs["uncertainty_source"] = s.get("uncertainty_source")
+
+        result.append(Signal(**kwargs))
+
+    return result

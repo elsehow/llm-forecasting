@@ -22,17 +22,13 @@ Usage:
     uv run python experiments/scenario-construction/approach_dual_v7.py --target renewable_2050
 """
 
-import argparse
-import json
 import asyncio
 import sys
 from pathlib import Path
 from datetime import datetime
-from uuid import uuid4
 
 from dotenv import load_dotenv
 
-from llm_forecasting.models import Signal
 from llm_forecasting.semantic_search import SemanticSignalSearcher
 
 # Import shared utilities
@@ -42,61 +38,38 @@ from shared.signals import (
     deduplicate_signals,
     rank_signals_by_voi,
     enrich_with_resolution_data,
-    parse_date,
-    DEFAULT_KNOWLEDGE_CUTOFF,
+    build_signal_models,
 )
 from shared.generation import generate_signals_for_uncertainty
 from shared.uncertainties import identify_uncertainties
 from shared.scenarios import generate_mece_scenarios
-from shared.config import get_target, TARGETS
 from shared.refresh import refresh_if_stale
+from shared.setup import (
+    create_base_parser,
+    add_uncertainty_args,
+    add_matching_args,
+    load_config,
+    print_header,
+    DEFAULT_SOURCES,
+)
+from shared.output import (
+    build_scenario_dicts,
+    build_base_results,
+    print_results,
+    save_results,
+)
 
 load_dotenv()
 
 # Parse arguments
-parser = argparse.ArgumentParser(description="Dual v7 scenario generation")
-parser.add_argument(
-    "--target",
-    choices=list(TARGETS.keys()),
-    default="gdp_2050",
-    help="Target question to generate scenarios for",
-)
-parser.add_argument(
-    "--n-uncertainties",
-    type=int,
-    default=3,
-    help="Number of uncertainty axes to identify",
-)
-parser.add_argument(
-    "--voi-floor",
-    type=float,
-    default=0.1,
-    help="VOI floor for scenario generation (default 0.1)",
-)
-parser.add_argument(
-    "--match-threshold",
-    type=float,
-    default=0.6,
-    help="Similarity threshold for matching top-down to market signals (default 0.6)",
-)
+parser = create_base_parser("Dual v7 scenario generation")
+add_uncertainty_args(parser)
+add_matching_args(parser)
 args = parser.parse_args()
 
 # Load config
-config = get_target(args.target)
-TARGET_QUESTION = config.question.text
-CONTEXT = config.context
-
-# Paths
-REPO_ROOT = Path(__file__).parent.parent.parent
-DB_PATH = REPO_ROOT / "data" / "forecastbench.db"
-OUTPUT_DIR = Path(__file__).parent / "results" / args.target
-OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-
-# Knowledge cutoff
-KNOWLEDGE_CUTOFF = DEFAULT_KNOWLEDGE_CUTOFF
-
-# Sources to search (question sources only)
-SOURCES = ["polymarket", "metaculus", "kalshi", "infer", "manifold"]
+cfg = load_config(args, Path(__file__))
+SOURCES = DEFAULT_SOURCES
 
 
 # ============================================================
@@ -118,8 +91,6 @@ def match_topdown_to_market(
     """
     if not topdown_signals or not market_signals:
         return [], topdown_signals, market_signals
-
-    searcher = SemanticSignalSearcher()
 
     # Embed all signals
     topdown_texts = [s["text"] for s in topdown_signals]
@@ -180,13 +151,15 @@ def match_topdown_to_market(
 
 
 async def main():
-    print("=" * 60)
-    print("DUAL APPROACH v7: Independent Top-Down + Bottom-Up + Merge")
-    print("=" * 60)
-    print(f"\nTarget: {TARGET_QUESTION}")
-    print(f"Uncertainty axes: {args.n_uncertainties}")
-    print(f"VOI floor: {args.voi_floor}")
-    print(f"Match threshold: {args.match_threshold}")
+    print_header(
+        "DUAL",
+        cfg.question_text,
+        sources=SOURCES,
+        knowledge_cutoff=cfg.knowledge_cutoff,
+        n_uncertainties=cfg.n_uncertainties,
+        voi_floor=cfg.voi_floor,
+        match_threshold=cfg.match_threshold,
+    )
 
     # ============================================================
     # PHASE 1: Top-Down (LLM-generated signals)
@@ -198,9 +171,9 @@ async def main():
     # Step 1.1: Identify key uncertainties
     print("\n[1.1] Identifying key uncertainties...")
     uncertainties = await identify_uncertainties(
-        question=TARGET_QUESTION,
-        context=CONTEXT,
-        n=args.n_uncertainties,
+        question=cfg.question_text,
+        context=cfg.context,
+        n=cfg.n_uncertainties,
     )
 
     for i, u in enumerate(uncertainties):
@@ -214,7 +187,7 @@ async def main():
     for u in uncertainties:
         print(f"\n  Generating for: {u.name}")
         signals = await generate_signals_for_uncertainty(
-            question=TARGET_QUESTION,
+            question=cfg.question_text,
             uncertainty_name=u.name,
             uncertainty_description=u.description,
             n=10,
@@ -233,20 +206,20 @@ async def main():
 
     # Step 2.1: Refresh market data if stale
     print("\n[2.1] Checking data freshness...")
-    await refresh_if_stale(str(DB_PATH), SOURCES)
+    await refresh_if_stale(str(cfg.db_path), SOURCES)
 
     # Step 2.2: Semantic search for market signals
     print("\n[2.2] Loading signals via semantic search...")
     market_signals = load_market_signals_semantic(
-        db_path=DB_PATH,
-        query=f"What signals affect {TARGET_QUESTION}",
+        db_path=cfg.db_path,
+        query=f"What signals affect {cfg.question_text}",
         sources=SOURCES,
         top_k=200,
     )
     print(f"  Retrieved {len(market_signals)} semantically relevant signals")
 
     # Enrich with resolution data
-    enrich_with_resolution_data(market_signals, DB_PATH, KNOWLEDGE_CUTOFF)
+    enrich_with_resolution_data(market_signals, cfg.db_path, cfg.knowledge_cutoff)
 
     # Filter out pre-cutoff resolved signals
     before_filter = len(market_signals)
@@ -261,11 +234,11 @@ async def main():
     print("=" * 60)
 
     # Step 3.1: Match top-down signals to market signals
-    print(f"\n[3.1] Matching top-down to market (threshold={args.match_threshold})...")
+    print(f"\n[3.1] Matching top-down to market (threshold={cfg.match_threshold})...")
     matched, gaps, market_only = match_topdown_to_market(
         topdown_signals,
         market_signals,
-        threshold=args.match_threshold,
+        threshold=cfg.match_threshold,
     )
 
     print(f"\n  Matching results:")
@@ -283,8 +256,6 @@ async def main():
 
     # Step 3.3: Build merged signal set
     print("\n[3.2] Building merged signal set...")
-
-    # For matched signals, use market data but keep top-down metadata
     merged_signals = []
 
     # Add matched signals (use market signal with top-down context)
@@ -344,17 +315,17 @@ async def main():
     print("\n[4.1] Ranking signals by VOI (batch API)...")
     ranked_signals = await rank_signals_by_voi(
         signals=merged_signals,
-        target=TARGET_QUESTION,
+        target=cfg.question_text,
     )
 
     # Count by origin
     origin_above_floor = {"matched": 0, "gap": 0, "market_only": 0}
     for s in ranked_signals:
-        if s.get("voi", 0) >= args.voi_floor:
+        if s.get("voi", 0) >= cfg.voi_floor:
             origin = s.get("origin", "unknown")
             origin_above_floor[origin] = origin_above_floor.get(origin, 0) + 1
 
-    print(f"\n  Signals above VOI floor ({args.voi_floor}):")
+    print(f"\n  Signals above VOI floor ({cfg.voi_floor}):")
     print(f"    From matches:    {origin_above_floor.get('matched', 0)}")
     print(f"    From gaps:       {origin_above_floor.get('gap', 0)}")
     print(f"    From market-only: {origin_above_floor.get('market_only', 0)}")
@@ -377,32 +348,13 @@ async def main():
     print("\n[4.3] Generating MECE scenarios...")
     result = await generate_mece_scenarios(
         signals=[{"text": s["text"], "source": s["source"], "voi": s.get("voi", 0)} for s in deduped_signals[:50]],
-        question=TARGET_QUESTION,
-        context=CONTEXT,
-        voi_floor=args.voi_floor,
+        question=cfg.question_text,
+        context=cfg.context,
+        voi_floor=cfg.voi_floor,
     )
 
-    # ============================================================
-    # OUTPUT
-    # ============================================================
-    print("\n" + "=" * 60)
-    print("RESULTS")
-    print("=" * 60)
-
-    print(f"\nMECE Reasoning: {result.mece_reasoning}")
-
-    if result.coverage_gaps:
-        print(f"\nCoverage Gaps: {result.coverage_gaps}")
-    else:
-        print(f"\nCoverage Gaps: None")
-
-    print("\n" + "-" * 40)
-    for s in result.scenarios:
-        print(f"\n### {s.name}")
-        print(f"  Outcome Range: {s.outcome_range} (low={s.outcome_low}, high={s.outcome_high})")
-        print(f"  {s.description}")
-        print(f"\n  Why Exclusive: {s.why_exclusive[:80]}...")
-        print(f"\n  Key Drivers: {', '.join(s.key_drivers[:3])}")
+    # Print results
+    print_results(result)
 
     # ============================================================
     # GAP ANALYSIS
@@ -430,40 +382,14 @@ async def main():
             print(f"    ... and {len(signals) - 3} more")
 
     # Save results
-    output_file = OUTPUT_DIR / f"dual_v7_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    output_file = cfg.output_dir / f"dual_v7_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
 
-    # Build Signal instances
-    signals_v7 = [
-        Signal(
-            id=s["id"],
-            source=s["source"],
-            text=s["text"],
-            url=s.get("url"),
-            resolution_date=parse_date(s.get("resolution_date")),
-            base_rate=s.get("base_rate"),
-            voi=s.get("voi", 0.0),
-            rho=s.get("rho", 0.0),
-            rho_reasoning=s.get("rho_reasoning"),
-            uncertainty_source=s.get("uncertainty_source"),
-        )
-        for s in deduped_signals[:50]
-    ]
-
-    # Build v7 scenario format
-    scenarios_v7 = [
-        {
-            "name": s.name,
-            "description": s.description,
-            "outcome_range": s.outcome_range,
-            "outcome_low": s.outcome_low,
-            "outcome_high": s.outcome_high,
-            "key_drivers": s.key_drivers,
-            "why_exclusive": s.why_exclusive,
-            "signal_impacts": [{"signal_index": si.signal_index, "effect": si.effect} for si in s.signal_impacts],
-            "indicator_bundle": s.indicator_bundle,
-        }
-        for s in result.scenarios
-    ]
+    signals_v7 = build_signal_models(
+        deduped_signals[:50],
+        text_key="text",
+        include_uncertainty_source=True,
+    )
+    scenarios_v7 = build_scenario_dicts(result.scenarios)
 
     # Gap details for JSON output
     gaps_v7 = [
@@ -477,36 +403,25 @@ async def main():
         for g in gaps
     ]
 
-    results = {
-        "id": f"dual_{args.target}_{uuid4().hex[:8]}",
-        "name": f"{args.target} (dual)",
-        "target": args.target,
-        "approach": "dual_v7",
-        "question": {
-            "id": config.question.id,
-            "source": config.question.source,
-            "text": config.question.text,
-            "question_type": config.question.question_type.value,
-            "unit": config.question.unit.type if config.question.unit else None,
-            "base_rate": config.question.base_rate,
-            "value_range": list(config.question.value_range) if config.question.value_range else None,
-        },
-        "config": {
-            "context": config.context,
-            "cruxiness_normalizer": config.cruxiness_normalizer,
-            "voi_floor": args.voi_floor,
-            "match_threshold": args.match_threshold,
-            "n_uncertainties": args.n_uncertainties,
-        },
-        "knowledge_cutoff": KNOWLEDGE_CUTOFF,
-        "current_date": datetime.now().strftime("%Y-%m-%d"),
+    results = build_base_results(
+        approach="dual",
+        target=cfg.target,
+        config=cfg.config,
+        signals_v7=signals_v7,
+        scenarios_v7=scenarios_v7,
+        mece_reasoning=result.mece_reasoning,
+        coverage_gaps=result.coverage_gaps,
+        voi_floor=cfg.voi_floor,
+        knowledge_cutoff=cfg.knowledge_cutoff,
+    )
+
+    # Add approach-specific fields
+    results["config"]["match_threshold"] = cfg.match_threshold
+    results["config"]["n_uncertainties"] = cfg.n_uncertainties
+    results.update({
         "sources_used": SOURCES,
         "uncertainties": [
-            {
-                "name": u.name,
-                "description": u.description,
-                "search_query": u.search_query,
-            }
+            {"name": u.name, "description": u.description, "search_query": u.search_query}
             for u in uncertainties
         ],
         # Phase 1: Top-down
@@ -519,25 +434,16 @@ async def main():
         "market_only_signals": len(market_only),
         # Phase 4: Merged
         "merged_signals_total": len(merged_signals),
-        "signals_above_floor": sum(1 for s in ranked_signals if s.get("voi", 0) >= args.voi_floor),
+        "signals_above_floor": sum(1 for s in ranked_signals if s.get("voi", 0) >= cfg.voi_floor),
         "signals_above_floor_by_origin": origin_above_floor,
-        # Output
-        "signals": [s.model_dump(mode="json", exclude_none=True) for s in signals_v7],
-        "scenarios": scenarios_v7,
-        "mece_reasoning": result.mece_reasoning,
-        "coverage_gaps": result.coverage_gaps,
         # Gap analysis
         "gaps": gaps_v7,
         "gaps_by_resolution_source": {
             src: len(sigs) for src, sigs in gaps_by_source.items()
         },
-        "created_at": datetime.now().isoformat(),
-    }
+    })
 
-    with open(output_file, "w") as f:
-        json.dump(results, f, indent=2)
-
-    print(f"\n\nResults saved to: {output_file}")
+    save_results(results, output_file)
 
 
 if __name__ == "__main__":
