@@ -23,8 +23,6 @@ from .signals import (
     deduplicate_signals,
     deduplicate_market_signals,
     # Resolution date utilities
-    DEFAULT_KNOWLEDGE_CUTOFF,
-    resolution_proximity_score,
-    get_resolution_bucket,
+    DEFAULT_MAX_HORIZON_DAYS,
     categorize_signal,
 )

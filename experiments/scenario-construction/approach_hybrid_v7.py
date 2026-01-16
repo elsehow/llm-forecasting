@@ -64,7 +64,7 @@ async def main():
         "HYBRID",
         cfg.question_text,
         sources=SOURCES,
-        knowledge_cutoff=cfg.knowledge_cutoff,
+        max_horizon_days=cfg.max_horizon_days,
         n_uncertainties=cfg.n_uncertainties,
         voi_floor=cfg.voi_floor,
     )
@@ -104,7 +104,7 @@ async def main():
         print(f"    Found {len(raw_signals)} signals")
 
         # Enrich with resolution data and URL
-        enrich_with_resolution_data(raw_signals, cfg.db_path, cfg.knowledge_cutoff)
+        enrich_with_resolution_data(raw_signals, cfg.db_path, cfg.max_horizon_days)
 
         # Filter pre-cutoff
         raw_signals = [s for s in raw_signals if s.get("signal_category") != "exclude"]
@@ -155,6 +155,7 @@ async def main():
         ],
         question=cfg.question_text,
         context=cfg.context,
+        question_type=cfg.question_type,
         voi_floor=cfg.voi_floor,
     )
 
@@ -181,7 +182,7 @@ async def main():
         mece_reasoning=result.mece_reasoning,
         coverage_gaps=result.coverage_gaps,
         voi_floor=cfg.voi_floor,
-        knowledge_cutoff=cfg.knowledge_cutoff,
+        max_horizon_days=cfg.max_horizon_days,
     )
 
     # Add approach-specific fields

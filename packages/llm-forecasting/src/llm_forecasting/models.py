@@ -120,6 +120,11 @@ class Signal(Question):
     rho_reasoning: str | None = None  # Explanation of correlation estimate
     uncertainty_source: str | None = None  # Which uncertainty axis (for hybrid/topdown)
 
+    # Conditional probability fields (computed from rho)
+    p_target_given_yes: float | None = None  # P(target | signal=YES)
+    p_target_given_no: float | None = None  # P(target | signal=NO)
+    cruxiness_spread: float | None = None  # |P(target|YES) - P(target|NO)|
+
     @property
     def is_synthetic(self) -> bool:
         """True if signal is LLM-generated (not from a market/data source)."""

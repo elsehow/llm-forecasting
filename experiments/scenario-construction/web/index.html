@@ -499,21 +499,117 @@
       outline: none;
       border-color: var(--question-border);
     }
+
+    /* Approach toggle */
+    .approach-toggle {
+      display: flex;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+    .approach-btn {
+      padding: 0.4rem 0.75rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      background: var(--bg-primary);
+      border: none;
+      cursor: pointer;
+      color: var(--text-secondary);
+      transition: all 0.15s;
+      border-right: 1px solid var(--border);
+    }
+    .approach-btn:last-child {
+      border-right: none;
+    }
+    .approach-btn:hover {
+      background: var(--bg-secondary);
+    }
+    .approach-btn.active {
+      background: var(--question-bg);
+      color: var(--question-text);
+      font-weight: 600;
+    }
+    .approach-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .selector-group {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .selector-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Probability shift display */
+    .prob-shift {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.65rem;
+      margin-top: 0.25rem;
+    }
+    .prob-original {
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+    .prob-arrow {
+      color: var(--text-muted);
+    }
+    .prob-current {
+      font-weight: 600;
+    }
+    .prob-current.up {
+      color: var(--up-color);
+    }
+    .prob-current.down {
+      color: var(--down-color);
+    }
+    .prob-delta {
+      font-size: 0.6rem;
+      padding: 0.1rem 0.3rem;
+      border-radius: 3px;
+    }
+    .prob-delta.up {
+      background: rgba(22, 163, 74, 0.1);
+      color: var(--up-color);
+    }
+    .prob-delta.down {
+      background: rgba(220, 38, 38, 0.1);
+      color: var(--down-color);
+    }
   </style>
 </head>
 <body>
   <div class="header">
     <div class="header-left">
       <h1>Scenario Explorer</h1>
-      <span id="set-name" class="subtitle"></span>
-      <select id="file-selector" class="file-selector">
-        <option value="">Select scenario set...</option>
-      </select>
+      <div class="selector-group">
+        <span class="selector-label">Question</span>
+        <select id="target-selector" class="file-selector">
+          <option value="">Select question...</option>
+        </select>
+      </div>
+      <div class="selector-group">
+        <span class="selector-label">Approach</span>
+        <div class="approach-toggle" id="approach-toggle">
+          <button class="approach-btn" data-approach="bottomup" disabled>Bottom-up</button>
+          <button class="approach-btn" data-approach="topdown" disabled>Top-down</button>
+          <button class="approach-btn" data-approach="hybrid" disabled>Hybrid</button>
+          <button class="approach-btn" data-approach="dual" disabled>Dual</button>
+        </div>
+      </div>
     </div>
     <div class="stats-bar">
       <div class="stat">Signals: <span class="stat-value" id="stat-signals">-</span></div>
       <div class="stat">Scenarios: <span class="stat-value" id="stat-scenarios">-</span></div>
-      <div class="stat">Approach: <span class="stat-value" id="stat-approach">-</span></div>
     </div>
   </div>
 
@@ -521,7 +617,13 @@
     <svg id="connections-svg"></svg>
     <div class="explorer" id="explorer">
       <div class="column" id="signals-col">
-        <div class="column-header">SIGNALS</div>
+        <div class="column-header">
+          SIGNALS
+          <select id="signal-sort" style="margin-left: 0.5rem; font-size: 0.6rem; padding: 0.15rem 0.3rem;">
+            <option value="resolution_date">By resolution date</option>
+            <option value="voi">By VOI</option>
+          </select>
+        </div>
         <div class="cards-container" id="signals-container"></div>
       </div>
       <div class="column scenarios-column" id="scenarios-col">
@@ -541,10 +643,15 @@
     // =============================================================
     const state = {
       data: null,
+      files: [],  // All available files from API
+      selectedTarget: null,
+      selectedApproach: null,
       selection: {
         signalId: null,
         scenarioName: null,
       },
+      signalSort: 'resolution_date', // 'resolution_date' or 'voi'
+      resolutions: {},  // signalId -> 'yes' | 'no' | null (pending)
     };
 
     // Observed sources (vs synthetic)
@@ -565,10 +672,17 @@
     }
 
     function renderHeader(state) {
-      document.getElementById('set-name').textContent = state.data.name || 'Unnamed';
-      document.getElementById('stat-signals').textContent = state.data.signals?.length || 0;
-      document.getElementById('stat-scenarios').textContent = state.data.scenarios?.length || 0;
-      document.getElementById('stat-approach').textContent = state.data.approach || '-';
+      // Count only signals that are mapped to at least one scenario
+      const signals = state.data.signals || [];
+      const scenarios = state.data.scenarios || [];
+      const mappedIndices = new Set();
+      scenarios.forEach(scenario => {
+        getScenarioSignalIndices(scenario, signals).forEach(idx => mappedIndices.add(idx));
+      });
+      document.getElementById('stat-signals').textContent = mappedIndices.size;
+      document.getElementById('stat-scenarios').textContent = scenarios.length;
+
+      // Count resolved signals
     }
 
     // Helper: get signal indices mapped to a scenario (supports both old and new format)
@@ -624,19 +738,30 @@
         getScenarioSignalIndices(scenario, signals).forEach(idx => allMappedIndices.add(idx));
       });
 
-      // Sort signals by VOI (descending), preserving original indices for mapping
-      const signalsWithIndex = signals.map((signal, idx) => ({ signal, originalIndex: idx }));
-      signalsWithIndex.sort((a, b) => (b.signal.voi || 0) - (a.signal.voi || 0));
+      // Filter to only signals that are mapped to at least one scenario
+      const signalsWithIndex = signals
+        .map((signal, idx) => ({ signal, originalIndex: idx }))
+        .filter(({ originalIndex }) => allMappedIndices.has(originalIndex));
+
+      // Sort based on user selection
+      if (state.signalSort === 'voi') {
+        signalsWithIndex.sort((a, b) => (b.signal.voi || 0) - (a.signal.voi || 0));
+      } else {
+        // Sort by resolution date (soonest first, nulls last)
+        signalsWithIndex.sort((a, b) => {
+          const dateA = a.signal.resolution_date ? new Date(a.signal.resolution_date) : new Date('9999-12-31');
+          const dateB = b.signal.resolution_date ? new Date(b.signal.resolution_date) : new Date('9999-12-31');
+          return dateA - dateB;
+        });
+      }
 
       signalsWithIndex.forEach(({ signal, originalIndex: signalIndex }) => {
         const isObserved = OBSERVED_SOURCES.includes(signal.source);
         const isSelected = signalId === signal.id;
         const isMapped = scenarioName && mappedSignalIndices.has(signalIndex);
-        const isZeroVoi = signal.voi === 0 || !allMappedIndices.has(signalIndex);
 
         let classes = ['card', 'signal-card'];
         if (!isObserved) classes.push('synthetic');
-        if (isZeroVoi) classes.push('zero-voi');
         if (isSelected) classes.push('highlighted');
         if (scenarioName && !isMapped && !isSelected) classes.push('dimmed');
         if (isMapped) classes.push('highlighted');
@@ -673,8 +798,12 @@
 
       const signals = state.data.signals || [];
       const scenarios = state.data.scenarios || [];
-      const numScenarios = scenarios.length;
       const { signalId, scenarioName } = state.selection;
+
+      // Compute probabilities: original (no resolutions) and current (with resolutions)
+      const originalProbs = computeOriginalProbabilities(scenarios, signals);
+      const probabilities = computeScenarioProbabilities(scenarios, signals, state.resolutions);
+      const hasResolutions = Object.keys(state.resolutions).length > 0;
 
       // Find which scenarios contain the selected signal
       let scenariosWithSignal = new Set();
@@ -703,8 +832,27 @@
         card.className = classes.join(' ');
         card.dataset.scenarioName = scenario.name;
 
-        // Equal probability for now
-        const prob = 1 / numScenarios;
+        const prob = probabilities[idx];
+        const origProb = originalProbs[idx];
+        const probDelta = prob - origProb;
+        const hasDelta = hasResolutions && Math.abs(probDelta) > 0.005;
+
+        // Build probability display
+        let probDisplay;
+        if (hasDelta) {
+          const deltaClass = probDelta > 0 ? 'up' : 'down';
+          const deltaSign = probDelta > 0 ? '+' : '';
+          probDisplay = `
+            <div class="prob-shift">
+              <span class="prob-original">${(origProb * 100).toFixed(0)}%</span>
+              <span class="prob-arrow">→</span>
+              <span class="prob-current ${deltaClass}">${(prob * 100).toFixed(0)}%</span>
+              <span class="prob-delta ${deltaClass}">${deltaSign}${(probDelta * 100).toFixed(0)}pp</span>
+            </div>
+          `;
+        } else {
+          probDisplay = `<div style="font-size: 0.65rem; color: var(--text-muted); margin-bottom: 0.25rem;">${(prob * 100).toFixed(0)}% probability</div>`;
+        }
 
         card.innerHTML = `
           <div class="scenario-header">
@@ -714,6 +862,7 @@
           <div class="scenario-prob-bar">
             <div class="scenario-prob-fill" style="width: ${prob * 100}%"></div>
           </div>
+          ${probDisplay}
           <div class="scenario-description">${escapeHtml(scenario.description || '')}</div>
           <div class="scenario-drivers">
             <div class="driver-label">Key Drivers:</div>
@@ -735,15 +884,36 @@
       const question = state.data.question;
       if (!question) return;
 
+      const signals = state.data.signals || [];
       const scenarios = state.data.scenarios || [];
       const { scenarioName } = state.selection;
 
-      // Compute E[X] across all scenarios (equal weight)
+      // Compute E[X] across all scenarios (weighted by probability)
+      const probabilities = computeScenarioProbabilities(scenarios, signals, state.resolutions);
+      const originalProbs = computeOriginalProbabilities(scenarios, signals);
+
+      // Check question type
+      const isQuantitative = scenarios.some(s => s.outcome_low != null && s.outcome_high != null);
+      const isBinary = scenarios.some(s => s.probability_low != null && s.probability_high != null);
+
       let expectedValue = 0;
-      if (scenarios.length > 0) {
-        const midpoints = scenarios.map(s => (s.outcome_low + s.outcome_high) / 2);
-        expectedValue = midpoints.reduce((a, b) => a + b, 0) / midpoints.length;
+      let originalExpectedValue = 0;
+      if (isQuantitative && scenarios.length > 0) {
+        // E[X] for continuous questions
+        scenarios.forEach((s, i) => {
+          const midpoint = ((s.outcome_low || 0) + (s.outcome_high || 0)) / 2;
+          expectedValue += midpoint * probabilities[i];
+          originalExpectedValue += midpoint * originalProbs[i];
+        });
+      } else if (isBinary && scenarios.length > 0) {
+        // P(YES) for binary questions
+        scenarios.forEach((s, i) => {
+          const midpoint = ((s.probability_low || 0) + (s.probability_high || 0)) / 2;
+          expectedValue += midpoint * probabilities[i];
+          originalExpectedValue += midpoint * originalProbs[i];
+        });
       }
+      const hasResolutions = Object.keys(state.resolutions).length > 0;
 
       const [minVal, maxVal] = question.value_range || [0, 100];
       const range = maxVal - minVal;
@@ -757,6 +927,23 @@
       let displayValue = expectedValue;
       let valueLabel = 'Expected value across all scenarios';
       let valueColorClass = '';
+      let valueDeltaHtml = '';
+
+      // Show shift from original if resolutions exist
+      if (hasResolutions && !scenarioName) {
+        const delta = expectedValue - originalExpectedValue;
+        if (Math.abs(delta) > 0.1) {
+          valueColorClass = delta > 0 ? 'positive' : 'negative';
+          const deltaSign = delta > 0 ? '+' : '';
+          valueDeltaHtml = `<div class="prob-shift" style="justify-content: center;">
+            <span class="prob-original">${formatValue(originalExpectedValue, question.unit)}</span>
+            <span class="prob-arrow">→</span>
+            <span class="prob-current ${delta > 0 ? 'up' : 'down'}">${formatValue(expectedValue, question.unit)}</span>
+            <span class="prob-delta ${delta > 0 ? 'up' : 'down'}">${deltaSign}${formatValue(Math.abs(delta), question.unit)}</span>
+          </div>`;
+          valueLabel = 'Updated expected value';
+        }
+      }
 
       if (scenarioName) {
         const scenario = scenarios.find(s => s.name === scenarioName);
@@ -784,18 +971,79 @@
         rangeBarContent = `<div class="range-marker" style="left: ${baselinePos}%"></div>`;
       }
 
-      card.innerHTML = `
-        <div class="question-text">${escapeHtml(question.text)}</div>
-        <div class="question-value ${valueColorClass}">${formatValue(displayValue, question.unit)}</div>
-        <div class="question-label">${escapeHtml(valueLabel)}</div>
-        <div class="question-range">
-          <span>${formatValue(minVal, question.unit)}</span>
-          <div class="range-bar">
-            ${rangeBarContent}
+      // Different display for quantitative vs binary questions
+      if (isQuantitative) {
+        card.innerHTML = `
+          <div class="question-text">${escapeHtml(question.text)}</div>
+          <div class="question-value ${valueColorClass}">${formatValue(displayValue, question.unit)}</div>
+          <div class="question-label">${escapeHtml(valueLabel)}</div>
+          ${valueDeltaHtml}
+          <div class="question-range">
+            <span>${formatValue(minVal, question.unit)}</span>
+            <div class="range-bar">
+              ${rangeBarContent}
+            </div>
+            <span>${formatValue(maxVal, question.unit)}</span>
           </div>
-          <span>${formatValue(maxVal, question.unit)}</span>
-        </div>
-      `;
+        `;
+      } else if (isBinary) {
+        // Binary question - show P(YES) with probability bar
+        const pYes = expectedValue;
+        const pYesOriginal = originalExpectedValue;
+        const pYesPercent = (pYes * 100).toFixed(0);
+        const barPos = pYes * 100;
+
+        let binaryDeltaHtml = '';
+        let binaryColorClass = '';
+        if (hasResolutions && !scenarioName) {
+          const delta = pYes - pYesOriginal;
+          if (Math.abs(delta) > 0.01) {
+            binaryColorClass = delta > 0 ? 'positive' : 'negative';
+            const deltaSign = delta > 0 ? '+' : '';
+            binaryDeltaHtml = `<div class="prob-shift" style="justify-content: center;">
+              <span class="prob-original">${(pYesOriginal * 100).toFixed(0)}%</span>
+              <span class="prob-arrow">→</span>
+              <span class="prob-current ${delta > 0 ? 'up' : 'down'}">${pYesPercent}%</span>
+              <span class="prob-delta ${delta > 0 ? 'up' : 'down'}">${deltaSign}${(Math.abs(delta) * 100).toFixed(0)}pp</span>
+            </div>`;
+          }
+        }
+
+        // Show scenario breakdown with their P(YES|scenario)
+        const scenarioList = scenarios.map((s, i) => {
+          const scenarioProb = (probabilities[i] * 100).toFixed(0);
+          const pYesGivenScenario = ((s.probability_low + s.probability_high) / 2 * 100).toFixed(0);
+          return `<div style="display: flex; justify-content: space-between; padding: 0.25rem 0; border-bottom: 1px solid var(--border); font-size: 0.65rem;">
+            <span style="color: var(--text-secondary);">${escapeHtml(s.name)}</span>
+            <span><span style="color: var(--text-muted);">P(scenario)=${scenarioProb}%</span> <span style="font-weight: 600;">P(YES)=${pYesGivenScenario}%</span></span>
+          </div>`;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="question-text">${escapeHtml(question.text)}</div>
+          <div class="question-value ${binaryColorClass}" style="font-size: 2rem;">${pYesPercent}% YES</div>
+          <div class="question-label">P(YES) across all scenarios</div>
+          ${binaryDeltaHtml}
+          <div class="question-range" style="margin-top: 0.5rem;">
+            <span>0%</span>
+            <div class="range-bar">
+              <div class="range-marker" style="left: ${barPos}%"></div>
+            </div>
+            <span>100%</span>
+          </div>
+          <div style="margin-top: 0.75rem;">
+            ${scenarioList}
+          </div>
+        `;
+      } else {
+        // Fallback for questions without outcome/probability ranges
+        card.innerHTML = `
+          <div class="question-text">${escapeHtml(question.text)}</div>
+          <div style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.7rem;">
+            No quantitative data available
+          </div>
+        `;
+      }
 
       container.appendChild(card);
     }
@@ -946,6 +1194,67 @@
       return div.innerHTML;
     }
 
+    function computeScenarioProbabilities(scenarios, signals, resolutions = {}) {
+      // Score each scenario based on its signals
+      // For unresolved signals: Σ(rho × base_rate × direction)
+      // For resolved signals: treat as hard evidence (base_rate = 1 for YES, 0 for NO)
+      if (!scenarios || scenarios.length === 0) {
+        console.warn('computeScenarioProbabilities: No scenarios');
+        return [];
+      }
+      if (!signals || signals.length === 0) {
+        console.warn('computeScenarioProbabilities: No signals, returning uniform');
+        return scenarios.map(() => 1 / scenarios.length);
+      }
+      const scores = scenarios.map(scenario => {
+        let score = 0;
+        (scenario.signal_impacts || []).forEach(impact => {
+          const signal = signals[impact.signal_index];
+          if (!signal) return;
+          const rho = Math.abs(signal.rho || 0);  // Use absolute rho for magnitude
+          const direction = impact.effect === 'enhances' ? 1 : -1;
+
+          const resolution = resolutions[signal.id];
+          let effectiveProb;
+
+          if (resolution === 'yes') {
+            // Signal resolved YES - this is now a fact
+            effectiveProb = 1.0;
+          } else if (resolution === 'no') {
+            // Signal resolved NO - this is now a fact
+            effectiveProb = 0.0;
+          } else {
+            // Unresolved - use base rate
+            effectiveProb = signal.base_rate ?? 0.5;
+          }
+
+          // Score contribution: how much does this signal push toward this scenario?
+          // If signal is YES and enhances scenario, boost score
+          // If signal is NO and enhances scenario, reduce score
+          score += rho * effectiveProb * direction;
+        });
+        return score;
+      });
+
+      // Softmax to convert scores to probabilities
+      const maxScore = Math.max(...scores);
+      const expScores = scores.map(s => Math.exp(s - maxScore)); // subtract max for numerical stability
+      const sumExp = expScores.reduce((a, b) => a + b, 0);
+      const probs = expScores.map(e => e / sumExp);
+
+      // Guard against NaN (can happen with edge cases)
+      if (probs.some(p => isNaN(p))) {
+        console.warn('NaN detected in probabilities, returning uniform', { scores, maxScore, expScores, sumExp });
+        return scenarios.map(() => 1 / scenarios.length);
+      }
+      return probs;
+    }
+
+    // Compute original probabilities (no resolutions) for comparison
+    function computeOriginalProbabilities(scenarios, signals) {
+      return computeScenarioProbabilities(scenarios, signals, {});
+    }
+
     function formatValue(value, unit) {
       if (unit === 'usd_trillions') return `$${value.toFixed(1)}T`;
       if (unit === 'percent') return `${value.toFixed(1)}%`;
@@ -962,6 +1271,7 @@
         if (!response.ok) throw new Error(`Failed to load: ${response.status}`);
         state.data = await response.json();
         state.selection = { signalId: null, scenarioName: null };
+        state.resolutions = {};  // Always start with no resolutions
         render(state);
       } catch (error) {
         document.getElementById('signals-container').innerHTML = `<div class="error">${error.message}</div>`;
@@ -973,47 +1283,150 @@
     // Initialization
     // =============================================================
 
-    // Known scenario files (manually maintained for now)
-    const AVAILABLE_FILES = [
-      { path: 'results/gdp_2050/bottomup_v7_20260115_133436.json', label: 'GDP 2050 - Bottom-up' },
-      { path: 'results/gdp_2050/topdown_v7_20260115_130027.json', label: 'GDP 2050 - Top-down' },
-      { path: 'results/gdp_2050/hybrid_v7_20260115_133939.json', label: 'GDP 2050 - Hybrid' },
-      { path: 'results/renewable_2050/bottomup_v7_20260115_133443.json', label: 'Renewable 2050 - Bottom-up' },
-      { path: 'results/renewable_2050/topdown_v7_20260115_130042.json', label: 'Renewable 2050 - Top-down' },
-      { path: 'results/renewable_2050/hybrid_v7_20260115_133932.json', label: 'Renewable 2050 - Hybrid' },
-    ];
+    // Pretty labels for targets
+    const TARGET_LABELS = {
+      'gdp_2040': 'US GDP 2040',
+      'gdp_2050': 'US GDP 2050',
+      'gdp_2050_nocontext': 'US GDP 2050 (no context)',
+      'population_2050': 'World Population 2050',
+      'life_expectancy_2050': 'Life Expectancy 2050',
+      'democracy_2050': 'Democracy 2050',
+      'renewable_2050': 'Renewable Energy 2050',
+    };
 
-    function populateFileSelector() {
-      const selector = document.getElementById('file-selector');
-      const currentFile = new URLSearchParams(window.location.search).get('file');
+    function getTargetLabel(target) {
+      return TARGET_LABELS[target] || target;
+    }
 
-      AVAILABLE_FILES.forEach(f => {
+    async function loadFileList() {
+      try {
+        const response = await fetch('/api/files');
+        state.files = await response.json();
+        populateTargetSelector();
+      } catch (e) {
+        console.error('Failed to load file list:', e);
+      }
+    }
+
+    function populateTargetSelector() {
+      const selector = document.getElementById('target-selector');
+      selector.innerHTML = '<option value="">Select question...</option>';
+
+      // Get unique targets
+      const targets = [...new Set(state.files.map(f => f.target))];
+
+      // Sort targets by label
+      targets.sort((a, b) => getTargetLabel(a).localeCompare(getTargetLabel(b)));
+
+      targets.forEach(target => {
         const option = document.createElement('option');
-        option.value = f.path;
-        option.textContent = f.label;
-        if (f.path === currentFile) option.selected = true;
+        option.value = target;
+        option.textContent = getTargetLabel(target);
         selector.appendChild(option);
-      });
-
-      selector.addEventListener('change', (e) => {
-        if (e.target.value) {
-          window.location.search = `?file=${e.target.value}`;
-        }
       });
     }
 
-    function init() {
-      populateFileSelector();
+    // Normalize approach name (strip _v7 suffix)
+    function normalizeApproach(approach) {
+      return approach.replace(/_v\d+$/, '');
+    }
 
-      const params = new URLSearchParams(window.location.search);
-      const file = params.get('file');
+    function updateApproachButtons() {
+      const buttons = document.querySelectorAll('.approach-btn');
+      const availableApproaches = state.files
+        .filter(f => f.target === state.selectedTarget)
+        .map(f => normalizeApproach(f.approach));
+
+      buttons.forEach(btn => {
+        const approach = btn.dataset.approach;
+        const isAvailable = availableApproaches.includes(approach);
+        btn.disabled = !isAvailable;
+        btn.classList.toggle('active', approach === state.selectedApproach);
+      });
+    }
+
+    function loadSelectedFile() {
+      if (!state.selectedTarget || !state.selectedApproach) {
+        document.getElementById('signals-container').innerHTML =
+          '<div class="loading">Select a question and approach</div>';
+        return;
+      }
+
+      const file = state.files.find(
+        f => f.target === state.selectedTarget && normalizeApproach(f.approach) === state.selectedApproach
+      );
 
       if (file) {
-        loadData('../' + file);
-      } else {
-        document.getElementById('signals-container').innerHTML =
-          '<div class="loading">Select a scenario set from the dropdown above</div>';
+        // Update URL
+        const url = new URL(window.location);
+        url.searchParams.set('target', state.selectedTarget);
+        url.searchParams.set('approach', state.selectedApproach);
+        window.history.replaceState({}, '', url);
+
+        loadData('../' + file.path);
       }
+    }
+
+    function init() {
+      // Load file list and populate target selector
+      loadFileList().then(() => {
+        // Restore from URL params
+        const params = new URLSearchParams(window.location.search);
+        const target = params.get('target');
+        const approach = params.get('approach');
+
+        if (target) {
+          state.selectedTarget = target;
+          document.getElementById('target-selector').value = target;
+          updateApproachButtons();
+
+          if (approach) {
+            state.selectedApproach = approach;
+            updateApproachButtons();
+            loadSelectedFile();
+          }
+        }
+      });
+
+      // Target selector
+      document.getElementById('target-selector').addEventListener('change', (e) => {
+        state.selectedTarget = e.target.value;
+        state.selectedApproach = null;  // Reset approach when target changes
+        updateApproachButtons();
+
+        // Auto-select dual if available
+        const availableApproaches = state.files
+          .filter(f => f.target === state.selectedTarget)
+          .map(f => normalizeApproach(f.approach));
+        if (availableApproaches.includes('dual')) {
+          state.selectedApproach = 'dual';
+          updateApproachButtons();
+          loadSelectedFile();
+        } else {
+          document.getElementById('signals-container').innerHTML =
+            '<div class="loading">Select an approach</div>';
+        }
+      });
+
+      // Approach buttons
+      document.querySelectorAll('.approach-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (btn.disabled) return;
+          state.selectedApproach = btn.dataset.approach;
+          updateApproachButtons();
+          loadSelectedFile();
+        });
+      });
+
+      // Signal sort dropdown
+      document.getElementById('signal-sort').addEventListener('change', (e) => {
+        state.signalSort = e.target.value;
+        render(state);
+      });
+
+      // Initial state
+      document.getElementById('signals-container').innerHTML =
+        '<div class="loading">Select a question to explore scenarios</div>';
 
       // Rebuild paths on scroll/resize
       ['signals-col', 'scenarios-col', 'question-col'].forEach(id => {

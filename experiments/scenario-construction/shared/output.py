@@ -17,13 +17,11 @@ def build_scenario_dicts(scenarios) -> list[dict]:
     Returns:
         List of dicts ready for JSON serialization
     """
-    return [
-        {
+    result = []
+    for s in scenarios:
+        d = {
             "name": s.name,
             "description": s.description,
-            "outcome_range": s.outcome_range,
-            "outcome_low": s.outcome_low,
-            "outcome_high": s.outcome_high,
             "key_drivers": s.key_drivers,
             "why_exclusive": s.why_exclusive,
             "signal_impacts": [
@@ -32,8 +30,18 @@ def build_scenario_dicts(scenarios) -> list[dict]:
             ],
             "indicator_bundle": s.indicator_bundle,
         }
-        for s in scenarios
-    ]
+        # Continuous question fields
+        if s.outcome_range is not None:
+            d["outcome_range"] = s.outcome_range
+            d["outcome_low"] = s.outcome_low
+            d["outcome_high"] = s.outcome_high
+        # Binary question fields
+        if s.probability_range is not None:
+            d["probability_range"] = s.probability_range
+            d["probability_low"] = s.probability_low
+            d["probability_high"] = s.probability_high
+        result.append(d)
+    return result
 
 
 def build_question_dict(config) -> dict:
@@ -66,7 +74,7 @@ def build_base_results(
     mece_reasoning: str,
     coverage_gaps: str | None,
     voi_floor: float,
-    knowledge_cutoff: str | None = None,
+    max_horizon_days: int | None = None,
 ) -> dict:
     """Build the common base structure for results JSON.
 
@@ -79,7 +87,7 @@ def build_base_results(
         mece_reasoning: MECE reasoning from scenario generation
         coverage_gaps: Coverage gaps from scenario generation
         voi_floor: VOI floor threshold used
-        knowledge_cutoff: Knowledge cutoff date string (optional)
+        max_horizon_days: Max days until resolution for actionable signals (optional)
 
     Returns:
         Dict with common result structure (approaches can extend with extras)
@@ -103,8 +111,8 @@ def build_base_results(
         "created_at": datetime.now().isoformat(),
     }
 
-    if knowledge_cutoff:
-        results["knowledge_cutoff"] = knowledge_cutoff
+    if max_horizon_days is not None:
+        results["max_horizon_days"] = max_horizon_days
 
     return results
 
@@ -129,7 +137,11 @@ def print_results(result) -> None:
     print("\n" + "-" * 40)
     for s in result.scenarios:
         print(f"\n### {s.name}")
-        print(f"  Outcome Range: {s.outcome_range} (low={s.outcome_low}, high={s.outcome_high})")
+        # Handle both continuous (outcome_range) and binary (probability_range)
+        if s.outcome_range is not None:
+            print(f"  Outcome Range: {s.outcome_range} (low={s.outcome_low}, high={s.outcome_high})")
+        elif s.probability_range is not None:
+            print(f"  Probability: {s.probability_range} (low={s.probability_low}, high={s.probability_high})")
         print(f"  {s.description}")
         print(f"\n  Why Exclusive: {s.why_exclusive[:80]}...")
         print(f"\n  Key Drivers: {', '.join(s.key_drivers[:3])}")

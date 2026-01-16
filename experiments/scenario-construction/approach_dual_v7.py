@@ -155,7 +155,7 @@ async def main():
         "DUAL",
         cfg.question_text,
         sources=SOURCES,
-        knowledge_cutoff=cfg.knowledge_cutoff,
+        max_horizon_days=cfg.max_horizon_days,
         n_uncertainties=cfg.n_uncertainties,
         voi_floor=cfg.voi_floor,
         match_threshold=cfg.match_threshold,
@@ -219,7 +219,7 @@ async def main():
     print(f"  Retrieved {len(market_signals)} semantically relevant signals")
 
     # Enrich with resolution data
-    enrich_with_resolution_data(market_signals, cfg.db_path, cfg.knowledge_cutoff)
+    enrich_with_resolution_data(market_signals, cfg.db_path, cfg.max_horizon_days)
 
     # Filter out pre-cutoff resolved signals
     before_filter = len(market_signals)
@@ -335,12 +335,47 @@ async def main():
         origin = s.get("origin", "?")
         print(f"    VOI={s.get('voi', 0):.2f} [{origin}] {s['text'][:50]}...")
 
-    # Step 4.2: Deduplicate
-    print("\n[4.2] Deduplicating...")
+    # ============================================================
+    # CONDITIONAL ANALYSIS
+    # ============================================================
+    print("\n" + "=" * 60)
+    print("CONDITIONAL ANALYSIS: How Signals Move the Target")
+    print("=" * 60)
+
+    # Show top cruxy signals with conditional probabilities
+    cruxy_signals = [s for s in ranked_signals if s.get("voi", 0) >= cfg.voi_floor][:10]
+    if cruxy_signals:
+        print(f"\nTop {len(cruxy_signals)} signals by VOI (showing P(target|signal resolution)):\n")
+        for i, s in enumerate(cruxy_signals, 1):
+            p_yes = s.get("p_target_given_yes", 0.5)
+            p_no = s.get("p_target_given_no", 0.5)
+            spread = s.get("cruxiness_spread", 0)
+            base_rate = s.get("base_rate", 0.5)
+            rho = s.get("rho", 0)
+
+            print(f"  {i}. {s['text'][:70]}...")
+            print(f"     P(signal=YES): {base_rate:.0%} | ρ={rho:+.2f}")
+            print(f"     If YES → P(target) = {p_yes:.0%}")
+            print(f"     If NO  → P(target) = {p_no:.0%}")
+            print(f"     Spread: {spread:.0%} (cruxiness)")
+            print()
+    else:
+        print("\n  No signals above VOI floor for conditional analysis.")
+
+    # Step 4.2: Deduplicate (prefer higher VOI, not observed source)
+    print("\n[4.2] Deduplicating (VOI-first)...")
     before_dedup = len(ranked_signals)
-    deduped_signals = deduplicate_signals(
+    # For dual approach: prefer higher VOI signals regardless of source
+    # Sort by VOI descending first, then deduplicate
+    signals_for_dedup = sorted(
         [{"text": s["text"], "source": s["source"], **s} for s in ranked_signals[:100]],
-        threshold=0.45
+        key=lambda x: -x.get("voi", 0)
+    )
+    searcher = SemanticSignalSearcher()
+    deduped_signals = searcher.deduplicate(
+        signals_for_dedup,
+        threshold=0.65,  # Higher threshold: keep more distinct signals
+        prefer_observed=False,  # Don't re-sort by source
     )
     print(f"  {before_dedup} → {len(deduped_signals)} (removed {before_dedup - len(deduped_signals)} duplicates)")
 
@@ -350,6 +385,7 @@ async def main():
         signals=[{"text": s["text"], "source": s["source"], "voi": s.get("voi", 0)} for s in deduped_signals[:50]],
         question=cfg.question_text,
         context=cfg.context,
+        question_type=cfg.question_type,
         voi_floor=cfg.voi_floor,
     )
 
@@ -412,7 +448,7 @@ async def main():
         mece_reasoning=result.mece_reasoning,
         coverage_gaps=result.coverage_gaps,
         voi_floor=cfg.voi_floor,
-        knowledge_cutoff=cfg.knowledge_cutoff,
+        max_horizon_days=cfg.max_horizon_days,
     )
 
     # Add approach-specific fields

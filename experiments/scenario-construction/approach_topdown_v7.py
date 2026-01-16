@@ -127,6 +127,7 @@ async def main():
         signals=ranked_signals,
         question=cfg.question_text,
         context=cfg.context,
+        question_type=cfg.question_type,
         voi_floor=cfg.voi_floor,
     )
 

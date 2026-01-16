@@ -3,7 +3,7 @@
 from pathlib import Path
 
 from llm_forecasting.semantic_search import SemanticSignalSearcher
-from llm_forecasting.voi import estimate_rho_batch, linear_voi_from_rho
+from llm_forecasting.voi import estimate_rho_batch, linear_voi_from_rho, rho_to_posteriors
 
 
 # ============================================================
@@ -129,8 +129,8 @@ def deduplicate_market_signals(
 # Resolution date utilities
 # ============================================================
 
-# Default knowledge cutoff for Claude Sonnet 4
-DEFAULT_KNOWLEDGE_CUTOFF = "2025-10-01"
+# Default max horizon for actionable signals (1 year from now)
+DEFAULT_MAX_HORIZON_DAYS = 365
 
 
 def parse_date(d: str | None):
@@ -148,7 +148,7 @@ def parse_date(d: str | None):
 def enrich_with_resolution_data(
     signals: list[dict],
     db_path,
-    knowledge_cutoff: str = DEFAULT_KNOWLEDGE_CUTOFF,
+    max_horizon_days: int = DEFAULT_MAX_HORIZON_DAYS,
 ) -> list[dict]:
     """
     Add resolution metadata and URL to signals from database.
@@ -159,12 +159,12 @@ def enrich_with_resolution_data(
     - resolution_value: float or None
     - base_rate: float or None
     - url: str or None
-    - signal_category: one of "exclude", "gold", "near_term", "future", "unknown"
+    - signal_category: one of "exclude", "actionable", "future", "unknown"
 
     Args:
         signals: List of dicts with "id" and "source" keys
         db_path: Path to forecastbench.db
-        knowledge_cutoff: Date string for categorization
+        max_horizon_days: Only include signals resolving within this many days from now
 
     Returns:
         The same list with added fields (mutates in place and returns)
@@ -189,7 +189,7 @@ def enrich_with_resolution_data(
             s["resolution_value"] = row["resolution_value"]
             s["base_rate"] = row["base_rate"]
             s["url"] = row["url"]
-            s["signal_category"] = categorize_signal(s["resolution_date"], resolved, knowledge_cutoff)
+            s["signal_category"] = categorize_signal(s["resolution_date"], resolved, max_horizon_days)
         else:
             s["resolution_date"] = None
             s["resolved"] = False
@@ -200,104 +200,24 @@ def enrich_with_resolution_data(
     return signals
 
 
-def resolution_proximity_score(
-    resolution_date: str | None,
-    cutoff: str = DEFAULT_KNOWLEDGE_CUTOFF,
-) -> float:
-    """
-    Score signals by how soon they resolve relative to knowledge cutoff.
-
-    Returns 1.0 for high-priority (resolves within 1 year), decays for longer horizons.
-
-    Args:
-        resolution_date: ISO format date string (YYYY-MM-DD) or None
-        cutoff: Knowledge cutoff date (model's training data end)
-
-    Returns:
-        Score from 0.3 (5+ years) to 1.0 (within 1 year or already resolved)
-    """
-    from datetime import datetime
-
-    if resolution_date is None:
-        return 0.5  # Unknown resolution date gets neutral score
-
-    try:
-        cutoff_date = datetime.strptime(cutoff, "%Y-%m-%d").date()
-        res_date = datetime.strptime(str(resolution_date)[:10], "%Y-%m-%d").date()
-    except ValueError:
-        return 0.5  # Unparseable date gets neutral score
-
-    days_until = (res_date - cutoff_date).days
-
-    if days_until <= 0:
-        return 1.0  # Already resolved (post-cutoff) = immediate value
-    elif days_until <= 365:
-        return 1.0  # Within 1 year = high priority
-    elif days_until <= 730:
-        return 0.7  # 1-2 years
-    elif days_until <= 1095:
-        return 0.5  # 2-3 years
-    else:
-        return 0.3  # 3+ years
-
-
-def get_resolution_bucket(
-    resolution_date: str | None,
-    cutoff: str = DEFAULT_KNOWLEDGE_CUTOFF,
-) -> str:
-    """
-    Categorize signal by resolution timeline.
-
-    Args:
-        resolution_date: ISO format date string or None
-        cutoff: Knowledge cutoff date
-
-    Returns:
-        One of: "gold", "near_term", "medium_term", "long_term", "unknown"
-    """
-    from datetime import datetime
-
-    if resolution_date is None:
-        return "unknown"
-
-    try:
-        cutoff_date = datetime.strptime(cutoff, "%Y-%m-%d").date()
-        res_date = datetime.strptime(str(resolution_date)[:10], "%Y-%m-%d").date()
-        today = datetime.now().date()
-    except ValueError:
-        return "unknown"
-
-    days_from_cutoff = (res_date - cutoff_date).days
-
-    if days_from_cutoff <= 0:
-        return "gold"  # Resolved after cutoff = model doesn't know outcome
-    elif days_from_cutoff <= 365:
-        return "near_term"  # Within 1 year of cutoff
-    elif days_from_cutoff <= 1095:
-        return "medium_term"  # 1-3 years
-    else:
-        return "long_term"  # 3+ years
-
-
 def categorize_signal(
     resolution_date: str | None,
     resolved: bool,
-    cutoff: str = DEFAULT_KNOWLEDGE_CUTOFF,
+    max_horizon_days: int = DEFAULT_MAX_HORIZON_DAYS,
 ) -> str:
     """
-    Categorize signal by resolution status relative to cutoff.
+    Categorize signal by resolution timing relative to today.
 
-    This determines signal VALUE for forecasting:
-    - "exclude": Resolved before cutoff, model already knows outcome
-    - "gold": Resolved after cutoff, model doesn't know but we do
-    - "near_term": Unresolved, resolving within 1 year
-    - "future": Unresolved, resolving later
+    Simple date-range filtering:
+    - "exclude": Already resolved OR resolution date has passed
+    - "actionable": Unresolved, resolves within max_horizon_days from now
+    - "future": Unresolved, resolves beyond max_horizon_days
     - "unknown": No resolution date available
 
     Args:
         resolution_date: ISO format date string or None
         resolved: Whether the signal has already resolved
-        cutoff: Knowledge cutoff date
+        max_horizon_days: Maximum days from now for actionable signals
 
     Returns:
         Category string
@@ -308,23 +228,24 @@ def categorize_signal(
         return "unknown"
 
     try:
-        cutoff_date = datetime.strptime(cutoff, "%Y-%m-%d").date()
         res_date = datetime.strptime(str(resolution_date)[:10], "%Y-%m-%d").date()
         today = datetime.now().date()
     except ValueError:
         return "unknown"
 
+    # Already resolved = exclude (we know the outcome)
     if resolved:
-        if res_date <= cutoff_date:
-            return "exclude"  # Model already knows
-        else:
-            return "gold"  # Model doesn't know, we do
+        return "exclude"
+
+    days_until = (res_date - today).days
+
+    # Resolution date has passed but not marked resolved = treat as exclude
+    if days_until <= 0:
+        return "exclude"
+    elif days_until <= max_horizon_days:
+        return "actionable"  # Resolves soon - high value
     else:
-        days_until = (res_date - cutoff_date).days
-        if days_until <= 365:
-            return "near_term"
-        else:
-            return "future"
+        return "future"  # Too far out
 
 
 # ============================================================
@@ -362,7 +283,7 @@ async def rank_signals_by_voi(
     # Estimate rho for all pairs using batch API
     rho_results = await estimate_rho_batch(pairs)
 
-    # Compute VOI and add to signals
+    # Compute VOI and conditional probabilities for all signals
     for i, s in enumerate(signals):
         rho, reasoning = rho_results[i]
         # Get signal probability from market data if available, else 0.5
@@ -371,9 +292,16 @@ async def rank_signals_by_voi(
         # Compute linear VOI
         voi = linear_voi_from_rho(rho, target_prior, p_signal)
 
+        # Compute conditional probabilities: P(target|signal=YES) and P(target|signal=NO)
+        p_target_given_yes, p_target_given_no = rho_to_posteriors(rho, target_prior, p_signal)
+        spread = abs(p_target_given_yes - p_target_given_no)
+
         s["rho"] = rho
         s["rho_reasoning"] = reasoning
         s["voi"] = voi
+        s["p_target_given_yes"] = p_target_given_yes
+        s["p_target_given_no"] = p_target_given_no
+        s["cruxiness_spread"] = spread
 
     # Sort by VOI descending
     return sorted(signals, key=lambda x: x.get("voi", 0), reverse=True)
@@ -414,6 +342,10 @@ def build_signal_models(
             "voi": s.get("voi", 0.0),
             "rho": s.get("rho", 0.0),
             "rho_reasoning": s.get("rho_reasoning"),
+            # Conditional probability fields
+            "p_target_given_yes": s.get("p_target_given_yes"),
+            "p_target_given_no": s.get("p_target_given_no"),
+            "cruxiness_spread": s.get("cruxiness_spread"),
         }
 
         if include_background:

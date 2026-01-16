@@ -61,7 +61,7 @@ async def main():
         "BOTTOM-UP",
         cfg.question_text,
         sources=SOURCES,
-        knowledge_cutoff=cfg.knowledge_cutoff,
+        max_horizon_days=cfg.max_horizon_days,
         voi_floor=cfg.voi_floor,
     )
 
@@ -80,7 +80,7 @@ async def main():
     print(f"  Retrieved {len(raw_signals)} semantically relevant signals")
 
     # Enrich with resolution data and URL
-    enrich_with_resolution_data(raw_signals, cfg.db_path, cfg.knowledge_cutoff)
+    enrich_with_resolution_data(raw_signals, cfg.db_path, cfg.max_horizon_days)
 
     # Filter out pre-cutoff resolved signals
     before_filter = len(raw_signals)
@@ -118,6 +118,7 @@ async def main():
         signals=[{"text": s["question"], "source": s["source"], "voi": s.get("voi", 0)} for s in deduped_signals[:50]],
         question=cfg.question_text,
         context=cfg.context,
+        question_type=cfg.question_type,
         voi_floor=cfg.voi_floor,
     )
 
@@ -138,7 +139,7 @@ async def main():
         mece_reasoning=result.mece_reasoning,
         coverage_gaps=result.coverage_gaps,
         voi_floor=cfg.voi_floor,
-        knowledge_cutoff=cfg.knowledge_cutoff,
+        max_horizon_days=cfg.max_horizon_days,
     )
 
     # Add approach-specific fields

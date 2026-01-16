@@ -8,7 +8,7 @@ from pathlib import Path
 from dataclasses import dataclass
 
 from .config import get_target, TARGETS
-from .signals import DEFAULT_KNOWLEDGE_CUTOFF
+from .signals import DEFAULT_MAX_HORIZON_DAYS
 
 
 @dataclass
@@ -19,6 +19,7 @@ class ApproachConfig:
     target: str
     question_text: str
     context: str
+    question_type: str  # "continuous" or "binary"
     config: object  # Full config object
 
     # Paths
@@ -28,7 +29,8 @@ class ApproachConfig:
 
     # Settings
     voi_floor: float
-    knowledge_cutoff: str
+    max_horizon_days: int
+    knowledge_cutoff: str | None = None
 
     # Optional (set by specific approaches)
     n_uncertainties: int | None = None
@@ -110,16 +112,21 @@ def load_config(args, script_path: Path) -> ApproachConfig:
     output_dir = script_path.parent / "results" / args.target
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # Map QuestionType enum to string for generate_mece_scenarios
+    question_type = config.question.question_type.value  # "continuous" or "binary"
+
     return ApproachConfig(
         target=args.target,
         question_text=config.question.text,
         context=config.context,
+        question_type=question_type,
         config=config,
         repo_root=repo_root,
         db_path=db_path,
         output_dir=output_dir,
         voi_floor=args.voi_floor,
-        knowledge_cutoff=DEFAULT_KNOWLEDGE_CUTOFF,
+        max_horizon_days=DEFAULT_MAX_HORIZON_DAYS,
+        knowledge_cutoff=getattr(args, "knowledge_cutoff", None),
         n_uncertainties=getattr(args, "n_uncertainties", None),
         match_threshold=getattr(args, "match_threshold", None),
     )
@@ -129,7 +136,7 @@ def print_header(
     approach_name: str,
     target: str,
     sources: list[str] | None = None,
-    knowledge_cutoff: str | None = None,
+    max_horizon_days: int | None = None,
     n_uncertainties: int | None = None,
     voi_floor: float | None = None,
     match_threshold: float | None = None,
@@ -140,7 +147,7 @@ def print_header(
         approach_name: Name of the approach (e.g., "BOTTOM-UP")
         target: Target question text
         sources: List of sources (optional)
-        knowledge_cutoff: Knowledge cutoff date (optional)
+        max_horizon_days: Max days until resolution for actionable signals (optional)
         n_uncertainties: Number of uncertainties (optional)
         voi_floor: VOI floor threshold (optional)
         match_threshold: Match threshold (optional)
@@ -152,8 +159,8 @@ def print_header(
 
     if sources:
         print(f"Sources: {', '.join(sources)}")
-    if knowledge_cutoff:
-        print(f"Knowledge cutoff: {knowledge_cutoff}")
+    if max_horizon_days is not None:
+        print(f"Signal horizon: {max_horizon_days} days")
     if n_uncertainties is not None:
         print(f"Uncertainty axes: {n_uncertainties}")
     if voi_floor is not None:
