@@ -1,12 +1,13 @@
 """Shared signal utilities for scenario construction."""
 
+from datetime import datetime, timezone
 from pathlib import Path
 
 from llm_forecasting.semantic_search import SemanticSignalSearcher
 from llm_forecasting.voi import (
     estimate_rho_batch,
     estimate_conditional_expectations_batch,
-    linear_voi_from_rho,
+    entropy_voi_from_rho,
     rho_to_posteriors,
 )
 
@@ -150,6 +151,19 @@ def parse_date(d: str | None):
         return None
 
 
+def parse_datetime(val: str | datetime | None) -> datetime | None:
+    """Parse ISO datetime string to datetime object, returning None on failure."""
+    if val is None:
+        return None
+    if isinstance(val, datetime):
+        return val
+    try:
+        # Handle 'Z' suffix for UTC
+        return datetime.fromisoformat(val.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+
+
 def enrich_with_resolution_data(
     signals: list[dict],
     db_path,
@@ -208,6 +222,7 @@ def enrich_with_resolution_data(
 def filter_by_resolution_date(
     signals: list[dict],
     max_horizon_days: int = DEFAULT_MAX_HORIZON_DAYS,
+    include_unknown: bool = True,
 ) -> list[dict]:
     """
     Filter signals by resolution date, keeping only actionable ones.
@@ -216,14 +231,15 @@ def filter_by_resolution_date(
     - resolution_date: ISO date string or None
     - resolved: bool (defaults to False if not present)
 
-    Sets signal_category on each signal and returns only non-excluded signals.
+    Sets signal_category on each signal and returns only actionable signals.
 
     Args:
         signals: List of signal dicts
         max_horizon_days: Only keep signals resolving within this many days
+        include_unknown: If True, also include signals with no resolution date
 
     Returns:
-        Filtered list (signals with category != "exclude")
+        Filtered list (only "actionable" signals, plus "unknown" if include_unknown=True)
     """
     result = []
     for s in signals:
@@ -233,7 +249,9 @@ def filter_by_resolution_date(
             max_horizon_days=max_horizon_days,
         )
         s["signal_category"] = category
-        if category != "exclude":
+        # Only keep actionable signals (within horizon)
+        # Optionally include unknown (no resolution date)
+        if category == "actionable" or (include_unknown and category == "unknown"):
             result.append(s)
     return result
 
@@ -302,20 +320,28 @@ MARKET_SOURCE_PROVIDERS = {
 async def fetch_missing_probabilities(
     signals: list[dict],
     verbose: bool = True,
+    use_llm_fallback: bool = True,
 ) -> list[dict]:
     """Fetch current probabilities from market APIs for signals missing base_rate.
 
     For signals from known market sources (Polymarket, Metaculus, etc.) that
     don't have a base_rate, fetches the current market probability.
 
+    Fallback chain:
+    1. Try to fetch fresh probability from market API
+    2. On failure, use cached (stale) probability from storage if available
+    3. If no cache, use LLM to estimate probability (if use_llm_fallback=True)
+
     Args:
         signals: List of signal dicts with "id", "source", and optional "base_rate"
         verbose: Whether to print progress
+        use_llm_fallback: If True, use LLM estimation when market fetch fails
 
     Returns:
         Same list with base_rate populated where possible (mutates in place)
     """
-    from llm_forecasting.market_data import market_data_registry
+    from llm_forecasting.market_data import market_data_registry, MarketDataStorage
+    from llm_forecasting.prompts import estimate_probability
 
     # Group signals by source that need probabilities
     signals_by_source: dict[str, list[dict]] = {}
@@ -331,6 +357,9 @@ async def fetch_missing_probabilities(
     if not signals_by_source:
         return signals
 
+    # Initialize storage for cache lookups (lazy init on first use)
+    storage = MarketDataStorage()
+
     # Fetch probabilities for each source
     for source, source_signals in signals_by_source.items():
         provider_name = MARKET_SOURCE_PROVIDERS[source]
@@ -342,23 +371,86 @@ async def fetch_missing_probabilities(
         provider_class = market_data_registry.get(provider_name)
         provider = provider_class()
 
-        fetched = 0
+        fetched_fresh = 0
+        fetched_stale = 0
+        fetched_llm = 0
         failed = 0
+
         for s in source_signals:
-            try:
-                market = await provider.fetch_market(s["id"])
-                if market and market.current_probability is not None:
-                    s["base_rate"] = market.current_probability
-                    fetched += 1
-                else:
-                    failed += 1
-            except Exception as e:
-                if verbose:
-                    print(f"    Error fetching {s['id']}: {e}")
+            probability = None
+            prob_source = None
+
+            # Step 1: Try fresh fetch with retries
+            max_retries = 3
+            fetch_succeeded = False
+            for attempt in range(max_retries):
+                try:
+                    market = await provider.fetch_market(s["id"])
+                    if market and market.current_probability is not None:
+                        probability = market.current_probability
+                        prob_source = "fresh"
+                        fetch_succeeded = True
+                    break  # Exit retry loop
+                except Exception as e:
+                    error_str = str(e)
+                    if "429" in error_str and attempt < max_retries - 1:
+                        # Rate limited - wait and retry
+                        wait_time = (attempt + 1) * 2  # 2s, 4s, 6s
+                        if verbose:
+                            print(f"    Rate limited for {s['id']}, waiting {wait_time}s...")
+                        import asyncio
+                        await asyncio.sleep(wait_time)
+                        continue
+                    # Fetch failed, will try fallbacks
+                    break
+
+            # Step 2: Try cached/stale probability if fresh fetch failed
+            if probability is None:
+                try:
+                    cached_market = await storage.get_market(provider_name, s["id"])
+                    if cached_market and cached_market.current_probability is not None:
+                        probability = cached_market.current_probability
+                        prob_source = "stale"
+                except Exception:
+                    pass  # Cache lookup failed, continue to LLM fallback
+
+            # Step 3: LLM estimation fallback
+            if probability is None and use_llm_fallback:
+                question_text = s.get("text", "")
+                if question_text:
+                    probability = await estimate_probability(
+                        question=question_text,
+                        background="",
+                    )
+                    if probability is not None:
+                        prob_source = "llm"
+
+            # Update signal
+            if probability is not None:
+                s["base_rate"] = probability
+                s["probability_source"] = prob_source
+                s["probability_at"] = datetime.now(timezone.utc).isoformat()
+                if prob_source == "fresh":
+                    fetched_fresh += 1
+                elif prob_source == "stale":
+                    fetched_stale += 1
+                elif prob_source == "llm":
+                    fetched_llm += 1
+            else:
                 failed += 1
 
         if verbose:
-            print(f"  {source}: fetched {fetched}/{len(source_signals)} probabilities ({failed} failed)")
+            total = len(source_signals)
+            parts = []
+            if fetched_fresh:
+                parts.append(f"{fetched_fresh} fresh")
+            if fetched_stale:
+                parts.append(f"{fetched_stale} stale")
+            if fetched_llm:
+                parts.append(f"{fetched_llm} llm")
+            if failed:
+                parts.append(f"{failed} failed")
+            print(f"  {source}: {', '.join(parts)} (of {total})")
 
     return signals
 
@@ -417,8 +509,8 @@ async def rank_signals_by_voi(
         # Get signal probability from market data if available, else 0.5
         p_signal = s.get("base_rate") or s.get("probability") or 0.5
 
-        # Compute linear VOI
-        voi = linear_voi_from_rho(rho, target_prior, p_signal)
+        # Compute entropy VOI (validated r=0.653 vs linear r=0.573 on historical data)
+        voi = entropy_voi_from_rho(rho, target_prior, p_signal)
 
         # Compute conditional probabilities: P(target|signal=YES) and P(target|signal=NO)
         p_target_given_yes, p_target_given_no = rho_to_posteriors(rho, target_prior, p_signal)
@@ -557,6 +649,9 @@ def build_signal_models(
             # Conditional expectation fields (continuous targets)
             "e_target_given_yes": s.get("e_target_given_yes"),
             "e_target_given_no": s.get("e_target_given_no"),
+            # Probability metadata
+            "probability_source": s.get("probability_source"),
+            "probability_at": parse_datetime(s.get("probability_at")),
         }
 
         if include_background:

@@ -182,7 +182,7 @@
       background: var(--signal-bg);
       border-color: var(--signal-border);
       color: var(--signal-text);
-      font-size: 0.72rem;
+      font-size: 0.8rem;
       line-height: 1.4;
     }
     .signal-card.highlighted {
@@ -245,7 +245,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.6rem;
+      font-size: 0.7rem;
       color: var(--text-muted);
       margin-top: 0.35rem;
     }
@@ -258,16 +258,17 @@
     .signal-prob {
       font-weight: 500;
     }
-    .signal-prob.synthetic::after {
-      content: ' est.';
-      font-weight: 400;
+    .signal-prob.synthetic {
       font-style: italic;
+    }
+    .signal-prob.synthetic::after {
+      content: '*';
     }
 
     .signal-rho {
       display: none;
       margin-top: 0.35rem;
-      font-size: 0.6rem;
+      font-size: 0.7rem;
       color: var(--text-secondary);
       line-height: 1.4;
     }
@@ -280,7 +281,7 @@
       background: var(--scenario-bg);
       border-color: var(--scenario-border);
       color: var(--scenario-text);
-      font-size: 0.75rem;
+      font-size: 0.85rem;
     }
     .scenario-card.highlighted {
       border-color: var(--scenario-text);
@@ -352,8 +353,121 @@
       color: var(--text-secondary);
       padding-left: 1rem;
     }
+
+    /* Signal Contributions */
+    .signal-contributions {
+      display: none;
+      margin-top: 0.75rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--scenario-border);
+    }
+    .scenario-card.highlighted .signal-contributions {
+      display: block;
+    }
+
+    .contributions-label {
+      font-size: 0.6rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .contribution-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.3rem;
+      border-radius: 4px;
+      transition: background 0.2s ease;
+    }
+    .contribution-row.signal-highlighted {
+      background: rgba(99, 102, 241, 0.15);
+      outline: 1px solid rgba(99, 102, 241, 0.4);
+    }
+
+    .contribution-pull {
+      width: 42px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-align: right;
+      font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+    }
+    .contribution-pull.positive { color: var(--up-color); }
+    .contribution-pull.negative { color: var(--down-color); }
+
+    .contribution-direction {
+      width: 12px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .contribution-direction.positive { color: var(--up-color); }
+    .contribution-direction.negative { color: var(--down-color); }
+
+    .contribution-bar-container {
+      width: 50px;
+      height: 6px;
+      background: rgba(0,0,0,0.08);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .contribution-bar {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+    .contribution-bar.positive { background: var(--up-color); }
+    .contribution-bar.negative { background: var(--down-color); }
+
+    .contribution-text {
+      flex: 1;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .contribution-stats {
+      font-size: 0.55rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
     .driver-list li {
       margin-bottom: 0.15rem;
+    }
+
+    /* CSS Tooltips - using fixed positioning to escape overflow:hidden */
+    [data-tooltip] {
+      --tooltip-top: 0;
+      --tooltip-left: 0;
+    }
+    [data-tooltip]::before {
+      content: attr(data-tooltip);
+      position: fixed;
+      top: var(--tooltip-top);
+      left: var(--tooltip-left);
+      transform: translateY(-100%);
+      padding: 0.6rem 0.85rem;
+      background: #1a1a2e;
+      color: #e0e0e0;
+      border: 1px solid #444;
+      border-radius: 6px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+      font-size: 0.75rem;
+      line-height: 1.5;
+      white-space: pre-line;
+      max-width: 400px;
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.12s ease;
+      pointer-events: none;
+    }
+    [data-tooltip]:hover::before {
+      opacity: 1;
+      visibility: visible;
     }
 
     /* Question Card */
@@ -677,6 +791,7 @@
         <div class="column-header">
           SIGNALS
           <select id="signal-sort" style="margin-left: 0.5rem; font-size: 0.6rem; padding: 0.15rem 0.3rem;">
+            <option value="contribution">By contribution</option>
             <option value="resolution_date">By resolution date</option>
             <option value="voi">By VOI</option>
             <option value="cruxiness">By cruxiness</option>
@@ -697,6 +812,18 @@
 
   <script>
     // =============================================================
+    // Tooltip positioning (handles overflow:hidden parents)
+    // =============================================================
+    document.addEventListener('mouseover', (e) => {
+      const el = e.target.closest('[data-tooltip]');
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      // Position tooltip above the element, centered
+      el.style.setProperty('--tooltip-top', `${rect.top - 8}px`);
+      el.style.setProperty('--tooltip-left', `${rect.left}px`);
+    });
+
+    // =============================================================
     // State (single source of truth)
     // =============================================================
     const state = {
@@ -708,7 +835,7 @@
         signalId: null,
         scenarioName: null,
       },
-      signalSort: 'resolution_date', // 'resolution_date' or 'voi'
+      signalSort: 'contribution', // 'contribution', 'resolution_date', 'voi', 'cruxiness'
       resolutions: {},  // signalId -> 'yes' | 'no' | null (pending)
     };
 
@@ -915,12 +1042,22 @@
       });
 
       // Filter to only signals that are mapped to at least one scenario
+      // AND have meaningful contribution (not near 50% with no directional pull)
       const signalsWithIndex = signals
-        .map((signal, idx) => ({ signal, originalIndex: idx }))
-        .filter(({ originalIndex }) => allMappedIndices.has(originalIndex));
+        .map((signal, idx) => {
+          const baseRate = signal.base_rate ?? 0.5;
+          // Contribution = VOI × distance from 50% (same formula as scenario cards)
+          const contribution = (signal.voi || 0) * Math.abs(baseRate - 0.5);
+          return { signal, originalIndex: idx, contribution };
+        })
+        .filter(({ originalIndex, contribution }) =>
+          allMappedIndices.has(originalIndex) && contribution >= 0.005
+        );
 
       // Sort based on user selection
-      if (state.signalSort === 'voi') {
+      if (state.signalSort === 'contribution') {
+        signalsWithIndex.sort((a, b) => b.contribution - a.contribution);
+      } else if (state.signalSort === 'voi') {
         signalsWithIndex.sort((a, b) => (b.signal.voi || 0) - (a.signal.voi || 0));
       } else if (state.signalSort === 'cruxiness') {
         signalsWithIndex.sort((a, b) => (b.signal.cruxiness_spread || 0) - (a.signal.cruxiness_spread || 0));
@@ -951,6 +1088,22 @@
         const prob = signal.base_rate != null ? `${(signal.base_rate * 100).toFixed(0)}%` : '-';
         const resDate = signal.resolution_date ? new Date(signal.resolution_date).toLocaleDateString() : '-';
 
+        // Build probability tooltip
+        let probTooltip = '';
+        if (signal.probability_source) {
+          const sourceLabels = {
+            'fresh': 'Live market data',
+            'stale': 'Cached market data',
+            'llm_estimate': 'LLM estimate',
+            'market': 'Market data'
+          };
+          probTooltip = sourceLabels[signal.probability_source] || signal.probability_source;
+          if (signal.probability_at) {
+            const probDate = new Date(signal.probability_at);
+            probTooltip += ` (${probDate.toLocaleDateString()})`;
+          }
+        }
+
         card.innerHTML = `
           <div class="signal-header">
             <div class="signal-name">${escapeHtml(signal.text)}</div>
@@ -958,7 +1111,7 @@
           </div>
           <div class="signal-meta">
             <span class="signal-voi">VOI: ${signal.voi?.toFixed(2) || '-'}</span>
-            <span class="signal-prob ${isObserved ? '' : 'synthetic'}">${prob}</span>
+            <span class="signal-prob ${isObserved ? '' : 'synthetic'}" title="${probTooltip}">${prob}</span>
             <span>ρ: ${signal.rho?.toFixed(2) || '-'}</span>
             <span>${resDate}</span>
           </div>
@@ -1013,6 +1166,79 @@
         // Show scenario probability in header
         const scenarioProbPercent = (prob * 100).toFixed(0);
 
+        // Build signal contributions HTML
+        let contributionsHtml = '';
+        const signalImpacts = scenario.signal_impacts || [];
+        if (signalImpacts.length > 0) {
+          // Get filtered signals (those that passed VOI floor during scenario generation)
+          // signal_index refers to indices in the filtered signal set, so we use signals directly
+          const contributions = signalImpacts
+            .map(impact => {
+              const signal = signals[impact.signal_index];
+              if (!signal) return null;
+              const voi = signal.voi || 0;
+              const baseRate = signal.base_rate ?? 0.5;
+              // Directional pull: how much does this signal currently shift the scenario?
+              // Positive = pulls scenario UP, negative = pulls scenario DOWN
+              const direction = impact.effect === 'enhances' ? 1 : -1;
+              const deviation = baseRate - 0.5;
+              const pull = voi * deviation * direction;
+              return {
+                signal,
+                effect: impact.effect,
+                voi,
+                baseRate,
+                pull,
+                absPull: Math.abs(pull),
+              };
+            })
+            .filter(c => c !== null && c.absPull >= 0.005)
+            .sort((a, b) => b.absPull - a.absPull)  // Sort by biggest movers
+            .slice(0, 8); // Limit to top 8
+
+          if (contributions.length > 0) {
+            const maxPull = Math.max(...contributions.map(c => c.absPull), 0.01);
+            const rows = contributions.map(c => {
+              const barWidth = (c.absPull / maxPull) * 100;
+              const signalText = c.signal.text || c.signal.question || '';
+
+              // Arrow and color reflect the RELATIONSHIP (enhance/suppress), not net pull
+              // This is more intuitive: "loses confidence vote" should show ↓ for "Consolidates Power"
+              const isEnhances = c.effect === 'enhances';
+              const arrow = isEnhances ? '↑' : '↓';
+              const relationClass = isEnhances ? 'positive' : 'negative';
+
+              // Magnitude is always positive (bar shows strength, arrow shows direction)
+              const magnitudePercent = c.absPull * 100;
+              const magnitudeStr = `${magnitudePercent.toFixed(1)}%`;
+
+              const probPercent = (c.baseRate * 100).toFixed(0);
+              const relationship = isEnhances ? 'enhances' : 'suppresses';
+              const rowTooltip = `${signalText}\n\nP(YES): ${probPercent}% | ${relationship} this scenario`;
+
+              const isSelectedSignal = signalId && c.signal.id === signalId;
+              const rowClasses = ['contribution-row', isSelectedSignal ? 'signal-highlighted' : ''].filter(Boolean).join(' ');
+              return `
+                <div class="${rowClasses}" data-tooltip="${escapeHtml(rowTooltip)}">
+                  <span class="contribution-pull ${relationClass}">${magnitudeStr}</span>
+                  <span class="contribution-direction ${relationClass}">${arrow}</span>
+                  <div class="contribution-bar-container">
+                    <div class="contribution-bar ${relationClass}" style="width: ${barWidth}%"></div>
+                  </div>
+                  <span class="contribution-text">${escapeHtml(signalText)}</span>
+                </div>
+              `;
+            }).join('');
+
+            contributionsHtml = `
+              <div class="signal-contributions">
+                <div class="contributions-label">Signal Contributions:</div>
+                ${rows}
+              </div>
+            `;
+          }
+        }
+
         card.innerHTML = `
           <div class="scenario-header">
             <span class="scenario-name">${escapeHtml(scenario.name)}</span>
@@ -1028,6 +1254,7 @@
               ${(scenario.key_drivers || []).map(d => `<li>${escapeHtml(d)}</li>`).join('')}
             </ul>
           </div>
+          ${contributionsHtml}
         `;
 
         card.addEventListener('click', () => onScenarioClick(scenario.name));
@@ -1059,7 +1286,20 @@
       const originalExpectedValue = computeExpectedValue(scenarios, originalProbs);
       const hasResolutions = Object.keys(state.resolutions).length > 0;
 
-      const [minVal, maxVal] = question.value_range || [0, 100];
+      // Compute value range: use question.value_range if available, otherwise derive from scenarios
+      let minVal, maxVal;
+      if (question.value_range) {
+        [minVal, maxVal] = question.value_range;
+      } else if (isQuantitative) {
+        // Derive from scenario outcome ranges
+        const lows = scenarios.filter(s => s.outcome_low != null).map(s => s.outcome_low);
+        const highs = scenarios.filter(s => s.outcome_high != null).map(s => s.outcome_high);
+        minVal = lows.length > 0 ? Math.min(...lows) : 0;
+        maxVal = highs.length > 0 ? Math.max(...highs) : 100;
+      } else {
+        // Default for binary or unknown
+        [minVal, maxVal] = [0, 100];
+      }
       const range = maxVal - minVal;
       const baselinePos = ((expectedValue - minVal) / range) * 100;
 
