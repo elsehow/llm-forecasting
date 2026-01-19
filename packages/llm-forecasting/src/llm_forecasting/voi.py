@@ -24,11 +24,82 @@ if TYPE_CHECKING:
 
 
 # =============================================================================
-# CANONICAL ρ ESTIMATION PROMPT
-# Validated 2026-01-14: 90% direction accuracy (Exp3)
-# Validated 2026-01-15: 0% ρ=0 rate vs 43% with previous prompt
+# CANONICAL ρ ESTIMATION PROMPTS
+# =============================================================================
+#
+# Two-step estimation with entity identification (recommended):
+# - Updated 2026-01-19: Added explicit entity identification step
+#   Based on vault research: Two-Stage Elicitation achieves 0% false positives
+#   by forcing explicit entity identification before direction classification.
+# - Key insight: Competition errors happen when model confuses "different entity
+#   succeeding at same goal" with "quality momentum" - explicit entity ID fixes this
+# - Separates: 1) identify entities, 2) classify relationship, 3) determine magnitude
+#
+# Known failure modes that this fixes:
+# - "Sinners nominated for Oscar" was wrongly positive for "One Battle wins Oscar"
+#   (model saw "nomination = quality validation" instead of "different film = competition")
+# - Now catches: same entity → momentum, different entity same prize → competition
+#
+# Single-step estimation (legacy):
+# - Validated 2026-01-14: 90% direction accuracy (Exp3)
+# - Known issue: sign errors on competition scenarios (e.g., rival films, opposing candidates)
+#
 # Do not duplicate - import from here
 # =============================================================================
+
+# --- Two-step prompts (recommended) ---
+
+RHO_DIRECTION_PROMPT = """Question A (target): "{question_a}"
+Question B (signal): "{question_b}"
+
+STEP 1 - ENTITY IDENTIFICATION (required):
+- What specific entity does A refer to? (e.g., "Film X", "Candidate Y", "Company Z")
+- What specific entity does B refer to? (e.g., "Film X", "Film Y", "same entity as A")
+- Are these the SAME entity or DIFFERENT entities?
+
+STEP 2 - RELATIONSHIP TYPE:
+Based on your entity identification, classify the relationship:
+
+IF SAME ENTITY:
+- LOGICAL NECESSITY: B=YES is required for or guarantees A=YES → more_likely
+  Example: "Film X wins Oscar" requires "Film X nominated for Oscar"
+- MOMENTUM: B=YES signals quality that helps A → more_likely
+  Example: "Film X wins Golden Globe" → "Film X wins Oscar" (awards momentum)
+
+IF DIFFERENT ENTITIES:
+- DIRECT COMPETITION: A and B are different entities competing for the SAME scarce resource → less_likely
+  Example: "Film Y nominated for Oscar" HURTS "Film X wins Oscar" (more competition)
+  Example: "Candidate Y wins primary" HURTS "Candidate X wins election" (stronger opponent)
+  Key test: Does B being successful mean A has MORE competition or a HARDER path?
+- INDIRECT HELP: B succeeding helps A succeed → more_likely
+  Example: "Ally wins their race" → "Party wins majority" (coalition building)
+
+IF NO CLEAR CONNECTION: → no_effect
+
+IMPORTANT: A different entity succeeding at the same goal is ALWAYS competition (less_likely).
+Nominations, wins, and recognition for competitors HURT the target's chances.
+
+Respond with JSON only:
+{{"entity_a": "<entity from A>", "entity_b": "<entity from B>", "same_entity": true/false, "direction": "more_likely" or "less_likely" or "no_effect", "reasoning": "<brief explanation>"}}"""
+
+
+RHO_MAGNITUDE_PROMPT = """Question A (target): "{question_a}"
+Question B (signal): "{question_b}"
+
+You've determined that if B=YES, then A becomes {direction}.
+
+Now estimate the STRENGTH of this relationship on a scale from 0.0 to 1.0:
+- 0.0: No relationship (independent)
+- 0.1-0.3: Weak relationship (minor influence)
+- 0.3-0.6: Moderate relationship (meaningful but not dominant factor)
+- 0.6-0.9: Strong relationship (major factor in outcome)
+- 1.0: Perfect relationship (one determines the other)
+
+Respond with JSON only:
+{{"magnitude": <float 0.0-1.0>, "reasoning": "<brief explanation>"}}"""
+
+
+# --- Single-step prompt (legacy, kept for backwards compatibility) ---
 
 RHO_ESTIMATION_PROMPT = """You are estimating the correlation between two prediction market questions.
 
@@ -373,6 +444,278 @@ async def estimate_rho(
         return 0.0, f"Error: {e}"
 
 
+async def estimate_rho_two_step(
+    question_a: str,
+    question_b: str,
+    model: str | None = None,
+) -> tuple[float, str]:
+    """Estimate correlation (rho) using two-step approach: direction then magnitude.
+
+    This approach fixes sign errors common in single-step estimation,
+    particularly for competition scenarios (rival candidates, competing films, etc.).
+
+    Step 1: Ask "If B=YES, is A more or less likely?" → determines sign
+    Step 2: Ask "How strong is this relationship?" → determines magnitude
+
+    Args:
+        question_a: The target/ultimate question
+        question_b: The signal/crux question
+        model: LLM model to use (defaults to haiku for cost efficiency)
+
+    Returns:
+        Tuple of (rho value, combined reasoning string)
+    """
+    import litellm
+
+    model = model or DEFAULT_RHO_MODEL
+
+    try:
+        # Step 1: Get direction
+        dir_response = await litellm.acompletion(
+            model=model,
+            messages=[{
+                "role": "user",
+                "content": RHO_DIRECTION_PROMPT.format(
+                    question_a=question_a,
+                    question_b=question_b,
+                )
+            }],
+            max_tokens=300,
+            temperature=0,
+        )
+        dir_text = dir_response.choices[0].message.content.strip()
+
+        # Handle markdown code blocks
+        if "```" in dir_text:
+            dir_text = dir_text.split("```")[1]
+            if dir_text.startswith("json"):
+                dir_text = dir_text[4:]
+            dir_text = dir_text.strip()
+
+        dir_result = json.loads(dir_text)
+        direction = dir_result.get("direction", "no_effect")
+        dir_reasoning = dir_result.get("reasoning", "")
+
+        # Convert direction to sign
+        if direction == "more_likely":
+            sign = 1
+            direction_word = "more likely"
+        elif direction == "less_likely":
+            sign = -1
+            direction_word = "less likely"
+        else:
+            # Independent - no need for magnitude step
+            return 0.0, f"Direction: {dir_reasoning}"
+
+        # Step 2: Get magnitude
+        mag_response = await litellm.acompletion(
+            model=model,
+            messages=[{
+                "role": "user",
+                "content": RHO_MAGNITUDE_PROMPT.format(
+                    question_a=question_a,
+                    question_b=question_b,
+                    direction=direction_word,
+                )
+            }],
+            max_tokens=200,
+            temperature=0,
+        )
+        mag_text = mag_response.choices[0].message.content.strip()
+
+        # Handle markdown code blocks
+        if "```" in mag_text:
+            mag_text = mag_text.split("```")[1]
+            if mag_text.startswith("json"):
+                mag_text = mag_text[4:]
+            mag_text = mag_text.strip()
+
+        mag_result = json.loads(mag_text)
+        magnitude = float(mag_result.get("magnitude", 0.3))
+        mag_reasoning = mag_result.get("reasoning", "")
+
+        # Combine sign and magnitude
+        rho = sign * min(1.0, max(0.0, magnitude))
+        combined_reasoning = f"Direction: {dir_reasoning} | Magnitude: {mag_reasoning}"
+
+        return rho, combined_reasoning
+
+    except Exception as e:
+        return 0.0, f"Error: {e}"
+
+
+async def estimate_rho_two_step_batch(
+    pairs: list[tuple[str, str]],
+    model: str | None = None,
+    poll_interval: float = 5.0,
+    max_wait: float = 3600.0,
+) -> list[tuple[float, str]]:
+    """Estimate rho for multiple pairs using two-step approach with batch API.
+
+    Submits direction prompts as one batch, then magnitude prompts as another.
+    This fixes sign errors common in single-step estimation.
+
+    Args:
+        pairs: List of (target_question, signal_question) tuples
+        model: Model to use (defaults to haiku)
+        poll_interval: Seconds between batch status checks
+        max_wait: Maximum seconds to wait for each batch
+
+    Returns:
+        List of (rho, reasoning) tuples in same order as input pairs
+    """
+    import asyncio
+    import anthropic
+
+    if not pairs:
+        return []
+
+    model = model or DEFAULT_RHO_MODEL
+    anthropic_model = model.replace("anthropic/", "")
+
+    client = anthropic.Anthropic()
+
+    # === STEP 1: Direction batch ===
+    dir_requests = []
+    for i, (question_a, question_b) in enumerate(pairs):
+        dir_requests.append({
+            "custom_id": f"dir_{i}",
+            "params": {
+                "model": anthropic_model,
+                "max_tokens": 300,
+                "messages": [{
+                    "role": "user",
+                    "content": RHO_DIRECTION_PROMPT.format(
+                        question_a=question_a,
+                        question_b=question_b,
+                    )
+                }],
+            }
+        })
+
+    # Submit direction batch
+    dir_batch = client.messages.batches.create(requests=dir_requests)
+    dir_batch_id = dir_batch.id
+
+    # Poll for direction batch completion
+    elapsed = 0.0
+    while elapsed < max_wait:
+        batch_status = client.messages.batches.retrieve(dir_batch_id)
+        if batch_status.processing_status == "ended":
+            break
+        await asyncio.sleep(poll_interval)
+        elapsed += poll_interval
+
+    if elapsed >= max_wait:
+        raise TimeoutError(f"Direction batch {dir_batch_id} did not complete within {max_wait}s")
+
+    # Collect direction results
+    directions: dict[int, tuple[int, str, str]] = {}  # idx -> (sign, direction_word, reasoning)
+    for result in client.messages.batches.results(dir_batch_id):
+        idx = int(result.custom_id.replace("dir_", ""))
+        if result.result.type == "succeeded":
+            text = result.result.message.content[0].text.strip()
+            try:
+                if "```" in text:
+                    text = text.split("```")[1]
+                    if text.startswith("json"):
+                        text = text[4:]
+                    text = text.strip()
+                parsed = json.loads(text)
+                direction = parsed.get("direction", "no_effect")
+                reasoning = parsed.get("reasoning", "")
+
+                if direction == "more_likely":
+                    directions[idx] = (1, "more likely", reasoning)
+                elif direction == "less_likely":
+                    directions[idx] = (-1, "less likely", reasoning)
+                else:
+                    directions[idx] = (0, "independent", reasoning)
+            except Exception as e:
+                directions[idx] = (0, "error", f"Parse error: {e}")
+        else:
+            directions[idx] = (0, "error", f"Batch error: {result.result.type}")
+
+    # === STEP 2: Magnitude batch (only for non-zero directions) ===
+    mag_requests = []
+    mag_idx_map: dict[str, int] = {}  # custom_id -> original idx
+    for i, (question_a, question_b) in enumerate(pairs):
+        sign, direction_word, _ = directions.get(i, (0, "error", ""))
+        if sign != 0:  # Only need magnitude for non-independent pairs
+            custom_id = f"mag_{i}"
+            mag_idx_map[custom_id] = i
+            mag_requests.append({
+                "custom_id": custom_id,
+                "params": {
+                    "model": anthropic_model,
+                    "max_tokens": 200,
+                    "messages": [{
+                        "role": "user",
+                        "content": RHO_MAGNITUDE_PROMPT.format(
+                            question_a=question_a,
+                            question_b=question_b,
+                            direction=direction_word,
+                        )
+                    }],
+                }
+            })
+
+    magnitudes: dict[int, tuple[float, str]] = {}  # idx -> (magnitude, reasoning)
+
+    if mag_requests:
+        # Submit magnitude batch
+        mag_batch = client.messages.batches.create(requests=mag_requests)
+        mag_batch_id = mag_batch.id
+
+        # Poll for magnitude batch completion
+        elapsed = 0.0
+        while elapsed < max_wait:
+            batch_status = client.messages.batches.retrieve(mag_batch_id)
+            if batch_status.processing_status == "ended":
+                break
+            await asyncio.sleep(poll_interval)
+            elapsed += poll_interval
+
+        if elapsed >= max_wait:
+            raise TimeoutError(f"Magnitude batch {mag_batch_id} did not complete within {max_wait}s")
+
+        # Collect magnitude results
+        for result in client.messages.batches.results(mag_batch_id):
+            idx = mag_idx_map[result.custom_id]
+            if result.result.type == "succeeded":
+                text = result.result.message.content[0].text.strip()
+                try:
+                    if "```" in text:
+                        text = text.split("```")[1]
+                        if text.startswith("json"):
+                            text = text[4:]
+                        text = text.strip()
+                    parsed = json.loads(text)
+                    magnitude = float(parsed.get("magnitude", 0.3))
+                    reasoning = parsed.get("reasoning", "")
+                    magnitudes[idx] = (min(1.0, max(0.0, magnitude)), reasoning)
+                except Exception as e:
+                    magnitudes[idx] = (0.3, f"Parse error: {e}")
+            else:
+                magnitudes[idx] = (0.3, f"Batch error: {result.result.type}")
+
+    # === Combine results ===
+    results: list[tuple[float, str]] = []
+    for i in range(len(pairs)):
+        sign, direction_word, dir_reasoning = directions.get(i, (0, "error", "Missing"))
+
+        if sign == 0:
+            # Independent or error
+            results.append((0.0, f"Direction: {dir_reasoning}"))
+        else:
+            magnitude, mag_reasoning = magnitudes.get(i, (0.3, "Default magnitude"))
+            rho = sign * magnitude
+            combined = f"Direction: {dir_reasoning} | Magnitude: {mag_reasoning}"
+            results.append((rho, combined))
+
+    return results
+
+
 async def estimate_rho_batch(
     pairs: list[tuple[str, str]],
     model: str | None = None,
@@ -463,3 +806,123 @@ async def estimate_rho_batch(
 
     # Return in original order
     return [results_by_id.get(f"rho_{i}", (0.0, "Missing result")) for i in range(len(pairs))]
+
+
+# =============================================================================
+# Conditional expectations for continuous targets
+# =============================================================================
+
+CONDITIONAL_EXPECTATION_PROMPT = """You are estimating how a signal affects a continuous forecast.
+
+TARGET QUESTION: "{target}"
+SIGNAL: "{signal}"
+
+The signal is a YES/NO question that will resolve before the target question.
+
+Estimate:
+1. E[target | signal=YES] - Expected value of the target IF the signal resolves YES
+2. E[target | signal=NO] - Expected value of the target IF the signal resolves NO
+
+Think about:
+- How does the signal causally relate to the target?
+- If the signal fires (YES), what's your best estimate for the target?
+- If the signal doesn't fire (NO), what's your best estimate?
+- Consider the current context and trajectory
+
+Respond with JSON only:
+{{"e_given_yes": <number>, "e_given_no": <number>, "reasoning": "<brief explanation>"}}
+
+IMPORTANT: Use the same units as the target question. For GDP questions in trillions, respond in trillions (e.g., 35.5 for $35.5T)."""
+
+
+async def estimate_conditional_expectations_batch(
+    pairs: list[tuple[str, str]],
+    model: str | None = None,
+    poll_interval: float = 5.0,
+    max_wait: float = 3600.0,
+) -> list[tuple[float | None, float | None, str]]:
+    """Estimate E[target|signal=YES] and E[target|signal=NO] for continuous targets.
+
+    Uses Anthropic batch API for efficiency. Each pair gets its own prompt.
+
+    Args:
+        pairs: List of (target_question, signal_question) tuples
+        model: Model to use (defaults to haiku)
+        poll_interval: Seconds between batch status checks
+        max_wait: Maximum seconds to wait for batch completion
+
+    Returns:
+        List of (e_given_yes, e_given_no, reasoning) tuples in same order as input
+    """
+    import asyncio
+    import anthropic
+
+    if not pairs:
+        return []
+
+    model = model or DEFAULT_RHO_MODEL
+    anthropic_model = model.replace("anthropic/", "")
+
+    client = anthropic.Anthropic()
+
+    # Build batch requests
+    requests = []
+    for i, (target, signal) in enumerate(pairs):
+        requests.append({
+            "custom_id": f"cond_exp_{i}",
+            "params": {
+                "model": anthropic_model,
+                "max_tokens": 300,
+                "messages": [{
+                    "role": "user",
+                    "content": CONDITIONAL_EXPECTATION_PROMPT.format(
+                        target=target,
+                        signal=signal,
+                    )
+                }],
+            }
+        })
+
+    # Submit batch
+    batch = client.messages.batches.create(requests=requests)
+    batch_id = batch.id
+
+    # Poll for completion
+    elapsed = 0.0
+    while elapsed < max_wait:
+        batch_status = client.messages.batches.retrieve(batch_id)
+        if batch_status.processing_status == "ended":
+            break
+        await asyncio.sleep(poll_interval)
+        elapsed += poll_interval
+
+    if elapsed >= max_wait:
+        raise TimeoutError(f"Batch {batch_id} did not complete within {max_wait}s")
+
+    # Collect results
+    results_by_id: dict[str, tuple[float | None, float | None, str]] = {}
+    for result in client.messages.batches.results(batch_id):
+        custom_id = result.custom_id
+        if result.result.type == "succeeded":
+            text = result.result.message.content[0].text.strip()
+            try:
+                # Handle markdown code blocks
+                if "```" in text:
+                    text = text.split("```")[1]
+                    if text.startswith("json"):
+                        text = text[4:]
+                    text = text.strip()
+                parsed = json.loads(text)
+                e_yes = parsed.get("e_given_yes")
+                e_no = parsed.get("e_given_no")
+                # Convert to float if present
+                e_yes = float(e_yes) if e_yes is not None else None
+                e_no = float(e_no) if e_no is not None else None
+                results_by_id[custom_id] = (e_yes, e_no, parsed.get("reasoning", ""))
+            except Exception as e:
+                results_by_id[custom_id] = (None, None, f"Parse error: {e}")
+        else:
+            results_by_id[custom_id] = (None, None, f"Batch error: {result.result.type}")
+
+    # Return in original order
+    return [results_by_id.get(f"cond_exp_{i}", (None, None, "Missing result")) for i in range(len(pairs))]
