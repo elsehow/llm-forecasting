@@ -193,6 +193,7 @@ async def reconcile(
     markets: list[MarketSignal],
     target_id: str = "target",
     parent_prior: float = 0.5,
+    min_market_similarity: float = 0.5,
 ) -> SignalTree:
     """Map markets onto logical structure to build signal tree.
 
@@ -201,6 +202,7 @@ async def reconcile(
         markets: Discovered markets from Phase 2
         target_id: ID for the target node
         parent_prior: Prior probability for the target
+        min_market_similarity: Minimum similarity to accept a market match
 
     Returns:
         SignalTree with signals mapped from structure and markets
@@ -215,10 +217,19 @@ async def reconcile(
     )
 
     signals: list[SignalNode] = []
+    used_market_ids: set[str] = set()  # Track used markets to avoid duplicates
+
+    def try_match_market(description: str) -> MarketSignal | None:
+        """Find best unused market match."""
+        available = [m for m in markets if f"{m.platform}|{m.market_id}" not in used_market_ids]
+        match = find_best_match(description, available, min_similarity=min_market_similarity)
+        if match:
+            used_market_ids.add(f"{match.platform}|{match.market_id}")
+        return match
 
     # 1. Handle necessity constraints
     for constraint in structure.necessity_constraints:
-        market = find_best_match(constraint.prerequisite, markets)
+        market = try_match_market(constraint.prerequisite)
 
         if market and market.current_probability is not None:
             base_rate = market.current_probability
@@ -254,8 +265,8 @@ async def reconcile(
 
     # 2. Handle exclusivity constraints
     for constraint in structure.exclusivity_constraints:
-        search_text = f"{constraint.competitor} {constraint.prize}"
-        market = find_best_match(search_text, markets)
+        search_text = f"Will {constraint.competitor} win {constraint.prize}?"
+        market = try_match_market(search_text)
 
         if market and market.current_probability is not None:
             base_rate = market.current_probability
@@ -266,14 +277,12 @@ async def reconcile(
             text = market.title
         else:
             # No market match - estimate base rate
-            base_rate, _ = await estimate_base_rate(
-                f"Will {constraint.competitor} win {constraint.prize}?"
-            )
+            base_rate, _ = await estimate_base_rate(search_text)
             market_price = None
             market_url = None
             market_platform = None
             probability_source = "llm"
-            text = f"Will {constraint.competitor} win {constraint.prize}?"
+            text = search_text
 
         signal = SignalNode(
             id=create_signal_id(),
@@ -295,7 +304,7 @@ async def reconcile(
 
     # 3. Handle causal pathways
     for pathway in structure.causal_pathways:
-        market = find_best_match(pathway.upstream_event, markets)
+        market = try_match_market(pathway.upstream_event)
 
         if market and market.current_probability is not None:
             base_rate = market.current_probability
