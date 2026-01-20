@@ -66,10 +66,58 @@ uv run python experiments/signal-tree/generate.py --target "democrat_whitehouse_
 | Short-horizon | Feels artificial | Natural fit |
 | Long-horizon | Works but arbitrary | Natural decomposition |
 
+## Market Validation
+
+When saving a tree, `save_tree()` automatically validates the computed probability against prediction market prices:
+
+```python
+from cc_builder.utils import save_tree
+
+path = save_tree(tree, "one_battle_best_picture")
+# Prints:
+# === Market Validation ===
+# Market: Will One Battle After Another win Best Picture?
+# Market price: 81.0%
+# Computed: 57.6%
+# Gap: -23.4pp
+# Status: REVIEW - gap >15pp
+```
+
+The validation is saved in the output JSON:
+
+```json
+{
+  "market_validation": {
+    "platform": "polymarket",
+    "matched_question": "...",
+    "market_price": 0.81,
+    "gap_pp": -23.4,
+    "status": "REVIEW - gap >15pp",
+    "match_confidence": 0.92
+  }
+}
+```
+
+| Status | Gap | Action |
+|--------|-----|--------|
+| `OK` | ≤5pp | Aligned with market |
+| `WARNING` | 5-15pp | Review assumptions |
+| `REVIEW` | >15pp | Investigate rho signs, base rates |
+
+To check market prices during tree building:
+
+```python
+from cc_builder.utils import check_market_price
+
+result = await check_market_price("Will One Battle win Best Picture?")
+if result:
+    print(f"{result['platform']}: {result['market_price']:.0%}")
+```
+
 ## Dependencies
 
 - `llm_forecasting.voi` — Two-step ρ estimation, VOI calculations
-- `llm_forecasting.market_data` — Market signal fetching
+- `llm_forecasting.market_data` — Market matching, validation, price fetching
 - `scenario-construction/shared/signals.py` — Signal generation (partially reused)
 
 ## Related

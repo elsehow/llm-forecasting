@@ -1,0 +1,6 @@
+{
+  "evidence_scale_factor": 4.0,
+  "probability_clamp_min": 0.001,
+  "probability_clamp_max": 0.999,
+  "default_prior": 0.5
+}

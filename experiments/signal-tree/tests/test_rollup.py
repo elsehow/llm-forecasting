@@ -27,6 +27,11 @@ from shared.rollup import (
     rollup_tree,
     compute_signal_contribution,
     analyze_tree,
+    compute_node_gap,
+    K,
+    PROB_CLAMP_MIN,
+    PROB_CLAMP_MAX,
+    DEFAULT_PRIOR,
 )
 from shared.tree import SignalNode, SignalTree
 
@@ -445,6 +450,135 @@ class TestComputeSignalContribution:
         assert result["certainty"] == abs(0.8 - 0.5)
 
 
+class TestNecessitySufficiency:
+    """Tests for necessity and sufficiency relationship types."""
+
+    def test_necessity_caps_probability(self, today: date):
+        """Necessity signal should cap parent probability at signal's base_rate."""
+        root = SignalNode(id="target", text="Will X win?", depth=0, is_leaf=False)
+
+        # Must be nominated to win - nomination is 60% likely
+        nomination = SignalNode(
+            id="nom",
+            text="Will X be nominated?",
+            base_rate=0.60,
+            relationship_type="necessity",
+            parent_id="target",
+            depth=1,
+            is_leaf=True,
+        )
+        # Strong positive evidence that would push probability high
+        momentum = SignalNode(
+            id="momentum",
+            text="Does X have momentum?",
+            base_rate=0.95,
+            rho=0.8,
+            relationship_type="correlation",
+            parent_id="target",
+            depth=1,
+            is_leaf=True,
+        )
+        root.children = [nomination, momentum]
+        tree = SignalTree(target=root, signals=[nomination, momentum])
+
+        result = rollup_tree(tree, target_prior=0.5)
+
+        # Even with strong positive evidence, probability capped at 60% (nomination rate)
+        assert result <= 0.60 + 0.01  # Small tolerance
+
+    def test_necessity_with_low_base_rate_gives_low_probability(self, today: date):
+        """If necessity signal is unlikely, parent should be very low."""
+        root = SignalNode(id="target", text="Will X win?", depth=0, is_leaf=False)
+
+        # Nomination is only 10% likely
+        nomination = SignalNode(
+            id="nom",
+            text="Will X be nominated?",
+            base_rate=0.10,
+            relationship_type="necessity",
+            parent_id="target",
+            depth=1,
+            is_leaf=True,
+        )
+        root.children = [nomination]
+        tree = SignalTree(target=root, signals=[nomination])
+
+        result = rollup_tree(tree, target_prior=0.5)
+
+        # Probability capped at 10%
+        assert result <= 0.10 + 0.01
+
+    def test_sufficiency_floors_probability(self, today: date):
+        """Sufficiency signal should floor parent probability at signal's base_rate."""
+        root = SignalNode(id="target", text="Will X qualify?", depth=0, is_leaf=False)
+
+        # Winning prelim guarantees qualification - prelim win is 70% likely
+        prelim = SignalNode(
+            id="prelim",
+            text="Will X win preliminary?",
+            base_rate=0.70,
+            relationship_type="sufficiency",
+            parent_id="target",
+            depth=1,
+            is_leaf=True,
+        )
+        # Negative evidence that would push probability low
+        obstacle = SignalNode(
+            id="obstacle",
+            text="Is there an obstacle?",
+            base_rate=0.90,
+            rho=-0.8,
+            relationship_type="correlation",
+            parent_id="target",
+            depth=1,
+            is_leaf=True,
+        )
+        root.children = [prelim, obstacle]
+        tree = SignalTree(target=root, signals=[prelim, obstacle])
+
+        result = rollup_tree(tree, target_prior=0.5)
+
+        # Even with negative evidence, probability floored at 70% (sufficiency)
+        assert result >= 0.70 - 0.01
+
+    def test_necessity_signal_contributes_zero_evidence(self, today: date):
+        """Necessity signals should contribute 0 evidence (they're constraints)."""
+        signal = SignalNode(
+            id="test",
+            text="Nomination required",
+            base_rate=0.80,
+            relationship_type="necessity",
+            parent_id="target",
+            depth=1,
+        )
+
+        evidence, spread, direction = compute_signal_evidence(signal, parent_prior=0.5)
+
+        assert evidence == 0.0
+        assert spread == 0.0
+
+    def test_contribution_shows_necessity_direction(self, today: date):
+        """compute_signal_contribution should show 'necessity' as direction."""
+        signal = SignalNode(
+            id="test",
+            text="Nomination required",
+            base_rate=0.80,
+            relationship_type="necessity",
+            parent_id="target",
+            depth=1,
+        )
+        tree = SignalTree(
+            target=SignalNode(id="target", text="Root", depth=0),
+            signals=[signal],
+        )
+
+        result = compute_signal_contribution(signal, tree)
+
+        assert result["direction"] == "necessity"
+        assert result["relationship_type"] == "necessity"
+        assert result["evidence"] == 0.0
+
+
 class TestAnalyzeTree:
     """Tests for analyze_tree function."""
 
@@ -475,3 +609,130 @@ class TestAnalyzeTree:
         assert "computed_probability" in analysis
         assert 0.0 < analysis["computed_probability"] < 1.0
         assert sample_tree.computed_probability == analysis["computed_probability"]
+
+
+class TestRollupConfig:
+    """Tests for rollup config constants."""
+
+    def test_config_loaded(self):
+        """Config should be loaded from JSON."""
+        assert K == 4.0
+        assert PROB_CLAMP_MIN == 0.001
+        assert PROB_CLAMP_MAX == 0.999
+        assert DEFAULT_PRIOR == 0.5
+
+
+class TestMarketSignals:
+    """Tests for market price support in rollup."""
+
+    def test_leaf_with_market_price_uses_market(self, today: date):
+        """Leaf with market_price should use it over base_rate."""
+        root = SignalNode(id="target", text="Root", depth=0, is_leaf=False)
+        leaf = SignalNode(
+            id="leaf",
+            text="Leaf with market",
+            base_rate=0.5,  # base_rate is 50%
+            market_price=0.8,  # market_price is 80%
+            market_platform="polymarket",
+            rho=0.6,
+            parent_id="target",
+            depth=1,
+            is_leaf=True,
+        )
+        root.children = [leaf]
+        tree = SignalTree(target=root, signals=[leaf], max_depth=1, leaf_count=1)
+
+        result = rollup_tree(tree, target_prior=0.5)
+
+        # Since market_price (0.8) > base_rate (0.5), the result should be
+        # higher than if we used base_rate
+        # Evidence = (0.8 - 0.5) * spread = 0.3 * spread
+        # With positive rho, this should push probability above 0.5
+        assert result > 0.5
+
+    def test_leaf_without_market_uses_base_rate(self, today: date):
+        """Leaf without market_price should use base_rate."""
+        root = SignalNode(id="target", text="Root", depth=0, is_leaf=False)
+        leaf = SignalNode(
+            id="leaf",
+            text="Leaf without market",
+            base_rate=0.8,
+            market_price=None,  # No market price
+            rho=0.6,
+            parent_id="target",
+            depth=1,
+            is_leaf=True,
+        )
+        root.children = [leaf]
+        tree = SignalTree(target=root, signals=[leaf], max_depth=1, leaf_count=1)
+
+        result = rollup_tree(tree, target_prior=0.5)
+
+        # Should use base_rate 0.8, pushing probability above 0.5
+        assert result > 0.5
+
+    def test_compute_node_gap_with_market(self):
+        """compute_node_gap should return correct gap."""
+        node = SignalNode(
+            id="test",
+            text="Test",
+            market_price=0.7,  # 70%
+            depth=0,
+        )
+
+        # Computed 80%, market 70% = +10pp gap
+        gap = compute_node_gap(node, 0.8)
+        assert gap == pytest.approx(10.0, abs=0.1)
+
+        # Computed 60%, market 70% = -10pp gap
+        gap = compute_node_gap(node, 0.6)
+        assert gap == pytest.approx(-10.0, abs=0.1)
+
+    def test_compute_node_gap_without_market(self):
+        """compute_node_gap should return None without market_price."""
+        node = SignalNode(
+            id="test",
+            text="Test",
+            market_price=None,
+            depth=0,
+        )
+
+        gap = compute_node_gap(node, 0.8)
+        assert gap is None
+
+    def test_market_evidence_uses_market_price(self, today: date):
+        """compute_signal_evidence should use market_price for leaves."""
+        signal = SignalNode(
+            id="test",
+            text="Test signal",
+            base_rate=0.5,
+            market_price=0.9,  # Market says 90% likely
+            rho=0.6,
+            parent_id="target",
+            depth=1,
+            is_leaf=True,
+        )
+
+        evidence, spread, direction = compute_signal_evidence(signal, parent_prior=0.5)
+
+        # Direction should be based on market_price (0.9), not base_rate (0.5)
+        # direction = market_price - 0.5 = 0.4
+        assert direction == pytest.approx(0.4, abs=0.01)
+        assert evidence > 0  # High market price + positive rho = positive evidence
+
+    def test_market_fields_on_signal_node(self):
+        """SignalNode should have market fields."""
+        signal = SignalNode(
+            id="test",
+            text="Test",
+            market_price=0.75,
+            market_url="https://polymarket.com/test",
+            market_platform="polymarket",
+            market_match_confidence=0.92,
+            depth=1,
+        )
+
+        assert signal.market_price == 0.75
+        assert signal.market_url == "https://polymarket.com/test"
+        assert signal.market_platform == "polymarket"
+        assert signal.market_match_confidence == 0.92

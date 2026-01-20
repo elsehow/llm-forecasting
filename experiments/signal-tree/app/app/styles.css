@@ -110,8 +110,15 @@
   background: var(--bg-primary);
   color: var(--text-primary);
   cursor: pointer;
-  min-width: 220px;
-  max-width: 400px;
+  min-width: 180px;
+  max-width: 350px;
+}
+
+.file-selector.version-selector {
+  min-width: 140px;
+  max-width: 220px;
+  font-size: 0.7rem;
+  color: var(--text-secondary);
 }
 
 .stats-bar {
@@ -344,13 +351,19 @@
 .tree-canvas {
   flex: 1;
   position: relative;
-  overflow: auto;
+  overflow: hidden;
   background: var(--bg-primary);
   cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .tree-canvas.dragging {
   cursor: grabbing;
+}
+
+.tree-canvas.dragging * {
+  pointer-events: none;
 }
 
 .tree-svg {
@@ -404,14 +417,26 @@
   position: absolute;
   bottom: 1rem;
   right: 1rem;
-  width: 180px;
-  height: 120px;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
+  width: 200px;
+  height: 140px;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border-strong);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
   overflow: hidden;
   z-index: 10;
+  cursor: crosshair;
+  opacity: 0.95;
+}
+
+.minimap:hover {
+  border-color: var(--accent-color);
+  opacity: 1;
+}
+
+.minimap.dragging {
+  cursor: grabbing;
+  border-color: var(--accent-color);
 }
 
 .minimap svg {
@@ -421,37 +446,41 @@
 
 .minimap-link {
   fill: none;
-  stroke: var(--border);
-  stroke-width: 1;
+  stroke: var(--text-muted);
+  stroke-width: 2;
+  opacity: 0.6;
 }
 
-.minimap-link.enhances { stroke: var(--up-color); }
-.minimap-link.suppresses { stroke: var(--down-color); }
+.minimap-link.enhances { stroke: var(--up-color); opacity: 0.8; }
+.minimap-link.suppresses { stroke: var(--down-color); opacity: 0.8; }
 
 .minimap-node {
-  fill: var(--bg-tertiary);
-  stroke: var(--border);
+  fill: var(--text-secondary);
+  stroke: var(--text-primary);
   stroke-width: 1;
 }
 
 .minimap-node.selected {
   fill: var(--accent-color);
   stroke: var(--accent-color);
+  stroke-width: 2;
 }
 
 .minimap-node.resolved-yes {
   fill: var(--up-color);
+  stroke: var(--up-color);
 }
 
 .minimap-node.resolved-no {
   fill: var(--down-color);
+  stroke: var(--down-color);
 }
 
 .minimap-viewport {
-  fill: none;
+  fill: rgba(99, 102, 241, 0.1);
   stroke: var(--accent-color);
-  stroke-width: 2;
-  stroke-dasharray: 4 2;
+  stroke-width: 3;
+  stroke-dasharray: none;
 }
 
 /* D3 Tree styles */
@@ -583,6 +612,13 @@
 .node-source.metaculus { fill: var(--metaculus); }
 .node-source.llm { fill: var(--llm); }
 
+.node-necessity {
+  font-size: 7px;
+  font-weight: 700;
+  fill: var(--down-color);
+  pointer-events: none;
+}
+
 .resolution-icon {
   font-size: 14px;
   font-weight: 700;
@@ -590,6 +626,17 @@
 }
 .resolution-icon.yes { fill: var(--up-color); }
 .resolution-icon.no { fill: var(--down-color); }
+
+/* Market indicator on nodes */
+.market-indicator-bg {
+  fill: var(--bg-secondary);
+  stroke: var(--polymarket);
+  stroke-width: 1.5;
+}
+.market-indicator-icon {
+  font-size: 8px;
+  pointer-events: none;
+}
 
 .link {
   fill: none;
@@ -813,6 +860,15 @@
 .source-badge.llm { background: var(--llm); }
 .source-badge.unknown { background: var(--text-muted); }
 
+.necessity-badge {
+  font-size: 0.6rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  background: var(--down-color);
+  color: white;
+}
+
 .days-badge {
   background: var(--bg-tertiary);
   padding: 0.15rem 0.4rem;
@@ -841,6 +897,65 @@
 }
 .prob-fill.market { background: var(--polymarket); }
 .prob-fill.llm { background: var(--llm); }
+
+/* Market comparison card */
+.market-card {
+  border-left: 3px solid var(--polymarket);
+}
+
+.market-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.market-row:last-child {
+  margin-bottom: 0;
+}
+
+.market-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.market-value {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.market-platform a {
+  color: var(--polymarket);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.market-platform a:hover {
+  text-decoration: underline;
+}
+
+.market-gap {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.market-gap.ok {
+  color: var(--up-color);
+}
+
+.market-gap.warning {
+  color: #ca8a04; /* yellow-600 */
+}
+
+.market-gap.review {
+  color: var(--down-color);
+}
+
+.market-confidence {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
 
 .section-label {
   font-size: 0.65rem;

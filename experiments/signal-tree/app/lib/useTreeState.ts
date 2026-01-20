@@ -11,6 +11,13 @@ import type {
   ContributionData,
 } from './types';
 
+// Rollup config constants (must match shared/rollup_config.json)
+// Note: Keep these in sync with the Python rollup.py configuration
+const K = 4.0;                  // evidence_scale_factor
+const PROB_CLAMP_MIN = 0.001;  // probability_clamp_min
+const PROB_CLAMP_MAX = 0.999;  // probability_clamp_max
+const DEFAULT_PRIOR = 0.5;     // default_prior
+
 interface TreeState {
   data: TreeDataFile | null;
   selectedNodeId: string | null;
@@ -74,71 +81,140 @@ export function useTreeState() {
     localStorage.setItem('darkMode', String(state.viewSettings.darkMode));
   }, [state.viewSettings.darkMode]);
 
-  // Load tree data from JSON - handles multiple formats
+  // Load tree data from JSON - handles multiple formats and resolves cross-tree references
   const loadData = useCallback(async (url: string) => {
     const response = await fetch(url);
     const rawData = await response.json();
 
-    // Normalize to TreeDataFile format
-    let data: TreeDataFile;
+    // Helper to collect all refs from a tree
+    const collectRefs = (node: SignalNode): string[] => {
+      const refs: string[] = [];
+      if (node.ref) refs.push(node.ref);
+      for (const child of node.children || []) {
+        refs.push(...collectRefs(child));
+      }
+      return refs;
+    };
 
+    // Helper to resolve refs by injecting children from referenced trees
+    const resolveRefs = async (node: SignalNode, refTrees: Map<string, SignalNode>, parentDepth: number): Promise<void> => {
+      if (node.ref && refTrees.has(node.ref)) {
+        const refRoot = refTrees.get(node.ref)!;
+        // Copy children from referenced tree, adjusting depth and parent_id
+        node.children = refRoot.children.map(child => ({
+          ...child,
+          parent_id: node.id,
+          depth: parentDepth + 1,
+          // Mark as coming from a reference
+          _fromRef: node.ref,
+        })) as SignalNode[];
+        node.is_leaf = false;
+      }
+      // Recursively resolve children
+      for (const child of node.children || []) {
+        await resolveRefs(child, refTrees, (child.depth || parentDepth + 1));
+      }
+    };
+
+    // Parse the main tree
+    let target: SignalNode;
     if (rawData.tree && rawData.tree.target) {
-      // Old format: { config, tree: { target }, analysis }
-      data = rawData as TreeDataFile;
+      target = rawData.tree.target;
     } else if (rawData.target) {
-      // New format: { target } - synthesize the rest
-      const target = rawData.target as SignalNode;
-
-      // Count signals and find max depth
-      const collectSignals = (node: SignalNode): SignalNode[] => {
-        const signals: SignalNode[] = [];
-        for (const child of node.children) {
-          signals.push(child);
-          signals.push(...collectSignals(child));
-        }
-        return signals;
-      };
-
-      const signals = collectSignals(target);
-      const maxDepth = signals.reduce((max, s) => Math.max(max, s.depth || 0), 0);
-      const leafCount = signals.filter(s => s.is_leaf).length;
-
-      data = {
-        config: {
-          target_question: target.text,
-          target_id: target.id,
-          minimum_resolution_days: 7,
-          max_signals: signals.length,
-          actionable_horizon_days: 60,
-          signals_per_node: 5,
-          generation_model: 'unknown',
-          rho_model: 'unknown',
-          include_market_signals: false,
-          market_match_threshold: 0.6,
-        },
-        tree: {
-          target,
-          signals,
-          max_depth: maxDepth,
-          leaf_count: leafCount,
-          actionable_horizon_days: 60,
-          computed_probability: null,
-        },
-        analysis: {
-          target: target.text,
-          computed_probability: 0.5,
-          target_prior: 0.5,
-          max_depth: maxDepth,
-          total_signals: signals.length,
-          leaf_count: leafCount,
-          top_contributors: [],
-          all_contributions: [],
-        },
-        generated_at: new Date().toISOString(),
-      };
+      target = rawData.target;
     } else {
       throw new Error('Unknown JSON format: expected tree.target or target');
     }
+
+    // Find all unique refs
+    const refs = [...new Set(collectRefs(target))];
+
+    // Load referenced trees
+    const refTrees = new Map<string, SignalNode>();
+    if (refs.length > 0) {
+      // Fetch the targets list to find ref tree files
+      const targetsRes = await fetch('/api/targets');
+      const targetFolders = await targetsRes.json();
+
+      // Flatten all tree files from all folders
+      interface TreeFileInfo { id: string; path: string; }
+      const allTreeFiles: TreeFileInfo[] = targetFolders.flatMap(
+        (folder: { trees: TreeFileInfo[] }) => folder.trees
+      );
+
+      for (const ref of refs) {
+        // Find a tree file that matches the ref (by id or path)
+        const matchingTree = allTreeFiles.find((t: TreeFileInfo) =>
+          t.id.includes(ref) || t.path.includes(ref)
+        );
+        if (matchingTree) {
+          try {
+            const refRes = await fetch(matchingTree.path);
+            const refData = await refRes.json();
+            const refRoot = refData.tree?.target || refData.target;
+            if (refRoot) {
+              refTrees.set(ref, refRoot);
+            }
+          } catch (e) {
+            console.warn(`Failed to load referenced tree: ${ref}`, e);
+          }
+        }
+      }
+
+      // Resolve refs in the main tree
+      await resolveRefs(target, refTrees, 0);
+    }
+
+    // Count signals and find max depth (after ref resolution)
+    const collectSignals = (node: SignalNode): SignalNode[] => {
+      const signals: SignalNode[] = [];
+      for (const child of node.children || []) {
+        signals.push(child);
+        signals.push(...collectSignals(child));
+      }
+      return signals;
+    };
+
+    const signals = collectSignals(target);
+    const maxDepth = signals.reduce((max, s) => Math.max(max, s.depth || 0), 0);
+    const leafCount = signals.filter(s => s.is_leaf).length;
+
+    const data: TreeDataFile = {
+      config: rawData.config || {
+        target_question: target.text,
+        target_id: target.id,
+        minimum_resolution_days: 7,
+        max_signals: signals.length,
+        actionable_horizon_days: 60,
+        signals_per_node: 5,
+        generation_model: 'unknown',
+        rho_model: 'unknown',
+        include_market_signals: false,
+        market_match_threshold: 0.6,
+      },
+      tree: rawData.tree || {
+        target,
+        signals,
+        max_depth: maxDepth,
+        leaf_count: leafCount,
+        actionable_horizon_days: 60,
+        computed_probability: null,
+      },
+      analysis: rawData.analysis || {
+        target: target.text,
+        computed_probability: 0.5,
+        target_prior: 0.5,
+        max_depth: maxDepth,
+        total_signals: signals.length,
+        leaf_count: leafCount,
+        top_contributors: [],
+        all_contributions: [],
+      },
+      generated_at: rawData.generated_at || new Date().toISOString(),
+    };
+
+    // Ensure the target in data.tree is the resolved one
+    data.tree.target = target;
 
     setState(prev => ({
       ...prev,
@@ -382,24 +458,36 @@ export function useTreeState() {
       }
 
       if (!node.children || node.children.length === 0) {
-        const prob = node.base_rate ?? prior;
+        // Leaf: prefer market_price, else base_rate
+        const prob = node.market_price ?? node.base_rate ?? prior;
         probs[node.id] = prob;
         return prob;
       }
 
+      // Check for necessity constraints: if any prerequisite child resolved NO, parent = 0
+      for (const child of node.children) {
+        if (child.relationship_type === 'necessity' && state.resolutions[child.id] === 'no') {
+          probs[node.id] = 0.0;
+          // Still compute child probs for display purposes
+          for (const c of node.children) {
+            computeNodeProb(c, 0.5);
+          }
+          return 0.0;
+        }
+      }
+
       const safePrior = Math.max(0.01, Math.min(0.99, prior));
       let logOdds = Math.log(safePrior / (1 - safePrior));
-      const k = 2.0;
 
       for (const child of node.children) {
-        const childProb = computeNodeProb(child, 0.5);
+        const childProb = computeNodeProb(child, DEFAULT_PRIOR);
         const childRho = child.rho ?? 0;
-        const contribution = childRho * (childProb - 0.5) * k;
+        const contribution = childRho * (childProb - 0.5) * K;
         logOdds += contribution;
       }
 
       const prob = 1 / (1 + Math.exp(-logOdds));
-      const clampedProb = Math.max(0.01, Math.min(0.99, prob));
+      const clampedProb = Math.max(PROB_CLAMP_MIN, Math.min(PROB_CLAMP_MAX, prob));
       probs[node.id] = clampedProb;
       return clampedProb;
     };
@@ -410,6 +498,25 @@ export function useTreeState() {
 
     return probs;
   }, [state.data, state.resolutions]);
+
+  // Compute gaps between computed and market prices
+  const computedGaps = useMemo(() => {
+    if (!state.data) return {};
+    const gaps: Record<string, number | null> = {};
+
+    const computeGaps = (node: SignalNode) => {
+      const computed = computedProbabilities[node.id];
+      if (node.market_price != null && computed != null) {
+        gaps[node.id] = (computed - node.market_price) * 100; // percentage points
+      } else {
+        gaps[node.id] = null;
+      }
+      node.children?.forEach(computeGaps);
+    };
+
+    computeGaps(state.data.tree.target);
+    return gaps;
+  }, [state.data, computedProbabilities]);
 
   // Sensitivity analysis - compute marginal impact of each leaf
   const sensitivityAnalysis = useMemo(() => {
@@ -500,26 +607,26 @@ export function useTreeState() {
     resolutions: Record<string, Resolution>,
     targetPrior: number
   ): number {
-    const computeNodeProb = (n: SignalNode, prior: number = 0.5): number => {
+    const computeNodeProb = (n: SignalNode, prior: number = DEFAULT_PRIOR): number => {
       const resolution = resolutions[n.id];
       if (resolution === 'yes') return 1.0;
       if (resolution === 'no') return 0.0;
 
       if (!n.children || n.children.length === 0) {
-        return n.base_rate ?? prior;
+        // Leaf: prefer market_price, else base_rate
+        return n.market_price ?? n.base_rate ?? prior;
       }
 
       const safePrior = Math.max(0.01, Math.min(0.99, prior));
       let logOdds = Math.log(safePrior / (1 - safePrior));
-      const k = 2.0;
 
       for (const child of n.children) {
-        const childProb = computeNodeProb(child, 0.5);
+        const childProb = computeNodeProb(child, DEFAULT_PRIOR);
         const childRho = child.rho ?? 0;
-        logOdds += childRho * (childProb - 0.5) * k;
+        logOdds += childRho * (childProb - 0.5) * K;
       }
 
-      return Math.max(0.01, Math.min(0.99, 1 / (1 + Math.exp(-logOdds))));
+      return Math.max(PROB_CLAMP_MIN, Math.min(PROB_CLAMP_MAX, 1 / (1 + Math.exp(-logOdds))));
     };
 
     return computeNodeProb(node, targetPrior);
@@ -664,6 +771,7 @@ export function useTreeState() {
     filteredNodes,
     sensitivityAnalysis,
     dynamicContributions,
+    computedGaps,
 
     // Data actions
     loadData,

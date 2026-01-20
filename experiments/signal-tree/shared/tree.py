@@ -21,8 +21,26 @@ class SignalNode(BaseModel):
     base_rate: float | None = Field(
         default=None, description="Current probability (from market or estimate)"
     )
-    probability_source: Literal["polymarket", "metaculus", "llm", "manual"] | None = (
+    probability_source: Literal["polymarket", "metaculus", "llm", "manual", "market"] | None = (
         Field(default=None, description="Source of base_rate")
+    )
+
+    # Market data (for leaves with matched market prices)
+    market_price: float | None = Field(
+        default=None,
+        description="Market probability (0-1) if matched to a prediction market",
+    )
+    market_url: str | None = Field(
+        default=None,
+        description="URL to the prediction market",
+    )
+    market_platform: str | None = Field(
+        default=None,
+        description="Platform name (polymarket, metaculus, etc.)",
+    )
+    market_match_confidence: float | None = Field(
+        default=None,
+        description="Confidence in the market match (0-1)",
     )
 
     # Tree structure
@@ -34,9 +52,18 @@ class SignalNode(BaseModel):
     )
 
     # Relationship to parent
+    relationship_type: Literal["correlation", "necessity", "sufficiency"] = Field(
+        default="correlation",
+        description=(
+            "Type of relationship to parent: "
+            "'correlation' (default) uses rho model; "
+            "'necessity' means signal=NO implies parent=0 (e.g., must be nominated to win); "
+            "'sufficiency' means signal=YES implies parent=1 (rare)"
+        ),
+    )
     rho: float | None = Field(
         default=None,
-        description="Correlation with parent (-1 to +1). Positive = same direction.",
+        description="Correlation with parent (-1 to +1). Positive = same direction. Used when relationship_type='correlation'.",
     )
     rho_reasoning: str | None = Field(
         default=None, description="Explanation of correlation"
@@ -48,6 +75,12 @@ class SignalNode(BaseModel):
     )
     p_parent_given_no: float | None = Field(
         default=None, description="P(parent=YES | this=NO)"
+    )
+
+    # Cross-tree references
+    ref: str | None = Field(
+        default=None,
+        description="Reference to another tree's node: 'tree_id:node_id' or 'tree_id' (for root). When set, base_rate is pulled from referenced node at rollup time.",
     )
 
     # Metadata

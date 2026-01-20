@@ -9,18 +9,29 @@ import { Toolbar } from '@/components/Toolbar';
 import { SensitivityPanel } from '@/components/SensitivityPanel';
 import './styles.css';
 
-interface TargetFile {
+interface TreeFile {
   id: string;
   label: string;
   path: string;
+  filename: string;
   timestamp: string;
   mtime: number;
   targetQuestion: string;
+  computedProbability: number | null;
+  marketPrice: number | null;
+}
+
+interface TargetFolder {
+  slug: string;
+  label: string;
+  trees: TreeFile[];
+  latestTree: TreeFile | null;
 }
 
 export default function Home() {
-  const [targets, setTargets] = useState<TargetFile[]>([]);
-  const [selectedTarget, setSelectedTarget] = useState<string | null>(null);
+  const [targets, setTargets] = useState<TargetFolder[]>([]);
+  const [selectedFolder, setSelectedFolder] = useState<string | null>(null);
+  const [selectedTree, setSelectedTree] = useState<string | null>(null);
   const [showSensitivity, setShowSensitivity] = useState(false);
 
   const {
@@ -41,6 +52,7 @@ export default function Home() {
     filteredNodes,
     sensitivityAnalysis,
     dynamicContributions,
+    computedGaps,
     loadData,
     selectNode,
     resolveSignal,
@@ -74,12 +86,17 @@ export default function Home() {
     async function discoverTargets() {
       try {
         const response = await fetch('/api/targets');
-        const data: TargetFile[] = await response.json();
+        const data: TargetFolder[] = await response.json();
         setTargets(data);
 
-        if (data.length > 0 && !selectedTarget) {
-          setSelectedTarget(data[0].path);
-          loadData(data[0].path);
+        // Auto-select first folder and its latest tree
+        if (data.length > 0 && !selectedFolder) {
+          const firstFolder = data[0];
+          setSelectedFolder(firstFolder.slug);
+          if (firstFolder.latestTree) {
+            setSelectedTree(firstFolder.latestTree.path);
+            loadData(firstFolder.latestTree.path);
+          }
         }
       } catch (error) {
         console.error('Failed to discover targets:', error);
@@ -88,11 +105,24 @@ export default function Home() {
     discoverTargets();
   }, []);
 
-  const handleTargetChange = useCallback((path: string) => {
-    setSelectedTarget(path);
+  const handleFolderChange = useCallback((slug: string) => {
+    setSelectedFolder(slug);
+    const folder = targets.find(t => t.slug === slug);
+    if (folder?.latestTree) {
+      setSelectedTree(folder.latestTree.path);
+      loadData(folder.latestTree.path);
+      resetAllResolutions();
+    }
+  }, [targets, loadData, resetAllResolutions]);
+
+  const handleTreeChange = useCallback((path: string) => {
+    setSelectedTree(path);
     loadData(path);
     resetAllResolutions();
   }, [loadData, resetAllResolutions]);
+
+  const currentFolder = targets.find(t => t.slug === selectedFolder);
+  const currentTree = currentFolder?.trees.find(t => t.path === selectedTree);
 
   // Keyboard navigation
   useEffect(() => {
@@ -145,7 +175,6 @@ export default function Home() {
   }, [getPathToRoot, setHighlightedPath]);
 
   const hasResolutions = Object.keys(resolutions).length > 0;
-  const currentTarget = targets.find(t => t.path === selectedTarget);
 
   return (
     <div className={`app ${viewSettings.darkMode ? 'dark' : ''}`}>
@@ -157,15 +186,34 @@ export default function Home() {
             <span className="selector-label">Target</span>
             <select
               className="file-selector"
-              value={selectedTarget ?? ''}
-              onChange={(e) => e.target.value && handleTargetChange(e.target.value)}
-              title={currentTarget?.targetQuestion}
+              value={selectedFolder ?? ''}
+              onChange={(e) => e.target.value && handleFolderChange(e.target.value)}
             >
               {targets.map(t => (
-                <option key={t.id} value={t.path}>{t.label}</option>
+                <option key={t.slug} value={t.slug}>
+                  {t.label} ({t.trees.length})
+                </option>
               ))}
             </select>
           </div>
+          {currentFolder && currentFolder.trees.length > 1 && (
+            <div className="selector-group">
+              <span className="selector-label">Version</span>
+              <select
+                className="file-selector version-selector"
+                value={selectedTree ?? ''}
+                onChange={(e) => e.target.value && handleTreeChange(e.target.value)}
+                title={currentTree?.targetQuestion}
+              >
+                {currentFolder.trees.map(t => (
+                  <option key={t.id} value={t.path}>
+                    {t.filename.replace('tree_', '').replace('.json', '')}
+                    {t.computedProbability != null && ` (${(t.computedProbability * 100).toFixed(0)}%)`}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
         </div>
         <div className="stats-bar">
           <div className="stat">
@@ -262,9 +310,11 @@ export default function Home() {
             <DetailPanel
               node={selectedNode}
               resolution={resolutions[selectedNode.id]}
+              computedProbability={computedProbabilities[selectedNode.id] ?? null}
               parentNode={parentNode}
               pathToRoot={pathToRoot}
               isOpen={viewSettings.detailPanelOpen}
+              marketGap={computedGaps[selectedNode.id] ?? null}
               onResolve={resolveSignal}
               onToggle={toggleDetailPanel}
               onNavigateToNode={selectNode}

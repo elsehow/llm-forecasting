@@ -1,6 +1,6 @@
 // Signal Tree Types (mirrors Python models in shared/tree.py)
 
-export type ProbabilitySource = 'polymarket' | 'metaculus' | 'llm' | 'manual';
+export type ProbabilitySource = 'polymarket' | 'metaculus' | 'llm' | 'manual' | 'market';
 
 export interface SignalNode {
   id: string;
@@ -16,6 +16,18 @@ export interface SignalNode {
   p_parent_given_no: number | null;
   is_leaf: boolean;
   depth: number;
+  // Relationship type: 'necessity' means parent probability becomes 0 when this resolves NO
+  // Used for logical dependencies (e.g., "must be nominated to win")
+  relationship_type?: 'correlation' | 'necessity' | 'sufficiency';
+
+  // Cross-tree references
+  ref?: string | null;
+
+  // Market data (for leaves with matched market prices)
+  market_price?: number | null;
+  market_url?: string | null;
+  market_platform?: string | null;
+  market_match_confidence?: number | null;
 }
 
 export interface SignalTree {

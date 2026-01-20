@@ -48,7 +48,9 @@ export function TreeCanvas({
   onPanChange,
 }: TreeCanvasProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const minimapRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [isMinimapDragging, setIsMinimapDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);
 
@@ -213,7 +215,8 @@ export function TreeCanvas({
   // Pan handlers
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
     const target = e.target as HTMLElement;
-    if (e.button === 0 && !target.closest?.('.node-group')) {
+    if (e.button === 0 && !target.closest?.('.node-group') && !target.closest?.('.minimap')) {
+      e.preventDefault(); // Prevent text selection
       setIsDragging(true);
       setDragStart({ x: e.clientX - panX, y: e.clientY - panY });
     }
@@ -227,9 +230,50 @@ export function TreeCanvas({
 
   const handleMouseUp = useCallback(() => {
     setIsDragging(false);
+    setIsMinimapDragging(false);
   }, []);
 
-  // Zoom with wheel - use native event listener for proper preventDefault
+  // Minimap handlers for navigation
+  const handleMinimapInteraction = useCallback((e: React.MouseEvent) => {
+    const minimap = minimapRef.current;
+    if (!minimap || !containerRef.current) return;
+
+    const rect = minimap.getBoundingClientRect();
+    const minimapWidth = rect.width;
+    const minimapHeight = rect.height;
+
+    // Calculate where user clicked in minimap coordinates (0-1)
+    const clickX = (e.clientX - rect.left) / minimapWidth;
+    const clickY = (e.clientY - rect.top) / minimapHeight;
+
+    // Convert to tree coordinates
+    const treeX = clickX * width;
+    const treeY = clickY * height;
+
+    // Calculate pan to center viewport on clicked point
+    const viewportWidth = containerRef.current.clientWidth;
+    const viewportHeight = containerRef.current.clientHeight;
+
+    const newPanX = -(treeX * zoom - viewportWidth / 2);
+    const newPanY = -(treeY * zoom - viewportHeight / 2);
+
+    onPanChange(newPanX, newPanY);
+  }, [width, height, zoom, onPanChange]);
+
+  const handleMinimapMouseDown = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsMinimapDragging(true);
+    handleMinimapInteraction(e);
+  }, [handleMinimapInteraction]);
+
+  const handleMinimapMouseMove = useCallback((e: React.MouseEvent) => {
+    if (isMinimapDragging) {
+      handleMinimapInteraction(e);
+    }
+  }, [isMinimapDragging, handleMinimapInteraction]);
+
+  // Wheel handler: scroll = pan, Ctrl+scroll = zoom
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -237,13 +281,20 @@ export function TreeCanvas({
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
       e.stopPropagation();
-      const delta = e.deltaY > 0 ? -0.1 : 0.1;
-      onZoomChange(Math.max(0.25, Math.min(2, zoom + delta)));
+
+      if (e.ctrlKey || e.metaKey) {
+        // Ctrl/Cmd + scroll = zoom
+        const delta = e.deltaY > 0 ? -0.1 : 0.1;
+        onZoomChange(Math.max(0.25, Math.min(2, zoom + delta)));
+      } else {
+        // Regular scroll = pan
+        onPanChange(panX - e.deltaX, panY - e.deltaY);
+      }
     };
 
     container.addEventListener('wheel', handleWheel, { passive: false });
     return () => container.removeEventListener('wheel', handleWheel);
-  }, [zoom, onZoomChange]);
+  }, [zoom, panX, panY, onZoomChange, onPanChange]);
 
   // Handle node click
   const handleNodeClick = useCallback((e: React.MouseEvent, nodeId: string) => {
@@ -415,6 +466,37 @@ export function TreeCanvas({
                   </text>
                 )}
 
+                {/* Necessity badge */}
+                {node.data.relationship_type === 'necessity' && (
+                  <text
+                    className="node-necessity"
+                    y={node.data.probability_source ? 38 : 24}
+                    textAnchor="middle"
+                  >
+                    🔒 REQUIRED
+                  </text>
+                )}
+
+                {/* Market indicator */}
+                {node.data.market_price != null && (
+                  <g className="market-indicator">
+                    <circle
+                      cx={80}
+                      cy={-20}
+                      r={8}
+                      className="market-indicator-bg"
+                    />
+                    <text
+                      x={80}
+                      y={-16}
+                      textAnchor="middle"
+                      className="market-indicator-icon"
+                    >
+                      📊
+                    </text>
+                  </g>
+                )}
+
                 {/* Tooltip */}
                 <title>
                   {node.data.text}
@@ -431,7 +513,14 @@ export function TreeCanvas({
 
       {/* Minimap */}
       {showMinimap && (
-        <div className="minimap">
+        <div
+          ref={minimapRef}
+          className={`minimap ${isMinimapDragging ? 'dragging' : ''}`}
+          onMouseDown={handleMinimapMouseDown}
+          onMouseMove={handleMinimapMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+        >
           <svg
             viewBox={`0 0 ${width} ${height}`}
             preserveAspectRatio="xMidYMid meet"

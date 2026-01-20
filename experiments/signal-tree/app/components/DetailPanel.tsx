@@ -6,9 +6,11 @@ import type { SignalNode, Resolution } from '@/lib/types';
 interface DetailPanelProps {
   node: SignalNode;
   resolution: Resolution | undefined;
+  computedProbability: number | null;
   parentNode: SignalNode | null;
   pathToRoot: SignalNode[];
   isOpen: boolean;
+  marketGap: number | null;
   onResolve: (nodeId: string, resolution: Resolution | null) => void;
   onToggle: () => void;
   onNavigateToNode: (nodeId: string) => void;
@@ -17,16 +19,20 @@ interface DetailPanelProps {
 export function DetailPanel({
   node,
   resolution,
+  computedProbability,
   parentNode,
   pathToRoot,
   isOpen,
+  marketGap,
   onResolve,
   onToggle,
   onNavigateToNode,
 }: DetailPanelProps) {
   const [showFullText, setShowFullText] = useState(false);
 
-  const prob = node.base_rate != null ? (node.base_rate * 100).toFixed(0) : '-';
+  // Use computed probability if available, otherwise fall back to base_rate
+  const displayProb = computedProbability ?? node.base_rate;
+  const prob = displayProb != null ? (displayProb * 100).toFixed(0) : '-';
   const source = node.probability_source || 'unknown';
   const resDate = node.resolution_date
     ? new Date(node.resolution_date).toLocaleDateString()
@@ -77,6 +83,9 @@ export function DetailPanel({
           </div>
           <div className="signal-meta">
             <span className={`source-badge ${source}`}>{source}</span>
+            {node.relationship_type === 'necessity' && (
+              <span className="necessity-badge">🔒 Required</span>
+            )}
             <span>Resolves: {resDate}</span>
             {daysUntilResolution !== null && daysUntilResolution > 0 && (
               <span className="days-badge">
@@ -92,6 +101,50 @@ export function DetailPanel({
             />
           </div>
         </div>
+
+        {/* Market comparison (for nodes with market data) */}
+        {node.market_price != null && (
+          <>
+            <div className="section-label">Market Comparison</div>
+            <div className="detail-card market-card">
+              <div className="market-row">
+                <span className="market-label">Market Price:</span>
+                <span className="market-value">{(node.market_price * 100).toFixed(0)}%</span>
+              </div>
+              {node.market_platform && (
+                <div className="market-row">
+                  <span className="market-label">Platform:</span>
+                  <span className="market-platform">
+                    {node.market_url ? (
+                      <a href={node.market_url} target="_blank" rel="noopener noreferrer">
+                        {node.market_platform} ↗
+                      </a>
+                    ) : (
+                      node.market_platform
+                    )}
+                  </span>
+                </div>
+              )}
+              {marketGap != null && !node.is_leaf && (
+                <div className="market-row">
+                  <span className="market-label">Gap:</span>
+                  <span className={`market-gap ${Math.abs(marketGap) <= 5 ? 'ok' : Math.abs(marketGap) <= 15 ? 'warning' : 'review'}`}>
+                    {marketGap >= 0 ? '+' : ''}{marketGap.toFixed(1)}pp
+                    {Math.abs(marketGap) > 15 && ' ⚠️'}
+                  </span>
+                </div>
+              )}
+              {node.market_match_confidence != null && (
+                <div className="market-row">
+                  <span className="market-label">Match:</span>
+                  <span className="market-confidence">
+                    {(node.market_match_confidence * 100).toFixed(0)}%
+                  </span>
+                </div>
+              )}
+            </div>
+          </>
+        )}
 
         {/* Relationship to parent */}
         {!isRoot && node.rho != null && (
