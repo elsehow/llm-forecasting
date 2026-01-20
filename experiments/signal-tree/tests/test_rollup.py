@@ -736,3 +736,195 @@ class TestMarketSignals:
         assert signal.market_url == "https://polymarket.com/test"
         assert signal.market_platform == "polymarket"
         assert signal.market_match_confidence == 0.92
+
+
+class TestExclusivity:
+    """Tests for exclusivity relationship type."""
+
+    def test_exclusivity_with_likely_competitor_reduces_probability(self, today: date):
+        """Likely competitor winning should reduce target probability."""
+        root = SignalNode(id="target", text="Will X win?", depth=0, is_leaf=False)
+
+        # Competitor Y is likely to win (70%)
+        # If Y wins, X cannot win (exclusivity)
+        competitor = SignalNode(
+            id="competitor",
+            text="Will competitor Y win?",
+            base_rate=0.70,  # Likely to win
+            relationship_type="exclusivity",
+            p_target_given_yes=0.01,  # If Y wins, X loses
+            p_target_given_no=0.60,  # If Y doesn't win, X has better chance
+            parent_id="target",
+            depth=1,
+            is_leaf=True,
+        )
+        root.children = [competitor]
+        tree = SignalTree(target=root, signals=[competitor])
+
+        result = rollup_tree(tree, target_prior=0.5)
+
+        # With a likely competitor, probability should be reduced
+        assert result < 0.5
+
+    def test_exclusivity_with_unlikely_competitor_increases_probability(self, today: date):
+        """Unlikely competitor should increase target probability."""
+        root = SignalNode(id="target", text="Will X win?", depth=0, is_leaf=False)
+
+        # Competitor Y is unlikely to win (20%)
+        competitor = SignalNode(
+            id="competitor",
+            text="Will competitor Y win?",
+            base_rate=0.20,  # Unlikely to win
+            relationship_type="exclusivity",
+            p_target_given_yes=0.01,  # If Y wins, X loses
+            p_target_given_no=0.55,  # If Y doesn't win, X has better chance
+            parent_id="target",
+            depth=1,
+            is_leaf=True,
+        )
+        root.children = [competitor]
+        tree = SignalTree(target=root, signals=[competitor])
+
+        result = rollup_tree(tree, target_prior=0.5)
+
+        # With an unlikely competitor (base_rate < 0.5), probability should increase
+        # because spread is negative (0.01 - 0.55 = -0.54)
+        # and direction is negative (0.20 - 0.5 = -0.30)
+        # negative * negative = positive evidence
+        assert result > 0.5
+
+    def test_exclusivity_evidence_formula(self, today: date):
+        """Exclusivity evidence should follow (base_rate - 0.5) * spread formula."""
+        signal = SignalNode(
+            id="test",
+            text="Will competitor win?",
+            base_rate=0.70,
+            relationship_type="exclusivity",
+            p_target_given_yes=0.01,
+            p_target_given_no=0.60,
+            parent_id="target",
+            depth=1,
+            is_leaf=True,
+        )
+
+        evidence, spread, direction = compute_signal_evidence(signal, parent_prior=0.5)
+
+        # spread = p_yes - p_no = 0.01 - 0.60 = -0.59
+        expected_spread = 0.01 - 0.60
+        assert spread == pytest.approx(expected_spread, abs=0.01)
+
+        # direction = base_rate - 0.5 = 0.70 - 0.5 = 0.20
+        expected_direction = 0.70 - 0.5
+        assert direction == pytest.approx(expected_direction, abs=0.01)
+
+        # evidence = direction * spread = 0.20 * (-0.59) = -0.118
+        expected_evidence = expected_direction * expected_spread
+        assert evidence == pytest.approx(expected_evidence, abs=0.01)
+
+    def test_exclusivity_defaults_for_conditional_probabilities(self, today: date):
+        """Exclusivity should use sensible defaults if p_target_given_* not set."""
+        signal = SignalNode(
+            id="test",
+            text="Will competitor win?",
+            base_rate=0.70,
+            relationship_type="exclusivity",
+            # p_target_given_yes not set - should default to 0.01
+            # p_target_given_no not set - should default to prior * 1.1
+            parent_id="target",
+            depth=1,
+            is_leaf=True,
+        )
+
+        evidence, spread, direction = compute_signal_evidence(signal, parent_prior=0.5)
+
+        # Default p_yes = 0.01
+        # Default p_no = min(0.99, 0.5 * 1.1) = 0.55
+        # spread = 0.01 - 0.55 = -0.54
+        expected_spread = 0.01 - 0.55
+        assert spread == pytest.approx(expected_spread, abs=0.01)
+
+    def test_exclusivity_contribution_shows_exclusivity_direction(self, today: date):
+        """compute_signal_contribution should show 'exclusivity' as direction."""
+        signal = SignalNode(
+            id="test",
+            text="Will competitor win?",
+            base_rate=0.70,
+            relationship_type="exclusivity",
+            p_target_given_yes=0.01,
+            p_target_given_no=0.55,
+            parent_id="target",
+            depth=1,
+        )
+        tree = SignalTree(
+            target=SignalNode(id="target", text="Root", depth=0),
+            signals=[signal],
+        )
+
+        result = compute_signal_contribution(signal, tree)
+
+        assert result["direction"] == "exclusivity"
+        assert result["relationship_type"] == "exclusivity"
+        # Exclusivity DOES contribute evidence (unlike necessity/sufficiency)
+        assert result["evidence"] != 0.0
+
+    def test_multiple_exclusivity_signals_accumulate(self, today: date):
+        """Multiple competitors should accumulate their evidence."""
+        root = SignalNode(id="target", text="Will X win?", depth=0, is_leaf=False)
+
+        # Three competitors, all somewhat likely
+        comp1 = SignalNode(
+            id="comp1",
+            text="Will A win?",
+            base_rate=0.30,
+            relationship_type="exclusivity",
+            p_target_given_yes=0.01,
+            p_target_given_no=0.55,
+            parent_id="target",
+            depth=1,
+            is_leaf=True,
+        )
+        comp2 = SignalNode(
+            id="comp2",
+            text="Will B win?",
+            base_rate=0.25,
+            relationship_type="exclusivity",
+            p_target_given_yes=0.01,
+            p_target_given_no=0.55,
+            parent_id="target",
+            depth=1,
+            is_leaf=True,
+        )
+        comp3 = SignalNode(
+            id="comp3",
+            text="Will C win?",
+            base_rate=0.20,
+            relationship_type="exclusivity",
+            p_target_given_yes=0.01,
+            p_target_given_no=0.55,
+            parent_id="target",
+            depth=1,
+            is_leaf=True,
+        )
+        root.children = [comp1, comp2, comp3]
+        tree = SignalTree(target=root, signals=[comp1, comp2, comp3])
+
+        result = rollup_tree(tree, target_prior=0.5)
+
+        # All competitors are below 0.5 base_rate, so each contributes positive evidence
+        # Result should be > 0.5
+        assert result > 0.5
+
+    def test_exclusivity_fields_on_signal_node(self):
+        """SignalNode should have exclusivity fields."""
+        signal = SignalNode(
+            id="test",
+            text="Test",
+            relationship_type="exclusivity",
+            p_target_given_yes=0.02,
+            p_target_given_no=0.60,
+            depth=1,
+        )
+
+        assert signal.relationship_type == "exclusivity"
+        assert signal.p_target_given_yes == 0.02
+        assert signal.p_target_given_no == 0.60

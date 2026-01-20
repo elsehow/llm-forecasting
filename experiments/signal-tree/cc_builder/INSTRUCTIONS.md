@@ -1,401 +1,283 @@
-# Signal Tree Builder Instructions
+# Dual-Approach Signal Tree Builder
 
-You (Claude Code) are building a signal tree to decompose a forecasting question into actionable signals.
+This module builds signal trees using a three-phase dual approach:
 
-## Key Insight
+1. **Top-down (Structure)**: Generate logical decomposition with necessity, exclusivity, and causal constraints
+2. **Bottom-up (Markets)**: Discover related prediction markets via semantic search
+3. **Reconciliation**: Map markets onto structure, recurse on uncertain nodes
 
-The main advantage of CC-driven tree building over the automated pipeline is **validation**:
-- Web search to verify facts before generating signals
-- Catch domain constraint violations (e.g., wrong eligibility years)
-- Recursive context gathering for each node
-
-## Decomposition Rule
-
-**A signal should be decomposed into child signals if ALL of these are true:**
-
-1. **Far resolution**: Signal resolves more than 7 days from today
-2. **Uncertain**: Signal has base_rate between 0.2 and 0.8 (not already near-certain)
-3. **Decomposable**: There exist earlier-resolving events that would inform this signal
-
-**A signal should remain a leaf if ANY of these are true:**
-
-1. **Near-term**: Resolves within 7 days (not enough time for sub-signals to help)
-2. **Near-certain**: base_rate < 0.1 or > 0.9 (already confident, decomposition adds noise)
-3. **Atomic**: No meaningful earlier-resolving events exist (e.g., coin flip, announcement)
-
-**When decomposing a parent signal:**
-
-1. Gather context specifically for that signal (web search if needed)
-2. Generate 3-5 child signals that resolve BEFORE the parent
-3. Validate each child signal (no constraint violations)
-4. Apply this rule recursively to each child
-
-## Example Session
-
-See `results/one_battle_best_picture/tree_20260119_cc_validated.json` for a tree built
-with this process. Key improvements over automated pipeline:
-- Validated that competitors (Sinners, Hamnet, etc.) are actually in same Oscar cycle
-- Used real precursor dates (DGA Feb 7, PGA Feb 28, etc.)
-- Applied correct rho signs based on entity identification
-
-## Goal
-
-Given a target question, recursively decompose it into signals that:
-1. Resolve BEFORE the target (provide early information)
-2. Are INFORMATIVE (knowing their outcome updates belief about target)
-3. Are VALID (don't violate domain constraints)
-
-## Process
-
-### Phase 1: Context Gathering
-
-Before generating signals, gather context about the target:
-
-1. **Web search** for current status, key players, timeline
-2. **Identify** the domain and its constraints (eligibility rules, competition structure, etc.)
-3. **Document** what you learn in a context block
-
-### Phase 2: Signal Generation
-
-For each node that needs decomposition:
-
-1. Generate 3-5 candidate signals that would inform the parent
-2. For each signal, consider:
-   - Does it resolve before the parent?
-   - Is it actually informative (non-trivial correlation)?
-   - Does it violate any domain constraints?
-
-### Phase 3: Validation
-
-For each candidate signal:
-
-1. **Check domain constraints** via web search if needed
-   - Are the entities eligible for the same competition?
-   - Is the timeline correct?
-   - Are there factual errors?
-
-2. **Estimate rho** using the entity identification framework:
-   - Identify entity in target, entity in signal
-   - Same entity? → momentum/necessity (positive)
-   - Different entity, same prize? → competition (negative)
-   - Different entity, helps target? → indirect help (positive)
-   - No connection? → independent (zero)
-
-3. **Estimate base_rate** (probability signal resolves YES)
-
-### Phase 4: Recursion
-
-For signals that:
-- Resolve more than 7 days from now
-- Would benefit from further decomposition
-
-Repeat Phases 1-3 with the signal as the new target.
-
-### Phase 5: Rollup
-
-Use the utility functions to compute:
-- Evidence contribution from each leaf
-- Aggregate probability for target
-- Contribution breakdown (positive vs negative evidence)
-
-## Utilities Available
+## Quick Start
 
 ```python
-from shared.tree import SignalNode, SignalTree, TreeGenerationConfig
-from shared.rollup import rollup_tree, analyze_tree, compute_signal_contribution
+from cc_builder import build_tree_dual, save_tree, print_tree_summary
+
+import asyncio
+
+async def main():
+    # Build tree
+    tree = await build_tree_dual(
+        target="Will One Battle win Best Picture at the 2026 Oscars?",
+        max_depth=2,
+        min_resolution_days=14,
+    )
+
+    # Analyze
+    print_tree_summary(tree)
+
+    # Save
+    save_tree(tree, "one_battle_best_picture")
+
+asyncio.run(main())
 ```
 
-## Output Format
+## Three Phases
 
-Save the tree as JSON with consistent naming:
-```
-results/{target_slug}/tree_{YYYYMMDD}_cc.json
-```
+### Phase 1: Logical Structure (`structure.py`)
 
-## Key Principles
+Uses LLM to identify three types of constraints:
 
-1. **Validate before trusting** - Don't assume generated signals are factually correct
-2. **Context is recursive** - Each node may need its own context gathering
-3. **Competition is negative** - Different entities competing for same prize → negative rho
-4. **Same entity is positive** - Momentum, prerequisites, quality signals → positive rho
-5. **When in doubt, search** - Use web search to verify claims
+1. **Necessity**: What MUST happen for target to be true
+   - Example: "Must be nominated to win"
+   - Creates `relationship_type="necessity"` signals
 
-## Cross-Tree Signal References
+2. **Exclusivity**: Competitors that preclude target
+   - Example: "If Sinners wins, One Battle loses"
+   - Creates `relationship_type="exclusivity"` signals
 
-When building multiple related trees (e.g., House 2026, Senate 2026, President 2028),
-signals often overlap. Rather than duplicating signals, use **references** to share them.
-
-### Reference Format
-
-References use the format `tree_id:node_id` or just `tree_id` for the root:
-- `house_2026:sig_economy` - References a specific signal in another tree
-- `house_2026` - References another tree's root (computed probability)
-
-### When to Use References
-
-Use a reference signal when:
-1. The same underlying question appears in multiple trees (e.g., "Will there be a recession?")
-2. One tree's outcome is an input to another (e.g., House 2026 result → President 2028)
-3. You want consistent probability updates when shared signals change
-
-### Creating Reference Signals
+3. **Causal Pathways**: Earlier events that inform outcome
+   - Example: "Golden Globe win → momentum → Oscar win"
+   - Creates `relationship_type="correlation"` signals
 
 ```python
-from shared.registry import TreeRegistry
-from cc_builder.utils import create_ref_signal
+from cc_builder import generate_logical_structure
 
-# Load existing trees
-registry = TreeRegistry()
-registry.load_tree("house_2026")
+structure = await generate_logical_structure(
+    "Will X win?",
+    context="X is currently leading"  # Optional
+)
 
-# Create a reference signal
-ref_signal = create_ref_signal(
-    ref="house_2026:sig_economy",  # Reference to existing signal
-    parent_id="target",             # Parent in THIS tree
-    rho=-0.35,                      # Correlation in THIS tree's context
-    rho_reasoning="Economic conditions affect Senate races similarly to House",
-    registry=registry,
+print(structure.necessity_constraints)
+print(structure.exclusivity_constraints)
+print(structure.causal_pathways)
+```
+
+### Phase 2: Market Discovery (`markets.py`)
+
+Finds related prediction markets via semantic search:
+
+1. **Direct search**: Search for target question
+2. **Entity-based search**: Extract entities, search for each
+3. **Competing outcome search**: Generate competitors, search for each
+
+```python
+from cc_builder import discover_markets, refresh_market_data
+
+# Refresh market cache first
+await refresh_market_data()
+
+# Discover related markets
+markets = await discover_markets("Will X win Best Picture?")
+for m in markets:
+    print(f"{m.title}: {m.current_probability:.0%} ({m.search_type})")
+```
+
+### Phase 3: Reconciliation (`reconcile.py`)
+
+Maps markets onto structure to build signal tree:
+
+- Matches markets to constraints by semantic similarity
+- Estimates base_rate for unmatched signals via LLM
+- Sets appropriate relationship types and parameters
+
+```python
+from cc_builder import reconcile
+
+tree = await reconcile(structure, markets)
+```
+
+## Relationship Types
+
+| Type | Description | Rollup Behavior |
+|------|-------------|-----------------|
+| `correlation` | Statistical relationship via rho | Evidence = (base_rate - 0.5) × spread |
+| `necessity` | Must happen for parent | Caps parent at signal's base_rate |
+| `sufficiency` | If true, parent is true | Floors parent at signal's base_rate |
+| `exclusivity` | Competes with parent | Uses p_target_given_yes/no |
+
+### Exclusivity Example
+
+```python
+from shared.tree import SignalNode
+
+# Competitor signal: if Sinners wins, One Battle loses
+competitor = SignalNode(
+    id="sinners",
+    text="Will Sinners win Best Picture?",
+    base_rate=0.15,
+    relationship_type="exclusivity",
+    p_target_given_yes=0.01,   # If Sinners wins, target ~0%
+    p_target_given_no=0.55,    # If Sinners doesn't win, slight boost
+    parent_id="target",
     depth=1,
 )
 ```
 
-### Reference Architecture
+## Recursive Decomposition
 
-```
-┌─────────────────┐     ┌─────────────────┐
-│  House 2026     │     │  Senate 2026    │
-│  ├─ sig_economy │◄────┼─ [REF] economy  │
-│  ├─ sig_approval│◄────┼─ [REF] approval │
-│  └─ house-only  │     │  └─ senate-only │
-└─────────────────┘     └─────────────────┘
-         │                       │
-         └───────────┬───────────┘
-                     ▼
-           ┌─────────────────┐
-           │  President 2028 │
-           │  ├─ [REF] house_2026 (root)
-           │  ├─ [REF] senate_2026 (root)
-           │  └─ candidate-specific
-           └─────────────────┘
+The builder recursively decomposes uncertain signals:
+
+```python
+tree = await build_tree_dual(
+    target="Will a Democrat win 2028?",
+    max_depth=3,              # Max tree depth
+    min_resolution_days=14,   # Stop for near-term signals
+)
 ```
 
-### How References Work
+Decomposition criteria:
+- Signal is a leaf node
+- Base rate between 0.2 and 0.8 (uncertain)
+- Resolution date beyond `min_resolution_days`
 
-When `rollup_tree()` encounters a reference signal:
-1. It looks up the referenced node in the `TreeRegistry`
-2. Uses the referenced node's probability as the `base_rate`
-3. Applies THIS tree's `rho` to compute evidence contribution
+## Cross-Tree References
 
-This means:
-- Reference signals are **always leaves** (not decomposed further)
-- The `base_rate` is pulled from the referenced tree at rollup time
-- Each tree can have its own `rho` for the same shared signal
-
-### Using the Registry
+Use the registry for shared signals across trees:
 
 ```python
 from shared.registry import TreeRegistry
-from shared.rollup import rollup_tree, analyze_tree
+from cc_builder import build_tree_dual
 
-# Create registry and load trees
 registry = TreeRegistry()
 registry.load_tree("house_2026")
 registry.load_tree("senate_2026")
 
-# Build a tree with references
-# ... (tree building code) ...
-
-# Rollup with registry to resolve refs
-prob = rollup_tree(tree, target_prior=0.5, registry=registry)
-analysis = analyze_tree(tree, target_prior=0.5, registry=registry)
-```
-
-### Finding Similar Existing Signals
-
-Before creating a new signal, check if a similar one already exists:
-
-```python
-# Search for similar signals across all loaded trees
-candidates = registry.search_similar("economic recession 2026", limit=5)
-for tree_id, node, score in candidates:
-    print(f"{score:.2f} [{tree_id}:{node.id}] {node.text}")
-```
-
-### Utilities Available (Updated)
-
-```python
-from shared.tree import SignalNode, SignalTree, TreeGenerationConfig
-from shared.registry import TreeRegistry, parse_ref, make_ref
-from shared.rollup import rollup_tree, analyze_tree, compute_signal_contribution, compute_node_gap
-from cc_builder.utils import (
-    create_signal,
-    create_signal_with_market,  # NEW: async, auto-fetches market prices
-    create_ref_signal,
-    create_target,
-    build_tree,
-    check_market_price,
+tree = await build_tree_dual(
+    "Will a Democrat win 2028?",
+    registry=registry,  # Enables cross-tree refs
 )
 ```
-
-## Market Signals
-
-### Design Principle
-
-Signals can be backed by market prices for ground truth:
-
-| Node Type | Primary Probability | Market Role |
-|-----------|---------------------|-------------|
-| **Leaf** | `market_price` if available, else `base_rate` | Source of truth |
-| **Parent** | `computed_probability` from children | Comparison (show gap) |
-| **Target** | `computed_probability` from tree | Comparison (show gap) |
-
-### Creating Market-Backed Signals
-
-Use `create_signal_with_market()` to automatically check prediction markets:
-
-```python
-# Async function that checks markets
-signal = await create_signal_with_market(
-    text="Will One Battle win Best Picture at 2026 Oscars?",
-    parent_id="target",
-    resolution_date="2026-03-03",
-    rho=0.9,
-    rho_reasoning="Same entity, same outcome",
-)
-
-# If market found, these fields are populated:
-print(f"Market price: {signal.market_price}")      # 0.81
-print(f"Platform: {signal.market_platform}")        # "polymarket"
-print(f"URL: {signal.market_url}")                  # "https://..."
-print(f"Match confidence: {signal.market_match_confidence}")  # 0.92
-```
-
-### How Market Prices Affect Rollup
-
-1. **Leaves**: If `market_price` is set, rollup uses it instead of `base_rate`
-2. **Parents/Target**: Still computed from children, but gap to market shows model accuracy
-
-### Viewing Market Gaps in UI
-
-The Signal Tree Explorer shows:
-- Market indicator (📊) on nodes with market data
-- Market comparison section in detail panel with:
-  - Market price
-  - Platform link
-  - Gap in percentage points (computed - market)
-  - Match confidence
-
-### Gap Status Interpretation
-
-| Status | Gap Range | Meaning |
-|--------|-----------|---------|
-| OK | ≤5pp | Tree estimate aligns with market |
-| WARNING | 5-15pp | Notable difference, review assumptions |
-| REVIEW | >15pp | Large gap, investigate rho signs and base rates |
 
 ## Market Data Setup
 
-### Refreshing Market Data
-
-**IMPORTANT**: Before building trees with market signals, refresh the market data cache:
+Before building trees, refresh the market cache:
 
 ```bash
-# Refresh Polymarket data (recommended before each session)
+# Via script
 python scripts/refresh_markets.py
 
-# With options
-python scripts/refresh_markets.py --platforms polymarket metaculus --min-liquidity 5000 --limit 2000
+# Or programmatically
+from cc_builder import refresh_market_data
+await refresh_market_data(platforms=["polymarket"])
 ```
 
-Or programmatically:
+## File Structure
+
+```
+cc_builder/
+├── __init__.py         # Exports all public functions
+├── dual_builder.py     # Main entry point
+├── structure.py        # Phase 1: Logical structure
+├── markets.py          # Phase 2: Market discovery
+├── reconcile.py        # Phase 3: Reconciliation
+└── INSTRUCTIONS.md     # This file
+```
+
+## Testing
+
+```bash
+# Run all tests
+uv run pytest experiments/signal-tree/tests/ -v
+
+# Run specific module tests
+uv run pytest experiments/signal-tree/tests/test_structure.py -v
+uv run pytest experiments/signal-tree/tests/test_reconcile.py -v
+```
+
+## Manual Tree Building
+
+For CC-driven tree building (not using the automated pipeline):
 
 ```python
-from cc_builder.utils import refresh_market_data, get_market_data_stats
+from shared.tree import SignalNode, SignalTree
+from shared.rollup import rollup_tree, analyze_tree
+from cc_builder import check_market_price
 
-# Refresh markets
-counts = await refresh_market_data(platforms=["polymarket"], min_liquidity=5000)
-print(f"Fetched {counts['polymarket']} markets")
+# Create target
+target = SignalNode(
+    id="target",
+    text="Will X win Best Picture?",
+    depth=0,
+    is_leaf=False,
+)
 
-# Check stats
-stats = await get_market_data_stats()
-print(f"Total markets: {stats['total_markets']}")
+# Create signals manually
+signals = []
+
+# Necessity signal
+nomination = SignalNode(
+    id="nom",
+    text="Will X be nominated?",
+    base_rate=0.98,
+    relationship_type="necessity",
+    parent_id="target",
+    depth=1,
+    is_leaf=True,
+)
+signals.append(nomination)
+
+# Exclusivity signal
+competitor = SignalNode(
+    id="comp",
+    text="Will Y win?",
+    base_rate=0.20,
+    relationship_type="exclusivity",
+    p_target_given_yes=0.01,
+    p_target_given_no=0.55,
+    parent_id="target",
+    depth=1,
+    is_leaf=True,
+)
+signals.append(competitor)
+
+# Correlation signal with market
+result = await check_market_price("Will X win Golden Globe?")
+golden_globe = SignalNode(
+    id="gg",
+    text="Will X win Golden Globe?",
+    base_rate=result["market_price"] if result else 0.5,
+    market_price=result["market_price"] if result else None,
+    market_url=result["url"] if result else None,
+    rho=0.6,
+    relationship_type="correlation",
+    parent_id="target",
+    depth=1,
+    is_leaf=True,
+)
+signals.append(golden_globe)
+
+# Build tree
+target.children = signals
+tree = SignalTree(
+    target=target,
+    signals=signals,
+    max_depth=1,
+    leaf_count=len(signals),
+)
+
+# Compute probabilities
+rollup_tree(tree, target_prior=0.5)
+print(f"Computed: {tree.computed_probability:.1%}")
+
+# Analyze
+analysis = analyze_tree(tree)
+for c in analysis["top_contributors"][:5]:
+    print(f"{c['evidence']:+.4f} | {c['text'][:40]}...")
 ```
 
-### Why Refresh?
+## Design Principles
 
-The market matcher searches a local SQLite cache. If data is stale:
-- New markets won't be found
-- Prices will be outdated
-- Matching may fail silently
-
-**Recommended**: Refresh at the start of each tree-building session.
-
-## Market Validation
-
-### Automatic Validation on Save
-
-When you save a tree with `save_tree()`, it automatically compares the computed probability
-against prediction market prices. This catches discrepancies like:
-- Computed probability: 57.6%
-- Market price: 81%
-- Gap: -23.4pp → Status: **REVIEW - gap >15pp**
-
-The validation is printed to console and saved in the JSON output:
-
-```json
-{
-  "target": { ... },
-  "computed_probability": 0.576,
-  "market_validation": {
-    "platform": "polymarket",
-    "matched_question": "One Battle After Another to win Best Picture?",
-    "market_price": 0.81,
-    "gap_pp": -23.4,
-    "status": "REVIEW - gap >15pp",
-    "url": "https://polymarket.com/...",
-    "match_confidence": 0.92
-  }
-}
-```
-
-### Interpreting Gap Status
-
-| Status | Gap Range | Meaning |
-|--------|-----------|---------|
-| `OK` | ≤5pp | Tree estimate aligns with market |
-| `WARNING - gap >5pp` | 5-15pp | Notable difference, review assumptions |
-| `REVIEW - gap >15pp` | >15pp | Large gap, investigate rho signs and base rates |
-
-### Checking Market Prices During Build
-
-Use `check_market_price()` to verify base rates as you build:
-
-```python
-from cc_builder.utils import check_market_price
-
-# Check market for a signal you're about to add
-result = await check_market_price("Will One Battle win Best Picture at the 2026 Oscars?")
-if result:
-    print(f"Market: {result['platform']} @ {result['market_price']:.0%}")
-    print(f"Match confidence: {result['match_confidence']:.0%}")
-```
-
-This is useful for:
-- Setting accurate base rates for signals that have market prices
-- Validating assumptions before finalizing the tree
-- Catching errors early (e.g., using wrong entity or wrong year)
-
-### When No Market Match is Found
-
-If `check_market_price()` returns None or validation shows no match:
-1. The question may not have a market (novel/niche questions)
-2. Keywords may not match market titles (try different phrasing)
-3. Market data cache may be stale (re-fetch from providers)
-
-### Disabling Validation
-
-To skip market validation (e.g., for questions with no market):
-
-```python
-save_tree(tree, target_slug, validate_market=False)
-```
+1. **Validate before trusting**: Structure generation and market matching need verification
+2. **Explicit relationship types**: Makes reasoning transparent and debuggable
+3. **Market prices as ground truth**: Use markets when available, estimate otherwise
+4. **Recursive decomposition**: Drill down on uncertain signals
+5. **Cross-tree composability**: Share signals across related forecasting questions

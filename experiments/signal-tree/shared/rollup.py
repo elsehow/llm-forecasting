@@ -5,7 +5,7 @@ treating signal base_rates as "soft evidence" that updates our belief.
 
 ## Relationship Types
 
-Signals can have three relationship types to their parent:
+Signals can have four relationship types to their parent:
 
 1. **correlation** (default): Statistical relationship captured by rho
    - Evidence formula: (base_rate - 0.5) * spread
@@ -21,23 +21,30 @@ Signals can have three relationship types to their parent:
    - Example: Winning a required qualifier
    - Effect: Parent probability floored at signal's base_rate
 
-## Correlation Evidence Formula
+4. **exclusivity**: Signal competes with parent for same outcome
+   - P(parent|signal=YES) ≈ 0 (competitor wins, target loses)
+   - P(parent|signal=NO) slightly above prior (competitor eliminated)
+   - Example: "Will Competitor X win?" for a "Will Target win?" question
 
-For correlation signals:
+## Evidence Formula
+
+For correlation and exclusivity signals:
     evidence_i = (base_rate_i - 0.5) * spread_i
 
 Where:
     - base_rate: P(signal=YES) from market/estimate
-    - spread: P(parent|signal=YES) - P(parent|signal=NO), computed via rho_to_posteriors
+    - spread: P(parent|signal=YES) - P(parent|signal=NO)
+    - For correlation: spread computed via rho_to_posteriors
+    - For exclusivity: spread from explicit p_target_given_yes/no
 
 Interpretation:
-    - (base_rate - 0.5): How certain we are about the signal, and in which direction
+    - (base_rate - 0.5): How certain we are about the signal, and which direction
     - spread: How much knowing the signal's outcome would move our belief
 
 Aggregation:
     - Apply necessity/sufficiency constraints first (hard bounds)
     - Convert prior to log-odds
-    - Sum correlation evidence contributions (scaled)
+    - Sum correlation + exclusivity evidence contributions (scaled)
     - Convert back to probability
     - Enforce constraint bounds
 """
@@ -77,6 +84,9 @@ def compute_signal_evidence(
     For correlation signals: Uses rho_to_posteriors to compute actual
     conditional probabilities, then weights by certainty (base_rate).
 
+    For exclusivity signals: Uses explicit p_target_given_yes/no values
+    to compute evidence. Competitor winning = target loses.
+
     For necessity/sufficiency signals: Returns 0 evidence (constraints
     are applied separately in compute_node_probability).
 
@@ -98,7 +108,23 @@ def compute_signal_evidence(
     # Resolve effective base_rate (ref > market > base_rate)
     effective_base_rate = _get_effective_base_rate(signal, registry)
 
-    if signal.rho is None or effective_base_rate is None:
+    if effective_base_rate is None:
+        return 0.0, 0.0, 0.0
+
+    # Handle exclusivity: use explicit conditional probabilities
+    if signal.relationship_type == "exclusivity":
+        # Default exclusivity values: competitor wins → target loses
+        p_parent_yes = signal.p_target_given_yes if signal.p_target_given_yes is not None else 0.01
+        # If competitor loses, target gets a slight boost
+        p_parent_no = signal.p_target_given_no if signal.p_target_given_no is not None else min(0.99, parent_prior * 1.1)
+
+        spread = p_parent_yes - p_parent_no
+        direction = effective_base_rate - 0.5
+        evidence = direction * spread
+        return evidence, spread, direction
+
+    # Handle correlation: requires rho
+    if signal.rho is None:
         return 0.0, 0.0, 0.0
 
     # Compute conditional probabilities using the rho model
@@ -218,11 +244,11 @@ def compute_node_probability(
     # Start with prior in log-odds space
     log_odds = math.log(prior / (1 - prior))
 
-    # Accumulate evidence from correlation children only
+    # Accumulate evidence from correlation and exclusivity children
     total_evidence = 0.0
 
     for child in children:
-        if child.relationship_type == "correlation":
+        if child.relationship_type in ("correlation", "exclusivity"):
             evidence, spread, direction = compute_signal_evidence(child, prior, registry)
             total_evidence += evidence
 
@@ -352,6 +378,12 @@ def compute_signal_contribution(
         direction = "sufficiency"
         p_yes = 1.0  # Hard constraint
         p_no = parent_prior  # Approximate
+        spread = p_yes - p_no
+    elif relationship_type == "exclusivity":
+        direction = "exclusivity"
+        # Use explicit conditional probabilities
+        p_yes = signal.p_target_given_yes if signal.p_target_given_yes is not None else 0.01
+        p_no = signal.p_target_given_no if signal.p_target_given_no is not None else min(0.99, parent_prior * 1.1)
         spread = p_yes - p_no
     else:
         # Correlation: direction based on rho sign

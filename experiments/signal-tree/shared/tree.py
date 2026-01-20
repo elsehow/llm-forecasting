@@ -52,13 +52,14 @@ class SignalNode(BaseModel):
     )
 
     # Relationship to parent
-    relationship_type: Literal["correlation", "necessity", "sufficiency"] = Field(
+    relationship_type: Literal["correlation", "necessity", "sufficiency", "exclusivity"] = Field(
         default="correlation",
         description=(
             "Type of relationship to parent: "
             "'correlation' (default) uses rho model; "
             "'necessity' means signal=NO implies parent=0 (e.g., must be nominated to win); "
-            "'sufficiency' means signal=YES implies parent=1 (rare)"
+            "'sufficiency' means signal=YES implies parent=1 (rare); "
+            "'exclusivity' means signal competes with parent for same prize (e.g., competitor winning)"
         ),
     )
     rho: float | None = Field(
@@ -67,6 +68,16 @@ class SignalNode(BaseModel):
     )
     rho_reasoning: str | None = Field(
         default=None, description="Explanation of correlation"
+    )
+
+    # Exclusivity parameters (for relationship_type='exclusivity')
+    p_target_given_yes: float | None = Field(
+        default=None,
+        description="P(target=YES | signal=YES) for exclusivity. E.g., 0.01 if competitor winning means target loses.",
+    )
+    p_target_given_no: float | None = Field(
+        default=None,
+        description="P(target=YES | signal=NO) for exclusivity. Usually higher than prior since competitor is eliminated.",
     )
 
     # Computed fields (populated during rollup)
