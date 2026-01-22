@@ -1,0 +1,224 @@
+{
+  "curated_pairs": [
+    {
+      "id": 1,
+      "category": "same_event_different_timeline",
+      "question_a": "Will the Iranian regime fall by March 31?",
+      "question_b": "Will the Iranian regime fall before 2027?",
+      "rho": 0.787,
+      "n_observations": 16,
+      "rationale": "Same underlying event (regime change in Iran), different time horizons. If regime falls by March, it definitely falls before 2027. Strong positive correlation expected.",
+      "expected_update": "large_positive"
+    },
+    {
+      "id": 2,
+      "category": "same_event_different_timeline",
+      "question_a": "Russia x Ukraine ceasefire by January 31, 2026?",
+      "question_b": "Russia x Ukraine ceasefire by March 31, 2026?",
+      "rho": 0.665,
+      "n_observations": 29,
+      "rationale": "Same underlying event (ceasefire), different deadlines. If ceasefire by Jan 31, then ceasefire by March 31 is guaranteed. If not by Jan 31, still possible by March 31 but less likely.",
+      "expected_update": "large_positive"
+    },
+    {
+      "id": 3,
+      "category": "related_geopolitical",
+      "question_a": "Khamenei out as Supreme Leader of Iran by June 30?",
+      "question_b": "US strikes Iran by June 30, 2026?",
+      "rho": 0.724,
+      "n_observations": 16,
+      "rationale": "Related geopolitical events. US strikes could destabilize regime leading to Khamenei's removal. Alternatively, regime instability might invite US action. Causal relationship in either direction.",
+      "expected_update": "moderate_positive"
+    },
+    {
+      "id": 4,
+      "category": "related_geopolitical",
+      "question_a": "Khamenei out as Supreme Leader of Iran in 2026?",
+      "question_b": "Israel strikes Iran by March 31, 2026?",
+      "rho": 0.447,
+      "n_observations": 31,
+      "rationale": "Related Middle East events. Israeli strikes could contribute to regime instability. Weaker connection than US strikes since Israel has less capacity for regime-changing operations.",
+      "expected_update": "moderate_positive"
+    },
+    {
+      "id": 5,
+      "category": "crypto_correlation",
+      "question_a": "Will Bitcoin dip to $85,000 in January?",
+      "question_b": "Will XRP dip to $1.80 in January?",
+      "rho": 0.939,
+      "n_observations": 11,
+      "rationale": "Crypto assets move together. Bitcoin is market leader; when BTC dips, altcoins like XRP typically follow due to shared market sentiment and correlated trading behavior.",
+      "expected_update": "large_positive"
+    },
+    {
+      "id": 6,
+      "category": "crypto_correlation",
+      "question_a": "Will Bitcoin reach $110,000 in January?",
+      "question_b": "Will XRP reach $3.20 in January?",
+      "rho": 0.630,
+      "n_observations": 12,
+      "rationale": "Crypto bull runs affect entire market. When Bitcoin reaches new highs, altcoins typically rally as well due to increased market optimism and capital flows.",
+      "expected_update": "moderate_positive"
+    },
+    {
+      "id": 7,
+      "category": "mutually_exclusive",
+      "question_a": "Will Bitcoin dip to $85,000 in January?",
+      "question_b": "Will Bitcoin reach $115,000 in January?",
+      "rho": -0.636,
+      "n_observations": 11,
+      "rationale": "Near-mutually exclusive outcomes. If Bitcoin dips to $85k, it's unlikely to also reach $115k in the same month. Strong negative correlation expected.",
+      "expected_update": "large_negative"
+    },
+    {
+      "id": 8,
+      "category": "mutually_exclusive",
+      "question_a": "Fed decreases interest rates by 25 bps after January 2026 meeting?",
+      "question_b": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "rho": -0.436,
+      "n_observations": 53,
+      "rationale": "Related monetary policy outcomes. If Fed is cutting in January, it signals dovish stance making 'no change' in March less likely (they'd continue cutting). Negative correlation.",
+      "expected_update": "moderate_negative"
+    },
+    {
+      "id": 9,
+      "category": "mutually_exclusive",
+      "question_a": "Will the Boston Celtics win the 2026 NBA Finals?",
+      "question_b": "Will the Houston Rockets win the 2026 NBA Finals?",
+      "rho": -0.436,
+      "n_observations": 37,
+      "rationale": "Only one team can win. If Celtics win, Rockets cannot (and vice versa). Negative correlation expected, though not perfect since both could lose.",
+      "expected_update": "moderate_negative"
+    },
+    {
+      "id": 10,
+      "category": "sequential_events",
+      "question_a": "Will the Los Angeles Rams win Super Bowl 2026?",
+      "question_b": "Will the Rams win the NFC Championship?",
+      "rho": 0.911,
+      "n_observations": 39,
+      "rationale": "Sequential prerequisite. Rams must win NFC Championship to reach Super Bowl. If they win Super Bowl, they definitely won NFC Championship. Strong positive correlation.",
+      "expected_update": "large_positive"
+    },
+    {
+      "id": 11,
+      "category": "independent",
+      "question_a": "Will the Toronto Raptors win the 2026 NBA Finals?",
+      "question_b": "Will Jair Bolsonaro win the 2026 Brazilian presidential election?",
+      "rho": -0.005,
+      "n_observations": 60,
+      "rationale": "Completely unrelated events. NBA basketball outcome has no bearing on Brazilian politics. No causal or correlational mechanism.",
+      "expected_update": "none"
+    },
+    {
+      "id": 12,
+      "category": "independent",
+      "question_a": "Will the Milwaukee Bucks win the 2026 NBA Finals?",
+      "question_b": "Will Jair Bolsonaro win the 2026 Brazilian presidential election?",
+      "rho": 0.027,
+      "n_observations": 60,
+      "rationale": "Completely unrelated events. US sports and Brazilian politics operate in entirely separate domains with no causal connection.",
+      "expected_update": "none"
+    },
+    {
+      "id": 13,
+      "category": "independent",
+      "question_a": "Will the Iranian regime fall before 2027?",
+      "question_b": "Will Kim Kardashian win the 2028 US Presidential Election?",
+      "rho": 0.023,
+      "n_observations": 59,
+      "rationale": "Unrelated events. Iranian geopolitics has no bearing on hypothetical celebrity presidential runs. Zero causal mechanism.",
+      "expected_update": "none"
+    },
+    {
+      "id": 14,
+      "category": "independent",
+      "question_a": "Will Galatasaray win the 2025–26 Champions League?",
+      "question_b": "Will Andy Beshear win the 2028 Democratic presidential nomination?",
+      "rho": 0.043,
+      "n_observations": 60,
+      "rationale": "Unrelated events. Turkish football and US Democratic primary politics have no connection.",
+      "expected_update": "none"
+    },
+    {
+      "id": 15,
+      "category": "independent",
+      "question_a": "Will Trump nominate James B. Bullard as the next Fed chair?",
+      "question_b": "Supreme Court rules in favor of Trump's tariffs?",
+      "rho": -0.060,
+      "n_observations": 59,
+      "rationale": "Weakly related at best. Both involve Trump administration but Fed chair nomination and SCOTUS tariff ruling are separate processes with independent decision-makers.",
+      "expected_update": "none"
+    },
+    {
+      "id": 16,
+      "category": "same_race",
+      "question_a": "Will João Cotrim Figueiredo win the 2026 Portugal presidential election?",
+      "question_b": "Will Luís Marques Mendes win the 2026 Portugal presidential election?",
+      "rho": -0.428,
+      "n_observations": 32,
+      "rationale": "Same race, different candidates. If one wins, the other loses. Negative correlation expected, moderated by the fact that both could lose to a third candidate.",
+      "expected_update": "moderate_negative"
+    },
+    {
+      "id": 17,
+      "category": "same_race",
+      "question_a": "Will Tim Walz win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Chris Murphy win the 2028 Democratic presidential nomination?",
+      "rho": -0.428,
+      "n_observations": 20,
+      "rationale": "Same race, different candidates. Only one can win the nomination. Negative correlation expected.",
+      "expected_update": "moderate_negative"
+    },
+    {
+      "id": 18,
+      "category": "same_race",
+      "question_a": "Will Inter win the 2025–26 Champions League?",
+      "question_b": "Will PSV win the 2025–26 Champions League?",
+      "rho": -0.477,
+      "n_observations": 45,
+      "rationale": "Same tournament, different teams. Only one team wins Champions League. If Inter wins, PSV cannot.",
+      "expected_update": "moderate_negative"
+    },
+    {
+      "id": 19,
+      "category": "crypto_anticorrelation",
+      "question_a": "Will Bitcoin reach $115,000 in January?",
+      "question_b": "Will XRP dip to $1.80 in January?",
+      "rho": -0.699,
+      "n_observations": 10,
+      "rationale": "Opposite crypto movements. If Bitcoin is reaching new highs, the overall crypto market is bullish, making XRP dips less likely. Negative correlation.",
+      "expected_update": "moderate_negative"
+    },
+    {
+      "id": 20,
+      "category": "related_political",
+      "question_a": "Will Trump nominate James B. Bullard as the next Fed chair?",
+      "question_b": "Will Trump nominate Arthur Laffer as the next Fed chair?",
+      "rho": 0.689,
+      "n_observations": 55,
+      "rationale": "Interesting case: both are Fed chair candidates. Positive correlation could indicate shared sentiment about Trump's Fed preferences, or spurious co-movement of low-probability events. Include as edge case.",
+      "expected_update": "weak_positive_or_spurious"
+    }
+  ],
+  "metadata": {
+    "total_pairs": 20,
+    "categories": {
+      "same_event_different_timeline": 2,
+      "related_geopolitical": 2,
+      "crypto_correlation": 2,
+      "crypto_anticorrelation": 1,
+      "mutually_exclusive": 3,
+      "sequential_events": 1,
+      "independent": 5,
+      "same_race": 3,
+      "related_political": 1
+    },
+    "selection_criteria": [
+      "Clear causal or logical rationale for correlation/independence",
+      "n_observations >= 10 for statistical reliability",
+      "Excluded spurious correlations (e.g., Jordan World Cup ↔ Trump Fed nominee)",
+      "Balanced across positive, negative, and zero correlation"
+    ]
+  }
+}
