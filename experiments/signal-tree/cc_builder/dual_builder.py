@@ -24,7 +24,7 @@ from shared.rollup import rollup_tree, analyze_tree
 from shared.registry import TreeRegistry
 
 from .structure import generate_logical_structure, LogicalStructure, structure_to_dict
-from .markets import discover_markets, MarketSignal, refresh_market_data, check_market_price
+from .markets import discover_markets, MarketSignal, refresh_market_data, check_market_price, get_market_searcher
 from .reconcile import reconcile, identify_uncertain_signals
 
 logger = logging.getLogger(__name__)
@@ -39,6 +39,10 @@ async def build_tree_dual(
     target_prior: float = 0.5,
     db_path: str | Path = "forecastbench.db",
     registry: TreeRegistry | None = None,
+    auto_refresh_markets: bool = True,
+    refresh_platforms: list[str] | None = None,
+    refresh_min_liquidity: float = 5000,
+    refresh_limit: int = 2000,
 ) -> SignalTree:
     """Build signal tree using dual approach.
 
@@ -55,12 +59,80 @@ async def build_tree_dual(
         target_prior: Prior probability for the target
         db_path: Path to market database
         registry: Optional TreeRegistry for cross-tree refs
+        auto_refresh_markets: Whether to refresh market data before building (default True)
+        refresh_platforms: Platforms to refresh (default: ["polymarket", "metaculus"])
+        refresh_min_liquidity: Minimum liquidity for market refresh (default: 5000)
+        refresh_limit: Maximum markets to fetch per platform (default: 2000)
 
     Returns:
         SignalTree with computed probabilities
     """
     logger.info(f"Building tree for: {target[:60]}...")
     logger.info(f"Max depth: {max_depth}, Min resolution days: {min_resolution_days}")
+
+    # Auto-refresh market data before building
+    if auto_refresh_markets:
+        platforms = refresh_platforms or ["polymarket", "metaculus"]
+        logger.info(f"Refreshing market data from {platforms}...")
+        counts = await refresh_market_data(
+            platforms=platforms,
+            min_liquidity=refresh_min_liquidity,
+            limit=refresh_limit,
+            db_path=db_path,
+        )
+        logger.info(f"Refreshed markets: {counts}")
+
+        # Rebuild embedding cache after refresh
+        searcher = get_market_searcher(db_path)
+        logger.info("Rebuilding market embedding cache...")
+        cache_count = searcher.build_cache()
+        logger.info(f"Cached {cache_count} market embeddings")
+    else:
+        searcher = get_market_searcher(db_path)
+
+    # Check if a direct market exists for the target question
+    # If so, just return that market as the answer - no need to build a tree
+    logger.info("Checking for direct market match on target...")
+    from .reconcile import find_best_match_with_rerank
+
+    target_candidates = searcher.search(target, top_k=5, search_type="direct")
+    target_candidates = [c for c in target_candidates if c.current_probability is not None]
+
+    if target_candidates:
+        best_match, confidence = await find_best_match_with_rerank(
+            target, target_candidates, min_similarity=0.3, min_confidence=0.7
+        )
+
+        if best_match and confidence >= 0.7:
+            logger.info(f"Direct market match found: {best_match.title}")
+            logger.info(f"Market price: {best_match.current_probability:.1%}")
+            logger.info(f"Match confidence: {confidence:.0%}")
+            logger.info("Returning market as leaf node - no tree needed")
+
+            # Create a simple tree with just the market
+            target_node = SignalNode(
+                id=target_id,
+                text=best_match.title,
+                depth=0,
+                is_leaf=True,
+                base_rate=best_match.current_probability,
+                probability_source="market",
+                market_price=best_match.current_probability,
+                market_url=best_match.url,
+                market_platform=best_match.platform,
+                market_match_confidence=confidence,
+                base_rate_sources=[f"market:{best_match.platform}"],
+            )
+
+            return SignalTree(
+                target=target_node,
+                signals=[],
+                max_depth=0,
+                leaf_count=1,
+                computed_probability=best_match.current_probability,
+            )
+
+    logger.info("No direct market match - building signal tree...")
 
     # Phase 1 & 2 run in parallel
     logger.info("Phase 1 & 2: Generating structure and discovering markets...")
@@ -81,6 +153,7 @@ async def build_tree_dual(
         markets,
         target_id=target_id,
         parent_prior=target_prior,
+        db_path=str(db_path),
     )
 
     logger.info(f"Initial tree has {len(tree.signals)} signals")
@@ -97,6 +170,7 @@ async def build_tree_dual(
             logger.info(f"Decomposing: {signal.text[:50]}...")
 
             # Build subtree for this signal
+            # NOTE: auto_refresh_markets=False for recursive calls since parent already refreshed
             child_tree = await build_tree_dual(
                 target=signal.text,
                 target_id=signal.id,
@@ -106,6 +180,7 @@ async def build_tree_dual(
                 target_prior=signal.base_rate or 0.5,
                 db_path=db_path,
                 registry=registry,
+                auto_refresh_markets=False,
             )
 
             # Integrate subtree children into main tree

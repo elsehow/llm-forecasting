@@ -30,6 +30,59 @@
       "p": 0.1261831680855111
     }
   },
+  "calibration": {
+    "ratio": 0.47758054379190373,
+    "mean_error": 0.05318224343254396,
+    "regression_slope": 0.5114835074779357,
+    "regression_intercept": -0.003451317990570864,
+    "regression_r_squared": 0.3284677123989363,
+    "slope_se": 0.12928369377642054,
+    "slope_diff_from_1_t": -3.7786396586633,
+    "slope_diff_from_1_p": 0.00064948158600453,
+    "interpretation": "VOI overpredicts magnitude by 2.1x",
+    "binned": [
+      {
+        "bin_low": 0,
+        "bin_high": 0.05,
+        "n": 10,
+        "mean_actual_shift": 0.021950000000000004,
+        "expected_if_calibrated": 0.025,
+        "calibration_ratio": 0.8780000000000001
+      },
+      {
+        "bin_low": 0.05,
+        "bin_high": 0.1,
+        "n": 12,
+        "mean_actual_shift": 0.028500000000000008,
+        "expected_if_calibrated": 0.07500000000000001,
+        "calibration_ratio": 0.38000000000000006
+      },
+      {
+        "bin_low": 0.1,
+        "bin_high": 0.15,
+        "n": 4,
+        "mean_actual_shift": 0.07787500000000003,
+        "expected_if_calibrated": 0.125,
+        "calibration_ratio": 0.6230000000000002
+      },
+      {
+        "bin_low": 0.15,
+        "bin_high": 0.2,
+        "n": 2,
+        "mean_actual_shift": 0.015,
+        "expected_if_calibrated": 0.175,
+        "calibration_ratio": 0.08571428571428572
+      },
+      {
+        "bin_low": 0.2,
+        "bin_high": 1.0,
+        "n": 6,
+        "mean_actual_shift": 0.125,
+        "expected_if_calibrated": 0.6,
+        "calibration_ratio": 0.20833333333333334
+      }
+    ]
+  },
   "voi_comparison": {
     "linear_vs_entropy_tau": 0.8787878787878789,
     "linear_vs_entropy_tau_p": 2.7024034141903367e-13,

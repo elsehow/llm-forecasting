@@ -23,6 +23,12 @@ from llm_forecasting.voi import (
     entropy,
     entropy_voi,
     entropy_voi_from_rho,
+    entropy_voi_normalized,
+    entropy_voi_normalized_from_rho,
+    estimate_rho,
+    estimate_rho_market_aware,
+    estimate_rho_two_step,
+    estimate_rho_two_step_batch,
     linear_voi,
     linear_voi_from_rho,
     rho_to_posteriors,
@@ -49,9 +55,15 @@ __all__ = [
     # VOI
     "linear_voi",
     "entropy_voi",
+    "entropy_voi_normalized",
     "entropy",
     "rho_to_posteriors",
     "linear_voi_from_rho",
     "entropy_voi_from_rho",
+    "entropy_voi_normalized_from_rho",
+    "estimate_rho",
+    "estimate_rho_market_aware",
+    "estimate_rho_two_step",
+    "estimate_rho_two_step_batch",
 ]
 __version__ = "2.0.0"

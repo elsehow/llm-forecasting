@@ -1,0 +1,2119 @@
+{
+  "metadata": {
+    "experiment": "polymarket_q4_enhanced",
+    "generated_at": "2026-01-26T15:51:58.445918",
+    "n_ultimates": 20,
+    "n_cruxes_per_ultimate": 10,
+    "total_searches": 185,
+    "check_date": "2026-02-03"
+  },
+  "predictions": [
+    {
+      "ultimate": "No change in Fed interest rates after January 2026 meeting?",
+      "condition_id": "0xe93c89c41d1bb08d3bb40066d8565df301a696563b2542256e6e8bbbb1ec490d",
+      "baseline_cruxes": [
+        "Will inflation rates stabilize below the Fed's target rate by December 2025?",
+        "Will unemployment remain below 4% leading into the January 2026 meeting?",
+        "Will GDP growth show signs of a slowdown before the January 2026 meeting?",
+        "Will there be significant changes in consumer spending patterns before January 2026?",
+        "Will the Fed signal a preference for maintaining rates in its communications before January 2026?",
+        "Will global economic conditions improve or worsen by early 2026?",
+        "Will the housing market show signs of cooling or accelerating before the January meeting?",
+        "Will the Fed's inflation forecasts change significantly before the January meeting?",
+        "Will core PCE inflation rate trends indicate persistent inflation pressures before January 2026?",
+        "Will there be any major geopolitical events impacting the U.S. economy before the January meeting?"
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Federal Reserve Meeting on January 27, 2026",
+          "rationale": "The outcome of this meeting will directly affect interest rate decisions, as it is one of the key scheduled meetings where policy adjustments could be discussed.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.45,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.198
+        },
+        {
+          "text": "Release of the Consumer Price Index (CPI) on January 12, 2026",
+          "rationale": "CPI reports are critical for assessing inflation, which heavily influences the Federal Reserve's decisions on interest rates.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.19199999999999998
+        },
+        {
+          "text": "Quarterly GDP growth report set for January 28, 2026",
+          "rationale": "GDP growth data can impact the Fed's assessment of economic health and influence their decision on maintaining or changing interest rates.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.182
+        },
+        {
+          "text": "Federal Open Market Committee (FOMC) Conference scheduled for February 2026",
+          "rationale": "This conference will analyze previous economic data and could signal future policy directions impacting interest rates.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.19199999999999998
+        },
+        {
+          "text": "Scheduled economic projections release in March 2026",
+          "rationale": "Updated economic projections from the Federal Reserve may indicate future interest rate paths, influencing expectations post-January 2026.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.20475
+        },
+        {
+          "text": "January 2026 Employment Report (non-farm payroll data) release",
+          "rationale": "Employment data is a crucial economic indicator that could affect the Fed's decision on interest rates.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.20475
+        },
+        {
+          "text": "Upcoming Federal Reserve Board of Governors meetings in February 2026",
+          "rationale": "These meetings could provide insights or changes in policy that affect interest rate stability.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.8,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.24000000000000002
+        },
+        {
+          "text": "Market expectations leading up to the January 27, 2026 meeting",
+          "rationale": "How market participants anticipate the Fed will act based on economic conditions could influence whether the rates will change.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.25,
+          "voi_linear": 0.24000000000000002
+        },
+        {
+          "text": "Press conference following the January 27, 2026 meeting",
+          "rationale": "The statements made during the press conference could clarify the Fed's stance on interest rates and economic conditions.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.20475
+        },
+        {
+          "text": "Global economic events affecting U.S. economy leading up to January 2026",
+          "rationale": "Major global developments (e.g., geopolitical events, economic crises) may influence the Fed's consideration of interest rate changes.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.182
+        }
+      ]
+    },
+    {
+      "ultimate": "Khamenei out as Supreme Leader of Iran by January 31?",
+      "condition_id": "0xa8b744720006da3c08b4dc8a61a5ce930542f550fcf8d27380ae898de636799d",
+      "baseline_cruxes": [
+        "Is there a significant internal power struggle among Iran's leadership before January 31?",
+        "Will there be mass protests or public unrest in Iran prior to January 31?",
+        "Is there a credible assassination or coup attempt against Khamenei planned before January 31?",
+        "Are key military or IRGC leaders publicly opposing Khamenei by January 31?",
+        "Will diplomatic pressure from foreign nations lead to a change in leadership before January 31?",
+        "Is there a significant health issue affecting Khamenei's capability to lead prior to January 31?",
+        "Will factions within the Iranian regime rally around a successor to Khamenei before January 31?",
+        "Are there shifts in public opinion favoring a transition away from Khamenei's rule before January 31?",
+        "Will the clerical establishment lose faith in Khamenei's leadership before January 31?",
+        "Is there a significant international incident involving Iran that could destabilize Khamenei's position before January 31?"
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Khamenei attends upcoming religious pilgrimage in early January 2024",
+          "rationale": "A scheduled attendance could impact perceptions of stability in leadership.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.7,
+          "p_ult_given_yes": 0.2,
+          "p_ult_given_no": 0.8,
+          "voi_linear": 0.252
+        },
+        {
+          "text": "Iran's parliamentary discussions on leadership succession before January 2024",
+          "rationale": "If discussions are scheduled, they may indicate shifts in leadership approach.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.252
+        },
+        {
+          "text": "Major protests planned in Iran for January 2024",
+          "rationale": "Protests could weaken Khamenei's power and push for leadership change.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.27299999999999996
+        },
+        {
+          "text": "International diplomatic meetings regarding Iran's nuclear program in January 2024",
+          "rationale": "Negotiations or pressures may affect Khamenei's authority.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.45,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.2,
+          "voi_linear": 0.198
+        },
+        {
+          "text": "Commemoration events for the anniversary of Soleimani's death in January 2024",
+          "rationale": "This event could either bolster Khamenei\u2019s position or spark unrest.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.2879999999999999
+        },
+        {
+          "text": "Potential health updates about Khamenei before January 2024",
+          "rationale": "Health could determine his viability as a leader.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.2879999999999999
+        },
+        {
+          "text": "Upcoming elections for the Assembly of Experts in January 2024",
+          "rationale": "Elections could catalyze discussions on succession.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.252
+        },
+        {
+          "text": "U.S. policy announcements on Iran expected in mid-January 2024",
+          "rationale": "Encouragement or pressure from the U.S. could affect Khamenei's position.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.192
+        },
+        {
+          "text": "Statements from influential clerics expected in January 2024",
+          "rationale": "Clerical support or opposition could sway Khamenei's leadership.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.20475
+        },
+        {
+          "text": "Reports of internal division within Iran's political structure by late January 2024",
+          "rationale": "Internal conflicts or unity could determine Khamenei\u2019s future.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.2,
+          "voi_linear": 0.21600000000000003
+        }
+      ]
+    },
+    {
+      "ultimate": "Will LeBron James win the 2028 US Presidential Election?",
+      "condition_id": "0x836b850fc838195374862551a36f1c8691d96ff01e58b0a071f0fc1a0e357fb1",
+      "baseline_cruxes": [
+        "Will LeBron James officially announce his candidacy for President in the 2028 election?",
+        "Will LeBron James secure enough support from the Democratic Party to become their nominee?",
+        "Will LeBron James have a significant fundraising base established before the election?",
+        "Will LeBron James successfully engage with key demographics, such as young voters, before the election?",
+        "Will LeBron James' public approval ratings be high enough to compete with established politicians?",
+        "Will LeBron James face any legal challenges or controversies that impact his campaign?",
+        "Will other high-profile candidates emerge that could split the vote in the election?",
+        "Will LeBron James have a running mate that enhances his chances in the election?",
+        "Will LeBron James maintain a presence in the media and public eye leading up to the election?",
+        "Will voter turnout in the 2028 election be significantly influenced by celebrity candidates like LeBron James?"
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "LeBron James officially declares candidacy for the 2028 Presidential Election.",
+          "rationale": "An official declaration would indicate serious intent to run and could galvanize support, affecting his chances.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.25,
+          "p_ult_given_yes": 0.3,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.09375
+        },
+        {
+          "text": "Key presidential debates scheduled in 2028.",
+          "rationale": "Performance in debates is crucial in shaping public perception and could influence voter decisions.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.25,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.20625
+        },
+        {
+          "text": "Major fundraising events for candidates leading up to the election.",
+          "rationale": "Fundraising success can indicate viability and potential support among voters.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.2,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.224
+        },
+        {
+          "text": "Surveys showing public opinion on LeBron James as a candidate.",
+          "rationale": "Polling data prior to the election can provide insights on his electability.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.23099999999999998
+        },
+        {
+          "text": "Influential endorsements announced in 2028.",
+          "rationale": "Endorsements from significant figures or organizations can boost credibility and visibility.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.15,
+          "voi_linear": 0.23099999999999998
+        },
+        {
+          "text": "Rival candidates formally announce their campaigns and platforms.",
+          "rationale": "The entry of strong candidates could impact LeBron's chances and voter preferences.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.273
+        },
+        {
+          "text": "Social media and campaign rollout plans for candidates.",
+          "rationale": "Effective social media strategies could enhance visibility and voter engagement.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.23099999999999998
+        },
+        {
+          "text": "Legislation affecting campaign finance and advertising in 2028.",
+          "rationale": "Changes in campaign finance laws could significantly impact the level of competition.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.24
+        },
+        {
+          "text": "Public appearances or community engagements by LeBron leading up to the election.",
+          "rationale": "Active campaigning can help build his profile as a serious candidate and engage voters.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.23099999999999998
+        },
+        {
+          "text": "Changes in political climate or major national events leading up to the election.",
+          "rationale": "Shift in public interest or political focus can influence voter priorities.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.25,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.20625
+        }
+      ]
+    },
+    {
+      "ultimate": "Will the Memphis Grizzlies win the 2026 NBA Finals?",
+      "condition_id": "0xc094fd60c0a09ba0df48a086ef91e12390fa8777fcd9cb63c154e9622cb1d497",
+      "baseline_cruxes": [
+        "Will the Memphis Grizzlies make it to the playoffs in the 2025-2026 season?",
+        "Will the team's key players remain healthy throughout the 2025-2026 season?",
+        "Will the Grizzlies make any significant trades before the 2025-2026 season?",
+        "Will the coaching staff remain the same throughout the 2025-2026 season?",
+        "Will the Grizzlies have a top-5 seed in the Western Conference by the end of the 2025-2026 regular season?",
+        "Will the Memphis Grizzlies win their first-round playoff series in the 2025 playoffs?",
+        "Will the team improve their defensive rating significantly by the 2025-2026 season?",
+        "Will the Grizzlies have at least one All-Star player in the 2025-2026 season?",
+        "Will the Memphis Grizzlies defeat their main rivals in the Western Conference during the 2025-2026 season?",
+        "Will the Grizzlies have a winning record against playoff teams during the 2025-2026 regular season?"
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Draft performance in 2025 NBA Draft",
+          "rationale": "The success of the Grizzlies in the 2026 Finals may heavily depend on their ability to secure top talent in the 2025 NBA Draft, scheduled for June 2025, which could greatly influence their roster.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.21600000000000003
+        },
+        {
+          "text": "Injury reports before the 2026 season",
+          "rationale": "The health of key players, especially star players like Ja Morant, leading up to and during the 2026 season will be critical in evaluating their chances for the finals.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.20475
+        },
+        {
+          "text": "Coaching changes before the 2026 season",
+          "rationale": "Any coaching changes or adjustments to game strategies during the 2026 season could significantly impact the team's performance and likelihood of making the finals.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.5,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.125
+        },
+        {
+          "text": "Team trades during the 2025-2026 season",
+          "rationale": "Trades that occur before or during the 2025-2026 season will affect team dynamics and overall performance leading up to the NBA Finals.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.21600000000000003
+        },
+        {
+          "text": "2025-2026 regular season performance",
+          "rationale": "The Grizzlies' win-loss record in the regular season will determine their playoff positioning and potentially their chances at winning the finals.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.2,
+          "voi_linear": 0.25025
+        },
+        {
+          "text": "Playoff seeding outcomes in the Western Conference",
+          "rationale": "The playoff seeding for the Western Conference will be crucial as it will determine their path to the finals and the teams they would have to face.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.3,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.11374999999999999
+        },
+        {
+          "text": "Performance in the Western Conference playoffs",
+          "rationale": "Their performance in the 2026 Western Conference playoffs will directly influence their chances of reaching and winning the NBA Finals.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.312
+        },
+        {
+          "text": "Player contract situations at the end of the 2025-2026 season",
+          "rationale": "Contracts for key players ending after the 2025-2026 season may influence their performance and playoff commitment.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.25,
+          "voi_linear": 0.22749999999999998
+        },
+        {
+          "text": "Impact of the NBA All-Star Game 2026",
+          "rationale": "Player performances and injuries during the 2026 NBA All-Star Weekend could impact the Grizzlies' roster and performance heading into the finals.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.3,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.09099999999999998
+        },
+        {
+          "text": "Rivalry games with key Western teams during the 2025-2026 season",
+          "rationale": "The outcomes of rivalry games against title-contending teams will help gauge their competitive stance in the playoff race.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.20475
+        }
+      ]
+    },
+    {
+      "ultimate": "Will Raul Perestrello win the 2026 Portugal presidential election?",
+      "condition_id": "0x3b1a3232b14a029f96a3e1b04a5d8dde31575d74024389b53631e73b4a494480",
+      "baseline_cruxes": [
+        "Will Raul Perestrello secure the nomination from his political party for the 2026 presidential election?",
+        "Will Raul Perestrello's party maintain strong support among key demographics leading up to the election?",
+        "Will Raul Perestrello successfully raise a significant amount of campaign funds before the election?",
+        "Will major political events or scandals affect Raul Perestrello's campaign negatively?",
+        "Will Raul Perestrello perform well in the televised debates leading up to the election?",
+        "Will there be a major economic downturn in Portugal prior to the election that could impact voters' choices?",
+        "Will Raul Perestrello establish a coalition with other parties or influential political figures before the election?",
+        "Will voter turnout in the 2026 presidential election be higher than in previous elections?",
+        "Will media coverage of Raul Perestrello's campaign be predominantly positive leading up to the election?",
+        "Will there be any significant changes in public opinion regarding key issues that Raul Perestrello is campaigning on?"
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "The announcement of political alliances by major parties leading up to the election.",
+          "rationale": "Allies and endorsements can significantly impact Perestrello's chances. Major parties may announce support for or against him.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.182
+        },
+        {
+          "text": "The outcome of any pre-election polls within the last six months before the election.",
+          "rationale": "Polls conducted closer to the election can provide insight into his popularity and potential for winning.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.20475
+        },
+        {
+          "text": "Changes in Portugal's economic situation in the months leading up to the election.",
+          "rationale": "Economic factors play a key role in elections; shifts in GDP, unemployment, or inflation could affect voter sentiment toward Perestrello.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.19199999999999998
+        },
+        {
+          "text": "Key debates involving Raul Perestrello and other candidates scheduled before the election.",
+          "rationale": "Performance in debates could sway voters' opinions significantly.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.182
+        },
+        {
+          "text": "Any legal challenges or controversies involving Raul Perestrello.",
+          "rationale": "Legal issues can have a large impact on a candidate's viability and public image.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.12599999999999995
+        },
+        {
+          "text": "Party primaries or other internal party decisions affecting Perestrello's candidacy.",
+          "rationale": "Decisions made within his party in the lead-up to the election could affect his standing and support.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.19199999999999998
+        },
+        {
+          "text": "Public sentiment regarding current events or issues prominent in the news as the election date approaches.",
+          "rationale": "National mood can influence elections; specific events may either enhance or damage Perestrello's image.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.19199999999999998
+        },
+        {
+          "text": "Commitment of financial support or donations to Perestrello's campaign by notable donors or organizations before the election.",
+          "rationale": "Funding can directly impact campaign reach and effectiveness.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.19199999999999998
+        },
+        {
+          "text": "Any major events such as rallies or public appearances by Raul Perestrello planned prior to election day.",
+          "rationale": "These events can help gauge momentum and visibility of his campaign.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.182
+        },
+        {
+          "text": "The voter turnout rate during the election compared to previous elections.",
+          "rationale": "Higher turnout can favor certain demographics or issues, impacting Perestrello's chances.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.182
+        }
+      ]
+    },
+    {
+      "ultimate": "Will Trump nominate Barron Trump as the next Fed chair?",
+      "condition_id": "0x1d0f90b6e67d5e574780c98d42b0d339d4b17e945215fcc555ffd8a31092d76a",
+      "baseline_cruxes": [
+        "Will Trump publicly express support for Barron Trump in a financial or economic context before making the nomination?",
+        "Has Barron Trump shown interest or experience in economic or financial matters prior to the nomination?",
+        "Is there any indication or rumor about Trump considering family members for significant government positions?",
+        "Has Trump previously indicated a preference for appointing outsiders versus family members to key positions?",
+        "Will any influential economic advisers publicly advocate for Barron Trump as a qualified candidate for Fed chair?",
+        "Is there evidence of Trump's current views on the Federal Reserve's policies leading up to the nomination?",
+        "Has Barron Trump engaged in any public discussions about monetary policy or the economy?",
+        "Are there upcoming events or interviews where Trump might address potential nominees for Fed chair?",
+        "Will Trump's political allies or campaign supporters have a say in the nomination decision?",
+        "Has Trump established a pattern of prioritizing family loyalty over qualifications in his appointments?"
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Upcoming Federal Reserve meetings in 2024",
+          "rationale": "Key Federal Reserve meetings scheduled throughout 2024 could impact discussions around leadership nominations and the market's expectations.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.05,
+          "p_ult_given_yes": 0.1,
+          "p_ult_given_no": 0.01,
+          "voi_linear": 0.00855
+        },
+        {
+          "text": "Announcement of the Republican Party nomination process",
+          "rationale": "The formal nomination of candidates for pivotal positions such as Federal Reserve Chair may coincide with announcements related to the primary elections in 2024.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.1,
+          "p_ult_given_yes": 0.05,
+          "p_ult_given_no": 0.01,
+          "voi_linear": 0.007200000000000002
+        },
+        {
+          "text": "Speculation about family ties in major positions",
+          "rationale": "Coverage in major news outlets regarding potential family ties in high government positions may affect Trump's decisions.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.1,
+          "p_ult_given_yes": 0.8,
+          "p_ult_given_no": 0.2,
+          "voi_linear": 0.10800000000000001
+        },
+        {
+          "text": "Financial crises or major economic events in 2024",
+          "rationale": "Any significant economic downturns or financial crises in 2024 could lead to differing pressures on Trump to nominate more traditional candidates.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.2,
+          "p_ult_given_yes": 0.5,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.14400000000000002
+        },
+        {
+          "text": "Biden's potential re-nomination deadline",
+          "rationale": "As the current administration's fate influences the political landscape, knowing if Biden will run again can directly impact Trump's calculations for Fed nominations.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.15,
+          "p_ult_given_yes": 0.1,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.012750000000000001
+        },
+        {
+          "text": "Public opinion polling on Barron Trump\u2019s suitability",
+          "rationale": "Public sentiment regarding the nomination of family members in public office may sway Trump's decision, influenced by opinion polls.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.2,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.20800000000000005
+        },
+        {
+          "text": "Major speeches or debates by Trump in 2024",
+          "rationale": "Trump's public platforms in speeches or debates could signal his intentions regarding potential nominations by discussing family abilities.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.2,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.20800000000000005
+        },
+        {
+          "text": "Media scrutiny on Trump's family ties",
+          "rationale": "Intensified media coverage of Trump's family, particularly Barron, leading into the nomination process may influence a nomination.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.25,
+          "p_ult_given_yes": 0.1,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.01875
+        },
+        {
+          "text": "Internal GOP meetings and decisions",
+          "rationale": "Strategic meetings within the Republican Party concerning the direction of nominations could involve discussions on familial candidates.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.05,
+          "p_ult_given_yes": 0.8,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.0665
+        },
+        {
+          "text": "Economic indicators before nominations",
+          "rationale": "Economic conditions measured through key indicators leading to nomination deadlines may drive Trump to choose a candidates based on market expectations.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.1,
+          "p_ult_given_yes": 0.8,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.09000000000000005
+        }
+      ]
+    },
+    {
+      "ultimate": "Will Tim Walz win the 2028 US Presidential Election?",
+      "condition_id": "0xae70ab9bf1c3726fe430a2ba8b517697ae24e0f0ab554b876a5b521153068882",
+      "baseline_cruxes": [
+        "Will Tim Walz secure the Democratic nomination in 2028?",
+        "Will Tim Walz's approval ratings be above 50% in Minnesota in 2027?",
+        "Will there be significant opposition candidates emerging from within the Democratic Party by 2028?",
+        "Will Tim Walz be able to raise sufficient campaign funds to compete nationally?",
+        "Will the economy be in a recession during the 2028 election cycle?",
+        "Will major national issues align with Tim Walz's political platform prior to the election?",
+        "Will voter turnout among key demographics be favorable for Tim Walz in 2028?",
+        "Will Tim Walz receive endorsements from influential party leaders or organizations?",
+        "Will there be a significant third-party candidate that draws votes away from Tim Walz?",
+        "Will media coverage of Tim Walz be largely positive leading up to the election?"
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Tim Walz's endorsement by the DFL (Democratic-Farmer-Labor) Party",
+          "rationale": "If Tim Walz secures a strong endorsement from the DFL, it may solidify his position as a leading candidate in the primary season leading to the 2028 election.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.7,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.25,
+          "voi_linear": 0.147
+        },
+        {
+          "text": "Major debates and forums for the Democratic primary scheduled for 2027",
+          "rationale": "The impact of his performance in these debates could significantly influence voter perception and support leading into the 2028 election.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.20475
+        },
+        {
+          "text": "Key fundraising deadlines for the 2028 election campaign",
+          "rationale": "Meeting or exceeding fundraising targets can indicate campaign viability and support levels ahead of the election.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.25,
+          "voi_linear": 0.20475
+        },
+        {
+          "text": "Polling data releases in 2026 and 2027",
+          "rationale": "Changes in polling data regarding Walz and other candidates will provide insights into his competitiveness leading into the election.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.20475
+        },
+        {
+          "text": "Results from 2026 midterm elections",
+          "rationale": "The performance of Democratic candidates in the 2026 midterms could impact momentum for Walz's campaign in 2028.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.16799999999999998
+        },
+        {
+          "text": "The Democratic National Convention schedule in 2028",
+          "rationale": "How Tim Walz is positioned at the convention could affect his chances, including potential speaking engagements or endorsements.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.182
+        },
+        {
+          "text": "Legislative achievements and political climate in Minnesota leading up to 2028",
+          "rationale": "If Walz successfully passes significant legislation or addresses major issues, it could bolster his reputation and electability.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.19199999999999998
+        },
+        {
+          "text": "Potential challengers emerging in the Democratic Party",
+          "rationale": "The entry of other strong candidates into the race could dilute Walz's support and impact his chances in the primaries.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.21600000000000003
+        },
+        {
+          "text": "Impact of national political events in 2027, such as Supreme Court decisions",
+          "rationale": "Major national events that shape public opinion in 2027 can significantly influence voter sentiment leading to the election.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.21600000000000003
+        },
+        {
+          "text": "Public approval ratings for Tim Walz leading up to 2028",
+          "rationale": "Tracking his approval ratings over time will indicate his popularity and potential viability as a candidate in the presidential race.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.20475
+        }
+      ]
+    },
+    {
+      "ultimate": "Will Greg Abbott win the 2028 US Presidential Election?",
+      "condition_id": "0x01dffa7abae7e5d9b7fb44b06d537c5ac932e2ca422ab4b53366672f5e2dc7d6",
+      "baseline_cruxes": [
+        "Will Greg Abbott secure the Republican nomination for president in 2028?",
+        "Will Abbott maintain strong approval ratings among Texas voters before the election?",
+        "Will key political endorsements be received by Abbott prior to the election?",
+        "Will Abbott's handling of state issues receive national attention that positively impacts his campaign?",
+        "Will any major political scandals arise involving Abbott before the election?",
+        "Will Abbott's campaign raise sufficient funds to compete effectively in the primaries?",
+        "Will Abbott's stance on key national issues resonate with the broader Republican electorate?",
+        "Will Abbott successfully appeal to swing voters in battleground states?",
+        "Will there be a significant third-party candidate that affects Abbott's chances?",
+        "Will Abbott's campaign leverage social media effectively to reach younger voters?"
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Will Greg Abbott officially announce his candidacy for president by the end of 2025?",
+          "rationale": "An official announcement would signal serious intent to run and establish his presence in the market, impacting his viability and support.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.55,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.21600000000000003
+        },
+        {
+          "text": "How will significant endorsements for candidates occur in 2026?",
+          "rationale": "Key endorsements can boost Abbott's campaign significantly, especially from influential figures or organizations within the Republican Party.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.21600000000000003
+        },
+        {
+          "text": "Will there be primary debates in early 2026, and how will Abbott perform?",
+          "rationale": "Debate performances can sway voter opinions and determine Abbott's competitiveness in the Republican primary.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.55,
+          "p_ult_given_no": 0.2,
+          "voi_linear": 0.15925
+        },
+        {
+          "text": "What will be the outcome of the 2026 midterm elections?",
+          "rationale": "The results could reshape party dynamics and affect Abbott's positioning for 2028.",
+          " ": 2028,
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.55,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.17325000000000002
+        }
+      ]
+    },
+    {
+      "ultimate": "Will Tulsi Gabbard win the 2028 US Presidential Election?",
+      "condition_id": "0x8fc141205ebce5adf437bfdf4d0c5ff58ff24293b79c9431991346c208bb48ed",
+      "baseline_cruxes": [
+        "Will Tulsi Gabbard secure the Democratic nomination for the 2028 Presidential Election?",
+        "Will Tulsi Gabbard's approval ratings rise significantly in key battleground states by 2026?",
+        "Will Tulsi Gabbard successfully raise over $50 million in campaign funding by the end of 2027?",
+        "Will Gabbard gain the endorsement of influential political figures or organizations before the primaries?",
+        "Will Gabbard address and resolve key criticisms regarding her political positions before the election?",
+        "Will Tulsi Gabbard manage to expand her voter base beyond her current following?",
+        "Will major media outlets provide favorable coverage of Tulsi Gabbard's campaign leading up to the election?",
+        "Will Tulsi Gabbard participate in all major presidential debates?",
+        "Will public sentiment shift towards a preference for outsider candidates by 2028?",
+        "Will Tulsi Gabbard's campaign successfully mobilize grassroots support in crucial demographics?"
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Tulsi Gabbard announces official candidacy for 2028 on a specific date",
+          "rationale": "If she announces her candidacy, it would solidify her position and ability to fundraise.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.1,
+          "p_ult_given_no": 0.02,
+          "voi_linear": 0.0336
+        },
+        {
+          "text": "Major Democratic party events leading up to the 2028 election (e.g., conventions)",
+          "rationale": "Participation in crucial party events can enhance her visibility and support within the party.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.27299999999999996
+        },
+        {
+          "text": "Endorsements from influential political figures or organizations before the election",
+          "rationale": "A key endorsement could significantly impact her viability as a candidate.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.15,
+          "voi_linear": 0.24
+        },
+        {
+          "text": "Participation in primary debates scheduled in early 2028",
+          "rationale": "Performing well in debates can boost her public perception and voter support.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.45,
+          "p_ult_given_yes": 0.3,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.12375
+        },
+        {
+          "text": "Key fundraising milestones achieved by the end of 2025",
+          "rationale": "Successful fundraising would indicate her ability to compete effectively against major candidates.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.45,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.2475
+        },
+        {
+          "text": "Polls showing her approval ratings relative to other candidates starting in 2026",
+          "rationale": "Early polling may predict her chances against opponents in the primaries.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.252
+        },
+        {
+          "text": "Scheduled town halls or campaign events in key states (e.g., Iowa or New Hampshire)",
+          "rationale": "Engaging directly with voters in crucial states is vital for her campaign's momentum.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.264
+        },
+        {
+          "text": "Potential legal or personal challenges that could arise",
+          "rationale": "Any significant issues in her personal life could impact her campaign.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.2,
+          "voi_linear": 0.192
+        },
+        {
+          "text": "Changes in key political issues or public sentiment heading into 2028",
+          "rationale": "Shifts in public opinion or major events could alter the electoral landscape.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.21
+        },
+        {
+          "text": "The outcome of major U.S. Senate or House elections in 2026",
+          "rationale": "These elections can influence the political climate and party dynamics leading to 2028.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.45,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.25,
+          "voi_linear": 0.198
+        }
+      ]
+    },
+    {
+      "ultimate": "Russia x Ukraine ceasefire by January 31, 2026?",
+      "condition_id": "0xb8c1bd306a8a4cedfb280e114e655c5092b3f37edccae05cd877d7f21a5774ce",
+      "baseline_cruxes": [
+        "Will diplomatic negotiations between Russia and Ukraine lead to a formal ceasefire agreement by the end of 2025?",
+        "Will there be significant international pressure on Russia or Ukraine to agree to a ceasefire before January 2026?",
+        "Will there be a change in leadership or government in either Russia or Ukraine that could impact ceasefire negotiations before 2026?",
+        "Will there be increased violence or conflict between Russia and Ukraine in 2025 that affects ceasefire discussions?",
+        "Will key allies of Russia or Ukraine withdraw their support, influencing the likelihood of a ceasefire by January 2026?",
+        "Will sanctions imposed on Russia or Ukraine be lifted or significantly altered before the end of 2025?",
+        "Will any third-party mediators successfully facilitate talks between Russia and Ukraine before January 2026?",
+        "Will public opinion in either Russia or Ukraine shift dramatically in favor of a ceasefire prior to January 2026?",
+        "Will any major geopolitical events (e.g., elections, summits) disrupt or advance ceasefire negotiations before January 2026?",
+        "Will there be economic incentives or aid packages proposed that encourage a ceasefire agreement by January 2026?"
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Scheduled peace talks between Ukraine and Russia in late January 2026.",
+          "rationale": "If formal peace negotiations are confirmed to happen, they may lead to a ceasefire agreement.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.21
+        },
+        {
+          "text": "Resolution of the conflict in Eastern Ukraine by key international summits before January 2026.",
+          "rationale": "If resolutions are reached in prior summits, they could set the precedent for a ceasefire.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.35,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.2729999999999999
+        },
+        {
+          "text": "Change in leadership in Russia or Ukraine before January 2026.",
+          "rationale": "New leadership could bring new approaches to negotiations and influence the likelihood of a ceasefire.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.21600000000000003
+        },
+        {
+          "text": "Involvement of major powers (e.g., US, EU) in facilitating talks by late January 2026.",
+          "rationale": "Greater international pressure or support could catalyze a ceasefire agreement.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.2879999999999999
+        },
+        {
+          "text": "Unresolved humanitarian crises leading to a ceasefire proposal before January 2026.",
+          "rationale": "Increased humanitarian needs may push both sides to agree to a ceasefire.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.20475
+        },
+        {
+          "text": "International sanctions on Russia are evaluated or lifted by January 2026.",
+          "rationale": "Economic pressures could influence Russia's willingness to engage in a ceasefire.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.21
+        },
+        {
+          "text": "Military events or escalations between now and January 2026 affecting ceasefire prospects.",
+          "rationale": "Continued violence could make reaching a ceasefire less likely.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.252
+        },
+        {
+          "text": "Public opinion in both countries demonstrating a desire for peace by early 2026.",
+          "rationale": "Grassroots movements pushing for peace could pressure leaders to negotiate a ceasefire.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.45,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.2,
+          "voi_linear": 0.2475
+        },
+        {
+          "text": "Planned withdrawal of troops from both sides by early January 2026.",
+          "rationale": "A mutual pullback could create an environment conducive to a ceasefire.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.25,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.22499999999999998
+        },
+        {
+          "text": "Institution of ceasefire monitoring by international organizations before January 2026.",
+          "rationale": "Established monitoring could provide confidence in a potential ceasefire agreement.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.252
+        }
+      ]
+    },
+    {
+      "ultimate": "Will Vivek Ramaswamy win the 2028 US Presidential Election?",
+      "condition_id": "0x64396449b471b10b006285fa49dd9a5df535694de7b4c703fdeb0d88d5c4cd33",
+      "baseline_cruxes": [
+        "Will Vivek Ramaswamy secure the Republican nomination for the 2028 Presidential Election?",
+        "Will Vivek Ramaswamy maintain a positive approval rating among Republican voters leading up to the election?",
+        "Will key endorsements from prominent political figures boost Vivek Ramaswamy's campaign?",
+        "Will major national events significantly influence voter opinions on Vivek Ramaswamy before the election?",
+        "Will Vivek Ramaswamy effectively differentiate himself from other Republican candidates?",
+        "Will Vivek Ramaswamy's fundraising efforts surpass those of his opponents?",
+        "Will the economy be perceived as healthy or in decline by the time of the election?",
+        "Will any major political controversies affect Vivek Ramaswamy's campaign?",
+        "Will voter turnout among key demographics favor Vivek Ramaswamy?",
+        "Will Vivek Ramaswamy successfully leverage social media to engage voters?"
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Debates and Primary Elections Schedule",
+          "rationale": "The schedule of Republican primary debates and presidential primaries will be crucial for Ramaswamy's visibility and support in 2024 and 2028. This can affect his momentum going into the general election.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.55,
+          "p_ult_given_no": 0.2,
+          "voi_linear": 0.15925
+        },
+        {
+          "text": "Endorsements from Key Party Figures",
+          "rationale": "Gaining endorsements from influential Republican leaders and previous candidates could significantly impact Ramaswamy's prospects and enhance his credibility with voters.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.20475
+        },
+        {
+          "text": "Polling Data Leading Up to Election Day",
+          "rationale": "Tracking polling data for Ramaswamy among Republicans and the general public throughout the 2024 and 2028 campaigns will provide insights into his viability as a candidate.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.35,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.2729999999999999
+        },
+        {
+          "text": "Legislation and Political Climate Changes",
+          "rationale": "Changes in legislation or significant political events in the U.S. such as economic downturns or significant scandals can dramatically alter voter sentiment leading up to the 2028 election.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.21
+        },
+        {
+          "text": "Ramaswamy's Fundraising Performance",
+          "rationale": "The success of Ramaswamy's fundraising efforts, especially when compared to both Republican and Democratic opponents, will reflect his viability for the presidential race.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.4,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.15925
+        },
+        {
+          "text": "Major Campaign Events or Rallies",
+          "rationale": "Large campaign events, rallies, and public appearances leading up to the election can affect voter engagement and Ramaswamy's overall presence in the electoral landscape.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.25,
+          "voi_linear": 0.24000000000000002
+        },
+        {
+          "text": "Impact of Social Media Campaigns",
+          "rationale": "Ramaswamy's effectiveness in utilizing social media for engagement and outreach can significantly influence his chances of winning the election.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.182
+        },
+        {
+          "text": "Public Perception Shifts",
+          "rationale": "Monitoring shifts in public perception towards Ramaswamy and his policies, particularly after major speeches or campaign events will be essential to gauge electoral success.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.21
+        },
+        {
+          "text": "Judicial Decisions or Legal Challenges",
+          "rationale": "Any legal issues or court decisions that emerge regarding campaign financing or other election-related matters could affect Ramaswamy's ability to run effectively.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.2,
+          "voi_linear": 0.21600000000000003
+        },
+        {
+          "text": "Developments in Opponent Campaigns",
+          "rationale": "Observing the campaigns of his Republican opponents and any potential Democratic challengers will be crucial, as they could significantly impact Ramaswamy's chances based on their strengths or weaknesses.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.25,
+          "voi_linear": 0.16799999999999998
+        }
+      ]
+    },
+    {
+      "ultimate": "Will Elon Musk win the 2028 US Presidential Election?",
+      "condition_id": "0x68e3c4e0dd8f82d010060032006fd157401b0bd8e04bd2953ae293e31eb99bf6",
+      "baseline_cruxes": [
+        "Will Elon Musk officially announce his candidacy for the 2028 US Presidential Election?",
+        "Will Elon Musk secure the nomination from the Republican Party for the 2028 election?",
+        "Will polls show Elon Musk leading or significantly competitive against other candidates in early 2028?",
+        "Will significant political endorsements or support be garnered by Elon Musk leading up to the election?",
+        "Will Elon Musk's public approval ratings remain favorable throughout the election cycle?",
+        "Will there be any major controversies or scandals involving Elon Musk before the election?",
+        "Will voter turnout among key demographics favor Elon Musk's policies in 2028?",
+        "Will Elon Musk have a significant financial advantage over his opponents for the 2028 election?",
+        "Will major media outlets positively portray Elon Musk during the campaign season?",
+        "Will any legal issues arise that could impede Elon Musk's presidential candidacy?"
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "The date of the Iowa caucus (January 15, 2028) and New Hampshire primary (February 1, 2028) will clarify Musk's viability.",
+          "rationale": "These are the first major events of the primary season and will gauge early support for Musk.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.29574999999999996
+        },
+        {
+          "text": "Potential debates scheduled in late 2027 will reflect Musk\u2019s performance among candidates.",
+          "rationale": "Performance in these debates could significantly influence voter perceptions and poll numbers.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.25,
+          "voi_linear": 0.192
+        },
+        {
+          "text": "Federal Election Commission (FEC) filing deadlines for candidates in 2028 will be crucial (around March 2028).",
+          "rationale": "How Musk performs in meeting these deadlines will determine if he can campaign officially.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.252
+        },
+        {
+          "text": "State primary elections starting in early 2028 will show Musk's support across different demographics and states.",
+          "rationale": "Tracking results from the primaries will provide insight into his campaign's strength.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.23099999999999998
+        },
+        {
+          "text": "Polls leading up to the conventions (July 2028) will be vital in assessing his public support.",
+          "rationale": "Tracking these polls will give insights into Musk's popularity relative to other candidates.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.2,
+          "voi_linear": 0.25025
+        },
+        {
+          "text": "The Democratic National Convention (July 2028) could impact Musk's campaign if he runs as an independent.",
+          "rationale": "If the Democrats choose a candidate that resonates poorly with voters, Musk might attract disillusioned voters.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.45,
+          "p_ult_given_no": 0.2,
+          "voi_linear": 0.12
+        },
+        {
+          "text": "Key endorsements or withdrawals by influential political figures until mid-2028 will affect Musk's traction.",
+          "rationale": "Such endorsements can create or dismantle a candidate's platform.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.25,
+          "voi_linear": 0.24000000000000002
+        },
+        {
+          "text": "Major campaign events or rallies planned by Musk or his opponents will influence voter enthusiasm and engagement.",
+          "rationale": "Large turnout at events often correlates with a candidate's potential success.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.19199999999999998
+        },
+        {
+          "text": "Current national issues, like economic conditions, could sway voter sentiment leading into the election.",
+          "rationale": "The public's perception of Musk's competency may shift based on how current events unfold.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.19199999999999998
+        },
+        {
+          "text": "Legal challenges, if any, that Musk faces prior to the election could impact his eligibility and public image.",
+          "rationale": "Any legal issues could negatively affect his campaign efforts and voter perception.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.25,
+          "voi_linear": 0.16799999999999998
+        }
+      ]
+    },
+    {
+      "ultimate": "Will Kim Kardashian win the 2028 US Presidential Election?",
+      "condition_id": "0x7f695758278e6d4d9e63df862afa88d664d3402a3d26e4d32ae05121cdbddba6",
+      "baseline_cruxes": [
+        "Will Kim Kardashian announce her candidacy for the 2028 US Presidential Election?",
+        "Will Kim Kardashian have a significant campaign team established before the election?",
+        "Will Kim Kardashian secure a major political endorsement before the election?",
+        "Will voter sentiment towards celebrity candidates change positively before 2028?",
+        "Will Kim Kardashian participate in key political debates leading up to the election?",
+        "Will Kim Kardashian's approval ratings exceed 50% among potential voters by 2028?",
+        "Will significant financial contributions be raised for Kim Kardashian's campaign?",
+        "Will Kim Kardashian successfully engage and mobilize young voters in her campaign?",
+        "Will there be major opposition from established political figures against Kim Kardashian's candidacy?",
+        "Will Kim Kardashian's public image remain favorable leading up to the election?"
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Announcement of Kim Kardashian's candidacy for the 2028 election by 2024.",
+          "rationale": "If Kim Kardashian officially announces her candidacy by late 2024, it will establish her as a serious candidate and could garner substantial media attention and public support.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.55,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.189
+        },
+        {
+          "text": "Major endorsements for Kim Kardashian before 2026.",
+          "rationale": "Endorsements from prominent political figures or organizations can significantly boost her campaign's visibility and viability.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.25,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.20625
+        },
+        {
+          "text": "Participation in the 2024 primaries.",
+          "rationale": "If Kim Kardashian engages with the primary process in 2024, it will test her political viability and support base ahead of the 2028 election.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.21
+        },
+        {
+          "text": "Voter registration drives and initiatives targeting Gen Z and millennials by 2026.",
+          "rationale": "As Kim Kardashian appeals to younger voters, any effective outreach or voter registration efforts could affect her chances in the 2028 election.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.182
+        },
+        {
+          "text": "Public opinion polls showing Kardashian in the top three for the nomination by 2027.",
+          "rationale": "Tracking public support through polls will reveal whether she is a competitive candidate leading up to the election.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.25,
+          "p_ult_given_yes": 0.4,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.13125
+        },
+        {
+          "text": "Major political or social events that could shift public opinion in 2027.",
+          "rationale": "Unforeseen events can shift political landscapes; Kardashian's campaign must be adaptable to such changes.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.21
+        },
+        {
+          "text": "Debate performance evaluations in 2028.",
+          "rationale": "How she performs in the official debates will greatly affect her public perception and chances of winning.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.2,
+          "voi_linear": 0.264
+        },
+        {
+          "text": "Impact of Kardashian's media engagements (e.g., reality TV, social media) in 2025-2027.",
+          "rationale": "Her ongoing media presence could enhance her visibility and appeal among diverse audiences leading up to the election.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.182
+        },
+        {
+          "text": "Candidates' fundraising capabilities; must raise a significant amount by 2027.",
+          "rationale": "Fundraising is critical; Kardashian must demonstrate her ability to attract financial support to compete effectively.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.21
+        },
+        {
+          "text": "Results of the 2024 US presidential election and its impact on the political landscape.",
+          "rationale": "The outcome of the 2024 election will shape party dynamics and could present opportunities or challenges for Kardashian's 2028 campaign.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.15,
+          "voi_linear": 0.24
+        }
+      ]
+    },
+    {
+      "ultimate": "Will Stephen Smith win the 2028 US Presidential Election?",
+      "condition_id": "0x66b906b8205f48a26beb8e553bbb1e7954e87e4f6e1d539823441221d1806e8f",
+      "baseline_cruxes": [
+        "Will Stephen Smith secure the Democratic nomination for President in 2028?",
+        "Will Stephen Smith significantly increase his recognition among voters by 2026?",
+        "Will Stephen Smith's campaign raise more than $100 million before the 2028 election?",
+        "Will Stephen Smith have a favorable approval rating among key voter demographics by 2028?",
+        "Will a major political scandal affect Stephen Smith's campaign negatively before the election?",
+        "Will Stephen Smith articulate a clear and compelling vision that resonates with voters?",
+        "Will major national events or issues align favorably for Stephen Smith's campaign in 2028?",
+        "Will Stephen Smith be able to unite the Democratic Party behind his candidacy?",
+        "Will Stephen Smith's stance on key issues attract swing voters in critical states?",
+        "Will Stephen Smith face a significant primary challenge before the general election in 2028?"
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Stephen Smith's official campaign launch date",
+          "rationale": "The timing of his campaign launch will significantly impact his visibility and fundraising efforts.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.7,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.15,
+          "voi_linear": 0.189
+        },
+        {
+          "text": "Major Democratic primaries and caucuses",
+          "rationale": "As a candidate, his performance in these early contests (starting in early 2028) will be crucial for gauging his support.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.21600000000000003
+        },
+        {
+          "text": "Key endorsements from party leaders and influential figures",
+          "rationale": "Endorsements can bolster his campaign and increase voter confidence, so known endorsements before primary elections are key.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.25,
+          "voi_linear": 0.22749999999999998
+        },
+        {
+          "text": "Nationwide debates schedule",
+          "rationale": "Performance in presidential debates during the 2028 election cycle could greatly impact his polling and public perception.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.20475
+        },
+        {
+          "text": "Fundraising deadlines and amounts",
+          "rationale": "Strong fundraising will be essential to compete effectively, especially leading into the primary season.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.21600000000000003
+        },
+        {
+          "text": "Voter registration deadlines in crucial states",
+          "rationale": "The ability to mobilize voters in swing states will be impacted by registration efforts before key deadlines.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.21600000000000003
+        },
+        {
+          "text": "Polls leading up to primaries",
+          "rationale": "Public opinion polls specifically measuring his support will provide insight into his chances.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.45,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.25,
+          "voi_linear": 0.198
+        },
+        {
+          "text": "Changes in political landscape or major events impacting voter mood",
+          "rationale": "Unforeseen political events (like economic recessions or crises) can alter voter priorities and perceptions near the election.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.25,
+          "voi_linear": 0.16799999999999998
+        },
+        {
+          "text": "Opponents' campaign activities and their impact",
+          "rationale": "The actions and effectiveness of his primary opponents will be crucial in shaping his chances.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.21600000000000003
+        },
+        {
+          "text": "National and state conventions",
+          "rationale": "The role Stephen Smith plays at the convention and any resulting endorsements will affect his overall campaign momentum.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.20475
+        }
+      ]
+    },
+    {
+      "ultimate": "Will the Charlotte Hornets win the 2026 NBA Finals?",
+      "condition_id": "0xc58cfb7397c4f3f803f5c20135cafa7f6d2c87cf3bb1e6138042b95d828e1866",
+      "baseline_cruxes": [
+        "Will the Charlotte Hornets make the playoffs in the 2025-2026 NBA season?",
+        "Will the Hornets' key players remain healthy throughout the 2025-2026 season?",
+        "Will the Hornets significantly improve their win-loss record from the previous season?",
+        "Will the Charlotte Hornets make a significant trade or acquire a star player before the 2026 playoffs?",
+        "Will the coaching staff of the Hornets remain unchanged throughout the 2025-2026 season?",
+        "Will the Hornets' performance against other Eastern Conference teams improve during the 2025-2026 season?",
+        "Will the Hornets successfully integrate any rookies or new players into their system prior to the playoffs?",
+        "Will the Hornets' defense rank in the top half of the league during the 2025-2026 season?",
+        "Will the Hornets secure home-court advantage in the first round of the 2026 playoffs?",
+        "Will the Charlotte Hornets' front office make decisions that strengthen the team's chances before the playoffs?"
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "The 2025 NBA Draft",
+          "rationale": "The outcome of the 2025 NBA Draft, including potential draft picks the Hornets may acquire, will significantly influence their chances of success in the 2026 NBA Finals.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.23099999999999998
+        },
+        {
+          "text": "2025 NBA All-Star Game",
+          "rationale": "The performance of the Hornets' players during the 2025 NBA All-Star Game can impact their momentum and visibility leading into the 2026 Finals.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.25,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.1875
+        },
+        {
+          "text": "Mid-season trade deadline in 2026",
+          "rationale": "The decisions made during the 2026 mid-season trade deadline could strengthen or weaken the Hornets' roster, affecting their championship chances.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.25,
+          "p_ult_given_yes": 0.4,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.13125
+        },
+        {
+          "text": "The condition of key players' injuries going into the playoffs",
+          "rationale": "Injuries to key players leading up to the playoffs will critically impact the Hornets' performance in the 2026 NBA Finals.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.25,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.096
+        },
+        {
+          "text": "Projected standings and playoff seedings at the end of the 2025-2026 regular season",
+          "rationale": "The Hornets' playoff seeding will determine matchups and their overall chances in the Finals.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.25,
+          "p_ult_given_yes": 0.4,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.13125
+        },
+        {
+          "text": "The performance of their coach during the 2025-2026 season",
+          "rationale": "A coaching change or improvement can influence team performance, impacting their likelihood of reaching the 2026 Finals.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.4,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.1365
+        },
+        {
+          "text": "Competing teams' rosters and player movement leading into the Finals",
+          "rationale": "The strength and roster composition of competing teams will affect the Hornets' chances in the Finals.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.25,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.1875
+        },
+        {
+          "text": "Future NBA schedule and game results leading to the Finals",
+          "rationale": "The results of games leading up to the Finals can determine team momentum and confidence.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.15,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.14024999999999999
+        },
+        {
+          "text": "Fan engagement and support during the 2025-2026 season",
+          "rationale": "High fan engagement can positively affect team morale and home-court advantage, influencing Finals performance.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.2,
+          "voi_linear": 0.25025
+        },
+        {
+          "text": "Impact of the 2026 NBA All-Star Weekend on player performance",
+          "rationale": "How players perform during the 2026 NBA All-Star Weekend can be indicative of their readiness for the Finals.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.4,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.14400000000000002
+        }
+      ]
+    },
+    {
+      "ultimate": "US strikes Iran by January 14, 2026?",
+      "condition_id": "0x64b14a09a6cf9dc02b840bc83f4dcfd41ca6108544c47ecabc6e5d00bc15fd2e",
+      "baseline_cruxes": [
+        "Will the US administration conduct military drills in the Persian Gulf region before January 14, 2026?",
+        "Will diplomatic negotiations between the US and Iran show significant progress before January 14, 2026?",
+        "Will there be a major incident involving US and Iranian forces before January 14, 2026?",
+        "Will Congress approve any military action against Iran before January 14, 2026?",
+        "Will Iran conduct a significant military operation that threatens US interests before January 14, 2026?",
+        "Will a new sanctions package against Iran be implemented before January 14, 2026?",
+        "Will there be a shift in US foreign policy towards Iran before January 14, 2026?",
+        "Will public opinion in the US favor military action against Iran before January 14, 2026?",
+        "Will any US allies publicly support military action against Iran before January 14, 2026?",
+        "Will the situation in the Middle East escalate significantly before January 14, 2026?"
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Multiplier meaning negotiations in Qatar 2025",
+          "rationale": "Negotiations between the U.S. and Iran, potentially scheduled for late 2025, could significantly influence military action decisions.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.1,
+          "p_ult_given_no": 0.75,
+          "voi_linear": 0.29574999999999996
+        },
+        {
+          "text": "U.S. Defense Budget approval December 2025",
+          "rationale": "A new defense budget slated for approval in December 2025 may impact military readiness and subsequent decisions regarding action against Iran.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.25,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.096
+        },
+        {
+          "text": "Iran's parliamentary elections in February 2026",
+          "rationale": "The Iranian elections set for early February 2026 could lead to increased tensions, which may influence the U.S.'s decision to strike before them.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.15,
+          "voi_linear": 0.23099999999999998
+        },
+        {
+          "text": "Iranian nuclear negotiations in December 2025",
+          "rationale": "If nuclear negotiations are ongoing or conclude unsuccessfully in late 2025, it may heighten the likelihood of a U.S. military strike.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.2879999999999999
+        },
+        {
+          "text": "U.S.-Israel military exercises January 2026",
+          "rationale": "Joint military exercises scheduled between the U.S. and Israel could heighten tensions and potentially provoke a military response against Iran.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.45,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.15,
+          "voi_linear": 0.27225
+        },
+        {
+          "text": "UN Security Council meeting January 2026",
+          "rationale": "A meeting of the UN Security Council on Iran-related issues, if it escalates tensions, could affect the U.S. decision to strike.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.24
+        },
+        {
+          "text": "Upcoming sanctions announcement January 2026",
+          "rationale": "Any announcements of new sanctions against Iran prior to January 14, 2026, could increase the likelihood of military action by the U.S.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.35,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.2729999999999999
+        },
+        {
+          "text": "Bilateral talks rescheduled for December 2025",
+          "rationale": "If scheduled bilateral talks between the U.S. and Iran are canceled or go poorly, it may increase tensions and the likelihood of a strike.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.45,
+          "p_ult_given_yes": 0.3,
+          "p_ult_given_no": 0.7,
+          "voi_linear": 0.198
+        },
+        {
+          "text": "Deployment of U.S. troops to the region in late 2025",
+          "rationale": "If troop deployment to the Middle East occurs by late 2025, it could signal increased military readiness and a potential strike.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.252
+        },
+        {
+          "text": "Iran's military drills January 2026",
+          "rationale": "Scheduled Iranian military drills close to January 14, 2026, might provoke U.S. military action in response.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.7,
+          "p_ult_given_yes": 0.8,
+          "p_ult_given_no": 0.2,
+          "voi_linear": 0.252
+        }
+      ]
+    },
+    {
+      "ultimate": "Will Trump nominate Ron Paul as the next Fed chair?",
+      "condition_id": "0xfee4b6988b9513dab72118c97abeb4369f0d9a7c2290337ca5d5c2f116a148c2",
+      "baseline_cruxes": [
+        "Is Ron Paul currently an accepted candidate for the position of Fed chair within Trump's inner circle?",
+        "Has Trump publicly expressed support for Ron Paul in any recent interviews or statements?",
+        "Are there any significant political events or endorsements that could influence Trump's decision on the Fed chair nomination?",
+        "Is there a likelihood of Trump's administration prioritizing monetary policy reform, making Ron Paul a preferred choice?",
+        "Has Ron Paul indicated interest or willingness to accept the Fed chair position if offered?",
+        "Do public opinion polls support Ron Paul as a favorable candidate for Fed chair among Trump's voter base?",
+        "Are there prominent financial or economic advisors close to Trump who support the idea of nominating Ron Paul?",
+        "Is there recent legislation or policy change that aligns with Ron Paul's economic philosophies?",
+        "Has Trump mentioned any competitive candidates for the Fed chair position who overshadow Ron Paul?",
+        "Is there a substantial economic crisis or event that could compel Trump to choose an unconventional candidate like Ron Paul?"
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Ron Paul's endorsement of Trump in the 2024 election.",
+          "rationale": "If Ron Paul publicly endorses Trump, it may increase the likelihood of being nominated for Fed chair.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.2,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.192
+        },
+        {
+          "text": "Major political events leading up to the Republican National Convention in July 2024.",
+          "rationale": "Key political rallies and debates could affect Trump's decision on potential nominations.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.25,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.1875
+        },
+        {
+          "text": "Public opinion polls reflecting sentiment towards potential Fed appointees.",
+          "rationale": "If polls show strong support for Ron Paul among key voter demographics, Trump may consider him.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.15,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.153
+        },
+        {
+          "text": "The Federal Reserve's upcoming policy changes and direction in 2024, especially in light of inflation or economic crises.",
+          "rationale": "Economic conditions may influence Trump's choice of nominees, potentially favoring Ron Paul's libertarian economic views.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.27299999999999996
+        },
+        {
+          "text": "Senate confirmation hearings for any potential Fed chairnominees prior to 2024.",
+          "rationale": "Confirmation dynamics can indicate the support for Ron Paul or alternatives, influencing Trump's decision.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.1,
+          "p_ult_given_yes": 0.8,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.12600000000000003
+        },
+        {
+          "text": "Policy speeches or events by Trump discussing potential economic policies leading up to the nomination.",
+          "rationale": "If Trump outlines policies aligning with Ron Paul's views, it could hint at a nomination.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.15,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.153
+        },
+        {
+          "text": "Upcoming debates or forums involving Trump and his potential nominees from January to July 2024.",
+          "rationale": "These platforms can shape Trump's nomination strategy and public perceptions.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.15,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.153
+        },
+        {
+          "text": "Economic indicators released in early 2024, such as unemployment rates or inflation data.",
+          "rationale": "Trump's reaction to these indicators may sway his decision on who to nominate.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.27299999999999996
+        },
+        {
+          "text": "Any announcements or leaks about candidates for Fed chair from Trump's advisors.",
+          "rationale": "Direct news from Trump's team can clarify his intentions regarding Ron Paul versus other candidates.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.15,
+          "p_ult_given_yes": 0.3,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.06375
+        },
+        {
+          "text": "The Federal Reserve's scheduled meetings or press conferences impacting public perception of the role.",
+          "rationale": "Events that heighten the importance of the Fed chair position may influence Trump's potential picks.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.2,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.192
+        }
+      ]
+    },
+    {
+      "ultimate": "Will Nikki Haley win the 2028 US Presidential Election?",
+      "condition_id": "0xe0173375b7eaccb836f7b92d28a9a2d1cc69e54e5a65fae89a5d7e49aadd332e",
+      "baseline_cruxes": [
+        "Will Nikki Haley secure the Republican Party nomination in 2028?",
+        "Will Nikki Haley have a significant lead in national polls by mid-2028?",
+        "Will key endorsements from major Republican figures support Nikki Haley's campaign?",
+        "Will Nikki Haley be able to fundraise effectively for her campaign leading up to the election?",
+        "Will Nikki Haley's policies resonate with the voters in key battleground states?",
+        "Will the Democratic challenger have a significant advantage over Nikki Haley in 2028?",
+        "Will the political climate favor Republican candidates in 2028?",
+        "Will voter turnout among key demographics favor Nikki Haley?",
+        "Will Nikki Haley successfully address any major controversies that arise during her campaign?",
+        "Will Nikki Haley maintain a favorable public image throughout the campaign period?"
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Nikki Haley's participation in the Republican primary debates",
+          "rationale": "Debates can significantly affect a candidate's visibility and support. If Haley performs strongly in the early debates, it could boost her campaign.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.75,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.2,
+          "voi_linear": 0.15000000000000002
+        },
+        {
+          "text": "The results of the 2024 midterm elections",
+          "rationale": "The outcomes may shift the political landscape and influence Haley's positioning for the 2028 election. A strong showing for Republicans could enhance her prospects.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.13649999999999998
+        },
+        {
+          "text": "Key endorsements announced leading up to the 2028 election",
+          "rationale": "Endorsements from influential figures or organizations can impact a candidate's credibility and support base.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.7,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.25,
+          "voi_linear": 0.147
+        },
+        {
+          "text": "Nikki Haley's announcement of candidacy for the 2028 election",
+          "rationale": "The timing and manner of her announcement will set the tone for her campaign and could influence initial public perception.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.7,
+          "p_ult_given_yes": 0.4,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.126
+        },
+        {
+          "text": "Republican National Convention details and Haley's involvement",
+          "rationale": "Her role and visibility at the convention will be critical in solidifying her support among GOP voters.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.7,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.126
+        },
+        {
+          "text": "Major political events in 2024 and 2025 affecting GOP dynamics",
+          "rationale": "Events like primaries or controversies can significantly shift voter sentiment and impact Haley's strategy.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.2,
+          "voi_linear": 0.192
+        },
+        {
+          "text": "Polling data trends leading into 2028",
+          "rationale": "Continuous polling will provide insights into Haley\u2019s standing among potential voters and her viability as a candidate.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.2879999999999999
+        },
+        {
+          "text": "Legislative achievements or failures during her political career leading up to the election",
+          "rationale": "Major legislative accomplishments can bolster her campaign narrative and voter confidence.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.19199999999999998
+        },
+        {
+          "text": "Key Supreme Court cases announced and their implications",
+          "rationale": "Decisions could energize or demoralize certain voter blocks that Haley may need to secure a win.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.182
+        },
+        {
+          "text": "International events impacting U.S. foreign policy leading up to 2028",
+          "rationale": "Global events could shape the electorate's mood and priorities, influencing their vote.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.45,
+          "p_ult_given_no": 0.2,
+          "voi_linear": 0.12
+        }
+      ]
+    },
+    {
+      "ultimate": "Will Trump nominate Arthur Laffer as the next Fed chair?",
+      "condition_id": "0xe844e12246d8504b8ec30c1d461718dbc9645fb73487ca50e5e716eefbb2bc63",
+      "baseline_cruxes": [
+        "Is Arthur Laffer currently considered a prominent economic advisor to Trump?",
+        "Has Trump publicly expressed support for Laffer as a candidate for any financial position?",
+        "Is there existing evidence of Laffer advocating for policies aligning with Trump's economic agenda?",
+        "Has Laffer's reputation among Republican lawmakers improved in recent years?",
+        "Are there other candidates currently favored by Trump for the Fed chair position?",
+        "Does Laffer have a history of opposing current Fed policies?",
+        "Is Trump planning to make a nomination announcement in the near future?",
+        "Has Laffer publicly expressed interest in the Fed chair position?",
+        "Are there any significant endorsements for Laffer from key figures in the Republican party?",
+        "Is there ongoing discussion in financial circles about Laffer's suitability for the Fed chair position?"
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Upcoming Federal Reserve meetings and announcements in late October 2023",
+          "rationale": "These meetings could provide insight into the administration's direction regarding Federal Reserve nominations, including Laffer.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.25,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.22499999999999998
+        },
+        {
+          "text": "Trump's public statements or campaign events regarding the Federal Reserve and economic policy",
+          "rationale": "Trump's visibility on the campaign trail may provide indications of his intentions for Fed appointments.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.25,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.22499999999999998
+        },
+        {
+          "text": "Results of key economic indicators releases in mid to late October 2023",
+          "rationale": "Economic conditions could influence Trump's decision on Laffer's nomination based on forecasts and public reaction.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.35,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.2,
+          "voi_linear": 0.25025
+        },
+        {
+          "text": "Interviews or discussions involving Trump and Republican leadership around fund allocation",
+          "rationale": "Meetings with party leaders could indicate support or opposition to Laffer's nomination.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.25,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.22499999999999998
+        },
+        {
+          "text": "End of October 2023 approaching deadlines for nominations before the upcoming elections",
+          "rationale": "Blackout periods for nominations could affect Trump's timing in announcing Laffer's nomination.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.2,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.05,
+          "voi_linear": 0.20800000000000002
+        },
+        {
+          "text": "Major financial news outlets covering speculation about potential Fed nominations",
+          "rationale": "Coverage by credible sources could signal the seriousness of Laffer's nomination and Trump's interest.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.25,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.22499999999999998
+        },
+        {
+          "text": "Political ads and messaging from Trump's campaign related to economic management",
+          "rationale": "The framing of economic issues by Trump could provide clues about his willingness to nominate Laffer.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.252
+        },
+        {
+          "text": "Legislative actions or economic policies put forth by Congress in October 2023",
+          "rationale": "Legislative dynamics might impact Trump's considerations for the Fed chair position.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.35,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.2,
+          "voi_linear": 0.22749999999999998
+        },
+        {
+          "text": "Public opinion polls on the Fed's role and Trump's handling of economic policies",
+          "rationale": "Polling data could influence Trump's decision based on public sentiment towards candidates.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.2879999999999999
+        },
+        {
+          "text": "Speeches or statements from key economic advisors in Trump's circle",
+          "rationale": "Advisory input from trusted economists could sway Trump's decision regarding Laffer's nomination.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.252
+        }
+      ]
+    },
+    {
+      "ultimate": "Will Trump nominate Larry Kudlow as the next Fed chair?",
+      "condition_id": "0x22d3d4722ce79dae5b2594df2ce89b1c283e3227b78718353bcca2e854d115a4",
+      "baseline_cruxes": [
+        "Will Trump publicly express support for Larry Kudlow as a candidate for Fed chair?",
+        "Is Larry Kudlow currently willing to accept the position if offered?",
+        "Has Trump indicated a preference for economic policy approaches that align with Kudlow's views?",
+        "Are there any Republican senators or representatives openly backing Kudlow for the role?",
+        "Has Trump criticized any current Fed policies that Kudlow opposes?",
+        "Is there a timeline for when Trump is expected to make the nomination for Fed chair?",
+        "Are there potential candidates who are more prominent than Kudlow being considered by Trump?",
+        "Has Kudlow recently made any public statements about the Federal Reserve that could affect his nomination?",
+        "Is the financial community generally supportive of Kudlow as a candidate for Fed chair?",
+        "Has Trump previously appointed individuals with similar backgrounds to Kudlow in key economic positions?"
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Trump's upcoming campaign events and rallies in March 2024.",
+          "rationale": "If Trump is actively campaigning and can leverage Kudlow's economic policies at these events, he may be more inclined to nominate him.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.273
+        },
+        {
+          "text": "Any official statements by Trump regarding the Fed chair position before the March primaries.",
+          "rationale": "Statements can indicate Trump's willingness to nominate Kudlow based on his public support or criticism.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.2,
+          "voi_linear": 0.20999999999999996
+        },
+        {
+          "text": "Potential economic reports or inflation data released before the nomination deadline.",
+          "rationale": "Economic conditions might affect Trump's decision on whether to nominate Kudlow, based on Kudlow's economic stance.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.2,
+          "voi_linear": 0.264
+        },
+        {
+          "text": "The timing and outcomes of Republican primary debates before the nomination decision.",
+          "rationale": "Debates could influence Trump's pick based on his or Kudlow's performance in relation to economic issues.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.15,
+          "voi_linear": 0.264
+        },
+        {
+          "text": "The Federal Reserve's scheduled meetings and policy announcements leading up to March 2024.",
+          "rationale": "Decisions or statements from the Fed might shape Trump's thoughts on nominating Kudlow.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.2,
+          "voi_linear": 0.20999999999999996
+        },
+        {
+          "text": "Deadline for submitting nominees to the Senate for the Fed chair position in early 2024.",
+          "rationale": "This deadline will force a decision from Trump, directly impacting whether Kudlow is nominated.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.2,
+          "voi_linear": 0.23099999999999998
+        },
+        {
+          "text": "Reactions from other key Republican figures to Kudlow's possible nomination.",
+          "rationale": "Support or opposition from influential Republicans could sway Trump's decision.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.20475
+        },
+        {
+          "text": "Media coverage about Kudlow's recent comments on the economy leading to March 2024.",
+          "rationale": "If Kudlow is positively highlighting economic issues, it could strengthen his case for nomination.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.1,
+          "voi_linear": 0.252
+        },
+        {
+          "text": "Senate committee's schedule for reviewing potential Fed nominations.",
+          "rationale": "If Kudlow's nomination aligns with committee schedules, it could influence Trump's decision-making process.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.2,
+          "voi_linear": 0.264
+        },
+        {
+          "text": "Polls showing GOP voter sentiments towards Kudlow as a Fed chair.",
+          "rationale": "Public opinion could strongly sway Trump\u2019s decision depending on how much support Kudlow has among Republican voters.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.192
+        }
+      ]
+    }
+  ]
+}

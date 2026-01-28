@@ -56,6 +56,10 @@ class MarketRow(MarketDataBase):
     # Platform-specific (JSON-encoded)
     clob_token_ids: Mapped[str | None] = mapped_column(Text, nullable=True)  # JSON list
 
+    # Categories (JSON-encoded lists, primarily for Metaculus)
+    topic_categories: Mapped[str | None] = mapped_column(Text, nullable=True)  # JSON list
+    tournament_categories: Mapped[str | None] = mapped_column(Text, nullable=True)  # JSON list
+
     # Cache management
     fetched_at: Mapped[datetime] = mapped_column(DateTime)
 
@@ -178,6 +182,52 @@ class MarketDataStorage:
             rows = result.scalars().all()
             return [self._row_to_market(row) for row in rows]
 
+    async def search_by_title(
+        self,
+        keywords: list[str],
+        platform: str | None = None,
+        min_liquidity: float | None = None,
+        status: MarketStatus | None = None,
+        limit: int = 20,
+    ) -> list[Market]:
+        """Search markets by title keywords (OR logic).
+
+        Args:
+            keywords: List of keywords to search for (case-insensitive, OR logic)
+            platform: Filter to specific platform (e.g., "polymarket")
+            min_liquidity: Minimum liquidity filter
+            status: Filter by market status
+            limit: Maximum number of results to return
+
+        Returns:
+            List of markets matching any keyword, ordered by liquidity
+        """
+        if not keywords:
+            return []
+
+        async with await self._get_session() as session:
+            from sqlalchemy import or_
+
+            # Build OR conditions for keywords
+            keyword_conditions = [
+                MarketRow.title.ilike(f"%{kw}%") for kw in keywords
+            ]
+            stmt = select(MarketRow).where(or_(*keyword_conditions))
+
+            if platform:
+                stmt = stmt.where(MarketRow.platform == platform)
+            if status:
+                stmt = stmt.where(MarketRow.status == status.value)
+            if min_liquidity is not None:
+                stmt = stmt.where(MarketRow.liquidity >= min_liquidity)
+
+            stmt = stmt.order_by(MarketRow.liquidity.desc().nullslast())
+            stmt = stmt.limit(limit)
+
+            result = await session.execute(stmt)
+            rows = result.scalars().all()
+            return [self._row_to_market(row) for row in rows]
+
     # === Price history methods ===
 
     async def save_price_history(
@@ -289,6 +339,14 @@ class MarketDataStorage:
             clob_token_ids=(
                 json.dumps(market.clob_token_ids) if market.clob_token_ids else None
             ),
+            topic_categories=(
+                json.dumps(market.topic_categories) if market.topic_categories else None
+            ),
+            tournament_categories=(
+                json.dumps(market.tournament_categories)
+                if market.tournament_categories
+                else None
+            ),
             fetched_at=market.fetched_at,
         )
 
@@ -311,6 +369,14 @@ class MarketDataStorage:
             num_forecasters=row.num_forecasters,
             clob_token_ids=(
                 json.loads(row.clob_token_ids) if row.clob_token_ids else None
+            ),
+            topic_categories=(
+                json.loads(row.topic_categories) if row.topic_categories else None
+            ),
+            tournament_categories=(
+                json.loads(row.tournament_categories)
+                if row.tournament_categories
+                else None
             ),
             fetched_at=row.fetched_at,
         )

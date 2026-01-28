@@ -1,0 +1,2484 @@
+{
+  "k": 10,
+  "model": "all-MiniLM-L6-v2",
+  "n_questions": 500,
+  "clusters": {
+    "1": {
+      "n_members": 18,
+      "coherence": 0.7581257820129395,
+      "keywords": [
+        {
+          "word": "trump",
+          "count": 19
+        },
+        {
+          "word": "nominate",
+          "count": 18
+        },
+        {
+          "word": "fed",
+          "count": 18
+        },
+        {
+          "word": "chair",
+          "count": 18
+        },
+        {
+          "word": "david",
+          "count": 2
+        },
+        {
+          "word": "kevin",
+          "count": 2
+        },
+        {
+          "word": "larry",
+          "count": 2
+        },
+        {
+          "word": "ron",
+          "count": 1
+        },
+        {
+          "word": "paul",
+          "count": 1
+        },
+        {
+          "word": "barron",
+          "count": 1
+        }
+      ],
+      "members": [
+        {
+          "id": "0xfee4b6988b9513dab72118c97abeb4369f0d9a7c2290337ca5d5c2f116a148c2",
+          "question": "Will Trump nominate Ron Paul as the next Fed chair?"
+        },
+        {
+          "id": "0x1d0f90b6e67d5e574780c98d42b0d339d4b17e945215fcc555ffd8a31092d76a",
+          "question": "Will Trump nominate Barron Trump as the next Fed chair?"
+        },
+        {
+          "id": "0x94947a23e965124fa382e3ff89827b7bb00c2e2f3f9c0b92137e639d4cbfb080",
+          "question": "Will Trump nominate Stephen Miran as the next Fed chair?"
+        },
+        {
+          "id": "0xbd603617895e199d4042781ee55a7a9614af3130ca8e90d257424ca246f66197",
+          "question": "Will Trump nominate Rick Rieder as the next Fed chair?"
+        },
+        {
+          "id": "0x92291ad59a105b0fb205f8aa2d3d2dbba7ee249ad6532672c854eaaf79fc135c",
+          "question": "Will Trump nominate David Zervos as the next Fed chair?"
+        },
+        {
+          "id": "0xdcc87b9ca36015e396bd0eebca29e854a136ed2b0b701049d1ee9da6bee3eb35",
+          "question": "Will Trump nominate Kevin Hassett as the next Fed chair?"
+        },
+        {
+          "id": "0x61b66d02793b4a68ab0cc25be60d65f517fe18c7d654041281bb130341244fcc",
+          "question": "Will Trump nominate Kevin Warsh as the next Fed chair?"
+        },
+        {
+          "id": "0x60acc46cda1f0619259acf3ef8c77bf734ff08cbed256ca3d1e9444138e21266",
+          "question": "Will Trump nominate Jerome Powell as the next Fed chair?"
+        },
+        {
+          "id": "0x46d40e851b24d9b0af4bc1942ccd86439cae82a9011767da14950df0ad997adf",
+          "question": "Will Trump nominate Judy Shelton as the next Fed chair?"
+        },
+        {
+          "id": "0xecb8543d8b5072ab44f216f0d18830d0276bfcbb6b51bfd14c62540560cc7a88",
+          "question": "Will Trump nominate Marc Sumerlin as the next Fed chair?"
+        },
+        {
+          "id": "0x998acf9ed1bbda06d59df70786441468872c72b2de59cacbea93625b14a5efcb",
+          "question": "Will Trump nominate David Malpass as the next Fed chair?"
+        },
+        {
+          "id": "0xdb1ae961e30733e7857ebb425b5f6449fa8032de13f32c1c6e447a0c3801ca04",
+          "question": "Will Trump nominate Scott Bessent as the next Fed chair?"
+        },
+        {
+          "id": "0x705371444684d676041d1010a94cae3a657340fa4809b4307de3c173a35e0957",
+          "question": "Will Trump nominate Christopher Waller as the next Fed chair?"
+        },
+        {
+          "id": "0xfc6eace32f283eda179c15d447fe61f0426846bace5c583a967ddeaba58c2f93",
+          "question": "Will Trump nominate Michelle Bowman as the next Fed chair?"
+        },
+        {
+          "id": "0x95657cd92502a3b132163cb9c77f5f16771dda1faa33a3977364f11a945d68f0",
+          "question": "Will Trump nominate Larry Lindsey as the next Fed chair?"
+        },
+        {
+          "id": "0xcba397f49b319dccb5f1b92c3710518d1c4f8f1dee86577b4bb243f3ca77e389",
+          "question": "Will Trump nominate Howard Lutnick as the next Fed chair?"
+        },
+        {
+          "id": "0xe844e12246d8504b8ec30c1d461718dbc9645fb73487ca50e5e716eefbb2bc63",
+          "question": "Will Trump nominate Arthur Laffer as the next Fed chair?"
+        },
+        {
+          "id": "0x22d3d4722ce79dae5b2594df2ce89b1c283e3227b78718353bcca2e854d115a4",
+          "question": "Will Trump nominate Larry Kudlow as the next Fed chair?"
+        }
+      ]
+    },
+    "2": {
+      "n_members": 118,
+      "coherence": 0.556376576423645,
+      "keywords": [
+        {
+          "word": "presidential",
+          "count": 90
+        },
+        {
+          "word": "nomination",
+          "count": 56
+        },
+        {
+          "word": "election",
+          "count": 36
+        },
+        {
+          "word": "democratic",
+          "count": 32
+        },
+        {
+          "word": "republican",
+          "count": 25
+        },
+        {
+          "word": "portugal",
+          "count": 9
+        },
+        {
+          "word": "venezuela",
+          "count": 7
+        },
+        {
+          "word": "australian",
+          "count": 5
+        },
+        {
+          "word": "open",
+          "count": 5
+        },
+        {
+          "word": "leader",
+          "count": 4
+        }
+      ],
+      "members": [
+        {
+          "id": "0xcb239105ed21a2420ba4d85090b9bc32755c56601ffdc528afd17fd6282fe930",
+          "question": "Will Gina Raimondo win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0x8b203037c7c0e21b500314f8398d2a8ea294b7ce1f4f9185f426425a3505bc45",
+          "question": "Will LeBron James win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0x655b4bfdfa55a95c24d6e9bf7e7cd62f1b57da9a1f4c7f40f090b8ba847dffa2",
+          "question": "Will Elise Stefanik win the 2028 Republican presidential nomination?"
+        },
+        {
+          "id": "0x939eeb2dea216749bd409bedde483c3f2bfb0e24d4f2d34461c0b21c6e91f010",
+          "question": "Will Roy Cooper win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0x1dd7704a6d05cca078564bc0bac541261425bc9252acc5634639f5161daf45f9",
+          "question": "Will Evan Pettus be the leader of Venezuela end of 2026?"
+        },
+        {
+          "id": "0xbc4e5a49c32f7d9cc55654ddfbcf8f75706edc07a11ae327730bb877750bbeaa",
+          "question": "Will Jorge Pinto win the 2026 Portugal presidential election?"
+        },
+        {
+          "id": "0xf2e51acfbb6d0414dc2ace81b7dc2af7c165e443dcb91f6caa7aab6d6ab4f06d",
+          "question": "Will Chelsea Clinton win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0xbcb33ad98c8141b10f2350ef687eddf0660484ecc15be42ecdae64339e64dce1",
+          "question": "Will Andr\u00e9 Ventura win the 2026 Portugal presidential election?"
+        },
+        {
+          "id": "0xd1747284d6048b2a3dcfbee489db405f36de18f9590197dd0e5c9f0c246bf050",
+          "question": "Will Byron Donalds win the 2028 Republican presidential nomination?"
+        },
+        {
+          "id": "0x414378275cb214b747245942be889ee1e077c56d1c00eb4d726629c95f22b5a5",
+          "question": "Will Kim Kardashian win the 2028 Republican presidential nomination?"
+        },
+        {
+          "id": "0x836b850fc838195374862551a36f1c8691d96ff01e58b0a071f0fc1a0e357fb1",
+          "question": "Will LeBron James win the 2028 US Presidential Election?"
+        },
+        {
+          "id": "0xf05b4b55336a4c1c7b44c726911d2b559732cff7bad339084de86ae364dc85f6",
+          "question": "Will Zohran Mamdani win the 2028 US Presidential Election?"
+        },
+        {
+          "id": "0xfbb80ea5f8fc02ee7df8bd4f58790e1d04b874078a49a7b7028a74a2075100c9",
+          "question": "Will Elon Musk win the 2028 Republican presidential nomination?"
+        },
+        {
+          "id": "0xd997dc2a212a7d6673375a3b016db1fb214247142f8cde0cbf07f8e6d789877c",
+          "question": "Will Vivek Ramaswamy win the 2028 Republican presidential nomination?"
+        },
+        {
+          "id": "0xae70ab9bf1c3726fe430a2ba8b517697ae24e0f0ab554b876a5b521153068882",
+          "question": "Will Tim Walz win the 2028 US Presidential Election?"
+        },
+        {
+          "id": "0x5969cbb46aca5319b19e19a3c6f63de098950b675bf268f30f4d035508da1957",
+          "question": "Will Josh Shapiro win the 2028 US Presidential Election?"
+        },
+        {
+          "id": "0x3cd6e52603d80ddbbdac9b1a4d43f9b7faa6aae4fae4d0fdfad3bd58454da7d3",
+          "question": "Will Jasmine Crockett win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0x7190eccbd0677d5d0ae8cdf598b37e945a346915c666dda11468dc9970657a56",
+          "question": "Will John Thune win the 2028 Republican presidential nomination?"
+        },
+        {
+          "id": "0xf2cea45ec282af4f302d2ab85ede73678cd692ebf8c3ab6d52bfa5e19f44c553",
+          "question": "Will Matt Gaetz win the 2028 Republican presidential nomination?"
+        },
+        {
+          "id": "0x29283b56d3eec6d1d89fff51793d9d2e01579d2379b1d3e9ebda175d3561e809",
+          "question": "Will Phil Murphy win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0xe06a7e94cf2fa8dc2085b7610fe16e9be1cde6654f34d365c13da1149b276c61",
+          "question": "Will Oprah Winfrey win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0xed888eb64bffa457086fb5904e9b2046da9aa31c5db36e9d4a303efa7e850d76",
+          "question": "Will Lu\u00eds Marques Mendes win the 2026 Portugal presidential election?"
+        },
+        {
+          "id": "0xc4435df23facee8c4cd86090310c7835c2a0425646b2588b0a02e67fa42f444e",
+          "question": "Will Glenn Youngkin win the 2028 US Presidential Election?"
+        },
+        {
+          "id": "0xd5659eea81cada0bac656f5a9099861786cbae6755e2e1ac2c9e9441908b551f",
+          "question": "Will Steve Bannon win the 2028 Republican presidential nomination?"
+        },
+        {
+          "id": "0xdce84960dce38aa4a5800a5eba7c9ac34d2ce49ba9d44c42572c472d468af264",
+          "question": "Will Raphael Warnock win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0x7f695758278e6d4d9e63df862afa88d664d3402a3d26e4d32ae05121cdbddba6",
+          "question": "Will Kim Kardashian win the 2028 US Presidential Election?"
+        },
+        {
+          "id": "0xd94b47bdeba16ae948bfb147bda059f3543d6fca73291644dfff5268bba7a797",
+          "question": "Will Tucker Carlson win the 2028 US Presidential Election?"
+        },
+        {
+          "id": "0x68e3c4e0dd8f82d010060032006fd157401b0bd8e04bd2953ae293e31eb99bf6",
+          "question": "Will Elon Musk win the 2028 US Presidential Election?"
+        },
+        {
+          "id": "0xd10bc768ede58b53ed400594240b0a0603134a32dab89ec823a18759cbc180ca",
+          "question": "Will Rand Paul win the 2028 Republican presidential nomination?"
+        },
+        {
+          "id": "0xa062dea464f0e8fc3381176494198cf45574ec190eca77a40f49988320fa15f2",
+          "question": "Will Ant\u00f3nio Jos\u00e9 Seguro win the 2026 Portugal presidential election?"
+        },
+        {
+          "id": "0x46dbd48d6bde5b81edb480e0f676a2cdda6c6b592c4d86a9367c7ad5a9870195",
+          "question": "Will Liz Cheney win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0x01dffa7abae7e5d9b7fb44b06d537c5ac932e2ca422ab4b53366672f5e2dc7d6",
+          "question": "Will Greg Abbott win the 2028 US Presidential Election?"
+        },
+        {
+          "id": "0x1945a8b23e313ed7423b6b6fd556f9ab5578900376b565a61dc480a5f4f35d21",
+          "question": "Will Hunter Biden win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0x88d67705780a3d922317ecb0c78a947a306174d0510df2ae89394d5abfb28206",
+          "question": "Will Barack Obama win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0x41c6341dd79903aca4bb0c29f5a7976946c3774d2fd72f38cbb7de7092144520",
+          "question": "Will Mike Pence win the 2028 Republican presidential nomination?"
+        },
+        {
+          "id": "0xc44edcfdedb422bae8ff1803e2178d1ee025fc41efd81400ccbede709e018841",
+          "question": "Will MrBeast win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0x8fbcb151e2c988df5a43abb02298014b7daf34c008f3eed9188dd16a2a19bec1",
+          "question": "Will Jared Polis win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0xd65891729ce093cc12236856837eba1a0872fc7998fd4294c21346f7db68079c",
+          "question": "Will Josh Shapiro win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0x72b25fe7b05903658eea56ffd995dc4f0f252d49d6a9a202bac103dd29ab2ba5",
+          "question": "Will Sarah Knafo win the Paris mayor election?"
+        },
+        {
+          "id": "0xe90b27f08082e17740308fdc957528d29a3f334a9ecaeefd056a3427a4cfdaaf",
+          "question": "Will Jo\u00e3o Cotrim Figueiredo win the 2026 Portugal presidential election?"
+        },
+        {
+          "id": "0x2b1e18ef56cb7222ce2fb03d6cd9fb8fcca06d80b64d0dacbe6ce2f00ab31d00",
+          "question": "Will Henrique Gouveia e Melo win the 2026 Portugal presidential election?"
+        },
+        {
+          "id": "0xa9549c44687993a9a154347c6907092341459b927efaa3f2b49009ca2c4e40a1",
+          "question": "Will Jamie Dimon win the 2028 US Presidential Election?"
+        },
+        {
+          "id": "0x450810ae738a0ff820d3248f2b24937f63fb8c8cf422ed2a915125adb4d9d3c8",
+          "question": "Will Andrew Yang win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0x3535fb2f4aef6619dde8b367cb5e5d209526bb496d5d9778428c58a0252435e3",
+          "question": "Will Zohran Mamdani win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0xf8dbde8b6e038775a673947e59da2de15a2127272b50b9877400fdbf7cfc3026",
+          "question": "Will Tom Brady win the 2028 Republican presidential nomination?"
+        },
+        {
+          "id": "0x3e218c99a1335641b3a5ee6c887521d19b0c28fddd6b99c254a07968e35c0b1b",
+          "question": "Will Michelle Obama win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0x7ad403c3508f8e3912940fd1a913f227591145ca0614074208e0b962d5fcc422",
+          "question": "Will JD Vance win the 2028 US Presidential Election?"
+        },
+        {
+          "id": "0x1970bcce75e3674660917ae4685b433a9b1e0152d810a8d7c346dfd5e00694c2",
+          "question": "Will Cory Booker win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0x8ecd1d15e521b7d1020ad5596cc981c8764e9dcfbc3648f582e1a5138aee7185",
+          "question": "Will Beto O\u2019Rourke win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0xe0173375b7eaccb836f7b92d28a9a2d1cc69e54e5a65fae89a5d7e49aadd332e",
+          "question": "Will Nikki Haley win the 2028 US Presidential Election?"
+        },
+        {
+          "id": "0x30cfb887558b20373a984da60c372fe5a90c0296aa6d8bb413a8aa7543846da2",
+          "question": "Will Bernie Sanders win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0x00ad3bb5284b0b2314b1a2d42812fe292f606619c6278bd95c9d905816c240f6",
+          "question": "Will Sarah Huckabee Sanders win the 2028 Republican presidential nomination?"
+        },
+        {
+          "id": "0x66b906b8205f48a26beb8e553bbb1e7954e87e4f6e1d539823441221d1806e8f",
+          "question": "Will Stephen Smith win the 2028 US Presidential Election?"
+        },
+        {
+          "id": "0x663b88d3a8f2341bb8d878709dc78632bcaf7512e577bd15521e5d8ed933efbc",
+          "question": "Will Hillary Clinton win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0x8fc141205ebce5adf437bfdf4d0c5ff58ff24293b79c9431991346c208bb48ed",
+          "question": "Will Tulsi Gabbard win the 2028 US Presidential Election?"
+        },
+        {
+          "id": "0xbbbece074c2d4010e39e39c85ed67b1131180fcea616073c893fb6beaf51d783",
+          "question": "Will Michelle Obama win the 2028 US Presidential Election?"
+        },
+        {
+          "id": "0x7f3c6b9029a1a4a932509c147a2cc0762e1116b7a4568cde472908b29dd4889d",
+          "question": "Will the U.S. invade Venezuela by January 31, 2026?"
+        },
+        {
+          "id": "0x1480b819d03d4b6388d70e848b0384adf38c38d955cb783cdbcf6d4a436dee14",
+          "question": "Will the next Prime Minister of Hungary be P\u00e9ter Magyar?"
+        },
+        {
+          "id": "0x1a01bf78f56a507fcb666d564d8c8b91b0750679163ed6e96746102c9b7d285d",
+          "question": "Will Fl\u00e1vio Bolsonaro win the 2026 Brazilian presidential election?"
+        },
+        {
+          "id": "0x3b1a3232b14a029f96a3e1b04a5d8dde31575d74024389b53631e73b4a494480",
+          "question": "Will Raul Perestrello win the 2026 Portugal presidential election?"
+        },
+        {
+          "id": "0x0f8ef3cc906ba7ba94a44724738df44bdd5f73e59e40c9c8b4ff8569e349643c",
+          "question": "Will Kim Kardashian win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0xa19724e09c3641fcc504a0b290dfdb8882747d88fc459d1af8d4e35041a8e366",
+          "question": "Will Tim Walz resign by January 31?"
+        },
+        {
+          "id": "0x64396449b471b10b006285fa49dd9a5df535694de7b4c703fdeb0d88d5c4cd33",
+          "question": "Will Vivek Ramaswamy win the 2028 US Presidential Election?"
+        },
+        {
+          "id": "0x5f1b1caf70eb994bfff2986727a05a3ac9f7ec8b0da4017f7732596d023e5a07",
+          "question": "Will Kristi Noem win the 2028 Republican presidential nomination?"
+        },
+        {
+          "id": "0x33dd906869981227e2b2711b03aa578e4fbec0cd618a3905d364a4ca07d83b46",
+          "question": "Will Josh Allen win the 2025\u201326 NFL MVP award?"
+        },
+        {
+          "id": "0x09ad4955c170d46c6d80b5f554435b19e229ff7dbe55370892b64782336cc3b9",
+          "question": "Will Andy Beshear win the 2028 US Presidential Election?"
+        },
+        {
+          "id": "0x61a1278884fa70d68d4bcaaf72fad55bbdb063cac28c6947472ca91635fab10f",
+          "question": "Will Katie Britt win the 2028 Republican presidential nomination?"
+        },
+        {
+          "id": "0xec5f006a67dc2d3b757968aac03b9d6c82b1314e7e43bb484c01f3738648e27f",
+          "question": "Will Andr\u00e9 Ventura win the 1st round of the 2026 Portugal presidential election?"
+        },
+        {
+          "id": "0x3265b10daeb30dbcc3214bd02e488551d0a5d3028392f4152e4750b943fbfc91",
+          "question": "Will Tim Walz win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0x98933c78b5e277b62d91a6c174b412218de000b54c4c67ec8673bf561cec6e81",
+          "question": "Will Ruben Gallego win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0xfee07be730188c94cd3644ed6f107fa3ea2dfab9989ce8d39aeeae064766abe3",
+          "question": "Will Jon Stewart win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0xc8d4e2c302e248cb5cd7179c589281e93b5c594baa57e04d3f0b934bd8df449d",
+          "question": "Will Trump and Machado share the Nobel Peace Prize?"
+        },
+        {
+          "id": "0xe6bd2436dc977d90baec3b0de343fba9c385f52d11c862885b22fbf7a3fa07c7",
+          "question": "Will Dante Moore be the second pick in the 2026 NFL draft?"
+        },
+        {
+          "id": "0x781a06aa5779f97724b75ed8128aaf72c4a8955c893a6fefdc0efd7cb001c513",
+          "question": "Will John Cornyn win the 2026 Texas Republican Primary?"
+        },
+        {
+          "id": "0x9d4f94f82de9d13ff1d3318639ab9000ee2533949e525343156f374fb00bd9b1",
+          "question": "Will Mark Cuban win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0x53502cc288507264787a4d2e5c951b21bb08946fa7850e57974c47abb970280d",
+          "question": "Will Ethan Hawke win Best Actor at the 98th Academy Awards?"
+        },
+        {
+          "id": "0x46e125ed5c19495501ddddffbc6a11651219dc15a1baedf7eb0dddb2d7589ff5",
+          "question": "Will Mar\u00eda Corina Machado enter Venezuela by January 31?"
+        },
+        {
+          "id": "0x4f02b9cf70e514964fcb9aa2f7873d2b0d1aa0986da096cce7e6687e78da00f3",
+          "question": "Will Ivanka Trump win the 2028 Republican presidential nomination?"
+        },
+        {
+          "id": "0xca1d1139b0c3a29983407f499476ae642482788e841a277eb86faeeb9fa4a85c",
+          "question": "Will John Fetterman win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0xfda7c9a4106beba4799d4e38ce4e8df14ea2651bec78cdd12b7295aa3cc42268",
+          "question": "U.S. recognizes Machado as leader of Venezuela by January 31?"
+        },
+        {
+          "id": "0x7d83ff41dd492f5110cc8083e652f343fada80a2cd090e73cad3ccb1566b706a",
+          "question": "Will Mike Vrabel win NFL Coach of the Year?"
+        },
+        {
+          "id": "0x822e61527476cabf98927e3aad385c5ecdae7086f945535f2c1fd9ae8dbfa46e",
+          "question": "Will George Clooney win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0xefe6300fd8a053cca53df8f1bd536c5f571a136392c0516e7b16e39f1addecb0",
+          "question": "Will JB Pritzker win the 2028 US Presidential Election?"
+        },
+        {
+          "id": "0xc720fcfa9e29346a976902f87e0f0f3bdc31d43af501b4fdef4f1780a30dd359",
+          "question": "Will Chris Murphy win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0x4d4bceee5f59f75230c6438f69fc913a6da7afa4098ce0734655045c02a730fc",
+          "question": "Will Josh Hawley win the 2028 Republican presidential nomination?"
+        },
+        {
+          "id": "0x81a537b379a35e4e17c286d3b37394e94bd74c1779bbe9a13670eb991b201a3a",
+          "question": "Will Tarcisio de Freitas win the 2026 Brazilian presidential election?"
+        },
+        {
+          "id": "0x0ac23db1e56971022bc7e822b907a2466c618b34104ea72bc9fa95e41c86a9c6",
+          "question": "Will Ted Cruz win the 2028 Republican presidential nomination?"
+        },
+        {
+          "id": "0x4567b275e6b667a6217f5cb4f06a797d3a1eaf1d0281fb5bc8c75e2046ae7e57",
+          "question": "Will Gavin Newsom win the 2028 US Presidential Election?"
+        },
+        {
+          "id": "0x32b09f6390252b37d674501527e709016d55581b2c1e544bd4b8167f5f732f4c",
+          "question": "Will Jesus Christ return before GTA VI?"
+        },
+        {
+          "id": "0x8dbf6b51f302fd401065706245c144e93fe209abce183199433d4484b3ed8aff",
+          "question": "Will Dwayne 'The Rock' Johnson win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0x139bc939a90e0414f2446ef09b30e3c5a14cc0fa8496c11bb6822954ad674a17",
+          "question": "Will the U.S. invade Venezuela by March 31, 2026?"
+        },
+        {
+          "id": "0x3367d22cd2a673014f1960742afdf8601040a8ad856dc0a98bd1a44ee99504e2",
+          "question": "Will Ron DeSantis win the 2028 US Presidential Election?"
+        },
+        {
+          "id": "0xd7a0d72b19ca48b06b0029684677f581e32f133c367d7a19c2f1e4ad07066af7",
+          "question": "Will Nikki Haley win the 2028 Republican presidential nomination?"
+        },
+        {
+          "id": "0x2053d8515f1b8cbeea4ccdb56e60e89c2617e43a8660d95166b8e71d27865277",
+          "question": "Will Marco Rubio win the 2028 US Presidential Election?"
+        },
+        {
+          "id": "0x96d0b9a697ac2cfbf5654a1e9449abbaf5861a7d77dc6ee47c7f60a99670954a",
+          "question": "Will Joao Fonseca win the 2026 Australian Open?"
+        },
+        {
+          "id": "0x4b5c1bdd69f7a0f310ed82d793edf9de10b6aa24d1f5f700e331ce9a1a91c752",
+          "question": "Will Felix Auger Aliassime win the 2026 Australian Open?"
+        },
+        {
+          "id": "0xd5aa092bc0c43df3e861ac48653d38543758475a339463d7abd14f21f6d0fe8e",
+          "question": "Will Lorenzo Musetti win the 2026 Australian Open?"
+        },
+        {
+          "id": "0x9cd77217b2ab264fe4f6d302f662c0a91f349fe5798f1f98d70bb2311712791b",
+          "question": "Will Tulsi Gabbard win the 2028 Republican presidential nomination?"
+        },
+        {
+          "id": "0x9345d5142a67f5541264c96515496affee02580f1c572680759eac9fd2a1588a",
+          "question": "Billionaire one-time wealth tax passes in California election 2026?"
+        },
+        {
+          "id": "0xc8f1cf5d4f26e0fd9c8fe89f2a7b3263b902cf14fde7bfccef525753bb492e47",
+          "question": "Will Stephen A. Smith win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0xf2fb4784ceb4d41ce23703da426700f710320ec5b711b6e3784bdaac24d94c23",
+          "question": "Will Nikola Jokic win the 2025\u20132026 NBA MVP?"
+        },
+        {
+          "id": "0x42631e1a8c8e6389422b58b8e15b1b551892b9833651aa3bab25afab124354b5",
+          "question": "Will Brian Kemp win the 2028 Republican presidential nomination?"
+        },
+        {
+          "id": "0xe883f2fda25a605a184bb5fe583afce6cc21ea0b348b6a3728ec3067553c548d",
+          "question": "Will J.B. Pritzker win the 2028 Democratic presidential nomination?"
+        },
+        {
+          "id": "0xd0c4c60c8e68ee15974df3aa7d217225e98020fab9fcdb32d10f8e3d285e1619",
+          "question": "Will Glenn Youngkin win the 2028 Republican presidential nomination?"
+        },
+        {
+          "id": "0x7abed80b88301210ee83b7b14ec41bc9a5161e1af07254fbb26c6e2bf7182766",
+          "question": "Will Erika Kirk win the 2028 Republican presidential nomination?"
+        },
+        {
+          "id": "0x214093035e429b91df322bd20c55d9f611f741f67472a63f7623a9afc0cffa57",
+          "question": "Will Greg Abbott win the 2028 Republican presidential nomination?"
+        },
+        {
+          "id": "0x8a097683985eecb3e710635a89c520de6a3f2727229f05947f99316e72d4f04f",
+          "question": "Will Jafar Panahi win Best Director at the 98th Academy Awards?"
+        },
+        {
+          "id": "0xc586d15be76278848a26c761c2fcf70f8cebca71815cfab83e656ff5c6ec13a9",
+          "question": "Will Ivanka Trump win the 2028 US Presidential Election?"
+        },
+        {
+          "id": "0xe30fd2f2a646223668e2c118f728bf2e7c4ea6326824ade6ef7d9a532410d144",
+          "question": "Will Taylor Fritz win the 2026 Australian Open?"
+        },
+        {
+          "id": "0xa4d169eea50b33fc78ab903e514bc1bd12f319734bd41fdeab990e97eb7bb7fb",
+          "question": "Will Drake perform during the Super Bowl LX halftime show?"
+        },
+        {
+          "id": "0x281565cae359040475640be8bc20f4efe15245fe0251805fd338fb1a3e45ffae",
+          "question": "Will Shai Gilgeous-Alexander win the 2025\u20132026 NBA MVP?"
+        },
+        {
+          "id": "0xe2bdf6c18c8ab5ad5d3be5f95dd749e88d1dee7ac7c4dbf5101013a5c055e3df",
+          "question": "Will Dwayne 'The Rock' Johnson win the 2028 US Presidential Election?"
+        },
+        {
+          "id": "0x4a9d58d4da874e26708f5bdb014eb07a06aeebb927068d169d43831595386557",
+          "question": "Will Donald Trump Jr. win the 2028 Republican presidential nomination?"
+        },
+        {
+          "id": "0xa01d48a973e40770719dab42faf1aeae5da4376d9eca46e77265c7551d1be0f7",
+          "question": "Will Delcy Rodr\u00edguez be the leader of Venezuela end of 2026?"
+        },
+        {
+          "id": "0x70187b4770796788b9d1f3fc6652c596870a9a837b96c832441652588f26029d",
+          "question": "Will Mar\u00eda Corina Machado be the leader of Venezuela end of 2026?"
+        },
+        {
+          "id": "0x55f70d57892eba13b084284976b5af3eec9299b2f612ef6f781602d3f88881f2",
+          "question": "Will Ant\u00f3nio Jos\u00e9 Seguro win the 1st round of the 2026 Portugal presidential election?"
+        },
+        {
+          "id": "0x5ec80dc407457301f282a2b44341947afc700dfaa7923d14c8894e04bc63b03f",
+          "question": "Will the next Prime Minister of Hungary be Viktor Orb\u00e1n?"
+        },
+        {
+          "id": "0x62727c536b08c4a73edb786408542ccecc4a0cf9b0e14ce571b5d00d84e72e04",
+          "question": "Will Jannik Sinner win the 2026 Australian Open?"
+        }
+      ]
+    },
+    "3": {
+      "n_members": 46,
+      "coherence": 0.7196527123451233,
+      "keywords": [
+        {
+          "word": "league",
+          "count": 31
+        },
+        {
+          "word": "champions",
+          "count": 17
+        },
+        {
+          "word": "english",
+          "count": 14
+        },
+        {
+          "word": "premier",
+          "count": 14
+        },
+        {
+          "word": "liga",
+          "count": 14
+        },
+        {
+          "word": "villarreal",
+          "count": 2
+        },
+        {
+          "word": "madrid",
+          "count": 2
+        },
+        {
+          "word": "fulham",
+          "count": 1
+        },
+        {
+          "word": "sevilla",
+          "count": 1
+        },
+        {
+          "word": "eintracht",
+          "count": 1
+        }
+      ],
+      "members": [
+        {
+          "id": "0x8c5699dd31e0782b3bff9d3aaf4a0f4077a1449cfa8d2e821c6e881e033c4afb",
+          "question": "Will Fulham win the 2025\u201326 English Premier League?"
+        },
+        {
+          "id": "0xefe3a05506e08fefb8c1998aa607fcce31e32a6852ef60bee4c71d0935c97950",
+          "question": "Will Sevilla win the 2025\u201326 La Liga?"
+        },
+        {
+          "id": "0x683b0254bde8d1ef08206953015629f25b9869d9770807baab939f6aaba4ae5c",
+          "question": "Will Villarreal win the 2025\u201326 La Liga?"
+        },
+        {
+          "id": "0x5dac59c04086e3921abc98c1f3b4a1e6a3f4962d8d8869a5e91b58df46b081a1",
+          "question": "Will Eintracht Frankfurt win the 2025\u201326 Champions League?"
+        },
+        {
+          "id": "0x65a2dd0af5f4155915a701e8fdbcdb2f547fb5925d0bcef0b373a8c39a16613e",
+          "question": "Will Liverpool win the 2025\u201326 English Premier League?"
+        },
+        {
+          "id": "0x2ca58175aa8080357d9706c535bb0be218ce7bb156dc48753e0d8b8ee6b56635",
+          "question": "Will Aston Villa win the 2025\u201326 English Premier League?"
+        },
+        {
+          "id": "0x3bdd5a6ad40137100671169c1a5602992da863643a6c300bd3b76771d55b70f4",
+          "question": "Will Mallorca win the 2025\u201326 La Liga?"
+        },
+        {
+          "id": "0xafb35c067db349948912b0c7443a9837ff9cbfacb9bb952a9cc64081f9c792de",
+          "question": "Will Athletic Club win the 2025\u201326 Champions League?"
+        },
+        {
+          "id": "0x7e2484f2f94720b76d9380f26a35a64a2fe0e638467d4840c2a6ac7d879149e5",
+          "question": "Will Wolves win the 2025\u201326 English Premier League?"
+        },
+        {
+          "id": "0xa4ff70673e8d6f76261400c0ffd9d7970bf6d8aec5f8f44b20434e59e3e3141e",
+          "question": "Will Leeds win the 2025\u201326 English Premier League?"
+        },
+        {
+          "id": "0x5084907f4caed11fff6f029ecd5d66bf24f3afbf970352c0964b547a9079a374",
+          "question": "Will Ajax win the 2025\u201326 Champions League?"
+        },
+        {
+          "id": "0xca0ce5347ab5282bc62bd666f532ffda671ee077dc32219313f545b7e702e33f",
+          "question": "Will Villarreal win the 2025\u201326 Champions League?"
+        },
+        {
+          "id": "0x300603cf45c00af47424fffe1a012708d7c8d5f9830c0365c3bbc2f5924cc67d",
+          "question": "Will West Ham win the 2025\u201326 English Premier League?"
+        },
+        {
+          "id": "0xfdc5e6ae42b83659ba19f06ec0051c001ad5f9679f4b0b4e4dbaac5c6e82f4e9",
+          "question": "Will Osasuna win the 2025\u201326 La Liga?"
+        },
+        {
+          "id": "0x135e00bfdb16be6111f194cb8365ac5645707c3a43ce3ff298ab4dbf67fcdd09",
+          "question": "Will Benfica win the 2025\u201326 Champions League?"
+        },
+        {
+          "id": "0xe371bb4a38f3714fc1ef7a8ecdaca8a8005aecead9ec95eb5ed8184ca55a94d7",
+          "question": "Will Slavia Pragu win the 2025\u201326 Champions League?"
+        },
+        {
+          "id": "0xb7d6b207e1db1e7ea07a7fb37cfd42847f64f0efb0c4dc2af25b0fdd5cee1066",
+          "question": "Will Union Saint-Gilloise win the 2025\u201326 Champions League?"
+        },
+        {
+          "id": "0xcbb6f3d8c0443114ce3c151a1dbcc5b73d34444b0be0e44c42272a1653c3f1f8",
+          "question": "Will Everton win the 2025\u201326 English Premier League?"
+        },
+        {
+          "id": "0x3318eb8ca655b3e9be7d3c44b0a0f0533c2c806f33111d8c85c4f5ac73a5d4bf",
+          "question": "Will Girona win the 2025\u201326 La Liga?"
+        },
+        {
+          "id": "0x29eafc104d7824c838e194766074f50b352f866abd9bc2fe536b1cdf93e3663f",
+          "question": "Will Brentford win the 2025\u201326 English Premier League?"
+        },
+        {
+          "id": "0xa1f08ec3bcc1434cb0b695bd5ee9f81268ef45fb73f752b3a1c1fb1d35750866",
+          "question": "Will Real Madrid win the 2025\u201326 La Liga?"
+        },
+        {
+          "id": "0x5203a95598f18205fa5d1fae7afdefedfbb356679f1ae6e3911c54883a462034",
+          "question": "Will Crystal Palace win the 2025\u201326 English Premier League?"
+        },
+        {
+          "id": "0x42300049e0d90f49cb2e7504dae57a636750f668d6c2c713004b586327ce8abb",
+          "question": "Will Celta Vigo win the 2025\u201326 La Liga?"
+        },
+        {
+          "id": "0x536ee0e8926c58f8b14f08ff6769dcf01ecb64716e598c12d1d1335af287a198",
+          "question": "Will Burnley win the 2025\u201326 English Premier League?"
+        },
+        {
+          "id": "0x7bd85b3f517c51a036127fd585193e811754662a33e0657fae6f2dee09755c39",
+          "question": "Will Napoli win the 2025\u201326 Champions League?"
+        },
+        {
+          "id": "0x40c8ee9e0d66c80695e98b00c1930db96e39554f0eb0801e5cc271ad3f60025a",
+          "question": "Will PSV win the 2025\u201326 Champions League?"
+        },
+        {
+          "id": "0x3d7df1bd2cb3e1dbdfa20f368fbdbe3ed55d091174a633fd0bc21b5e3d3732b9",
+          "question": "Will Brighton win the 2025\u201326 English Premier League?"
+        },
+        {
+          "id": "0x2a9458b5d5b7e639ce2ab0c60dfaa986d1a8c3a99174ec41ad9ee762c08494d4",
+          "question": "Will Alaves win the 2025\u201326 La Liga?"
+        },
+        {
+          "id": "0xa6a324f5aed32ad2b72b68d276ed4c25a6ca628caf70b602bb2dc2f5e4b4be92",
+          "question": "Will Espanyol win the 2025\u201326 La Liga?"
+        },
+        {
+          "id": "0x3d73153a20c3bbf05c703153aab4c1ca3afdc36abad76943c32861b72013d513",
+          "question": "Will Levante win the 2025\u201326 La Liga?"
+        },
+        {
+          "id": "0x5fce4b8dbbaed7ebacd0d99095a21679099c897de055d326a009851e7d68c28d",
+          "question": "Will FC Barcelona win on 2026-01-15?"
+        },
+        {
+          "id": "0xe64a95a022a9012b0e5cba0c4c3c8e81caf10f7dd5a091c24714ed154e02c13c",
+          "question": "Will Galatasaray win the 2025\u201326 Champions League?"
+        },
+        {
+          "id": "0xdd926c00d4bfddfc9051c380151f77509d3eef2e7bef20f8d3aec9cbd50e7586",
+          "question": "Will Juventus win the 2025\u201326 Champions League?"
+        },
+        {
+          "id": "0x2787c94094285ca0569345219ce0a502d96326767f338a1dec21fb5a296f99ff",
+          "question": "Will Sporting win the 2025\u201326 Champions League?"
+        },
+        {
+          "id": "0xc3d9deeb6a32be1d084651a5d55aba34bc54bc18fabf2af8bc94b30849d70033",
+          "question": "Will Valencia win the 2025\u201326 La Liga?"
+        },
+        {
+          "id": "0x0a417e314c60d4221af45fad3ca308ebc060532d8f057da93743163388d20c10",
+          "question": "Will Betis win the 2025\u201326 La Liga?"
+        },
+        {
+          "id": "0x5974071cfbede55c04c1e44963c872de571a9286904c8edb1ded240e597a8011",
+          "question": "Will Bournemouth win the 2025\u201326 English Premier League?"
+        },
+        {
+          "id": "0x7e6021ad37547bbec1c6193df617be4ecbb0693d48bd8bb2d57bc290708335f8",
+          "question": "Will Olympiakos win the 2025\u201326 Champions League?"
+        },
+        {
+          "id": "0xcb06319aa9e029904c93c1df7d10b7ce7d6aab2b25b8f661e0cf57ea048a1567",
+          "question": "Will Atletico Madrid win the 2025\u201326 Champions League?"
+        },
+        {
+          "id": "0xcba24842ceac7a40d2a8b9adde1f4407999b6505193b9fd68156ae76fbffa706",
+          "question": "Will Arsenal win the 2025\u201326 English Premier League?"
+        },
+        {
+          "id": "0x0856ff922ee902e07ac1401def92503d797cfa4160942a26ffb9065f1d596d26",
+          "question": "Will Nottm Forest win the 2025\u201326 English Premier League?"
+        },
+        {
+          "id": "0xe4f25e05d842810ff5944ba1e2953c6ced1e869cac3b44d15b32fd404ddb4bf4",
+          "question": "Will Inter win the 2025\u201326 Champions League?"
+        },
+        {
+          "id": "0x909bcd8ae00d0cd47b561a40d655ae4b71f24df00e7d82b18874698046f61f0e",
+          "question": "Will Oviedo win the 2025\u201326 La Liga?"
+        },
+        {
+          "id": "0x5e67d2599f32e6cd86a760bf28796da2e796377e5d711b739a1686b0d17dc31c",
+          "question": "Will Getafe win the 2025\u201326 La Liga?"
+        },
+        {
+          "id": "0x2571face33de8d5c3541fb569c10af59bb80fa909e1469af1c35919803943ea6",
+          "question": "Will Tottenham win the 2025\u201326 Champions League?"
+        },
+        {
+          "id": "0xf9d58b904a94f0431d5bee7070650a305566927b3f7bf00f8529e20c9a99a6d4",
+          "question": "Will Atalanta win the 2025\u201326 Champions League?"
+        }
+      ]
+    },
+    "4": {
+      "n_members": 48,
+      "coherence": 0.6070384383201599,
+      "keywords": [
+        {
+          "word": "cup",
+          "count": 22
+        },
+        {
+          "word": "fifa",
+          "count": 18
+        },
+        {
+          "word": "world",
+          "count": 18
+        },
+        {
+          "word": "nba",
+          "count": 16
+        },
+        {
+          "word": "finals",
+          "count": 16
+        },
+        {
+          "word": "super",
+          "count": 8
+        },
+        {
+          "word": "bowl",
+          "count": 8
+        },
+        {
+          "word": "nhl",
+          "count": 3
+        },
+        {
+          "word": "stanley",
+          "count": 3
+        },
+        {
+          "word": "san",
+          "count": 2
+        }
+      ],
+      "members": [
+        {
+          "id": "0xc094fd60c0a09ba0df48a086ef91e12390fa8777fcd9cb63c154e9622cb1d497",
+          "question": "Will the Memphis Grizzlies win the 2026 NBA Finals?"
+        },
+        {
+          "id": "0x29635b9089e6c26fdb8ac7eb57bfe2ce1e97ebea54ed4b950ba1524e3cc31c8c",
+          "question": "Will the San Francisco 49ers win Super Bowl 2026?"
+        },
+        {
+          "id": "0x33a87d02fa01e958929385c74b8627d32cc4474e9ebd312d268865c5207147fa",
+          "question": "Will Jordan win the 2026 FIFA World Cup?"
+        },
+        {
+          "id": "0xeac63aba0e4483cad2138aa41401e30363f50c8b583476a774cc895fa4a51d0f",
+          "question": "Will the Chicago Bears win Super Bowl 2026?"
+        },
+        {
+          "id": "0xa0eafdfa7da17483796f77f4b287d28834ab97db4a9a6e999b52c1ba239bc2f3",
+          "question": "Will the Seattle Seahawks win Super Bowl 2026?"
+        },
+        {
+          "id": "0x39d45b454dcf932767962ad9cbd858c5a6ec21d4d48318a484775b2e83264467",
+          "question": "Will the Buffalo Bills win Super Bowl 2026?"
+        },
+        {
+          "id": "0xc58cfb7397c4f3f803f5c20135cafa7f6d2c87cf3bb1e6138042b95d828e1866",
+          "question": "Will the Charlotte Hornets win the 2026 NBA Finals?"
+        },
+        {
+          "id": "0xc914317b14972d5d15f30740d3bdf32f4028877c13b9d7ccc78b4ba33f67fb1e",
+          "question": "Will the New England Patriots win Super Bowl 2026?"
+        },
+        {
+          "id": "0xef0b57daa506121cbeccb8f0e42de439dc2b64b38eab4a2fa6fc1e06255ac4bd",
+          "question": "Will the Houston Texans win Super Bowl 2026?"
+        },
+        {
+          "id": "0xa6468d69ef786a8ae325f9a7bda944fbea3984f3d8c6617ca321c804961999f9",
+          "question": "Will the Denver Broncos win Super Bowl 2026?"
+        },
+        {
+          "id": "0x2b57ed983eb34b5e081fc8dcc1372d688963fd4d9c9018b8d2ba36867b26b236",
+          "question": "Will the Los Angeles Rams win Super Bowl 2026?"
+        },
+        {
+          "id": "0x22e7b5e35423e76842dd3a5e1a21d13793811080d5e7b2896d0c001bd5e97d54",
+          "question": "Will the Oklahoma City Thunder win the 2026 NBA Finals?"
+        },
+        {
+          "id": "0xe709dcb12986139fa5b4cc793069d0c64bde1bfb351914c95bdd6149ec91a3ee",
+          "question": "Will the New Orleans Pelicans win the 2026 NBA Finals?"
+        },
+        {
+          "id": "0xf8f63bb47b2a7c2e0c1be3cedf4075079b11c07476d76a9469065b0c4791961a",
+          "question": "Will the Colorado Avalanche win the 2026 NHL Stanley Cup?"
+        },
+        {
+          "id": "0x99e1c58ebdd14da444867ce78b5bb13cf6fe2bd4ba25ee00e57d7db99b28748e",
+          "question": "Will Indiana win the 2026 College Football National Championship?"
+        },
+        {
+          "id": "0x314ec5fd53735e23cadc475161e37b1529984d97097c0fdf417941c44b6b274e",
+          "question": "Will the Brooklyn Nets win the 2026 NBA Finals?"
+        },
+        {
+          "id": "0xbaf7780f9059e34b84301fd411f8dc573b4d56adfe6e0cda33daf304b1438da4",
+          "question": "Will Ecuador win the 2026 FIFA World Cup?"
+        },
+        {
+          "id": "0x0d082a85f48a5226b1205acdb6e95ead2fe373acabcf6c471f5895f86f42a276",
+          "question": "Will the Minnesota Wild win the 2026 NHL Stanley Cup?"
+        },
+        {
+          "id": "0x965ebc5d79eb1ec02cad67245a44b9e45b33359018f013fb6cf81d5bbf7bcc8d",
+          "question": "Will Uzbekistan win the 2026 FIFA World Cup?"
+        },
+        {
+          "id": "0xbc2d59e8ea0378f0851c86e84d250e80a5698874db52c13798053841f291dc28",
+          "question": "Will the Sacramento Kings win the 2026 NBA Finals?"
+        },
+        {
+          "id": "0x4405c62496c4fdd275d17ec31567a01534013c518c314ce61bb633b5e7cb6426",
+          "question": "Will the Toronto Raptors win the 2026 NBA Finals?"
+        },
+        {
+          "id": "0x9e5f9d8c384f8fe368b195fa9a780be58643dff7360588a4e577012df8af00a7",
+          "question": "Will New Zealand win the 2026 FIFA World Cup?"
+        },
+        {
+          "id": "0x4c317ee82d81e0a49aa9862a8c2d876fee322064acf02cd8e1346fbed36083e8",
+          "question": "Will the Columbus Blue Jackets win the 2026 NHL Stanley Cup?"
+        },
+        {
+          "id": "0x4e65282819c98c6aed529f357fbf5983b1ae9407a3c25bd50fe97b2906df68f9",
+          "question": "Will the Denver Nuggets win the 2026 NBA Finals?"
+        },
+        {
+          "id": "0xae3ae899f35e79ea05b5a753bafc3001ff0d0de6af7898d2f3d4f0f13d2b56c4",
+          "question": "Will the 49ers win the 2026 NFC Championship?"
+        },
+        {
+          "id": "0x4fe305a2ae995a52ff278895344895fe587b4fec3d5f04347b4dbf5e99bce99c",
+          "question": "Will Qatar win the 2026 FIFA World Cup?"
+        },
+        {
+          "id": "0xf950740bc71136155d6525cc0528a582c81f88812bff227803190c32ca25f54d",
+          "question": "Will Scotland win the 2026 FIFA World Cup?"
+        },
+        {
+          "id": "0x0189df05ed7bf84d799213b01a79571e305c03b2ac5359cfbb3a323448ba20fa",
+          "question": "Will Japan win the 2026 FIFA World Cup?"
+        },
+        {
+          "id": "0x30a8ed0d01b7e8b25334358f71d9ec71c147783c0f908c2e7c7a527905007bf8",
+          "question": "Will the Washington Wizards win the 2026 NBA Finals?"
+        },
+        {
+          "id": "0x5ccfe1b69a582d2985db08a8481a0d74c314b1fce9b4711ae2efb2c6467fe6aa",
+          "question": "Will Mexico win the 2026 FIFA World Cup?"
+        },
+        {
+          "id": "0x233ce0c3969a5cd5079287f16fcd283be7c1db82263e08697f85dbe1b4d2113c",
+          "question": "Will South Africa win the 2026 FIFA World Cup?"
+        },
+        {
+          "id": "0xfe230d510eaf545198c0d62bb17871e5fe8989f1b19aa54c0c062b858360987c",
+          "question": "Will Austria win the 2026 FIFA World Cup?"
+        },
+        {
+          "id": "0x13e1cc703a120883a709d3bb29707097952845d61ca6793ea2b4328bae2a7451",
+          "question": "Will the Boston Celtics win the 2026 NBA Finals?"
+        },
+        {
+          "id": "0x7876851632c295043c66536150a304cb785abdf712ba8489d298c6e6926be106",
+          "question": "Will Uruguay win the 2026 FIFA World Cup?"
+        },
+        {
+          "id": "0x65307f30dce84ac35e41813035d3c04933da830dc4efbbb2fcdc4b282700ef3b",
+          "question": "Will South Korea win the 2026 FIFA World Cup?"
+        },
+        {
+          "id": "0x3fb8a8de2ac275882d72b2c4f22d41776fcf033f9e413a77a84dd395c0d5257c",
+          "question": "Will Saudi Arabia win the 2026 FIFA World Cup?"
+        },
+        {
+          "id": "0x7976b8dbacf9077eb1453a62bcefd6ab2df199acd28aad276ff0d920d6992892",
+          "question": "Will Spain win the 2026 FIFA World Cup?"
+        },
+        {
+          "id": "0x649ad05a2868343271fe82ea692031d567ca1af652e3529788933157e94aa088",
+          "question": "Will the Minnesota Timberwolves win the 2026 NBA Finals?"
+        },
+        {
+          "id": "0xc7c21c8972c773b34f36f67f15dada2584474d959f7e338aca5994727d37ae39",
+          "question": "Will Italy win the 2026 FIFA World Cup?"
+        },
+        {
+          "id": "0x9be56371f6a29d12769b2f196847ee825b9585ebb8bfa042136be031b081eba1",
+          "question": "Will Netherlands win the 2026 FIFA World Cup?"
+        },
+        {
+          "id": "0x289568d555ec620ed6fa33c936c5f42649d3a2e30748a1daf7079f42453fbea4",
+          "question": "Will Ivory Coast win the 2026 FIFA World Cup?"
+        },
+        {
+          "id": "0x796e791e7058571e460278814fc7a3183752285338f1400087b98bef3c447908",
+          "question": "Will the Los Angeles Lakers win the 2026 NBA Finals?"
+        },
+        {
+          "id": "0xf523e45d6bfe49d30e45e4e7794fd6e5f621b0304e07044fef156e6dd4d4b249",
+          "question": "Will the Dallas Mavericks win the 2026 NBA Finals?"
+        },
+        {
+          "id": "0xb6b3d7a2037b3faa7e1306d741840d453432902d73cc9a146a035e40271eae73",
+          "question": "Will the San Antonio Spurs win the 2026 NBA Finals?"
+        },
+        {
+          "id": "0x567f1ff714731fafa702d454a105b064a7ec4d10f6fb71ad3221f4918681c709",
+          "question": "Will the Philadelphia 76ers win the 2026 NBA Finals?"
+        },
+        {
+          "id": "0x7fdbdc09425b6bdbcc812609aa1ea2ba6d1813675a12f80dcf0170acb9429bdc",
+          "question": "Will Morocco win the CAF Africa Cup of Nations Morocco 2025?"
+        },
+        {
+          "id": "0xfbf7ab9e6b6d324ffe436bab8c7a1e10aeb8200e10c1e1dbb35d2959becebc1e",
+          "question": "Will the Golden State Warriors win the 2026 NBA Finals?"
+        },
+        {
+          "id": "0xcdb1f0400949238a63d3e88243d2ada08cd9c2a71985ced9f0cfd5e66354cf90",
+          "question": "Will USA win the 2026 FIFA World Cup?"
+        }
+      ]
+    },
+    "5": {
+      "n_members": 90,
+      "coherence": 0.6989942789077759,
+      "keywords": [
+        {
+          "word": "january",
+          "count": 83
+        },
+        {
+          "word": "bitcoin",
+          "count": 54
+        },
+        {
+          "word": "reach",
+          "count": 29
+        },
+        {
+          "word": "price",
+          "count": 27
+        },
+        {
+          "word": "dip",
+          "count": 23
+        },
+        {
+          "word": "ethereum",
+          "count": 19
+        },
+        {
+          "word": "above",
+          "count": 19
+        },
+        {
+          "word": "silver",
+          "count": 6
+        },
+        {
+          "word": "hit",
+          "count": 6
+        },
+        {
+          "word": "high",
+          "count": 6
+        }
+      ],
+      "members": [
+        {
+          "id": "0x2603d5576c488e4f2a4fa41677917044e796917b2ff251d639b635062fe6b068",
+          "question": "Will Bitcoin reach $100,000 in January?"
+        },
+        {
+          "id": "0x9708334534b504e2025a5a6af92f8600808c10be577e5066f920c40625fbec16",
+          "question": "Will Bitcoin reach $150,000 in January?"
+        },
+        {
+          "id": "0x62f01109c53d585406b4545e5538b52d76f2895affd933da75190be788afc6ab",
+          "question": "Will Bitcoin dip to $85,000 in January?"
+        },
+        {
+          "id": "0x8efcf9fdc4ba0dfe894087a9ff94c68679e2ec65e9cfae66868ff5b8a6494709",
+          "question": "Will Ethereum reach $4,600 in January?"
+        },
+        {
+          "id": "0x542fb07feb00feddb87c1d9e93ebf439a692c6b12e81e935ef2a5cda7de70dfb",
+          "question": "Will Bitcoin reach $105,000 in January?"
+        },
+        {
+          "id": "0x0ca11fd21b75f9547c1e0e65a590fb003e9d2ec9767fa82160df8591f09c6757",
+          "question": "Will Bitcoin reach $110,000 in January?"
+        },
+        {
+          "id": "0x615fa45b6d689d701c549190f9f3b0908ee58440ae3726fbfb62bbd7c5143693",
+          "question": "Will Bitcoin reach $130,000 in January?"
+        },
+        {
+          "id": "0xf57750a6e12f1a0e63ef45cca20af1637a1054779d35866e4694b097c0951d85",
+          "question": "Will Bitcoin dip to $90,000 January 12-18?"
+        },
+        {
+          "id": "0xa7794cc1f02beaee1ce520357d18989927c5dd3517621125160786561e776e46",
+          "question": "Will Bitcoin reach $115,000 in January?"
+        },
+        {
+          "id": "0x9969e95f954d3087773626cb098fe59d615bdccbc549c984857c96d84554384d",
+          "question": "Will Bitcoin reach $100,000 January 12-18?"
+        },
+        {
+          "id": "0x4f092320237fe16d8386b4291452d871ebeed89d5b10ee6333eb097ab64b25fb",
+          "question": "Will Bitcoin reach $98,000 January 12-18?"
+        },
+        {
+          "id": "0x45f5b74ab9b74fd8a385dd7eba75a2fc7fb449a477d494adaadecdc54a3d7ec1",
+          "question": "Will Bitcoin dip to $40,000 in January?"
+        },
+        {
+          "id": "0x1971d28ab090ad84b5da3c36927be388cc8aedf51d3ca1dd506280ba955ab8b9",
+          "question": "Will the price of Bitcoin be above $94,000 on January 15?"
+        },
+        {
+          "id": "0x59f38489dd787db8e64178cd61e6b395409ad00b6d72ac279989ee1289a87e46",
+          "question": "Will Bitcoin dip to $88,000 January 12-18?"
+        },
+        {
+          "id": "0x435819d0b4181a36f9be912cfabcc3a65aa88f1d3b67e8d9c33a09fca3ebd544",
+          "question": "Will the price of Bitcoin be above $100,000 on January 15?"
+        },
+        {
+          "id": "0x91f3d105d70d25904de7f24cbcaac790aa1a8231f2fb46ee7820f38d0f62b2c4",
+          "question": "Will the price of Bitcoin be above $96,000 on January 15?"
+        },
+        {
+          "id": "0x635b60c5dedcfc9816e9cf19f64aa561b875cddd005568336ba2fc21bb58c8f8",
+          "question": "Will the price of Bitcoin be above $90,000 on January 15?"
+        },
+        {
+          "id": "0x8e0a84caa29a4efa70288f9c5d62b7ea1c4d9897a0b295682a4dc87130b4f87a",
+          "question": "Will the price of Bitcoin be above $98,000 on January 15?"
+        },
+        {
+          "id": "0xc98605f5fb055b2d29e62ba00e89a6363cc2c1fedb130c6bc06eb53223c11184",
+          "question": "Will Silver (SI) hit (HIGH) $90 by end of January?"
+        },
+        {
+          "id": "0xdc6cb560e372c6f3628f1b9ec9fda9391262ea3a0d0a16bf1bada691197df397",
+          "question": "Will the price of Bitcoin be above $86,000 on January 15?"
+        },
+        {
+          "id": "0x49c6ce5c8bb91c380e5bf9c5d495a40178ac10377aa7bb5bbf0d40a34830bb2f",
+          "question": "Will Ethereum reach $6,000 in January?"
+        },
+        {
+          "id": "0xae5584fbb57f23c1c608d544b656f23d8bf12340cef70811cf31bb0cb4fc2115",
+          "question": "Will GTA 6 cost $100+?"
+        },
+        {
+          "id": "0x2745c38ff0617cb345c1d2df19b4f74ea777508e07411e88eeb6ab3affcda2a2",
+          "question": "Will Bitcoin dip to $35,000 by December 31, 2026?"
+        },
+        {
+          "id": "0x17a2466c34d9a93dbef8bda91bc56005b4162666901df319bcddb063d6bd8991",
+          "question": "Will Bitcoin dip to $80,000 in January?"
+        },
+        {
+          "id": "0x56ee6a5f6d319b48907f8af756f05824d0c7a3731b787af44ba562510ed3964f",
+          "question": "Will the price of Bitcoin be above $88,000 on January 15?"
+        },
+        {
+          "id": "0xd390267d6eeab5a76bfb0e5e48f2b8defab416a0a90130cc7204c6a7cdbe04cc",
+          "question": "Will the price of Bitcoin be above $92,000 on January 15?"
+        },
+        {
+          "id": "0xddf42243d621feb727bd250e913fdaaa5fd9fa3a6b73ac0d25113472a8bf5689",
+          "question": "Will Bitcoin reach $125,000 in January?"
+        },
+        {
+          "id": "0xe0506eeb64ebea7fe88467be8913487e1a685f4d1c27748e3335def3544bb329",
+          "question": "Will Bitcoin reach $102,000 January 12-18?"
+        },
+        {
+          "id": "0x073446e0771d72d3914a7c366e0f27d8ebec442a38ccbf530f575cc6de61135f",
+          "question": "Will Bitcoin dip to $78,000 January 12-18?"
+        },
+        {
+          "id": "0xc9575178b26a14814e6a9408339911773684d422271c9a542a1402b84f242e69",
+          "question": "Will Bitcoin dip to $70,000 in January?"
+        },
+        {
+          "id": "0xdddfa2562bb9eb994c6d0a6e02f086f3ae821db1e00c58cb515ccb07052679e6",
+          "question": "Will Bitcoin reach $120,000 in January?"
+        },
+        {
+          "id": "0xd8ee1fdec14e21153b4a5a7c4682481eea04be6ed8025a7e00bba320187d0cba",
+          "question": "Will Bitcoin dip to $80,000 January 12-18?"
+        },
+        {
+          "id": "0x8de57c5c6cc39bb852bc85b469ef69ee2655ce5c9270af32b73a4c5ae80a5773",
+          "question": "Will Ethereum reach $3,800 in January?"
+        },
+        {
+          "id": "0x9d1ec7fdd1602c7e5e3c2eab6513dd7c38a4525987ad5fdc795e3ab3ecd15f86",
+          "question": "Will XRP reach $2.60 in January?"
+        },
+        {
+          "id": "0x18d518a1f37ed8a510c174a8d79b228e0745cf4372f9a5d9c327e6576abc25db",
+          "question": "Will Bitcoin dip to $75,000 in January?"
+        },
+        {
+          "id": "0xa3e245e6b4b321666946d638e9dcc82742784d44ae108b8d8f9b31e0560e7085",
+          "question": "Will Ethereum reach $4,000 in January?"
+        },
+        {
+          "id": "0x2a57d8681a3724fd96ffa82de984a64f8868a3a5d4f0d6e6cdb71183add23b50",
+          "question": "Will Ethereum dip to $1,000 in January?"
+        },
+        {
+          "id": "0xa6450ffcffd0571128a370afef5f21f1fbc618f5340c84d052a822db068d7c3b",
+          "question": "Will Silver (SI) hit (HIGH) $100 by end of January?"
+        },
+        {
+          "id": "0xf7f1bc416aeefa6085a029a8b1c47278247c539932665f0e50da84bafe7c7cff",
+          "question": "Will Ethereum dip to $2,000 in January?"
+        },
+        {
+          "id": "0x11447141f6b274a5f8bae1ad53542ad48cb9d10fee0d16c5db7dec0e87fc44f4",
+          "question": "Will Bitcoin reach $106,000 January 12-18?"
+        },
+        {
+          "id": "0xcfce52472228892e54755443c552fbed367ca8701c78610f28ada744b53ebb37",
+          "question": "Will Bitcoin dip to $45,000 in January?"
+        },
+        {
+          "id": "0x32b6c15ef4f4dd89abd048a4e01d97ba3c984d6097667d5b95c8fd4d9e77714c",
+          "question": "Will Ethereum reach $3,600 in January?"
+        },
+        {
+          "id": "0x3993d6dcc8c367137009fa55150c5045c8ca0ac131dd69143a22594f579122ca",
+          "question": "Will the price of Bitcoin be above $84,000 on January 15?"
+        },
+        {
+          "id": "0x5ab664cd2dacb80a2c397680a7ed814cef422d73244d0920e87028c556e7d078",
+          "question": "Will Ethereum dip to $2,200 in January?"
+        },
+        {
+          "id": "0xe532af9ad52e3139c4e032b5a2058bc5b6788bd959da5ddb8e5658d63081ee07",
+          "question": "Will Ethereum dip to $2,800 in January?"
+        },
+        {
+          "id": "0x5b363091f99932785604dc63c200f1797111cc9d022c854ee771535e709d841e",
+          "question": "Will Silver (SI) hit (HIGH) $150 by end of January?"
+        },
+        {
+          "id": "0x31bcc355e1e3fdf374ae91a5c2dc1d6eb1574bb99b9345e93b97725ebec7d201",
+          "question": "Will the price of Ethereum be above $3,600 on January 15?"
+        },
+        {
+          "id": "0x92b010fa84a42118ff755242e31f896915e812d0c20f7eb528f6be47c99d8083",
+          "question": "Will Ethereum dip to $2,600 in January?"
+        },
+        {
+          "id": "0x2644daf3dcb30f961352661c8a0aa2d4eb55bee03186b1eac6062807e64af8d5",
+          "question": "Will Ethereum reach $4,400 in January?"
+        },
+        {
+          "id": "0x073d745fd2a5d4edc1a5305382ae76343bd92d9756c37f8e8d83c0c00999cd42",
+          "question": "Will the price of Bitcoin be between $94,000 and $96,000 on January 15?"
+        },
+        {
+          "id": "0xdccec494008c9af26950344892d67984a045a7e96a6e7d3cd8e57d5bbbc38841",
+          "question": "Will Bitcoin dip to $55,000 in January?"
+        },
+        {
+          "id": "0x8929b01651f44fae2e7b5bd1832662099d81b5494450e1030a6b9b42ec61110f",
+          "question": "Will Solana reach $150 in January?"
+        },
+        {
+          "id": "0xdbcfaa994a32559bd2a24968f0d3ede52fa8c7b10278c68b5193711291546330",
+          "question": "Will Ethereum reach $3,600 January 12-18?"
+        },
+        {
+          "id": "0x1fd96997ceae11744ab384b7f54c13ccb9f43cc294f09870edb086e32e6cf70e",
+          "question": "Will Bitcoin reach $104,000 January 12-18?"
+        },
+        {
+          "id": "0x17bc5cfeb69c065010617175ede4b9f0f50cb1b52868de1cba2e68a8c725594c",
+          "question": "Will the price of Bitcoin be above $82,000 on January 15?"
+        },
+        {
+          "id": "0xc00b7abbf9fea8e9858efd0bfe901bfb915e95aecffaed8361cd14460d599a35",
+          "question": "Will the total domestic gross for Avatar: Fire and Ash be between 400m and 440m by January 31?"
+        },
+        {
+          "id": "0x6d9be098084f089d96d43ad18eb99c2562e09f0bef7ad78e0505f5e58a9decc1",
+          "question": "Will the price of Bitcoin be between $86,000 and $88,000 on January 15?"
+        },
+        {
+          "id": "0x7d6c4fd4611ce3b4da5498d38361a33c828974bb88db83200879a3f2b6e79773",
+          "question": "Will Ethereum reach $3,700 January 12-18?"
+        },
+        {
+          "id": "0x4ebb5f5533f364893e9267876210c62660b876c3176bb5fa725e06646c507194",
+          "question": "Will Bitcoin dip to $65,000 in January?"
+        },
+        {
+          "id": "0xcffdd07920f738e3ca26de3c83de344976e81e66e46d6accc2f1a84e89b6d00b",
+          "question": "Will the price of Ethereum be above $3,300 on January 15?"
+        },
+        {
+          "id": "0xa3d17e8d32ed60000308fdf46c4ab09ada573385dc491502d593283c05aae3c0",
+          "question": "Will the price of Bitcoin be greater than $100,000 on January 15?"
+        },
+        {
+          "id": "0x5f52cfe9a51329dbee2681090658e7debb5504364bf9650112165f5967618aa9",
+          "question": "Will Ethereum reach $3,500 January 12-18?"
+        },
+        {
+          "id": "0x09f12057e4ddfc4c690642a3686267094faf2555e7cee45f1560651c6f69750c",
+          "question": "Will the price of Bitcoin be between $84,000 and $86,000 on January 15?"
+        },
+        {
+          "id": "0xf4b0f3bc69e7398be305091d76ffc53635c8a135af9fe47e483133849fd7fcd6",
+          "question": "Will the price of Bitcoin be less than $82,000 on January 15?"
+        },
+        {
+          "id": "0x95b3b27c066f30dcfe23803e5882c5b72bc8de77f9a4c219e5848bc27b3e1840",
+          "question": "Will Bitcoin dip to $50,000 in January?"
+        },
+        {
+          "id": "0xdaa4866bae18be58c5a79d2aeeffd035ec78f1bb49dbd88f72993997778a990f",
+          "question": "Will Bitcoin reach $100,000 by December 31, 2026?"
+        },
+        {
+          "id": "0xbe6122883c86ae4f7a290abde8fe9fb4d0a044ab5a7fffca089ef1c8b4ef1b3a",
+          "question": "Will the total domestic gross for Avatar: Fire and Ash be between 440m and 480m by January 31?"
+        },
+        {
+          "id": "0x2a5f0a200762b328ac437fb42cbf6114d210d68f2d979c31c4fbd57152118eaa",
+          "question": "Will Bitcoin dip to $86,000 January 12-18?"
+        },
+        {
+          "id": "0x0b029a30ea36c6d4393d94243938b2c4f4a221ad471f3553c8bc8f34e9b229e9",
+          "question": "Will Logan Paul\u2019s PSA 10 Pok\u00e9mon Illustrator Sale Price be over $4 million?"
+        },
+        {
+          "id": "0x9f27477b2c42a09842e3df2fe58976eed75faded76dc4732ccdfd145aae19763",
+          "question": "Will the price of Ethereum be above $3,200 on January 15?"
+        },
+        {
+          "id": "0x4850b94e469cba467fca63e5c8fff8a9fdf565e3f1badfbb2a187a90bf2c9528",
+          "question": "Will the price of Bitcoin be above $100,000 on January 16?"
+        },
+        {
+          "id": "0xd116732c2d0915441c38bc2eb7989cd0c8b12834733d83a9e94bee0bcd7a666c",
+          "question": "Will XRP reach $4.00 in January?"
+        },
+        {
+          "id": "0xde08419131b8758be19d3aabb41c9250b295434e71470f787cd428cd387c68f2",
+          "question": "Will the price of Ethereum be above $3,500 on January 15?"
+        },
+        {
+          "id": "0x5ddbe9278ce9682c8ce2581aee455c0c26d70009a60a23915ffd462b1b0892d9",
+          "question": "Will the price of Bitcoin be above $96,000 on January 16?"
+        },
+        {
+          "id": "0x769de755e8bb0cb9a8cd963f25f3c60dc1a0e114174e1a714f26ea3d92479f19",
+          "question": "Will the price of Ethereum be above $3,000 on January 15?"
+        },
+        {
+          "id": "0x010f22e236433b0f889bbc9958f79a4b0644939650436fde7b9fbeab8bac84be",
+          "question": "Will Silver (SI) hit (HIGH) $110 by end of January?"
+        },
+        {
+          "id": "0x4828e9727b6f04d8f9f425be0bb34a5ee01a7e37672f3805b9855c929e8b793d",
+          "question": "Will the price of Bitcoin be less than $82,000 on January 16?"
+        },
+        {
+          "id": "0xf2591ada43eda11c5923f0190307d2cc5f5d994695a654779c3dd328ff820d55",
+          "question": "Will Bitcoin dip to $75,000 by December 31, 2026?"
+        },
+        {
+          "id": "0xfde2e684a12d6f39f5440d7c5b6016e27989ba46865ea80eb339584744b4d9ae",
+          "question": "Will Silver (SI) hit (HIGH) $90 by end of June?"
+        },
+        {
+          "id": "0x082353628683ed95b8ee66faf6da7d9ed3b645274a8121b9214aca8d3aeee095",
+          "question": "Will the total domestic gross for Avatar: Fire and Ash be less than 400m by January 31?"
+        },
+        {
+          "id": "0x81bdda7326365ae69d622d1141a31a606ba4c5ed689ae2b0af8a1f9314587d85",
+          "question": "Will the highest temperature in London be 6\u00b0C or below on January 15?"
+        },
+        {
+          "id": "0x149f0692f942225d3d29ea04e511307a17e3f6e4c1a55f52f220c8c543604a6d",
+          "question": "Will Silver (SI) hit (HIGH) $120 by end of January?"
+        },
+        {
+          "id": "0xf1baaf229312ef8b9d910151a75ad4d6fcb28a6892555cabc925e89106fc40ff",
+          "question": "Will Bitcoin dip to $60,000 in January?"
+        },
+        {
+          "id": "0x673cfa5a88a24919fb132d81c6b818db90238404ea7e7b8a44f276ae4bfab061",
+          "question": "Will the price of Bitcoin be above $94,000 on January 16?"
+        },
+        {
+          "id": "0xc526d8523694385ab26a4022f9e9998ae721c516d3d974c6f0e2c48a96a39aa8",
+          "question": "Will Solana reach $160 in January?"
+        },
+        {
+          "id": "0x885a6abefad122348b4fbd503473d7fd1f9035d0438cf988a7591620f316a859",
+          "question": "Will Bitcoin reach $130,000 by December 31, 2026?"
+        },
+        {
+          "id": "0x21c8ffb480376a8ca844d43396fe3f26d1bb88517a216ee4c44c57906c469c8a",
+          "question": "Will the price of Bitcoin be above $98,000 on January 16?"
+        },
+        {
+          "id": "0x163b7856925bd3c567e5307e4d7569cf9e41d97faedce0fd8e29d76174df784d",
+          "question": "Will Bitcoin dip to $82,000 January 12-18?"
+        },
+        {
+          "id": "0x715af938c791b315586cae33dea572ebf159135016d793c508b65b815fdc0aef",
+          "question": "Will the price of Bitcoin be between $92,000 and $94,000 on January 15?"
+        },
+        {
+          "id": "0x54ce617921a88348a56e8da5d3366b45a2347ed1bc5c1fbb45472ea90d3c1b7e",
+          "question": "Will XRP reach $3.60 in January?"
+        }
+      ]
+    },
+    "6": {
+      "n_members": 13,
+      "coherence": 0.598976731300354,
+      "keywords": [
+        {
+          "word": "fdv",
+          "count": 7
+        },
+        {
+          "word": "above",
+          "count": 7
+        },
+        {
+          "word": "launch",
+          "count": 7
+        },
+        {
+          "word": "largest",
+          "count": 6
+        },
+        {
+          "word": "company",
+          "count": 6
+        },
+        {
+          "word": "world",
+          "count": 6
+        },
+        {
+          "word": "market",
+          "count": 6
+        },
+        {
+          "word": "cap",
+          "count": 6
+        },
+        {
+          "word": "january",
+          "count": 6
+        },
+        {
+          "word": "fogo",
+          "count": 6
+        }
+      ],
+      "members": [
+        {
+          "id": "0xd947403a5eae117d6fe0bf737f2d279c89dddc495dc7d2eb198accd1ecd07cc9",
+          "question": "Will Microsoft be the largest company in the world by market cap on January 31?"
+        },
+        {
+          "id": "0x2d852c504ee0f233ee90de142d6e4ae36cf770244e920aaafcd1546db839215a",
+          "question": "Fogo FDV above $300M one day after launch?"
+        },
+        {
+          "id": "0x71f8b6549eb73d92f3e4417452cc40d8734481d7e8ad6da477b1eaf5ab360bee",
+          "question": "Fogo FDV above $2B one day after launch?"
+        },
+        {
+          "id": "0xd9b7950b710cf174ac3b9928a9307f250c20f7e367c0d7d0fae7df26cc5cfdc6",
+          "question": "Fogo FDV above $700M one day after launch?"
+        },
+        {
+          "id": "0xe9ec9b9d878c85fd70038f711c85b81a576e4806708a70cea06f1476cd7d46bb",
+          "question": "Will NVIDIA be the largest company in the world by market cap on January 31?"
+        },
+        {
+          "id": "0x5861efe9fa588327248a47f7f40deddc47127da8e218b1a1f267725fbfcb8e0c",
+          "question": "Will Amazon be the largest company in the world by market cap on January 31?"
+        },
+        {
+          "id": "0xca2bb70a7fb1f1ad10f9f39ac6f3f866cebd20fa8929ec2cc5a745f7eb421f3b",
+          "question": "Fogo FDV above $3B one day after launch?"
+        },
+        {
+          "id": "0x170e907f54cd05c3f181067798610feb95f590d5d4be2bdda699c83249e2666e",
+          "question": "Opinion FDV above $1B one day after launch?"
+        },
+        {
+          "id": "0xa6eec5f51ea76de37b7a25e5511c7ff19d301de27141ffc269c08230edf9ee52",
+          "question": "Will Alphabet be the largest company in the world by market cap on January 31?"
+        },
+        {
+          "id": "0xdc058561e320700e0d41143add9c2033c081a5f44452c4eaf415f58c3d417c28",
+          "question": "Fogo FDV above $500M one day after launch?"
+        },
+        {
+          "id": "0xeae650787ea4641bdc82165677136efc509012093a43f2463f0291224de55ece",
+          "question": "Fogo FDV above $1B one day after launch?"
+        },
+        {
+          "id": "0xfd0f671104f6f06b10cda1084f4a98384ce7b62b5a1d8c2645410e0eb01d78b8",
+          "question": "Will Tesla be the largest company in the world by market cap on January 31?"
+        },
+        {
+          "id": "0xbf6983ec188a61a32f811738de5e4e427925cd42d5f3010bd3ab96f4728f5cd9",
+          "question": "Will Apple be the largest company in the world by market cap on January 31?"
+        }
+      ]
+    },
+    "7": {
+      "n_members": 47,
+      "coherence": 0.9625520706176758,
+      "keywords": [
+        {
+          "word": "january",
+          "count": 92
+        },
+        {
+          "word": "elon",
+          "count": 47
+        },
+        {
+          "word": "musk",
+          "count": 47
+        },
+        {
+          "word": "post",
+          "count": 47
+        },
+        {
+          "word": "tweets",
+          "count": 47
+        },
+        {
+          "word": "from",
+          "count": 45
+        }
+      ],
+      "members": [
+        {
+          "id": "0xd85fc2b3ade14cd3e8354678437518743bae81f65c3c9326a8c921b6411eb0e1",
+          "question": "Will Elon Musk post 380-399 tweets from January 9 to January 16, 2026?"
+        },
+        {
+          "id": "0x1dd8f79e37b4e76a26451810c133a2530385324b4cdb52712a2700a53569cbf3",
+          "question": "Will Elon Musk post 400-419 tweets from January 9 to January 16, 2026?"
+        },
+        {
+          "id": "0xe55596f3bc2049f2dac5dc17c5b87412f94e3e9c58cf95ea702acb2247973daa",
+          "question": "Will Elon Musk post 420-439 tweets from January 9 to January 16, 2026?"
+        },
+        {
+          "id": "0xb93528c16938552872f79ec03b736ab43d01cfbedb4aa80d780070f7593d3338",
+          "question": "Will Elon Musk post 580+ tweets from January 9 to January 16, 2026?"
+        },
+        {
+          "id": "0xb9db6ee9c30a47c485cd38730cf47ff79c62632db47f529ac9e5314a3b294a1f",
+          "question": "Will Elon Musk post 560-579 tweets from January 9 to January 16, 2026?"
+        },
+        {
+          "id": "0x62827ae35ad8b369413f5b9e8bd16110d6c3ed18e1a3bcb5f27da92a319b4357",
+          "question": "Will Elon Musk post 440-459 tweets from January 9 to January 16, 2026?"
+        },
+        {
+          "id": "0xc7d10df2ef151fd7d5d9f66fe2694b13f9106acc7b764804d0ac37f668870f43",
+          "question": "Will Elon Musk post 480-499 tweets from January 9 to January 16, 2026?"
+        },
+        {
+          "id": "0x9f855f2c188eac028c218826809ce552248525db58b0343af0bf6c35b8f576a3",
+          "question": "Will Elon Musk post 120-139 tweets from January 16 to January 23, 2026?"
+        },
+        {
+          "id": "0x639dd659a2354b95cdb8657cfb0757520ff1dabccbba24a44c77d1804601b7c1",
+          "question": "Will Elon Musk post 460-479 tweets from January 9 to January 16, 2026?"
+        },
+        {
+          "id": "0x5c5d29108e310c971310a90e986725427c920eb622d1f16eb38ac05bccb5c77d",
+          "question": "Will Elon Musk post 540-559 tweets from January 9 to January 16, 2026?"
+        },
+        {
+          "id": "0x0ecea38a53ad7cfdac4626773ade7e33e948eea9bc42644cd035d7e3bc5cd511",
+          "question": "Will Elon Musk post 520-539 tweets from January 9 to January 16, 2026?"
+        },
+        {
+          "id": "0x19e281e922bfffa6fcdcfcc7bbb8f0028bddfbdd9b458c5f336d2eeb4a8e2661",
+          "question": "Will Elon Musk post 40-59 tweets from January 16 to January 23, 2026?"
+        },
+        {
+          "id": "0x583f1010553a6550e618afb7ef93ca7f0c9ed0bf6f4bf2e2b51657cf825d4614",
+          "question": "Will Elon Musk post 160-179 tweets from January 13 to January 20, 2026?"
+        },
+        {
+          "id": "0x861e8a874e4e06e44092a9fdef549a520d56ed851fa11e6547398ef1a8b24a49",
+          "question": "Will Elon Musk post 500-519 tweets from January 9 to January 16, 2026?"
+        },
+        {
+          "id": "0xc4367e92a111ceecddafbcb43a8e0ca2cfb7d809a48087a8230a5453f831acc2",
+          "question": "Will Elon Musk post 140-159 tweets from January 16 to January 23, 2026?"
+        },
+        {
+          "id": "0x95ec46e779988d95480bac73dac30883743695194a45c87bec122988d21959a5",
+          "question": "Will Elon Musk post 140-159 tweets from January 13 to January 20, 2026?"
+        },
+        {
+          "id": "0x8a137ee51620a408239cf19b0dcedc830fb1eaaeb4a65b5d805d73565391fc42",
+          "question": "Will Elon Musk post 180-199 tweets from January 13 to January 20, 2026?"
+        },
+        {
+          "id": "0x4242426800be8f0d8c7925ca3e272b6dae47c36299ae625dc984d905b3a4f0e8",
+          "question": "Will Elon Musk post 80-99 tweets from January 16 to January 23, 2026?"
+        },
+        {
+          "id": "0xb0ffd08085b6f8ca6f30392c2de9902b884613732ea94e55cfb9872654edd9ba",
+          "question": "Will Elon Musk post 200-219 tweets from January 13 to January 20, 2026?"
+        },
+        {
+          "id": "0x4191a91df1adcece99f8fc2dae53dbe1a6a154b36a1654214d273e3a5bc8dc76",
+          "question": "Will Elon Musk post 1200-1239 tweets in January 2026?"
+        },
+        {
+          "id": "0x634c551fe074962025130e4d2894cbdd8631a4acaf7324efe4cbca25df6f257a",
+          "question": "Will Elon Musk post <40 tweets from January 15 to January 17, 2026?"
+        },
+        {
+          "id": "0x3c6dbf31414ee58dd1697d3006922422b76dc0ad945b078ea0ae75e753ced640",
+          "question": "Will Elon Musk post 120-139 tweets from January 13 to January 20, 2026?"
+        },
+        {
+          "id": "0x48770f562ba799c867c9848c70c90039ed5fff49576b5237c0c7d12efb5fc62b",
+          "question": "Will Elon Musk post 740+ tweets from January 13 to January 20, 2026?"
+        },
+        {
+          "id": "0x66325201a660ddcc74f346ec877136e5522b8728433ca08bcd8578cf74180eac",
+          "question": "Will Elon Musk post 380-399 tweets from January 13 to January 20, 2026?"
+        },
+        {
+          "id": "0x78d2343d6aab34e1df1ceaea4681259b4d616a78b4d39b9affd8368ce864af11",
+          "question": "Will Elon Musk post 100-119 tweets from January 13 to January 20, 2026?"
+        },
+        {
+          "id": "0x25b62728c4c3e2098a505e48375729af7243b548d5c6321794636dbc067f995f",
+          "question": "Will Elon Musk post 260-279 tweets from January 13 to January 20, 2026?"
+        },
+        {
+          "id": "0x4cccd259335236ebbbb018f21219bfee84f2d37a2890813a59f3027dc7b28794",
+          "question": "Will Elon Musk post 560-579 tweets from January 13 to January 20, 2026?"
+        },
+        {
+          "id": "0x16fed648a6b943453cd331c41996cb48eb482c9b74fe98ea2622eb412d0db723",
+          "question": "Will Elon Musk post 440-459 tweets from January 13 to January 20, 2026?"
+        },
+        {
+          "id": "0xadd3faabe5510d56b23d5b4774169b7e9515966b3a990c35b0557de301dd588c",
+          "question": "Will Elon Musk post 300-319 tweets from January 13 to January 20, 2026?"
+        },
+        {
+          "id": "0xebf78edde2f9231d283f44e1397ebe2a27fce2fd9ceb9160afa4e32684a9a217",
+          "question": "Will Elon Musk post 1160-1199 tweets in January 2026?"
+        },
+        {
+          "id": "0x974999fc4c394daf1db276d0364dc4aab63b530ae59295178372b535a735fbbd",
+          "question": "Will Elon Musk post 280-299 tweets from January 13 to January 20, 2026?"
+        },
+        {
+          "id": "0xa0d0bebaa521cc7c10c6245d94c23480d78d47ad32675a77608eda165d7991e3",
+          "question": "Will Elon Musk post 340-359 tweets from January 13 to January 20, 2026?"
+        },
+        {
+          "id": "0x41fb9c8712354c0407a7a768c8c933bd811d440e9de8e65ba16d080c4bc315c3",
+          "question": "Will Elon Musk post 460-479 tweets from January 13 to January 20, 2026?"
+        },
+        {
+          "id": "0xd36ff6c0989ba29ceb071a89e1e6f914fbd1ee27d27ff2088724e9b2d3808d4d",
+          "question": "Will Elon Musk post 0-19 tweets from January 16 to January 23, 2026?"
+        },
+        {
+          "id": "0x16fd4429267f7e019d3d9b9b6676b996da6b8d4a04c243219c1e69aa49c475b2",
+          "question": "Will Elon Musk post 400-419 tweets from January 13 to January 20, 2026?"
+        },
+        {
+          "id": "0xeb40432ed5d4b6adeee133904c9f240dc74ed641030596f05a13943e9aa5d9c8",
+          "question": "Will Elon Musk post 520-539 tweets from January 13 to January 20, 2026?"
+        },
+        {
+          "id": "0x2161eb21b7b45ec1fea06dd39d65678306a464c6d85896013c4d86d785e7deef",
+          "question": "Will Elon Musk post 220-239 tweets from January 13 to January 20, 2026?"
+        },
+        {
+          "id": "0x3188037e2d895439773a702d6b013428b781e02af9023aaf48020b886e2a0c7f",
+          "question": "Will Elon Musk post 740+ tweets from January 16 to January 23, 2026?"
+        },
+        {
+          "id": "0xbab21ba7168ad7d6d98600d40d3d69f2fda42fc10863d00e006a31b990b22065",
+          "question": "Will Elon Musk post 500-519 tweets from January 13 to January 20, 2026?"
+        },
+        {
+          "id": "0x08841dff8e5b6b0d3b3fccdbb224bd380ef18cd23a87102d8bb2be5f2d5baff2",
+          "question": "Will Elon Musk post 60-79 tweets from January 16 to January 23, 2026?"
+        },
+        {
+          "id": "0x989afb08f0f05ffe882c4d47e5133deca94382e215debcf33b1616eb7d34e6d3",
+          "question": "Will Elon Musk post 660-679 tweets from January 13 to January 20, 2026?"
+        },
+        {
+          "id": "0x464b7d4bc60f91a8199e34045fe19b49f38e734ea9cbce0b309b83d870a4c92a",
+          "question": "Will Elon Musk post 360-379 tweets from January 13 to January 20, 2026?"
+        },
+        {
+          "id": "0xd0ee160aa4bf0f1304595a4fadfc3dcb9abd204bd2ae1469d3d20f000085136e",
+          "question": "Will Elon Musk post 680-699 tweets from January 16 to January 23, 2026?"
+        },
+        {
+          "id": "0x09c7e0781a3a3884f2c886ef25d28c3ea4e50039080158bf795a4b0226423728",
+          "question": "Will Elon Musk post 580-599 tweets from January 13 to January 20, 2026?"
+        },
+        {
+          "id": "0x6d4caf83f2134a3dec8e7d2f0250a396d44ad7729d770d58c8529893391640bf",
+          "question": "Will Elon Musk post 240-259 tweets from January 13 to January 20, 2026?"
+        },
+        {
+          "id": "0x0d2f729e0695089192568fb1c6cea4ecba9515d98f508c1e98563c215f8545de",
+          "question": "Will Elon Musk post 480-499 tweets from January 13 to January 20, 2026?"
+        },
+        {
+          "id": "0xdc4696c01c081834beae55f04eb852cf46e911fe63f779440390f753e9025fe9",
+          "question": "Will Elon Musk post 420-439 tweets from January 13 to January 20, 2026?"
+        }
+      ]
+    },
+    "8": {
+      "n_members": 45,
+      "coherence": 0.32699957489967346,
+      "keywords": [
+        {
+          "word": "january",
+          "count": 20
+        },
+        {
+          "word": "meeting",
+          "count": 9
+        },
+        {
+          "word": "fed",
+          "count": 8
+        },
+        {
+          "word": "interest",
+          "count": 8
+        },
+        {
+          "word": "rates",
+          "count": 8
+        },
+        {
+          "word": "trump",
+          "count": 8
+        },
+        {
+          "word": "march",
+          "count": 6
+        },
+        {
+          "word": "bps",
+          "count": 5
+        },
+        {
+          "word": "russia",
+          "count": 5
+        },
+        {
+          "word": "best",
+          "count": 5
+        }
+      ],
+      "members": [
+        {
+          "id": "0x7c6c69d91b21cbbea08a13d0ad51c0e96a956045aaadc77bce507c6b0475b66e",
+          "question": "Fed increases interest rates by 25+ bps after January 2026 meeting?"
+        },
+        {
+          "id": "0x17815081230e3b9c78b098162c33b1ffa68c4ec29c123d3d14989599e0c2e113",
+          "question": "Fed decreases interest rates by 50+ bps after January 2026 meeting?"
+        },
+        {
+          "id": "0x35cc41270f5cdfd59b45e68ab85dc51b0b900d286a6c74ea006b8572d9ff5934",
+          "question": "Fed decreases interest rates by 25 bps after January 2026 meeting?"
+        },
+        {
+          "id": "0xe93c89c41d1bb08d3bb40066d8565df301a696563b2542256e6e8bbbb1ec490d",
+          "question": "No change in Fed interest rates after January 2026 meeting?"
+        },
+        {
+          "id": "0xd595eb9b81885ff018738300c79047e3ec89e87294424f57a29a7fa9162bf116",
+          "question": "Will Trump acquire Greenland before 2027?"
+        },
+        {
+          "id": "0xb8c1bd306a8a4cedfb280e114e655c5092b3f37edccae05cd877d7f21a5774ce",
+          "question": "Russia x Ukraine ceasefire by January 31, 2026?"
+        },
+        {
+          "id": "0xc4f9c5ce504fe71a5ab7a870b39ce0dd13d527e9656a270bfc55e2ed5d33b83a",
+          "question": "New \"Stranger Things\" episode released by January 14? "
+        },
+        {
+          "id": "0xb1d2cd56624ec8bb3d8115d50d503d0e8578bf32d754ad5fe3c0e08a73186c57",
+          "question": "Supreme Court rules in favor of Trump's tariffs?"
+        },
+        {
+          "id": "0xe6508d867d153a268bdab732aa8abc8cc57e652d28a23aa042da40895bf031b2",
+          "question": "Will 2025 be the hottest year on record?"
+        },
+        {
+          "id": "0xaeea5f917fc5746387b5f9c0a4263dba035dbb3f0ac6ad72bf92183d21e26739",
+          "question": "Russia x Ukraine ceasefire by end of 2026?"
+        },
+        {
+          "id": "0x3d109c1fe77572356951368f363ea16c6d8fd0fe78bd0ef2a51af572ae9a4c67",
+          "question": "New \"Stranger Things\" episode released by January 31? "
+        },
+        {
+          "id": "0xa467b14d51f01b957109d9cbb1d6c124fab2a089d52ed8f471d23c2812e743b7",
+          "question": "Xi Jinping out before 2027?"
+        },
+        {
+          "id": "0x890fc3ba40458db0b67560691aa1597344c2a0560d18e80f586a4b35f510b4ce",
+          "question": "Will the US acquire part of Greenland in 2026?"
+        },
+        {
+          "id": "0xd9fb1184af0064e5e34b129f5b79afa5a17b7e32f2953ab05efed82315fee6d4",
+          "question": "Will China invade Taiwan by end of 2026?"
+        },
+        {
+          "id": "0xda43695d2b833b33949be80d0f1e83982eb7edba977f54aa81ad2a22b68ae8e1",
+          "question": "Will China GDP growth in Q4 2025 be less than 2.5%?"
+        },
+        {
+          "id": "0x48b0b0bca515f68fccf95af4793dbd0edbfec1f8ec6e8df2c0f69ba74f8c4722",
+          "question": "Trump out as President before 2027?"
+        },
+        {
+          "id": "0x7ca44055a9211156d986ae3071ca03b1fb3c5e1b4b339afd6859b6fdd865b689",
+          "question": "Israel x Hamas Ceasefire Phase II by January 31?"
+        },
+        {
+          "id": "0x43ec78527bd98a0588dd9455685b2cc82f5743140cb3a154603dc03c02b57de5",
+          "question": "Will there be another US government shutdown by January 31?"
+        },
+        {
+          "id": "0xc830d19ead001f5378792cc0df36004ddb1b312bb26fbd5c4226aa698c41f808",
+          "question": "Will Trump nominate no one before 2027?"
+        },
+        {
+          "id": "0x1d54eb5eac2cee8f595f3097c65da7d07f8ab5dee63d7c0c6883eb70e1e9af30",
+          "question": "Russia x Ukraine ceasefire by March 31, 2026?"
+        },
+        {
+          "id": "0xdeb615a52cd114e5aa27d8344ae506a72bea81f6ed13f5915f050b615a193c20",
+          "question": "Will the Fed decrease interest rates by 50+ bps after the March 2026 meeting?"
+        },
+        {
+          "id": "0x139ba0e7f931f09466c0fb27fc8ddb5e77ce9d1e2bdc953a5f22765bf779452f",
+          "question": "SCOTUS accepts sports event contract case by July 31, 2026?     "
+        },
+        {
+          "id": "0x756f82fea9416b9a5437bca4ad5f2fd84597986ec5e83562f8cac0907dc694de",
+          "question": "Will Baidu have the best AI model at the end of January 2026?"
+        },
+        {
+          "id": "0x2a6b222354f86941b5fb5571a9256b8db85d6ab468ba7f865e43cefbfb83b812",
+          "question": "Will xAI have the best AI model at the end of January 2026?"
+        },
+        {
+          "id": "0x25aa90b3cd98305e849189b4e8b770fc77fe89bccb7cf9656468414e01145d38",
+          "question": "Will the Fed increase interest rates by 25+ bps after the March 2026 meeting?"
+        },
+        {
+          "id": "0x2701e5a5b751418c5c5bf0faaafdea60ac9fc893eb75fd88e902cd97458d375b",
+          "question": "Will China invade Taiwan by March 31, 2026?"
+        },
+        {
+          "id": "0x8e8e077887e5ba25d3931cdb816efdca642149bf7ea02605c5163f1601bd8421",
+          "question": "Will OpenAI have the best AI model at the end of January 2026?"
+        },
+        {
+          "id": "0x6bd56627aa21311850825edb27e53434a0e17a4f782be0086bc07f71eee00d0d",
+          "question": "Putin out as President of Russia by end of 2026?"
+        },
+        {
+          "id": "0xe723e5e63c14e387c03cb37b11d79fa88f46a302503175b56cd9f68ecbc00a20",
+          "question": "Will the U.S. invade Greenland in 2026?"
+        },
+        {
+          "id": "0x4e4f77e7dbf4cab666e9a1943674d7ae66348e862df03ea6f44b11eb95731928",
+          "question": "Will the Republican Party control the House after the 2026 Midterm elections?"
+        },
+        {
+          "id": "0xad29cf2f3839f6090c3ba8a0b6753d3af77ecced5c24ab10348ecc64067c04a8",
+          "question": "Will Google have the best AI model at the end of January 2026?"
+        },
+        {
+          "id": "0xd6d0ca22235dcc0322ecc9238903175fef0ff5f76523f32a1fb1a140fbc9185f",
+          "question": "Will John Ratcliffe be the first to leave the Trump Cabinet before 2027?"
+        },
+        {
+          "id": "0xc8929e80e74ae959b3ed9b9e1c5e0903ad38e02e1339462e3acf8b49bbca35a9",
+          "question": "Fed rate cut by January 2026 meeting?"
+        },
+        {
+          "id": "0x998bc71817b2d76921d1999ce0f3431cfd5945583667a371280ca2b430b0c06e",
+          "question": "2026 Balance of Power: R Senate, D House"
+        },
+        {
+          "id": "0x593b279c332011865b521ec6b2ccd85e5694803a937c166cab098bc7c52c18ba",
+          "question": "Will Trump try to Fire Powell by January 31?"
+        },
+        {
+          "id": "0xa718b428bb85c5a3d72fc9d44b32893871992e9595ece3a3fee0ebe86a78d3ea",
+          "question": "Will the Supreme Court rule on Trump's tarriff's by January 14?"
+        },
+        {
+          "id": "0x83d4b91777bc38af74d8694efb8c608a81b1331abafd92a5db473eb200cec9a2",
+          "question": "Will Russia capture all of Myrnohrad by January 15?"
+        },
+        {
+          "id": "0xcbd8d6c5acc3c2d5b0f04e6cd63c1922dbca1ff89be9edce99f4c7d53be2ac58",
+          "question": "Will Taiwan Semiconductor (TSM) beat quarterly earnings?"
+        },
+        {
+          "id": "0x1f45664dbc61a1044feaa1fcb773bda82e0a936da8cdb2cf3c06125c0f2a4826",
+          "question": "Will the Doge-1 Lunar Mission launch before 2027?"
+        },
+        {
+          "id": "0x257b18205f908aef01ef2d1d50e6fea7d29cf5486fe04031d8b101394476faed",
+          "question": "Will there be no change in Fed interest rates after the March 2026 meeting?"
+        },
+        {
+          "id": "0xd5d9fc47718bd553592d126b1fa5e87183d27f3936975b0c04cc0f2dec1f1bb4",
+          "question": "Will the Democratic Party control the House after the 2026 Midterm elections?"
+        },
+        {
+          "id": "0xea63dc8774846a957d14506c4c1e33dc16bed7c3ea1f154b8e8399ac0ba63d42",
+          "question": "Will Anthropic have the best AI model at the end of January 2026?"
+        },
+        {
+          "id": "0x3b51eb6137b7691f7ef6cb9cbdd19bde90bfc7fb047bf50827bb7b7895a3a120",
+          "question": "Bank of Japan decreases interest rates after January 2026 meeting?"
+        },
+        {
+          "id": "0x33086d942ec3fdcbaebd8a145eaf957903a9bb8b36682c4c69fee1089e4e528a",
+          "question": "Odds Trump acquires Greenland before 2027 hit 50% by March 31?"
+        },
+        {
+          "id": "0xceaaf9303fe9f12febbb8c11ea834422c0ac0a81e730af7753143895bb3bca21",
+          "question": "Will anyone be charged over Daycare fraud in Minnesota by January 31?"
+        }
+      ]
+    },
+    "9": {
+      "n_members": 17,
+      "coherence": 0.6210945248603821,
+      "keywords": [
+        {
+          "word": "khamenei",
+          "count": 11
+        },
+        {
+          "word": "iran",
+          "count": 11
+        },
+        {
+          "word": "out",
+          "count": 7
+        },
+        {
+          "word": "supreme",
+          "count": 6
+        },
+        {
+          "word": "leader",
+          "count": 6
+        },
+        {
+          "word": "january",
+          "count": 5
+        },
+        {
+          "word": "iranian",
+          "count": 4
+        },
+        {
+          "word": "regime",
+          "count": 4
+        },
+        {
+          "word": "fall",
+          "count": 4
+        },
+        {
+          "word": "march",
+          "count": 3
+        }
+      ],
+      "members": [
+        {
+          "id": "0xa8b744720006da3c08b4dc8a61a5ce930542f550fcf8d27380ae898de636799d",
+          "question": "Khamenei out as Supreme Leader of Iran by January 31?"
+        },
+        {
+          "id": "0x77b9b065f487d1e18d005465d221ec6c84ed3babfaf6ecf62f20baeaa9fc3038",
+          "question": "Will the Iranian regime fall by January 31?"
+        },
+        {
+          "id": "0x70909f0ba8256a89c301da58812ae47203df54957a07c7f8b10235e877ad63c2",
+          "question": "Khamenei out as Supreme Leader of Iran by March 31?"
+        },
+        {
+          "id": "0xbb4d51e6364066d92eb6f9b8413dd7193de70966736044463b205834805a1f3b",
+          "question": "Will the Iranian regime fall before 2027?"
+        },
+        {
+          "id": "0x61ce3773237a948584e422de72265f937034af418a8b703e3a860ea62e59ff36",
+          "question": "Will the Iranian regime fall by March 31?"
+        },
+        {
+          "id": "0x2e94bb8dd09931d12e6e656fe4fe6ceb3922bc3d6eab864bb6cd24773cf67269",
+          "question": "Khamenei out as Supreme Leader of Iran by June 30?"
+        },
+        {
+          "id": "0xe9dd2d3e59795162e8eb7ad3b945c790414676277e8f4a0e11cf131e96388f91",
+          "question": "Odds of Khamenei out as Supreme Leader of Iran by January 31 over 50% by January 16?"
+        },
+        {
+          "id": "0xd0f3597d979af91ccfce9c3148d402ede5f92901f3575d86729bb43ad4ee0eae",
+          "question": "Will Khamenei leave Iran by Jan 16?"
+        },
+        {
+          "id": "0xd4bbf7f6707c67beb736135ad32a41f6db41f8ae52d3ac4919650de9eeb94ed8",
+          "question": "Khamenei out as Supreme Leader of Iran by February 28?"
+        },
+        {
+          "id": "0x277f21a0a26b1a2ec9c4980f91f55708880a7cd4c5ab68687fad0c2f6efba698",
+          "question": "Will Khamenei leave Iran by Jan 31?"
+        },
+        {
+          "id": "0xe6b7d4d8b4d2ff7dc8c9e5d6dd70b6eece210b8cf9e34fb45f9b9516cc4c76ff",
+          "question": "Khamenei out as Supreme Leader of Iran in 2026?"
+        },
+        {
+          "id": "0x6b40a0a282828620397099884a38a309476e02bbb52ce42bd0bc0da5e8c73f28",
+          "question": "Odds of Khamenei out in Jan over 20% on Friday?"
+        },
+        {
+          "id": "0x9352c559e9648ab4cab236087b64ca85c5b7123a4c7d9d7d4efde4a39c18056f",
+          "question": "Will the Iranian regime fall by June 30?"
+        },
+        {
+          "id": "0xd4cf5bcc28c907f482c276c74dcdf3c6c72075f2698802bc8d2cb35200bd7a09",
+          "question": "Internet access restored in Iran by Friday?"
+        },
+        {
+          "id": "0x569d909807a5d032aac3cbb3971c503f72552bb49378636fc2812820158c7a64",
+          "question": "Nothing Ever Happens: Khamenei"
+        },
+        {
+          "id": "0xf835de42f566a714be49df12ba436279ac3b06a8b570baaca49835cd0358c916",
+          "question": "Will Khamenei leave Iran by March 31?"
+        },
+        {
+          "id": "0x0888d081e9dd7650a91c4f6cb7ed53160b0d8c5da61202f7cd6ea87ab644ab90",
+          "question": "Will Reza Pahlavi enter Iran by January 31?"
+        }
+      ]
+    },
+    "10": {
+      "n_members": 58,
+      "coherence": 0.7631551027297974,
+      "keywords": [
+        {
+          "word": "iran",
+          "count": 44
+        },
+        {
+          "word": "january",
+          "count": 42
+        },
+        {
+          "word": "strike",
+          "count": 41
+        },
+        {
+          "word": "strikes",
+          "count": 15
+        },
+        {
+          "word": "israel",
+          "count": 11
+        },
+        {
+          "word": "march",
+          "count": 3
+        },
+        {
+          "word": "mexico",
+          "count": 3
+        },
+        {
+          "word": "another",
+          "count": 2
+        },
+        {
+          "word": "country",
+          "count": 2
+        },
+        {
+          "word": "nuclear",
+          "count": 1
+        }
+      ],
+      "members": [
+        {
+          "id": "0x64b14a09a6cf9dc02b840bc83f4dcfd41ca6108544c47ecabc6e5d00bc15fd2e",
+          "question": "US strikes Iran by January 14, 2026?"
+        },
+        {
+          "id": "0x2d4d7f2eea43913d65c93351621a733f66ec079e111c278b34e8cc9e06ebe751",
+          "question": "US strikes Iran by January 15, 2026?"
+        },
+        {
+          "id": "0xabb86b080e9858dcb3f46954010e49b6f539c20036856c7f999395bfd58d01e6",
+          "question": "US strikes Iran by January 31, 2026?"
+        },
+        {
+          "id": "0xd1047755d35a03b7ceea9923daae56ecf67784446daa63e87eebc471b4b9dbd9",
+          "question": "US strikes Iran by January 16, 2026?"
+        },
+        {
+          "id": "0x23fd2b26c4e095465ba0d2ebce8d5eda57009ddc59aad8b68ab19ca968b41eed",
+          "question": "Israel strikes Iran by January 31, 2026?"
+        },
+        {
+          "id": "0x5299a291f2aaafadee5c937a76bc7810c6ac27c7ad87b223cb885258f2e0a320",
+          "question": "Israel nuclear weapon use against Iran by January 31?"
+        },
+        {
+          "id": "0xac4c8f562f7c6f4a191570b07a6cd8926854205a91d6da197a43924bdc4659a3",
+          "question": "US strikes Iran by January 18, 2026?"
+        },
+        {
+          "id": "0x843fc1f23d8cfd3df343031312a8a3f0a930ad118c0c0e81a56c21f0ea9ff217",
+          "question": "US strikes Iran by January 23, 2026?"
+        },
+        {
+          "id": "0xbd3fe5cfce44f9c884390f0aa38fff07ec2625432609c1c1f0c2dd03d0da8dda",
+          "question": "Will the US next strike Iran on January 14, 2026 (ET)?"
+        },
+        {
+          "id": "0x94d52f34382e9c074fb62d6ad0cf715e4ae799fb58867bbf4b443b8c34a51a09",
+          "question": "US strikes Iran by January 17, 2026?"
+        },
+        {
+          "id": "0x4b02efe53e631ada84681303fd66d79ad615f3d2b6a28b4633d43d935f89af58",
+          "question": "US strikes Iran by March 31, 2026?"
+        },
+        {
+          "id": "0xd1cce43b5fded07d49b457f473f49d921db7053a9cd98dcfd5c3271a53e6713f",
+          "question": "Israel strikes Iran by January 16, 2026?"
+        },
+        {
+          "id": "0x391e2cca67a2d49030baf239fdebb1d428b732a00d0af46a0c98866a0a8eee8a",
+          "question": "Will US or Israel strike Iran by January 31, 2026?"
+        },
+        {
+          "id": "0x797d586ad45522306490b0cc9b2f21bdf957f3843476fae99f3bcc2cec83b74b",
+          "question": "US strikes Iran by June 30, 2026?"
+        },
+        {
+          "id": "0x981743cb9ed7886e1f136f2012561f684afa8fe4d7a0a089c2111cc813abc539",
+          "question": "Israel strikes Iran by January 14, 2026?"
+        },
+        {
+          "id": "0xe282e22fbf3c386ee6d8bf0b96d77a1647c6c6805d09045b8247aa47e7db66a7",
+          "question": "Will the US next strike Iran on January 15, 2026 (ET)?"
+        },
+        {
+          "id": "0x8e097ff7e385d5d2ea511f7f8fb03e705dacdf598891cc5d7f68c5086e5c82fe",
+          "question": "Will the US next strike Iran on January 16, 2026 (ET)?"
+        },
+        {
+          "id": "0x1b4467a565be20b12058d8fa2e6a114441830be2407fb8d9799a25536537f432",
+          "question": "Will the US next strike Iran on January 13, 2026 (ET)?"
+        },
+        {
+          "id": "0x05a38a32a312df0ce7383a213f56d442b6a59b71e59c37642e11e9a47518856f",
+          "question": "Iran Strike on Israel by January 15?"
+        },
+        {
+          "id": "0x9112abc3be6967fd907003cf3b6d9d91a01ca8bceb04ab70968b62ef29ef1e0f",
+          "question": "Israel strikes Iran by January 15, 2026?"
+        },
+        {
+          "id": "0xe55f1c68e8ff508f8f54e5ab6f20e2769da900e5c7499b917547498bce4f40c1",
+          "question": "Will France, UK or Germany strike Iran by January 31?"
+        },
+        {
+          "id": "0x7bd478d95753504daeb190dc933e6c05e07732e837d2b80c8d25f88e48b2f0cd",
+          "question": "Will the US next strike Iran on January 17, 2026 (ET)?"
+        },
+        {
+          "id": "0xc7e4c1eec973fe72ff3c0a7e758e06944f69ff3fbff304672eb90e91b5924896",
+          "question": "Will the US next strike Iran on January 18, 2026 (ET)?"
+        },
+        {
+          "id": "0xbdad9ad46157617d2d30d67ed9350289dd66fce42095d1e7b761e6d52333dea4",
+          "question": "Will the US next strike Iran on January 12, 2026 (ET)?"
+        },
+        {
+          "id": "0x28f1e9218bcd41ced05faf3c03f026721d87712556bf2828337551f03cae0a01",
+          "question": "Israel strikes Iran by March 31, 2026?"
+        },
+        {
+          "id": "0xaca2f1e173994a7b314a32e13db77fb5cd3b909ba15da5bfd159ba987ce06ff3",
+          "question": "Will the US not strike Iran by January 31, 2026?"
+        },
+        {
+          "id": "0xa7b0b1e38f95c9925f2c4e04b3501b4b0d8b5a4d3d2b3b9d21dbb516c52cf32b",
+          "question": "Israel strikes Iran by January 23, 2026?"
+        },
+        {
+          "id": "0xe5ea9d130ab1b9fcadcbe1d0c64457448ad118536cfef7a2032a7244a7fb630f",
+          "question": "Will the US next strike Iran on January 26, 2026 (ET)?"
+        },
+        {
+          "id": "0xe53ae76973ece475c9e375ff9aa80bff1bd1119abd8ab38d7d689e76d9238686",
+          "question": "Will the US next strike Iran on January 19, 2026 (ET)?"
+        },
+        {
+          "id": "0xb232b902eb9d8aa18cd7923e1f35485711d9ee4434f41e99cf2380269bff0b7a",
+          "question": "Will the US next strike Iran on January 31, 2026 (ET)?"
+        },
+        {
+          "id": "0x39504cbc120a8092f5df3d0ba612976a0d97a7aa2b699e73fae49010cbc31f1d",
+          "question": "Will the US next strike Iran on January 21, 2026 (ET)?"
+        },
+        {
+          "id": "0xe74d60861ae1460d32415d9c4176559c1c4a9bfc64a85157e5a17ef4d0e6ec6e",
+          "question": "Will the US next strike Iran on January 20, 2026 (ET)?"
+        },
+        {
+          "id": "0x63bb7fc1b5b53a3fe498fffadd8171a7f0914cd86275dc91c6a539688d31021c",
+          "question": "Will the US next strike Iran on January 22, 2026 (ET)?"
+        },
+        {
+          "id": "0xc0ca47efaff5155cf78d38b18753f46d7420e0d917297b0483936222e5a6fb39",
+          "question": "Iran strike on US military by January 31?"
+        },
+        {
+          "id": "0xb9ba106337ce14da6d516739659513d573e35ec2ab4d1a66818216bb2260a925",
+          "question": "Will the US next strike Iran on January 25, 2026 (ET)?"
+        },
+        {
+          "id": "0x5cb15a6ad5db73f234b494077e358b716a9eb9947e742d17cc86e137313cb9ed",
+          "question": "Will the US next strike Iran on January 23, 2026 (ET)?"
+        },
+        {
+          "id": "0xc0f9608ad6458359217e88ffa02af3ef5baa606233664a9d588cc28692a993e7",
+          "question": "Will the US strike Iran next?"
+        },
+        {
+          "id": "0x7f752d99a74379bc4a8466778fb5cd0b6037101a3173591fdbbed18762a68c25",
+          "question": "Will the US next strike Iran on January 27, 2026 (ET)?"
+        },
+        {
+          "id": "0x1bb040197f0ec1a43a4fe5973135b7225a4fc1ac937d30bfdfa7ab1b99b9ee40",
+          "question": "Will the US next strike Iran on January 28, 2026 (ET)?"
+        },
+        {
+          "id": "0x21f5297714b970f474afdad8a9b60032bd2335ae0c2d81d66188fe9555ca52fb",
+          "question": "Will the US not strike another country before 2027?"
+        },
+        {
+          "id": "0xdd7e180aab883cb74f958e78666a2a2c456ca4a5e02252ae152b3edc976b24ff",
+          "question": "Will the US next strike Iran on January 24, 2026 (ET)?"
+        },
+        {
+          "id": "0xbbfa1cdad9819acdd36bfa2fac3d2f1ff64021c3d4a7459661010ce9ff33cefb",
+          "question": "Will the US next strike Iran on January 29, 2026 (ET)?"
+        },
+        {
+          "id": "0x05f907b44dab22edd2f7596448b888dafd2ad3124560855c6107bfd5364d797f",
+          "question": "Will the US next strike Iran on January 30, 2026 (ET)?"
+        },
+        {
+          "id": "0xd8a8fbacfbb4b7748d7b78fd1a37b2ea0b3c2552bfcccf81b7fcdfea81076132",
+          "question": "Will the US strike Somalia next?"
+        },
+        {
+          "id": "0xd6474a9916c0f51b6d16cfdb095aec5ad6a9ef46d30de4784b1a2d62ae383576",
+          "question": "US forces enter Iran by January 31?"
+        },
+        {
+          "id": "0x84171b35030ad63c8a520ae5e13b555b0cbebfe24ca6143afca2040fc5fb7277",
+          "question": "Will the US strike Cuba next?"
+        },
+        {
+          "id": "0xa6b257cd12864be31b73abe92dfae81a493f88443a221bf968f027a04665827b",
+          "question": "Will the US strike Syria next?"
+        },
+        {
+          "id": "0x6a990de325fc94ed8ec111e0f44c0f59190074d7187e1d9728bf316ce845ea79",
+          "question": "Iran Strike on Israel by January 31?"
+        },
+        {
+          "id": "0xd2cba9bffe74b8ff91ad540e554305bdec09a49e9d0597e8c2d473fee8c8b6e1",
+          "question": "Will the US strike Mexico next?"
+        },
+        {
+          "id": "0xf200e8feb605faae197f1473fade9d77289172044b239a4af05ffe2b82e400c4",
+          "question": "Will the US strike Venezuela next?"
+        },
+        {
+          "id": "0xbe64e75b3bc23963175c73b33dbc69b2a65300127357ce5bfb0e81aa14c816fb",
+          "question": "Will the US strike Iraq next?"
+        },
+        {
+          "id": "0x21271ee370ddac7fd7ff5b1729781e61a3342365864ca3ff959e80c73ba9e72c",
+          "question": "Will Israel strike Lebanon on January 14, 2026?"
+        },
+        {
+          "id": "0x3bc871946d6ab83d976478df69ea40dd70079ff718ca10ed5df155d6ddd733b2",
+          "question": "Will the US strike another country first?"
+        },
+        {
+          "id": "0x53e409b11e90081ba2cb0834a391e1208dd4c87ac817e4c76a5125cd2b647a9f",
+          "question": "US strike on Mexico by March 31?"
+        },
+        {
+          "id": "0xcd7535ed70591f0b117fb471b6066584e88e0a50875d2f8aa369af5e9df05527",
+          "question": "Will the US strike Yemen next?"
+        },
+        {
+          "id": "0xc01de3299d3411ac08140bad89a15056ae6d7489f8df9c5285a506bb1c9caa17",
+          "question": "Will the US strike Colombia next?"
+        },
+        {
+          "id": "0x386c1da56d757c6920fc73535aba510300e9cd666c0312d11b4cc03f097fb487",
+          "question": "US strike on Mexico by January 31?"
+        },
+        {
+          "id": "0xcb4fab8f1910e65e180f97ed0c7994b302fdd45bd4b0880648e96056e456dcdc",
+          "question": "Will the US strike Nigeria next?"
+        }
+      ]
+    }
+  },
+  "mean_coherence": 0.6612965792417527,
+  "cluster_sizes": [
+    18,
+    118,
+    46,
+    48,
+    90,
+    13,
+    47,
+    45,
+    17,
+    58
+  ]
+}

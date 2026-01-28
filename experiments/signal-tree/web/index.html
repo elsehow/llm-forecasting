@@ -712,8 +712,13 @@
     // =============================================================
     const RESULT_FILES = [
       {
+        id: 'one_battle_dual_research',
+        label: 'One Battle Best Picture (Dual+Research)',
+        path: '../results/one_battle_best_picture/tree_20260120_dual_research.json',
+      },
+      {
         id: 'one_battle_best_picture',
-        label: 'One Battle Best Picture (Oscar)',
+        label: 'One Battle Best Picture (Original)',
         path: '../results/one_battle_best_picture/tree_20260119.json',
       },
       // Add more result files here as they're generated
@@ -915,8 +920,9 @@
       const leafCount = analysis?.leaf_count ?? treeData.leaf_count ?? 0;
       const maxDepth = analysis?.max_depth ?? treeData.max_depth ?? 0;
 
-      // Use recomputed probability if we have resolutions, otherwise original
-      const originalProb = analysis?.computed_probability ?? treeData.computed_probability;
+      // IMPORTANT: Use pre-computed probability from JSON (handles necessity/exclusivity correctly)
+      // The UI's recompute only handles correlation (rho), not necessity/exclusivity relationships
+      const originalProb = treeData.computed_probability ?? analysis?.computed_probability;
       const hasResolutions = Object.keys(state.resolutions).length > 0;
       const currentProb = hasResolutions
         ? treeData.computed_probability_with_resolutions
@@ -1402,11 +1408,12 @@
         if (!response.ok) throw new Error(`Failed to load: ${response.status}`);
         const data = await response.json();
 
-        // The file has { config, tree, analysis, generated_at }
-        // tree has { target, signals, max_depth, leaf_count, ... }
+        // Handle both file formats:
+        // Old format: { config, tree: { target, signals, ... }, analysis }
+        // New format: { target, signals, computed_probability, analysis, ... }
         state.fullData = data;
-        state.tree = data.tree;
-        state.analysis = data.analysis;
+        state.tree = data.tree ?? data;  // Use data.tree if exists, otherwise data itself
+        state.analysis = data.analysis ?? data.analysis;
 
         // Clear selection
         state.selectedNodeId = null;

@@ -1,0 +1,1861 @@
+{
+  "metadata": {
+    "n_topic_pairs": 434,
+    "n_classified": 100,
+    "n_real": 75,
+    "hit_rate": 0.75,
+    "generated_at": "2026-01-14T15:08:15.161543"
+  },
+  "curated_pairs": [
+    {
+      "question_a": "Will Trump nominate James B. Bullard as the next Fed chair?",
+      "question_b": "Will Trump nominate Arthur Laffer as the next Fed chair?",
+      "condition_id_a": "0x582c62c350aac2720711abeb30b16c41c5cdc9b342bfa30da380b6ea6bdeb1ac",
+      "condition_id_b": "0xe844e12246d8504b8ec30c1d461718dbc9645fb73487ca50e5e716eefbb2bc63",
+      "rho": 0.6886,
+      "topics_a": [
+        "fed",
+        "trump"
+      ],
+      "topics_b": [
+        "fed",
+        "trump"
+      ],
+      "shared_topics": [
+        "fed",
+        "trump"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:13+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These are two different candidates for the same single position (Fed chair). Trump can only nominate one person as Fed chair, so if he nominates James B. Bullard, he cannot also nominate Arthur Laffer for the same role. The positive correlation likely reflects shared underlying factors about Trump's Fed chair selection process and timing, but the events themselves are mutually exclusive."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Kevin Warsh as the next Fed chair?",
+      "question_b": "Will Trump nominate Christopher Waller as the next Fed chair?",
+      "condition_id_a": "0x61b66d02793b4a68ab0cc25be60d65f517fe18c7d654041281bb130341244fcc",
+      "condition_id_b": "0x705371444684d676041d1010a94cae3a657340fa4809b4307de3c173a35e0957",
+      "rho": 0.5261,
+      "topics_a": [
+        "fed",
+        "trump"
+      ],
+      "topics_b": [
+        "fed",
+        "trump"
+      ],
+      "shared_topics": [
+        "fed",
+        "trump"
+      ],
+      "resolved": "B",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-12-02T00:00:18+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These are two different candidates for the same single position (Fed chair). Only one person can be nominated and appointed as Fed chair at a time, making these outcomes mutually exclusive. The positive correlation of 0.53 likely reflects shared underlying factors that make Trump more or less likely to make any Fed chair nomination, but the actual nominations themselves cannot both occur."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Rick Rieder as the next Fed chair?",
+      "question_b": "Will Trump nominate Christopher Waller as the next Fed chair?",
+      "condition_id_a": "0xbd603617895e199d4042781ee55a7a9614af3130ca8e90d257424ca246f66197",
+      "condition_id_b": "0x705371444684d676041d1010a94cae3a657340fa4809b4307de3c173a35e0957",
+      "rho": 0.2401,
+      "topics_a": [
+        "fed",
+        "trump"
+      ],
+      "topics_b": [
+        "fed",
+        "trump"
+      ],
+      "shared_topics": [
+        "fed",
+        "trump"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-26T00:00:19+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These questions are about Trump nominating different people (Rick Rieder vs Christopher Waller) for the same single position (Fed chair). Only one person can be nominated and serve as Fed chair at a time, making these outcomes mutually exclusive. The positive correlation of 0.24 likely reflects shared underlying factors like Trump's likelihood of making unconventional Fed nominations or market sentiment about his nomination timing, but the events themselves cannot both occur."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Ron Paul as the next Fed chair?",
+      "question_b": "Will Trump nominate Howard Lutnick as the next Fed chair?",
+      "condition_id_a": "0xfee4b6988b9513dab72118c97abeb4369f0d9a7c2290337ca5d5c2f116a148c2",
+      "condition_id_b": "0xcba397f49b319dccb5f1b92c3710518d1c4f8f1dee86577b4bb243f3ca77e389",
+      "rho": -0.2128,
+      "topics_a": [
+        "fed",
+        "trump"
+      ],
+      "topics_b": [
+        "fed",
+        "trump"
+      ],
+      "shared_topics": [
+        "fed",
+        "trump"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:08+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "Both questions ask about Trump nominating different people (Ron Paul vs Howard Lutnick) for the same single position (Fed chair). Only one person can be nominated and serve as Fed chair at a time, making these outcomes mutually exclusive. The negative correlation (-0.21) aligns with this relationship - as the probability of one nomination increases, the probability of the other should decrease."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Kevin Hassett as the next Fed chair?",
+      "question_b": "Will Trump nominate Michelle Bowman as the next Fed chair?",
+      "condition_id_a": "0xdcc87b9ca36015e396bd0eebca29e854a136ed2b0b701049d1ee9da6bee3eb35",
+      "condition_id_b": "0xfc6eace32f283eda179c15d447fe61f0426846bace5c583a967ddeaba58c2f93",
+      "rho": -0.1744,
+      "topics_a": [
+        "fed",
+        "trump"
+      ],
+      "topics_b": [
+        "fed",
+        "trump"
+      ],
+      "shared_topics": [
+        "fed",
+        "trump"
+      ],
+      "resolved": "B",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:05+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These are two different candidates for the same single position (Fed chair). Only one person can be nominated and appointed as Fed chair at a time, making these outcomes mutually exclusive. The negative correlation (-0.17) aligns with this relationship - as the probability of one candidate being chosen increases, the probability of the other decreases."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Bill Pulte as the next Fed chair?",
+      "question_b": "Will Trump nominate Philip Jefferson as the next Fed chair?",
+      "condition_id_a": "0xc82669901de7cb0be25c1d8de39fbbe8e2ddc0aacba0a30a663ed13c3b9eb06d",
+      "condition_id_b": "0xfbb2046e013da7b66ecedf3a9de63ce446fd57c23ccc77cd019991f485522236",
+      "rho": 0.1527,
+      "topics_a": [
+        "fed",
+        "trump"
+      ],
+      "topics_b": [
+        "fed",
+        "trump"
+      ],
+      "shared_topics": [
+        "fed",
+        "trump"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:16+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "Both questions ask about Trump nominating different people (Bill Pulte vs Philip Jefferson) for the same single position - Fed chair. Only one person can be nominated and serve as Fed chair at a time, making these outcomes mutually exclusive. The positive correlation of 0.15 likely reflects shared factors affecting the timing or likelihood of Trump making any Fed chair nomination, but the core relationship is that if one happens, the other cannot."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Marc Sumerlin as the next Fed chair?",
+      "question_b": "Will Trump nominate Scott Bessent as the next Fed chair?",
+      "condition_id_a": "0xecb8543d8b5072ab44f216f0d18830d0276bfcbb6b51bfd14c62540560cc7a88",
+      "condition_id_b": "0xdb1ae961e30733e7857ebb425b5f6449fa8032de13f32c1c6e447a0c3801ca04",
+      "rho": -0.1349,
+      "topics_a": [
+        "fed",
+        "trump"
+      ],
+      "topics_b": [
+        "fed",
+        "trump"
+      ],
+      "shared_topics": [
+        "fed",
+        "trump"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:16+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These are two different candidates for the same single position (Fed chair). Trump can only nominate one person as Fed chair, so if he nominates one candidate, he cannot nominate the other. This creates a direct competitive relationship where success of one necessarily precludes success of the other."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Christopher Waller as the next Fed chair?",
+      "question_b": "Will Trump nominate David Zervos as the next Fed chair?",
+      "condition_id_a": "0x705371444684d676041d1010a94cae3a657340fa4809b4307de3c173a35e0957",
+      "condition_id_b": "0x92291ad59a105b0fb205f8aa2d3d2dbba7ee249ad6532672c854eaaf79fc135c",
+      "rho": -0.1189,
+      "topics_a": [
+        "fed",
+        "trump"
+      ],
+      "topics_b": [
+        "fed",
+        "trump"
+      ],
+      "shared_topics": [
+        "fed",
+        "trump"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-12-02T00:00:18+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These questions are about the same position (Fed chair) that can only be filled by one person. If Trump nominates Christopher Waller as Fed chair, he cannot simultaneously nominate David Zervos for the same position. The negative correlation (-0.12) reflects this mutual exclusivity, though it's weaker than might be expected, possibly due to market uncertainty about whether Trump will nominate either candidate or someone else entirely."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate David Malpass as the next Fed chair?",
+      "question_b": "Will Trump nominate Stephen Miran as the next Fed chair?",
+      "condition_id_a": "0x998acf9ed1bbda06d59df70786441468872c72b2de59cacbea93625b14a5efcb",
+      "condition_id_b": "0x94947a23e965124fa382e3ff89827b7bb00c2e2f3f9c0b92137e639d4cbfb080",
+      "rho": 0.0892,
+      "topics_a": [
+        "fed",
+        "trump"
+      ],
+      "topics_b": [
+        "fed",
+        "trump"
+      ],
+      "shared_topics": [
+        "fed",
+        "trump"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:21+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These questions are about Trump nominating different people (David Malpass vs Stephen Miran) for the same single position (Fed chair). Only one person can be nominated and serve as Fed chair at a time, making these outcomes mutually exclusive. The low positive correlation (0.09) likely reflects shared underlying factors like Trump's likelihood to make any Fed chair nomination, but the events themselves cannot both occur simultaneously."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Larry Lindsey as the next Fed chair?",
+      "question_b": "Will Trump nominate Kevin Warsh as the next Fed chair?",
+      "condition_id_a": "0x95657cd92502a3b132163cb9c77f5f16771dda1faa33a3977364f11a945d68f0",
+      "condition_id_b": "0x61b66d02793b4a68ab0cc25be60d65f517fe18c7d654041281bb130341244fcc",
+      "rho": 0.0616,
+      "topics_a": [
+        "fed",
+        "trump"
+      ],
+      "topics_b": [
+        "fed",
+        "trump"
+      ],
+      "shared_topics": [
+        "fed",
+        "trump"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:30+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These questions are about the same position (Fed chair) that can only be filled by one person. If Trump nominates Larry Lindsey as Fed chair, he cannot simultaneously nominate Kevin Warsh for the same position. The low correlation (0.06) makes sense as these are competing alternatives rather than positively correlated events."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Rick Rieder as the next Fed chair?",
+      "question_b": "Will Trump nominate David Zervos as the next Fed chair?",
+      "condition_id_a": "0xbd603617895e199d4042781ee55a7a9614af3130ca8e90d257424ca246f66197",
+      "condition_id_b": "0x92291ad59a105b0fb205f8aa2d3d2dbba7ee249ad6532672c854eaaf79fc135c",
+      "rho": -0.0582,
+      "topics_a": [
+        "fed",
+        "trump"
+      ],
+      "topics_b": [
+        "fed",
+        "trump"
+      ],
+      "shared_topics": [
+        "fed",
+        "trump"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-26T00:00:19+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These are two different candidates for the same single position (Fed chair). Trump can only nominate one person as Fed chair, so if Rick Rieder is nominated, David Zervos cannot be, and vice versa. The weak negative correlation (-0.06) is consistent with this mutually exclusive relationship, though the correlation is weaker than might be expected, possibly due to market participants considering the possibility that neither candidate gets nominated."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Marc Sumerlin as the next Fed chair?",
+      "question_b": "Will Trump nominate Philip Jefferson as the next Fed chair?",
+      "condition_id_a": "0xecb8543d8b5072ab44f216f0d18830d0276bfcbb6b51bfd14c62540560cc7a88",
+      "condition_id_b": "0xfbb2046e013da7b66ecedf3a9de63ce446fd57c23ccc77cd019991f485522236",
+      "rho": 0.0442,
+      "topics_a": [
+        "fed",
+        "trump"
+      ],
+      "topics_b": [
+        "fed",
+        "trump"
+      ],
+      "shared_topics": [
+        "fed",
+        "trump"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:16+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "Both questions ask about Trump nominating different people (Marc Sumerlin vs Philip Jefferson) for the same position (Fed chair). Only one person can be nominated and serve as Fed chair at a time, making these outcomes mutually exclusive. The low correlation of 0.04 is expected since if one person is nominated, the other cannot be."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Bill Pulte as the next Fed chair?",
+      "question_b": "Will Trump nominate Scott Bessent as the next Fed chair?",
+      "condition_id_a": "0xc82669901de7cb0be25c1d8de39fbbe8e2ddc0aacba0a30a663ed13c3b9eb06d",
+      "condition_id_b": "0xdb1ae961e30733e7857ebb425b5f6449fa8032de13f32c1c6e447a0c3801ca04",
+      "rho": -0.0248,
+      "topics_a": [
+        "fed",
+        "trump"
+      ],
+      "topics_b": [
+        "fed",
+        "trump"
+      ],
+      "shared_topics": [
+        "fed",
+        "trump"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:16+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These are two different candidates for the same single position (Fed chair). Only one person can be nominated and appointed as Fed chair, making these outcomes mutually exclusive. The very low correlation (-0.02) suggests the market may not be efficiently pricing this relationship, but fundamentally these events cannot both occur."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Bill Pulte as the next Fed chair?",
+      "question_b": "Will Trump nominate Marc Sumerlin as the next Fed chair?",
+      "condition_id_a": "0xc82669901de7cb0be25c1d8de39fbbe8e2ddc0aacba0a30a663ed13c3b9eb06d",
+      "condition_id_b": "0xecb8543d8b5072ab44f216f0d18830d0276bfcbb6b51bfd14c62540560cc7a88",
+      "rho": -0.0127,
+      "topics_a": [
+        "fed",
+        "trump"
+      ],
+      "topics_b": [
+        "fed",
+        "trump"
+      ],
+      "shared_topics": [
+        "fed",
+        "trump"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:16+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These are mutually exclusive events - Trump can only nominate one person as Fed chair. If Bill Pulte is nominated, Marc Sumerlin cannot be, and vice versa. The near-zero correlation (-0.01) is expected for mutually exclusive events in prediction markets, as traders hedge between different possible nominees for the same single position."
+      }
+    },
+    {
+      "question_a": "Will Katie Britt win the 2028 Republican presidential nomination?",
+      "question_b": "Will Greg Abbott win the 2028 Republican presidential nomination?",
+      "condition_id_a": "0x61a1278884fa70d68d4bcaaf72fad55bbdb063cac28c6947472ca91635fab10f",
+      "condition_id_b": "0x214093035e429b91df322bd20c55d9f611f741f67472a63f7623a9afc0cffa57",
+      "rho": 0.7739,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:26+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These are two different candidates competing for the same Republican presidential nomination in 2028. Only one person can win the nomination, making these outcomes mutually exclusive. The high correlation of 0.77 reflects that as one candidate's chances increase, the other's must decrease, creating a strong negative relationship between their actual probabilities of winning."
+      }
+    },
+    {
+      "question_a": "Will Chelsea Clinton win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Donald Trump win the 2028 US Presidential Election?",
+      "condition_id_a": "0xf2e51acfbb6d0414dc2ace81b7dc2af7c165e443dcb91f6caa7aab6d6ab4f06d",
+      "condition_id_b": "0xce9a5fa30fe74e323b4a8f15afbb0b7a41a537aa880779ddf7dee22223b2f34a",
+      "rho": 0.746,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028",
+        "trump"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:25+00:00",
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "medium",
+        "rationale": "These events are driven by shared political factors in 2028 - if Chelsea Clinton wins the Democratic nomination, it likely indicates strong Democratic momentum and anti-Republican sentiment, which would decrease Trump's chances in the general election. Conversely, conditions favoring Trump would suggest a political environment less likely to nominate a Clinton. The correlation reflects underlying electoral dynamics rather than direct causation."
+      }
+    },
+    {
+      "question_a": "Will Liz Cheney win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Rand Paul win the 2028 Republican presidential nomination?",
+      "condition_id_a": "0x46dbd48d6bde5b81edb480e0f676a2cdda6c6b592c4d86a9367c7ad5a9870195",
+      "condition_id_b": "0xd10bc768ede58b53ed400594240b0a0603134a32dab89ec823a18759cbc180ca",
+      "rho": -0.7255,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:17+00:00",
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "high",
+        "rationale": "Both nominations are for the same election cycle (2028) and would be driven by the same underlying political climate, voter sentiment, and national conditions. The strong negative correlation (-0.73) likely reflects that political environments favoring outsider/anti-establishment candidates would benefit both Cheney (as a Republican-turned-Democrat critic of Trump) and Paul (as a libertarian-leaning Republican). Conversely, environments favoring traditional party establishment candidates would hurt both. While they're in different parties, they share similar anti-establishment positioning that would respond similarly to the same political drivers."
+      }
+    },
+    {
+      "question_a": "Will Donald Trump Jr. win the 2028 US Presidential Election?",
+      "question_b": "Will Mark Cuban win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0x23481b811978194fa175143ed7cd8d0000878ca59c408fd552e33535f7aa771e",
+      "condition_id_b": "0x9d4f94f82de9d13ff1d3318639ab9000ee2533949e525343156f374fb00bd9b1",
+      "rho": 0.7182,
+      "topics_a": [
+        "election_2028",
+        "trump"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:06+00:00",
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "high",
+        "rationale": "Both predictions are driven by the same underlying political factors in 2028 - voter sentiment, economic conditions, major issues, and overall political climate. If conditions favor outsider/business candidates (making Cuban likely to win Democratic nomination), those same anti-establishment sentiments could also favor Trump Jr. in the general election. The strong correlation reflects shared sensitivity to the same political drivers rather than direct causal relationship."
+      }
+    },
+    {
+      "question_a": "Will Kim Kardashian win the 2028 US Presidential Election?",
+      "question_b": "Will Nikki Haley win the 2028 US Presidential Election?",
+      "condition_id_a": "0x7f695758278e6d4d9e63df862afa88d664d3402a3d26e4d32ae05121cdbddba6",
+      "condition_id_b": "0xe0173375b7eaccb836f7b92d28a9a2d1cc69e54e5a65fae89a5d7e49aadd332e",
+      "rho": 0.6835,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:30+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These questions are about the same presidential election (2028) where only one person can win. They are mutually exclusive outcomes - if Kim Kardashian wins, Nikki Haley cannot win, and vice versa. The high correlation (0.68) likely reflects traders updating their beliefs about the overall political landscape, candidate viability, or party dynamics that affect both candidates' chances, but fundamentally only one can be president."
+      }
+    },
+    {
+      "question_a": "Russia x Ukraine ceasefire by January 31, 2026?",
+      "question_b": "Russia x Ukraine ceasefire by March 31, 2026?",
+      "condition_id_a": "0xb8c1bd306a8a4cedfb280e114e655c5092b3f37edccae05cd877d7f21a5774ce",
+      "condition_id_b": "0x1d54eb5eac2cee8f595f3097c65da7d07f8ab5dee63d7c0c6883eb70e1e9af30",
+      "rho": 0.6647,
+      "topics_a": [
+        "russia_ukraine"
+      ],
+      "topics_b": [
+        "russia_ukraine"
+      ],
+      "shared_topics": [
+        "russia_ukraine"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-12-13T00:00:22+00:00",
+      "classification": {
+        "category": "sequential_prerequisite",
+        "confidence": "high",
+        "rationale": "These questions have a clear logical dependency - if Russia and Ukraine reach a ceasefire by January 31, 2026, then they will also have a ceasefire by March 31, 2026 (assuming it holds). Question A is a prerequisite for Question B. The correlation of 0.66 reflects this strong but not perfect relationship, as Question B could still occur even if Question A doesn't (ceasefire could happen between Feb-March 2026)."
+      }
+    },
+    {
+      "question_a": "Will Zohran Mamdani win the 2028 US Presidential Election?",
+      "question_b": "Will Jon Stewart win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0xf05b4b55336a4c1c7b44c726911d2b559732cff7bad339084de86ae364dc85f6",
+      "condition_id_b": "0xfee07be730188c94cd3644ed6f107fa3ea2dfab9989ce8d39aeeae064766abe3",
+      "rho": 0.6424,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:08+00:00",
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "medium",
+        "rationale": "Both questions involve unconventional candidates (Mamdani as a progressive state legislator, Stewart as a comedian/TV host) winning major political positions in 2028. The correlation likely reflects shared underlying factors such as: (1) appetite for political outsiders/non-traditional candidates, (2) anti-establishment sentiment, (3) major disruption to normal political processes, or (4) significant shifts in voter preferences toward media personalities and progressive candidates. While neither directly causes the other, both would require similar extraordinary political conditions to occur."
+      }
+    },
+    {
+      "question_a": "Will Bitcoin dip to $85,000 in January?",
+      "question_b": "Will Bitcoin reach $115,000 in January?",
+      "condition_id_a": "0x62f01109c53d585406b4545e5538b52d76f2895affd933da75190be788afc6ab",
+      "condition_id_b": "0xa7794cc1f02beaee1ce520357d18989927c5dd3517621125160786561e776e46",
+      "rho": -0.6359,
+      "topics_a": [
+        "bitcoin"
+      ],
+      "topics_b": [
+        "bitcoin"
+      ],
+      "shared_topics": [
+        "bitcoin"
+      ],
+      "resolved": "B",
+      "resolution_outcome": "NO",
+      "resolution_date": "2026-01-02T00:00:20+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These two events are mutually exclusive within the same timeframe (January). Bitcoin cannot simultaneously dip to $85,000 and reach $115,000 in the same month - these represent opposite price movements. The strong negative correlation (-0.64) reflects that as the probability of one outcome increases, the probability of the other decreases, which is exactly what we'd expect for mutually exclusive events concerning the same asset's price direction."
+      }
+    },
+    {
+      "question_a": "Will Bitcoin reach $110,000 in January?",
+      "question_b": "Will Bitcoin dip to $80,000 in January?",
+      "condition_id_a": "0x0ca11fd21b75f9547c1e0e65a590fb003e9d2ec9767fa82160df8591f09c6757",
+      "condition_id_b": "0x17a2466c34d9a93dbef8bda91bc56005b4162666901df319bcddb063d6bd8991",
+      "rho": -0.5969,
+      "topics_a": [
+        "bitcoin"
+      ],
+      "topics_b": [
+        "bitcoin"
+      ],
+      "shared_topics": [
+        "bitcoin"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2026-01-02T00:00:22+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These two Bitcoin price predictions for January are mutually exclusive - Bitcoin cannot simultaneously reach $110,000 and dip to $80,000 in the same month. The negative correlation of -0.60 makes perfect sense as betting on one outcome logically decreases confidence in the other. This represents a real relationship where the events are fundamentally incompatible within the same timeframe."
+      }
+    },
+    {
+      "question_a": "Will Microsoft be the largest company in the world by market cap on January 31?",
+      "question_b": "Will Apple be the largest company in the world by market cap on January 31?",
+      "condition_id_a": "0xd947403a5eae117d6fe0bf737f2d279c89dddc495dc7d2eb198accd1ecd07cc9",
+      "condition_id_b": "0xbf6983ec188a61a32f811738de5e4e427925cd42d5f3010bd3ab96f4728f5cd9",
+      "rho": 0.5848,
+      "topics_a": [
+        "market_cap"
+      ],
+      "topics_b": [
+        "apple",
+        "market_cap"
+      ],
+      "shared_topics": [
+        "market_cap"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-12-19T00:00:10+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These questions are asking about the same competition (largest company by market cap) on the same date (January 31), where only one company can hold the top position. The positive correlation (0.58) likely reflects that when one company's chances increase, it often means both are competing closely for the top spot, with market conditions favoring large tech companies generally. However, ultimately only one can be the largest, making them mutually exclusive outcomes."
+      }
+    },
+    {
+      "question_a": "Will Oprah Winfrey win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Jon Stewart win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0xe06a7e94cf2fa8dc2085b7610fe16e9be1cde6654f34d365c13da1149b276c61",
+      "condition_id_b": "0xfee07be730188c94cd3644ed6f107fa3ea2dfab9989ce8d39aeeae064766abe3",
+      "rho": -0.583,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:10+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "Both questions ask about winning the same Democratic presidential nomination in 2028. Only one person can win a party's nomination, making these outcomes mutually exclusive. The negative correlation of -0.58 makes sense as increased probability of one candidate winning should decrease the probability of the other winning."
+      }
+    },
+    {
+      "question_a": "Will Kim Kardashian win the 2028 Republican presidential nomination?",
+      "question_b": "Will Tim Walz win the 2028 US Presidential Election?",
+      "condition_id_a": "0x414378275cb214b747245942be889ee1e077c56d1c00eb4d726629c95f22b5a5",
+      "condition_id_b": "0xae70ab9bf1c3726fe430a2ba8b517697ae24e0f0ab554b876a5b521153068882",
+      "rho": 0.5737,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:22+00:00",
+      "classification": {
+        "category": "sequential_prerequisite",
+        "confidence": "medium",
+        "rationale": "For Kim Kardashian to meaningfully impact Tim Walz's chances in the 2028 general election, she would need to first win the Republican nomination. If she wins the GOP nomination, this could affect the general election dynamics and Walz's probability of winning (assuming he's the Democratic nominee). However, the relationship isn't perfectly sequential since Walz could win against any Republican nominee, and the correlation might also reflect shared underlying factors about the 2028 political landscape rather than pure sequential dependence."
+      }
+    },
+    {
+      "question_a": "Will Leeds win the 2025\u201326 English Premier League?",
+      "question_b": "Will Brentford win the 2025\u201326 English Premier League?",
+      "condition_id_a": "0xa4ff70673e8d6f76261400c0ffd9d7970bf6d8aec5f8f44b20434e59e3e3141e",
+      "condition_id_b": "0x29eafc104d7824c838e194766074f50b352f866abd9bc2fe536b1cdf93e3663f",
+      "rho": 0.57,
+      "topics_a": [
+        "soccer"
+      ],
+      "topics_b": [
+        "soccer"
+      ],
+      "shared_topics": [
+        "soccer"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:12+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These are mutually exclusive events - only one team can win the Premier League in a given season. However, the positive correlation (0.57) is puzzling since these should be negatively correlated. This suggests the correlation may reflect shared factors like both teams' promotion prospects or general Premier League competitiveness rather than the actual championship outcomes, but the fundamental relationship is still mutually exclusive."
+      }
+    },
+    {
+      "question_a": "Will Chris Murphy win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Tulsi Gabbard win the 2028 Republican presidential nomination?",
+      "condition_id_a": "0xc720fcfa9e29346a976902f87e0f0f3bdc31d43af501b4fdef4f1780a30dd359",
+      "condition_id_b": "0x9cd77217b2ab264fe4f6d302f662c0a91f349fe5798f1f98d70bb2311712791b",
+      "rho": 0.5669,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-12-10T00:00:12+00:00",
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "medium",
+        "rationale": "Both nominations are for the 2028 presidential election and could be influenced by similar underlying political factors such as voter sentiment toward establishment vs outsider candidates, national political climate, and reactions to the previous administration's performance. The moderate positive correlation (0.57) suggests scenarios where both outsider-type candidates might simultaneously gain traction in their respective parties, driven by similar anti-establishment sentiment or desire for political change."
+      }
+    },
+    {
+      "question_a": "Will George Clooney win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Rand Paul win the 2028 Republican presidential nomination?",
+      "condition_id_a": "0x822e61527476cabf98927e3aad385c5ecdae7086f945535f2c1fd9ae8dbfa46e",
+      "condition_id_b": "0xd10bc768ede58b53ed400594240b0a0603134a32dab89ec823a18759cbc180ca",
+      "rho": 0.5511,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:12+00:00",
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "medium",
+        "rationale": "Both nominations occur in the same election cycle (2028) and could be influenced by shared political factors like national mood, desire for outsider candidates, or anti-establishment sentiment. The moderate positive correlation (0.55) suggests common underlying drivers rather than direct causal relationship, as these are separate party primaries with different voter bases."
+      }
+    },
+    {
+      "question_a": "Will Vivek Ramaswamy win the 2028 Republican presidential nomination?",
+      "question_b": "Will Michelle Obama win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0xd997dc2a212a7d6673375a3b016db1fb214247142f8cde0cbf07f8e6d789877c",
+      "condition_id_b": "0x3e218c99a1335641b3a5ee6c887521d19b0c28fddd6b99c254a07968e35c0b1b",
+      "rho": 0.5439,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:12+00:00",
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "high",
+        "rationale": "Both nominations are driven by the same underlying political climate and voter sentiment in 2028. A political environment that favors outsider/anti-establishment candidates would increase the likelihood of both Ramaswamy (outsider Republican) and Obama (reluctant establishment figure being drafted) winning their respective nominations. The correlation reflects shared electoral dynamics rather than direct causal relationship between the two separate party nomination processes."
+      }
+    },
+    {
+      "question_a": "Will Marco Rubio win the 2028 US Presidential Election?",
+      "question_b": "Will Steve Bannon win the 2028 Republican presidential nomination?",
+      "condition_id_a": "0x2053d8515f1b8cbeea4ccdb56e60e89c2617e43a8660d95166b8e71d27865277",
+      "condition_id_b": "0xd5659eea81cada0bac656f5a9099861786cbae6755e2e1ac2c9e9441908b551f",
+      "rho": -0.5437,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:09+00:00",
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "high",
+        "rationale": "Both outcomes are driven by the same underlying factor - the ideological direction and factional control of the Republican Party in 2028. The negative correlation makes sense: if Bannon (representing populist/MAGA wing) wins the nomination, it suggests that faction controls the party, making it less likely for Rubio (representing more establishment/traditional conservative wing) to win the general election. Conversely, if the party moves toward more mainstream candidates like Rubio winning the presidency, it indicates the establishment wing has more control, making a Bannon nomination less likely."
+      }
+    },
+    {
+      "question_a": "Will Ecuador win the 2026 FIFA World Cup?",
+      "question_b": "Will Japan win the 2026 FIFA World Cup?",
+      "condition_id_a": "0xbaf7780f9059e34b84301fd411f8dc573b4d56adfe6e0cda33daf304b1438da4",
+      "condition_id_b": "0x0189df05ed7bf84d799213b01a79571e305c03b2ac5359cfbb3a323448ba20fa",
+      "rho": 0.5356,
+      "topics_a": [
+        "soccer"
+      ],
+      "topics_b": [
+        "soccer"
+      ],
+      "shared_topics": [
+        "soccer"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:07+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These questions are about the same competition (2026 FIFA World Cup) where only one team can win. They are mutually exclusive events - if Ecuador wins, Japan cannot win, and vice versa. The positive correlation of 0.54 is spurious and likely reflects general tournament dynamics or betting patterns rather than any real relationship between Ecuador's and Japan's chances of winning."
+      }
+    },
+    {
+      "question_a": "Will John Thune win the 2028 Republican presidential nomination?",
+      "question_b": "Will Kristi Noem win the 2028 Republican presidential nomination?",
+      "condition_id_a": "0x7190eccbd0677d5d0ae8cdf598b37e945a346915c666dda11468dc9970657a56",
+      "condition_id_b": "0x5f1b1caf70eb994bfff2986727a05a3ac9f7ec8b0da4017f7732596d023e5a07",
+      "rho": 0.5091,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:31+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "Both John Thune and Kristi Noem are potential candidates for the same Republican presidential nomination in 2028. Only one person can win a party's presidential nomination, making these outcomes mutually exclusive. The positive correlation of 0.51 is spurious - it likely reflects shared underlying factors like general Republican electoral prospects or South Dakota political dynamics, but the events themselves are fundamentally incompatible."
+      }
+    },
+    {
+      "question_a": "Will Raphael Warnock win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Jon Stewart win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0xdce84960dce38aa4a5800a5eba7c9ac34d2ce49ba9d44c42572c472d468af264",
+      "condition_id_b": "0xfee07be730188c94cd3644ed6f107fa3ea2dfab9989ce8d39aeeae064766abe3",
+      "rho": -0.5056,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:08+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These questions ask about two different candidates winning the same Democratic presidential nomination in 2028. Only one person can win a party's presidential nomination, making these outcomes mutually exclusive. The negative correlation of -0.51 is consistent with this relationship - as one candidate's chances increase, the other's decrease. This is a clear structural relationship inherent to the nomination process."
+      }
+    },
+    {
+      "question_a": "Will Inter win the 2025\u201326 Champions League?",
+      "question_b": "Will PSV win the 2025\u201326 Champions League?",
+      "condition_id_a": "0xe4f25e05d842810ff5944ba1e2953c6ced1e869cac3b44d15b32fd404ddb4bf4",
+      "condition_id_b": "0x40c8ee9e0d66c80695e98b00c1930db96e39554f0eb0801e5cc271ad3f60025a",
+      "rho": -0.4768,
+      "topics_a": [
+        "soccer"
+      ],
+      "topics_b": [
+        "soccer"
+      ],
+      "shared_topics": [
+        "soccer"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:13+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "Both questions ask about winning the same competition (2025-26 Champions League) in the same timeframe. Only one team can win the Champions League, making these outcomes mutually exclusive. The negative correlation of -0.48 is consistent with this relationship - as one team's chances increase, the other's must decrease since they cannot both win the same tournament."
+      }
+    },
+    {
+      "question_a": "Will Real Madrid win the 2025\u201326 La Liga?",
+      "question_b": "Will Inter win the 2025\u201326 Champions League?",
+      "condition_id_a": "0xa1f08ec3bcc1434cb0b695bd5ee9f81268ef45fb73f752b3a1c1fb1d35750866",
+      "condition_id_b": "0xe4f25e05d842810ff5944ba1e2953c6ced1e869cac3b44d15b32fd404ddb4bf4",
+      "rho": 0.4643,
+      "topics_a": [
+        "soccer"
+      ],
+      "topics_b": [
+        "soccer"
+      ],
+      "shared_topics": [
+        "soccer"
+      ],
+      "resolved": "B",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:13+00:00",
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "medium",
+        "rationale": "Both outcomes are driven by the overall strength and form of top European football clubs during the same season. Real Madrid's domestic dominance in La Liga and Inter's potential Champions League success both reflect the competitive landscape of elite European football, where strong clubs tend to perform well across competitions. However, the correlation is moderate rather than strong because these are different competitions with different participants and dynamics."
+      }
+    },
+    {
+      "question_a": "Will Jasmine Crockett win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Mark Kelly win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0x3cd6e52603d80ddbbdac9b1a4d43f9b7faa6aae4fae4d0fdfad3bd58454da7d3",
+      "condition_id_b": "0x36db77c539bcc8c7bf0686c1b99f30c5a5eed1f53d3b3a27a071550c81f83701",
+      "rho": -0.456,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-12-10T00:00:11+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These questions ask about two different candidates winning the same Democratic presidential nomination in 2028. Only one person can win a party's presidential nomination, making these outcomes mutually exclusive. The negative correlation of -0.46 is consistent with this relationship - as one candidate's chances increase, the other's must decrease. This is a clear structural relationship inherent to the nomination process."
+      }
+    },
+    {
+      "question_a": "Will Apple be the largest company in the world by market cap on January 31?",
+      "question_b": "Will Saudi Aramco be the largest company in the world by market cap on March 31?",
+      "condition_id_a": "0xbf6983ec188a61a32f811738de5e4e427925cd42d5f3010bd3ab96f4728f5cd9",
+      "condition_id_b": "0xd1ee06ef5c85e63f611bb3eb0c28373865a4b542659651fac823d58bd48bc53c",
+      "rho": -0.4378,
+      "topics_a": [
+        "apple",
+        "market_cap"
+      ],
+      "topics_b": [
+        "market_cap"
+      ],
+      "shared_topics": [
+        "market_cap"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-12-24T00:00:11+00:00",
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "high",
+        "rationale": "Both questions are asking about which company will be the largest by market cap, just at different time points. The negative correlation makes sense because if Apple is likely to be #1 in January, it reduces the probability that Saudi Aramco will overtake it by March. Both are driven by the same underlying factors: relative market valuations, oil prices affecting Aramco, tech sector performance affecting Apple, and overall market conditions. The 2-month gap between measurements creates a meaningful relationship where January rankings influence March probabilities."
+      }
+    },
+    {
+      "question_a": "Will the Boston Celtics win the 2026 NBA Finals?",
+      "question_b": "Will the Houston Rockets win the 2026 NBA Finals?",
+      "condition_id_a": "0x13e1cc703a120883a709d3bb29707097952845d61ca6793ea2b4328bae2a7451",
+      "condition_id_b": "0x9b56568af78dd036b03c641e0673729d72cd7d63578eb0119cd23eb1f94f1b56",
+      "rho": -0.4364,
+      "topics_a": [
+        "nba"
+      ],
+      "topics_b": [
+        "nba"
+      ],
+      "shared_topics": [
+        "nba"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:27+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These questions are about the same competition (2026 NBA Finals) where only one team can win. The negative correlation of -0.44 makes perfect sense as these are mutually exclusive outcomes - if the Celtics win, the Rockets cannot win, and vice versa. This is a real relationship driven by the structure of the competition itself."
+      }
+    },
+    {
+      "question_a": "Fed decreases interest rates by 25 bps after January 2026 meeting?",
+      "question_b": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "condition_id_a": "0x35cc41270f5cdfd59b45e68ab85dc51b0b900d286a6c74ea006b8572d9ff5934",
+      "condition_id_b": "0x257b18205f908aef01ef2d1d50e6fea7d29cf5486fe04031d8b101394476faed",
+      "rho": -0.4361,
+      "topics_a": [
+        "fed"
+      ],
+      "topics_b": [
+        "fed"
+      ],
+      "shared_topics": [
+        "fed"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2026-01-04T00:00:15+00:00",
+      "classification": {
+        "category": "sequential_prerequisite",
+        "confidence": "high",
+        "rationale": "These events are directly sequential in the Fed's meeting schedule (January 2026 followed by March 2026). If the Fed decreases rates by 25 bps in January, it creates a strong precedent and economic context that makes 'no change' in March more likely, as the Fed typically allows time to assess the impact of rate changes before making additional moves. The negative correlation (-0.44) makes economic sense: a rate cut in January increases the probability of a pause in March."
+      }
+    },
+    {
+      "question_a": "Will Jo\u00e3o Cotrim Figueiredo win the 2026 Portugal presidential election?",
+      "question_b": "Will Lu\u00eds Marques Mendes win the 2026 Portugal presidential election?",
+      "condition_id_a": "0xe90b27f08082e17740308fdc957528d29a3f334a9ecaeefd056a3427a4cfdaaf",
+      "condition_id_b": "0xed888eb64bffa457086fb5904e9b2046da9aa31c5db36e9d4a303efa7e850d76",
+      "rho": -0.4281,
+      "topics_a": [
+        "election_2026"
+      ],
+      "topics_b": [
+        "election_2026"
+      ],
+      "shared_topics": [
+        "election_2026"
+      ],
+      "resolved": "B",
+      "resolution_outcome": "NO",
+      "resolution_date": "2026-01-13T23:51:14+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These are two different candidates competing in the same presidential election (2026 Portugal). Only one person can win a presidential election, making these outcomes mutually exclusive. The negative correlation (-0.43) is expected as support for one candidate typically reduces the probability of another candidate winning the same race."
+      }
+    },
+    {
+      "question_a": "Will Tim Walz win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Chris Murphy win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0x3265b10daeb30dbcc3214bd02e488551d0a5d3028392f4152e4750b943fbfc91",
+      "condition_id_b": "0xc720fcfa9e29346a976902f87e0f0f3bdc31d43af501b4fdef4f1780a30dd359",
+      "rho": -0.4277,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:11+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These are two candidates competing for the same Democratic presidential nomination in 2028. Only one person can win the nomination, making these outcomes mutually exclusive. The negative correlation of -0.43 reflects that if one candidate's chances increase, the other's must decrease, which is exactly what we'd expect in a competitive primary race."
+      }
+    },
+    {
+      "question_a": "Will Uruguay win the 2026 FIFA World Cup?",
+      "question_b": "Will Japan win the 2026 FIFA World Cup?",
+      "condition_id_a": "0x7876851632c295043c66536150a304cb785abdf712ba8489d298c6e6926be106",
+      "condition_id_b": "0x0189df05ed7bf84d799213b01a79571e305c03b2ac5359cfbb3a323448ba20fa",
+      "rho": 0.4268,
+      "topics_a": [
+        "soccer"
+      ],
+      "topics_b": [
+        "soccer"
+      ],
+      "shared_topics": [
+        "soccer"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:06+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These questions are about the same competition (2026 FIFA World Cup) where only one team can win. They are mutually exclusive events - if Uruguay wins, Japan cannot win, and vice versa. The positive correlation of 0.43 is spurious and likely reflects shared factors like both teams being considered underdogs or having similar perceived chances, but fundamentally these outcomes cannot both occur."
+      }
+    },
+    {
+      "question_a": "Will Jon Ossoff win the 2028 Democratic presidential nomination?",
+      "question_b": "Will George Clooney win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0x74dba1ce1ae9dd535414e85f2d9ab5ea32c0fb1acc9b7130b67e6d91217e24e1",
+      "condition_id_b": "0x822e61527476cabf98927e3aad385c5ecdae7086f945535f2c1fd9ae8dbfa46e",
+      "rho": 0.4189,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:16+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These are two different candidates competing for the same Democratic presidential nomination in 2028. Only one person can win the nomination, making these outcomes mutually exclusive. The positive correlation of 0.42 is spurious - it likely reflects general market sentiment about the Democratic party's chances or broader political factors, but fundamentally these bets should be negatively correlated since one candidate's success reduces the other's probability of winning."
+      }
+    },
+    {
+      "question_a": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Kamala Harris win the 2028 US Presidential Election?",
+      "condition_id_a": "0x0f49db97f71c68b1e42a6d16e3de93d85dbf7d4148e3f018eb79e88554be9f75",
+      "condition_id_b": "0xb3298af85e00aafad937c119444a5f2800a55343b7482eb75581f6e454432501",
+      "rho": -0.4148,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "B",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:13+00:00",
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "high",
+        "rationale": "Both outcomes are driven by the same underlying factors: Democratic Party strength, voter preferences, and electoral dynamics in 2028. The negative correlation makes sense - if Newsom wins the Democratic nomination, it likely indicates Harris didn't run or wasn't preferred by Democrats, which could signal party division or weakness that hurts the eventual nominee's chances in the general election. Conversely, if Harris wins the presidency, it suggests she was the stronger candidate from the start, making Newsom's nomination less likely."
+      }
+    },
+    {
+      "question_a": "Will Katie Britt win the 2028 Republican presidential nomination?",
+      "question_b": "Will Michelle Obama win the 2028 US Presidential Election?",
+      "condition_id_a": "0x61a1278884fa70d68d4bcaaf72fad55bbdb063cac28c6947472ca91635fab10f",
+      "condition_id_b": "0xbbbece074c2d4010e39e39c85ed67b1131180fcea616073c893fb6beaf51d783",
+      "rho": 0.4019,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:26+00:00",
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "medium",
+        "rationale": "Both outcomes are driven by the same underlying political climate and voter preferences in 2028. If Katie Britt wins the GOP nomination, it likely indicates a political environment favoring certain demographics or ideologies that could simultaneously make Michelle Obama's general election victory more likely as a counter-response. The correlation reflects shared sensitivity to the same electoral dynamics rather than direct causation between the two events."
+      }
+    },
+    {
+      "question_a": "Will Katie Britt win the 2028 Republican presidential nomination?",
+      "question_b": "Will Chelsea Clinton win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0x61a1278884fa70d68d4bcaaf72fad55bbdb063cac28c6947472ca91635fab10f",
+      "condition_id_b": "0xf2e51acfbb6d0414dc2ace81b7dc2af7c165e443dcb91f6caa7aab6d6ab4f06d",
+      "rho": 0.3982,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:26+00:00",
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "medium",
+        "rationale": "Both questions involve women potentially winning their respective party's 2028 presidential nomination. The positive correlation (0.40) likely reflects shared underlying factors such as: increased voter appetite for female candidates, broader cultural shifts toward gender representation in politics, or general anti-establishment sentiment favoring outsider candidates. While the nominations are for different parties and not directly causally related, they would both be influenced by similar societal trends regarding women in presidential politics."
+      }
+    },
+    {
+      "question_a": "Will Kim Kardashian win the 2028 US Presidential Election?",
+      "question_b": "Will Dwayne 'The Rock' Johnson win the 2028 US Presidential Election?",
+      "condition_id_a": "0x7f695758278e6d4d9e63df862afa88d664d3402a3d26e4d32ae05121cdbddba6",
+      "condition_id_b": "0xe2bdf6c18c8ab5ad5d3be5f95dd749e88d1dee7ac7c4dbf5101013a5c055e3df",
+      "rho": 0.3881,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:30+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These are two different candidates for the same presidential election in 2028. Only one person can win the US Presidential Election, making these outcomes mutually exclusive. The positive correlation of 0.39 likely reflects shared underlying factors like celebrity candidates being more viable in 2028, anti-establishment sentiment, or similar voter preferences for entertainment figures in politics."
+      }
+    },
+    {
+      "question_a": "Will Atalanta win the 2025\u201326 Champions League?",
+      "question_b": "Will PSV win the 2025\u201326 Champions League?",
+      "condition_id_a": "0xf9d58b904a94f0431d5bee7070650a305566927b3f7bf00f8529e20c9a99a6d4",
+      "condition_id_b": "0x40c8ee9e0d66c80695e98b00c1930db96e39554f0eb0801e5cc271ad3f60025a",
+      "rho": 0.3822,
+      "topics_a": [
+        "soccer"
+      ],
+      "topics_b": [
+        "soccer"
+      ],
+      "shared_topics": [
+        "soccer"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:13+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "Both questions ask about winning the same competition (2025-26 Champions League) in the same time period. Only one team can win the Champions League, making these outcomes mutually exclusive. The positive correlation of 0.38 is unexpected for mutually exclusive events and likely reflects shared factors like both teams' overall strength or tournament progression, but the fundamental relationship is that if one wins, the other cannot."
+      }
+    },
+    {
+      "question_a": "Will Bernie Sanders win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Jared Polis win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0x30cfb887558b20373a984da60c372fe5a90c0296aa6d8bb413a8aa7543846da2",
+      "condition_id_b": "0x8fbcb151e2c988df5a43abb02298014b7daf34c008f3eed9188dd16a2a19bec1",
+      "rho": 0.3788,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:21+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These are two different candidates competing for the same Democratic presidential nomination in 2028. Only one person can win the nomination, making these outcomes mutually exclusive. The positive correlation of 0.38 is spurious - it likely reflects general market sentiment about the Democratic field or timing of when bets are placed, but fundamentally these events cannot both occur."
+      }
+    },
+    {
+      "question_a": "Will Mike Pence win the 2028 Republican presidential nomination?",
+      "question_b": "Will Matt Gaetz win the 2028 Republican presidential nomination?",
+      "condition_id_a": "0x41c6341dd79903aca4bb0c29f5a7976946c3774d2fd72f38cbb7de7092144520",
+      "condition_id_b": "0xf2cea45ec282af4f302d2ab85ede73678cd692ebf8c3ab6d52bfa5e19f44c553",
+      "rho": 0.3739,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:17+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These questions are about the same specific competition - the 2028 Republican presidential nomination - where only one person can win. The positive correlation of 0.37 likely reflects shared underlying factors that affect both candidates' chances (party dynamics, voter preferences, political climate), but fundamentally only one can receive the nomination, making them mutually exclusive outcomes."
+      }
+    },
+    {
+      "question_a": "Will the Washington Wizards win the 2026 NBA Finals?",
+      "question_b": "Will the Chicago Bulls win the 2026 NBA Finals?",
+      "condition_id_a": "0x30a8ed0d01b7e8b25334358f71d9ec71c147783c0f908c2e7c7a527905007bf8",
+      "condition_id_b": "0xf374fb58698bccedf29399f9f5548a70370a11c0fece34f2570fb9b3885e8e5a",
+      "rho": 0.3706,
+      "topics_a": [
+        "nba"
+      ],
+      "topics_b": [
+        "nba"
+      ],
+      "shared_topics": [
+        "nba"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:26+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These questions are about two different teams winning the same NBA Finals in 2026. Only one team can win the NBA Finals in any given year, making these outcomes mutually exclusive. The positive correlation of 0.37 is spurious - it should theoretically be negative since if one team wins, the other cannot. This positive correlation likely reflects shared factors like both teams being in the same conference or having similar championship odds, but the fundamental relationship is mutually exclusive."
+      }
+    },
+    {
+      "question_a": "Will Zohran Mamdani win the 2028 US Presidential Election?",
+      "question_b": "Will Steve Bannon win the 2028 Republican presidential nomination?",
+      "condition_id_a": "0xf05b4b55336a4c1c7b44c726911d2b559732cff7bad339084de86ae364dc85f6",
+      "condition_id_b": "0xd5659eea81cada0bac656f5a9099861786cbae6755e2e1ac2c9e9441908b551f",
+      "rho": 0.3704,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:08+00:00",
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "medium",
+        "rationale": "Both outcomes would represent significant political upheaval - Mamdani winning as a progressive Democrat and Bannon winning the Republican nomination would both indicate major shifts away from mainstream politics. They could be correlated through shared underlying factors like anti-establishment sentiment, political polarization, or voter dissatisfaction with traditional candidates, even though they represent opposite ends of the political spectrum."
+      }
+    },
+    {
+      "question_a": "Will the Minnesota Timberwolves win the 2026 NBA Finals?",
+      "question_b": "Will the Phoenix Suns win the 2026 NBA Finals?",
+      "condition_id_a": "0x649ad05a2868343271fe82ea692031d567ca1af652e3529788933157e94aa088",
+      "condition_id_b": "0xa49fc89bfb87bb302bfc43567709850565161bdaed5bc506bff4b85fd3c5c2ee",
+      "rho": 0.3674,
+      "topics_a": [
+        "nba"
+      ],
+      "topics_b": [
+        "nba"
+      ],
+      "shared_topics": [
+        "nba"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:06+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These questions are about two different teams winning the same NBA Finals in 2026. Only one team can win the NBA Finals in any given year, making these outcomes mutually exclusive. The positive correlation of 0.37 is spurious and likely reflects shared factors like overall NBA season dynamics, betting patterns, or market sentiment, but fundamentally these events cannot both occur."
+      }
+    },
+    {
+      "question_a": "Will Greg Abbott win the 2028 US Presidential Election?",
+      "question_b": "Will Glenn Youngkin win the 2028 US Presidential Election?",
+      "condition_id_a": "0x01dffa7abae7e5d9b7fb44b06d537c5ac932e2ca422ab4b53366672f5e2dc7d6",
+      "condition_id_b": "0xc4435df23facee8c4cd86090310c7835c2a0425646b2588b0a02e67fa42f444e",
+      "rho": -0.3599,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:13+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "Both Greg Abbott and Glenn Youngkin are Republican politicians who could potentially compete for the same 2028 Republican presidential nomination. Only one person can win the presidential election, making these outcomes mutually exclusive. The negative correlation (-0.36) makes sense as increased probability of one winning would decrease the probability of the other winning, particularly if they're competing in the same primary process."
+      }
+    },
+    {
+      "question_a": "Will the Washington Wizards win the 2026 NBA Finals?",
+      "question_b": "Will the Toronto Raptors win the 2026 NBA Finals?",
+      "condition_id_a": "0x30a8ed0d01b7e8b25334358f71d9ec71c147783c0f908c2e7c7a527905007bf8",
+      "condition_id_b": "0x4405c62496c4fdd275d17ec31567a01534013c518c314ce61bb633b5e7cb6426",
+      "rho": 0.3542,
+      "topics_a": [
+        "nba"
+      ],
+      "topics_b": [
+        "nba"
+      ],
+      "shared_topics": [
+        "nba"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:26+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These questions are about two different teams winning the same NBA Finals in 2026. Only one team can win the NBA Finals in any given year, making these outcomes mutually exclusive. The positive correlation of 0.35 is spurious - it should theoretically be negative since if one team wins, the other cannot. This positive correlation likely reflects shared factors like both teams being considered contenders or market inefficiencies, but the fundamental relationship is mutually exclusive."
+      }
+    },
+    {
+      "question_a": "Will Jasmine Crockett win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Tulsi Gabbard win the 2028 Republican presidential nomination?",
+      "condition_id_a": "0x3cd6e52603d80ddbbdac9b1a4d43f9b7faa6aae4fae4d0fdfad3bd58454da7d3",
+      "condition_id_b": "0x9cd77217b2ab264fe4f6d302f662c0a91f349fe5798f1f98d70bb2311712791b",
+      "rho": -0.3438,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-12-10T00:00:11+00:00",
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "medium",
+        "rationale": "Both questions involve the 2028 presidential election and could be influenced by shared political factors like overall electoral dynamics, voter sentiment, and campaign developments. The negative correlation suggests that factors favoring one candidate's nomination success might inversely affect the other's chances, possibly due to broader political trends, media attention allocation, or voter enthusiasm patterns that could impact both parties' nomination processes differently."
+      }
+    },
+    {
+      "question_a": "Will the Boston Celtics win the 2026 NBA Finals?",
+      "question_b": "Will the Washington Wizards win the 2026 NBA Finals?",
+      "condition_id_a": "0x13e1cc703a120883a709d3bb29707097952845d61ca6793ea2b4328bae2a7451",
+      "condition_id_b": "0x30a8ed0d01b7e8b25334358f71d9ec71c147783c0f908c2e7c7a527905007bf8",
+      "rho": -0.3404,
+      "topics_a": [
+        "nba"
+      ],
+      "topics_b": [
+        "nba"
+      ],
+      "shared_topics": [
+        "nba"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:27+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These questions are about two different teams competing for the same championship in the same year (2026 NBA Finals). Only one team can win the NBA Finals, making these outcomes mutually exclusive. The negative correlation of -0.34 reflects this competitive relationship - if one team wins, the other cannot win. This is a clear structural relationship inherent to the competition format."
+      }
+    },
+    {
+      "question_a": "Will the Detroit Pistons win the 2026 NBA Finals?",
+      "question_b": "Will the Chicago Bulls win the 2026 NBA Finals?",
+      "condition_id_a": "0xe202539dfbeced92dc4112f134a205c80ca6cf4db32bd82f05b291c297219fd8",
+      "condition_id_b": "0xf374fb58698bccedf29399f9f5548a70370a11c0fece34f2570fb9b3885e8e5a",
+      "rho": 0.3389,
+      "topics_a": [
+        "nba"
+      ],
+      "topics_b": [
+        "nba"
+      ],
+      "shared_topics": [
+        "nba"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:16+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These questions are about two different teams winning the same NBA Finals in 2026. Only one team can win the NBA Finals in any given year, making these outcomes mutually exclusive. The positive correlation of 0.34 is spurious and likely reflects shared factors like overall NBA season dynamics or betting patterns, but fundamentally these events cannot both occur."
+      }
+    },
+    {
+      "question_a": "No change in Fed interest rates after January 2026 meeting?",
+      "question_b": "Will the Fed Cut\u2013Cut\u2013Cut in the next three decisions (Oct\u2013Dec\u2013Jan)?",
+      "condition_id_a": "0xe93c89c41d1bb08d3bb40066d8565df301a696563b2542256e6e8bbbb1ec490d",
+      "condition_id_b": "0xbfcc34365517ac4978e76ecd8287e37fd92e68b22a3db9b31129c5c37669c293",
+      "rho": -0.3351,
+      "topics_a": [
+        "fed"
+      ],
+      "topics_b": [
+        "fed"
+      ],
+      "shared_topics": [
+        "fed"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "YES",
+      "resolution_date": "2026-01-08T00:00:37+00:00",
+      "classification": {
+        "category": "sequential_prerequisite",
+        "confidence": "high",
+        "rationale": "Question B asks about Fed decisions in Oct-Dec-Jan (presumably 2025-2026), while Question A asks about no change after the January 2026 meeting. The January meeting in Question B is the same meeting referenced in Question A. If the Fed cuts rates in January 2026 (part of the triple cut scenario in B), then there definitively would be a change in that meeting, making Question A false. The negative correlation (-0.34) makes perfect sense: the more likely triple cuts become (including January), the less likely 'no change' becomes in January."
+      }
+    },
+    {
+      "question_a": "Will Tom Brady win the 2028 Republican presidential nomination?",
+      "question_b": "Will Steve Bannon win the 2028 Republican presidential nomination?",
+      "condition_id_a": "0xf8dbde8b6e038775a673947e59da2de15a2127272b50b9877400fdbf7cfc3026",
+      "condition_id_b": "0xd5659eea81cada0bac656f5a9099861786cbae6755e2e1ac2c9e9441908b551f",
+      "rho": 0.3341,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:12+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "Both questions ask about winning the same specific nomination (2028 Republican presidential nomination) which only one person can win. They are competing for the identical position in the same election cycle, making them mutually exclusive outcomes. The positive correlation of 0.33 likely reflects shared underlying factors that could benefit both candidates (like anti-establishment sentiment or celebrity appeal), but ultimately only one can secure the nomination."
+      }
+    },
+    {
+      "question_a": "Will Oprah Winfrey win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Raphael Warnock win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0xe06a7e94cf2fa8dc2085b7610fe16e9be1cde6654f34d365c13da1149b276c61",
+      "condition_id_b": "0xdce84960dce38aa4a5800a5eba7c9ac34d2ce49ba9d44c42572c472d468af264",
+      "rho": 0.3327,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:10+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "Both questions ask about winning the same specific nomination (2028 Democratic presidential nomination) which only one person can win. They are direct competitors for the identical position, making this a clear case of mutual exclusivity rather than spurious correlation."
+      }
+    },
+    {
+      "question_a": "Will Hillary Clinton win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Tom Brady win the 2028 Republican presidential nomination?",
+      "condition_id_a": "0x663b88d3a8f2341bb8d878709dc78632bcaf7512e577bd15521e5d8ed933efbc",
+      "condition_id_b": "0xf8dbde8b6e038775a673947e59da2de15a2127272b50b9877400fdbf7cfc3026",
+      "rho": 0.3287,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:11+00:00",
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "medium",
+        "rationale": "Both questions involve high-profile figures potentially running for president in 2028. The positive correlation likely reflects shared underlying factors such as: (1) general political engagement and interest in unconventional candidates, (2) broader electoral dynamics that might favor celebrity/name-recognition candidates from both parties, (3) economic or social conditions that could drive voters toward familiar figures, and (4) media attention cycles that elevate both as potential candidates. While there's no direct causal relationship between Clinton and Brady's individual nomination chances, both would represent notable comebacks/entries that could be driven by similar electoral zeitgeist factors."
+      }
+    },
+    {
+      "question_a": "Will Mike Pence win the 2028 Republican presidential nomination?",
+      "question_b": "Will Cory Booker win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0x41c6341dd79903aca4bb0c29f5a7976946c3774d2fd72f38cbb7de7092144520",
+      "condition_id_b": "0x1970bcce75e3674660917ae4685b433a9b1e0152d810a8d7c346dfd5e00694c2",
+      "rho": 0.3285,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:17+00:00",
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "medium",
+        "rationale": "Both nominations are for the same election cycle (2028) and could be influenced by shared political factors like national mood, economic conditions, voter preferences for certain candidate profiles, or reactions to the incumbent administration. A correlation of 0.33 suggests moderate co-movement that could reflect these common underlying drivers affecting both parties' nomination processes, though the relationship is not direct since they are separate party contests."
+      }
+    },
+    {
+      "question_a": "Will Vivek Ramaswamy win the 2028 Republican presidential nomination?",
+      "question_b": "Will Marco Rubio win the 2028 US Presidential Election?",
+      "condition_id_a": "0xd997dc2a212a7d6673375a3b016db1fb214247142f8cde0cbf07f8e6d789877c",
+      "condition_id_b": "0x2053d8515f1b8cbeea4ccdb56e60e89c2617e43a8660d95166b8e71d27865277",
+      "rho": -0.3279,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:12+00:00",
+      "classification": {
+        "category": "causal_relationship",
+        "confidence": "medium",
+        "rationale": "These events have a plausible causal relationship through Republican party dynamics. If Ramaswamy wins the GOP nomination, it could affect Rubio's chances in the general election through factors like party unity, voter enthusiasm, and campaign resources. However, the relationship is indirect since Rubio would need his own path to the presidency (likely through a different party or as an independent), making the causal mechanism somewhat complex. The negative correlation suggests that Ramaswamy's nomination success might be viewed as reducing overall Republican chances that could benefit Rubio."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Jerome Powell as the next Fed chair?",
+      "question_b": "Will Trump nominate no one before 2027?",
+      "condition_id_a": "0x60acc46cda1f0619259acf3ef8c77bf734ff08cbed256ca3d1e9444138e21266",
+      "condition_id_b": "0xc830d19ead001f5378792cc0df36004ddb1b312bb26fbd5c4226aa698c41f808",
+      "rho": 0.3249,
+      "topics_a": [
+        "fed",
+        "trump"
+      ],
+      "topics_b": [
+        "trump"
+      ],
+      "shared_topics": [
+        "trump"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:25+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These questions are mutually exclusive - if Trump nominates Jerome Powell as Fed chair, then by definition he has nominated someone before 2027, making Question B false. Conversely, if Trump nominates no one before 2027 (Question B is true), then he cannot have nominated Powell (Question A is false). The positive correlation of 0.32 likely reflects shared uncertainty about Trump's nomination intentions, but the events themselves cannot both occur."
+      }
+    },
+    {
+      "question_a": "Will Liz Cheney win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Mike Pence win the 2028 Republican presidential nomination?",
+      "condition_id_a": "0x46dbd48d6bde5b81edb480e0f676a2cdda6c6b592c4d86a9367c7ad5a9870195",
+      "condition_id_b": "0x41c6341dd79903aca4bb0c29f5a7976946c3774d2fd72f38cbb7de7092144520",
+      "rho": 0.3213,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:17+00:00",
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "medium",
+        "rationale": "Both events involve prominent Republicans who broke with Trump potentially switching parties or being embraced by opposing parties in 2028. They would both be driven by similar underlying political dynamics - the degree of Trump's continued influence on the GOP, appetite for 'anti-Trump Republicans' among Democrats, and broader political realignment. While the events are in different parties' primaries, they reflect the same phenomenon of traditional Republicans finding new political homes in a post-Trump landscape."
+      }
+    },
+    {
+      "question_a": "Will Ron DeSantis win the 2028 US Presidential Election?",
+      "question_b": "Will Andy Beshear win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0x3367d22cd2a673014f1960742afdf8601040a8ad856dc0a98bd1a44ee99504e2",
+      "condition_id_b": "0x1d519b87999e3d4e90e1e8f57b5eee73a0ba488ff3fdb70867f294733aba84a9",
+      "rho": 0.3199,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:14+00:00",
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "medium",
+        "rationale": "Both outcomes are driven by the same underlying political dynamics of the 2028 election cycle. If Beshear wins the Democratic nomination, it suggests Democrats chose a moderate candidate, which could indicate electoral conditions that might favor or disfavor DeSantis depending on voter preferences for moderate vs. conservative candidates. Additionally, both are influenced by broader political sentiment, economic conditions, and national mood in 2028. However, the relationship is indirect since they're competing in different party primaries initially."
+      }
+    },
+    {
+      "question_a": "Will Zohran Mamdani win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0x3535fb2f4aef6619dde8b367cb5e5d209526bb496d5d9778428c58a0252435e3",
+      "condition_id_b": "0x0f49db97f71c68b1e42a6d16e3de93d85dbf7d4148e3f018eb79e88554be9f75",
+      "rho": -0.3196,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:18+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "Both questions ask about winning the same Democratic presidential nomination in 2028. Only one person can win a party's presidential nomination, making these outcomes mutually exclusive. The negative correlation of -0.32 is consistent with this relationship - as the probability of one candidate winning increases, the probability of the other winning decreases."
+      }
+    },
+    {
+      "question_a": "Will Tom Brady win the 2028 Republican presidential nomination?",
+      "question_b": "Will Marco Rubio win the 2028 Republican presidential nomination?",
+      "condition_id_a": "0xf8dbde8b6e038775a673947e59da2de15a2127272b50b9877400fdbf7cfc3026",
+      "condition_id_b": "0x21ad31a46bfaa51650766eff6dc69c866959e32d965ffb116020e37694b6317d",
+      "rho": 0.3118,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:12+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These are two different candidates competing for the same Republican presidential nomination in 2028. Only one person can win a party's nomination, making these outcomes mutually exclusive. The positive correlation of 0.31 is spurious - it likely reflects general uncertainty about the race rather than any real relationship, as these probabilities should theoretically be negatively correlated since one candidate winning makes it impossible for the other to win."
+      }
+    },
+    {
+      "question_a": "Will Elise Stefanik win the 2028 Republican presidential nomination?",
+      "question_b": "Will Michelle Obama win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0x655b4bfdfa55a95c24d6e9bf7e7cd62f1b57da9a1f4c7f40f090b8ba847dffa2",
+      "condition_id_b": "0x3e218c99a1335641b3a5ee6c887521d19b0c28fddd6b99c254a07968e35c0b1b",
+      "rho": 0.3047,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:08+00:00",
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "medium",
+        "rationale": "Both nominations are driven by the same underlying political climate and voter sentiment in 2028. A political environment that favors outsider candidates, anti-establishment sentiment, or specific demographic preferences could simultaneously increase the likelihood of both Stefanik (a younger, female Republican) and Obama (a high-profile, female Democrat) winning their respective nominations. The correlation reflects shared electoral dynamics rather than direct causal relationship between the two events."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Ron Paul as the next Fed chair?",
+      "question_b": "Will Donald Trump win the 2028 Republican presidential nomination?",
+      "condition_id_a": "0xfee4b6988b9513dab72118c97abeb4369f0d9a7c2290337ca5d5c2f116a148c2",
+      "condition_id_b": "0x895e01dbf3e6a33cd9a44ca0f8cdb5df1bd2b0b6ebed5300d28f8da7145145e4",
+      "rho": 0.3019,
+      "topics_a": [
+        "fed",
+        "trump"
+      ],
+      "topics_b": [
+        "election_2028",
+        "trump"
+      ],
+      "shared_topics": [
+        "trump"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:08+00:00",
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "medium",
+        "rationale": "Both questions are driven by Trump's political influence and the strength of his populist/anti-establishment coalition. A Trump who would nominate Ron Paul (a libertarian anti-Fed figure) suggests he's maintaining his outsider appeal and has significant political capital, which would correlate with his ability to secure the 2028 nomination. However, the relationship is indirect since Fed chair nominations depend on winning 2024 first, and many other factors influence presidential nominations."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate James B. Bullard as the next Fed chair?",
+      "question_b": "Will the Fed decrease interest rates by 50+ bps after the April 2026 meeting?",
+      "condition_id_a": "0x582c62c350aac2720711abeb30b16c41c5cdc9b342bfa30da380b6ea6bdeb1ac",
+      "condition_id_b": "0xd72622d154dfe65b9c019d6afcfe75a55717e5c502db611f555b101aafbf6ec5",
+      "rho": 0.3003,
+      "topics_a": [
+        "fed",
+        "trump"
+      ],
+      "topics_b": [
+        "fed"
+      ],
+      "shared_topics": [
+        "fed"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:13+00:00",
+      "classification": {
+        "category": "causal_relationship",
+        "confidence": "medium",
+        "rationale": "There is a plausible causal mechanism where Trump nominating Bullard as Fed chair could influence future interest rate decisions, as Fed chairs have significant influence over monetary policy. However, the relationship is indirect since: (1) the nomination would need Senate confirmation, (2) Fed decisions are made by committee not just the chair, (3) the April 2026 timeline is distant and many economic factors could intervene, and (4) we don't know Bullard's specific policy preferences. The 0.30 correlation suggests markets see some connection, likely based on perceived dovish/hawkish tendencies, but the relationship involves multiple steps and uncertainties."
+      }
+    },
+    {
+      "question_a": "Will Michelle Obama win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Mark Kelly win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0x3e218c99a1335641b3a5ee6c887521d19b0c28fddd6b99c254a07968e35c0b1b",
+      "condition_id_b": "0x36db77c539bcc8c7bf0686c1b99f30c5a5eed1f53d3b3a27a071550c81f83701",
+      "rho": 0.2994,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:08+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These questions are about the same specific competition - the 2028 Democratic presidential nomination - where only one person can win. The positive correlation of 0.30 likely reflects shared underlying factors that affect the Democratic primary landscape (e.g., Biden not running, party moving in certain direction), but fundamentally these are competing outcomes for the same singular prize."
+      }
+    },
+    {
+      "question_a": "Will Vivek Ramaswamy win the 2028 Republican presidential nomination?",
+      "question_b": "Will Elise Stefanik win the 2028 Republican presidential nomination?",
+      "condition_id_a": "0xd997dc2a212a7d6673375a3b016db1fb214247142f8cde0cbf07f8e6d789877c",
+      "condition_id_b": "0x655b4bfdfa55a95c24d6e9bf7e7cd62f1b57da9a1f4c7f40f090b8ba847dffa2",
+      "rho": -0.2983,
+      "topics_a": [
+        "election_2028"
+      ],
+      "topics_b": [
+        "election_2028"
+      ],
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:12+00:00",
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These are two different candidates competing for the same position - the 2028 Republican presidential nomination. Only one person can win the nomination, making these outcomes mutually exclusive. The negative correlation of -0.30 is consistent with this relationship, as higher probability for one candidate winning should generally correspond to lower probability for the other candidate winning the same contest."
+      }
+    }
+  ]
+}

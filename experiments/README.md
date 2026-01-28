@@ -6,9 +6,11 @@ Research experiments testing LLM forecasting capabilities.
 
 | Experiment | Question | Status |
 |------------|----------|--------|
-| `fb-conditional/` | Can LLMs reason conditionally about related questions? | Complete (see FINDINGS.md) |
+| `conditional-forecasting/` | Can LLMs reason conditionally about related questions? | Complete — E2E 1-call at 85% accuracy |
+| `question-generation/` | Can we validate VOI as a metric for question quality? | Complete — VOI directionally validated |
+| `scenario-construction/` | Which approach produces best outcome-specific scenarios? | **Active** — comparing hybrid/top-down/bottom-up |
 | `calibration-transfer/` | Can we learn calibration curves from conditional updates? | Partial success (see FINDINGS.md) |
-| `magnitude/` | How to elicit accurate update magnitudes? | Exploratory |
+| `magnitude/` | How to elicit accurate update magnitudes? | Superseded by ρ-based approach |
 
 ## fb-conditional
 

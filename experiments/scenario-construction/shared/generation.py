@@ -3,13 +3,13 @@
 Used by top-down and dual approaches to generate signals from uncertainties.
 """
 
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from uuid import uuid4
 
 from pydantic import BaseModel, Field
 import litellm
 
-from .signals import RESOLVABILITY_REQUIREMENTS, DEFAULT_MAX_HORIZON_DAYS
+from .signals import RESOLVABILITY_REQUIREMENTS, DEFAULT_MAX_HORIZON_DAYS, compute_signal_cutoff
 
 # Model for signal generation
 DEFAULT_MODEL = "claude-sonnet-4-20250514"
@@ -73,6 +73,7 @@ async def generate_signals_for_uncertainty(
     uncertainty_description: str,
     n: int = 10,
     max_horizon_days: int = DEFAULT_MAX_HORIZON_DAYS,
+    target_resolution_date=None,
     model: str = DEFAULT_MODEL,
 ) -> list[dict]:
     """
@@ -83,7 +84,9 @@ async def generate_signals_for_uncertainty(
         uncertainty_name: Name of the uncertainty axis
         uncertainty_description: Description of the uncertainty
         n: Number of signals to generate
-        max_horizon_days: Signals must resolve within this many days from today
+        max_horizon_days: Maximum days until signal resolution (default 365)
+        target_resolution_date: Target question resolution date (date or ISO string).
+            If provided, cutoff is min(max_horizon_days, 1/3 time to target resolution).
         model: LLM model to use
 
     Returns:
@@ -97,10 +100,13 @@ async def generate_signals_for_uncertainty(
         - source: "llm"
         - uncertainty_source: Which uncertainty axis
     """
+    # Compute effective horizon using smart cutoff
+    effective_horizon = compute_signal_cutoff(target_resolution_date, max_horizon_days)
+
     # Compute date window
     today = datetime.now().date()
     min_date = today + timedelta(days=1)  # Tomorrow (not already resolved)
-    max_date = today + timedelta(days=max_horizon_days)
+    max_date = today + timedelta(days=effective_horizon)
 
     response = await litellm.acompletion(
         model=model,
@@ -124,6 +130,7 @@ async def generate_signals_for_uncertainty(
 
     result = SignalsResponse.model_validate_json(response.choices[0].message.content)
 
+    now = datetime.now(timezone.utc)
     return [
         {
             "id": f"llm_{uuid4().hex[:8]}",
@@ -134,6 +141,8 @@ async def generate_signals_for_uncertainty(
             "base_rate": s.base_rate,
             "source": "llm",
             "uncertainty_source": uncertainty_name,
+            "probability_source": "llm_estimate" if s.base_rate is not None else None,
+            "probability_at": now.isoformat() if s.base_rate is not None else None,
         }
         for s in result.signals
     ]

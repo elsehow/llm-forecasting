@@ -1,0 +1,661 @@
+{
+  "metadata": {
+    "n_candidates": 52,
+    "n_real": 34,
+    "min_other_prob": 0.1,
+    "max_other_prob": 0.9,
+    "generated_at": "2026-01-14T15:14:14.301735"
+  },
+  "curated_pairs": [
+    {
+      "question_a": "Russia x Ukraine ceasefire by January 31, 2026?",
+      "question_b": "Russia x Ukraine ceasefire by March 31, 2026?",
+      "condition_id_a": "0xb8c1bd306a8a4cedfb280e114e655c5092b3f37edccae05cd877d7f21a5774ce",
+      "condition_id_b": "0x1d54eb5eac2cee8f595f3097c65da7d07f8ab5dee63d7c0c6883eb70e1e9af30",
+      "rho": 0.6647,
+      "shared_topics": [
+        "russia_ukraine"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-12-13T00:00:22+00:00",
+      "other_price_at_resolution": 0.195,
+      "classification": {
+        "category": "same_event_different_timeline",
+        "confidence": "high",
+        "rationale": "These are literally the same event (Russia-Ukraine ceasefire) with different deadlines. If a ceasefire occurs by January 31, 2026, then Question B (March 31, 2026) would also resolve positively. The correlation of 0.66 reflects that while they're highly related, there's still meaningful probability mass between the two dates where a ceasefire could occur after January 31 but before March 31."
+      }
+    },
+    {
+      "question_a": "Will Bitcoin dip to $85,000 in January?",
+      "question_b": "Will Bitcoin reach $115,000 in January?",
+      "condition_id_a": "0x62f01109c53d585406b4545e5538b52d76f2895affd933da75190be788afc6ab",
+      "condition_id_b": "0xa7794cc1f02beaee1ce520357d18989927c5dd3517621125160786561e776e46",
+      "rho": -0.6359,
+      "shared_topics": [
+        "bitcoin"
+      ],
+      "resolved": "B",
+      "resolution_outcome": "NO",
+      "resolution_date": "2026-01-02T00:00:20+00:00",
+      "other_price_at_resolution": 0.665,
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These two events are mutually exclusive within the same timeframe (January). Bitcoin cannot simultaneously dip to $85,000 and reach $115,000 in the same month. The strong negative correlation (-0.64) reflects that as the probability of one outcome increases, the probability of the other decreases, which is exactly what we'd expect for mutually exclusive events concerning the same asset's price movement."
+      }
+    },
+    {
+      "question_a": "Will Bitcoin reach $110,000 in January?",
+      "question_b": "Will Bitcoin dip to $80,000 in January?",
+      "condition_id_a": "0x0ca11fd21b75f9547c1e0e65a590fb003e9d2ec9767fa82160df8591f09c6757",
+      "condition_id_b": "0x17a2466c34d9a93dbef8bda91bc56005b4162666901df319bcddb063d6bd8991",
+      "rho": -0.5969,
+      "shared_topics": [
+        "bitcoin"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2026-01-02T00:00:22+00:00",
+      "other_price_at_resolution": 0.29,
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These two Bitcoin price predictions for January are mutually exclusive - Bitcoin cannot simultaneously reach $110,000 and dip to $80,000 in the same month. The negative correlation of -0.60 makes perfect sense as betting on one outcome logically decreases confidence in the other. This represents a real relationship where the events are fundamentally incompatible within the same timeframe."
+      }
+    },
+    {
+      "question_a": "Will Microsoft be the largest company in the world by market cap on January 31?",
+      "question_b": "Will Apple be the largest company in the world by market cap on January 31?",
+      "condition_id_a": "0xd947403a5eae117d6fe0bf737f2d279c89dddc495dc7d2eb198accd1ecd07cc9",
+      "condition_id_b": "0xbf6983ec188a61a32f811738de5e4e427925cd42d5f3010bd3ab96f4728f5cd9",
+      "rho": 0.5848,
+      "shared_topics": [
+        "market_cap"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-12-19T00:00:10+00:00",
+      "other_price_at_resolution": 0.33,
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These questions are asking about the same specific outcome (largest company by market cap) on the same date (January 31), but for different companies (Microsoft vs Apple). Only one company can be the largest by market cap at any given time, making these outcomes mutually exclusive. The positive correlation of 0.58 likely reflects that both Microsoft and Apple are top contenders for this position, so when one has high probability of being largest, the other also has relatively high probability compared to other companies, even though they cannot both win."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Kevin Warsh as the next Fed chair?",
+      "question_b": "Will Trump nominate Christopher Waller as the next Fed chair?",
+      "condition_id_a": "0x61b66d02793b4a68ab0cc25be60d65f517fe18c7d654041281bb130341244fcc",
+      "condition_id_b": "0x705371444684d676041d1010a94cae3a657340fa4809b4307de3c173a35e0957",
+      "rho": 0.5261,
+      "shared_topics": [
+        "fed",
+        "trump"
+      ],
+      "resolved": "B",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-12-02T00:00:18+00:00",
+      "other_price_at_resolution": 0.1,
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These are two different candidates for the same single position (Fed chair). Only one person can be nominated and appointed as Fed chair at a time, making these outcomes mutually exclusive. The positive correlation of 0.53 likely reflects shared underlying factors that would make Trump more likely to make any Fed chair nomination during the relevant timeframe, but the actual nominations themselves cannot both occur."
+      }
+    },
+    {
+      "question_a": "Will Real Madrid win the 2025\u201326 La Liga?",
+      "question_b": "Will Inter win the 2025\u201326 Champions League?",
+      "condition_id_a": "0xa1f08ec3bcc1434cb0b695bd5ee9f81268ef45fb73f752b3a1c1fb1d35750866",
+      "condition_id_b": "0xe4f25e05d842810ff5944ba1e2953c6ced1e869cac3b44d15b32fd404ddb4bf4",
+      "rho": 0.4643,
+      "shared_topics": [
+        "soccer"
+      ],
+      "resolved": "B",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:13+00:00",
+      "other_price_at_resolution": 0.62,
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "medium",
+        "rationale": "Both outcomes are driven by the overall strength and form of top European football clubs during the same season. Real Madrid's domestic dominance in La Liga and Inter's potential Champions League success both reflect the competitive landscape of elite European football in 2025-26. Strong clubs tend to perform well across competitions, and the correlation likely reflects shared factors like player quality, tactical trends, and the relative strength of different leagues/clubs that season."
+      }
+    },
+    {
+      "question_a": "Fed decreases interest rates by 25 bps after January 2026 meeting?",
+      "question_b": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "condition_id_a": "0x35cc41270f5cdfd59b45e68ab85dc51b0b900d286a6c74ea006b8572d9ff5934",
+      "condition_id_b": "0x257b18205f908aef01ef2d1d50e6fea7d29cf5486fe04031d8b101394476faed",
+      "rho": -0.4361,
+      "shared_topics": [
+        "fed"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2026-01-04T00:00:15+00:00",
+      "other_price_at_resolution": 0.635,
+      "classification": {
+        "category": "sequential_prerequisite",
+        "confidence": "high",
+        "rationale": "These questions have a clear sequential relationship where the outcome of Question A (January 2026 Fed meeting) directly influences the probability of Question B (March 2026 Fed meeting). If the Fed decreases rates by 25 bps in January, it makes them less likely to make another change in March, creating a negative correlation. The -0.44 correlation reflects this logical relationship where a rate cut in January reduces the probability of further action in March, as the Fed typically spaces out rate changes and assesses their impact."
+      }
+    },
+    {
+      "question_a": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Kamala Harris win the 2028 US Presidential Election?",
+      "condition_id_a": "0x0f49db97f71c68b1e42a6d16e3de93d85dbf7d4148e3f018eb79e88554be9f75",
+      "condition_id_b": "0xb3298af85e00aafad937c119444a5f2800a55343b7482eb75581f6e454432501",
+      "rho": -0.4148,
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "B",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:13+00:00",
+      "other_price_at_resolution": 0.375,
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "high",
+        "rationale": "Both questions are driven by the same underlying factors: Democratic Party strength, voter preferences, and political climate in 2028. The negative correlation makes sense because if Newsom wins the Democratic nomination, it likely indicates Harris either didn't run or lost the primary, which could signal Democratic Party division or weakness that would hurt the eventual nominee's chances in the general election. Conversely, if Harris wins the presidency, it suggests she likely secured the nomination herself. These aren't mutually exclusive events per se, but they share the same political drivers and electoral dynamics."
+      }
+    },
+    {
+      "question_a": "Will Zohran Mamdani win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0x3535fb2f4aef6619dde8b367cb5e5d209526bb496d5d9778428c58a0252435e3",
+      "condition_id_b": "0x0f49db97f71c68b1e42a6d16e3de93d85dbf7d4148e3f018eb79e88554be9f75",
+      "rho": -0.3196,
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:18+00:00",
+      "other_price_at_resolution": 0.375,
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These are two candidates competing for the same Democratic presidential nomination in 2028. Only one person can win the nomination, making these outcomes mutually exclusive. The negative correlation of -0.32 is consistent with this relationship - as one candidate's chances increase, the other's decrease. This is a clear case of a zero-sum competition where the outcomes are fundamentally incompatible."
+      }
+    },
+    {
+      "question_a": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Rand Paul win the 2028 Republican presidential nomination?",
+      "condition_id_a": "0x0f49db97f71c68b1e42a6d16e3de93d85dbf7d4148e3f018eb79e88554be9f75",
+      "condition_id_b": "0xd10bc768ede58b53ed400594240b0a0603134a32dab89ec823a18759cbc180ca",
+      "rho": -0.2473,
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "B",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:13+00:00",
+      "other_price_at_resolution": 0.375,
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "medium",
+        "rationale": "Both nominations are driven by the same underlying political climate and voter sentiment in 2028. A political environment favoring one party's more establishment candidate (Newsom) might correlate with the other party selecting a more libertarian/outsider candidate (Paul) as a contrast, or vice versa. The negative correlation suggests when one becomes more likely, the other becomes less likely, which could reflect broader political dynamics, polarization levels, or anti-establishment sentiment affecting both parties' primary processes simultaneously."
+      }
+    },
+    {
+      "question_a": "Will the Los Angeles Rams win Super Bowl 2026?",
+      "question_b": "Will the 49ers win the 2026 NFC Championship?",
+      "condition_id_a": "0x2b57ed983eb34b5e081fc8dcc1372d688963fd4d9c9018b8d2ba36867b26b236",
+      "condition_id_b": "0xae3ae899f35e79ea05b5a753bafc3001ff0d0de6af7898d2f3d4f0f13d2b56c4",
+      "rho": -0.2445,
+      "shared_topics": [
+        "nfl"
+      ],
+      "resolved": "B",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:24+00:00",
+      "other_price_at_resolution": 0.1065,
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These events are mutually exclusive within the NFC conference structure. If the 49ers win the 2026 NFC Championship, they advance to Super Bowl 2026, making it impossible for the Rams (also an NFC team) to win that same Super Bowl. The negative correlation of -0.24 reflects this competitive relationship where one team's success directly reduces the other's chances."
+      }
+    },
+    {
+      "question_a": "Will Donald Trump win the 2028 US Presidential Election?",
+      "question_b": "Trump out as President before 2027?",
+      "condition_id_a": "0xce9a5fa30fe74e323b4a8f15afbb0b7a41a537aa880779ddf7dee22223b2f34a",
+      "condition_id_b": "0x48b0b0bca515f68fccf95af4793dbd0edbfec1f8ec6e8df2c0f69ba74f8c4722",
+      "rho": -0.2404,
+      "shared_topics": [
+        "trump"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:24+00:00",
+      "other_price_at_resolution": 0.19,
+      "classification": {
+        "category": "sequential_prerequisite",
+        "confidence": "high",
+        "rationale": "For Trump to run for President in 2028, he must first serve as President through 2027 without being removed from office. If Trump is out as President before 2027 (through resignation, impeachment, death, etc.), it would significantly impact his ability or likelihood to run again in 2028. The negative correlation (-0.24) makes logical sense: higher probability of Trump leaving office early corresponds to lower probability of him winning in 2028. This represents a clear sequential dependency where Question B is a prerequisite condition for Question A."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Rick Rieder as the next Fed chair?",
+      "question_b": "Will Trump nominate Christopher Waller as the next Fed chair?",
+      "condition_id_a": "0xbd603617895e199d4042781ee55a7a9614af3130ca8e90d257424ca246f66197",
+      "condition_id_b": "0x705371444684d676041d1010a94cae3a657340fa4809b4307de3c173a35e0957",
+      "rho": 0.2401,
+      "shared_topics": [
+        "fed",
+        "trump"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-26T00:00:19+00:00",
+      "other_price_at_resolution": 0.24,
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "Both questions involve Trump nominating different people (Rick Rieder vs Christopher Waller) for the same single position (Fed chair). Only one person can be nominated and serve as Fed chair at a time, making these outcomes mutually exclusive. The positive correlation of 0.24 likely reflects shared underlying factors like Trump's likelihood of making unconventional Fed appointments or market sentiment about his nomination timing, but the core relationship is that if one happens, the other cannot."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Christopher Waller as the next Fed chair?",
+      "question_b": "Fed rate cut by January 2026 meeting?",
+      "condition_id_a": "0x705371444684d676041d1010a94cae3a657340fa4809b4307de3c173a35e0957",
+      "condition_id_b": "0xc8929e80e74ae959b3ed9b9e1c5e0903ad38e02e1339462e3acf8b49bbca35a9",
+      "rho": 0.2234,
+      "shared_topics": [
+        "fed"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-12-02T00:00:18+00:00",
+      "other_price_at_resolution": 0.22,
+      "classification": {
+        "category": "causal_relationship",
+        "confidence": "medium",
+        "rationale": "There is a plausible causal mechanism where Trump nominating Christopher Waller as Fed chair could influence future rate decisions, as Waller's monetary policy stance would directly impact rate cut decisions. However, the correlation is relatively weak (0.22) and many other factors influence Fed rate decisions beyond just the chair's identity, making this a moderate rather than strong causal relationship."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate David Malpass as the next Fed chair?",
+      "question_b": "Will the Fed Cut\u2013Cut\u2013Cut in the next three decisions (Oct\u2013Dec\u2013Jan)?",
+      "condition_id_a": "0x998acf9ed1bbda06d59df70786441468872c72b2de59cacbea93625b14a5efcb",
+      "condition_id_b": "0xbfcc34365517ac4978e76ecd8287e37fd92e68b22a3db9b31129c5c37669c293",
+      "rho": -0.2168,
+      "shared_topics": [
+        "fed"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:21+00:00",
+      "other_price_at_resolution": 0.105,
+      "classification": {
+        "category": "causal_relationship",
+        "confidence": "medium",
+        "rationale": "There is a plausible causal mechanism where Trump nominating Malpass (known for dovish monetary policy views) as Fed chair could influence the likelihood of rate cuts. The negative correlation suggests that when Malpass nomination becomes less likely, rate cuts become more likely, which could reflect market expectations that alternative nominees might be more hawkish. However, the relationship is indirect since the nomination would need to occur and be confirmed before affecting Fed decisions, and current Fed leadership could still make the Oct-Dec decisions regardless of nomination timing."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Bill Pulte as the next Fed chair?",
+      "question_b": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "condition_id_a": "0xc82669901de7cb0be25c1d8de39fbbe8e2ddc0aacba0a30a663ed13c3b9eb06d",
+      "condition_id_b": "0x257b18205f908aef01ef2d1d50e6fea7d29cf5486fe04031d8b101394476faed",
+      "rho": 0.2075,
+      "shared_topics": [
+        "fed"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:16+00:00",
+      "other_price_at_resolution": 0.545,
+      "classification": {
+        "category": "causal_relationship",
+        "confidence": "medium",
+        "rationale": "There is a plausible causal mechanism where Trump nominating Bill Pulte as Fed chair could influence interest rate decisions by March 2026. A new Fed chair's monetary policy stance would directly impact rate decisions. However, the correlation is modest (0.21) and many other factors influence Fed rate decisions, making the relationship real but not deterministic."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Scott Bessent as the next Fed chair?",
+      "question_b": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "condition_id_a": "0xdb1ae961e30733e7857ebb425b5f6449fa8032de13f32c1c6e447a0c3801ca04",
+      "condition_id_b": "0x257b18205f908aef01ef2d1d50e6fea7d29cf5486fe04031d8b101394476faed",
+      "rho": 0.2025,
+      "shared_topics": [
+        "fed"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:17+00:00",
+      "other_price_at_resolution": 0.545,
+      "classification": {
+        "category": "causal_relationship",
+        "confidence": "medium",
+        "rationale": "There is a plausible causal mechanism where Trump nominating Bessent as Fed chair could influence future interest rate decisions, as different Fed chairs have different monetary policy philosophies. Bessent's appointment could signal a particular approach to interest rates that makes 'no change' in March 2026 more or less likely. However, the relationship is indirect since many factors beyond Fed chair identity affect rate decisions, and March 2026 is far enough out that other economic conditions will be primary drivers."
+      }
+    },
+    {
+      "question_a": "Fed decreases interest rates by 50+ bps after January 2026 meeting?",
+      "question_b": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "condition_id_a": "0x17815081230e3b9c78b098162c33b1ffa68c4ec29c123d3d14989599e0c2e113",
+      "condition_id_b": "0x257b18205f908aef01ef2d1d50e6fea7d29cf5486fe04031d8b101394476faed",
+      "rho": -0.1991,
+      "shared_topics": [
+        "fed"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:16+00:00",
+      "other_price_at_resolution": 0.545,
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "high",
+        "rationale": "Both questions are driven by the same underlying economic conditions and Fed monetary policy stance. If economic conditions warrant a 50+ bp decrease in January 2026, it suggests either economic weakness or deflationary pressures that would likely persist and influence the March 2026 decision. The negative correlation makes sense: if the Fed cuts aggressively in January, they're less likely to maintain rates unchanged in March (they might cut further or pause to assess impact). Both outcomes are responses to the same macroeconomic environment and Fed policy framework."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Kevin Warsh as the next Fed chair?",
+      "question_b": "Trump out as President by March 31?",
+      "condition_id_a": "0x61b66d02793b4a68ab0cc25be60d65f517fe18c7d654041281bb130341244fcc",
+      "condition_id_b": "0xfc9ee9c25abd5b966088767214c22dcf3ad1c72548e9a1dbef9d4328c170e5b5",
+      "rho": 0.1784,
+      "shared_topics": [
+        "trump"
+      ],
+      "resolved": "B",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:18+00:00",
+      "other_price_at_resolution": 0.19,
+      "classification": {
+        "category": "sequential_prerequisite",
+        "confidence": "high",
+        "rationale": "These events have a clear sequential relationship where Trump remaining as President is a prerequisite for him to nominate a Fed chair. If Trump is out as President by March 31, he cannot make Fed chair nominations after that point. The positive correlation (0.18) makes sense because scenarios where Trump stays in office longer increase the probability of both him remaining past March 31 AND having the opportunity to nominate Warsh as Fed chair."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Kevin Hassett as the next Fed chair?",
+      "question_b": "Will Trump nominate Michelle Bowman as the next Fed chair?",
+      "condition_id_a": "0xdcc87b9ca36015e396bd0eebca29e854a136ed2b0b701049d1ee9da6bee3eb35",
+      "condition_id_b": "0xfc6eace32f283eda179c15d447fe61f0426846bace5c583a967ddeaba58c2f93",
+      "rho": -0.1744,
+      "shared_topics": [
+        "fed",
+        "trump"
+      ],
+      "resolved": "B",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:05+00:00",
+      "other_price_at_resolution": 0.4,
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "Both questions ask about Trump nominating different people (Kevin Hassett vs Michelle Bowman) for the same position (Fed chair). Only one person can be nominated as Fed chair, making these outcomes mutually exclusive. The negative correlation of -0.17 aligns with this relationship - as the probability of one nomination increases, the probability of the other should decrease."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Jerome Powell as the next Fed chair?",
+      "question_b": "Trump out as President before 2027?",
+      "condition_id_a": "0x60acc46cda1f0619259acf3ef8c77bf734ff08cbed256ca3d1e9444138e21266",
+      "condition_id_b": "0x48b0b0bca515f68fccf95af4793dbd0edbfec1f8ec6e8df2c0f69ba74f8c4722",
+      "rho": 0.1561,
+      "shared_topics": [
+        "trump"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:25+00:00",
+      "other_price_at_resolution": 0.19,
+      "classification": {
+        "category": "causal_relationship",
+        "confidence": "medium",
+        "rationale": "There is a plausible causal mechanism where Trump leaving office before 2027 (through resignation, impeachment, or other means) would directly impact his ability to nominate Jerome Powell as Fed chair, since presidential nominations require being in office. However, the relationship is not perfectly inverse because Trump could make the nomination early in his term before any potential departure, and the correlation is relatively weak at 0.16."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Kevin Warsh as the next Fed chair?",
+      "question_b": "Fed rate cut by January 2026 meeting?",
+      "condition_id_a": "0x61b66d02793b4a68ab0cc25be60d65f517fe18c7d654041281bb130341244fcc",
+      "condition_id_b": "0xc8929e80e74ae959b3ed9b9e1c5e0903ad38e02e1339462e3acf8b49bbca35a9",
+      "rho": 0.1452,
+      "shared_topics": [
+        "fed"
+      ],
+      "resolved": "B",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-12-26T00:00:16+00:00",
+      "other_price_at_resolution": 0.245,
+      "classification": {
+        "category": "causal_relationship",
+        "confidence": "medium",
+        "rationale": "Kevin Warsh is known for his hawkish monetary policy stance, having previously served on the Fed Board and being critical of aggressive rate cuts. If Trump nominates Warsh as Fed chair, this would likely influence the Fed's approach to rate cuts, making cuts less probable by January 2026. The correlation coefficient of 0.15 is modest but suggests markets recognize this connection between the nomination and future monetary policy direction."
+      }
+    },
+    {
+      "question_a": "Will Microsoft be the largest company in the world by market cap on January 31?",
+      "question_b": "Will Alphabet be the largest company in the world by market cap on June 30?",
+      "condition_id_a": "0xd947403a5eae117d6fe0bf737f2d279c89dddc495dc7d2eb198accd1ecd07cc9",
+      "condition_id_b": "0x416242cc0757f9d4aefdfe86893cea90610b3d0928c60e09416e717db7e9f0f0",
+      "rho": 0.1266,
+      "shared_topics": [
+        "market_cap"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-12-19T00:00:10+00:00",
+      "other_price_at_resolution": 0.227,
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "medium",
+        "rationale": "Both questions involve tech giants competing for the largest market cap position and are driven by similar factors like overall tech sector performance, market sentiment toward large tech companies, and relative performance dynamics. While they occur at different times (Jan 31 vs June 30), the underlying drivers of tech company valuations and market leadership are shared. The modest correlation of 0.13 reflects that these companies are in the same competitive space, though the different timeframes and the fact that other companies (Apple, NVIDIA, etc.) could also be contenders weakens the relationship."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate no one before 2027?",
+      "question_b": "Trump out as President before 2027?",
+      "condition_id_a": "0xc830d19ead001f5378792cc0df36004ddb1b312bb26fbd5c4226aa698c41f808",
+      "condition_id_b": "0x48b0b0bca515f68fccf95af4793dbd0edbfec1f8ec6e8df2c0f69ba74f8c4722",
+      "rho": 0.1256,
+      "shared_topics": [
+        "trump"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:25+00:00",
+      "other_price_at_resolution": 0.19,
+      "classification": {
+        "category": "causal_relationship",
+        "confidence": "high",
+        "rationale": "There is a clear causal mechanism: if Trump leaves office as President before 2027 (Question B), it would significantly impact his ability to make nominations (Question A). A president who is out of office cannot make presidential nominations. The correlation is positive (0.13) which makes sense - if Trump is more likely to leave office early, he's also more likely to make fewer/no nominations due to reduced time in office. This represents a direct causal relationship where one outcome affects the probability of the other."
+      }
+    },
+    {
+      "question_a": "Will Andrew Yang win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0x450810ae738a0ff820d3248f2b24937f63fb8c8cf422ed2a915125adb4d9d3c8",
+      "condition_id_b": "0x0f49db97f71c68b1e42a6d16e3de93d85dbf7d4148e3f018eb79e88554be9f75",
+      "rho": -0.1198,
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:20+00:00",
+      "other_price_at_resolution": 0.375,
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These questions are about the same specific event - the 2028 Democratic presidential nomination - where only one person can win. Yang and Newsom are competing for the same position, making their success mutually exclusive. The negative correlation of -0.12 is consistent with this relationship, though weaker than might be expected, possibly due to both candidates having relatively low individual probabilities in a crowded field."
+      }
+    },
+    {
+      "question_a": "Fed decreases interest rates by 50+ bps after January 2026 meeting?",
+      "question_b": "Fed decreases interest rates by 25 bps after January 2026 meeting?",
+      "condition_id_a": "0x17815081230e3b9c78b098162c33b1ffa68c4ec29c123d3d14989599e0c2e113",
+      "condition_id_b": "0x35cc41270f5cdfd59b45e68ab85dc51b0b900d286a6c74ea006b8572d9ff5934",
+      "rho": 0.0912,
+      "shared_topics": [
+        "fed"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:16+00:00",
+      "other_price_at_resolution": 0.355,
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These are mutually exclusive outcomes for the same Fed meeting in January 2026. The Fed cannot simultaneously decrease rates by both 25 bps and 50+ bps at the same meeting. The low correlation of 0.09 makes sense because as the probability of one outcome increases, the probability of the other should decrease, creating negative correlation. However, both could be false if the Fed chooses no cut, a different amount, or raises rates, which explains why the correlation isn't strongly negative."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Marc Sumerlin as the next Fed chair?",
+      "question_b": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "condition_id_a": "0xecb8543d8b5072ab44f216f0d18830d0276bfcbb6b51bfd14c62540560cc7a88",
+      "condition_id_b": "0x257b18205f908aef01ef2d1d50e6fea7d29cf5486fe04031d8b101394476faed",
+      "rho": 0.0804,
+      "shared_topics": [
+        "fed"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:16+00:00",
+      "other_price_at_resolution": 0.545,
+      "classification": {
+        "category": "causal_relationship",
+        "confidence": "medium",
+        "rationale": "The Fed chair nomination could influence interest rate decisions through policy preferences and monetary philosophy. A new Fed chair appointed by Trump might have different views on interest rates compared to the current chair, potentially affecting the likelihood of rate changes by March 2026. However, the correlation is weak (0.08) and many other factors influence Fed decisions, making this a plausible but not strong causal relationship."
+      }
+    },
+    {
+      "question_a": "Will Jared Polis win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0x8fbcb151e2c988df5a43abb02298014b7daf34c008f3eed9188dd16a2a19bec1",
+      "condition_id_b": "0x0f49db97f71c68b1e42a6d16e3de93d85dbf7d4148e3f018eb79e88554be9f75",
+      "rho": 0.0793,
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:20+00:00",
+      "other_price_at_resolution": 0.375,
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These are two candidates competing for the same Democratic presidential nomination in 2028. Only one person can win the nomination, making these outcomes mutually exclusive. The low positive correlation (0.08) is surprising given they should be negatively correlated, but the fundamental relationship is clear - if one wins, the other cannot win the same nomination."
+      }
+    },
+    {
+      "question_a": "Fed increases interest rates by 25+ bps after January 2026 meeting?",
+      "question_b": "Will the Fed Cut\u2013Cut\u2013Pause in the next three decisions (Oct\u2013Dec\u2013Jan)?",
+      "condition_id_a": "0x7c6c69d91b21cbbea08a13d0ad51c0e96a956045aaadc77bce507c6b0475b66e",
+      "condition_id_b": "0x83db787ed2cb00d225178e66bc6ae4d22e8029f19390d2b78ded5aed978eead6",
+      "rho": 0.0769,
+      "shared_topics": [
+        "fed"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:07+00:00",
+      "other_price_at_resolution": 0.35,
+      "classification": {
+        "category": "sequential_prerequisite",
+        "confidence": "medium",
+        "rationale": "Question B asks about Fed decisions through January 2026, with the January decision being the same meeting referenced in Question A. The pattern of cuts leading up to January 2026 (Cut-Cut-Pause) would make a rate increase in January less likely, as it would represent a reversal from pause to hike. However, the correlation is weak (0.08) because the January decision in Question B is just a pause, not necessarily precluding a future increase, and economic conditions could change significantly to justify a rate hike even after recent cuts."
+      }
+    },
+    {
+      "question_a": "Will Alphabet be the largest company in the world by market cap on June 30?",
+      "question_b": "Will Apple be the largest company in the world by market cap on January 31?",
+      "condition_id_a": "0x416242cc0757f9d4aefdfe86893cea90610b3d0928c60e09416e717db7e9f0f0",
+      "condition_id_b": "0xbf6983ec188a61a32f811738de5e4e427925cd42d5f3010bd3ab96f4728f5cd9",
+      "rho": -0.0768,
+      "shared_topics": [
+        "market_cap"
+      ],
+      "resolved": "B",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-12-24T00:00:11+00:00",
+      "other_price_at_resolution": 0.184,
+      "classification": {
+        "category": "shared_driver",
+        "confidence": "high",
+        "rationale": "Both questions involve determining which company has the largest market cap at different time points. They are driven by the same underlying factors: overall market conditions, tech sector performance, and relative valuations of major tech companies. While Alphabet and Apple are different companies and the timeframes differ, both outcomes depend on similar market dynamics and competitive positioning among large-cap stocks. The negative correlation suggests some inverse relationship in market expectations about these companies' relative performance."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Larry Lindsey as the next Fed chair?",
+      "question_b": "Will Trump nominate Kevin Warsh as the next Fed chair?",
+      "condition_id_a": "0x95657cd92502a3b132163cb9c77f5f16771dda1faa33a3977364f11a945d68f0",
+      "condition_id_b": "0x61b66d02793b4a68ab0cc25be60d65f517fe18c7d654041281bb130341244fcc",
+      "rho": 0.0616,
+      "shared_topics": [
+        "fed",
+        "trump"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:30+00:00",
+      "other_price_at_resolution": 0.19,
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "Both questions involve Trump nominating someone for the same position (Fed chair). Only one person can be nominated and serve as Fed chair at a time, making these outcomes mutually exclusive. The low positive correlation (0.06) likely reflects shared factors affecting Trump's Fed chair decision-making process, but the fundamental relationship is that if one happens, the other cannot."
+      }
+    },
+    {
+      "question_a": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Ron DeSantis win the 2028 US Presidential Election?",
+      "condition_id_a": "0x0f49db97f71c68b1e42a6d16e3de93d85dbf7d4148e3f018eb79e88554be9f75",
+      "condition_id_b": "0x3367d22cd2a673014f1960742afdf8601040a8ad856dc0a98bd1a44ee99504e2",
+      "rho": -0.0391,
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "B",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:14+00:00",
+      "other_price_at_resolution": 0.375,
+      "classification": {
+        "category": "causal_relationship",
+        "confidence": "medium",
+        "rationale": "These events have a plausible causal relationship where Newsom winning the Democratic nomination would make him the likely Democratic candidate against DeSantis (if DeSantis is the Republican nominee). A stronger Democratic nominee could reduce DeSantis's chances of winning the general election. However, the very weak correlation (-0.04) suggests either the market doesn't see this relationship as strong, or there are many other factors (like who the actual Republican nominee will be) that dominate the relationship. The connection exists but is indirect and contingent on multiple other outcomes."
+      }
+    },
+    {
+      "question_a": "Will Bernie Sanders win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0x30cfb887558b20373a984da60c372fe5a90c0296aa6d8bb413a8aa7543846da2",
+      "condition_id_b": "0x0f49db97f71c68b1e42a6d16e3de93d85dbf7d4148e3f018eb79e88554be9f75",
+      "rho": -0.029,
+      "shared_topics": [
+        "election_2028"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:21+00:00",
+      "other_price_at_resolution": 0.375,
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These are two candidates competing for the same Democratic presidential nomination in 2028. Only one person can win the nomination, making these outcomes mutually exclusive. The very low correlation (-0.03) is surprising given this should be a strong negative relationship, but the fundamental relationship is clearly mutually exclusive rather than spurious."
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Philip Jefferson as the next Fed chair?",
+      "question_b": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "condition_id_a": "0xfbb2046e013da7b66ecedf3a9de63ce446fd57c23ccc77cd019991f485522236",
+      "condition_id_b": "0x257b18205f908aef01ef2d1d50e6fea7d29cf5486fe04031d8b101394476faed",
+      "rho": 0.0,
+      "shared_topics": [
+        "fed"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:16+00:00",
+      "other_price_at_resolution": 0.545,
+      "classification": {
+        "category": "causal_relationship",
+        "confidence": "medium",
+        "rationale": "The Fed chair nomination could influence interest rate decisions through policy preferences and market expectations. Jefferson's monetary policy stance would affect the likelihood of rate changes in March 2026. However, the observed correlation of 0.00 suggests markets may not be pricing in this connection, possibly due to the long time horizon or other overriding factors that would influence rates by 2026."
+      }
+    }
+  ]
+}

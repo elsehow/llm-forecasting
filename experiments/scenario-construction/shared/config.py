@@ -4,6 +4,7 @@ Reuses Question and Unit from llm_forecasting.models for consistency.
 """
 
 from dataclasses import dataclass
+from datetime import date
 
 from llm_forecasting.models import Question, QuestionType, Unit
 
@@ -63,12 +64,32 @@ US_GDP_2029 = TargetConfig(
     cruxiness_normalizer=5.0,  # Shorter horizon = tighter range
 )
 
+ONE_BATTLE_BEST_PICTURE = TargetConfig(
+    question=Question(
+        id="one_battle_best_picture_2026",
+        source="scenario_construction",
+        text="Will One Battle After Another win Best Picture at the 98th Academy Awards?",
+        question_type=QuestionType.BINARY,
+        resolution_date=date(2026, 3, 15),
+        value_range=None,
+        base_rate=None,
+        unit=None,
+    ),
+    context=""""One Battle After Another" (2025) is written, co-produced, and directed by Paul Thomas Anderson.
+It is loosely based on and inspired by the 1990 novel Vineland by Thomas Pynchon.
+It is the Critics Choice BP winner, 4 Golden Globes (incl. BP Musical/Comedy), record 7 SAG noms.
+Nominations announced Jan 22, 2026. Ceremony March 15, 2026.
+Key competitors: Sinners, Marty Supreme, Hamnet, Frankenstein.""",
+    cruxiness_normalizer=0.3,
+)
+
 
 # Registry for CLI access
 TARGETS = {
     "carney_pm_2027": CARNEY_PM_2027,
     "democrat_whitehouse_2028": DEMOCRAT_WHITEHOUSE_2028,
     "us_gdp_2029": US_GDP_2029,
+    "one_battle_best_picture": ONE_BATTLE_BEST_PICTURE,
 }
 
 

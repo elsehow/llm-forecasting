@@ -1,0 +1,753 @@
+{
+  "id": "dual_one_battle_best_picture_b3722b3e",
+  "name": "one_battle_best_picture (dual)",
+  "target": "one_battle_best_picture",
+  "approach": "dual_v7",
+  "question": {
+    "id": "one_battle_best_picture_2026",
+    "source": "scenario_construction",
+    "text": "Will One Battle After Another win Best Picture at the 98th Academy Awards?",
+    "question_type": "binary",
+    "unit": null,
+    "base_rate": null,
+    "value_range": null
+  },
+  "config": {
+    "context": "\"One Battle After Another\" (2025) is written, co-produced, and directed by Paul Thomas Anderson.\nIt is loosely based on and inspired by the 1990 novel Vineland by Thomas Pynchon.\nIt is the Critics Choice BP winner, 4 Golden Globes (incl. BP Musical/Comedy), record 7 SAG noms.\nNominations announced Jan 22, 2026. Ceremony March 15, 2026.\nKey competitors: Sinners, Marty Supreme, Hamnet, Frankenstein.",
+    "cruxiness_normalizer": 0.3,
+    "voi_floor": 0.1,
+    "match_threshold": 0.6,
+    "n_uncertainties": 3
+  },
+  "current_date": "2026-01-19",
+  "signals": [
+    {
+      "id": "llm_da18955e",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By February 4, 2026, major Oscar campaigns spending reports show 'One Battle After Another' receiving less than $8 million in FYC expenditures, per industry tracking services",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:20:59.903050Z",
+      "resolution_date": "2026-02-04",
+      "resolved": false,
+      "base_rate": 0.4,
+      "voi": 0.5681563346695824,
+      "rho": 0.8,
+      "rho_reasoning": "The two questions are closely related, as they both concern the success and campaign spending of the same movie, 'One Battle After Another', in the context of the Academy Awards. If the movie wins Best Picture (Question A), it is more likely that it would have received significant FYC (For Your Consideration) expenditures to promote its campaign (Question B). Conversely, if the movie received less than $8 million in FYC expenditures (Question B), it is less likely to win Best Picture (Question A). Therefore, the outcomes of these two questions are positively correlated, and a correlation coefficient of 0.8 reflects a strong positive relationship between them.",
+      "uncertainty_source": "Academy Voting Patterns",
+      "p_target_given_yes": 0.9898979485566356,
+      "p_target_given_no": 0.17340136762890962,
+      "cruxiness_spread": 0.816496580927726
+    },
+    {
+      "id": "llm_e7c26663",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By January 25, 2026, at least 3 major film critics' organizations (NYFCC, LAFCA, NSFC) award 'One Battle After Another' their Best Picture prize",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:20:59.903075Z",
+      "resolution_date": "2026-01-25",
+      "resolved": false,
+      "base_rate": 0.35,
+      "voi": 0.42447627666636245,
+      "rho": 0.7,
+      "rho_reasoning": "The two questions are related, as the outcome of one (whether 'One Battle After Another' wins Best Picture at the Academy Awards) would likely influence the likelihood of the other (major film critics' organizations also awarding it Best Picture). If the film wins the Oscar, it would increase the chances of it also being recognized by other major critics' groups. Therefore, there is a positive correlation between the two, though not a perfect one as there could still be some uncertainty or variability in the critics' decisions.",
+      "uncertainty_source": "Academy Voting Patterns",
+      "p_target_given_yes": 0.9769696007084728,
+      "p_target_given_no": 0.24317021500313007,
+      "cruxiness_spread": 0.7337993857053428
+    },
+    {
+      "id": "llm_2a012de7",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By February 6, 2026, final pre-ceremony polling shows 'One Battle After Another' trailing by less than 5 percentage points to the frontrunner, per Gold Derby consensus predictions",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:20:59.903083Z",
+      "resolution_date": "2026-02-06",
+      "resolved": false,
+      "base_rate": 0.3,
+      "voi": 0.3715776612345849,
+      "rho": 0.8,
+      "rho_reasoning": "The two questions are closely related, as they both refer to the same movie ('One Battle After Another') winning or being in contention for the Best Picture award at the Academy Awards. The outcome of one question would provide significant information about the likely outcome of the other. Specifically, if 'One Battle After Another' is predicted to be trailing the frontrunner by less than 5 percentage points in the pre-ceremony polling, it would make it much more likely that the movie would go on to win the Best Picture award. Therefore, the correlation coefficient between these two questions is likely to be strongly positive, around 0.8.",
+      "uncertainty_source": "Academy Voting Patterns",
+      "p_target_given_yes": 0.99,
+      "p_target_given_no": 0.28571428571428575,
+      "cruxiness_spread": 0.7042857142857142
+    },
+    {
+      "id": "llm_a8f867b7",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Will One Battle After Another win the Writers Guild Award for Best Original Screenplay by February 1, 2026?",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:20:59.903089Z",
+      "resolution_date": "2026-02-01",
+      "resolved": false,
+      "base_rate": 0.22,
+      "voi": 0.24759925245383718,
+      "rho": 0.8,
+      "rho_reasoning": "The two questions are related, as they both concern the success of the same movie, 'One Battle After Another,' at major awards shows. If the movie wins Best Picture at the Academy Awards, that would likely increase its chances of also winning the Writers Guild Award for Best Original Screenplay. The outcomes of the two questions are not completely dependent, as there are other factors that could influence the Writers Guild Award, but they are positively correlated to a high degree.",
+      "uncertainty_source": "Precursor Award Momentum",
+      "p_target_given_yes": 0.99,
+      "p_target_given_no": 0.358974358974359,
+      "cruxiness_spread": 0.631025641025641
+    },
+    {
+      "id": "llm_9f707f64",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By February 5, 2026, the Hollywood Reporter's anonymous Academy voter polling shows 'One Battle After Another' leading in at least 40% of Best Picture preference surveys",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:20:59.903094Z",
+      "resolution_date": "2026-02-05",
+      "resolved": false,
+      "base_rate": 0.2,
+      "voi": 0.22029417048084576,
+      "rho": 0.7,
+      "rho_reasoning": "The two questions are closely related, as they both refer to the same event - the success of the movie 'One Battle After Another' at the Academy Awards. If the movie wins Best Picture, it is more likely that it will also be leading in preference surveys among Academy voters. Therefore, there is a positive correlation between the two questions, with a coefficient of around 0.7, indicating a strong but not perfect relationship.",
+      "uncertainty_source": "Academy Voting Patterns",
+      "p_target_given_yes": 0.99,
+      "p_target_given_no": 0.37499999999999994,
+      "cruxiness_spread": 0.615
+    },
+    {
+      "id": "0xa15eb6144875ec22c24b18c6f34e0ce2d5783765f740de9a4ac0e8fdb10fa832",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will Marty Supreme be nominated for Best Picture at the 98th Academy Awards?",
+      "url": "https://polymarket.com/market/will-marty-supreme-be-nominated-for-best-picture-at-the-98th-academy-awards",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:20:59.903103Z",
+      "resolution_date": "2026-01-22",
+      "resolved": false,
+      "base_rate": 0.993,
+      "voi": 0.18872187554086717,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related, as they both concern Best Picture nominations and awards at the Academy Awards. If a film like 'One Battle After Another' wins Best Picture, it is more likely that another film like 'Marty Supreme' would also be nominated for Best Picture, as they are likely in a similar genre or style. However, the outcomes are not perfectly correlated, as there are many other factors that go into Best Picture nominations and awards. A correlation coefficient of 0.5 suggests a moderate positive relationship between the two events.",
+      "uncertainty_source": "Competitor Film Reception",
+      "p_target_given_yes": 0.75,
+      "p_target_given_no": 0.25,
+      "cruxiness_spread": 0.5,
+      "probability_source": "fresh",
+      "probability_at": "2026-01-19T17:20:26.823298Z"
+    },
+    {
+      "id": "llm_cf4a7d32",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Will One Battle After Another win the Cinema Audio Society Award for Outstanding Achievement in Sound Mixing by February 3, 2026?",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:20:59.903109Z",
+      "resolution_date": "2026-02-03",
+      "resolved": false,
+      "base_rate": 0.12,
+      "voi": 0.12214554928759391,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related, as they both concern the success of the film 'One Battle After Another' in major awards shows. Winning Best Picture at the Academy Awards would likely increase the chances of the film also winning the Cinema Audio Society Award, as it would indicate the film's overall critical and commercial success. However, the outcomes are not perfectly correlated, as there are many other factors that could influence the success of the film in each specific award category. Therefore, a moderately positive correlation coefficient of 0.5 seems reasonable.",
+      "uncertainty_source": "Precursor Award Momentum",
+      "p_target_given_yes": 0.99,
+      "p_target_given_no": 0.4318181818181818,
+      "cruxiness_spread": 0.5581818181818181
+    },
+    {
+      "id": "llm_e24cfd03",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By January 28, 2026, Paul Thomas Anderson receives the Directors Guild Award for Outstanding Directing, per DGA announcement",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:20:59.903113Z",
+      "resolution_date": "2026-01-28",
+      "resolved": false,
+      "base_rate": 0.3,
+      "voi": 0.06678996122482272,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are about related but not directly dependent events. Whether One Battle After Another wins Best Picture at the Academy Awards is somewhat correlated with whether Paul Thomas Anderson receives the Directors Guild Award, as both are measures of critical acclaim and success in the film industry. However, the outcomes are not directly linked, as the two awards are separate and could be won independently. Therefore, the correlation coefficient is positive but moderate, around 0.3.",
+      "uncertainty_source": "Academy Voting Patterns",
+      "p_target_given_yes": 0.729128784747792,
+      "p_target_given_no": 0.4018019493938035,
+      "cruxiness_spread": 0.3273268353539885
+    },
+    {
+      "id": "llm_12f801b5",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Will One Battle After Another win guild awards from at least 2 of the 'Big 3' guilds (DGA, PGA, WGA) by February 5, 2026?",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:20:59.903117Z",
+      "resolution_date": "2026-02-05",
+      "resolved": false,
+      "base_rate": 0.05,
+      "voi": 0.04785950352651991,
+      "rho": 0.8,
+      "rho_reasoning": "The two questions are closely related, as they both concern the success of the film 'One Battle After Another' at major awards shows. If the film wins Best Picture at the Academy Awards, it would make it more likely that it would also win guild awards from the 'Big 3' guilds. This suggests a positive correlation between the two outcomes, but not a perfect one, as other factors could still influence the guild awards even if the film wins Best Picture.",
+      "uncertainty_source": "Precursor Award Momentum",
+      "p_target_given_yes": 0.99,
+      "p_target_given_no": 0.4736842105263158,
+      "cruxiness_spread": 0.5163157894736842
+    },
+    {
+      "id": "llm_1108b346",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Will any of the four competitor films (Sinners, Marty Supreme, Hamnet, Frankenstein) receive an A+ CinemaScore by February 5, 2026?",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:20:59.903122Z",
+      "resolution_date": "2026-02-05",
+      "resolved": false,
+      "base_rate": 0.15,
+      "voi": 0.02988144926680314,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are not directly related, as they are about different events - a Best Picture win for a specific film, and a CinemaScore for a group of competitor films. While there may be some overlap in the factors that influence the outcomes, such as public perception of the films, the outcomes of the two events are not strongly dependent on each other. Therefore, the correlation coefficient is estimated to be moderately positive at 0.2, indicating a weak positive relationship between the two questions.",
+      "uncertainty_source": "Competitor Film Reception",
+      "p_target_given_yes": 0.7380476142847616,
+      "p_target_given_no": 0.4579915974791597,
+      "cruxiness_spread": 0.28005601680560194
+    },
+    {
+      "id": "llm_7526d1b8",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Will Frankenstein receive at least 8 Oscar nominations when announced on January 23, 2026?",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:20:59.903126Z",
+      "resolution_date": "2026-01-23",
+      "resolved": false,
+      "base_rate": 0.35,
+      "voi": 0.02912986210464541,
+      "rho": 0.2,
+      "rho_reasoning": "These questions are not directly related to each other. The outcome of one question does not provide a strong indication of the outcome of the other. They are measuring different, unrelated phenomena in the film industry. There may be some minor indirect relationship, but overall the two questions are largely independent.",
+      "uncertainty_source": "Competitor Film Reception",
+      "p_target_given_yes": 0.6362770287738494,
+      "p_target_given_no": 0.42662006142946574,
+      "cruxiness_spread": 0.20965696734438366
+    },
+    {
+      "id": "17548",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will Waltine Nauta receive a more severe sentence than Donald Trump in \"United States v. Donald J. Trump and Waltine Nauta\"?",
+      "url": "https://www.metaculus.com/questions/17548/nauta-more-severe-sentence-than-trump/",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:20:59.903132Z",
+      "resolution_date": "2026-01-20",
+      "resolved": false,
+      "base_rate": 0.432450570974278,
+      "voi": 0.007226451169158432,
+      "rho": 0.1,
+      "rho_reasoning": "The two questions appear to be about unrelated events - the Academy Award winner for Best Picture and the relative sentences received by Donald Trump and Waltine Nauta. Knowing the outcome of one question does not provide much information about the other, so the correlation is likely to be low and close to 0.",
+      "p_target_given_yes": 0.5572800795517475,
+      "p_target_given_no": 0.4563548092187709,
+      "cruxiness_spread": 0.1009252703329766
+    },
+    {
+      "id": "0x7d5e7cd0103c6fc99c9e5fe80449284277ac08ef5afca8d9cae7d1577eab9aff",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will Beethoven Blues (Jon Batiste) win Album of the Year at the 68th Annual GRAMMY Awards?",
+      "url": "https://polymarket.com/market/will-beethoven-blues-jon-batiste-win-album-of-the-year-at-the-68th-annual-grammy-awards",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:20:59.903138Z",
+      "resolution_date": "2026-02-01",
+      "resolved": false,
+      "base_rate": 0.0,
+      "voi": 0.007225546012191719,
+      "rho": 0.1,
+      "rho_reasoning": "The two questions are about unrelated events (a Best Picture winner at the Oscars and an Album of the Year winner at the Grammys). The outcomes of these two awards are largely independent, as they are voted on by different industry groups and recognize different achievements. There is no clear reason why the outcome of one would significantly influence the other, so the correlation is likely to be low, around 0.1.",
+      "p_target_given_yes": 0.55,
+      "p_target_given_no": 0.44999999999999996,
+      "cruxiness_spread": 0.10000000000000009,
+      "probability_source": "fresh",
+      "probability_at": "2026-01-19T17:20:27.335604Z"
+    },
+    {
+      "id": "llm_c66fe551",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Will Sinners receive a Rotten Tomatoes critics score of 85% or higher by February 1, 2026?",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:20:59.903143Z",
+      "resolution_date": "2026-02-01",
+      "resolved": false,
+      "base_rate": 0.25,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "The two questions are about completely unrelated events - the outcome of the Best Picture award at the Academy Awards and the critical reception of a movie called Sinners. Knowing the outcome of one question would not provide any information about the other, so the correlation coefficient would be 0, indicating the questions are independent.",
+      "uncertainty_source": "Competitor Film Reception",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0
+    },
+    {
+      "id": "llm_b2af9b16",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Will Marty Supreme gross more than $150 million worldwide by January 31, 2026?",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:20:59.903148Z",
+      "resolution_date": "2026-01-31",
+      "resolved": false,
+      "base_rate": 0.3,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "The two questions are about unrelated events - the outcome of the Best Picture award at the Academy Awards, and the worldwide gross of a specific movie. Knowing the answer to one question would not provide any information about the other, as they are measuring completely different and unrelated phenomena. Therefore, the correlation coefficient (\u03c1) between these two questions is 0, indicating that they are independent.",
+      "uncertainty_source": "Competitor Film Reception",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0
+    },
+    {
+      "id": "0xd7eb91f40afa0a2a8e402a2029d10e3669e4c99927e804a1aa6dac7f36a7f154",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will Ella Langley win Best New Artist at the 68th Annual GRAMMY Awards?",
+      "url": "https://polymarket.com/market/will-ella-langley-win-best-new-artist-at-the-68th-annual-grammy-awards",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:20:59.903153Z",
+      "resolution_date": "2026-02-01",
+      "resolved": false,
+      "base_rate": 0.0,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "The two questions are about completely unrelated events - the Best Picture winner at the Academy Awards and the Best New Artist winner at the Grammys. Knowing the outcome of one question would not provide any information about the other, as the events are independent of each other. Therefore, the correlation coefficient between the two questions is 0, indicating that they are completely uncorrelated.",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0,
+      "probability_source": "fresh",
+      "probability_at": "2026-01-19T17:20:27.640853Z"
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Awards Season Dominance",
+      "description": "One Battle After Another builds significant momentum through the awards circuit, winning critical precursor awards and maintaining strong industry support. The film leverages its early Critics Choice and Golden Globe wins into a commanding Oscar position.",
+      "scenario_probability": 0.15,
+      "key_drivers": [
+        "Strong precursor awards performance",
+        "High industry voter support",
+        "Effective campaign execution",
+        "Paul Thomas Anderson's prestige factor"
+      ],
+      "why_exclusive": "This scenario requires the film to achieve dominant status across multiple metrics - it cannot coexist with scenarios where the film shows weak performance or faces overwhelming competition.",
+      "signal_impacts": [
+        {
+          "signal_index": 1,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 2,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 3,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 4,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 0,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 5,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Critical acclaim score": "Above 85 on Metacritic",
+        "Precursor wins": "3+ major critics organizations",
+        "Voter polling": "Leading in 40%+ of surveys",
+        "Campaign spending": "Above $8M in FYC expenditures"
+      },
+      "probability_range": "75-85% YES",
+      "probability_low": 0.75,
+      "probability_high": 0.85
+    },
+    {
+      "name": "Competitive Field",
+      "description": "One Battle After Another faces strong competition from multiple well-funded and critically acclaimed films, particularly Marty Supreme and other key contenders. Despite its early wins, the film struggles to maintain frontrunner status in a crowded field.",
+      "scenario_probability": 0.45,
+      "key_drivers": [
+        "Multiple strong competitors splitting votes",
+        "Marty Supreme's competitive presence",
+        "Limited campaign resources",
+        "Vote fragmentation among quality films"
+      ],
+      "why_exclusive": "This scenario assumes a competitive environment where no single film dominates - it cannot coexist with scenarios showing clear frontrunner status or weak competition.",
+      "signal_impacts": [
+        {
+          "signal_index": 5,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 0,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 1,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 2,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 4,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Competitor strength": "3+ films polling within 10 points",
+        "Campaign disadvantage": "Under $8M in FYC spending",
+        "Polling position": "Trailing frontrunner by 5+ points",
+        "Vote concentration": "No film above 30% in final polls"
+      },
+      "probability_range": "15-30% YES",
+      "probability_low": 0.15,
+      "probability_high": 0.3
+    },
+    {
+      "name": "Technical Excellence",
+      "description": "One Battle After Another wins through strong technical craft and industry respect for Paul Thomas Anderson, capturing key technical awards that signal broader Academy support. The film benefits from being seen as a technical and artistic achievement.",
+      "scenario_probability": 0.25,
+      "key_drivers": [
+        "Strong technical categories performance",
+        "Industry respect for craftsmanship",
+        "Paul Thomas Anderson's auteur status",
+        "Sound and technical awards momentum"
+      ],
+      "why_exclusive": "This scenario focuses on technical excellence as the primary path to victory, distinct from pure critical dominance or competitive struggles - it represents a middle path based on craft recognition.",
+      "signal_impacts": [
+        {
+          "signal_index": 6,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 3,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 2,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 0,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 5,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Technical wins": "2+ technical precursor awards",
+        "Screenplay recognition": "WGA win achieved",
+        "Sound achievement": "CAS award victory",
+        "Competitive position": "Within 5 points of frontrunner"
+      },
+      "probability_range": "45-60% YES",
+      "probability_low": 0.45,
+      "probability_high": 0.6
+    },
+    {
+      "name": "Campaign Underperformance",
+      "description": "Despite early promise, One Battle After Another fails to capitalize on its early wins due to inadequate campaigning and stronger competition. The film's momentum stalls in the crucial final weeks before voting.",
+      "scenario_probability": 0.15,
+      "key_drivers": [
+        "Insufficient campaign funding",
+        "Poor late-stage momentum",
+        "Strong competitor campaigns",
+        "Limited voter outreach"
+      ],
+      "why_exclusive": "This scenario specifically involves campaign failure and momentum loss - it cannot coexist with scenarios showing strong campaign performance or maintained momentum.",
+      "signal_impacts": [
+        {
+          "signal_index": 0,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 5,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 1,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 2,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 4,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 6,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Campaign spending": "Under $8M in FYC expenditures",
+        "Late polling": "Trailing by 5+ points in final weeks",
+        "Voter support": "Under 20% in Academy surveys",
+        "Momentum indicators": "Declining in prediction markets"
+      },
+      "probability_range": "5-15% YES",
+      "probability_low": 0.05,
+      "probability_high": 0.15
+    }
+  ],
+  "mece_reasoning": "These scenarios are MECE because they represent distinct campaign trajectory archetypes that cannot simultaneously occur. Each scenario captures a different fundamental dynamic: (1) Awards Season Dominance assumes the film builds overwhelming momentum and industry support; (2) Competitive Field assumes multiple strong films fragment the vote without a clear winner emerging; (3) Technical Excellence represents a craft-focused path to victory based on industry respect; (4) Campaign Underperformance assumes momentum stalls despite early promise. These are mutually exclusive because a film cannot simultaneously dominate the field AND struggle in a competitive environment, nor can it both excel in campaigning AND underperform. They are collectively exhaustive because they cover the spectrum from overwhelming success to clear failure, with nuanced middle paths represented.",
+  "coverage_gaps": "Minimal gaps exist. The scenarios cover strong performance, competitive dynamics, technical excellence, and campaign failure. A potential minor gap might be an unexpected external factor (controversy, etc.) but current signals don't suggest this pathway.",
+  "created_at": "2026-01-19T09:20:59.903323",
+  "max_horizon_days": 18,
+  "sources_used": [
+    "polymarket",
+    "metaculus",
+    "kalshi",
+    "infer",
+    "manifold"
+  ],
+  "uncertainties": [
+    {
+      "name": "Academy Voting Patterns",
+      "description": "Whether Academy voters will favor Paul Thomas Anderson's literary adaptation style and artistic vision over more conventional crowd-pleasers. This reflects the ongoing tension between prestige auteur cinema and accessible mainstream films in Best Picture voting.",
+      "search_query": "Paul Thomas Anderson Oscar voting preferences Academy Awards auteur directors literary adaptations"
+    },
+    {
+      "name": "Competitor Film Reception",
+      "description": "How strongly the key competing films (Sinners, Marty Supreme, Hamnet, Frankenstein) will perform with critics and audiences leading up to the ceremony. The relative strength of the competition field significantly impacts any individual film's chances.",
+      "search_query": "Sinners Marty Supreme Hamnet Frankenstein 2026 Oscar Best Picture competition reviews"
+    },
+    {
+      "name": "Precursor Award Momentum",
+      "description": "Whether One Battle After Another can convert its early Critics Choice and Golden Globe wins into momentum with industry guilds (Directors, Producers, Writers) whose voting patterns strongly predict Oscar outcomes. Guild support often determines the frontrunner.",
+      "search_query": "Oscar precursor awards guild voting patterns Directors Guild Producers Guild Writers Guild Best Picture predictors"
+    }
+  ],
+  "topdown_signals_generated": 30,
+  "market_signals_retrieved": 12,
+  "matched_signals": 4,
+  "gap_signals": 26,
+  "market_only_signals": 10,
+  "merged_signals_total": 40,
+  "signals_above_floor": 21,
+  "signals_above_floor_by_origin": {
+    "matched": 4,
+    "gap": 17,
+    "market_only": 0
+  },
+  "gaps": [
+    {
+      "text": "By February 1, 2026, 'One Battle After Another' receives nominations in at least 8 Academy Award categories, per official Oscar nominations announcement",
+      "resolution_source": "Official Academy Awards nominations announcement",
+      "uncertainty_source": "Academy Voting Patterns",
+      "base_rate": 0.25,
+      "best_market_similarity": 0.4724469780921936
+    },
+    {
+      "text": "By January 25, 2026, at least 3 major film critics' organizations (NYFCC, LAFCA, NSFC) award 'One Battle After Another' their Best Picture prize",
+      "resolution_source": "New York Film Critics Circle, Los Angeles Film Critics Association, and National Society of Film Critics official announcements",
+      "uncertainty_source": "Academy Voting Patterns",
+      "base_rate": 0.35,
+      "best_market_similarity": 0.46704936027526855
+    },
+    {
+      "text": "By January 30, 2026, 'One Battle After Another' wins Best Picture at the Producers Guild Awards, per PGA announcement",
+      "resolution_source": "Producers Guild of America official awards announcement",
+      "uncertainty_source": "Academy Voting Patterns",
+      "base_rate": 0.15,
+      "best_market_similarity": 0.4554887115955353
+    },
+    {
+      "text": "By February 5, 2026, the Hollywood Reporter's anonymous Academy voter polling shows 'One Battle After Another' leading in at least 40% of Best Picture preference surveys",
+      "resolution_source": "Hollywood Reporter Academy voter polling articles",
+      "uncertainty_source": "Academy Voting Patterns",
+      "base_rate": 0.2,
+      "best_market_similarity": 0.360693097114563
+    },
+    {
+      "text": "By January 28, 2026, Paul Thomas Anderson receives the Directors Guild Award for Outstanding Directing, per DGA announcement",
+      "resolution_source": "Directors Guild of America official awards announcement",
+      "uncertainty_source": "Academy Voting Patterns",
+      "base_rate": 0.3,
+      "best_market_similarity": 0.30040451884269714
+    },
+    {
+      "text": "By February 3, 2026, entertainment trade publications (Variety, THR, Deadline) report that 'One Battle After Another' leads in at least 60% of Oscar prediction models",
+      "resolution_source": "Variety, The Hollywood Reporter, and Deadline Oscar prediction articles",
+      "uncertainty_source": "Academy Voting Patterns",
+      "base_rate": 0.25,
+      "best_market_similarity": 0.44685712456703186
+    },
+    {
+      "text": "By January 22, 2026, the Screen Actors Guild Awards give 'One Battle After Another' Outstanding Performance by a Cast in a Motion Picture, per SAG-AFTRA announcement",
+      "resolution_source": "Screen Actors Guild Awards official announcement",
+      "uncertainty_source": "Academy Voting Patterns",
+      "base_rate": 0.2,
+      "best_market_similarity": 0.41570717096328735
+    },
+    {
+      "text": "By February 4, 2026, major Oscar campaigns spending reports show 'One Battle After Another' receiving less than $8 million in FYC expenditures, per industry tracking services",
+      "resolution_source": "Variety and Hollywood Reporter FYC campaign spending reports",
+      "uncertainty_source": "Academy Voting Patterns",
+      "base_rate": 0.4,
+      "best_market_similarity": 0.2784019112586975
+    },
+    {
+      "text": "By January 31, 2026, at least 4 former Best Picture winners from the past decade publicly endorse 'One Battle After Another' in interviews or social media posts",
+      "resolution_source": "Entertainment media interviews and verified social media accounts of Oscar winners",
+      "uncertainty_source": "Academy Voting Patterns",
+      "base_rate": 0.15,
+      "best_market_similarity": 0.42403852939605713
+    },
+    {
+      "text": "By February 6, 2026, final pre-ceremony polling shows 'One Battle After Another' trailing by less than 5 percentage points to the frontrunner, per Gold Derby consensus predictions",
+      "resolution_source": "Gold Derby Oscar predictions consensus data",
+      "uncertainty_source": "Academy Voting Patterns",
+      "base_rate": 0.3,
+      "best_market_similarity": 0.2525343596935272
+    },
+    {
+      "text": "Will Sinners receive a Rotten Tomatoes critics score of 85% or higher by February 1, 2026?",
+      "resolution_source": "Rotten Tomatoes critics score page",
+      "uncertainty_source": "Competitor Film Reception",
+      "base_rate": 0.25,
+      "best_market_similarity": 0.3121487498283386
+    },
+    {
+      "text": "Will Marty Supreme gross more than $150 million worldwide by January 31, 2026?",
+      "resolution_source": "Box Office Mojo worldwide grosses",
+      "uncertainty_source": "Competitor Film Reception",
+      "base_rate": 0.3,
+      "best_market_similarity": 0.4612581133842468
+    },
+    {
+      "text": "Will Frankenstein receive at least 8 Oscar nominations when announced on January 23, 2026?",
+      "resolution_source": "Academy of Motion Picture Arts and Sciences official nomination announcement",
+      "uncertainty_source": "Competitor Film Reception",
+      "base_rate": 0.35,
+      "best_market_similarity": 0.5797921419143677
+    },
+    {
+      "text": "Will any of the four competitor films (Sinners, Marty Supreme, Hamnet, Frankenstein) receive an A+ CinemaScore by February 5, 2026?",
+      "resolution_source": "CinemaScore official database",
+      "uncertainty_source": "Competitor Film Reception",
+      "base_rate": 0.15,
+      "best_market_similarity": 0.44910717010498047
+    },
+    {
+      "text": "Will Sinners be named the top film of 2025 by at least 3 major critics' organizations (NYT, LAT, WaPo, Chicago Sun-Times, Rolling Stone) by January 31, 2026?",
+      "resolution_source": "Published year-end lists from specified publications",
+      "uncertainty_source": "Competitor Film Reception",
+      "base_rate": 0.2,
+      "best_market_similarity": 0.3657829165458679
+    },
+    {
+      "text": "Will the combined Metacritic score of all four competitor films average 80 or higher by February 3, 2026?",
+      "resolution_source": "Metacritic film pages for each title",
+      "uncertainty_source": "Competitor Film Reception",
+      "base_rate": 0.4,
+      "best_market_similarity": 0.41144460439682007
+    },
+    {
+      "text": "Will One Battle After Another win the Directors Guild Award for Outstanding Directing \u2013 Feature Film by February 1, 2026?",
+      "resolution_source": "Directors Guild of America official announcement",
+      "uncertainty_source": "Precursor Award Momentum",
+      "base_rate": 0.2,
+      "best_market_similarity": 0.46372315287590027
+    },
+    {
+      "text": "Will One Battle After Another win the Producers Guild Award for Outstanding Producer of Theatrical Motion Pictures by January 25, 2026?",
+      "resolution_source": "Producers Guild of America official announcement",
+      "uncertainty_source": "Precursor Award Momentum",
+      "base_rate": 0.18,
+      "best_market_similarity": 0.5038063526153564
+    },
+    {
+      "text": "Will One Battle After Another win the Writers Guild Award for Best Original Screenplay by February 1, 2026?",
+      "resolution_source": "Writers Guild of America official announcement",
+      "uncertainty_source": "Precursor Award Momentum",
+      "base_rate": 0.22,
+      "best_market_similarity": 0.4799387454986572
+    },
+    {
+      "text": "Will One Battle After Another receive at least 8 Screen Actors Guild Award nominations by January 21, 2026?",
+      "resolution_source": "Screen Actors Guild Awards official nomination announcement",
+      "uncertainty_source": "Precursor Award Momentum",
+      "base_rate": 0.15,
+      "best_market_similarity": 0.5200916528701782
+    },
+    {
+      "text": "Will One Battle After Another win the Cinema Audio Society Award for Outstanding Achievement in Sound Mixing by February 3, 2026?",
+      "resolution_source": "Cinema Audio Society official announcement",
+      "uncertainty_source": "Precursor Award Momentum",
+      "base_rate": 0.12,
+      "best_market_similarity": 0.44879063963890076
+    },
+    {
+      "text": "Will One Battle After Another receive the American Society of Cinematographers Award for Outstanding Achievement in Cinematography by February 1, 2026?",
+      "resolution_source": "American Society of Cinematographers official announcement",
+      "uncertainty_source": "Precursor Award Momentum",
+      "base_rate": 0.14,
+      "best_market_similarity": 0.5543455481529236
+    },
+    {
+      "text": "Will One Battle After Another win at least 3 guild awards (DGA, PGA, WGA, SAG, CAS, ASC, ACE) by February 5, 2026?",
+      "resolution_source": "Compilation of official guild award announcements",
+      "uncertainty_source": "Precursor Award Momentum",
+      "base_rate": 0.08,
+      "best_market_similarity": 0.3460930585861206
+    },
+    {
+      "text": "Will One Battle After Another receive the American Cinema Editors Award for Best Edited Feature Film by February 1, 2026?",
+      "resolution_source": "American Cinema Editors official announcement",
+      "uncertainty_source": "Precursor Award Momentum",
+      "base_rate": 0.16,
+      "best_market_similarity": 0.48586735129356384
+    },
+    {
+      "text": "Will One Battle After Another be nominated for Outstanding Performance by a Cast in a Motion Picture at the SAG Awards by January 21, 2026?",
+      "resolution_source": "Screen Actors Guild Awards official nomination announcement",
+      "uncertainty_source": "Precursor Award Momentum",
+      "base_rate": 0.25,
+      "best_market_similarity": 0.5583669543266296
+    },
+    {
+      "text": "Will One Battle After Another win guild awards from at least 2 of the 'Big 3' guilds (DGA, PGA, WGA) by February 5, 2026?",
+      "resolution_source": "Official announcements from Directors Guild, Producers Guild, and Writers Guild of America",
+      "uncertainty_source": "Precursor Award Momentum",
+      "base_rate": 0.05,
+      "best_market_similarity": 0.32599225640296936
+    }
+  ],
+  "gaps_by_resolution_source": {
+    "Official Academy Awards nominations announcement": 1,
+    "New York Film Critics Circle, Los Angeles Film Critics Association, and National Society of Film Critics official announcements": 1,
+    "Producers Guild of America official awards announcement": 1,
+    "Hollywood Reporter Academy voter polling articles": 1,
+    "Directors Guild of America official awards announcement": 1,
+    "Variety, The Hollywood Reporter, and Deadline Oscar prediction articles": 1,
+    "Screen Actors Guild Awards official announcement": 1,
+    "Variety and Hollywood Reporter FYC campaign spending reports": 1,
+    "Entertainment media interviews and verified social media accounts of Oscar winners": 1,
+    "Gold Derby Oscar predictions consensus data": 1,
+    "Rotten Tomatoes critics score page": 1,
+    "Box Office Mojo worldwide grosses": 1,
+    "Academy of Motion Picture Arts and Sciences official nomination announcement": 1,
+    "CinemaScore official database": 1,
+    "Published year-end lists from specified publications": 1,
+    "Metacritic film pages for each title": 1,
+    "Directors Guild of America official announcement": 1,
+    "Producers Guild of America official announcement": 1,
+    "Writers Guild of America official announcement": 1,
+    "Screen Actors Guild Awards official nomination announcement": 2,
+    "Cinema Audio Society official announcement": 1,
+    "American Society of Cinematographers official announcement": 1,
+    "Compilation of official guild award announcements": 1,
+    "American Cinema Editors official announcement": 1,
+    "Official announcements from Directors Guild, Producers Guild, and Writers Guild of America": 1
+  }
+}

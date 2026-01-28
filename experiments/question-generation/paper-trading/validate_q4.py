@@ -11,12 +11,15 @@ Check dates:
 
 Usage:
     uv run python experiments/question-generation/paper-trading/validate_q4.py
+    uv run python experiments/question-generation/paper-trading/validate_q4.py --results calibrated
 
 Prerequisites:
     - Run benchmark first: experiments/question-generation/benchmark-mvp/run_benchmark.py
+    - For calibrated results: experiments/question-generation/benchmark-mvp/rescore_with_calibrated.py
     - Ensure price history is up to date
 """
 
+import argparse
 import json
 from pathlib import Path
 from datetime import datetime, timedelta
@@ -34,7 +37,13 @@ PRICE_HISTORY_DIR = DATA_DIR / "price_history"
 RESULTS_DIR = PAPER_TRADING_DIR / "results"
 RESULTS_DIR.mkdir(exist_ok=True)
 
-BENCHMARK_RESULTS = BENCHMARK_DIR / "results" / "benchmark_results.json"
+# Result files
+BENCHMARK_RESULTS_FILES = {
+    "baseline": BENCHMARK_DIR / "results" / "benchmark_results.json",
+    "calibrated": BENCHMARK_DIR / "results" / "benchmark_results_calibrated.json",
+    "enhanced": PAPER_TRADING_DIR / "results" / "q4_enhanced_cruxes.json",
+}
+BENCHMARK_RESULTS = BENCHMARK_RESULTS_FILES["baseline"]  # Default
 
 
 @dataclass
@@ -60,18 +69,39 @@ class CruxTracker:
     predicted_shift: float | None = None
 
 
-def load_benchmark_results() -> list[dict]:
-    """Load generated cruxes from benchmark."""
-    if not BENCHMARK_RESULTS.exists():
+def load_benchmark_results(results_type: str = "baseline") -> tuple[dict, str]:
+    """Load generated cruxes from benchmark.
+
+    Args:
+        results_type: "baseline", "calibrated", or "enhanced"
+
+    Returns:
+        Tuple of (benchmark data dict, results type label)
+    """
+    results_file = BENCHMARK_RESULTS_FILES.get(results_type)
+    if results_file is None:
+        raise ValueError(f"Unknown results type: {results_type}. Use 'baseline', 'calibrated', or 'enhanced'")
+
+    if not results_file.exists():
+        if results_type == "calibrated":
+            raise FileNotFoundError(
+                f"Calibrated results not found at {results_file}\n"
+                "Run rescore first: uv run python experiments/question-generation/benchmark-mvp/rescore_with_calibrated.py"
+            )
+        elif results_type == "enhanced":
+            raise FileNotFoundError(
+                f"Enhanced results not found at {results_file}\n"
+                "Run enhanced crux generation first."
+            )
         raise FileNotFoundError(
-            f"Benchmark results not found at {BENCHMARK_RESULTS}\n"
+            f"Benchmark results not found at {results_file}\n"
             "Run benchmark first: uv run python experiments/question-generation/benchmark-mvp/run_benchmark.py"
         )
 
-    with open(BENCHMARK_RESULTS) as f:
+    with open(results_file) as f:
         data = json.load(f)
 
-    return data
+    return data, results_type
 
 
 def load_price_history(condition_id: str) -> list[dict] | None:
@@ -130,6 +160,49 @@ def extract_trackers(benchmark_data: dict) -> list[CruxTracker]:
                 p_crux_initial=conditionals.get("p_crux", 0.5),
                 p_ultimate_given_crux_yes=conditionals.get("p_ultimate_given_crux_yes", 0.5),
                 p_ultimate_given_crux_no=conditionals.get("p_ultimate_given_crux_no", 0.5),
+            )
+            trackers.append(tracker)
+
+    return trackers
+
+
+def extract_trackers_enhanced(data: dict) -> list[CruxTracker]:
+    """Extract trackers from q4_enhanced_cruxes.json format.
+
+    The enhanced format has different field names:
+    - predictions (not results)
+    - enhanced_cruxes (not crux_scores)
+    - p_crux_yes, p_ult_given_yes, p_ult_given_no (not nested conditionals)
+    """
+    trackers = []
+
+    for pred in data.get("predictions", []):
+        ultimate = pred["ultimate"]
+        condition_id = pred["condition_id"]
+
+        for crux in pred.get("enhanced_cruxes", []):
+            # Enhanced format has different field names
+            p_crux = crux.get("p_crux_yes", 0.5)
+            p_ult_given_yes = crux.get("p_ult_given_yes", 0.5)
+            p_ult_given_no = crux.get("p_ult_given_no", 0.5)
+            voi_linear = crux.get("voi_linear", 0)
+
+            # Derive p_ultimate from conditionals using Bayesian logic
+            # p_ult = p_crux * p_ult_given_yes + (1-p_crux) * p_ult_given_no
+            p_ultimate = p_crux * p_ult_given_yes + (1 - p_crux) * p_ult_given_no
+
+            tracker = CruxTracker(
+                crux_text=crux["text"],
+                ultimate_text=ultimate,
+                ultimate_condition_id=condition_id,
+                voi_linear=voi_linear,
+                voi_entropy=0,  # Not available in enhanced format
+                voi_entropy_normalized=0,
+                rho=0,  # Not available
+                p_ultimate_initial=p_ultimate,
+                p_crux_initial=p_crux,
+                p_ultimate_given_crux_yes=p_ult_given_yes,
+                p_ultimate_given_crux_no=p_ult_given_no,
             )
             trackers.append(tracker)
 
@@ -240,15 +313,27 @@ def analyze_results(trackers: list[CruxTracker]) -> dict:
 
 
 def main():
+    parser = argparse.ArgumentParser(
+        description="Validate Q4 benchmark: Do high-VOI cruxes predict market movement?"
+    )
+    parser.add_argument(
+        "--results",
+        choices=["baseline", "calibrated", "enhanced"],
+        default="baseline",
+        help="Which benchmark results to validate (default: baseline)"
+    )
+    args = parser.parse_args()
+
     print("=" * 70)
     print("Q4 VALIDATION: Do High-VOI Cruxes Predict Market Movement?")
     print("=" * 70)
     print(f"\nTimestamp: {datetime.now().isoformat()}")
+    print(f"Results: {args.results}")
 
     # Load benchmark results
-    print("\nLoading benchmark results...")
+    print(f"\nLoading {args.results} benchmark results...")
     try:
-        benchmark_data = load_benchmark_results()
+        benchmark_data, results_type = load_benchmark_results(args.results)
     except FileNotFoundError as e:
         print(f"\n{e}")
         return
@@ -259,7 +344,10 @@ def main():
 
     # Extract trackers
     print("\nExtracting crux trackers...")
-    trackers = extract_trackers(benchmark_data)
+    if args.results == "enhanced":
+        trackers = extract_trackers_enhanced(benchmark_data)
+    else:
+        trackers = extract_trackers(benchmark_data)
     print(f"  {len(trackers)} cruxes with valid conditionals")
 
     # Update with current prices
@@ -339,6 +427,8 @@ def main():
             "timestamp": datetime.now().isoformat(),
             "benchmark_timestamp": metadata.get("timestamp"),
             "n_cruxes": len(trackers),
+            "results_type": results_type,
+            "rho_method": metadata.get("rho_method", "baseline"),
         },
         "results": results,
         "top_movers": [
@@ -359,7 +449,7 @@ def main():
         ],
     }
 
-    output_path = RESULTS_DIR / f"q4_validation_{datetime.now().strftime('%Y%m%d')}.json"
+    output_path = RESULTS_DIR / f"q4_validation_{results_type}_{datetime.now().strftime('%Y%m%d')}.json"
     with open(output_path, "w") as f:
         json.dump(output, f, indent=2)
     print(f"\nSaved to {output_path}")

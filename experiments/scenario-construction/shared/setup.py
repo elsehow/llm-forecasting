@@ -8,7 +8,7 @@ from pathlib import Path
 from dataclasses import dataclass
 
 from .config import get_target, TARGETS
-from .signals import DEFAULT_MAX_HORIZON_DAYS
+from .signals import DEFAULT_MAX_HORIZON_DAYS, compute_signal_cutoff
 
 
 @dataclass
@@ -21,6 +21,7 @@ class ApproachConfig:
     context: str
     question_type: str  # "continuous" or "binary"
     config: object  # Full config object
+    target_resolution_date: object | None  # date object or None
 
     # Paths
     repo_root: Path
@@ -115,17 +116,22 @@ def load_config(args, script_path: Path) -> ApproachConfig:
     # Map QuestionType enum to string for generate_mece_scenarios
     question_type = config.question.question_type.value  # "continuous" or "binary"
 
+    # Get target resolution date and compute smart cutoff
+    target_resolution_date = config.question.resolution_date
+    max_horizon_days = compute_signal_cutoff(target_resolution_date, DEFAULT_MAX_HORIZON_DAYS)
+
     return ApproachConfig(
         target=args.target,
         question_text=config.question.text,
         context=config.context,
         question_type=question_type,
         config=config,
+        target_resolution_date=target_resolution_date,
         repo_root=repo_root,
         db_path=db_path,
         output_dir=output_dir,
         voi_floor=args.voi_floor,
-        max_horizon_days=DEFAULT_MAX_HORIZON_DAYS,
+        max_horizon_days=max_horizon_days,
         knowledge_cutoff=getattr(args, "knowledge_cutoff", None),
         n_uncertainties=getattr(args, "n_uncertainties", None),
         match_threshold=getattr(args, "match_threshold", None),

@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "source": "curate_pairs.py --classify",
+    "n_classified": 50,
+    "n_real": 4,
+    "generated_at": "2026-01-14T15:06:20.785408"
+  },
+  "curated_pairs": [
+    {
+      "question_a": "Will Katie Britt win the 2028 Republican presidential nomination?",
+      "question_b": "Will Greg Abbott win the 2028 Republican presidential nomination?",
+      "condition_id_a": "0x61a1278884fa70d68d4bcaaf72fad55bbdb063cac28c6947472ca91635fab10f",
+      "condition_id_b": "0x214093035e429b91df322bd20c55d9f611f741f67472a63f7623a9afc0cffa57",
+      "rho": 0.7739,
+      "category": "mutually_exclusive",
+      "rationale": "Both Katie Britt and Greg Abbott are competing for the same single position - the 2028 Republican presidential nomination. Only one person can win a party's presidential nomination in any given election cycle.",
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:26+00:00"
+    },
+    {
+      "question_a": "Will the Houston Texans win Super Bowl 2026?",
+      "question_b": "Will the Seattle Seahawks win Super Bowl 2026?",
+      "condition_id_a": "0xef0b57daa506121cbeccb8f0e42de439dc2b64b38eab4a2fa6fc1e06255ac4bd",
+      "condition_id_b": "0xa0eafdfa7da17483796f77f4b287d28834ab97db4a9a6e999b52c1ba239bc2f3",
+      "rho": 0.7307,
+      "category": "mutually_exclusive",
+      "rationale": "Both teams are competing for the same Super Bowl 2026 championship, and only one team can win. The high correlation likely reflects inverse relationship - when one team's odds improve, the other's should decrease.",
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:30+00:00"
+    },
+    {
+      "question_a": "Will Donald Trump Jr. win the 2028 US Presidential Election?",
+      "question_b": "Will Mark Cuban win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0x23481b811978194fa175143ed7cd8d0000878ca59c408fd552e33535f7aa771e",
+      "condition_id_b": "0x9d4f94f82de9d13ff1d3318639ab9000ee2533949e525343156f374fb00bd9b1",
+      "rho": 0.7182,
+      "category": "shared_driver",
+      "rationale": "Both outcomes are driven by the same underlying factor: a major political realignment where traditional party dynamics are disrupted. Trump Jr. winning as a Republican and Cuban winning the Democratic nomination would both require significant shifts in their respective parties' establishments and voter bases.",
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-16T00:00:06+00:00"
+    },
+    {
+      "question_a": "Will Tim Walz resign by January 31?",
+      "question_b": "Will Gretchen Whitmer win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0xa19724e09c3641fcc504a0b290dfdb8882747d88fc459d1af8d4e35041a8e366",
+      "condition_id_b": "0xe39adea057926dc197fe30a441f57a340b2a232d5a687010f78bba9b6e02620f",
+      "rho": 0.7168,
+      "category": "causal_relationship",
+      "rationale": "Walz resigning could signal internal Democratic party turmoil or his own political ambitions, potentially affecting the 2028 primary landscape and Whitmer's chances. However, the causal mechanism is indirect and depends on the reason for resignation.",
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-12-29T00:00:36+00:00"
+    }
+  ]
+}

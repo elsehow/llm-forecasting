@@ -1,0 +1,13 @@
+{
+  "metadata": {
+    "generated_at": "2026-01-23T23:27:18.084767+00:00",
+    "model": "claude-sonnet-4-20250514",
+    "total_cruxes": 160,
+    "matched_cruxes": 0,
+    "match_rate": 0.0,
+    "ultimates_with_matches": 0,
+    "confidence_distribution": {},
+    "magnitude_distribution": {}
+  },
+  "matched_pairs": []
+}

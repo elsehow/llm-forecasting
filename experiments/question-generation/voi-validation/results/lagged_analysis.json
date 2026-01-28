@@ -1,0 +1,1581 @@
+{
+  "metadata": {
+    "n_pairs_full": 8,
+    "n_pairs_short": 25,
+    "lag_days_tested": [
+      0,
+      1,
+      7,
+      14,
+      30
+    ],
+    "min_observations": 5,
+    "alpha": 0.05,
+    "n_comparisons": 10,
+    "bonferroni_alpha": 0.005,
+    "generated_at": "2026-01-23T16:06:20.267234"
+  },
+  "summary_full_lag": {
+    "lag_0": {
+      "mean_r": -0.02448974945422109,
+      "std_r": 0.19950142237078894,
+      "median_r": 0.02513783258130436,
+      "n_pairs": 8,
+      "n_significant_raw": 1,
+      "n_significant_bonferroni": 1,
+      "pct_significant_raw": 12.5,
+      "pct_significant_bonferroni": 12.5,
+      "mean_diff_from_zero_t": -0.32477857027868445,
+      "mean_diff_from_zero_p": 0.7548392788583481
+    },
+    "a_to_b_lag_1": {
+      "mean_r": -0.008700587121396562,
+      "std_r": 0.19405550015875364,
+      "median_r": 0.05574843090534942,
+      "n_pairs": 8,
+      "n_significant_raw": 1,
+      "n_significant_bonferroni": 1,
+      "pct_significant_raw": 12.5,
+      "pct_significant_bonferroni": 12.5,
+      "mean_diff_from_zero_t": -0.11862374302524122,
+      "mean_diff_from_zero_p": 0.9089058242795364
+    },
+    "a_to_b_lag_7": {
+      "mean_r": 0.05602728620592985,
+      "std_r": 0.14245978735313766,
+      "median_r": 0.05554806890888296,
+      "n_pairs": 8,
+      "n_significant_raw": 1,
+      "n_significant_bonferroni": 0,
+      "pct_significant_raw": 12.5,
+      "pct_significant_bonferroni": 0.0,
+      "mean_diff_from_zero_t": 1.0405340951919166,
+      "mean_diff_from_zero_p": 0.3326910463108877
+    },
+    "a_to_b_lag_14": {
+      "mean_r": -0.0539283451522503,
+      "std_r": 0.2064204462170223,
+      "median_r": -0.03765915500560043,
+      "n_pairs": 8,
+      "n_significant_raw": 1,
+      "n_significant_bonferroni": 0,
+      "pct_significant_raw": 12.5,
+      "pct_significant_bonferroni": 0.0,
+      "mean_diff_from_zero_t": -0.6912153931694385,
+      "mean_diff_from_zero_p": 0.5116946943157767
+    },
+    "a_to_b_lag_30": {
+      "mean_r": 0.031211288137087876,
+      "std_r": 0.15076976525661276,
+      "median_r": 0.0018203948692829255,
+      "n_pairs": 8,
+      "n_significant_raw": 0,
+      "n_significant_bonferroni": 0,
+      "pct_significant_raw": 0.0,
+      "pct_significant_bonferroni": 0.0,
+      "mean_diff_from_zero_t": 0.5477046831516049,
+      "mean_diff_from_zero_p": 0.6009142642584477
+    },
+    "b_to_a_lag_1": {
+      "mean_r": 0.028155323595519526,
+      "std_r": 0.16684997335794657,
+      "median_r": 0.07871152866275663,
+      "n_pairs": 8,
+      "n_significant_raw": 0,
+      "n_significant_bonferroni": 0,
+      "pct_significant_raw": 0.0,
+      "pct_significant_bonferroni": 0.0,
+      "mean_diff_from_zero_t": 0.4464608703082286,
+      "mean_diff_from_zero_p": 0.6687489579297562
+    },
+    "b_to_a_lag_7": {
+      "mean_r": -0.10840602025866375,
+      "std_r": 0.10096157994808075,
+      "median_r": -0.1137819583646055,
+      "n_pairs": 8,
+      "n_significant_raw": 0,
+      "n_significant_bonferroni": 0,
+      "pct_significant_raw": 0.0,
+      "pct_significant_bonferroni": 0.0,
+      "mean_diff_from_zero_t": -2.84083678538062,
+      "mean_diff_from_zero_p": 0.02501459938102632
+    },
+    "b_to_a_lag_14": {
+      "mean_r": -0.024737684617760623,
+      "std_r": 0.15314116576317066,
+      "median_r": -0.057189445439578,
+      "n_pairs": 8,
+      "n_significant_raw": 0,
+      "n_significant_bonferroni": 0,
+      "pct_significant_raw": 0.0,
+      "pct_significant_bonferroni": 0.0,
+      "mean_diff_from_zero_t": -0.427381894241024,
+      "mean_diff_from_zero_p": 0.6819403264651026
+    },
+    "b_to_a_lag_30": {
+      "mean_r": -0.04141453334545914,
+      "std_r": 0.2333987591024185,
+      "median_r": -0.05485672359987363,
+      "n_pairs": 7,
+      "n_significant_raw": 0,
+      "n_significant_bonferroni": 0,
+      "pct_significant_raw": 0.0,
+      "pct_significant_bonferroni": 0.0,
+      "mean_diff_from_zero_t": -0.4346401627068585,
+      "mean_diff_from_zero_p": 0.6790201800628411
+    }
+  },
+  "summary_short_lag": {
+    "lag_0": {
+      "mean_r": 0.05404551139646456,
+      "std_r": 0.25624169938601654,
+      "n_pairs": 25,
+      "mean_diff_from_zero_p": 0.3117761275066943
+    },
+    "a_to_b_lag_1": {
+      "mean_r": 0.056624777840554995,
+      "std_r": 0.2497596877167509,
+      "n_pairs": 25,
+      "mean_diff_from_zero_p": 0.27770927636134957
+    },
+    "a_to_b_lag_7": {
+      "mean_r": 0.07767994472080825,
+      "std_r": 0.26893274467160827,
+      "n_pairs": 25,
+      "mean_diff_from_zero_p": 0.16989973817293286
+    },
+    "b_to_a_lag_1": {
+      "mean_r": -0.030466577164688015,
+      "std_r": 0.1988184846857682,
+      "n_pairs": 25,
+      "mean_diff_from_zero_p": 0.46012447467863427
+    },
+    "b_to_a_lag_7": {
+      "mean_r": -0.011557994529688531,
+      "std_r": 0.26160331347445476,
+      "n_pairs": 25,
+      "mean_diff_from_zero_p": 0.8304711554571139
+    }
+  },
+  "asymmetry": {
+    "lag_1": {
+      "n_pairs": 8,
+      "mean_abs_a_to_b": 0.14474116447958818,
+      "mean_abs_b_to_a": 0.1509522512569376,
+      "asymmetry_t": -0.09397915173198404,
+      "asymmetry_p": 0.9277591653198846,
+      "dominant_direction": "B\u2192A"
+    },
+    "lag_7": {
+      "n_pairs": 8,
+      "mean_abs_a_to_b": 0.11381890280385462,
+      "mean_abs_b_to_a": 0.12138174017519152,
+      "asymmetry_t": -0.1232912599738096,
+      "asymmetry_p": 0.9053418098473479,
+      "dominant_direction": "B\u2192A"
+    },
+    "lag_14": {
+      "n_pairs": 8,
+      "mean_abs_a_to_b": 0.1753654476303252,
+      "mean_abs_b_to_a": 0.1263465959092901,
+      "asymmetry_t": 0.8412109115638553,
+      "asymmetry_p": 0.42802755694866507,
+      "dominant_direction": "A\u2192B"
+    },
+    "lag_30": {
+      "n_pairs": 7,
+      "mean_abs_a_to_b": 0.10316976538414634,
+      "mean_abs_b_to_a": 0.18205410965293403,
+      "asymmetry_t": -1.16129021452914,
+      "asymmetry_p": 0.28963083874400614,
+      "dominant_direction": "B\u2192A"
+    }
+  },
+  "pairs_full": [
+    {
+      "question_a": "Fed decreases interest rates by 25 bps after January 2026 meeting?",
+      "question_b": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "condition_id_a": "0x35cc41270f5cdfd59b45e68ab85dc51b0b900d286a6c74ea006b8572d9ff5934",
+      "condition_id_b": "0x257b18205f908aef01ef2d1d50e6fea7d29cf5486fe04031d8b101394476faed",
+      "rho_stored": -0.4361,
+      "classification": "sequential_prerequisite",
+      "n_overlapping_days": 53,
+      "lag_0": {
+        "r": -0.4361080732727094,
+        "p": 0.0012300159747761687,
+        "n": 52,
+        "significant_raw": true,
+        "significant_bonferroni": true
+      },
+      "a_to_b": {
+        "lag_1": {
+          "r": -0.06326700657482608,
+          "p": 0.6591709700191835,
+          "n": 51,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_7": {
+          "r": 0.08192898081139094,
+          "p": 0.5926281158333873,
+          "n": 45,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_14": {
+          "r": -0.3705346549605676,
+          "p": 0.022020125916059403,
+          "n": 38,
+          "significant_raw": true,
+          "significant_bonferroni": false
+        },
+        "lag_30": {
+          "r": 0.14341244361487931,
+          "p": 0.5243177815776526,
+          "n": 22,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        }
+      },
+      "b_to_a": {
+        "lag_1": {
+          "r": 0.21961365710579306,
+          "p": 0.12151511574370058,
+          "n": 51,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_7": {
+          "r": -0.1665267607264773,
+          "p": 0.274255019310601,
+          "n": 45,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_14": {
+          "r": -0.08522552131182007,
+          "p": 0.610932549746847,
+          "n": 38,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_30": {
+          "r": -0.1540076397444213,
+          "p": 0.49378930553101186,
+          "n": 22,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        }
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Scott Bessent as the next Fed chair?",
+      "question_b": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "condition_id_a": "0xdb1ae961e30733e7857ebb425b5f6449fa8032de13f32c1c6e447a0c3801ca04",
+      "condition_id_b": "0x257b18205f908aef01ef2d1d50e6fea7d29cf5486fe04031d8b101394476faed",
+      "rho_stored": 0.2025,
+      "classification": "causal_relationship",
+      "n_overlapping_days": 47,
+      "lag_0": {
+        "r": 0.2024714658245143,
+        "p": 0.17718888393680698,
+        "n": 46,
+        "significant_raw": false,
+        "significant_bonferroni": false
+      },
+      "a_to_b": {
+        "lag_1": {
+          "r": -0.44448809172627685,
+          "p": 0.0022209314522738497,
+          "n": 45,
+          "significant_raw": true,
+          "significant_bonferroni": true
+        },
+        "lag_7": {
+          "r": -0.0239438421952965,
+          "p": 0.8849597056953619,
+          "n": 39,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_14": {
+          "r": 0.0721637910415813,
+          "p": 0.6946954238698559,
+          "n": 32,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_30": {
+          "r": 0.25561961547012646,
+          "p": 0.3393033699001394,
+          "n": 16,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        }
+      },
+      "b_to_a": {
+        "lag_1": {
+          "r": -0.05000889991938335,
+          "p": 0.7442473676976357,
+          "n": 45,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_7": {
+          "r": -0.03973957608102345,
+          "p": 0.8101799335160749,
+          "n": 39,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_14": {
+          "r": -0.13639204678274677,
+          "p": 0.4566695381476228,
+          "n": 32,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_30": {
+          "r": -0.02747456481273644,
+          "p": 0.9195491217787655,
+          "n": 16,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        }
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Kevin Hassett as the next Fed chair?",
+      "question_b": "Will Trump nominate Michelle Bowman as the next Fed chair?",
+      "condition_id_a": "0xdcc87b9ca36015e396bd0eebca29e854a136ed2b0b701049d1ee9da6bee3eb35",
+      "condition_id_b": "0xfc6eace32f283eda179c15d447fe61f0426846bace5c583a967ddeaba58c2f93",
+      "rho_stored": -0.1744,
+      "classification": "mutually_exclusive",
+      "n_overlapping_days": 49,
+      "lag_0": {
+        "r": -0.17441377521826354,
+        "p": 0.23576626952168278,
+        "n": 48,
+        "significant_raw": false,
+        "significant_bonferroni": false
+      },
+      "a_to_b": {
+        "lag_1": {
+          "r": 0.09680107366363347,
+          "p": 0.5174459343858622,
+          "n": 47,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_7": {
+          "r": 0.02916715700637499,
+          "p": 0.8563489962455032,
+          "n": 41,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_14": {
+          "r": -0.32002121303603137,
+          "p": 0.06502435453736152,
+          "n": 34,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_30": {
+          "r": -0.27777608489151606,
+          "p": 0.2644045945513311,
+          "n": 18,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        }
+      },
+      "b_to_a": {
+        "lag_1": {
+          "r": -0.26404226632005773,
+          "p": 0.07290647189307348,
+          "n": 47,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_7": {
+          "r": -0.2670708816851775,
+          "p": 0.09140758473188526,
+          "n": 41,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_14": {
+          "r": -0.24985543095199197,
+          "p": 0.15412280772558729,
+          "n": 34,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_30": {
+          "r": 0.4571966609204562,
+          "p": 0.05644682314039558,
+          "n": 18,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        }
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Jerome Powell as the next Fed chair?",
+      "question_b": "Trump out as President before 2027?",
+      "condition_id_a": "0x60acc46cda1f0619259acf3ef8c77bf734ff08cbed256ca3d1e9444138e21266",
+      "condition_id_b": "0x48b0b0bca515f68fccf95af4793dbd0edbfec1f8ec6e8df2c0f69ba74f8c4722",
+      "rho_stored": 0.1561,
+      "classification": "causal_relationship",
+      "n_overlapping_days": 55,
+      "lag_0": {
+        "r": 0.15607112583851132,
+        "p": 0.25975485430565315,
+        "n": 54,
+        "significant_raw": false,
+        "significant_bonferroni": false
+      },
+      "a_to_b": {
+        "lag_1": {
+          "r": 0.25804880754915044,
+          "p": 0.062102867698817725,
+          "n": 53,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_7": {
+          "r": 0.3286970994203108,
+          "p": 0.02408061235610927,
+          "n": 47,
+          "significant_raw": true,
+          "significant_bonferroni": false
+        },
+        "lag_14": {
+          "r": -0.1040172804729466,
+          "p": 0.5229930577945243,
+          "n": 40,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_30": {
+          "r": 0.15992484180030675,
+          "p": 0.4553843157317513,
+          "n": 24,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        }
+      },
+      "b_to_a": {
+        "lag_1": {
+          "r": 0.18048195718212323,
+          "p": 0.19592545643961146,
+          "n": 53,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_7": {
+          "r": -0.06323994408229715,
+          "p": 0.6728061565572452,
+          "n": 47,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_14": {
+          "r": 0.06741359462090639,
+          "p": 0.6793781394042888,
+          "n": 40,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_30": {
+          "r": null,
+          "p": null,
+          "n": 24,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        }
+      }
+    },
+    {
+      "question_a": "Will Trump nominate no one before 2027?",
+      "question_b": "Trump out as President before 2027?",
+      "condition_id_a": "0xc830d19ead001f5378792cc0df36004ddb1b312bb26fbd5c4226aa698c41f808",
+      "condition_id_b": "0x48b0b0bca515f68fccf95af4793dbd0edbfec1f8ec6e8df2c0f69ba74f8c4722",
+      "rho_stored": 0.1256,
+      "classification": "causal_relationship",
+      "n_overlapping_days": 53,
+      "lag_0": {
+        "r": 0.12558019186677333,
+        "p": 0.3750374361243024,
+        "n": 52,
+        "significant_raw": false,
+        "significant_bonferroni": false
+      },
+      "a_to_b": {
+        "lag_1": {
+          "r": 0.07781556640928373,
+          "p": 0.5872939435111744,
+          "n": 51,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_7": {
+          "r": -0.20722262419640256,
+          "p": 0.17198515362533956,
+          "n": 45,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_14": {
+          "r": 0.09631464549915597,
+          "p": 0.5651357738323277,
+          "n": 38,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_30": {
+          "r": -0.030314295259945237,
+          "p": 0.8934680670574572,
+          "n": 22,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        }
+      },
+      "b_to_a": {
+        "lag_1": {
+          "r": 0.15891162779639895,
+          "p": 0.26535758841434065,
+          "n": 51,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_7": {
+          "r": 0.051902879666111054,
+          "p": 0.7349067486659944,
+          "n": 45,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_14": {
+          "r": 0.29320628343273664,
+          "p": 0.07400794132946147,
+          "n": 38,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_30": {
+          "r": 0.03504185615570606,
+          "p": 0.8769681221554815,
+          "n": 22,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        }
+      }
+    },
+    {
+      "question_a": "Will Andrew Yang win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0x450810ae738a0ff820d3248f2b24937f63fb8c8cf422ed2a915125adb4d9d3c8",
+      "condition_id_b": "0x0f49db97f71c68b1e42a6d16e3de93d85dbf7d4148e3f018eb79e88554be9f75",
+      "rho_stored": -0.1198,
+      "classification": "mutually_exclusive",
+      "n_overlapping_days": 44,
+      "lag_0": {
+        "r": -0.11979459583520345,
+        "p": 0.44417652708240074,
+        "n": 43,
+        "significant_raw": false,
+        "significant_bonferroni": false
+      },
+      "a_to_b": {
+        "lag_1": {
+          "r": 0.0760502040492491,
+          "p": 0.6321648564477966,
+          "n": 42,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_7": {
+          "r": 0.11733419284627153,
+          "p": 0.49554279718481425,
+          "n": 36,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_14": {
+          "r": 0.028698970461745743,
+          "p": 0.8825158710588938,
+          "n": 29,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_30": {
+          "r": -0.003304061669138653,
+          "p": 0.991452864837433,
+          "n": 13,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        }
+      },
+      "b_to_a": {
+        "lag_1": {
+          "r": 0.01951392390403548,
+          "p": 0.9023765586557845,
+          "n": 42,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_7": {
+          "r": -0.01582029966432197,
+          "p": 0.9270337717399233,
+          "n": 36,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_14": {
+          "r": -0.10371075349430818,
+          "p": 0.5923871451674537,
+          "n": 29,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_30": {
+          "r": -0.33053001632617013,
+          "p": 0.2700117991047208,
+          "n": 13,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        }
+      }
+    },
+    {
+      "question_a": "Will Jared Polis win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0x8fbcb151e2c988df5a43abb02298014b7daf34c008f3eed9188dd16a2a19bec1",
+      "condition_id_b": "0x0f49db97f71c68b1e42a6d16e3de93d85dbf7d4148e3f018eb79e88554be9f75",
+      "rho_stored": 0.0793,
+      "classification": "mutually_exclusive",
+      "n_overlapping_days": 46,
+      "lag_0": {
+        "r": 0.07925005145491512,
+        "p": 0.6048207051139852,
+        "n": 45,
+        "significant_raw": false,
+        "significant_bonferroni": false
+      },
+      "a_to_b": {
+        "lag_1": {
+          "r": 0.03544665776144974,
+          "p": 0.8193124926237269,
+          "n": 44,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_7": {
+          "r": 0.1207552306417125,
+          "p": 0.47019113037268456,
+          "n": 38,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_14": {
+          "r": -0.12260202266075637,
+          "p": 0.5111466715211064,
+          "n": 31,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_30": {
+          "r": 0.006944851407704504,
+          "p": 0.9804028617366158,
+          "n": 15,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        }
+      },
+      "b_to_a": {
+        "lag_1": {
+          "r": -0.17713654440623122,
+          "p": 0.25002474845195316,
+          "n": 44,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_7": {
+          "r": -0.16432397264691384,
+          "p": 0.32420891315982503,
+          "n": 38,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_14": {
+          "r": 0.045815767112474905,
+          "p": 0.8066601104781829,
+          "n": 31,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_30": {
+          "r": -0.2152713060111747,
+          "p": 0.44099579275894,
+          "n": 15,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        }
+      }
+    },
+    {
+      "question_a": "Will Bernie Sanders win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
+      "condition_id_a": "0x30cfb887558b20373a984da60c372fe5a90c0296aa6d8bb413a8aa7543846da2",
+      "condition_id_b": "0x0f49db97f71c68b1e42a6d16e3de93d85dbf7d4148e3f018eb79e88554be9f75",
+      "rho_stored": -0.029,
+      "classification": "mutually_exclusive",
+      "n_overlapping_days": 44,
+      "lag_0": {
+        "r": -0.0289743862923064,
+        "p": 0.8536701066135604,
+        "n": 43,
+        "significant_raw": false,
+        "significant_bonferroni": false
+      },
+      "a_to_b": {
+        "lag_1": {
+          "r": -0.10601190810283613,
+          "p": 0.5040131376536878,
+          "n": 42,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_7": {
+          "r": 0.0015020953130771182,
+          "p": 0.9930628848561507,
+          "n": 36,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_14": {
+          "r": 0.28857100290981647,
+          "p": 0.12897584915421134,
+          "n": 29,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_30": {
+          "r": -0.004817005375714064,
+          "p": 0.9875393254221875,
+          "n": 13,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        }
+      },
+      "b_to_a": {
+        "lag_1": {
+          "r": 0.1379091334214778,
+          "p": 0.3837796503726514,
+          "n": 42,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_7": {
+          "r": -0.20242960684920985,
+          "p": 0.23640530476760313,
+          "n": 36,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_14": {
+          "r": -0.02915336956733593,
+          "p": 0.8806687524356257,
+          "n": 29,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        },
+        "lag_30": {
+          "r": -0.05485672359987363,
+          "p": 0.8587297155257645,
+          "n": 13,
+          "significant_raw": false,
+          "significant_bonferroni": false
+        }
+      }
+    }
+  ],
+  "pairs_short": [
+    {
+      "question_a": "Russia x Ukraine ceasefire by January 31, 2026?",
+      "question_b": "Russia x Ukraine ceasefire by March 31, 2026?",
+      "rho_stored": 0.6647,
+      "n_overlapping_days": 29,
+      "lag_0": {
+        "r": 0.6647171855974563,
+        "p": 0.00011416749812651082,
+        "n": 28
+      },
+      "a_to_b_lag_1": {
+        "r": 0.24505372023575878,
+        "p": 0.21795870971083395,
+        "n": 27
+      },
+      "b_to_a_lag_1": {
+        "r": 0.006319859267699089,
+        "p": 0.9750420336622199,
+        "n": 27
+      },
+      "a_to_b_lag_7": {
+        "r": 0.40309918522688337,
+        "p": 0.07000347505141125,
+        "n": 21
+      },
+      "b_to_a_lag_7": {
+        "r": 0.3058839863274109,
+        "p": 0.17750032544094954,
+        "n": 21
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Kevin Warsh as the next Fed chair?",
+      "question_b": "Will Trump nominate Christopher Waller as the next Fed chair?",
+      "rho_stored": 0.5261,
+      "n_overlapping_days": 17,
+      "lag_0": {
+        "r": 0.5261166332547307,
+        "p": 0.03631479664675405,
+        "n": 16
+      },
+      "a_to_b_lag_1": {
+        "r": 0.560719821748274,
+        "p": 0.029674536601529477,
+        "n": 15
+      },
+      "b_to_a_lag_1": {
+        "r": -0.3249782922749285,
+        "p": 0.23725859402377217,
+        "n": 15
+      },
+      "a_to_b_lag_7": {
+        "r": 0.7949572672569241,
+        "p": 0.010449333468660832,
+        "n": 9
+      },
+      "b_to_a_lag_7": {
+        "r": -0.21507713222950933,
+        "p": 0.578388896851661,
+        "n": 9
+      }
+    },
+    {
+      "question_a": "Will Real Madrid win the 2025\u201326 La Liga?",
+      "question_b": "Will Inter win the 2025\u201326 Champions League?",
+      "rho_stored": 0.4643,
+      "n_overlapping_days": 17,
+      "lag_0": {
+        "r": 0.4643041512197146,
+        "p": 0.07001775003245755,
+        "n": 16
+      },
+      "a_to_b_lag_1": {
+        "r": -0.18678158616636517,
+        "p": 0.5050605368752034,
+        "n": 15
+      },
+      "b_to_a_lag_1": {
+        "r": -0.31388633259533455,
+        "p": 0.2545766215753944,
+        "n": 15
+      },
+      "a_to_b_lag_7": {
+        "r": 0.03099793801478032,
+        "p": 0.936902062042645,
+        "n": 9
+      },
+      "b_to_a_lag_7": {
+        "r": -0.1628246466961287,
+        "p": 0.6755376019571484,
+        "n": 9
+      }
+    },
+    {
+      "question_a": "Fed decreases interest rates by 25 bps after January 2026 meeting?",
+      "question_b": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "rho_stored": -0.4361,
+      "n_overlapping_days": 53,
+      "lag_0": {
+        "r": -0.4361080732727094,
+        "p": 0.0012300159747761687,
+        "n": 52
+      },
+      "a_to_b_lag_1": {
+        "r": -0.06326700657482608,
+        "p": 0.6591709700191835,
+        "n": 51
+      },
+      "b_to_a_lag_1": {
+        "r": 0.21961365710579306,
+        "p": 0.12151511574370058,
+        "n": 51
+      },
+      "a_to_b_lag_7": {
+        "r": 0.08192898081139094,
+        "p": 0.5926281158333873,
+        "n": 45
+      },
+      "b_to_a_lag_7": {
+        "r": -0.1665267607264773,
+        "p": 0.274255019310601,
+        "n": 45
+      }
+    },
+    {
+      "question_a": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Rand Paul win the 2028 Republican presidential nomination?",
+      "rho_stored": -0.2473,
+      "n_overlapping_days": 20,
+      "lag_0": {
+        "r": -0.2473317763720027,
+        "p": 0.3073126826456694,
+        "n": 19
+      },
+      "a_to_b_lag_1": {
+        "r": 0.2504511479575706,
+        "p": 0.3161575921553864,
+        "n": 18
+      },
+      "b_to_a_lag_1": {
+        "r": -0.07772899982746535,
+        "p": 0.759174383297571,
+        "n": 18
+      },
+      "a_to_b_lag_7": {
+        "r": 0.4208817586397745,
+        "p": 0.17304687566971028,
+        "n": 12
+      },
+      "b_to_a_lag_7": {
+        "r": 0.16047123605118685,
+        "p": 0.6183390086065117,
+        "n": 12
+      }
+    },
+    {
+      "question_a": "Will the Los Angeles Rams win Super Bowl 2026?",
+      "question_b": "Will the 49ers win the 2026 NFC Championship?",
+      "rho_stored": -0.2445,
+      "n_overlapping_days": 28,
+      "lag_0": {
+        "r": -0.24451433720616247,
+        "p": 0.21900551303092058,
+        "n": 27
+      },
+      "a_to_b_lag_1": {
+        "r": 0.09793004166750649,
+        "p": 0.634120322558005,
+        "n": 26
+      },
+      "b_to_a_lag_1": {
+        "r": 0.006014312408094059,
+        "p": 0.9767377631705915,
+        "n": 26
+      },
+      "a_to_b_lag_7": {
+        "r": 0.15653197127754834,
+        "p": 0.509870646275136,
+        "n": 20
+      },
+      "b_to_a_lag_7": {
+        "r": -0.18644117694103904,
+        "p": 0.43125776717233444,
+        "n": 20
+      }
+    },
+    {
+      "question_a": "Will Donald Trump win the 2028 US Presidential Election?",
+      "question_b": "Trump out as President before 2027?",
+      "rho_stored": -0.2404,
+      "n_overlapping_days": 28,
+      "lag_0": {
+        "r": -0.24035997219115676,
+        "p": 0.22718160785244346,
+        "n": 27
+      },
+      "a_to_b_lag_1": {
+        "r": 0.27771106013590346,
+        "p": 0.16956334652836294,
+        "n": 26
+      },
+      "b_to_a_lag_1": {
+        "r": -0.04458674199647984,
+        "p": 0.8287736935105771,
+        "n": 26
+      },
+      "a_to_b_lag_7": {
+        "r": -0.3173842637773294,
+        "p": 0.1727068822774394,
+        "n": 20
+      },
+      "b_to_a_lag_7": {
+        "r": 0.1366419400697584,
+        "p": 0.5656703796886197,
+        "n": 20
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Rick Rieder as the next Fed chair?",
+      "question_b": "Will Trump nominate Christopher Waller as the next Fed chair?",
+      "rho_stored": 0.2401,
+      "n_overlapping_days": 21,
+      "lag_0": {
+        "r": 0.24010143120876343,
+        "p": 0.3078982386111389,
+        "n": 20
+      },
+      "a_to_b_lag_1": {
+        "r": -0.04261460674048478,
+        "p": 0.8624784376540914,
+        "n": 19
+      },
+      "b_to_a_lag_1": {
+        "r": 0.38256231248416495,
+        "p": 0.10597944875062582,
+        "n": 19
+      },
+      "a_to_b_lag_7": {
+        "r": -0.3260650833119112,
+        "p": 0.2769256385939095,
+        "n": 13
+      },
+      "b_to_a_lag_7": {
+        "r": -0.5373484768637227,
+        "p": 0.05825355048983009,
+        "n": 13
+      }
+    },
+    {
+      "question_a": "Will Trump nominate David Malpass as the next Fed chair?",
+      "question_b": "Will the Fed Cut\u2013Cut\u2013Cut in the next three decisions (Oct\u2013Dec\u2013Jan)?",
+      "rho_stored": -0.2168,
+      "n_overlapping_days": 13,
+      "lag_0": {
+        "r": -0.21675496115782816,
+        "p": 0.49861334398086,
+        "n": 12
+      },
+      "a_to_b_lag_1": {
+        "r": 0.7719459275671351,
+        "p": 0.005375398085745288,
+        "n": 11
+      },
+      "b_to_a_lag_1": {
+        "r": 0.4112479600215241,
+        "p": 0.20890942274272392,
+        "n": 11
+      },
+      "a_to_b_lag_7": {
+        "r": 0.19649619740064023,
+        "p": 0.7514327096335708,
+        "n": 5
+      },
+      "b_to_a_lag_7": {
+        "r": -0.11653873693518463,
+        "p": 0.8519548281083685,
+        "n": 5
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Bill Pulte as the next Fed chair?",
+      "question_b": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "rho_stored": 0.2075,
+      "n_overlapping_days": 27,
+      "lag_0": {
+        "r": 0.20747569095164212,
+        "p": 0.30914680098632386,
+        "n": 26
+      },
+      "a_to_b_lag_1": {
+        "r": 0.05770261535982317,
+        "p": 0.7841073632686568,
+        "n": 25
+      },
+      "b_to_a_lag_1": {
+        "r": -0.10404647090249788,
+        "p": 0.6206386928194682,
+        "n": 25
+      },
+      "a_to_b_lag_7": {
+        "r": 0.1330131801332527,
+        "p": 0.5872319651231294,
+        "n": 19
+      },
+      "b_to_a_lag_7": {
+        "r": 0.15058049659629147,
+        "p": 0.5383367514640425,
+        "n": 19
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Scott Bessent as the next Fed chair?",
+      "question_b": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "rho_stored": 0.2025,
+      "n_overlapping_days": 47,
+      "lag_0": {
+        "r": 0.2024714658245143,
+        "p": 0.17718888393680698,
+        "n": 46
+      },
+      "a_to_b_lag_1": {
+        "r": -0.44448809172627685,
+        "p": 0.0022209314522738497,
+        "n": 45
+      },
+      "b_to_a_lag_1": {
+        "r": -0.05000889991938335,
+        "p": 0.7442473676976357,
+        "n": 45
+      },
+      "a_to_b_lag_7": {
+        "r": -0.0239438421952965,
+        "p": 0.8849597056953619,
+        "n": 39
+      },
+      "b_to_a_lag_7": {
+        "r": -0.03973957608102345,
+        "p": 0.8101799335160749,
+        "n": 39
+      }
+    },
+    {
+      "question_a": "Fed decreases interest rates by 50+ bps after January 2026 meeting?",
+      "question_b": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "rho_stored": -0.1991,
+      "n_overlapping_days": 13,
+      "lag_0": {
+        "r": -0.1991164874358998,
+        "p": 0.5349834262211316,
+        "n": 12
+      },
+      "a_to_b_lag_1": {
+        "r": -0.21840888129350516,
+        "p": 0.5188026404412237,
+        "n": 11
+      },
+      "b_to_a_lag_1": {
+        "r": -0.27636453911448516,
+        "p": 0.4107045625545536,
+        "n": 11
+      },
+      "a_to_b_lag_7": {
+        "r": 0.28483275294077437,
+        "p": 0.6423049056859954,
+        "n": 5
+      },
+      "b_to_a_lag_7": {
+        "r": 0.8006566268665368,
+        "p": 0.10358677894369667,
+        "n": 5
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Kevin Warsh as the next Fed chair?",
+      "question_b": "Trump out as President by March 31?",
+      "rho_stored": 0.1784,
+      "n_overlapping_days": 31,
+      "lag_0": {
+        "r": 0.17844105837278007,
+        "p": 0.34545896821613564,
+        "n": 30
+      },
+      "a_to_b_lag_1": {
+        "r": -0.15741558745141765,
+        "p": 0.4147727345282695,
+        "n": 29
+      },
+      "b_to_a_lag_1": {
+        "r": -0.21914134305867053,
+        "p": 0.25339060342501585,
+        "n": 29
+      },
+      "a_to_b_lag_7": {
+        "r": 0.06005251853996025,
+        "p": 0.7854787178728432,
+        "n": 23
+      },
+      "b_to_a_lag_7": {
+        "r": -0.0037949333263879795,
+        "p": 0.9862891042217619,
+        "n": 23
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Kevin Hassett as the next Fed chair?",
+      "question_b": "Will Trump nominate Michelle Bowman as the next Fed chair?",
+      "rho_stored": -0.1744,
+      "n_overlapping_days": 49,
+      "lag_0": {
+        "r": -0.17441377521826354,
+        "p": 0.23576626952168278,
+        "n": 48
+      },
+      "a_to_b_lag_1": {
+        "r": 0.09680107366363347,
+        "p": 0.5174459343858622,
+        "n": 47
+      },
+      "b_to_a_lag_1": {
+        "r": -0.26404226632005773,
+        "p": 0.07290647189307348,
+        "n": 47
+      },
+      "a_to_b_lag_7": {
+        "r": 0.02916715700637499,
+        "p": 0.8563489962455032,
+        "n": 41
+      },
+      "b_to_a_lag_7": {
+        "r": -0.2670708816851775,
+        "p": 0.09140758473188526,
+        "n": 41
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Jerome Powell as the next Fed chair?",
+      "question_b": "Trump out as President before 2027?",
+      "rho_stored": 0.1561,
+      "n_overlapping_days": 55,
+      "lag_0": {
+        "r": 0.15607112583851132,
+        "p": 0.25975485430565315,
+        "n": 54
+      },
+      "a_to_b_lag_1": {
+        "r": 0.25804880754915044,
+        "p": 0.062102867698817725,
+        "n": 53
+      },
+      "b_to_a_lag_1": {
+        "r": 0.18048195718212323,
+        "p": 0.19592545643961146,
+        "n": 53
+      },
+      "a_to_b_lag_7": {
+        "r": 0.3286970994203108,
+        "p": 0.02408061235610927,
+        "n": 47
+      },
+      "b_to_a_lag_7": {
+        "r": -0.06323994408229715,
+        "p": 0.6728061565572452,
+        "n": 47
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Kevin Warsh as the next Fed chair?",
+      "question_b": "Fed rate cut by January 2026 meeting?",
+      "rho_stored": 0.1452,
+      "n_overlapping_days": 27,
+      "lag_0": {
+        "r": 0.14521265482494133,
+        "p": 0.47907456320712216,
+        "n": 26
+      },
+      "a_to_b_lag_1": {
+        "r": -0.16831241244070128,
+        "p": 0.42125886055285316,
+        "n": 25
+      },
+      "b_to_a_lag_1": {
+        "r": -0.2531738311205559,
+        "p": 0.2220571219877962,
+        "n": 25
+      },
+      "a_to_b_lag_7": {
+        "r": -0.13883492248045623,
+        "p": 0.5708227995184385,
+        "n": 19
+      },
+      "b_to_a_lag_7": {
+        "r": 0.3513611354986216,
+        "p": 0.14019014581672248,
+        "n": 19
+      }
+    },
+    {
+      "question_a": "Will Microsoft be the largest company in the world by market cap on January 31?",
+      "question_b": "Will Alphabet be the largest company in the world by market cap on June 30?",
+      "rho_stored": 0.1266,
+      "n_overlapping_days": 21,
+      "lag_0": {
+        "r": 0.12659655833736572,
+        "p": 0.5948295863548556,
+        "n": 20
+      },
+      "a_to_b_lag_1": {
+        "r": 0.11929953413078337,
+        "p": 0.6266447075542206,
+        "n": 19
+      },
+      "b_to_a_lag_1": {
+        "r": -0.11522964713710432,
+        "p": 0.6385368333891971,
+        "n": 19
+      },
+      "a_to_b_lag_7": {
+        "r": -0.05111521108707908,
+        "p": 0.8682869004688338,
+        "n": 13
+      },
+      "b_to_a_lag_7": {
+        "r": -0.2875403647818794,
+        "p": 0.34078832962223116,
+        "n": 13
+      }
+    },
+    {
+      "question_a": "Will Trump nominate no one before 2027?",
+      "question_b": "Trump out as President before 2027?",
+      "rho_stored": 0.1256,
+      "n_overlapping_days": 53,
+      "lag_0": {
+        "r": 0.12558019186677333,
+        "p": 0.3750374361243024,
+        "n": 52
+      },
+      "a_to_b_lag_1": {
+        "r": 0.07781556640928373,
+        "p": 0.5872939435111744,
+        "n": 51
+      },
+      "b_to_a_lag_1": {
+        "r": 0.15891162779639895,
+        "p": 0.26535758841434065,
+        "n": 51
+      },
+      "a_to_b_lag_7": {
+        "r": -0.20722262419640256,
+        "p": 0.17198515362533956,
+        "n": 45
+      },
+      "b_to_a_lag_7": {
+        "r": 0.051902879666111054,
+        "p": 0.7349067486659944,
+        "n": 45
+      }
+    },
+    {
+      "question_a": "Will Andrew Yang win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
+      "rho_stored": -0.1198,
+      "n_overlapping_days": 44,
+      "lag_0": {
+        "r": -0.11979459583520345,
+        "p": 0.44417652708240074,
+        "n": 43
+      },
+      "a_to_b_lag_1": {
+        "r": 0.0760502040492491,
+        "p": 0.6321648564477966,
+        "n": 42
+      },
+      "b_to_a_lag_1": {
+        "r": 0.01951392390403548,
+        "p": 0.9023765586557845,
+        "n": 42
+      },
+      "a_to_b_lag_7": {
+        "r": 0.11733419284627153,
+        "p": 0.49554279718481425,
+        "n": 36
+      },
+      "b_to_a_lag_7": {
+        "r": -0.01582029966432197,
+        "p": 0.9270337717399233,
+        "n": 36
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Marc Sumerlin as the next Fed chair?",
+      "question_b": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "rho_stored": 0.0804,
+      "n_overlapping_days": 28,
+      "lag_0": {
+        "r": 0.0804394978719084,
+        "p": 0.6900072562341183,
+        "n": 27
+      },
+      "a_to_b_lag_1": {
+        "r": -0.1123722854723257,
+        "p": 0.5846918070988532,
+        "n": 26
+      },
+      "b_to_a_lag_1": {
+        "r": -0.14667448347116202,
+        "p": 0.4746121800957864,
+        "n": 26
+      },
+      "a_to_b_lag_7": {
+        "r": 0.48176338700951227,
+        "p": 0.03148421139904284,
+        "n": 20
+      },
+      "b_to_a_lag_7": {
+        "r": -0.10610601551590229,
+        "p": 0.6561557315663169,
+        "n": 20
+      }
+    },
+    {
+      "question_a": "Will Jared Polis win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
+      "rho_stored": 0.0793,
+      "n_overlapping_days": 46,
+      "lag_0": {
+        "r": 0.07925005145491512,
+        "p": 0.6048207051139852,
+        "n": 45
+      },
+      "a_to_b_lag_1": {
+        "r": 0.03544665776144974,
+        "p": 0.8193124926237269,
+        "n": 44
+      },
+      "b_to_a_lag_1": {
+        "r": -0.17713654440623122,
+        "p": 0.25002474845195316,
+        "n": 44
+      },
+      "a_to_b_lag_7": {
+        "r": 0.1207552306417125,
+        "p": 0.47019113037268456,
+        "n": 38
+      },
+      "b_to_a_lag_7": {
+        "r": -0.16432397264691384,
+        "p": 0.32420891315982503,
+        "n": 38
+      }
+    },
+    {
+      "question_a": "Fed increases interest rates by 25+ bps after January 2026 meeting?",
+      "question_b": "Will the Fed Cut\u2013Cut\u2013Pause in the next three decisions (Oct\u2013Dec\u2013Jan)?",
+      "rho_stored": 0.0769,
+      "n_overlapping_days": 23,
+      "lag_0": {
+        "r": 0.07689548949021058,
+        "p": 0.7337640441926045,
+        "n": 22
+      },
+      "a_to_b_lag_1": {
+        "r": -0.18348255915183326,
+        "p": 0.42595636773527074,
+        "n": 21
+      },
+      "b_to_a_lag_1": {
+        "r": 0.03276250110205954,
+        "p": 0.8878853091494475,
+        "n": 21
+      },
+      "a_to_b_lag_7": {
+        "r": -0.30202357075792474,
+        "p": 0.27392976346407577,
+        "n": 15
+      },
+      "b_to_a_lag_7": {
+        "r": -0.04143301681403755,
+        "p": 0.8834401902357546,
+        "n": 15
+      }
+    },
+    {
+      "question_a": "Will Alphabet be the largest company in the world by market cap on June 30?",
+      "question_b": "Will Apple be the largest company in the world by market cap on January 31?",
+      "rho_stored": -0.0768,
+      "n_overlapping_days": 16,
+      "lag_0": {
+        "r": -0.07678045418844476,
+        "p": 0.7856433419771157,
+        "n": 15
+      },
+      "a_to_b_lag_1": {
+        "r": 0.0593317423078647,
+        "p": 0.8403254794232187,
+        "n": 14
+      },
+      "b_to_a_lag_1": {
+        "r": -0.07043307054791101,
+        "p": 0.8109025455992541,
+        "n": 14
+      },
+      "a_to_b_lag_7": {
+        "r": -0.27979443469156423,
+        "p": 0.5021220199347451,
+        "n": 8
+      },
+      "b_to_a_lag_7": {
+        "r": 0.3286236408665567,
+        "p": 0.4267549670118407,
+        "n": 8
+      }
+    },
+    {
+      "question_a": "Will Trump nominate Larry Lindsey as the next Fed chair?",
+      "question_b": "Will Trump nominate Kevin Warsh as the next Fed chair?",
+      "rho_stored": 0.0616,
+      "n_overlapping_days": 34,
+      "lag_0": {
+        "r": 0.06161341796736448,
+        "p": 0.7333907426014834,
+        "n": 33
+      },
+      "a_to_b_lag_1": {
+        "r": 0.11446645059106093,
+        "p": 0.5327499906189777,
+        "n": 32
+      },
+      "b_to_a_lag_1": {
+        "r": 0.12042978888169686,
+        "p": 0.511473174061171,
+        "n": 32
+      },
+      "a_to_b_lag_7": {
+        "r": -0.05362834196101779,
+        "p": 0.7947169701249315,
+        "n": 26
+      },
+      "b_to_a_lag_7": {
+        "r": 0.0011837366545256016,
+        "p": 0.995420944027164,
+        "n": 26
+      }
+    },
+    {
+      "question_a": "Will Bernie Sanders win the 2028 Democratic presidential nomination?",
+      "question_b": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
+      "rho_stored": -0.029,
+      "n_overlapping_days": 44,
+      "lag_0": {
+        "r": -0.0289743862923064,
+        "p": 0.8536701066135604,
+        "n": 43
+      },
+      "a_to_b_lag_1": {
+        "r": -0.10601190810283613,
+        "p": 0.5040131376536878,
+        "n": 42
+      },
+      "b_to_a_lag_1": {
+        "r": 0.1379091334214778,
+        "p": 0.3837796503726514,
+        "n": 42
+      },
+      "a_to_b_lag_7": {
+        "r": 0.0015020953130771182,
+        "p": 0.9930628848561507,
+        "n": 36
+      },
+      "b_to_a_lag_7": {
+        "r": -0.20242960684920985,
+        "p": 0.23640530476760313,
+        "n": 36
+      }
+    }
+  ]
+}

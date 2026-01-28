@@ -83,6 +83,80 @@ Respond with JSON only:
 {{"entity_a": "<entity from A>", "entity_b": "<entity from B>", "same_entity": true/false, "direction": "more_likely" or "less_likely" or "no_effect", "reasoning": "<brief explanation>"}}"""
 
 
+# =============================================================================
+# MARKET-AWARE ρ ESTIMATION PROMPTS (Experimental)
+# =============================================================================
+#
+# These prompts attempt to fix the "logical correlation ≠ market correlation"
+# problem discovered in the LLM ρ calibration experiment (2026-01-26).
+#
+# Key insight: Markets show POSITIVE correlation between mutually exclusive
+# outcomes (e.g., Warsh vs Waller for Fed chair) because both prices track
+# a shared driver ("Will Trump nominate someone?"). The competitive effect
+# is dominated by the shared driver.
+#
+# The baseline prompt encodes the wrong mental model - it asks "who competes
+# with whom?" instead of "what moves both prices together?"
+# =============================================================================
+
+# --- Market Logic Warning (Option D) ---
+# Add this to existing prompts to warn about market vs logical correlation
+
+MARKET_LOGIC_WARNING = """
+
+IMPORTANT: You are estimating MARKET correlation, not LOGICAL correlation.
+
+Markets often show POSITIVE correlation between mutually exclusive outcomes when:
+- Both depend on the same underlying event happening at all
+- The same traders/attention affects both prices
+- Example: "Trump nominates Warsh" and "Trump nominates Waller" are logically
+  exclusive (only one can happen), but POSITIVELY correlated in markets because
+  both go up when "Trump will nominate someone" becomes likely
+
+Ask yourself: What shared factor would move both prices in the same direction?
+If such a factor exists and is uncertain, expect POSITIVE correlation even
+for competing outcomes."""
+
+
+# --- Shared Drivers Prompt (Option A) ---
+# Completely reframed to think about what moves prices together
+
+RHO_SHARED_DRIVERS_PROMPT = """Question A: "{question_a}"
+Question B: "{question_b}"
+
+You are estimating how these prediction market prices move together.
+
+STEP 1 - SHARED DRIVERS:
+What underlying factors would cause BOTH prices to move in the SAME direction?
+- Example: "Trump nominates Warsh" and "Trump nominates Waller" both go UP when
+  "Trump will make a nomination" becomes more likely
+
+STEP 2 - OPPOSING FORCES:
+What factors would cause prices to move in OPPOSITE directions?
+- Example: If A and B are mutually exclusive, A going up means B must go down
+
+STEP 3 - WHICH DOMINATES?
+In prediction markets, shared drivers often dominate logical exclusivity.
+- If both questions depend on the same uncertain event happening at all,
+  they typically move together (positive correlation)
+- The competitive effect only dominates when the shared driver is already priced in
+
+Which effect is stronger for this pair?
+
+Respond with JSON only:
+{{"shared_drivers": "<what would move both up or both down>", "opposing_forces": "<what would move them opposite>", "dominant_effect": "shared_drivers" or "opposing_forces" or "balanced", "direction": "more_likely" or "less_likely" or "no_effect", "reasoning": "<brief explanation>"}}"""
+
+
+# --- Combined: Shared Drivers + Warning ---
+
+RHO_SHARED_DRIVERS_WITH_WARNING_PROMPT = RHO_SHARED_DRIVERS_PROMPT + MARKET_LOGIC_WARNING
+
+
+# --- Direction prompt with market warning ---
+
+RHO_DIRECTION_WITH_WARNING_PROMPT = RHO_DIRECTION_PROMPT + MARKET_LOGIC_WARNING
+
+
 RHO_MAGNITUDE_PROMPT = """Question A (target): "{question_a}"
 Question B (signal): "{question_b}"
 
@@ -94,6 +168,91 @@ Now estimate the STRENGTH of this relationship on a scale from 0.0 to 1.0:
 - 0.3-0.6: Moderate relationship (meaningful but not dominant factor)
 - 0.6-0.9: Strong relationship (major factor in outcome)
 - 1.0: Perfect relationship (one determines the other)
+
+Respond with JSON only:
+{{"magnitude": <float 0.0-1.0>, "reasoning": "<brief explanation>"}}"""
+
+
+# =============================================================================
+# MAGNITUDE CALIBRATION PROMPTS (Experimental - Phase 4)
+# =============================================================================
+#
+# Phase 3 found that improved direction accuracy (55.9% vs 44.1%) did NOT
+# translate to VOI improvement (r=-0.049 vs r=0.138). Root cause: the model
+# anchors on high magnitudes (predicting |ρ|=0.8 when ground-truth is |ρ|=0.1).
+#
+# These prompts attempt to fix magnitude calibration while keeping direction
+# estimation fixed (using shared_drivers_with_warning, which achieves 77% on
+# mutually_exclusive pairs).
+# =============================================================================
+
+RHO_MAGNITUDE_CALIBRATED_PROMPT = """Question A (target): "{question_a}"
+Question B (signal): "{question_b}"
+
+You've determined that if B=YES, then A becomes {direction}.
+
+Now estimate the STRENGTH of this MARKET correlation on a scale from 0.0 to 1.0:
+- 0.0: No relationship (independent)
+- 0.1-0.3: Weak relationship (minor influence)
+- 0.3-0.6: Moderate relationship (meaningful but not dominant factor)
+- 0.6-0.9: Strong relationship (major factor in outcome)
+- 1.0: Perfect relationship (one determines the other)
+
+IMPORTANT CALIBRATION:
+- Most market correlations are WEAK (|ρ| < 0.3)
+- Even mutually exclusive outcomes often have |ρ| < 0.2 because shared drivers dominate
+- Only predict > 0.5 when there's DIRECT logical necessity (A literally requires B)
+- Default to 0.1-0.3 unless you have strong evidence for more
+
+Respond with JSON only:
+{{"magnitude": <float 0.0-1.0>, "reasoning": "<brief explanation>"}}"""
+
+
+RHO_MAGNITUDE_DISCOUNT_PROMPT = """Question A (target): "{question_a}"
+Question B (signal): "{question_b}"
+
+You've determined that if B=YES, then A becomes {direction}.
+
+STEP 1: Estimate the LOGICAL strength of this relationship (0.0-1.0):
+- How strong is the causal or logical connection between these outcomes?
+
+STEP 2: Apply market discount
+Market correlations are weaker than logical relationships because:
+- Prices are noisy
+- Shared drivers often dominate competitive effects
+- Traders don't update fully
+
+After estimating the logical strength, apply a 50% discount to get the market correlation.
+
+Example: If logical strength is 0.8, market magnitude = 0.8 × 0.5 = 0.4
+
+Respond with JSON only:
+{{"logical_strength": <float 0.0-1.0>, "market_magnitude": <float 0.0-1.0>, "reasoning": "<brief explanation>"}}"""
+
+
+RHO_MAGNITUDE_ANCHORED_PROMPT = """Question A (target): "{question_a}"
+Question B (signal): "{question_b}"
+
+You've determined that if B=YES, then A becomes {direction}.
+
+Now estimate the STRENGTH of this MARKET correlation on a scale from 0.0 to 1.0.
+
+Calibration examples (actual market data):
+- "Trump nominates Warsh" vs "Trump nominates Waller" (mutually exclusive): |ρ| = 0.53
+- "Sanders nomination" vs "Newsom nomination" (mutually exclusive): |ρ| = 0.03
+- "Fed cut January" vs "Waller nomination" (causal): |ρ| = 0.22
+- "Microsoft #1 market cap" vs "Apple #1 market cap" (competing): |ρ| = 0.58
+- "Bitcoin dip $85k" vs "Bitcoin reach $115k" (mutually exclusive): |ρ| = 0.64
+
+Key insight: Most relationships that sound "very strong" logically are actually 0.1-0.3 in markets.
+The examples above are cherry-picked strong cases. Typical correlations are weaker.
+
+Scale:
+- 0.0: No relationship
+- 0.1-0.3: Weak (most pairs)
+- 0.3-0.5: Moderate (related events with shared drivers)
+- 0.5-0.7: Strong (clear causal chain or same-event variants)
+- 0.7+: Very strong (rare - direct prerequisites only)
 
 Respond with JSON only:
 {{"magnitude": <float 0.0-1.0>, "reasoning": "<brief explanation>"}}"""
@@ -440,6 +599,113 @@ async def estimate_rho(
         # Accept both "rho" and "rho_estimate" for compatibility
         rho = result.get("rho", result.get("rho_estimate", 0.0))
         return float(rho), result.get("reasoning", "")
+    except Exception as e:
+        return 0.0, f"Error: {e}"
+
+
+async def estimate_rho_market_aware(
+    question_a: str,
+    question_b: str,
+    model: str | None = None,
+) -> tuple[float, str]:
+    """Estimate correlation (rho) using market-aware prompting.
+
+    Uses the shared_drivers_with_warning prompt for direction (77% accuracy on
+    mutually_exclusive pairs) plus calibrated magnitude prompt (VOI r=0.355).
+
+    Phase 4 experiment (2026-01-26) showed that magnitude calibration is critical:
+    - Baseline magnitude: VOI r = -0.050 (overpredicts by +0.208)
+    - Calibrated magnitude: VOI r = 0.355 (overpredicts by only +0.024)
+
+    Best for pairs where market dynamics differ from logical reasoning,
+    especially mutually exclusive outcomes (e.g., competing candidates).
+
+    Args:
+        question_a: The target/ultimate question
+        question_b: The signal/crux question
+        model: LLM model to use (defaults to haiku for cost efficiency)
+
+    Returns:
+        Tuple of (rho value, combined reasoning string)
+    """
+    import litellm
+
+    model = model or DEFAULT_RHO_MODEL
+
+    try:
+        # Step 1: Get direction using market-aware prompt
+        dir_response = await litellm.acompletion(
+            model=model,
+            messages=[{
+                "role": "user",
+                "content": RHO_SHARED_DRIVERS_WITH_WARNING_PROMPT.format(
+                    question_a=question_a,
+                    question_b=question_b,
+                )
+            }],
+            max_tokens=500,
+            temperature=0,
+        )
+        dir_text = dir_response.choices[0].message.content.strip()
+
+        # Handle markdown code blocks
+        if "```" in dir_text:
+            dir_text = dir_text.split("```")[1]
+            if dir_text.startswith("json"):
+                dir_text = dir_text[4:]
+            dir_text = dir_text.strip()
+
+        dir_result = json.loads(dir_text)
+        direction = dir_result.get("direction", "no_effect")
+        dir_reasoning = dir_result.get("reasoning", "")
+        shared_drivers = dir_result.get("shared_drivers", "")
+        dominant = dir_result.get("dominant_effect", "")
+
+        # Convert direction to sign
+        if direction == "more_likely":
+            sign = 1
+            direction_word = "more likely"
+        elif direction == "less_likely":
+            sign = -1
+            direction_word = "less likely"
+        else:
+            # Independent - no need for magnitude step
+            return 0.0, f"Direction: {dir_reasoning} (shared drivers: {shared_drivers}, dominant: {dominant})"
+
+        # Step 2: Get magnitude using calibrated prompt (Phase 4 experiment)
+        # Calibrated prompt reduces magnitude overprediction from +0.208 to +0.024
+        mag_response = await litellm.acompletion(
+            model=model,
+            messages=[{
+                "role": "user",
+                "content": RHO_MAGNITUDE_CALIBRATED_PROMPT.format(
+                    question_a=question_a,
+                    question_b=question_b,
+                    direction=direction_word,
+                )
+            }],
+            max_tokens=300,
+            temperature=0,
+        )
+        mag_text = mag_response.choices[0].message.content.strip()
+
+        # Handle markdown code blocks
+        if "```" in mag_text:
+            mag_text = mag_text.split("```")[1]
+            if mag_text.startswith("json"):
+                mag_text = mag_text[4:]
+            mag_text = mag_text.strip()
+
+        mag_result = json.loads(mag_text)
+        magnitude = float(mag_result.get("magnitude", 0.3))
+        mag_reasoning = mag_result.get("reasoning", "")
+
+        # Combine sign and magnitude
+        rho = sign * min(1.0, max(0.0, magnitude))
+        combined_reasoning = f"Shared drivers: {shared_drivers} | Dominant: {dominant} | {dir_reasoning} | Magnitude: {mag_reasoning}"
+
+        return rho, combined_reasoning
+
     except Exception as e:
         return 0.0, f"Error: {e}"
 

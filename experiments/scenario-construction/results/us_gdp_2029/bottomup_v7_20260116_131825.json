@@ -1,0 +1,458 @@
+{
+  "id": "bottomup_us_gdp_2029_53fa185c",
+  "name": "us_gdp_2029 (bottomup)",
+  "target": "us_gdp_2029",
+  "approach": "bottomup_v7",
+  "question": {
+    "id": "us_gdp_2029",
+    "source": "scenario_construction",
+    "text": "What will US real GDP be in 2029 (in 2024 dollars)?",
+    "question_type": "continuous",
+    "unit": "usd_trillions",
+    "base_rate": null,
+    "value_range": null
+  },
+  "config": {
+    "context": "Current US real GDP: $31.1 trillion (BEA Q3 2025, seasonally adjusted annual rate). Historical growth averages 2-3% annually. Key uncertainties: Trump administration economic policies, tariff impacts, Fed monetary policy, labor market conditions, AI productivity effects.",
+    "cruxiness_normalizer": 5.0,
+    "voi_floor": 0.1
+  },
+  "current_date": "2026-01-16",
+  "signals": [
+    {
+      "id": "9734",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will China's GDP Overtake the US Before 2030?",
+      "url": "https://www.metaculus.com/questions/9734",
+      "question_type": "binary",
+      "created_at": "2026-01-16T21:18:25.366569Z",
+      "resolution_date": "2029-12-31",
+      "resolved": false,
+      "voi": 0.30000000000000004,
+      "rho": 0.6,
+      "rho_reasoning": "The two questions are related as they both concern the economic performance of the US and China in the coming years. If the US experiences strong economic growth, as measured by higher real GDP, this would likely make it less likely that China's GDP would overtake the US before 2030. Conversely, if China's GDP is on track to overtake the US, this would suggest relatively weaker economic performance in the US. Therefore, there is likely a positive correlation between the two, though not a perfect one as other factors could also influence the outcome of each question.",
+      "p_target_given_yes": 0.8,
+      "p_target_given_no": 0.19999999999999996,
+      "cruxiness_spread": 0.6000000000000001,
+      "e_target_given_yes": 23.5,
+      "e_target_given_no": 25.0
+    },
+    {
+      "id": "0x257b18205f908aef01ef2d1d50e6fea7d29cf5486fe04031d8b101394476faed",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "url": "https://polymarket.com/market/will-there-be-no-change-in-fed-interest-rates-after-the-march-2026-meeting",
+      "question_type": "binary",
+      "created_at": "2026-01-16T21:18:25.366580Z",
+      "resolution_date": "2026-03-18",
+      "resolved": false,
+      "base_rate": 0.805,
+      "voi": 0.19304999999999983,
+      "rho": -0.5,
+      "rho_reasoning": "The two questions are related, as the level of US real GDP in 2029 and the change in Fed interest rates after March 2026 are likely to be inversely correlated. Higher GDP growth would likely lead to the Fed raising interest rates, while weaker GDP growth would make it less likely for the Fed to raise rates. Therefore, I estimate a moderate negative correlation coefficient of -0.5 between the two questions.",
+      "p_target_given_yes": 0.3788819875776399,
+      "p_target_given_no": 0.99,
+      "cruxiness_spread": 0.6111180124223601,
+      "e_target_given_yes": 45.2,
+      "e_target_given_no": 44.7
+    },
+    {
+      "id": "1654",
+      "source": "infer",
+      "source_type": "market",
+      "text": "Will China, Russia, the U.S., or the EU publicly announce new economic or trade sanctions that specifically target a state-owned oil or gas entity in Egypt, Jordan, or the United Arab Emirates (UAE) by 30 June 2026?",
+      "url": "https://www.randforecastinginitiative.org/questions/1654",
+      "question_type": "binary",
+      "created_at": "2026-01-16T21:18:25.366585Z",
+      "resolution_date": "2026-07-01",
+      "resolved": false,
+      "voi": 0.15000000000000002,
+      "rho": 0.3,
+      "rho_reasoning": "While the two questions are not directly related, they do involve some underlying economic and geopolitical factors that could be connected. The GDP question is a broad indicator of the US economy, while the sanctions question is more specific to a regional conflict. Stronger US economic growth could potentially make global powers like the US, China, and EU more willing to impose sanctions, but the connection is not direct or guaranteed. Overall, there is a moderate positive correlation between the two, as stronger economic conditions in the US could increase the likelihood of sanctions, but other factors would also play a significant role.",
+      "p_target_given_yes": 0.65,
+      "p_target_given_no": 0.35,
+      "cruxiness_spread": 0.30000000000000004,
+      "e_target_given_yes": 41.2,
+      "e_target_given_no": 43.6
+    },
+    {
+      "id": "0xfaa433e162e020c56c522acb2f9f7215ce6e4e4391c4fb42beba14275c0a43fe",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "New pandemic in 2026?",
+      "url": "https://polymarket.com/market/new-pandemic-in-2026",
+      "question_type": "binary",
+      "created_at": "2026-01-16T21:18:25.366589Z",
+      "resolution_date": "2026-12-31",
+      "resolved": false,
+      "voi": 0.15000000000000002,
+      "rho": -0.3,
+      "rho_reasoning": "The two questions are not directly related, as a new pandemic in 2026 would not necessarily have a strong impact on the level of US real GDP in 2029. However, there could be some negative correlation, as a pandemic in 2026 could potentially lead to economic disruptions that could persist into 2029, lowering the GDP forecast. Overall, the correlation is likely to be weak and somewhat negative.",
+      "p_target_given_yes": 0.35,
+      "p_target_given_no": 0.65,
+      "cruxiness_spread": 0.30000000000000004,
+      "e_target_given_yes": 30.5,
+      "e_target_given_no": 37.2
+    },
+    {
+      "id": "HMvpW2E8ZqV6enzFGgf8",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "Will the majority of entertainment in 2030 be AI generated?",
+      "url": "https://manifold.markets/GabeGarboden/will-the-majority-of-video-entertai",
+      "question_type": "binary",
+      "created_at": "2026-01-16T21:18:25.366591Z",
+      "resolution_date": "2030-01-02",
+      "resolved": false,
+      "base_rate": 0.3609787783932702,
+      "voi": 0.1440853184570431,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are not directly related, as they are about different phenomena (economic growth and the entertainment industry). However, there may be some indirect relationship, as stronger economic growth could lead to greater technological advancement and adoption of AI, which could enable more AI-generated entertainment. Therefore, the correlation is likely to be positive but modest, reflecting the indirect relationship between the two variables.",
+      "p_target_given_yes": 0.699575885178586,
+      "p_target_given_no": 0.3872609284440033,
+      "cruxiness_spread": 0.31231495673458276,
+      "e_target_given_yes": 35.2,
+      "e_target_given_no": 36.1
+    },
+    {
+      "id": "736",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will there be a complete 4 year interval in which world output doubles, before the first 1 year interval in which world output doubles?",
+      "url": "https://www.metaculus.com/questions/736",
+      "question_type": "binary",
+      "created_at": "2026-01-16T21:18:25.366594Z",
+      "resolution_date": "2030-01-01",
+      "resolved": false,
+      "voi": 0.09999999999999998,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are not directly related. Question A is about US real GDP, while Question B is about world output doubling. While these two metrics may be somewhat correlated, knowing the outcome of one question does not provide a lot of information about the other. There could be some positive correlation, as a strong US economy may contribute to global economic growth, but the connection is not strong enough to expect a high correlation coefficient.",
+      "p_target_given_yes": 0.6,
+      "p_target_given_no": 0.4,
+      "cruxiness_spread": 0.19999999999999996,
+      "e_target_given_yes": 35.0,
+      "e_target_given_no": 33.5
+    },
+    {
+      "id": "7481",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will the S&P 500 rise or fall more than 15% in a single day during the 2020s?",
+      "url": "https://www.metaculus.com/questions/7481",
+      "question_type": "binary",
+      "created_at": "2026-01-16T21:18:25.366597Z",
+      "resolution_date": "2029-12-31",
+      "resolved": false,
+      "voi": 0.09999999999999998,
+      "rho": -0.2,
+      "rho_reasoning": "These two questions are related in that they measure different aspects of economic performance, but they are not perfectly correlated. A higher GDP growth rate in 2029 would generally be associated with a lower likelihood of a major stock market crash, as stronger economic growth tends to support stock market performance. However, there are many other factors that can influence stock market volatility, so the correlation is not expected to be strongly negative. A correlation coefficient of -0.2 suggests a moderate inverse relationship between the two variables.",
+      "p_target_given_yes": 0.4,
+      "p_target_given_no": 0.6,
+      "cruxiness_spread": 0.19999999999999996,
+      "e_target_given_yes": 35.6,
+      "e_target_given_no": 36.2
+    },
+    {
+      "id": "7109",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will Bitcoin move away from proof-of-work before 2035?",
+      "url": "https://www.metaculus.com/questions/7109",
+      "question_type": "binary",
+      "created_at": "2026-01-16T21:18:25.366600Z",
+      "resolution_date": "2035-01-01",
+      "resolved": false,
+      "voi": 0.09999999999999998,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are only loosely related. The performance of the US economy (Question A) could have some impact on the adoption and development of new technologies like Bitcoin (Question B), but the connection is not very strong or direct. There are many other factors that would influence the outcomes of these two questions, so knowing the answer to one would not provide much information about the other. Hence, the correlation between the two is likely to be small and positive.",
+      "p_target_given_yes": 0.6,
+      "p_target_given_no": 0.4,
+      "cruxiness_spread": 0.19999999999999996,
+      "e_target_given_yes": 36.2,
+      "e_target_given_no": 35.8
+    },
+    {
+      "id": "tIylsIZu95",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "Will Elon Musk be worth more than $1 Trillion by Jan 1st, 2029?",
+      "url": "https://manifold.markets/pixel__/will-elon-musk-be-worth-more-than-1-SuEQdq5zlI",
+      "question_type": "binary",
+      "created_at": "2026-01-16T21:18:25.366602Z",
+      "resolution_date": "2029-01-01",
+      "resolved": false,
+      "base_rate": 0.7473001485358125,
+      "voi": 0.08691205590346256,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are not directly related and are measuring different underlying phenomena. The US GDP in 2029 is primarily driven by macroeconomic factors, while Elon Musk's net worth is dependent on the performance of his companies and assets. While a stronger economy could potentially benefit Musk's businesses, the correlation between these two factors is likely to be relatively weak. A correlation coefficient of 0.2 suggests a modest positive relationship between the two, but knowing the outcome of one question would not provide strong predictive power about the other.",
+      "p_target_given_yes": 0.5581507016114942,
+      "p_target_given_no": 0.3280330293035814,
+      "cruxiness_spread": 0.23011767230791275,
+      "e_target_given_yes": 38.2,
+      "e_target_given_no": 36.9
+    },
+    {
+      "id": "aJNfiOgnBj8XYDdyrsbb",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "If Trump were elected in 2024, will Trump attempt to run for a third term in 2028 or 2032?",
+      "url": "https://manifold.markets/AmmonLam/will-trump-attempt-to-run-for-a-thi",
+      "question_type": "binary",
+      "created_at": "2026-01-16T21:18:25.366605Z",
+      "resolution_date": "2028-11-08",
+      "resolved": false,
+      "base_rate": 0.19000534933398378,
+      "voi": 0.07846102639105731,
+      "rho": 0.2,
+      "rho_reasoning": "The two prediction market questions are not directly related to each other. The first question is about US real GDP, while the second question is about a potential Trump third term. While there may be some indirect connections (e.g., a strong economy could help Trump's political prospects), the correlation between these two outcomes is likely to be weak. Therefore, I estimate the correlation coefficient to be around 0.2, indicating a modest positive correlation.",
+      "p_target_given_yes": 0.7064705721867379,
+      "p_target_given_no": 0.4515669478023448,
+      "cruxiness_spread": 0.2549036243843931,
+      "e_target_given_yes": 29.0,
+      "e_target_given_no": 32.5
+    },
+    {
+      "id": "1469",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will we know what Dark Matter is before 2050?",
+      "url": "https://www.metaculus.com/questions/1469",
+      "question_type": "binary",
+      "created_at": "2026-01-16T21:18:25.366608Z",
+      "resolution_date": "2049-12-08",
+      "resolved": false,
+      "voi": 0.050000000000000044,
+      "rho": 0.1,
+      "rho_reasoning": "The two prediction market questions are not directly related. The first question about US real GDP in 2029 is a macroeconomic metric, while the second question about discovering dark matter is a scientific/technological question. Knowing the outcome of one question would not significantly change the likelihood of the other, as they are measuring different and largely independent phenomena. Therefore, the correlation coefficient between the two questions is estimated to be low, around 0.1, indicating a weak positive relationship at best.",
+      "p_target_given_yes": 0.55,
+      "p_target_given_no": 0.44999999999999996,
+      "cruxiness_spread": 0.10000000000000009,
+      "e_target_given_yes": 41.8,
+      "e_target_given_no": 39.4
+    },
+    {
+      "id": "Atx27moCcGMulhPvH0MU",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "Will Y2K38 cause a significant impact in the United States?",
+      "url": "https://manifold.markets/IsaacKing/will-y2k38-cause-a-significant-impa",
+      "question_type": "binary",
+      "created_at": "2026-01-16T21:18:25.366611Z",
+      "resolution_date": "2038-02-01",
+      "resolved": false,
+      "base_rate": 0.2889257314857675,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "The two prediction market questions appear to be completely unrelated. The first question is about US real GDP in 2029, while the second question is about whether Y2K38 will have a significant impact in the United States. These two events are not directly connected, and the outcome of one would not provide any information about the other. Therefore, the correlation coefficient between these two questions is likely to be close to 0, indicating statistical independence.",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0,
+      "e_target_given_yes": 34.2,
+      "e_target_given_no": 36.1
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Crisis Contraction",
+      "description": "The US economy faces severe disruption from pandemic/geopolitical shocks. Growth stagnates or contracts due to supply chain disruptions, aggressive Fed tightening, and global economic fragmentation. AI productivity gains fail to materialize as businesses focus on crisis management.",
+      "scenario_probability": 0.15,
+      "key_drivers": [
+        "New pandemic disruption",
+        "Geopolitical sanctions and trade wars",
+        "Prolonged Fed tightening",
+        "Supply chain breakdowns",
+        "Business investment collapse"
+      ],
+      "why_exclusive": "Cannot co-occur with moderate or strong growth scenarios because it represents severe economic disruption that fundamentally alters the growth trajectory.",
+      "signal_impacts": [
+        {
+          "signal_index": 2,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 3,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 1,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 4,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "GDP_growth_2026_2029": "Below 0.5% annually",
+        "unemployment_peak": "Above 7%",
+        "fed_funds_rate_2026": "Above 6%",
+        "trade_disruption_index": "High sanctions activity",
+        "business_investment_decline": "More than 15% from peak"
+      },
+      "outcome_range": "$29-33T",
+      "outcome_low": 29.0,
+      "outcome_high": 33.0,
+      "probability_range": "10-20%",
+      "probability_low": 0.1,
+      "probability_high": 0.2
+    },
+    {
+      "name": "Slow Recovery",
+      "description": "The US economy experiences below-trend growth due to structural headwinds. Moderate Fed policy and limited disruptions allow gradual expansion, but productivity gains remain modest. China's rise creates competitive pressure but no major crisis.",
+      "scenario_probability": 0.35,
+      "key_drivers": [
+        "Moderate Fed policy stance",
+        "Limited geopolitical disruption",
+        "Gradual AI adoption",
+        "Steady demographic headwinds",
+        "Controlled inflation environment"
+      ],
+      "why_exclusive": "Cannot co-occur with crisis or boom scenarios because it represents a distinct moderate growth path with specific policy and technological adoption rates.",
+      "signal_impacts": [
+        {
+          "signal_index": 1,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 0,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 3,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 2,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "GDP_growth_2026_2029": "1.5-2.5% annually",
+        "unemployment_rate": "4-5%",
+        "fed_funds_rate_stable": "3-4% range",
+        "AI_productivity_contribution": "0.2-0.4% to annual growth",
+        "trade_policy_stability": "Limited new sanctions"
+      },
+      "outcome_range": "$33-37T",
+      "outcome_low": 33.0,
+      "outcome_high": 37.0,
+      "probability_range": "30-40%",
+      "probability_low": 0.3,
+      "probability_high": 0.4
+    },
+    {
+      "name": "Baseline Growth",
+      "description": "The US economy maintains historical trend growth around 2-3% annually. Fed policy normalizes, geopolitical tensions remain manageable, and AI begins contributing meaningfully to productivity. This represents continuation of long-term economic patterns.",
+      "scenario_probability": 0.35,
+      "key_drivers": [
+        "Historical trend continuation",
+        "Moderate AI productivity gains",
+        "Stable monetary policy",
+        "Manageable geopolitical tensions",
+        "Normal business cycle dynamics"
+      ],
+      "why_exclusive": "Cannot co-occur with other scenarios because it represents a specific growth rate band that excludes both slower and faster growth trajectories.",
+      "signal_impacts": [
+        {
+          "signal_index": 1,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 4,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 3,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 2,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "GDP_growth_2026_2029": "2.0-3.0% annually",
+        "unemployment_rate": "3.5-4.5%",
+        "fed_funds_rate_2026": "2.5-4.0%",
+        "AI_productivity_boost": "0.3-0.6% to annual growth",
+        "global_trade_growth": "Positive but moderate"
+      },
+      "outcome_range": "$37-41T",
+      "outcome_low": 37.0,
+      "outcome_high": 41.0,
+      "probability_range": "30-40%",
+      "probability_low": 0.3,
+      "probability_high": 0.4
+    },
+    {
+      "name": "AI-Driven Boom",
+      "description": "Breakthrough AI productivity gains drive exceptional US economic growth. Advanced automation and AI integration across sectors create a new growth paradigm, while stable policies and minimal disruptions allow full realization of technological potential. The US maintains technological leadership over China.",
+      "scenario_probability": 0.15,
+      "key_drivers": [
+        "Transformative AI productivity gains",
+        "Rapid automation across sectors",
+        "US technological superiority maintained",
+        "Supportive policy environment",
+        "Capital investment surge in AI"
+      ],
+      "why_exclusive": "Cannot co-occur with other scenarios because it represents exceptionally high growth driven by transformative technology adoption that fundamentally changes economic dynamics.",
+      "signal_impacts": [
+        {
+          "signal_index": 4,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 1,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 0,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 3,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "GDP_growth_2026_2029": "Above 3.5% annually",
+        "AI_productivity_contribution": "Above 1% to annual growth",
+        "business_investment_AI": "More than 20% increase",
+        "unemployment_rate": "Below 3.5%",
+        "US_China_tech_gap": "Widening in US favor"
+      },
+      "outcome_range": "$41-45T",
+      "outcome_low": 41.0,
+      "outcome_high": 45.0,
+      "probability_range": "10-20%",
+      "probability_low": 0.1,
+      "probability_high": 0.2
+    }
+  ],
+  "mece_reasoning": "These scenarios are MECE because they partition the GDP outcome space into non-overlapping ranges: Crisis ($29-33T), Slow Recovery ($33-37T), Baseline ($37-41T), and AI Boom ($41-45T). Each represents a fundamentally different economic trajectory that cannot occur simultaneously - you cannot have both crisis-level contraction and AI-driven boom, or both slow recovery and baseline growth. The scenarios are driven by mutually exclusive combinations of key variables: pandemic/geopolitical disruption levels, Fed policy stance, AI productivity realization, and China's competitive position. Together they cover the full plausible range from severe disruption to transformative growth.",
+  "coverage_gaps": "Minimal gaps. The scenarios cover $29-45T range, which encompasses severe recession to exceptional boom. The only potential gap is extreme scenarios beyond this range (below $29T would require depression-level collapse, above $45T would require unprecedented technological revolution), but these have very low probability given current conditions.",
+  "created_at": "2026-01-16T13:18:25.366712",
+  "max_horizon_days": 365,
+  "sources_used": [
+    "polymarket",
+    "metaculus",
+    "kalshi",
+    "infer",
+    "manifold"
+  ],
+  "signals_retrieved": 89,
+  "signals_after_dedup": 12,
+  "signals_above_floor": 5,
+  "source_breakdown": {
+    "metaculus": 5,
+    "polymarket": 2,
+    "infer": 1,
+    "manifold": 4
+  },
+  "category_breakdown": {
+    "future": 68,
+    "actionable": 21
+  }
+}

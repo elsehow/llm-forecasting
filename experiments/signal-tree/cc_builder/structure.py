@@ -105,10 +105,13 @@ What MUST happen for the target to be true? These are hard prerequisites.
 - Example: "For One Battle to win Best Picture, it must be nominated"
 
 ## 2. EXCLUSIVITY CONSTRAINTS
-What outcomes are mutually exclusive with the target? These are competitors.
-- If a competitor wins the same prize, the target loses
+What DIFFERENT entities are competing for the same outcome? These are competitors.
+- Only include when there are multiple DISTINCT competitors (people, teams, films, etc.)
+- DO NOT include the logical negation of the target (e.g., "US > Canada" vs "Canada > US")
+- DO NOT include outcomes that resolve at the exact same time as the target
 - Format: "[competitor] winning [prize] means [target entity] loses"
 - Example: "If Sinners wins Best Picture, One Battle cannot win"
+- SKIP exclusivity if the question is a binary comparison between exactly two things
 
 ## 3. CAUSAL PATHWAYS
 What earlier events would inform this outcome? These are correlational signals.

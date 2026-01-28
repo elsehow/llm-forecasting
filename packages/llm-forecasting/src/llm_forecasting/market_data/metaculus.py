@@ -156,6 +156,9 @@ class MetaculusData(MarketDataProvider, HTTPClientMixin):
         # Community prediction
         current_prob = self._extract_community_prediction(raw)
 
+        # Extract categories from projects
+        topic_categories, tournament_categories = self._extract_categories(raw)
+
         return Market(
             id=str(raw["id"]),
             platform=self.name,
@@ -169,6 +172,8 @@ class MetaculusData(MarketDataProvider, HTTPClientMixin):
             resolved_value=resolved_value,
             current_probability=current_prob,
             num_forecasters=raw.get("nr_forecasters"),
+            topic_categories=topic_categories,
+            tournament_categories=tournament_categories,
         )
 
     def _extract_community_prediction(self, data: dict) -> float | None:
@@ -200,3 +205,54 @@ class MetaculusData(MarketDataProvider, HTTPClientMixin):
         except (KeyError, TypeError, IndexError):
             pass
         return None
+
+    def _extract_categories(
+        self, data: dict
+    ) -> tuple[list[str] | None, list[str] | None]:
+        """Extract topic and tournament categories from projects field.
+
+        Returns:
+            Tuple of (topic_categories, tournament_categories)
+        """
+        # Keywords that indicate tournament/competition vs topic categories
+        tournament_keywords = [
+            "tournament",
+            "benchmark",
+            "leaderboard",
+            "minibench",
+            "cup",
+            "contest",
+            "learning",
+            "academy",
+            "warmup",
+            "experiment",
+            "pro forecasters",
+            "quarterly",
+            "university",
+            "community",
+        ]
+
+        topics: list[str] = []
+        tournaments: list[str] = []
+
+        projects = data.get("projects", {})
+        for key, val in projects.items():
+            items = []
+            if isinstance(val, list):
+                items = val
+            elif isinstance(val, dict):
+                items = [val]
+
+            for item in items:
+                if isinstance(item, dict) and "name" in item:
+                    name = item["name"]
+                    name_lower = name.lower()
+                    if any(kw in name_lower for kw in tournament_keywords):
+                        tournaments.append(name)
+                    else:
+                        topics.append(name)
+
+        return (
+            topics if topics else None,
+            tournaments if tournaments else None,
+        )

@@ -481,9 +481,36 @@ export function useTreeState() {
 
       for (const child of node.children) {
         const childProb = computeNodeProb(child, DEFAULT_PRIOR);
-        const childRho = child.rho ?? 0;
-        const contribution = childRho * (childProb - 0.5) * K;
-        logOdds += contribution;
+
+        // Handle different relationship types
+        if (child.relationship_type === 'exclusivity') {
+          // Exclusivity: competitor winning means target loses
+          // Use p_target_given_yes/no (or p_parent_given_yes/no)
+          const pYes = child.p_target_given_yes ?? child.p_parent_given_yes;
+          const pNo = child.p_target_given_no ?? child.p_parent_given_no;
+
+          if (pYes != null && pNo != null) {
+            // Compute likelihood ratio for Bayesian update
+            // Evidence = log(P(signal|target) / P(signal|~target))
+            // Using Bayes: P(target|signal) ∝ P(signal|target) * P(target)
+            // For exclusivity: low childProb (competitor unlikely) is positive evidence
+            const effectiveRho = -0.54; // Strong negative correlation for exclusivity
+            const contribution = effectiveRho * (childProb - 0.5) * K;
+            logOdds += contribution;
+          }
+        } else if (child.relationship_type === 'necessity') {
+          // Necessity: prerequisite for parent to be true
+          // High probability of necessity is mildly positive evidence
+          // (The hard constraint is handled above - if resolved NO, parent = 0)
+          const necessityRho = 0.2; // Mild positive correlation
+          const contribution = necessityRho * (childProb - 0.5) * K;
+          logOdds += contribution;
+        } else {
+          // Default: correlation using rho
+          const childRho = child.rho ?? 0;
+          const contribution = childRho * (childProb - 0.5) * K;
+          logOdds += contribution;
+        }
       }
 
       const prob = 1 / (1 + Math.exp(-logOdds));

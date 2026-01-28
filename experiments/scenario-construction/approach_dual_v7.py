@@ -187,6 +187,7 @@ async def main():
             uncertainty_description=u.description,
             n=10,
             max_horizon_days=cfg.max_horizon_days,
+            target_resolution_date=cfg.target_resolution_date,
         )
         print(f"    Generated {len(signals)} signals")
         topdown_signals.extend(signals)

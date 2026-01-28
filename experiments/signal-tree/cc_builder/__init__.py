@@ -38,6 +38,15 @@ from .reconcile import (
     estimate_base_rate,
     estimate_rho,
 )
+from .research import (
+    research_signal,
+    research_signals_batch,
+    ResearchResult,
+    gather_outside_view,
+    estimate_from_news,
+    combine_estimates,
+    compute_confidence_interval,
+)
 
 __all__ = [
     # Main entry point
@@ -66,4 +75,12 @@ __all__ = [
     "identify_uncertain_signals",
     "estimate_base_rate",
     "estimate_rho",
+    # Research (structured forecasting workflow)
+    "research_signal",
+    "research_signals_batch",
+    "ResearchResult",
+    "gather_outside_view",
+    "estimate_from_news",
+    "combine_estimates",
+    "compute_confidence_interval",
 ]

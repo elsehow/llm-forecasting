@@ -1,0 +1,1204 @@
+{
+  "metadata": {
+    "generated_at": "2026-01-23T23:08:59.750970+00:00",
+    "model": "claude-sonnet-4-20250514",
+    "n_ultimates": 32,
+    "n_successful": 32,
+    "total_cruxes": 160,
+    "magnitude_distribution": {
+      "high": 64,
+      "medium": 88,
+      "low": 8
+    },
+    "direction_distribution": {
+      "+": 131,
+      "-": 29
+    }
+  },
+  "cruxes": [
+    {
+      "ultimate_id": "0xdcc87b9ca36015e396bd0eebca29e854a136ed2b0b701049d1ee9da6bee3eb35",
+      "ultimate_question": "Will Trump nominate Kevin Hassett as the next Fed chair?",
+      "cruxes": [
+        {
+          "crux": "Will Jerome Powell's term as Fed Chair end before January 2026?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Powell's current term runs until May 2026. If he steps down early or is pressured out, it would create an immediate opening that Trump could fill with Hassett, dramatically increasing the probability."
+        },
+        {
+          "crux": "Will Kevin Hassett serve in a senior economic role in Trump's administration by end of 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Appointment to Treasury Secretary, CEA Chair, or similar role would signal Trump's continued confidence in Hassett and position him as the natural Fed Chair candidate when the opportunity arises."
+        },
+        {
+          "crux": "Will Trump publicly criticize Jerome Powell's Fed policies more than 5 times before mid-2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Frequent criticism would indicate Trump's dissatisfaction with Powell and intention to replace him, making Hassett's nomination more likely when Powell's term expires."
+        },
+        {
+          "crux": "Will any major financial crisis or recession occur in the US before end of 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Economic turmoil would increase pressure on Powell and give Trump justification to seek new Fed leadership, potentially accelerating the timeline for Hassett's consideration."
+        },
+        {
+          "crux": "Will Kevin Hassett face any major personal or professional scandals before 2026?",
+          "direction": "-",
+          "magnitude": "medium",
+          "rationale": "Any significant controversy would damage Hassett's reputation and make him politically toxic for such a high-profile nomination, regardless of Trump's preferences."
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0x61b66d02793b4a68ab0cc25be60d65f517fe18c7d654041281bb130341244fcc",
+      "ultimate_question": "Will Trump nominate Kevin Warsh as the next Fed chair?",
+      "cruxes": [
+        {
+          "crux": "Will Jerome Powell's term as Fed Chair end before February 2026?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Powell's current term ends February 2026. If he leaves early or isn't reappointed, it creates the vacancy that Warsh would need to fill. Without a vacancy, Warsh cannot be nominated."
+        },
+        {
+          "crux": "Will Kevin Warsh publicly express interest in or accept consideration for Fed Chair before end of 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Warsh would need to signal availability and interest. If he definitively rules himself out or shows no interest, Trump would likely look elsewhere. Public interest signals would increase nomination likelihood."
+        },
+        {
+          "crux": "Will Trump face a Republican-controlled Senate for the majority of his term through 2026?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Fed Chair nominations require Senate confirmation. A Republican Senate would be much more likely to confirm Trump's preferred nominee, making Trump more likely to nominate someone like Warsh who aligns with his views."
+        },
+        {
+          "crux": "Will Trump publicly criticize the Federal Reserve's monetary policy decisions before mid-2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Trump's criticism of Fed policy would signal his intent to replace leadership with someone more aligned with his views. Warsh, having served under Bush and being more hawkish, would appeal to Trump if he's dissatisfied with current Fed policy."
+        },
+        {
+          "crux": "Will any major financial crisis or recession occur in the US before end of 2025?",
+          "direction": "-",
+          "magnitude": "low",
+          "rationale": "A major crisis would likely favor continuity and experience over change. Trump might prefer to keep Powell or choose someone with more recent central banking experience rather than Warsh, who last served at the Fed over a decade ago."
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0xb1d2cd56624ec8bb3d8115d50d503d0e8578bf32d754ad5fe3c0e08a73186c57",
+      "ultimate_question": "Supreme Court rules in favor of Trump's tariffs?",
+      "cruxes": [
+        {
+          "crux": "Will Trump be inaugurated as President in January 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Trump needs to be president to implement tariffs that could face Supreme Court challenges. Without this, the probability drops to near zero."
+        },
+        {
+          "crux": "Will Trump implement tariffs of 20% or higher on major trading partners by end of 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Aggressive tariffs are more likely to face legal challenges and reach the Supreme Court. Modest tariffs may not generate sufficient opposition or constitutional questions."
+        },
+        {
+          "crux": "Will any federal court issue an injunction against Trump tariffs by end of 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Lower court challenges are typically necessary before cases reach the Supreme Court. An injunction indicates serious legal questions that could warrant Supreme Court review."
+        },
+        {
+          "crux": "Will the Supreme Court have a 6-3 or stronger conservative majority through 2026?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "A solid conservative majority makes the Court more likely to defer to executive authority on trade policy and rule in favor of presidential tariff powers."
+        },
+        {
+          "crux": "Will Congress pass legislation explicitly limiting presidential tariff authority by end of 2025?",
+          "direction": "-",
+          "magnitude": "medium",
+          "rationale": "Congressional action to constrain tariff powers would reduce the legal basis for broad presidential authority, making Supreme Court validation less likely."
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0xc8d4e2c302e248cb5cd7179c589281e93b5c594baa57e04d3f0b934bd8df449d",
+      "ultimate_question": "Will Trump and Machado share the Nobel Peace Prize?",
+      "cruxes": [
+        {
+          "crux": "Will Donald Trump be inaugurated as US President in January 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Trump needs to be in a position of power to engage in meaningful peace negotiations. Without the presidency, his ability to broker significant international agreements would be severely limited."
+        },
+        {
+          "crux": "Will Mar\u00eda Corina Machado become President of Venezuela by December 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Machado needs executive power to participate in high-level diplomatic initiatives. As an opposition figure without governmental authority, she cannot engage in the type of state-level peacemaking that typically merits Nobel recognition."
+        },
+        {
+          "crux": "Will there be a major armed conflict or crisis in Latin America requiring US-Venezuela mediation by mid-2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "The Nobel Peace Prize typically requires addressing a significant conflict or crisis. Without a substantial peace process to mediate, there would be no basis for joint recognition."
+        },
+        {
+          "crux": "Will the US lift all major economic sanctions on Venezuela by end of 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Sanctions relief would signal successful diplomatic engagement between the two leaders and represent the kind of concrete peace achievement the Nobel Committee recognizes."
+        },
+        {
+          "crux": "Will either Trump or Machado face criminal prosecution or imprisonment before end of 2025?",
+          "direction": "-",
+          "magnitude": "medium",
+          "rationale": "The Nobel Committee avoids honoring individuals facing serious legal troubles, as it would undermine the prize's moral authority and create controversy."
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0xaeea5f917fc5746387b5f9c0a4263dba035dbb3f0ac6ad72bf92183d21e26739",
+      "ultimate_question": "Russia x Ukraine ceasefire by end of 2026?",
+      "cruxes": [
+        {
+          "crux": "Will Donald Trump be inaugurated as US President in January 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Trump has signaled intent to rapidly end the conflict and has different approach than Biden administration. His presidency would fundamentally change US support dynamics and negotiation pressure on both sides."
+        },
+        {
+          "crux": "Will Ukraine lose control of at least one additional major city (population >100k) to Russian forces by end of 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Significant Ukrainian territorial losses would weaken their negotiating position and increase domestic pressure for ceasefire, while giving Russia incentive to lock in gains through agreement."
+        },
+        {
+          "crux": "Will Putin remain President of Russia through December 2025?",
+          "direction": "-",
+          "magnitude": "high",
+          "rationale": "Putin's departure would create massive uncertainty and potential policy shifts. A successor might be more hardline and less willing to negotiate, or the transition period could make ceasefire negotiations impossible."
+        },
+        {
+          "crux": "Will the EU or US reduce military aid to Ukraine by more than 30% in any 12-month period before end of 2026?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Sustained Western military support is crucial for Ukraine's ability to continue fighting. Significant aid reduction would force Ukraine toward negotiated settlement and signal to Russia that time favors them."
+        },
+        {
+          "crux": "Will there be a negotiated prisoner exchange involving more than 1000 people between Russia and Ukraine by end of 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Large-scale prisoner exchanges require significant diplomatic coordination and often signal improving back-channel communications and willingness to make substantial compromises, creating momentum for broader agreements."
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0x70909f0ba8256a89c301da58812ae47203df54957a07c7f8b10235e877ad63c2",
+      "ultimate_question": "Khamenei out as Supreme Leader of Iran by March 31?",
+      "cruxes": [
+        {
+          "crux": "Will Khamenei's health significantly deteriorate or will he die by March 31, 2026?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "At 85 years old with reported health issues, natural succession is the most likely path for leadership change. Death or severe incapacitation would almost guarantee his removal as Supreme Leader."
+        },
+        {
+          "crux": "Will Iran experience sustained nationwide protests lasting more than 30 days before March 31, 2026?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Large-scale civil unrest like the 2022 protests could pressure the regime and potentially force leadership changes. Sustained protests would indicate deep instability that could threaten Khamenei's position."
+        },
+        {
+          "crux": "Will there be a major military conflict involving Iran (with Israel, US, or regional powers) before March 31, 2026?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Military defeats or catastrophic conflicts could delegitimize Khamenei's leadership and trigger internal regime change. War often creates conditions for political upheaval in authoritarian systems."
+        },
+        {
+          "crux": "Will Iran's economy experience hyperinflation (>50% annually) or complete currency collapse before March 31, 2026?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Severe economic collapse could undermine regime stability and Khamenei's legitimacy. Economic crises often precipitate leadership changes in authoritarian regimes, especially when combined with popular unrest."
+        },
+        {
+          "crux": "Will any senior Iranian officials (IRGC commanders, clerics, or government ministers) publicly break with Khamenei before March 31, 2026?",
+          "direction": "+",
+          "magnitude": "low",
+          "rationale": "Elite defection would signal internal regime fractures and could cascade into broader opposition. Public breaks with the Supreme Leader would indicate serious internal challenges to his authority."
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0x2e94bb8dd09931d12e6e656fe4fe6ceb3922bc3d6eab864bb6cd24773cf67269",
+      "ultimate_question": "Khamenei out as Supreme Leader of Iran by June 30?",
+      "cruxes": [
+        {
+          "crux": "Will Khamenei's health significantly deteriorate or will he die by December 31, 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "At 85 years old with reported health issues, Khamenei's physical condition is the most direct path to him leaving office. Death or severe incapacitation would immediately trigger succession processes."
+        },
+        {
+          "crux": "Will there be widespread anti-government protests in Iran lasting more than 30 days before June 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Sustained mass protests would indicate regime instability and could force leadership changes. The 2022 protests showed the potential for widespread unrest that could threaten the Supreme Leader's position."
+        },
+        {
+          "crux": "Will Iran experience a major military conflict or foreign intervention before December 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "External military pressure or conflict could destabilize the regime internally, potentially leading to leadership changes. Regional tensions with Israel/US make this plausible."
+        },
+        {
+          "crux": "Will there be credible reports of significant splits within Iran's Guardian Council or Assembly of Experts by March 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "These bodies have the constitutional power to remove or replace the Supreme Leader. Internal elite fractures would be necessary precursors to any institutional challenge to Khamenei's authority."
+        },
+        {
+          "crux": "Will Iran's economy experience hyperinflation (>50% annually) or currency collapse before end of 2025?",
+          "direction": "+",
+          "magnitude": "low",
+          "rationale": "Severe economic crisis could undermine regime legitimacy and create conditions for leadership change, though the regime has weathered economic hardship before."
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0xbb4d51e6364066d92eb6f9b8413dd7193de70966736044463b205834805a1f3b",
+      "ultimate_question": "Will the Iranian regime fall before 2027?",
+      "cruxes": [
+        {
+          "crux": "Will Iran experience sustained nationwide protests with over 1 million participants simultaneously by end of 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Mass mobilization is typically necessary for regime change in authoritarian systems. Large-scale protests would indicate widespread popular opposition and potential for regime collapse, while their absence suggests the regime maintains sufficient control."
+        },
+        {
+          "crux": "Will any major Iranian military or IRGC commanders publicly defect or call for regime change before 2026?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Military/security apparatus loyalty is crucial for regime survival. Defections at senior levels would signal institutional breakdown and dramatically increase collapse probability, while continued loyalty suggests regime stability."
+        },
+        {
+          "crux": "Will Iran's economy experience hyperinflation (>50% monthly) or complete currency collapse before 2026?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Severe economic collapse often precipitates regime change by undermining state capacity and popular legitimacy. Economic crisis creates conditions for unrest, though authoritarian regimes can sometimes survive economic disasters."
+        },
+        {
+          "crux": "Will the Iranian government successfully suppress all major protest movements within 30 days of their emergence through 2025?",
+          "direction": "-",
+          "magnitude": "medium",
+          "rationale": "Regime's ability to quickly crush dissent demonstrates state capacity and control. Successful suppression indicates strong security apparatus and limited opposition momentum, reducing regime change probability."
+        },
+        {
+          "crux": "Will Iran face direct military intervention or invasion by foreign powers before 2026?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "External military pressure could either trigger regime collapse or create conditions for internal uprising. However, foreign intervention could also rally nationalist support for the regime, making the direction somewhat uncertain but likely net positive for regime change."
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0x61ce3773237a948584e422de72265f937034af418a8b703e3a860ea62e59ff36",
+      "ultimate_question": "Will the Iranian regime fall by March 31?",
+      "cruxes": [
+        {
+          "crux": "Will Iran experience sustained nationwide protests with over 1 million participants by end of 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Mass sustained protests are typically a prerequisite for regime change in authoritarian systems. The scale and persistence would indicate broad popular mobilization and potential loss of regime control over public spaces."
+        },
+        {
+          "crux": "Will any major faction of Iran's Revolutionary Guard Corps publicly break with the Supreme Leader by end of 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "The IRGC is the regime's primary coercive backbone. A split within this institution would fundamentally weaken the regime's ability to maintain power and could trigger cascading defections across the security apparatus."
+        },
+        {
+          "crux": "Will Iran's economy experience hyperinflation (>50% monthly) for 3+ consecutive months before March 2026?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Severe economic collapse often precedes regime change by eroding the state's capacity to maintain loyalty through patronage and creating conditions for mass unrest among both elites and the general population."
+        },
+        {
+          "crux": "Will the US or Israel conduct direct military strikes on Iranian nuclear facilities by end of 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Major external military action could either rally the population around the regime (decreasing probability) or create chaos and weakness that opposition forces could exploit, with the latter being more likely given current domestic tensions."
+        },
+        {
+          "crux": "Will Supreme Leader Khamenei die or become incapacitated before March 2026?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Succession crises in authoritarian regimes often create windows of vulnerability. Given Khamenei's age and central role, his absence could trigger elite power struggles and provide openings for regime opponents."
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0x4b02efe53e631ada84681303fd66d79ad615f3d2b6a28b4633d43d935f89af58",
+      "ultimate_question": "US strikes Iran by March 31, 2026?",
+      "cruxes": [
+        {
+          "crux": "Does Iran acquire or test a nuclear weapon by December 31, 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Nuclear weaponization would be the most likely trigger for US military action, representing an existential red line that would override diplomatic solutions and force immediate response"
+        },
+        {
+          "crux": "Does Iran directly attack US military personnel or assets, killing 10+ Americans, by December 31, 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Direct Iranian attacks causing significant US casualties would create overwhelming domestic pressure for retaliation and justify military response under self-defense"
+        },
+        {
+          "crux": "Does a Republican win the 2024 US presidential election?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Republican leadership historically more hawkish on Iran, more likely to authorize military strikes, and less committed to diplomatic engagement compared to Democratic alternatives"
+        },
+        {
+          "crux": "Does Iran withdraw from the NPT or expel all IAEA inspectors by December 31, 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Complete abandonment of nuclear oversight would signal imminent weaponization intent, eliminating diplomatic monitoring mechanisms and forcing military consideration as the only remaining option"
+        },
+        {
+          "crux": "Do Iran and the US reach a comprehensive nuclear agreement by December 31, 2025?",
+          "direction": "-",
+          "magnitude": "high",
+          "rationale": "A successful diplomatic resolution would eliminate the primary justification for military action, create stakeholder investment in peaceful solutions, and provide alternative pathways for managing tensions"
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0xe6b7d4d8b4d2ff7dc8c9e5d6dd70b6eece210b8cf9e34fb45f9b9516cc4c76ff",
+      "ultimate_question": "Khamenei out as Supreme Leader of Iran in 2026?",
+      "cruxes": [
+        {
+          "crux": "Will Khamenei's health significantly deteriorate or will he be hospitalized for serious illness by end of 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "At 85, Khamenei's health is the primary factor. Serious illness would trigger succession discussions and make his departure much more likely, while continued good health would suggest he could maintain power."
+        },
+        {
+          "crux": "Will there be sustained nationwide protests in Iran lasting more than 30 days before end of 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Major civil unrest would weaken Khamenei's position and potentially force elite consensus that leadership change is needed for stability. Absence of protests suggests regime stability."
+        },
+        {
+          "crux": "Will any member of Iran's Assembly of Experts publicly criticize Khamenei's leadership before end of 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "The Assembly of Experts has constitutional authority to remove the Supreme Leader. Public criticism would signal elite fracturing and institutional challenge to his authority."
+        },
+        {
+          "crux": "Will Iran experience a major military defeat or significant territorial loss before end of 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Military humiliation could delegitimize Khamenei's leadership among security elites and trigger calls for new leadership. Military success would reinforce his position."
+        },
+        {
+          "crux": "Will Iran's economy contract by more than 10% in any single year through 2025?",
+          "direction": "+",
+          "magnitude": "low",
+          "rationale": "Severe economic crisis could undermine regime legitimacy and create pressure for leadership change, though economic factors alone are less likely to force Khamenei out given regime's survival of past crises."
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0x28f1e9218bcd41ced05faf3c03f026721d87712556bf2828337551f03cae0a01",
+      "ultimate_question": "Israel strikes Iran by March 31, 2026?",
+      "cruxes": [
+        {
+          "crux": "Does Iran acquire or test a nuclear weapon by December 31, 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Iranian nuclear weaponization would likely trigger immediate Israeli military action, as Israel has consistently stated it will not allow Iran to obtain nuclear weapons. This would be a red line that forces Israel's hand regardless of other considerations."
+        },
+        {
+          "crux": "Does a major Iranian proxy attack kill 50+ Israeli civilians in a single incident by December 31, 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "A devastating proxy attack would create enormous domestic pressure for direct retaliation against Iran itself, rather than just the proxies. Public outrage and political necessity would make strikes on Iranian territory much more likely."
+        },
+        {
+          "crux": "Does the US explicitly guarantee military support for Israeli strikes on Iran by December 31, 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "US backing would remove Israel's primary constraint - fear of acting alone against a major regional power. American military and diplomatic support would make Israeli strikes much more feasible and likely to succeed."
+        },
+        {
+          "crux": "Does Iran withdraw all military advisors and weapons from Syria and Lebanon by December 31, 2025?",
+          "direction": "-",
+          "magnitude": "medium",
+          "rationale": "Iranian military withdrawal would significantly reduce the strategic threat to Israel and remove a key justification for strikes. It would signal Iranian de-escalation and reduce Israel's incentive for direct military action."
+        },
+        {
+          "crux": "Does a comprehensive Iran nuclear deal get signed and implemented by December 31, 2025?",
+          "direction": "-",
+          "magnitude": "high",
+          "rationale": "A credible nuclear agreement with robust verification would address Israel's primary existential concern about Iran. This would dramatically reduce the urgency and justification for military strikes, making diplomatic solutions the preferred path."
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0x2603d5576c488e4f2a4fa41677917044e796917b2ff251d639b635062fe6b068",
+      "ultimate_question": "Will Bitcoin reach $100,000 in January?",
+      "cruxes": [
+        {
+          "crux": "Will Bitcoin reach $75,000 by December 31, 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Reaching $75k would indicate strong momentum and put Bitcoin within striking distance of $100k, making January 2026 achievement much more likely. Failure to reach this level would suggest insufficient bullish pressure."
+        },
+        {
+          "crux": "Will the US approve a Bitcoin Strategic Reserve or similar federal Bitcoin accumulation program by end of 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Government adoption as a reserve asset would create massive institutional demand and legitimacy, likely triggering significant price appreciation and reducing regulatory uncertainty."
+        },
+        {
+          "crux": "Will Bitcoin experience a drawdown of 40% or more from its peak at any point in 2025?",
+          "direction": "-",
+          "magnitude": "medium",
+          "rationale": "A major correction would indicate market instability and could reset the price trajectory, making it harder to reach $100k by January 2026 even with subsequent recovery."
+        },
+        {
+          "crux": "Will total Bitcoin ETF assets under management exceed $200 billion by end of 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Massive ETF inflows would demonstrate sustained institutional and retail demand, creating supply pressure that typically drives significant price increases."
+        },
+        {
+          "crux": "Will any major economy (G7 or China) ban Bitcoin trading or impose severe restrictions in 2025?",
+          "direction": "-",
+          "magnitude": "high",
+          "rationale": "Major regulatory crackdowns would create selling pressure, reduce adoption pathways, and potentially trigger a bear market that would make $100k unlikely in the near term."
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0x542fb07feb00feddb87c1d9e93ebf439a692c6b12e81e935ef2a5cda7de70dfb",
+      "ultimate_question": "Will Bitcoin reach $105,000 in January?",
+      "cruxes": [
+        {
+          "crux": "Will Bitcoin reach $80,000 by December 31, 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Reaching $80k would indicate strong momentum and put Bitcoin within striking distance of $105k. The psychological and technical barriers would be largely overcome, making the final push more likely."
+        },
+        {
+          "crux": "Will the US approve a Bitcoin Strategic Reserve or similar federal Bitcoin accumulation program by end of 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Government adoption as a reserve asset would create massive institutional demand and legitimacy, potentially triggering a supply shock that could drive prices to new highs rapidly."
+        },
+        {
+          "crux": "Will Bitcoin ETF total assets under management exceed $200 billion by December 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Massive ETF inflows would indicate sustained institutional demand and reduce available supply on exchanges. Current ETF AUM is much lower, so this would represent significant new capital."
+        },
+        {
+          "crux": "Will there be a major global financial crisis or recession declared by major economies before January 2026?",
+          "direction": "-",
+          "magnitude": "medium",
+          "rationale": "A financial crisis would likely trigger risk-off sentiment initially, causing crypto selloffs and reducing speculative capital available for Bitcoin. However, longer-term effects could be positive if Bitcoin is seen as a hedge."
+        },
+        {
+          "crux": "Will any major central bank (Fed, ECB, BOJ, PBOC) implement new quantitative easing programs exceeding $1 trillion by end of 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Large-scale money printing would devalue fiat currencies and drive investors toward Bitcoin as an inflation hedge and store of value, increasing demand significantly."
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0x8929b01651f44fae2e7b5bd1832662099d81b5494450e1030a6b9b42ec61110f",
+      "ultimate_question": "Will Solana reach $150 in January?",
+      "cruxes": [
+        {
+          "crux": "Will Solana's network experience zero major outages (>4 hours) between now and January 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Network reliability is crucial for institutional adoption and price appreciation. Major outages would severely damage confidence and adoption momentum needed to reach $150."
+        },
+        {
+          "crux": "Will the SEC approve a Solana ETF by December 2024?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "ETF approval would create massive institutional demand and legitimacy, similar to Bitcoin ETF impact. This could be the primary catalyst driving SOL to $150+ levels."
+        },
+        {
+          "crux": "Will Bitcoin reach a new all-time high above $100,000 by December 2024?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Solana's price is highly correlated with Bitcoin and broader crypto market sentiment. A strong Bitcoin rally would likely lift all major altcoins including SOL toward higher price targets."
+        },
+        {
+          "crux": "Will Solana's total value locked (TVL) exceed $10 billion by December 2024?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "TVL growth indicates real ecosystem adoption and utility. Reaching $10B+ TVL would demonstrate strong fundamentals supporting higher token valuations and increased investor confidence."
+        },
+        {
+          "crux": "Will the US enter a recession (two consecutive quarters of negative GDP growth) by mid-2025?",
+          "direction": "-",
+          "magnitude": "high",
+          "rationale": "A recession would likely trigger risk-off sentiment, causing crypto markets to crash. This would make reaching $150 extremely unlikely as investors flee to safer assets."
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0x8de57c5c6cc39bb852bc85b469ef69ee2655ce5c9270af32b73a4c5ae80a5773",
+      "ultimate_question": "Will Ethereum reach $3,800 in January?",
+      "cruxes": [
+        {
+          "crux": "Will Ethereum ETFs see net inflows exceed $5 billion by December 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Massive institutional inflows would create sustained buying pressure and signal mainstream adoption, dramatically increasing likelihood of reaching $3,800"
+        },
+        {
+          "crux": "Will the Federal Reserve cut interest rates by at least 100 basis points by end of 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Lower rates drive capital into risk assets like crypto; current tight monetary policy is a major headwind for speculative investments"
+        },
+        {
+          "crux": "Will Bitcoin reach a new all-time high above $100,000 by December 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Bitcoin often leads crypto market cycles; a strong Bitcoin rally typically lifts Ethereum through correlation and increased overall crypto market confidence"
+        },
+        {
+          "crux": "Will Ethereum's daily transaction fees average below $5 for at least 30 consecutive days by end of 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Lower fees would dramatically improve user experience and adoption, addressing a key barrier to Ethereum's growth and utility"
+        },
+        {
+          "crux": "Will any major cryptocurrency exchange face bankruptcy or regulatory shutdown by end of 2025?",
+          "direction": "-",
+          "magnitude": "medium",
+          "rationale": "Another exchange collapse would severely damage crypto market confidence and likely trigger a prolonged bear market, making $3,800 highly unlikely"
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0x32b6c15ef4f4dd89abd048a4e01d97ba3c984d6097667d5b95c8fd4d9e77714c",
+      "ultimate_question": "Will Ethereum reach $3,600 in January?",
+      "cruxes": [
+        {
+          "crux": "Will Ethereum ETFs see net inflows exceeding $5 billion by December 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Massive institutional inflows would create sustained buying pressure and signal mainstream adoption, dramatically increasing likelihood of reaching $3,600"
+        },
+        {
+          "crux": "Will the Federal Reserve cut interest rates by at least 100 basis points total by end of 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Lower rates increase appetite for risk assets like crypto and reduce opportunity cost of holding non-yielding assets, boosting crypto prices broadly"
+        },
+        {
+          "crux": "Will Bitcoin reach a new all-time high above $100,000 by December 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Bitcoin breaking major psychological levels typically leads altcoins like ETH higher due to increased crypto market confidence and capital rotation"
+        },
+        {
+          "crux": "Will there be a major crypto exchange hack or regulatory crackdown affecting top-5 exchanges by volume before January 2026?",
+          "direction": "-",
+          "magnitude": "medium",
+          "rationale": "Major negative events create sustained selling pressure and reduce institutional confidence, making price appreciation much more difficult"
+        },
+        {
+          "crux": "Will Ethereum's daily transaction fees average above $10 for any full month in 2025?",
+          "direction": "-",
+          "magnitude": "low",
+          "rationale": "High fees indicate network congestion and poor user experience, potentially driving users to competitors and reducing ETH's value proposition"
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0x257b18205f908aef01ef2d1d50e6fea7d29cf5486fe04031d8b101394476faed",
+      "ultimate_question": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "cruxes": [
+        {
+          "crux": "Will US core PCE inflation be below 2.5% for at least 3 consecutive months between now and December 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Sustained low inflation would strongly signal the Fed has achieved its mandate and reduce pressure for rate changes, making a hold much more likely"
+        },
+        {
+          "crux": "Will the US unemployment rate rise above 4.5% at any point before February 2026?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Rising unemployment would shift Fed focus from inflation to employment, making them more likely to hold rates steady rather than risk further tightening"
+        },
+        {
+          "crux": "Will there be a US recession (two consecutive quarters of negative GDP growth) starting before Q4 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "A recession would dramatically change Fed priorities toward supporting growth rather than fighting inflation, making rate holds or cuts much more likely than hikes"
+        },
+        {
+          "crux": "Will the Fed funds rate be between 4.75% and 5.75% after the January 2026 FOMC meeting?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "If rates are in this 'neutral' range by January, the Fed would be less likely to make changes in March, as they'd be closer to their perceived long-run equilibrium rate"
+        },
+        {
+          "crux": "Will there be a major banking crisis or financial stability event requiring Fed intervention between now and February 2026?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Financial instability would force the Fed to prioritize stability over rate normalization, making them much more likely to hold rates steady to avoid market disruption"
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0xa0eafdfa7da17483796f77f4b287d28834ab97db4a9a6e999b52c1ba239bc2f3",
+      "ultimate_question": "Will the Seattle Seahawks win Super Bowl 2026?",
+      "cruxes": [
+        {
+          "crux": "Will Geno Smith remain the Seattle Seahawks starting quarterback for the entire 2025 regular season?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "QB stability is crucial for Super Bowl contention. Smith has shown competence but isn't elite - his continued presence suggests organizational confidence and avoids the disruption of QB changes that typically derail championship runs."
+        },
+        {
+          "crux": "Will the Seattle Seahawks win their division (NFC West) in the 2025 regular season?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Division winners get home playoff games and easier paths to the Super Bowl. The NFC West is highly competitive with strong teams like the 49ers and Rams, so winning it would signal the Seahawks are truly elite and dramatically improve their championship odds."
+        },
+        {
+          "crux": "Will the Seattle Seahawks finish the 2025 regular season with 12+ wins?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Teams with 12+ wins are typically legitimate Super Bowl contenders with strong rosters and coaching. This record would indicate the Seahawks have overcome their recent mediocrity and built a championship-caliber team."
+        },
+        {
+          "crux": "Will the San Francisco 49ers miss the 2025 NFL playoffs?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "The 49ers have been the dominant NFC West team and a perennial Super Bowl threat. Their absence from playoffs would significantly weaken the Seahawks' path through the NFC and remove a major obstacle to championship contention."
+        },
+        {
+          "crux": "Will the Seattle Seahawks acquire a Pro Bowl-level wide receiver or pass rusher via trade or free agency before the 2025 season?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Championship teams typically need elite talent at key skill positions. Adding a top-tier WR or pass rusher would address critical roster needs and signal the organization is making a serious championship push with the necessary talent investment."
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0x2b57ed983eb34b5e081fc8dcc1372d688963fd4d9c9018b8d2ba36867b26b236",
+      "ultimate_question": "Will the Los Angeles Rams win Super Bowl 2026?",
+      "cruxes": [
+        {
+          "crux": "Will Matthew Stafford be the Rams' starting quarterback for at least 12 games in the 2025 NFL season?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Stafford's health and performance are critical to the Rams' championship hopes. At 37, injury concerns or decline would significantly hurt their chances, while his continued strong play is essential for a deep playoff run."
+        },
+        {
+          "crux": "Will the Rams finish the 2025 regular season with 11 or more wins?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Regular season success strongly correlates with playoff seeding and Super Bowl probability. Teams with 11+ wins have much better championship odds due to playoff positioning and home field advantage."
+        },
+        {
+          "crux": "Will Aaron Donald play for the Rams in the 2025 NFL season?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Donald is arguably the most impactful defensive player in the NFL. His potential retirement or departure would devastate the Rams' defense and championship chances, while his return maintains their elite defensive foundation."
+        },
+        {
+          "crux": "Will Cooper Kupp play at least 14 games for the Rams in the 2025 season?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Kupp is Stafford's primary target and injury history is concerning. His health directly impacts the Rams' offensive ceiling and their ability to compete with elite teams in the playoffs."
+        },
+        {
+          "crux": "Will the Rams make any major free agent signings or trades worth $15+ million AAV before the 2025 season?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "The Rams' championship window requires aggressive roster building. Major acquisitions would signal commitment to competing and likely address key weaknesses, while lack of moves suggests resource constraints limiting their ceiling."
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0x281565cae359040475640be8bc20f4efe15245fe0251805fd338fb1a3e45ffae",
+      "ultimate_question": "Will Shai Gilgeous-Alexander win the 2025\u20132026 NBA MVP?",
+      "cruxes": [
+        {
+          "crux": "Will Shai Gilgeous-Alexander average at least 30 points per game in the 2025-2026 NBA regular season?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Scoring 30+ PPG is historically almost required for MVP consideration in the modern era. If SGA doesn't reach this threshold, his MVP chances drop significantly even with other strong stats."
+        },
+        {
+          "crux": "Will the Oklahoma City Thunder finish with a top-3 seed in the Western Conference for the 2025-2026 season?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Team success is crucial for MVP voting. MVPs almost always come from top seeds. If OKC falls below top-3 in the West, SGA's candidacy becomes much weaker regardless of individual performance."
+        },
+        {
+          "crux": "Will Luka Don\u010di\u0107 play at least 65 games in the 2025-2026 NBA regular season?",
+          "direction": "-",
+          "magnitude": "medium",
+          "rationale": "Luka is SGA's primary competition for MVP if healthy. His availability directly impacts SGA's chances - if Luka stays healthy and performs at his typical elite level, he's likely the favorite over SGA."
+        },
+        {
+          "crux": "Will Shai Gilgeous-Alexander suffer a significant injury (missing 15+ games) during the 2025-2026 season?",
+          "direction": "-",
+          "magnitude": "high",
+          "rationale": "Availability is fundamental for MVP consideration. Missing significant time would essentially eliminate SGA's chances, as voters heavily penalize missed games and narrative would shift to other candidates."
+        },
+        {
+          "crux": "Will any player average a triple-double with at least 25 PPG in the 2025-2026 NBA season?",
+          "direction": "-",
+          "magnitude": "medium",
+          "rationale": "A player posting triple-double numbers with strong scoring creates a compelling MVP narrative that often trumps pure scoring. This would likely come from players like Don\u010di\u0107, Joki\u0107, or others who could overshadow SGA's candidacy."
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0x7d83ff41dd492f5110cc8083e652f343fada80a2cd090e73cad3ccb1566b706a",
+      "ultimate_question": "Will Mike Vrabel win NFL Coach of the Year?",
+      "cruxes": [
+        {
+          "crux": "Will the New England Patriots finish with 10+ wins in the 2025 NFL regular season?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Coach of the Year heavily favors coaches who exceed expectations with strong records. Vrabel inheriting a rebuilding Patriots team and achieving 10+ wins would be the primary narrative for his candidacy."
+        },
+        {
+          "crux": "Will the New England Patriots make the NFL playoffs in the 2025 season?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Playoff berths are almost essential for Coach of the Year winners. The Patriots haven't made playoffs recently, so Vrabel leading them there would be a major turnaround story that voters love."
+        },
+        {
+          "crux": "Will Drake Maye throw for 3,500+ yards in the 2025 NFL season?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Vrabel's Coach of the Year case likely depends on developing the young quarterback successfully. Strong QB play under his guidance would demonstrate his coaching impact and team improvement."
+        },
+        {
+          "crux": "Will any AFC East team other than the Patriots win 12+ games in 2025?",
+          "direction": "-",
+          "magnitude": "medium",
+          "rationale": "Coach of the Year often goes to coaches who win tough divisions or exceed expectations relative to competition. A dominant Bills/Jets/Dolphins team would make Vrabel's accomplishments less impressive by comparison."
+        },
+        {
+          "crux": "Will Mike Vrabel miss 3+ games as Patriots head coach due to health issues in 2025?",
+          "direction": "-",
+          "magnitude": "low",
+          "rationale": "Coach availability is necessary for award consideration. Extended absence would hurt his candidacy and potentially impact team performance that drives the award case."
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0x890fc3ba40458db0b67560691aa1597344c2a0560d18e80f586a4b35f510b4ce",
+      "ultimate_question": "Will the US acquire part of Greenland in 2026?",
+      "cruxes": [
+        {
+          "crux": "Will Denmark officially agree to negotiate the sale or transfer of any part of Greenland to the US by end of 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Denmark's consent is absolutely essential since Greenland is an autonomous territory within the Kingdom of Denmark. Without Danish willingness to negotiate, acquisition is virtually impossible through legal means."
+        },
+        {
+          "crux": "Will the Greenlandic parliament (Inatsisartut) pass a resolution supporting negotiations for US acquisition of any part of Greenland by end of 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Greenland has significant autonomy and any transfer would require local political support. Parliamentary backing would be crucial for legitimizing and enabling such negotiations."
+        },
+        {
+          "crux": "Will the US Congress authorize funding exceeding $100 billion specifically for Greenland acquisition negotiations by end of 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "A credible acquisition would require massive financial commitment. Congressional authorization of substantial funds would signal serious US intent and provide the resources necessary for a realistic offer."
+        },
+        {
+          "crux": "Will China establish a permanent military or dual-use facility in Greenland by end of 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "A major Chinese military presence would dramatically increase US strategic incentives to acquire Greenland and could shift both US political will and Danish/Greenlandic receptiveness to US proposals."
+        },
+        {
+          "crux": "Will any major Greenlandic political party officially endorse US acquisition or integration by end of 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Local political support is essential for any legitimate transfer. A major party endorsement would indicate growing domestic acceptance and provide a political pathway for negotiations."
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0xa1f08ec3bcc1434cb0b695bd5ee9f81268ef45fb73f752b3a1c1fb1d35750866",
+      "ultimate_question": "Will Real Madrid win the 2025\u201326 La Liga?",
+      "cruxes": [
+        {
+          "crux": "Will Kylian Mbapp\u00e9 score 25+ goals in La Liga during the 2025-26 season?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Mbapp\u00e9's goal production will be crucial for Real Madrid's title chances. If he hits 25+ goals, it indicates he's fully adapted and firing on all cylinders, dramatically improving their offensive output and title odds."
+        },
+        {
+          "crux": "Will Barcelona finish in the top 2 of La Liga in the 2025-26 season?",
+          "direction": "-",
+          "magnitude": "high",
+          "rationale": "Barcelona is Real Madrid's primary title rival. If they secure a top 2 finish, it likely means they're directly competing with Madrid for the title, significantly reducing Madrid's chances of winning."
+        },
+        {
+          "crux": "Will Real Madrid sign a world-class midfielder (valued at \u20ac50M+) before the 2025-26 season starts?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Madrid's midfield has been aging with Modri\u0107 and Kroos departing. A major midfield signing would address a key weakness and significantly strengthen their squad depth and quality for a title challenge."
+        },
+        {
+          "crux": "Will Real Madrid's injury list include 3+ key players (regular starters) for more than 6 weeks during the 2025-26 season?",
+          "direction": "-",
+          "magnitude": "medium",
+          "rationale": "Extended injuries to multiple key players would severely hamper Madrid's consistency and depth, making it much harder to maintain the form needed across a full La Liga campaign."
+        },
+        {
+          "crux": "Will Carlo Ancelotti still be Real Madrid's manager at the start of the 2025-26 La Liga season?",
+          "direction": "+",
+          "magnitude": "low",
+          "rationale": "Ancelotti has proven success with Madrid and knows the squad well. A managerial change would bring uncertainty and potential tactical disruption, while continuity with Ancelotti provides stability for a title push."
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0xf8f63bb47b2a7c2e0c1be3cedf4075079b11c07476d76a9469065b0c4791961a",
+      "ultimate_question": "Will the Colorado Avalanche win the 2026 NHL Stanley Cup?",
+      "cruxes": [
+        {
+          "crux": "Will Nathan MacKinnon remain healthy and play at least 70 games in the 2025-26 NHL season?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "MacKinnon is the Avalanche's superstar center and Hart Trophy winner. His health and performance are critical to their championship chances, as elite centers are essential for Cup runs."
+        },
+        {
+          "crux": "Will the Colorado Avalanche finish in the top 3 of the Central Division in the 2025-26 regular season?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Regular season performance strongly correlates with playoff success. A top-3 divisional finish indicates the team has the depth and consistency needed for a deep playoff run."
+        },
+        {
+          "crux": "Will Cale Makar avoid any major injuries (missing >20 games) through the end of the 2025-26 season?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Makar is arguably the best defenseman in the NHL and a Norris Trophy winner. Elite defensemen are crucial for Cup wins, controlling both ends of the ice and power play success."
+        },
+        {
+          "crux": "Will the Colorado Avalanche acquire a top-6 forward or top-4 defenseman via trade before the 2026 trade deadline?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Championship teams typically make key acquisitions before the playoffs. Adding elite talent addresses depth concerns and signals organizational commitment to winning."
+        },
+        {
+          "crux": "Will Alexandar Georgiev or another Avalanche goaltender post a save percentage above .915 in the 2025-26 regular season?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Goaltending has been Colorado's weakness in recent years. Consistent elite goaltending (.915+ save percentage) is historically necessary for Stanley Cup victories."
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0x170e907f54cd05c3f181067798610feb95f590d5d4be2bdda699c83249e2666e",
+      "ultimate_question": "Opinion FDV above $1B one day after launch?",
+      "cruxes": [
+        {
+          "crux": "Does Opinion successfully launch its mainnet by December 31, 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Launch timing is critical - launching earlier gives more time to build momentum and reach $1B FDV. A delay into 2026 significantly reduces the window for achieving this milestone."
+        },
+        {
+          "crux": "Does Opinion secure partnerships with at least 3 major social media platforms or content creators with >10M followers before launch?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "High-profile partnerships would drive massive initial adoption and media attention, creating the user base and hype necessary for a $1B+ valuation on day one."
+        },
+        {
+          "crux": "Does the overall crypto market cap exceed $4 trillion at any point in 2025 or 2026?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "A strong bull market creates conditions where new tokens can achieve massive valuations quickly. Market euphoria is often necessary for $1B+ day-one valuations."
+        },
+        {
+          "crux": "Does Opinion raise at least $50M in funding from tier-1 VCs (a16z, Paradigm, Sequoia, etc.) before launch?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Top-tier VC backing provides credibility, resources for marketing, and often leads to higher launch valuations. It also signals institutional confidence in the project."
+        },
+        {
+          "crux": "Do regulators in the US or EU implement new restrictions specifically targeting social media tokens or opinion-based cryptocurrencies before Opinion's launch?",
+          "direction": "-",
+          "magnitude": "medium",
+          "rationale": "Regulatory crackdowns on this specific category would create uncertainty and reduce institutional and retail interest, making a $1B valuation much harder to achieve."
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0x70187b4770796788b9d1f3fc6652c596870a9a837b96c832441652588f26029d",
+      "ultimate_question": "Will Mar\u00eda Corina Machado be the leader of Venezuela end of 2026?",
+      "cruxes": [
+        {
+          "crux": "Will Nicol\u00e1s Maduro cease to be Venezuela's president before end of 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Maduro's removal is a necessary prerequisite for Machado to assume leadership. His departure would fundamentally change the political landscape and dramatically increase her chances."
+        },
+        {
+          "crux": "Will Mar\u00eda Corina Machado be arrested or imprisoned by Venezuelan authorities before end of 2025?",
+          "direction": "-",
+          "magnitude": "high",
+          "rationale": "Imprisonment would effectively eliminate her ability to lead politically and signal intensified government repression against the opposition."
+        },
+        {
+          "crux": "Will Venezuela experience widespread civil unrest or mass protests lasting more than 30 consecutive days before end of 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Sustained mass mobilization would indicate serious regime instability and could create conditions for political transition that might bring Machado to power."
+        },
+        {
+          "crux": "Will the United States impose comprehensive sanctions on Venezuela's oil sector that remain in effect through 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Sustained economic pressure could weaken Maduro's regime and international isolation might force political changes that benefit opposition leaders like Machado."
+        },
+        {
+          "crux": "Will Venezuela's military leadership publicly break with Maduro's government before end of 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Military defection is historically crucial for regime change in Venezuela. Without military support, Maduro's hold on power becomes untenable, opening space for opposition leadership."
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0x569d909807a5d032aac3cbb3971c503f72552bb49378636fc2812820158c7a64",
+      "ultimate_question": "Nothing Ever Happens: Khamenei",
+      "cruxes": [
+        {
+          "crux": "Will Khamenei make any public appearances or statements between now and end of 2024?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Extended absence from public view would signal serious health decline and increase probability of succession scenario, while continued appearances suggest stability"
+        },
+        {
+          "crux": "Will there be credible reports of Khamenei being hospitalized or receiving intensive medical treatment by mid-2025?",
+          "direction": "-",
+          "magnitude": "high",
+          "rationale": "Serious medical episodes would dramatically increase likelihood of death or incapacitation, making succession inevitable and contradicting 'nothing happens'"
+        },
+        {
+          "crux": "Will the Assembly of Experts hold any extraordinary or unscheduled meetings before end of 2025?",
+          "direction": "-",
+          "magnitude": "medium",
+          "rationale": "Unscheduled meetings of the body responsible for selecting the Supreme Leader would indicate succession planning is actively underway"
+        },
+        {
+          "crux": "Will any major Iranian political figures publicly discuss or hint at Supreme Leader succession before 2026?",
+          "direction": "-",
+          "magnitude": "medium",
+          "rationale": "Open discussion of succession would signal elite consensus that transition is imminent, breaking the typical taboo around the topic"
+        },
+        {
+          "crux": "Will Khamenei turn 87 years old (in April 2026) while still serving as Supreme Leader?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Reaching this advanced age while maintaining power would strongly indicate he will complete the forecast period, as the final month would remain"
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0xdc058561e320700e0d41143add9c2033c081a5f44452c4eaf415f58c3d417c28",
+      "ultimate_question": "Fogo FDV above $500M one day after launch?",
+      "cruxes": [
+        {
+          "crux": "Does Fogo launch with backing from a top-tier crypto VC (a16z, Paradigm, Sequoia, etc.)?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Top-tier VC backing signals legitimacy, provides marketing resources, and attracts institutional investors who drive higher valuations at launch"
+        },
+        {
+          "crux": "Does Fogo's token launch occur during a crypto bull market (Bitcoin >$80k)?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Bull market conditions dramatically increase retail participation and speculative demand, leading to higher FDVs across all token launches"
+        },
+        {
+          "crux": "Does Fogo secure partnerships with at least 3 major DeFi protocols before launch?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Strategic partnerships indicate real utility and adoption potential, reducing perceived risk and increasing institutional interest in the token"
+        },
+        {
+          "crux": "Does Fogo's total addressable market exceed $10B based on pre-launch metrics?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Large TAM justifies higher valuations as investors price in growth potential, especially important for reaching $500M+ FDV threshold"
+        },
+        {
+          "crux": "Does a major crypto exchange (Binance, Coinbase, OKX) confirm Fogo listing before launch?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Major exchange listings provide liquidity and accessibility to retail investors, often triggering significant price appreciation and higher sustained valuations"
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0x139ba0e7f931f09466c0fb27fc8ddb5e77ce9d1e2bdc953a5f22765bf779452f",
+      "ultimate_question": "SCOTUS accepts sports event contract case by July 31, 2026?     ",
+      "cruxes": [
+        {
+          "crux": "Will a federal circuit court rule on a sports event contract case involving constitutional or federal law issues by December 31, 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "SCOTUS primarily takes cases from circuit courts. A relevant circuit ruling creates the necessary predicate case and increases the pool of potential cases for review."
+        },
+        {
+          "crux": "Will there be a circuit split on sports contract law interpretation involving federal issues by June 30, 2026?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Circuit splits are one of the strongest predictors of SCOTUS cert grants, as the Court prioritizes resolving conflicts between circuits on federal law."
+        },
+        {
+          "crux": "Will any major sports league (NFL, NBA, MLB, NHL) be a party to federal litigation involving contract disputes by December 31, 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "High-profile cases involving major leagues are more likely to generate the type of significant legal questions that attract SCOTUS attention and have broader national implications."
+        },
+        {
+          "crux": "Will SCOTUS accept more than 65 cases total for its 2025-2026 term by June 30, 2026?",
+          "direction": "+",
+          "magnitude": "low",
+          "rationale": "SCOTUS has been taking fewer cases in recent years. A higher overall acceptance rate would indicate greater willingness to hear cases, including niche areas like sports contracts."
+        },
+        {
+          "crux": "Will any sports event contract case raise questions about interstate commerce or antitrust law by March 31, 2026?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Cases touching on constitutional commerce clause issues or federal antitrust law are more likely to meet SCOTUS's criteria for national importance and federal question jurisdiction."
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0x797d586ad45522306490b0cc9b2f21bdf957f3843476fae99f3bcc2cec83b74b",
+      "ultimate_question": "US strikes Iran by June 30, 2026?",
+      "cruxes": [
+        {
+          "crux": "Does Iran acquire or test a nuclear weapon by December 31, 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Iranian nuclear weaponization would be the most likely trigger for US military action, representing an existential threat to Israel and regional stability that the US has repeatedly stated is unacceptable"
+        },
+        {
+          "crux": "Does Iran directly attack Israeli territory causing >50 casualties by December 31, 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "A major Iranian attack on Israel would likely trigger massive Israeli retaliation and potentially draw in US forces, especially if Israel requests assistance or Iran escalates further against US allies"
+        },
+        {
+          "crux": "Does Donald Trump win the 2024 US presidential election?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Trump has historically taken a more aggressive stance toward Iran, withdrew from the JCPOA, and authorized the Soleimani assassination, making military action more likely under his leadership"
+        },
+        {
+          "crux": "Does Iran successfully close the Strait of Hormuz for >48 hours by May 31, 2026?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Closing this critical oil transit route would constitute an act of war against global commerce that the US has explicitly stated it would not tolerate, likely triggering immediate military response"
+        },
+        {
+          "crux": "Does Israel launch airstrikes against Iranian nuclear facilities by December 31, 2025?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "An Israeli preemptive strike would likely provoke Iranian retaliation against US assets in the region and potentially escalate into broader conflict requiring US military involvement"
+        }
+      ],
+      "error": null
+    },
+    {
+      "ultimate_id": "0x9352c559e9648ab4cab236087b64ca85c5b7123a4c7d9d7d4efde4a39c18056f",
+      "ultimate_question": "Will the Iranian regime fall by June 30?",
+      "cruxes": [
+        {
+          "crux": "Will Iran experience sustained nationwide protests with over 1 million participants by December 2025?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "Mass sustained protests are typically a prerequisite for regime change in authoritarian systems. The scale and persistence would indicate widespread popular mobilization and potential breakdown of state control."
+        },
+        {
+          "crux": "Will Iran's economy contract by more than 15% in any 12-month period before June 2026?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Severe economic collapse often precipitates regime instability by eroding state capacity, reducing security apparatus loyalty, and increasing popular grievances. A 15%+ contraction would represent catastrophic economic failure."
+        },
+        {
+          "crux": "Will a significant faction of Iran's Revolutionary Guard Corps publicly defect or refuse orders by June 2026?",
+          "direction": "+",
+          "magnitude": "high",
+          "rationale": "The IRGC is the regime's primary pillar of support and coercive apparatus. Military/security defections are critical for successful regime change, as they signal elite fracturing and reduce the state's ability to suppress opposition."
+        },
+        {
+          "crux": "Will Iran engage in direct military conflict with Israel or the US lasting more than 30 days before June 2026?",
+          "direction": "-",
+          "magnitude": "medium",
+          "rationale": "Extended external conflict typically strengthens authoritarian regimes through rally-around-the-flag effects, justifies repression, and redirects domestic grievances toward foreign enemies, reducing likelihood of regime change."
+        },
+        {
+          "crux": "Will Supreme Leader Khamenei die or become incapacitated before June 2026?",
+          "direction": "+",
+          "magnitude": "medium",
+          "rationale": "Succession crises in personalized authoritarian regimes often create windows of vulnerability through elite power struggles, institutional uncertainty, and potential legitimacy gaps that opposition movements can exploit."
+        }
+      ],
+      "error": null
+    }
+  ]
+}

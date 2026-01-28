@@ -58,6 +58,10 @@ class Market(BaseModel):
     # Platform-specific IDs for price history
     clob_token_ids: list[str] | None = None  # Polymarket CLOB token IDs
 
+    # Categories (primarily for Metaculus)
+    topic_categories: list[str] | None = None  # e.g., ["Politics", "Geopolitics"]
+    tournament_categories: list[str] | None = None  # e.g., ["AI Forecasting Benchmark Tournament"]
+
     # Timestamps for cache management
     fetched_at: datetime = Field(default_factory=_utc_now)
 
@@ -91,3 +95,27 @@ class PricePoint(BaseModel):
     platform: str
     timestamp: datetime
     price: float  # Probability 0-1
+
+
+class MarketMatch(BaseModel):
+    """Result of matching a question to a market."""
+
+    model_config = ConfigDict(frozen=True)
+
+    market: Market
+    match_confidence: float = Field(ge=0.0, le=1.0)
+    match_method: str  # "keyword", "llm_rerank", "exact"
+
+
+class MarketValidation(BaseModel):
+    """Validation result comparing computed probability to market price."""
+
+    model_config = ConfigDict(frozen=True)
+
+    platform: str
+    matched_question: str
+    market_price: float = Field(ge=0.0, le=1.0)
+    gap_pp: float  # Gap in percentage points (computed - market) * 100
+    status: str  # "OK" | "WARNING - gap >5pp" | "REVIEW - gap >15pp"
+    url: str | None = None
+    match_confidence: float = Field(ge=0.0, le=1.0)

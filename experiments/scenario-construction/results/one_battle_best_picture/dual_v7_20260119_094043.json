@@ -1,0 +1,620 @@
+{
+  "id": "dual_one_battle_best_picture_34f747e4",
+  "name": "one_battle_best_picture (dual)",
+  "target": "one_battle_best_picture",
+  "approach": "dual_v7",
+  "question": {
+    "id": "one_battle_best_picture_2026",
+    "source": "scenario_construction",
+    "text": "Will One Battle After Another win Best Picture at the 98th Academy Awards?",
+    "question_type": "binary",
+    "unit": null,
+    "base_rate": null,
+    "value_range": null
+  },
+  "config": {
+    "context": "\"One Battle After Another\" (2025) is written, co-produced, and directed by Paul Thomas Anderson.\nIt is loosely based on and inspired by the 1990 novel Vineland by Thomas Pynchon.\nIt is the Critics Choice BP winner, 4 Golden Globes (incl. BP Musical/Comedy), record 7 SAG noms.\nNominations announced Jan 22, 2026. Ceremony March 15, 2026.\nKey competitors: Sinners, Marty Supreme, Hamnet, Frankenstein.",
+    "cruxiness_normalizer": 0.3,
+    "voi_floor": 0.1,
+    "match_threshold": 0.6,
+    "n_uncertainties": 3
+  },
+  "current_date": "2026-01-19",
+  "signals": [
+    {
+      "id": "llm_63d26591",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Will 'One Battle After Another' maintain betting odds of 5-to-1 or better to win Best Picture on at least 3 major sportsbooks by February 1, 2026?",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:40:43.327681Z",
+      "resolution_date": "2026-02-01",
+      "resolved": false,
+      "base_rate": 0.35,
+      "voi": 0.42447627666636245,
+      "rho": -0.7,
+      "rho_reasoning": "Direction: If 'One Battle After Another' maintains 5-to-1 or better betting odds to win Best Picture, that suggests it is a strong contender for the award. However, this would make it a competitor to other films, making it less likely that 'One Battle After Another' will actually win Best Picture. The success of a competitor typically makes your own success less likely. | Magnitude: The maintenance of favorable betting odds for 'One Battle After Another' to win Best Picture suggests strong industry and media confidence in the film's awards prospects, which would make it a major factor in determining whether it actually wins the Oscar.",
+      "uncertainty_source": "Critical Reception Sustainability",
+      "p_target_given_yes": 0.02303039929152714,
+      "p_target_given_no": 0.7568297849968699,
+      "cruxiness_spread": 0.7337993857053428
+    },
+    {
+      "id": "llm_f7dcac45",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Will 'Frankenstein' receive more Oscar nominations than 'One Battle After Another' when announced on January 17, 2026?",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:40:43.327696Z",
+      "resolution_date": "2026-01-20",
+      "resolved": false,
+      "base_rate": 0.4,
+      "voi": 0.40194904193222347,
+      "rho": -0.7,
+      "rho_reasoning": "Direction: If 'Frankenstein' receives more Oscar nominations than 'One Battle After Another', it suggests that 'Frankenstein' is a stronger and more widely acclaimed film, which would make it less likely for 'One Battle After Another' to win Best Picture at the 98th Academy Awards. | Magnitude: If 'Frankenstein' receives more Oscar nominations than 'One Battle After Another', it suggests that 'Frankenstein' is seen as a more critically acclaimed and awards-worthy film. This would likely reduce the chances of 'One Battle After Another' winning Best Picture, as the Academy tends to favor films that have received significant critical acclaim and industry recognition.",
+      "uncertainty_source": "Competitor Film Strength",
+      "p_target_given_yes": 0.07133929501294392,
+      "p_target_given_no": 0.785773803324704,
+      "cruxiness_spread": 0.7144345083117601
+    },
+    {
+      "id": "0xa15eb6144875ec22c24b18c6f34e0ce2d5783765f740de9a4ac0e8fdb10fa832",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will Marty Supreme be nominated for Best Picture at the 98th Academy Awards?",
+      "url": "https://polymarket.com/market/will-marty-supreme-be-nominated-for-best-picture-at-the-98th-academy-awards",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:40:43.327703Z",
+      "resolution_date": "2026-01-22",
+      "resolved": false,
+      "base_rate": 0.9935,
+      "voi": 0.3901596952835995,
+      "rho": -0.7,
+      "rho_reasoning": "Direction: If Marty Supreme is nominated for Best Picture, that means it is a competitor to One Battle After Another for the Best Picture award. Typically, the success of one competitor makes the success of another less likely, due to the negative correlation between them. | Magnitude: If Marty Supreme is nominated for Best Picture at the 98th Academy Awards, it would likely indicate that the Academy is recognizing more adventurous and unconventional films that year. This would make it less likely for a more traditional, formulaic film like One Battle After Another to win Best Picture, as the Academy may be gravitating towards more innovative and boundary-pushing works. Therefore, the nomination of Marty Supreme has a strong relationship and would be a major factor in reducing the likelihood of One Battle After Another winning Best Picture.",
+      "uncertainty_source": "Competitor Film Strength",
+      "p_target_given_yes": 0.15000000000000002,
+      "p_target_given_no": 0.85,
+      "cruxiness_spread": 0.7,
+      "probability_source": "fresh",
+      "probability_at": "2026-01-19T17:40:06.170406Z"
+    },
+    {
+      "id": "llm_96b9f766",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Will One Battle After Another win the Producers Guild Award for Best Picture by January 26, 2026?",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:40:43.327709Z",
+      "resolution_date": "2026-01-26",
+      "resolved": false,
+      "base_rate": 0.25,
+      "voi": 0.291079840485155,
+      "rho": -0.6,
+      "rho_reasoning": "Direction: If 'One Battle After Another' wins the Producers Guild Award for Best Picture, it would indicate that the film is a strong contender for awards season. However, this would make it less likely to win the Best Picture Oscar at the 98th Academy Awards, as the Academy Awards are typically competitive with other major awards shows. The Producers Guild Award is seen as a key precursor to the Academy Awards, so a win there would make 'One Battle After Another' a frontrunner, but not necessarily the ultimate winner at the Oscars. | Magnitude: If 'One Battle After Another' wins the Producers Guild Award for Best Picture, it would significantly increase the likelihood of it also winning Best Picture at the Academy Awards. The Producers Guild Award is seen as a strong predictor of the Academy Award for Best Picture, as the producers play a key role in both awards. However, it is not a perfect correlation, as other factors can still influence the Academy's decision.",
+      "uncertainty_source": "Academy Voting Preferences",
+      "p_target_given_yes": 0.01,
+      "p_target_given_no": 0.6666666666666666,
+      "cruxiness_spread": 0.6566666666666666
+    },
+    {
+      "id": "17548",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will Waltine Nauta receive a more severe sentence than Donald Trump in \"United States v. Donald J. Trump and Waltine Nauta\"?",
+      "url": "https://www.metaculus.com/questions/17548/nauta-more-severe-sentence-than-trump/",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:40:43.327712Z",
+      "resolution_date": "2026-01-20",
+      "resolved": false,
+      "base_rate": 0.432450570974278,
+      "voi": 0.2800810100764307,
+      "rho": -0.6,
+      "rho_reasoning": "Direction: If Waltine Nauta receives a more severe sentence than Donald Trump, it would suggest that the legal case against Trump and his associates is stronger, which could overshadow or distract from the awards season for the film 'One Battle After Another'. This could make it less likely for the film to win Best Picture at the Academy Awards. | Magnitude: If Waltine Nauta receives a more severe sentence than Donald Trump, it would likely indicate that the legal system is taking a stronger stance against the individuals involved in the alleged wrongdoing. This could potentially undermine public confidence in the Academy's decision-making process, making it less likely that a film like 'One Battle After Another' would be awarded Best Picture, as the Academy may want to avoid further controversy.",
+      "p_target_given_yes": 0.156319522689515,
+      "p_target_given_no": 0.7618711446873747,
+      "cruxiness_spread": 0.6055516219978597
+    },
+    {
+      "id": "llm_242225cc",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Will any of the four main competitors (Sinners, Marty Supreme, Hamnet, Frankenstein) achieve a Rotten Tomatoes critics score above 95% by January 31, 2026?",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:40:43.327715Z",
+      "resolution_date": "2026-02-01",
+      "resolved": false,
+      "base_rate": 0.3,
+      "voi": 0.19793246075084447,
+      "rho": -0.5,
+      "rho_reasoning": "Direction: If any of the four main competitors achieve a high Rotten Tomatoes critics score, it would suggest they are strong contenders for critical acclaim and awards consideration, which would likely make it less likely for 'One Battle After Another' to win Best Picture at the 98th Academy Awards. | Magnitude: While a high critical reception for one of the main competitors could impact the awards season buzz and momentum for One Battle After Another, it is not a guaranteed determinant of the Best Picture winner. There are many other factors, such as industry support, box office performance, and overall awards season trajectory, that would also play a significant role in determining the Best Picture winner. Therefore, the relationship between the two questions is assessed as moderately strong.",
+      "uncertainty_source": "Competitor Film Strength",
+      "p_target_given_yes": 0.11811869208701332,
+      "p_target_given_no": 0.6636634176769943,
+      "cruxiness_spread": 0.545544725589981
+    },
+    {
+      "id": "llm_04520b18",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Will 'One Battle After Another' maintain a Metacritic score of 85 or higher through January 31, 2026?",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:40:43.327717Z",
+      "resolution_date": "2026-01-31",
+      "resolved": false,
+      "base_rate": 0.7,
+      "voi": 0.19793246075084436,
+      "rho": -0.5,
+      "rho_reasoning": "Direction: If 'One Battle After Another' maintains a high Metacritic score through January 2026, it suggests the film is well-received and critically acclaimed, which could make it a stronger contender for Best Picture at the Academy Awards. However, this would also mean it has fewer 'competitors' for the award, making it less likely to win over other potential Best Picture contenders. | Magnitude: Achieving a high Metacritic score is a positive indicator for a film's critical reception, which can help build momentum and buzz leading up to the Academy Awards. However, it is not a guarantee of winning Best Picture, as there are many other factors that the Academy considers. A high Metacritic score would make a film more likely to be nominated, but winning Best Picture would still depend on many other elements, such as the overall strength of the competition, the film's campaign and marketing, and the Academy voters' preferences. Therefore, the relationship between a high Metacritic score and winning Best Picture is moderate, as it is a meaningful but not a dominant factor in the outcome.",
+      "uncertainty_source": "Critical Reception Sustainability",
+      "p_target_given_yes": 0.3363365823230057,
+      "p_target_given_no": 0.8818813079129867,
+      "cruxiness_spread": 0.545544725589981
+    },
+    {
+      "id": "llm_baa83d71",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Will any competitor film achieve both a CinemaScore of A+ and gross over $100 million domestic by January 31, 2026?",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:40:43.327719Z",
+      "resolution_date": "2026-02-01",
+      "resolved": false,
+      "base_rate": 0.2,
+      "voi": 0.12944040571840887,
+      "rho": -0.4,
+      "rho_reasoning": "Direction: If another film achieves both a CinemaScore of A+ and grosses over $100 million domestically by January 31, 2026, it would suggest that it is a strong competitor to 'One Battle After Another' for the Best Picture award at the 98th Academy Awards. The success of a competitor typically makes the success of the target film less likely. | Magnitude: While a CinemaScore of A+ and a domestic gross over $100 million could be a strong indicator of critical and commercial success, it does not necessarily mean the film will win Best Picture at the Academy Awards. Many other factors like artistic merit, industry politics, and voting patterns of Academy members would also play a role. Therefore, the relationship between these two factors is moderate, with the success of B not being a dominant factor in determining the outcome of A.",
+      "uncertainty_source": "Competitor Film Strength",
+      "p_target_given_yes": 0.09999999999999995,
+      "p_target_given_no": 0.6,
+      "cruxiness_spread": 0.5
+    },
+    {
+      "id": "llm_a5dedb98",
+      "source": "llm",
+      "source_type": "market",
+      "text": "Will 'Sinners' receive more than 8 Oscar nominations when announced on January 17, 2026?",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:40:43.327721Z",
+      "resolution_date": "2026-01-20",
+      "resolved": false,
+      "base_rate": 0.25,
+      "voi": 0.06747244748203629,
+      "rho": -0.3,
+      "rho_reasoning": "Direction: If 'Sinners' receives more than 8 Oscar nominations, it would likely be a competitor to 'One Battle After Another' for Best Picture, and its success would make 'One Battle After Another' less likely to win Best Picture at the 98th Academy Awards. | Magnitude: The fact that 'Sinners' receives more than 8 Oscar nominations does not directly preclude 'One Battle After Another' from winning Best Picture, but it could indicate a general trend in the industry that makes 'One Battle After Another' less likely to win. The relationship between the two events is moderate, as the success of 'Sinners' is not a dominant factor in determining the Best Picture winner, but it could be a meaningful influence.",
+      "uncertainty_source": "Competitor Film Strength",
+      "p_target_given_yes": 0.24019237886466843,
+      "p_target_given_no": 0.5866025403784438,
+      "cruxiness_spread": 0.3464101615137754
+    },
+    {
+      "id": "0xcd14407814c97e5fa5684e4154a63be045c048365a8b12acab3f20bc9286d3a7",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will Anxiety (Doechii) win Record of the Year at the 68th Annual GRAMMY Awards?",
+      "url": "https://polymarket.com/market/will-anxiety-doechii-win-record-of-the-year-at-the-68th-annual-grammy-awards",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:40:43.327725Z",
+      "resolution_date": "2026-02-01",
+      "resolved": false,
+      "base_rate": 0.019,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "Direction: The success of the song 'Anxiety' (Doechii) at the Grammy Awards is unlikely to have any direct causal relationship with whether the film 'One Battle After Another' will win Best Picture at the Academy Awards. The Grammys and the Oscars are separate awards ceremonies honoring different categories of artistic achievement, so the outcomes are largely independent of each other.",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0,
+      "probability_source": "fresh",
+      "probability_at": "2026-01-19T17:40:06.432568Z"
+    },
+    {
+      "id": "0xd7eb91f40afa0a2a8e402a2029d10e3669e4c99927e804a1aa6dac7f36a7f154",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will Ella Langley win Best New Artist at the 68th Annual GRAMMY Awards?",
+      "url": "https://polymarket.com/market/will-ella-langley-win-best-new-artist-at-the-68th-annual-grammy-awards",
+      "question_type": "binary",
+      "created_at": "2026-01-19T17:40:43.327727Z",
+      "resolution_date": "2026-02-01",
+      "resolved": false,
+      "base_rate": 0.0,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "Direction: The success of Ella Langley winning Best New Artist at the GRAMMY Awards (Question B) is unlikely to have a causal relationship with the film 'One Battle After Another' winning Best Picture at the Academy Awards (Question A). These are two separate and independent awards in different domains (music and film), so the outcomes are not directly connected.",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0,
+      "probability_source": "fresh",
+      "probability_at": "2026-01-19T17:40:06.599827Z"
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "OBA Dominates",
+      "description": "One Battle After Another maintains strong momentum from early awards season success, translating Critics Choice and Golden Globe wins into Oscar dominance. Strong betting odds, PGA win, and excellent critical reception create an unstoppable narrative that competitors cannot match.",
+      "scenario_probability": 0.15,
+      "key_drivers": [
+        "Strong awards momentum from early wins",
+        "Favorable betting markets and industry sentiment",
+        "Sustained critical acclaim",
+        "PGA Award victory",
+        "Weak competition performance"
+      ],
+      "why_exclusive": "Cannot co-occur with scenarios where OBA loses momentum, faces strong competition, or has mixed reception - this represents peak performance across all metrics.",
+      "signal_impacts": [
+        {
+          "signal_index": 0,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 3,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 6,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 1,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 5,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 7,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Betting odds": "3-to-1 or better on major books",
+        "PGA Award": "OBA wins Best Picture",
+        "Critical score": "Metacritic 88+",
+        "Competition strength": "No competitor above 95% RT",
+        "Box office competition": "No A+ $100M+ competitor"
+      },
+      "probability_range": "75-85% YES",
+      "probability_low": 0.75,
+      "probability_high": 0.85
+    },
+    {
+      "name": "Competitive Race",
+      "description": "One Battle After Another remains a strong contender but faces serious competition from multiple well-performing films. The race becomes genuinely competitive with no clear frontrunner, leading to uncertainty and split voter sentiment.",
+      "scenario_probability": 0.5,
+      "key_drivers": [
+        "Multiple strong Best Picture contenders",
+        "Mixed signals from precursor awards",
+        "Moderate but not dominant critical reception",
+        "Competitive betting markets",
+        "Strong performances from key competitors"
+      ],
+      "why_exclusive": "Cannot co-occur with clear dominance or clear defeat scenarios - represents the middle ground where competition is balanced and outcome uncertain.",
+      "signal_impacts": [
+        {
+          "signal_index": 2,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 1,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 5,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 6,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 0,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 7,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Nomination count": "OBA tied or trailing top competitor by 1-2 noms",
+        "Betting position": "5-to-1 to 8-to-1 odds range",
+        "Critical reception": "Metacritic 82-87",
+        "Competition level": "2-3 films with strong metrics",
+        "PGA outcome": "OBA loses PGA but remains viable"
+      },
+      "probability_range": "35-55% YES",
+      "probability_low": 0.35,
+      "probability_high": 0.55
+    },
+    {
+      "name": "Competitor Surge",
+      "description": "Strong competition emerges as one or more rivals (particularly Frankenstein, Marty Supreme, or others) achieve exceptional critical and commercial success. OBA's early momentum is overshadowed by late-breaking competitor strength and changing industry sentiment.",
+      "scenario_probability": 0.3,
+      "key_drivers": [
+        "Exceptional competitor performance in critics/box office",
+        "OBA loses major precursor awards",
+        "Shifting betting markets against OBA",
+        "Strong late-season competitor momentum",
+        "OBA's critical reception plateaus or declines"
+      ],
+      "why_exclusive": "Cannot co-occur with OBA dominance or even competitive balance - represents a world where competitors clearly outperform OBA across key metrics.",
+      "signal_impacts": [
+        {
+          "signal_index": 1,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 5,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 7,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 0,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 3,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 6,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Nomination deficit": "OBA trails Frankenstein by 3+ nominations",
+        "Betting position": "10-to-1 or worse odds",
+        "Competitor performance": "At least one rival hits 95%+ RT",
+        "Commercial competition": "Rival achieves A+ and $100M+",
+        "Precursor losses": "OBA loses PGA and other key awards"
+      },
+      "probability_range": "15-30% YES",
+      "probability_low": 0.15,
+      "probability_high": 0.3
+    },
+    {
+      "name": "OBA Collapse",
+      "description": "One Battle After Another's early promise fails to materialize as critical reception sours, betting markets turn decisively against it, and competitors consistently outperform across all metrics. What seemed like early momentum proves to be a mirage.",
+      "scenario_probability": 0.05,
+      "key_drivers": [
+        "Dramatic decline in critical reception",
+        "Poor performance in all precursor awards",
+        "Betting markets heavily favor competitors",
+        "Multiple competitors achieve exceptional metrics",
+        "OBA fails to maintain industry support"
+      ],
+      "why_exclusive": "Cannot co-occur with any scenario showing OBA strength or even competitiveness - represents complete failure to convert early promise into sustained success.",
+      "signal_impacts": [
+        {
+          "signal_index": 1,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 5,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 7,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 0,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 3,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 6,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Betting collapse": "15-to-1 or worse odds",
+        "Critical decline": "Metacritic drops below 82",
+        "Nomination deficit": "OBA significantly trails multiple competitors",
+        "Precursor shutout": "OBA wins no major guild awards",
+        "Competitor dominance": "Multiple rivals exceed OBA in all metrics"
+      },
+      "probability_range": "5-15% YES",
+      "probability_low": 0.05,
+      "probability_high": 0.15
+    }
+  ],
+  "mece_reasoning": "These scenarios are MECE because they partition the world-state space along two key axes: (1) OBA's performance relative to baseline expectations, and (2) competitor strength. The scenarios represent four distinct and non-overlapping worlds: OBA significantly outperforming expectations with weak competition (Dominates), OBA performing at baseline with moderate competition (Competitive Race), OBA underperforming with strong competition (Competitor Surge), and OBA significantly underperforming with dominant competition (Collapse). Each scenario captures a different combination of OBA strength and competitive landscape that cannot simultaneously occur. The probability ranges for the target question (Will OBA win?) naturally decrease as we move from dominance to collapse, reflecting the different world-states.",
+  "coverage_gaps": "Minimal gaps. The scenarios cover the full spectrum from OBA dominance to collapse, accounting for varying levels of competitive strength. The main gap might be extremely unlikely edge cases (e.g., ceremony cancellation, major scandals), but these fall outside normal forecasting scope for this question.",
+  "created_at": "2026-01-19T09:40:43.327812",
+  "max_horizon_days": 18,
+  "sources_used": [
+    "polymarket",
+    "metaculus",
+    "kalshi",
+    "infer",
+    "manifold"
+  ],
+  "uncertainties": [
+    {
+      "name": "Academy Voting Preferences",
+      "description": "Whether the Academy's 9,000+ voters will favor Anderson's artistic vision over more mainstream competitors. This covers the fundamental question of how the voting body's tastes align with the film's style and themes.",
+      "search_query": "Academy Awards voting patterns Paul Thomas Anderson arthouse films Best Picture winners"
+    },
+    {
+      "name": "Competitor Film Strength",
+      "description": "The relative quality and awards momentum of key competitors like Sinners, Marty Supreme, Hamnet, and Frankenstein. Strong competition could overshadow even a well-regarded Anderson film.",
+      "search_query": "2026 Oscar Best Picture contenders Sinners Marty Supreme Hamnet Frankenstein awards buzz"
+    },
+    {
+      "name": "Critical Reception Sustainability",
+      "description": "Whether the early critical acclaim and awards success will translate into broader industry support through Oscar season. Early wins don't always predict Academy preferences.",
+      "search_query": "Critics Choice Golden Globe winners Oscar Best Picture correlation awards season momentum"
+    }
+  ],
+  "topdown_signals_generated": 30,
+  "market_signals_retrieved": 12,
+  "matched_signals": 11,
+  "gap_signals": 19,
+  "market_only_signals": 9,
+  "merged_signals_total": 39,
+  "signals_above_floor": 29,
+  "signals_above_floor_by_origin": {
+    "matched": 11,
+    "gap": 17,
+    "market_only": 1
+  },
+  "gaps": [
+    {
+      "text": "Will One Battle After Another win the Writers Guild Award for Best Original Screenplay by February 1, 2026?",
+      "resolution_source": "Writers Guild of America official award announcement",
+      "uncertainty_source": "Academy Voting Preferences",
+      "base_rate": 0.4,
+      "best_market_similarity": 0.4799387454986572
+    },
+    {
+      "text": "Will One Battle After Another win at least 2 awards at the BAFTA Film Awards by February 8, 2026 (before Oscar voting closes)?",
+      "resolution_source": "British Academy of Film and Television Arts official results",
+      "uncertainty_source": "Academy Voting Preferences",
+      "base_rate": 0.3,
+      "best_market_similarity": 0.5000613331794739
+    },
+    {
+      "text": "Will One Battle After Another win the Producers Guild Award for Best Picture by January 26, 2026?",
+      "resolution_source": "Producers Guild of America official award announcement",
+      "uncertainty_source": "Academy Voting Preferences",
+      "base_rate": 0.25,
+      "best_market_similarity": 0.5721169710159302
+    },
+    {
+      "text": "Will One Battle After Another win the Directors Guild Award for Outstanding Directing by February 1, 2026?",
+      "resolution_source": "Directors Guild of America official award announcement",
+      "uncertainty_source": "Academy Voting Preferences",
+      "base_rate": 0.3,
+      "best_market_similarity": 0.4829239845275879
+    },
+    {
+      "text": "Will 'Sinners' receive more than 8 Oscar nominations when announced on January 17, 2026?",
+      "resolution_source": "Academy of Motion Picture Arts and Sciences official nomination announcement",
+      "uncertainty_source": "Competitor Film Strength",
+      "base_rate": 0.25,
+      "best_market_similarity": 0.561384916305542
+    },
+    {
+      "text": "Will any of the four main competitors (Sinners, Marty Supreme, Hamnet, Frankenstein) achieve a Rotten Tomatoes critics score above 95% by January 31, 2026?",
+      "resolution_source": "Rotten Tomatoes website aggregated critics scores",
+      "uncertainty_source": "Competitor Film Strength",
+      "base_rate": 0.3,
+      "best_market_similarity": 0.4293918013572693
+    },
+    {
+      "text": "Will 'Frankenstein' receive more Oscar nominations than 'One Battle After Another' when announced on January 17, 2026?",
+      "resolution_source": "Academy of Motion Picture Arts and Sciences official nomination announcement",
+      "uncertainty_source": "Competitor Film Strength",
+      "base_rate": 0.4,
+      "best_market_similarity": 0.5275301933288574
+    },
+    {
+      "text": "Will any of the four competitors win both the Directors Guild Award and Screen Actors Guild Ensemble Award by February 1, 2026?",
+      "resolution_source": "Directors Guild of America and Screen Actors Guild award ceremony results",
+      "uncertainty_source": "Competitor Film Strength",
+      "base_rate": 0.25,
+      "best_market_similarity": 0.5354770421981812
+    },
+    {
+      "text": "Will any competitor film achieve both a CinemaScore of A+ and gross over $100 million domestic by January 31, 2026?",
+      "resolution_source": "CinemaScore official grades and Box Office Mojo domestic box office tracking",
+      "uncertainty_source": "Competitor Film Strength",
+      "base_rate": 0.2,
+      "best_market_similarity": 0.37844327092170715
+    },
+    {
+      "text": "Will 'One Battle After Another' receive nominations in at least 8 categories when the 98th Academy Award nominations are announced on January 23, 2026?",
+      "resolution_source": "Academy of Motion Picture Arts and Sciences official nomination announcement",
+      "uncertainty_source": "Critical Reception Sustainability",
+      "base_rate": 0.15,
+      "best_market_similarity": 0.5749844908714294
+    },
+    {
+      "text": "Will 'One Battle After Another' win at least 2 awards at the BAFTA Film Awards ceremony on February 2, 2026?",
+      "resolution_source": "British Academy of Film and Television Arts official results",
+      "uncertainty_source": "Critical Reception Sustainability",
+      "base_rate": 0.25,
+      "best_market_similarity": 0.4764477014541626
+    },
+    {
+      "text": "Will 'One Battle After Another' maintain a Metacritic score of 85 or higher through January 31, 2026?",
+      "resolution_source": "Metacritic website score tracking",
+      "uncertainty_source": "Critical Reception Sustainability",
+      "base_rate": 0.7,
+      "best_market_similarity": 0.3005293905735016
+    },
+    {
+      "text": "Will 'One Battle After Another' receive a Directors Guild of America nomination for Outstanding Directing when nominations are announced by January 28, 2026?",
+      "resolution_source": "Directors Guild of America official nomination announcement",
+      "uncertainty_source": "Critical Reception Sustainability",
+      "base_rate": 0.4,
+      "best_market_similarity": 0.4789372980594635
+    },
+    {
+      "text": "Will 'One Battle After Another' appear in the top 3 of at least 5 major film critics' year-end top 10 lists published between January 20-31, 2026?",
+      "resolution_source": "Aggregation from major publications including The New York Times, Los Angeles Times, The Guardian, Variety, and The Hollywood Reporter",
+      "uncertainty_source": "Critical Reception Sustainability",
+      "base_rate": 0.3,
+      "best_market_similarity": 0.333212286233902
+    },
+    {
+      "text": "Will 'One Battle After Another' win the Producers Guild of America Award for Outstanding Producer of Theatrical Motion Pictures on January 26, 2026?",
+      "resolution_source": "Producers Guild of America official award announcement",
+      "uncertainty_source": "Critical Reception Sustainability",
+      "base_rate": 0.2,
+      "best_market_similarity": 0.53385329246521
+    },
+    {
+      "text": "Will 'One Battle After Another' receive coverage in at least 15 major entertainment publications' Oscar prediction articles between January 20-February 5, 2026?",
+      "resolution_source": "Count from major entertainment publications including Variety, The Hollywood Reporter, Entertainment Weekly, Deadline, The Wrap, and others",
+      "uncertainty_source": "Critical Reception Sustainability",
+      "base_rate": 0.6,
+      "best_market_similarity": 0.44600096344947815
+    },
+    {
+      "text": "Will 'One Battle After Another' maintain betting odds of 5-to-1 or better to win Best Picture on at least 3 major sportsbooks by February 1, 2026?",
+      "resolution_source": "DraftKings, FanDuel, and BetMGM sportsbook odds",
+      "uncertainty_source": "Critical Reception Sustainability",
+      "base_rate": 0.35,
+      "best_market_similarity": 0.2734264135360718
+    },
+    {
+      "text": "Will 'One Battle After Another' win at least 1 award at the Screen Actors Guild Awards on February 1, 2026?",
+      "resolution_source": "Screen Actors Guild Awards official results",
+      "uncertainty_source": "Critical Reception Sustainability",
+      "base_rate": 0.45,
+      "best_market_similarity": 0.5287435054779053
+    },
+    {
+      "text": "Will 'One Battle After Another' appear as the #1 predicted Best Picture winner on Gold Derby's expert consensus predictions on February 5, 2026?",
+      "resolution_source": "Gold Derby website expert consensus rankings",
+      "uncertainty_source": "Critical Reception Sustainability",
+      "base_rate": 0.25,
+      "best_market_similarity": 0.3972451388835907
+    }
+  ],
+  "gaps_by_resolution_source": {
+    "Writers Guild of America official award announcement": 1,
+    "British Academy of Film and Television Arts official results": 2,
+    "Producers Guild of America official award announcement": 2,
+    "Directors Guild of America official award announcement": 1,
+    "Academy of Motion Picture Arts and Sciences official nomination announcement": 3,
+    "Rotten Tomatoes website aggregated critics scores": 1,
+    "Directors Guild of America and Screen Actors Guild award ceremony results": 1,
+    "CinemaScore official grades and Box Office Mojo domestic box office tracking": 1,
+    "Metacritic website score tracking": 1,
+    "Directors Guild of America official nomination announcement": 1,
+    "Aggregation from major publications including The New York Times, Los Angeles Times, The Guardian, Variety, and The Hollywood Reporter": 1,
+    "Count from major entertainment publications including Variety, The Hollywood Reporter, Entertainment Weekly, Deadline, The Wrap, and others": 1,
+    "DraftKings, FanDuel, and BetMGM sportsbook odds": 1,
+    "Screen Actors Guild Awards official results": 1,
+    "Gold Derby website expert consensus rankings": 1
+  }
+}

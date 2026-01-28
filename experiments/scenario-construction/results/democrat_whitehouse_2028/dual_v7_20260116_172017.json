@@ -1,0 +1,1231 @@
+{
+  "id": "dual_democrat_whitehouse_2028_581a6d03",
+  "name": "democrat_whitehouse_2028 (dual)",
+  "target": "democrat_whitehouse_2028",
+  "approach": "dual_v7",
+  "question": {
+    "id": "democrat_whitehouse_2028",
+    "source": "scenario_construction",
+    "text": "Will a Democrat win the White House in 2028?",
+    "question_type": "binary",
+    "unit": null,
+    "base_rate": null,
+    "value_range": null
+  },
+  "config": {
+    "context": "Donald Trump won the 2024 presidential election and began his second term in January 2025. He is constitutionally barred from seeking a third term in 2028, making the 2028 election an open race on the Republican side. Current polling (January 2026): Trump approval 41.9%, disapproval 55% (Silver Bulletin). Generic congressional ballot: Democrats 42.6%, Republicans 38.8% (Decision Desk HQ) - a reversal from the 2024 election environment. Democratic field: No clear frontrunner. Potential candidates include governors Gavin Newsom (CA), Gretchen Whitmer (MI), Josh Shapiro (PA), and JB Pritzker (IL). Vice President Kamala Harris's 2024 loss may complicate another run. Republican field: Wide open with no obvious Trump successor. JD Vance (current VP) is positioned but untested. Other potential candidates include Ron DeSantis, Nikki Haley, and figures from the 2024 primary. Key factors: Trump administration performance over next 2 years, economic conditions, tariff/trade policy outcomes, Democratic party rebuilding post-2024.",
+    "cruxiness_normalizer": 0.3,
+    "voi_floor": 0.1,
+    "match_threshold": 0.6,
+    "n_uncertainties": 3
+  },
+  "current_date": "2026-01-16",
+  "signals": [
+    {
+      "id": "llm_68964900",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By June 30, 2026, Democrats outperform their 2024 presidential vote share by >5 percentage points in at least 3 of 7 key swing states (AZ, GA, MI, NV, NC, PA, WI) in aggregate polling, per 538 averages",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694661Z",
+      "resolution_date": "2026-07-15",
+      "resolved": false,
+      "base_rate": 0.4,
+      "voi": 0.5681563346695824,
+      "rho": 0.8,
+      "rho_reasoning": "The two questions are related, as they both measure the strength of the Democratic party in the 2028 presidential election. If the Democrats win the White House in 2028 (Question A), it is likely that they will also have outperformed their 2024 presidential vote share in key swing states (Question B). This suggests a positive correlation between the two questions. However, the correlation is not perfect, as other factors could influence the outcomes of these questions independently. Therefore, I estimate the correlation coefficient (\u03c1) to be 0.8, indicating a strong positive correlation.",
+      "uncertainty_source": "Democratic Party Revival",
+      "p_target_given_yes": 0.9898979485566356,
+      "p_target_given_no": 0.17340136762890962,
+      "cruxiness_spread": 0.816496580927726
+    },
+    {
+      "id": "0x998bc71817b2d76921d1999ce0f3431cfd5945583667a371280ca2b430b0c06e",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "2026 Balance of Power: R Senate, D House",
+      "url": "https://polymarket.com/market/2026-balance-of-power-r-senate-d-house-444",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694680Z",
+      "resolution_date": "2026-11-03",
+      "resolved": false,
+      "base_rate": 0.445,
+      "voi": 0.39337349699717516,
+      "rho": 0.7,
+      "rho_reasoning": "The two prediction market questions are related, as the outcome of the 2028 presidential election (Question A) is likely to influence the balance of power in Congress (Question B). If a Democrat wins the White House in 2028, it would increase the likelihood of the Democrats also controlling both chambers of Congress by 2026. Therefore, there is a positive correlation between the two questions, as the outcomes are not independent.",
+      "p_target_given_yes": 0.8908719724876734,
+      "p_target_given_no": 0.18659814818555923,
+      "cruxiness_spread": 0.7042738243021142
+    },
+    {
+      "id": "llm_f6c4784f",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By November 30, 2026, Democrats gain net control of at least 3 additional state governorships compared to January 2026 levels, per official state election results",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694688Z",
+      "resolution_date": "2026-12-15",
+      "resolved": false,
+      "base_rate": 0.45,
+      "voi": 0.3927967534962109,
+      "rho": 0.7,
+      "rho_reasoning": "The two questions are related, as a Democrat winning the White House in 2028 would likely make it more likely for Democrats to gain control of additional state governorships by 2026. The presidency and state-level governorships are interconnected, with the party controlling the White House often benefiting down-ballot. Therefore, there is a positive correlation between the two, though not a perfect one as other factors can influence state-level elections.",
+      "uncertainty_source": "Democratic Party Revival",
+      "p_target_given_yes": 0.8869395588747967,
+      "p_target_given_no": 0.18341308819334812,
+      "cruxiness_spread": 0.7035264706814486
+    },
+    {
+      "id": "0x12b727031b38130d945b3e164386874360d9a32fdd7e3d00ed2adb13857e089b",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will the Democrats win the Texas governor race in 2026?",
+      "url": "https://polymarket.com/market/will-the-democrats-win-the-texas-governor-race-in-2026",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694696Z",
+      "resolution_date": "2026-11-03",
+      "resolved": false,
+      "base_rate": 0.07,
+      "voi": 0.3901596952835995,
+      "rho": 0.7,
+      "rho_reasoning": "The two questions are related, as they both involve the performance of the Democratic party in major elections. A Democratic win in the 2028 presidential election would likely boost the party's chances in the 2026 Texas governor race, and vice versa. However, they are not perfectly correlated, as there could be other factors that influence each election independently. Therefore, a positive correlation coefficient of 0.7 seems reasonable.",
+      "p_target_given_yes": 0.85,
+      "p_target_given_no": 0.15000000000000002,
+      "cruxiness_spread": 0.7,
+      "probability_source": "fresh",
+      "probability_at": "2026-01-17T01:19:32.476414Z"
+    },
+    {
+      "id": "llm_4a94065c",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By October 31, 2026, a Democrat under age 55 announces a presidential exploratory committee or campaign for 2028, per official campaign filings with the FEC",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694707Z",
+      "resolution_date": "2026-11-15",
+      "resolved": false,
+      "base_rate": 0.7,
+      "voi": 0.3715776612345849,
+      "rho": 0.7,
+      "rho_reasoning": "The two questions are related, as a Democrat winning the White House in 2028 would likely increase the chances of a Democratic presidential candidate under age 55 announcing an exploratory committee or campaign for the 2028 election. However, the correlation is not perfect, as there could be other factors that influence the outcomes of these events, such as the political climate, the specific candidates, and voter preferences. Therefore, I estimate the correlation coefficient to be around 0.7, indicating a strong positive correlation between the two questions.",
+      "uncertainty_source": "Democratic Party Revival",
+      "p_target_given_yes": 0.7142857142857143,
+      "p_target_given_no": 0.01,
+      "cruxiness_spread": 0.7042857142857143
+    },
+    {
+      "id": "llm_458ca1f4",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 31, 2026, Democrats achieve >50% approval rating on economic issues in at least 2 consecutive months of major polling (Gallup, Pew, or equivalent), compared to Republicans",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694711Z",
+      "resolution_date": "2027-01-15",
+      "resolved": false,
+      "base_rate": 0.3,
+      "voi": 0.3049762909100713,
+      "rho": 0.6,
+      "rho_reasoning": "The two questions are related, as a Democratic win in the 2028 presidential election would likely increase the approval rating of Democrats on economic issues. However, the approval rating on economic issues is not the sole or even the most important factor in determining the outcome of a presidential election. There are many other factors that could influence the election outcome, such as the overall state of the economy, the performance of the incumbent administration, and the specific candidates and campaigns. Therefore, the correlation between the two questions is positive but not perfect.",
+      "uncertainty_source": "Democratic Party Revival",
+      "p_target_given_yes": 0.958257569495584,
+      "p_target_given_no": 0.3036038987876069,
+      "cruxiness_spread": 0.6546536707079771
+    },
+    {
+      "id": "llm_6502634f",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By March 31, 2026, the Democratic National Committee raises >$50 million more than the Republican National Committee in Q1 2026, per FEC quarterly reports",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694714Z",
+      "resolution_date": "2026-04-15",
+      "resolved": false,
+      "base_rate": 0.25,
+      "voi": 0.291079840485155,
+      "rho": 0.7,
+      "rho_reasoning": "The two questions are related, as a Democrat winning the White House in 2028 would likely lead to the Democratic National Committee raising more funds than the Republican National Committee in the preceding quarter. This is because the party in power typically has an advantage in fundraising. Therefore, the outcomes of the two questions are positively correlated, though not perfectly so, as other factors could influence the fundraising outcome.",
+      "uncertainty_source": "Democratic Party Revival",
+      "p_target_given_yes": 0.99,
+      "p_target_given_no": 0.3333333333333333,
+      "cruxiness_spread": 0.6566666666666667
+    },
+    {
+      "id": "llm_57ef4b5b",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By September 30, 2026, Democrats maintain unified opposition (>90% party unity) on at least 75% of major congressional votes during the 2026 session, per Congressional Quarterly vote analysis",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694717Z",
+      "resolution_date": "2026-10-15",
+      "resolved": false,
+      "base_rate": 0.6,
+      "voi": 0.28270344505068734,
+      "rho": 0.6,
+      "rho_reasoning": "The two questions are related, as a Democrat winning the White House in 2028 would likely make it more likely for Democrats to maintain unified opposition in Congress in 2026. A Democratic president would provide more leverage and influence for the party, making it more probable that they could achieve high levels of party unity on key votes. However, the outcomes are not perfectly correlated, as other factors like Congressional dynamics, policy priorities, and public opinion could also impact party unity independent of the presidential election. So a positive but not perfect correlation coefficient of 0.6 seems reasonable.",
+      "uncertainty_source": "Democratic Party Revival",
+      "p_target_given_yes": 0.7449489742783177,
+      "p_target_given_no": 0.13257653858252338,
+      "cruxiness_spread": 0.6123724356957944
+    },
+    {
+      "id": "llm_1932acc6",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By August 31, 2026, Trump will impose tariffs of 25% or higher on imports from at least 5 major trading partners (EU, China, Mexico, Canada, Japan), per US Trade Representative announcements",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694721Z",
+      "resolution_date": "2026-09-15",
+      "resolved": false,
+      "base_rate": 0.45,
+      "voi": 0.2791526631252621,
+      "rho": -0.6,
+      "rho_reasoning": "The two questions are related, as the election of a Democratic president in 2028 would make it less likely that Trump would impose major new tariffs by 2026. A Democratic administration would likely have a different trade policy compared to a Trump-led Republican administration. However, the correlation is not perfect negative, as other factors could influence trade policy independently of the 2028 presidential election outcome.",
+      "uncertainty_source": "Trump Administration Performance",
+      "p_target_given_yes": 0.16833752096446003,
+      "p_target_given_no": 0.7713602101199871,
+      "cruxiness_spread": 0.603022689155527
+    },
+    {
+      "id": "llm_3571a337",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By January 16, 2027, Tim Scott announces his candidacy for the 2028 Republican presidential nomination via official campaign filing with the FEC",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694724Z",
+      "resolution_date": "2027-01-16",
+      "resolved": false,
+      "base_rate": 0.45,
+      "voi": 0.2791526631252621,
+      "rho": -0.6,
+      "rho_reasoning": "The two questions are related, as a Democratic win in 2028 would make it less likely for a prominent Republican like Tim Scott to announce a 2028 run. However, they are not perfectly negatively correlated, as it is possible for a Democrat to win in 2028 while a Republican like Scott still decides to run. Therefore, the correlation coefficient is estimated to be around -0.6, indicating a moderate negative correlation between the two outcomes.",
+      "uncertainty_source": "Republican Succession Battle",
+      "p_target_given_yes": 0.16833752096446003,
+      "p_target_given_no": 0.7713602101199871,
+      "cruxiness_spread": 0.603022689155527
+    },
+    {
+      "id": "llm_e7c18902",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By September 30, 2026, Trump endorses JD Vance for the 2028 Republican presidential nomination via Truth Social, Twitter, or official statement",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694728Z",
+      "resolution_date": "2026-09-30",
+      "resolved": false,
+      "base_rate": 0.8,
+      "voi": 0.22029417048084565,
+      "rho": 0.6,
+      "rho_reasoning": "The two questions are related, as a Democrat winning the White House in 2028 would likely make it less likely for Trump to endorse a Republican candidate (like JD Vance) for the 2028 nomination. Conversely, if Trump does endorse a Republican, it would make a Democratic victory less likely. Therefore, I estimate a moderately positive correlation coefficient of 0.6 between these two questions.",
+      "uncertainty_source": "Republican Succession Battle",
+      "p_target_given_yes": 0.625,
+      "p_target_given_no": 0.01,
+      "cruxiness_spread": 0.615
+    },
+    {
+      "id": "llm_78801dc8",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By November 30, 2026, Trump's average approval rating will fall below 40% in FiveThirtyEight polling average for at least 30 consecutive days",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694735Z",
+      "resolution_date": "2026-12-31",
+      "resolved": false,
+      "base_rate": 0.25,
+      "voi": 0.20708751944624626,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related, as a Democrat winning the White House in 2028 would likely be associated with a decline in Trump's approval rating. However, the connection is not perfect, as there are many other factors that could influence both of these outcomes. Therefore, the correlation coefficient is likely to be positive but less than 1.",
+      "uncertainty_source": "Trump Administration Performance",
+      "p_target_given_yes": 0.9330127018922193,
+      "p_target_given_no": 0.3556624327025936,
+      "cruxiness_spread": 0.5773502691896257
+    },
+    {
+      "id": "llm_90743488",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 31, 2026, US consumer price index (CPI) inflation rate will exceed 4.0% year-over-year, per Bureau of Labor Statistics data",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694739Z",
+      "resolution_date": "2027-01-15",
+      "resolved": false,
+      "base_rate": 0.35,
+      "voi": 0.1931887294002499,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related, as the outcome of the 2028 presidential election could affect economic policies that impact inflation. If a Democrat wins the White House, it may increase the likelihood of higher inflation, as Democratic administrations are often associated with more expansionary fiscal and monetary policies. However, the relationship is not perfect, as other factors like global supply chain issues, energy prices, and the Federal Reserve's monetary policy decisions could also significantly impact inflation regardless of the party in power. Therefore, I estimate a moderately positive correlation coefficient of 0.5 between the two questions.",
+      "uncertainty_source": "Trump Administration Performance",
+      "p_target_given_yes": 0.8406925719346235,
+      "p_target_given_no": 0.3165501535736643,
+      "cruxiness_spread": 0.5241424183609593
+    },
+    {
+      "id": "llm_3fc6963b",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By May 31, 2026, at least 2 major Democratic governors (CA, NY, MI, PA, NC, or similar large states) make public statements endorsing the same potential 2028 presidential candidate",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694743Z",
+      "resolution_date": "2026-06-15",
+      "resolved": false,
+      "base_rate": 0.45,
+      "voi": 0.18915213069105674,
+      "rho": 0.5,
+      "rho_reasoning": "The two questions are related, as a Democrat winning the 2028 presidential election would likely make it more likely for Democratic governors to endorse a potential 2028 presidential candidate. However, the outcome of one question does not completely determine the outcome of the other, as there could be other factors that influence the governors' endorsements or the presidential election outcome. Therefore, the correlation coefficient is likely to be positive but less than 1.",
+      "uncertainty_source": "Democratic Party Revival",
+      "p_target_given_yes": 0.7763853991962834,
+      "p_target_given_no": 0.27386649156667725,
+      "cruxiness_spread": 0.5025189076296062
+    },
+    {
+      "id": "llm_46507b87",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By June 30, 2026, US federal budget deficit will exceed $2.5 trillion for fiscal year 2026, per Congressional Budget Office data",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694750Z",
+      "resolution_date": "2026-07-15",
+      "resolved": false,
+      "base_rate": 0.15,
+      "voi": 0.15707588471666745,
+      "rho": 0.5,
+      "rho_reasoning": "While these two questions are not directly related, there is some logical connection between them. A Democratic win in 2028 could potentially lead to higher government spending and a larger budget deficit, making the second question more likely. Conversely, a large budget deficit could be seen as unfavorable for the party in power, making a Democratic win less likely. Therefore, there is a moderate positive correlation between the outcomes of these two questions.",
+      "uncertainty_source": "Trump Administration Performance",
+      "p_target_given_yes": 0.99,
+      "p_target_given_no": 0.4117647058823529,
+      "cruxiness_spread": 0.5782352941176471
+    },
+    {
+      "id": "uISNlAqC2E",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "Republicans have a House majority after 2026 midterms?",
+      "url": "https://manifold.markets/JeromeHPowell/republicans-have-house-majority-aft",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694753Z",
+      "resolution_date": "2026-11-04",
+      "resolved": false,
+      "base_rate": 0.12918650104585142,
+      "voi": 0.13262491403617338,
+      "rho": -0.5,
+      "rho_reasoning": "While the two questions are related to political outcomes, they are measuring different aspects of the political landscape. A Democratic win in the 2028 presidential election would make it less likely for Republicans to have a House majority after the 2026 midterms, as the two parties tend to have opposing fortunes. However, there are many other factors that could influence the outcomes of these elections, so the correlation is not expected to be perfect. A moderately negative correlation coefficient of -0.5 captures the general inverse relationship between the two events.",
+      "uncertainty_source": "Trump Administration Performance",
+      "p_target_given_yes": 0.01,
+      "p_target_given_no": 0.5741757570369574,
+      "cruxiness_spread": 0.5641757570369574
+    },
+    {
+      "id": "llm_053b9969",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By October 31, 2026, US stock market (S&P 500) will experience a decline of 20% or more from its January 2026 peak, lasting at least 30 consecutive trading days",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694758Z",
+      "resolution_date": "2026-11-30",
+      "resolved": false,
+      "base_rate": 0.2,
+      "voi": 0.12944040571840887,
+      "rho": -0.4,
+      "rho_reasoning": "The two questions are not directly related, but there may be some indirect relationship. A Democratic win in the 2028 presidential election could potentially lead to changes in economic policies, which could impact the stock market performance. However, the relationship is not strong, and there are many other factors that can influence the stock market. Therefore, I estimate a moderate negative correlation coefficient of -0.4, indicating a weak inverse relationship between the two events.",
+      "uncertainty_source": "Trump Administration Performance",
+      "p_target_given_yes": 0.09999999999999995,
+      "p_target_given_no": 0.6,
+      "cruxiness_spread": 0.5
+    },
+    {
+      "id": "llm_1ac5aa2c",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By August 31, 2026, Vivek Ramaswamy raises more than $15 million for a 2028 presidential campaign committee, per FEC quarterly reports",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694762Z",
+      "resolution_date": "2026-08-31",
+      "resolved": false,
+      "base_rate": 0.35,
+      "voi": 0.12026013366858668,
+      "rho": 0.4,
+      "rho_reasoning": "The two questions are related, as a Democrat winning the White House in 2028 would likely make it more likely for Vivek Ramaswamy to raise more than $15 million for a 2028 presidential campaign committee. However, the two events are not perfectly correlated, as there could be other factors that influence Ramaswamy's fundraising, such as his political profile and the overall fundraising environment. Therefore, I estimate a moderate positive correlation of 0.4 between the two questions.",
+      "uncertainty_source": "Republican Succession Battle",
+      "p_target_given_yes": 0.7725540575476988,
+      "p_target_given_no": 0.3532401228589314,
+      "cruxiness_spread": 0.4193139346887674
+    },
+    {
+      "id": "0x7ee722a07e0f84405f1267bc1c84eb95bd6348454453abf445618e778af8fd18",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will 5 Fed rate cuts happen in 2026?",
+      "url": "https://polymarket.com/market/will-5-fed-rate-cuts-happen-in-2026",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694767Z",
+      "resolution_date": "2026-12-31",
+      "resolved": false,
+      "base_rate": 0.065,
+      "voi": 0.1187091007693073,
+      "rho": 0.4,
+      "rho_reasoning": "The two questions are related, as the outcome of the 2028 presidential election and the Fed's interest rate decisions in 2026 are likely to be influenced by similar economic and political factors. A Democratic victory in 2028 may be associated with a more dovish monetary policy, making 5 rate cuts in 2026 more likely. However, the relationship is not perfect, as other factors can also influence the Fed's decisions. Therefore, I estimate a moderate positive correlation of 0.4 between the two questions.",
+      "p_target_given_yes": 0.7,
+      "p_target_given_no": 0.30000000000000004,
+      "cruxiness_spread": 0.3999999999999999,
+      "probability_source": "fresh",
+      "probability_at": "2026-01-17T01:19:32.734340Z"
+    },
+    {
+      "id": "0xd9fb1184af0064e5e34b129f5b79afa5a17b7e32f2953ab05efed82315fee6d4",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will China invade Taiwan by end of 2026?",
+      "url": "https://polymarket.com/market/will-china-invade-taiwan-before-2027",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694782Z",
+      "resolution_date": "2026-12-31",
+      "resolved": false,
+      "base_rate": 0.125,
+      "voi": 0.07327483390896361,
+      "rho": 0.3,
+      "rho_reasoning": "While the two questions are not directly related, there could be some indirect connection. For example, if a Democrat wins the White House in 2028, it could lead to a shift in U.S. foreign policy that makes China less likely to invade Taiwan. Conversely, a Chinese invasion of Taiwan could influence the U.S. political landscape in a way that affects the 2028 presidential election. However, these relationships are not deterministic, and many other factors could influence the outcomes of both events. Therefore, the correlation is expected to be moderately positive but not very strong.",
+      "p_target_given_yes": 0.8968626966596887,
+      "p_target_given_no": 0.4433053290486159,
+      "cruxiness_spread": 0.45355736761107274
+    },
+    {
+      "id": "llm_f343ff00",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By September 30, 2026, Trump will face formal impeachment proceedings initiated by House of Representatives, per official Congressional records",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694785Z",
+      "resolution_date": "2026-10-31",
+      "resolved": false,
+      "base_rate": 0.15,
+      "voi": 0.07098552318684759,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are related, as a Democrat winning the White House in 2028 could potentially make it less likely for Trump to face impeachment proceedings before that. However, the outcomes are not perfectly correlated, as other factors such as the political climate and Congressional dynamics could also influence the likelihood of impeachment. Therefore, the correlation coefficient is likely to be positive but less than 1.",
+      "uncertainty_source": "Trump Administration Performance",
+      "p_target_given_yes": 0.8570714214271424,
+      "p_target_given_no": 0.43698739621873955,
+      "cruxiness_spread": 0.4200840252084029
+    },
+    {
+      "id": "llm_1bee48ce",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By September 30, 2026, US unemployment rate will exceed 5.0% for at least one month, per Bureau of Labor Statistics data",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694788Z",
+      "resolution_date": "2026-10-15",
+      "resolved": false,
+      "base_rate": 0.2,
+      "voi": 0.06864777092397889,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are related, as the outcome of the presidential election (Question A) could impact the unemployment rate (Question B). For example, a Democratic victory could lead to economic policies that reduce unemployment. However, the relationship is not direct or certain, as many factors can influence the unemployment rate. Therefore, the correlation coefficient is estimated to be moderately positive at 0.3, indicating a modest positive relationship between the two outcomes.",
+      "uncertainty_source": "Trump Administration Performance",
+      "p_target_given_yes": 0.7999999999999999,
+      "p_target_given_no": 0.42499999999999993,
+      "cruxiness_spread": 0.375
+    },
+    {
+      "id": "llm_be891473",
+      "source": "llm",
+      "source_type": "market",
+      "text": "By December 31, 2026, consumer confidence index will fall below 90 for at least 3 consecutive months, per Conference Board data",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694791Z",
+      "resolution_date": "2027-01-15",
+      "resolved": false,
+      "base_rate": 0.25,
+      "voi": 0.06747244748203629,
+      "rho": 0.3,
+      "rho_reasoning": "The two prediction market questions are related, as the outcome of the 2028 presidential election (Question A) could impact the consumer confidence index (Question B). For example, if a Democrat wins the White House in 2028, it may lead to policies that could affect consumer confidence. However, the two questions are not directly measuring the same underlying phenomenon, and the correlation is not expected to be very high. Therefore, a moderate positive correlation coefficient (\u03c1 = 0.3) is a reasonable estimate.",
+      "uncertainty_source": "Trump Administration Performance",
+      "p_target_given_yes": 0.7598076211353315,
+      "p_target_given_no": 0.41339745962155616,
+      "cruxiness_spread": 0.34641016151377535
+    },
+    {
+      "id": "38917",
+      "source": "metaculus",
+      "source_type": "market",
+      "text": "Will Barack Obama be arrested before July 2026?",
+      "url": "https://www.metaculus.com/questions/38917",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694794Z",
+      "resolution_date": "2026-07-01",
+      "resolved": false,
+      "base_rate": 0.001,
+      "voi": 0.06593194462450902,
+      "rho": -0.3,
+      "rho_reasoning": "The two questions are not directly related to each other. A Democrat winning the White House in 2028 is not strongly correlated with whether Barack Obama is arrested before July 2026. These events measure different underlying phenomena and one outcome does not necessarily make the other more or less likely. Therefore, a moderately negative correlation coefficient of -0.3 is a reasonable estimate.",
+      "p_target_given_yes": 0.35,
+      "p_target_given_no": 0.65,
+      "cruxiness_spread": 0.30000000000000004,
+      "probability_source": "fresh",
+      "probability_at": "2026-01-17T01:19:35.409097Z"
+    },
+    {
+      "id": "0x807a5bd3d52942c2d8b58bf71a583d4aa03a637f3fd9ff7a7c4a1ad818003067",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will Graham Platner be the Democratic nominee for Senate in Maine?",
+      "url": "https://polymarket.com/market/will-graham-platner-be-the-democratic-nominee-for-senate-in-maine",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694798Z",
+      "resolution_date": "2026-07-31",
+      "resolved": false,
+      "base_rate": 0.61,
+      "voi": 0.06593194462450902,
+      "rho": 0.3,
+      "rho_reasoning": "The two questions are related in that they both involve political outcomes, but they are not measuring the same underlying phenomenon. The outcome of the presidential election in 2028 may have some influence on the likelihood of a Democratic nominee for the Senate in Maine, but it is not a direct relationship. There are many other factors that would also influence the Senate nomination, so the correlation is positive but relatively weak.",
+      "p_target_given_yes": 0.65,
+      "p_target_given_no": 0.35,
+      "cruxiness_spread": 0.30000000000000004,
+      "probability_source": "fresh",
+      "probability_at": "2026-01-17T01:19:32.942872Z"
+    },
+    {
+      "id": "0xfa48a99317daef1654d5b03e30557c4222f276657275628d9475e141c64b545d",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "US recession in 2025?",
+      "url": "https://polymarket.com/market/us-recession-in-2025",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694803Z",
+      "resolution_date": "2026-02-28",
+      "resolved": false,
+      "base_rate": 0.0,
+      "voi": 0.06593194462450902,
+      "rho": -0.3,
+      "rho_reasoning": "While the two questions are related to the broader economic and political climate, they are not directly dependent on each other. A Democratic victory in the 2028 presidential election does not necessarily imply or preclude a US recession in 2025. Similarly, a recession in 2025 could occur regardless of which party wins the White House. Therefore, the correlation between the two questions is expected to be moderately negative, as the outcomes are somewhat inversely related but not perfectly so.",
+      "p_target_given_yes": 0.35,
+      "p_target_given_no": 0.65,
+      "cruxiness_spread": 0.30000000000000004,
+      "probability_source": "fresh",
+      "probability_at": "2026-01-17T01:19:33.134577Z"
+    },
+    {
+      "id": "0x4761e83680407e28e2fe96691b4b5a00d958293d4e52b9ff0ad728710fa665b5",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will the U.S. test a nuclear weapon by December 31 2025?",
+      "url": "https://polymarket.com/market/will-the-us-test-a-nuclear-weapon-by-december-31-2025",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694807Z",
+      "resolution_date": "2026-03-31",
+      "resolved": false,
+      "base_rate": 0.0,
+      "voi": 0.02904940554533142,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are not directly related and measure different underlying phenomena. The outcome of the presidential election in 2028 is unlikely to have a strong influence on whether the US tests a nuclear weapon by 2025. There may be some weak positive correlation if a Democratic administration is seen as more likely to pursue nuclear non-proliferation, but this relationship is fairly tenuous. Overall, the questions are largely independent, so the correlation coefficient is estimated to be around 0.2.",
+      "p_target_given_yes": 0.6,
+      "p_target_given_no": 0.4,
+      "cruxiness_spread": 0.19999999999999996,
+      "probability_source": "fresh",
+      "probability_at": "2026-01-17T01:19:33.341637Z"
+    },
+    {
+      "id": "0xfaa433e162e020c56c522acb2f9f7215ce6e4e4391c4fb42beba14275c0a43fe",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "New pandemic in 2026?",
+      "url": "https://polymarket.com/market/new-pandemic-in-2026",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694810Z",
+      "resolution_date": "2026-12-31",
+      "resolved": false,
+      "base_rate": 0.14,
+      "voi": 0.02904940554533142,
+      "rho": 0.2,
+      "rho_reasoning": "The two questions are not directly related, as a Democrat winning the White House in 2028 and a new pandemic in 2026 are not inherently linked events. However, there could be some underlying relationship between political factors and public health events that could lead to a small positive correlation. For example, a Democratic administration may have different pandemic preparedness and response policies that could affect the likelihood of a future pandemic. But overall, the connection between these two questions is weak, hence the relatively low estimated correlation coefficient.",
+      "p_target_given_yes": 0.6,
+      "p_target_given_no": 0.4,
+      "cruxiness_spread": 0.19999999999999996,
+      "probability_source": "fresh",
+      "probability_at": "2026-01-17T01:19:33.648346Z"
+    },
+    {
+      "id": "0xc23d4f3a1a96576e93f32ab1806c6d85f5a3d1925df7c80bdb97cfd6787b4dfc",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will Orlando Cruz win the 2026 Portugal presidential election?",
+      "url": "https://polymarket.com/market/will-orlando-cruz-win-the-2026-portugal-presidential-election",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694813Z",
+      "resolution_date": "2026-01-25",
+      "resolved": false,
+      "base_rate": 0.0005,
+      "voi": 0.007225546012191719,
+      "rho": 0.1,
+      "rho_reasoning": "The two prediction market questions are about unrelated events in different countries and at different times. The outcome of the US presidential election in 2028 would have little to no bearing on the outcome of the Portugal presidential election in 2026. Therefore, the correlation between these two questions is expected to be close to zero, indicating they are independent events.",
+      "p_target_given_yes": 0.55,
+      "p_target_given_no": 0.44999999999999996,
+      "cruxiness_spread": 0.10000000000000009,
+      "probability_source": "fresh",
+      "probability_at": "2026-01-17T01:19:33.864044Z"
+    },
+    {
+      "id": "0xdd69d77168d6820d90f89550bb21bba1bdbe52e9247373105ce1a5fc9f55d4ab",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will the Socialist Party win the most seats in the 2025 Netherlands parliamentary election?",
+      "url": "https://polymarket.com/market/will-the-socialist-party-win-the-most-seats-in-the-2025-netherlands-parliamentary-election",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694817Z",
+      "resolution_date": "2026-07-31",
+      "resolved": false,
+      "base_rate": 0.0,
+      "voi": 0.007225546012191719,
+      "rho": 0.1,
+      "rho_reasoning": "The two prediction market questions are not closely related. The outcome of the 2028 U.S. presidential election is largely independent of the outcome of the 2025 Netherlands parliamentary election. While there may be some small correlation if global political trends affect both elections, the events are mostly unrelated. So the correlation coefficient is likely to be close to 0, indicating the outcomes are largely independent.",
+      "p_target_given_yes": 0.55,
+      "p_target_given_no": 0.44999999999999996,
+      "cruxiness_spread": 0.10000000000000009,
+      "probability_source": "fresh",
+      "probability_at": "2026-01-17T01:19:34.060845Z"
+    },
+    {
+      "id": "0x97115010af13666600dc8776dce48290f5c4c23d387a86a97f6b4b38561dd5af",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will Elon Musk win the Nobel Peace Prize in 2026?",
+      "url": "https://polymarket.com/market/will-elon-musk-win-the-nobel-peace-prize-in-2026-756",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694820Z",
+      "resolution_date": "2026-10-10",
+      "resolved": false,
+      "base_rate": 0.012,
+      "voi": 0.007225546012191719,
+      "rho": 0.1,
+      "rho_reasoning": "The two questions are not closely related and measure different underlying phenomena. The outcome of one question is unlikely to provide much information about the outcome of the other question. There may be some small positive correlation if, for example, a Democratic presidency in 2028 and Elon Musk winning the Nobel Peace Prize in 2026 are both viewed as more likely in a generally more progressive political climate. But the correlation is expected to be weak, hence the estimate of rho = 0.1.",
+      "p_target_given_yes": 0.55,
+      "p_target_given_no": 0.44999999999999996,
+      "cruxiness_spread": 0.10000000000000009,
+      "probability_source": "fresh",
+      "probability_at": "2026-01-17T01:19:34.295964Z"
+    },
+    {
+      "id": "dgPNU5ICzP",
+      "source": "manifold",
+      "source_type": "market",
+      "text": "Will Colbert be forced off air before May, 2026?",
+      "url": "https://manifold.markets/WrongoPhD/will-colbert-be-forced-off-air-befo",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694823Z",
+      "resolution_date": "2026-05-01",
+      "resolved": false,
+      "base_rate": 0.11432748487657439,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "The two prediction market questions, 'Will a Democrat win the White House in 2028?' and 'Will Colbert be forced off air before May, 2026?' are not related events. The outcome of one question does not provide any information about the outcome of the other question. They are measuring different and unrelated phenomena, so the correlation coefficient between them is 0, indicating they are independent.",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0
+    },
+    {
+      "id": "1701",
+      "source": "infer",
+      "source_type": "market",
+      "text": "Will Hezbollah and its March 8 coalition allies win a majority of seats in the 2026 Lebanese Parliamentary elections?",
+      "url": "https://www.randforecastinginitiative.org/questions/1701",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694827Z",
+      "resolution_date": "2026-06-01",
+      "resolved": false,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "The two questions are about unrelated events in different countries and political systems. The outcome of the US presidential election in 2028 would not directly affect the outcome of the Lebanese parliamentary elections in 2026. Therefore, the correlation between these two events is likely to be very low or close to 0, meaning knowing the outcome of one question provides little to no information about the other.",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0
+    },
+    {
+      "id": "0x7e50b661a2bedc670bcf32fc9ece12616f6fc4fba5dbe8526292bf3447374009",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will Russia capture Kostyantynivka by December 31, 2026?",
+      "url": "https://polymarket.com/market/will-russia-capture-kostyantynivka-by-december-31-2026-936-942",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694836Z",
+      "resolution_date": "2026-12-31",
+      "resolved": false,
+      "base_rate": 0.925,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "The two questions are about unrelated events - the outcome of the 2028 US presidential election and the capture of a specific city in Ukraine by Russia. The results of these two events are likely independent of each other, so the correlation coefficient would be close to 0, indicating no meaningful relationship between the outcomes of the two questions.",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0,
+      "probability_source": "fresh",
+      "probability_at": "2026-01-17T01:19:34.483878Z"
+    },
+    {
+      "id": "0x8bf53bab21d7dfcd8f6c311c6f78d41678475e9184b6f16f5bbd5a9da3b1508b",
+      "source": "polymarket",
+      "source_type": "market",
+      "text": "Will the Washington Commanders win Super Bowl 2026?",
+      "url": "https://polymarket.com/market/will-the-washington-commanders-win-super-bowl-2026",
+      "question_type": "binary",
+      "created_at": "2026-01-17T01:20:17.694840Z",
+      "resolution_date": "2026-02-08",
+      "resolved": false,
+      "base_rate": 0.0,
+      "voi": 0.0,
+      "rho": 0.0,
+      "rho_reasoning": "The two questions are about completely unrelated events - the outcome of a US presidential election and the performance of an NFL team in a future Super Bowl. The outcomes of these events are independent of each other, so the correlation coefficient would be 0, indicating no relationship between the two.",
+      "p_target_given_yes": 0.5,
+      "p_target_given_no": 0.5,
+      "cruxiness_spread": 0.0,
+      "probability_source": "fresh",
+      "probability_at": "2026-01-17T01:19:34.697179Z"
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Democratic Resurgence",
+      "description": "Democrats successfully rebuild after 2024, showing strong midterm gains and unified party organization. Trump's approval remains low while Democrats gain momentum in key swing states and governorships. A younger Democratic candidate emerges with strong establishment support.",
+      "scenario_probability": 0.35,
+      "key_drivers": [
+        "Strong Democratic midterm performance",
+        "Trump approval below 40%",
+        "Unified Democratic establishment",
+        "Economic dissatisfaction with Republican policies",
+        "Successful Democratic fundraising and organization"
+      ],
+      "why_exclusive": "Cannot co-occur with Republican dominance or fragmented Democratic scenarios because it requires coordinated Democratic success across multiple fronts simultaneously.",
+      "signal_impacts": [
+        {
+          "signal_index": 0,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 1,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 2,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 3,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 4,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 5,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 6,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 7,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 11,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 12,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 13,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 8,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 14,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 16,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 10,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 15,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Trump approval rating": "<42% by end 2026",
+        "Democratic swing state polling": ">5pt improvement in 3+ states",
+        "Democratic gubernatorial gains": "Net +3 governorships",
+        "Democratic fundraising advantage": ">$50M Q1 2026",
+        "Economic conditions": "Inflation >4% OR market decline >20%"
+      },
+      "outcome_range": "70-80% YES",
+      "outcome_low": null,
+      "outcome_high": null,
+      "probability_range": "70-80% YES",
+      "probability_low": 0.7,
+      "probability_high": 0.8
+    },
+    {
+      "name": "Trump Legacy Consolidation",
+      "description": "Trump's policies prove popular and his approval stabilizes above 45%. Republicans maintain unified control and JD Vance emerges as the clear successor with Trump's endorsement. Economic conditions improve, validating the Trump agenda.",
+      "scenario_probability": 0.25,
+      "key_drivers": [
+        "Trump approval above 45%",
+        "Republican midterm success",
+        "JD Vance consolidates as heir apparent",
+        "Economic growth and stability",
+        "Successful trade/tariff policies"
+      ],
+      "why_exclusive": "Cannot co-occur with Democratic resurgence or Republican fragmentation because it requires sustained Trump popularity and unified Republican success.",
+      "signal_impacts": [
+        {
+          "signal_index": 10,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 15,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 0,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 1,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 2,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 3,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 5,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 6,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 8,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 11,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 12,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 14,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 16,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 18,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Trump approval rating": ">45% sustained through 2026",
+        "Republican midterm performance": "Hold House, gain/hold Senate",
+        "JD Vance positioning": "Clear Trump endorsement by Oct 2026",
+        "Economic indicators": "Inflation <3%, no major market decline",
+        "Democratic performance": "<3 swing state improvements"
+      },
+      "outcome_range": "25-35% YES",
+      "outcome_low": null,
+      "outcome_high": null,
+      "probability_range": "25-35% YES",
+      "probability_low": 0.25,
+      "probability_high": 0.35
+    },
+    {
+      "name": "Fragmented Competition",
+      "description": "Both parties face internal divisions and unclear leadership. No dominant candidate emerges on either side, leading to chaotic primaries. Mixed economic signals and divided government create an unpredictable environment where traditional advantages don't apply.",
+      "scenario_probability": 0.3,
+      "key_drivers": [
+        "No clear Democratic frontrunner emerges",
+        "Republican field remains wide open beyond Vance",
+        "Mixed midterm results with divided government",
+        "Economic conditions neither clearly good nor bad",
+        "Multiple candidates vie for both nominations"
+      ],
+      "why_exclusive": "Cannot co-occur with scenarios of clear party dominance or unified leadership because it specifically requires fragmentation and uncertainty in both parties.",
+      "signal_impacts": [
+        {
+          "signal_index": 1,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 9,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 17,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 4,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 10,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 13,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 0,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 2,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 11,
+          "effect": "enhances"
+        }
+      ],
+      "indicator_bundle": {
+        "Democratic unity": "No major governor endorsements by May 2026",
+        "Republican succession": "Multiple serious candidates beyond Vance",
+        "Government control": "Divided control (R Senate, D House)",
+        "Economic mixed signals": "Some positive, some negative indicators",
+        "Primary competition": "5+ serious candidates each party"
+      },
+      "outcome_range": "45-55% YES",
+      "outcome_low": null,
+      "outcome_high": null,
+      "probability_range": "45-55% YES",
+      "probability_low": 0.45,
+      "probability_high": 0.55
+    },
+    {
+      "name": "Economic Crisis Response",
+      "description": "Significant economic downturn driven by tariff impacts, inflation, and/or market crash creates a decisive anti-incumbent environment. Democrats benefit from economic dissatisfaction regardless of their internal organization, while Republicans struggle to defend Trump-era policies.",
+      "scenario_probability": 0.1,
+      "key_drivers": [
+        "Major economic downturn by 2026-2027",
+        "Tariff policies backfire significantly",
+        "High inflation persists or worsens",
+        "Stock market crash or recession",
+        "Clear voter blame on Republican policies"
+      ],
+      "why_exclusive": "Cannot co-occur with economic stability scenarios or Trump policy validation because it requires a clear economic crisis that dominates all other political considerations.",
+      "signal_impacts": [
+        {
+          "signal_index": 8,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 12,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 14,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 16,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 11,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 18,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 5,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 0,
+          "effect": "enhances"
+        },
+        {
+          "signal_index": 10,
+          "effect": "suppresses"
+        },
+        {
+          "signal_index": 15,
+          "effect": "suppresses"
+        }
+      ],
+      "indicator_bundle": {
+        "Inflation rate": ">4% sustained through 2026",
+        "Market performance": ">20% decline lasting 30+ days",
+        "Trade policy": "25%+ tariffs on 5+ major partners",
+        "Budget situation": "Deficit >$2.5T in FY2026",
+        "Fed response": "5+ rate cuts indicating crisis"
+      },
+      "outcome_range": "75-85% YES",
+      "outcome_low": null,
+      "outcome_high": null,
+      "probability_range": "75-85% YES",
+      "probability_low": 0.75,
+      "probability_high": 0.85
+    }
+  ],
+  "mece_reasoning": "These scenarios are MECE because they represent fundamentally different political-economic environments that cannot co-exist: (1) Democratic Resurgence requires coordinated Democratic success and Trump weakness, (2) Trump Legacy Consolidation requires sustained Trump/Republican strength and Democratic weakness, (3) Fragmented Competition requires neither party achieving dominance, and (4) Economic Crisis Response requires economic conditions so severe they override normal political considerations. Each scenario is defined by mutually exclusive combinations of party performance, leadership clarity, and economic conditions. Together they cover the full spectrum from clear Democratic advantage to clear Republican advantage, with mixed scenarios in between, plus the special case of economic crisis overriding normal politics.",
+  "coverage_gaps": "Minimal gaps. The main edge case not fully covered would be a major external shock (war, natural disaster, etc.) that completely reshapes politics in ways unrelated to current signals, but such events are inherently unpredictable and not captured in the available signals.",
+  "created_at": "2026-01-16T17:20:17.695058",
+  "max_horizon_days": 365,
+  "sources_used": [
+    "polymarket",
+    "metaculus",
+    "kalshi",
+    "infer",
+    "manifold"
+  ],
+  "uncertainties": [
+    {
+      "name": "Trump Administration Performance",
+      "description": "Whether Trump's second term delivers on economic promises and maintains public support, particularly regarding tariff impacts, inflation control, and overall governance effectiveness. This will significantly influence voter sentiment toward continuing Republican leadership versus seeking Democratic change.",
+      "search_query": "Trump approval rating 2026 2027 economic performance tariffs inflation second term"
+    },
+    {
+      "name": "Democratic Party Revival",
+      "description": "How effectively Democrats rebuild their coalition, select a compelling nominee, and distance themselves from 2024 losses while appealing to swing voters. The party's ability to unite behind a strong candidate and craft a winning message will be crucial.",
+      "search_query": "Democratic primary 2028 Newsom Whitmer Shapiro party unity nominee strength polling"
+    },
+    {
+      "name": "Republican Succession Battle",
+      "description": "Whether Republicans can successfully transition from Trump to a new standard-bearer, with JD Vance's rise versus other contenders like DeSantis and Haley creating potential party fractures. A divisive primary could weaken the eventual nominee.",
+      "search_query": "Republican primary 2028 JD Vance DeSantis Haley Trump endorsement succession nominee"
+    }
+  ],
+  "topdown_signals_generated": 27,
+  "market_signals_retrieved": 29,
+  "matched_signals": 2,
+  "gap_signals": 25,
+  "market_only_signals": 27,
+  "merged_signals_total": 54,
+  "signals_above_floor": 28,
+  "signals_above_floor_by_origin": {
+    "matched": 1,
+    "gap": 21,
+    "market_only": 6
+  },
+  "gaps": [
+    {
+      "text": "By December 31, 2026, US consumer price index (CPI) inflation rate will exceed 4.0% year-over-year, per Bureau of Labor Statistics data",
+      "resolution_source": "Bureau of Labor Statistics Consumer Price Index report",
+      "uncertainty_source": "Trump Administration Performance",
+      "base_rate": 0.35,
+      "best_market_similarity": 0.49719148874282837
+    },
+    {
+      "text": "By November 30, 2026, Trump's average approval rating will fall below 40% in FiveThirtyEight polling average for at least 30 consecutive days",
+      "resolution_source": "FiveThirtyEight presidential approval tracker",
+      "uncertainty_source": "Trump Administration Performance",
+      "base_rate": 0.25,
+      "best_market_similarity": 0.38240906596183777
+    },
+    {
+      "text": "By September 30, 2026, US unemployment rate will exceed 5.0% for at least one month, per Bureau of Labor Statistics data",
+      "resolution_source": "Bureau of Labor Statistics Employment Situation Summary",
+      "uncertainty_source": "Trump Administration Performance",
+      "base_rate": 0.2,
+      "best_market_similarity": 0.4699246883392334
+    },
+    {
+      "text": "By August 31, 2026, Trump will impose tariffs of 25% or higher on imports from at least 5 major trading partners (EU, China, Mexico, Canada, Japan), per US Trade Representative announcements",
+      "resolution_source": "US Trade Representative official tariff schedules and press releases",
+      "uncertainty_source": "Trump Administration Performance",
+      "base_rate": 0.45,
+      "best_market_similarity": 0.43837979435920715
+    },
+    {
+      "text": "By December 31, 2026, consumer confidence index will fall below 90 for at least 3 consecutive months, per Conference Board data",
+      "resolution_source": "Conference Board Consumer Confidence Index reports",
+      "uncertainty_source": "Trump Administration Performance",
+      "base_rate": 0.25,
+      "best_market_similarity": 0.38493573665618896
+    },
+    {
+      "text": "By June 30, 2026, US federal budget deficit will exceed $2.5 trillion for fiscal year 2026, per Congressional Budget Office data",
+      "resolution_source": "Congressional Budget Office Budget and Economic Outlook reports",
+      "uncertainty_source": "Trump Administration Performance",
+      "base_rate": 0.15,
+      "best_market_similarity": 0.4747503697872162
+    },
+    {
+      "text": "By October 31, 2026, US stock market (S&P 500) will experience a decline of 20% or more from its January 2026 peak, lasting at least 30 consecutive trading days",
+      "resolution_source": "S&P Dow Jones Indices official S&P 500 data",
+      "uncertainty_source": "Trump Administration Performance",
+      "base_rate": 0.2,
+      "best_market_similarity": 0.5328856706619263
+    },
+    {
+      "text": "By September 30, 2026, Trump will face formal impeachment proceedings initiated by House of Representatives, per official Congressional records",
+      "resolution_source": "House of Representatives official proceedings and voting records",
+      "uncertainty_source": "Trump Administration Performance",
+      "base_rate": 0.15,
+      "best_market_similarity": 0.4706295132637024
+    },
+    {
+      "text": "By December 31, 2026, a Democrat receives >40% support in aggregate polling for the 2028 presidential nomination, per RealClearPolitics or 538 polling averages",
+      "resolution_source": "RealClearPolitics or FiveThirtyEight polling aggregates",
+      "uncertainty_source": "Democratic Party Revival",
+      "base_rate": 0.65,
+      "best_market_similarity": 0.5184115171432495
+    },
+    {
+      "text": "By November 30, 2026, Democrats gain net control of at least 3 additional state governorships compared to January 2026 levels, per official state election results",
+      "resolution_source": "Official state election results certified by state election authorities",
+      "uncertainty_source": "Democratic Party Revival",
+      "base_rate": 0.45,
+      "best_market_similarity": 0.5527899861335754
+    },
+    {
+      "text": "By September 30, 2026, Democratic Party fundraising exceeds $200 million in small-dollar donations (<$200) for the 2026 cycle, per FEC filings",
+      "resolution_source": "Federal Election Commission quarterly filings",
+      "uncertainty_source": "Democratic Party Revival",
+      "base_rate": 0.55,
+      "best_market_similarity": 0.36526358127593994
+    },
+    {
+      "text": "By August 31, 2026, at least one potential 2028 Democratic presidential candidate achieves >60% favorable ratings among independents in a major national poll (CNN, ABC, NBC, CBS, Fox)",
+      "resolution_source": "Major network polling (CNN, ABC, NBC, CBS, Fox News)",
+      "uncertainty_source": "Democratic Party Revival",
+      "base_rate": 0.35,
+      "best_market_similarity": 0.5228086709976196
+    },
+    {
+      "text": "By June 30, 2026, Democrats outperform their 2024 presidential vote share by >5 percentage points in at least 3 of 7 key swing states (AZ, GA, MI, NV, NC, PA, WI) in aggregate polling, per 538 averages",
+      "resolution_source": "FiveThirtyEight state polling averages",
+      "uncertainty_source": "Democratic Party Revival",
+      "base_rate": 0.4,
+      "best_market_similarity": 0.5630800724029541
+    },
+    {
+      "text": "By October 31, 2026, a Democrat under age 55 announces a presidential exploratory committee or campaign for 2028, per official campaign filings with the FEC",
+      "resolution_source": "Federal Election Commission candidate registration filings",
+      "uncertainty_source": "Democratic Party Revival",
+      "base_rate": 0.7,
+      "best_market_similarity": 0.4263504147529602
+    },
+    {
+      "text": "By December 31, 2026, Democrats achieve >50% approval rating on economic issues in at least 2 consecutive months of major polling (Gallup, Pew, or equivalent), compared to Republicans",
+      "resolution_source": "Gallup, Pew Research, or equivalent major polling organizations",
+      "uncertainty_source": "Democratic Party Revival",
+      "base_rate": 0.3,
+      "best_market_similarity": 0.5536642074584961
+    },
+    {
+      "text": "By March 31, 2026, the Democratic National Committee raises >$50 million more than the Republican National Committee in Q1 2026, per FEC quarterly reports",
+      "resolution_source": "Federal Election Commission quarterly fundraising reports",
+      "uncertainty_source": "Democratic Party Revival",
+      "base_rate": 0.25,
+      "best_market_similarity": 0.4025476276874542
+    },
+    {
+      "text": "By September 30, 2026, Democrats maintain unified opposition (>90% party unity) on at least 75% of major congressional votes during the 2026 session, per Congressional Quarterly vote analysis",
+      "resolution_source": "Congressional Quarterly or equivalent legislative vote tracking",
+      "uncertainty_source": "Democratic Party Revival",
+      "base_rate": 0.6,
+      "best_market_similarity": 0.5756248831748962
+    },
+    {
+      "text": "By May 31, 2026, at least 2 major Democratic governors (CA, NY, MI, PA, NC, or similar large states) make public statements endorsing the same potential 2028 presidential candidate",
+      "resolution_source": "Public statements reported in major news outlets (AP, Reuters, major newspapers)",
+      "uncertainty_source": "Democratic Party Revival",
+      "base_rate": 0.45,
+      "best_market_similarity": 0.5095496773719788
+    },
+    {
+      "text": "By December 31, 2026, JD Vance announces his candidacy for the 2028 Republican presidential nomination via official campaign filing with the FEC",
+      "resolution_source": "FEC campaign finance filings",
+      "uncertainty_source": "Republican Succession Battle",
+      "base_rate": 0.75,
+      "best_market_similarity": 0.4874834418296814
+    },
+    {
+      "text": "By October 31, 2026, Ron DeSantis raises more than $25 million for a 2028 presidential campaign committee, per FEC quarterly reports",
+      "resolution_source": "FEC quarterly campaign finance reports",
+      "uncertainty_source": "Republican Succession Battle",
+      "base_rate": 0.65,
+      "best_market_similarity": 0.3489072322845459
+    },
+    {
+      "text": "By September 30, 2026, Trump endorses JD Vance for the 2028 Republican presidential nomination via Truth Social, Twitter, or official statement",
+      "resolution_source": "Trump's Truth Social account, Twitter, or official campaign statements",
+      "uncertainty_source": "Republican Succession Battle",
+      "base_rate": 0.8,
+      "best_market_similarity": 0.47057297825813293
+    },
+    {
+      "text": "Before December 31, 2026, at least 3 Republican governors publicly criticize JD Vance's policy positions or electability in major media interviews",
+      "resolution_source": "Major media outlets (CNN, Fox News, NBC, ABC, CBS, Washington Post, New York Times)",
+      "uncertainty_source": "Republican Succession Battle",
+      "base_rate": 0.4,
+      "best_market_similarity": 0.44819125533103943
+    },
+    {
+      "text": "By August 31, 2026, Vivek Ramaswamy raises more than $15 million for a 2028 presidential campaign committee, per FEC quarterly reports",
+      "resolution_source": "FEC quarterly campaign finance reports",
+      "uncertainty_source": "Republican Succession Battle",
+      "base_rate": 0.35,
+      "best_market_similarity": 0.31786563992500305
+    },
+    {
+      "text": "By November 30, 2026, at least 4 candidates file FEC paperwork for 2028 Republican presidential exploratory committees or campaigns",
+      "resolution_source": "FEC candidate filings database",
+      "uncertainty_source": "Republican Succession Battle",
+      "base_rate": 0.6,
+      "best_market_similarity": 0.40570610761642456
+    },
+    {
+      "text": "By January 16, 2027, Tim Scott announces his candidacy for the 2028 Republican presidential nomination via official campaign filing with the FEC",
+      "resolution_source": "FEC campaign finance filings",
+      "uncertainty_source": "Republican Succession Battle",
+      "base_rate": 0.45,
+      "best_market_similarity": 0.44298574328422546
+    }
+  ],
+  "gaps_by_resolution_source": {
+    "Bureau of Labor Statistics Consumer Price Index report": 1,
+    "FiveThirtyEight presidential approval tracker": 1,
+    "Bureau of Labor Statistics Employment Situation Summary": 1,
+    "US Trade Representative official tariff schedules and press releases": 1,
+    "Conference Board Consumer Confidence Index reports": 1,
+    "Congressional Budget Office Budget and Economic Outlook reports": 1,
+    "S&P Dow Jones Indices official S&P 500 data": 1,
+    "House of Representatives official proceedings and voting records": 1,
+    "RealClearPolitics or FiveThirtyEight polling aggregates": 1,
+    "Official state election results certified by state election authorities": 1,
+    "Federal Election Commission quarterly filings": 1,
+    "Major network polling (CNN, ABC, NBC, CBS, Fox News)": 1,
+    "FiveThirtyEight state polling averages": 1,
+    "Federal Election Commission candidate registration filings": 1,
+    "Gallup, Pew Research, or equivalent major polling organizations": 1,
+    "Federal Election Commission quarterly fundraising reports": 1,
+    "Congressional Quarterly or equivalent legislative vote tracking": 1,
+    "Public statements reported in major news outlets (AP, Reuters, major newspapers)": 1,
+    "FEC campaign finance filings": 2,
+    "FEC quarterly campaign finance reports": 2,
+    "Trump's Truth Social account, Twitter, or official campaign statements": 1,
+    "Major media outlets (CNN, Fox News, NBC, ABC, CBS, Washington Post, New York Times)": 1,
+    "FEC candidate filings database": 1
+  }
+}

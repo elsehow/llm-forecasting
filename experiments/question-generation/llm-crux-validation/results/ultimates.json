@@ -1,0 +1,309 @@
+{
+  "metadata": {
+    "generated_at": "2026-01-23T23:07:26.228365+00:00",
+    "min_volume": 100000,
+    "min_prob": 0.2,
+    "max_prob": 0.8,
+    "min_end_date": "2026-02-01T00:00:00+00:00",
+    "n_candidates": 32,
+    "n_selected": 32,
+    "topic_distribution": {
+      "politics_us": 4,
+      "politics_intl": 10,
+      "crypto": 5,
+      "finance": 1,
+      "sports": 4,
+      "other": 8
+    }
+  },
+  "ultimates": [
+    {
+      "condition_id": "0xdcc87b9ca36015e396bd0eebca29e854a136ed2b0b701049d1ee9da6bee3eb35",
+      "question": "Will Trump nominate Kevin Hassett as the next Fed chair?",
+      "slug": "will-trump-nominate-kevin-hassett-as-the-next-fed-chair",
+      "end_date": "2026-12-31T00:00:00+00:00",
+      "volume_total": 9275488.312683,
+      "current_price": 0.325,
+      "topic": "politics_us"
+    },
+    {
+      "condition_id": "0x61b66d02793b4a68ab0cc25be60d65f517fe18c7d654041281bb130341244fcc",
+      "question": "Will Trump nominate Kevin Warsh as the next Fed chair?",
+      "slug": "will-trump-nominate-kevin-warsh-as-the-next-fed-chair",
+      "end_date": "2026-12-31T00:00:00+00:00",
+      "volume_total": 5011810.461158,
+      "current_price": 0.395,
+      "topic": "politics_us"
+    },
+    {
+      "condition_id": "0xb1d2cd56624ec8bb3d8115d50d503d0e8578bf32d754ad5fe3c0e08a73186c57",
+      "question": "Supreme Court rules in favor of Trump's tariffs?",
+      "slug": "will-the-supreme-court-rule-in-favor-of-trumps-tariffs",
+      "end_date": "2026-12-31T00:00:00+00:00",
+      "volume_total": 2946952.777956,
+      "current_price": 0.265,
+      "topic": "politics_us"
+    },
+    {
+      "condition_id": "0xc8d4e2c302e248cb5cd7179c589281e93b5c594baa57e04d3f0b934bd8df449d",
+      "question": "Will Trump and Machado share the Nobel Peace Prize?",
+      "slug": "will-trump-and-machado-share-the-nobel-peace-prize",
+      "end_date": "2026-12-31T00:00:00+00:00",
+      "volume_total": 450167.868386,
+      "current_price": 0.715,
+      "topic": "politics_us"
+    },
+    {
+      "condition_id": "0xaeea5f917fc5746387b5f9c0a4263dba035dbb3f0ac6ad72bf92183d21e26739",
+      "question": "Russia x Ukraine ceasefire by end of 2026?",
+      "slug": "russia-x-ukraine-ceasefire-before-2027",
+      "end_date": "2026-12-31T00:00:00+00:00",
+      "volume_total": 6405252.939461,
+      "current_price": 0.425,
+      "topic": "politics_intl"
+    },
+    {
+      "condition_id": "0x70909f0ba8256a89c301da58812ae47203df54957a07c7f8b10235e877ad63c2",
+      "question": "Khamenei out as Supreme Leader of Iran by March 31?",
+      "slug": "khamenei-out-as-supreme-leader-of-iran-by-march-31",
+      "end_date": "2026-03-31T00:00:00+00:00",
+      "volume_total": 4731687.525656,
+      "current_price": 0.445,
+      "topic": "politics_intl"
+    },
+    {
+      "condition_id": "0x2e94bb8dd09931d12e6e656fe4fe6ceb3922bc3d6eab864bb6cd24773cf67269",
+      "question": "Khamenei out as Supreme Leader of Iran by June 30?",
+      "slug": "khamenei-out-as-supreme-leader-of-iran-by-june-30-747",
+      "end_date": "2026-06-30T00:00:00+00:00",
+      "volume_total": 2909521.044342,
+      "current_price": 0.515,
+      "topic": "politics_intl"
+    },
+    {
+      "condition_id": "0xbb4d51e6364066d92eb6f9b8413dd7193de70966736044463b205834805a1f3b",
+      "question": "Will the Iranian regime fall before 2027?",
+      "slug": "will-the-iranian-regime-fall-by-the-end-of-2026",
+      "end_date": "2026-12-31T00:00:00+00:00",
+      "volume_total": 2376232.143793,
+      "current_price": 0.53,
+      "topic": "politics_intl"
+    },
+    {
+      "condition_id": "0x61ce3773237a948584e422de72265f937034af418a8b703e3a860ea62e59ff36",
+      "question": "Will the Iranian regime fall by March 31?",
+      "slug": "will-the-iranian-regime-fall-by-march-31",
+      "end_date": "2026-03-31T00:00:00+00:00",
+      "volume_total": 1624171.714655,
+      "current_price": 0.269,
+      "topic": "politics_intl"
+    },
+    {
+      "condition_id": "0x4b02efe53e631ada84681303fd66d79ad615f3d2b6a28b4633d43d935f89af58",
+      "question": "US strikes Iran by March 31, 2026?",
+      "slug": "us-strikes-iran-by-march-31-2026-393-221-132-633-215-592-866-184",
+      "end_date": "2026-06-30T00:00:00+00:00",
+      "volume_total": 1526273.926113,
+      "current_price": 0.735,
+      "topic": "politics_intl"
+    },
+    {
+      "condition_id": "0xe6b7d4d8b4d2ff7dc8c9e5d6dd70b6eece210b8cf9e34fb45f9b9516cc4c76ff",
+      "question": "Khamenei out as Supreme Leader of Iran in 2026?",
+      "slug": "khamenei-out-as-supreme-leader-of-iran-by-december-31-2026",
+      "end_date": "2026-12-31T00:00:00+00:00",
+      "volume_total": 1229296.130769,
+      "current_price": 0.615,
+      "topic": "politics_intl"
+    },
+    {
+      "condition_id": "0x28f1e9218bcd41ced05faf3c03f026721d87712556bf2828337551f03cae0a01",
+      "question": "Israel strikes Iran by March 31, 2026?",
+      "slug": "israel-strikes-iran-by-march-31-2026",
+      "end_date": "2026-03-31T00:00:00+00:00",
+      "volume_total": 1160234.486348,
+      "current_price": 0.615,
+      "topic": "politics_intl"
+    },
+    {
+      "condition_id": "0x2603d5576c488e4f2a4fa41677917044e796917b2ff251d639b635062fe6b068",
+      "question": "Will Bitcoin reach $100,000 in January?",
+      "slug": "will-bitcoin-reach-100k-in-january-2026",
+      "end_date": "2026-02-01T05:00:00+00:00",
+      "volume_total": 3919709.044921,
+      "current_price": 0.52,
+      "topic": "crypto"
+    },
+    {
+      "condition_id": "0x542fb07feb00feddb87c1d9e93ebf439a692c6b12e81e935ef2a5cda7de70dfb",
+      "question": "Will Bitcoin reach $105,000 in January?",
+      "slug": "will-bitcoin-reach-105k-in-january-2026",
+      "end_date": "2026-02-01T05:00:00+00:00",
+      "volume_total": 1963324.35885,
+      "current_price": 0.215,
+      "topic": "crypto"
+    },
+    {
+      "condition_id": "0x8929b01651f44fae2e7b5bd1832662099d81b5494450e1030a6b9b42ec61110f",
+      "question": "Will Solana reach $150 in January?",
+      "slug": "will-solana-reach-150-in-january-2026",
+      "end_date": "2026-02-01T05:00:00+00:00",
+      "volume_total": 397936.518596,
+      "current_price": 0.795,
+      "topic": "crypto"
+    },
+    {
+      "condition_id": "0x8de57c5c6cc39bb852bc85b469ef69ee2655ce5c9270af32b73a4c5ae80a5773",
+      "question": "Will Ethereum reach $3,800 in January?",
+      "slug": "will-ethereum-reach-3800-in-january-2026",
+      "end_date": "2026-02-01T05:00:00+00:00",
+      "volume_total": 392168.413042,
+      "current_price": 0.22,
+      "topic": "crypto"
+    },
+    {
+      "condition_id": "0x32b6c15ef4f4dd89abd048a4e01d97ba3c984d6097667d5b95c8fd4d9e77714c",
+      "question": "Will Ethereum reach $3,600 in January?",
+      "slug": "will-ethereum-reach-3600-in-january-2026",
+      "end_date": "2026-02-01T05:00:00+00:00",
+      "volume_total": 365052.336836,
+      "current_price": 0.45,
+      "topic": "crypto"
+    },
+    {
+      "condition_id": "0x257b18205f908aef01ef2d1d50e6fea7d29cf5486fe04031d8b101394476faed",
+      "question": "Will there be no change in Fed interest rates after the March 2026 meeting?",
+      "slug": "will-there-be-no-change-in-fed-interest-rates-after-the-march-2026-meeting",
+      "end_date": "2026-03-18T00:00:00+00:00",
+      "volume_total": 342738.850534,
+      "current_price": 0.675,
+      "topic": "finance"
+    },
+    {
+      "condition_id": "0xa0eafdfa7da17483796f77f4b287d28834ab97db4a9a6e999b52c1ba239bc2f3",
+      "question": "Will the Seattle Seahawks win Super Bowl 2026?",
+      "slug": "will-the-seattle-seahawks-win-super-bowl-2026",
+      "end_date": "2026-02-08T12:00:00+00:00",
+      "volume_total": 5942769.256121,
+      "current_price": 0.234,
+      "topic": "sports"
+    },
+    {
+      "condition_id": "0x2b57ed983eb34b5e081fc8dcc1372d688963fd4d9c9018b8d2ba36867b26b236",
+      "question": "Will the Los Angeles Rams win Super Bowl 2026?",
+      "slug": "will-the-los-angeles-rams-win-super-bowl-2026",
+      "end_date": "2026-02-08T12:00:00+00:00",
+      "volume_total": 5321356.905894,
+      "current_price": 0.2025,
+      "topic": "sports"
+    },
+    {
+      "condition_id": "0x281565cae359040475640be8bc20f4efe15245fe0251805fd338fb1a3e45ffae",
+      "question": "Will Shai Gilgeous-Alexander win the 2025\u20132026 NBA MVP?",
+      "slug": "will-shai-gilgeous-alexander-win-the-20252026-nba-mvp",
+      "end_date": "2026-06-10T00:00:00+00:00",
+      "volume_total": 560557.239324,
+      "current_price": 0.73,
+      "topic": "sports"
+    },
+    {
+      "condition_id": "0x7d83ff41dd492f5110cc8083e652f343fada80a2cd090e73cad3ccb1566b706a",
+      "question": "Will Mike Vrabel win NFL Coach of the Year?",
+      "slug": "will-mike-vrabel-win-nfl-coach-of-the-year",
+      "end_date": "2026-02-11T12:00:00+00:00",
+      "volume_total": 412547.557031,
+      "current_price": 0.72,
+      "topic": "sports"
+    },
+    {
+      "condition_id": "0x890fc3ba40458db0b67560691aa1597344c2a0560d18e80f586a4b35f510b4ce",
+      "question": "Will the US acquire part of Greenland in 2026?",
+      "slug": "will-the-us-acquire-any-part-of-greenland-in-2026",
+      "end_date": "2026-12-31T00:00:00+00:00",
+      "volume_total": 1920193.857452,
+      "current_price": 0.225,
+      "topic": "other"
+    },
+    {
+      "condition_id": "0xa1f08ec3bcc1434cb0b695bd5ee9f81268ef45fb73f752b3a1c1fb1d35750866",
+      "question": "Will Real Madrid win the 2025\u201326 La Liga?",
+      "slug": "will-real-madrid-win-the-202526-la-liga",
+      "end_date": "2026-05-30T00:00:00+00:00",
+      "volume_total": 867080.777013,
+      "current_price": 0.305,
+      "topic": "other"
+    },
+    {
+      "condition_id": "0xf8f63bb47b2a7c2e0c1be3cedf4075079b11c07476d76a9469065b0c4791961a",
+      "question": "Will the Colorado Avalanche win the 2026 NHL Stanley Cup?",
+      "slug": "will-the-colorado-avalanche-win-the-2026-nhl-stanley-cup",
+      "end_date": "2026-06-30T00:00:00+00:00",
+      "volume_total": 853141.430017,
+      "current_price": 0.235,
+      "topic": "other"
+    },
+    {
+      "condition_id": "0x170e907f54cd05c3f181067798610feb95f590d5d4be2bdda699c83249e2666e",
+      "question": "Opinion FDV above $1B one day after launch?",
+      "slug": "opinion-fdv-above-1b-one-day-after-launch",
+      "end_date": "2027-01-01T05:00:00+00:00",
+      "volume_total": 479421.945909,
+      "current_price": 0.64,
+      "topic": "other"
+    },
+    {
+      "condition_id": "0x70187b4770796788b9d1f3fc6652c596870a9a837b96c832441652588f26029d",
+      "question": "Will Mar\u00eda Corina Machado be the leader of Venezuela end of 2026?",
+      "slug": "will-mara-corina-machado-be-the-leader-of-venezuela-end-of-2026",
+      "end_date": "2026-12-31T00:00:00+00:00",
+      "volume_total": 437262.368947,
+      "current_price": 0.205,
+      "topic": "other"
+    },
+    {
+      "condition_id": "0x569d909807a5d032aac3cbb3971c503f72552bb49378636fc2812820158c7a64",
+      "question": "Nothing Ever Happens: Khamenei",
+      "slug": "nothing-ever-happens-khamenei",
+      "end_date": "2026-03-31T00:00:00+00:00",
+      "volume_total": 296154.060197,
+      "current_price": 0.56,
+      "topic": "other"
+    },
+    {
+      "condition_id": "0xdc058561e320700e0d41143add9c2033c081a5f44452c4eaf415f58c3d417c28",
+      "question": "Fogo FDV above $500M one day after launch?",
+      "slug": "fogo-fdv-above-500m-one-day-after-launch",
+      "end_date": "2027-01-01T05:00:00+00:00",
+      "volume_total": 164483.716021,
+      "current_price": 0.46,
+      "topic": "other"
+    },
+    {
+      "condition_id": "0x139ba0e7f931f09466c0fb27fc8ddb5e77ce9d1e2bdc953a5f22765bf779452f",
+      "question": "SCOTUS accepts sports event contract case by July 31, 2026?     ",
+      "slug": "scotus-accepts-sports-event-contract-case-by-july-31-2026",
+      "end_date": "2026-07-31T00:00:00+00:00",
+      "volume_total": 143710.53331,
+      "current_price": 0.285,
+      "topic": "other"
+    },
+    {
+      "condition_id": "0x797d586ad45522306490b0cc9b2f21bdf957f3843476fae99f3bcc2cec83b74b",
+      "question": "US strikes Iran by June 30, 2026?",
+      "slug": "us-strikes-iran-by-june-30-2026-699-664-723-485-753-218-567-164",
+      "end_date": "2026-06-30T00:00:00+00:00",
+      "volume_total": 952363.812703,
+      "current_price": 0.755,
+      "topic": "politics_intl"
+    },
+    {
+      "condition_id": "0x9352c559e9648ab4cab236087b64ca85c5b7123a4c7d9d7d4efde4a39c18056f",
+      "question": "Will the Iranian regime fall by June 30?",
+      "slug": "will-the-iranian-regime-fall-by-june-30",
+      "end_date": "2026-06-30T00:00:00+00:00",
+      "volume_total": 648658.058821,
+      "current_price": 0.34,
+      "topic": "politics_intl"
+    }
+  ]
+}

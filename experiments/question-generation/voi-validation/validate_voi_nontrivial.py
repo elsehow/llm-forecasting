@@ -192,6 +192,81 @@ def main():
     print(f"\nSpearman |ρ| vs actual_shift:")
     print(f"  ρ = {rho_spearman:.3f}, p = {p_spearman:.3f}")
 
+    # Calibration Analysis
+    print("\n" + "=" * 70)
+    print("CALIBRATION ANALYSIS")
+    print("=" * 70)
+    print("\nLinear VOI is in same units as actual_shift (probability points).")
+    print("If perfectly calibrated, predicted VOI ≈ realized shift.\n")
+
+    # Direct calibration metrics
+    calibration_ratio = np.mean(actual_shifts) / np.mean(linear_vois)
+    mean_calibration_error = np.mean(linear_vois - actual_shifts)
+
+    print(f"Mean Linear VOI (predicted):  {np.mean(linear_vois):.4f}")
+    print(f"Mean Actual Shift (realized): {np.mean(actual_shifts):.4f}")
+    print(f"Calibration ratio (actual/predicted): {calibration_ratio:.3f}")
+    print(f"Mean calibration error (VOI - shift): {mean_calibration_error:.4f}")
+
+    if calibration_ratio < 1:
+        print(f"\n→ VOI overpredicts by {1/calibration_ratio:.1f}x")
+    else:
+        print(f"\n→ VOI underpredicts by {calibration_ratio:.1f}x")
+
+    # Regression: actual_shift ~ linear_voi
+    slope, intercept, r_cal, p_cal, se_slope = stats.linregress(linear_vois, actual_shifts)
+    print(f"\nCalibration regression (actual ~ VOI):")
+    print(f"  Slope:     {slope:.3f} (ideal = 1.0)")
+    print(f"  Intercept: {intercept:.4f} (ideal = 0.0)")
+    print(f"  R²:        {r_cal**2:.3f}")
+    print(f"  SE(slope): {se_slope:.3f}")
+
+    # Test if slope significantly different from 1
+    t_stat_slope = (slope - 1) / se_slope
+    p_slope_diff = 2 * (1 - stats.t.cdf(abs(t_stat_slope), df=len(linear_vois) - 2))
+    print(f"\nSlope ≠ 1 test: t={t_stat_slope:.2f}, p={p_slope_diff:.3f}")
+    if p_slope_diff < 0.05:
+        print("  → Slope significantly different from 1 (miscalibrated)")
+    else:
+        print("  → Cannot reject slope = 1 (may be calibrated)")
+
+    # Binned calibration curve
+    print("\n" + "-" * 70)
+    print("BINNED CALIBRATION CURVE")
+    print("-" * 70)
+    print("\n{:20s} {:>6s} {:>12s} {:>12s} {:>10s}".format(
+        "VOI Bin", "N", "Mean Shift", "Expected", "Ratio"))
+    print("-" * 62)
+
+    bins = [0, 0.05, 0.10, 0.15, 0.20, 1.0]
+    binned_calibration = []
+    for i in range(len(bins) - 1):
+        mask = (linear_vois >= bins[i]) & (linear_vois < bins[i+1])
+        n_bin = mask.sum()
+        if n_bin > 0:
+            mean_shift_bin = actual_shifts[mask].mean()
+            expected = (bins[i] + bins[i+1]) / 2
+            ratio = mean_shift_bin / expected if expected > 0 else np.nan
+            binned_calibration.append({
+                "bin_low": bins[i],
+                "bin_high": bins[i+1],
+                "n": int(n_bin),
+                "mean_actual_shift": float(mean_shift_bin),
+                "expected_if_calibrated": float(expected),
+                "calibration_ratio": float(ratio) if not np.isnan(ratio) else None,
+            })
+            print(f"{bins[i]:.2f} - {bins[i+1]:.2f}          {n_bin:>6d} {mean_shift_bin:>12.4f} {expected:>12.4f} {ratio:>10.2f}")
+        else:
+            print(f"{bins[i]:.2f} - {bins[i+1]:.2f}          {0:>6d} {'--':>12s} {(bins[i] + bins[i+1]) / 2:>12.4f} {'--':>10s}")
+
+    # Note about p_b=0.5 assumption
+    print("\n" + "-" * 70)
+    print("NOTE ON p_b=0.5 ASSUMPTION")
+    print("-" * 70)
+    print(f"\nCurrent code uses p_b=0.5 (crux probability) for all pairs.")
+    print(f"Actual p_before values in data: min={p_befores.min():.3f}, max={p_befores.max():.3f}, mean={p_befores.mean():.3f}")
+    print("This may contribute to systematic miscalibration.")
+
     # Test 6: Compare VOI methods head-to-head
     print("\n" + "-" * 70)
     print("VOI METHOD COMPARISON")
@@ -303,6 +378,18 @@ def main():
             "entropy_voi_vs_shift": {"r": float(r_entropy), "p": float(p_entropy)},
             "entropy_voi_normalized_vs_shift": {"r": float(r_entropy_norm), "p": float(p_entropy_norm)},
             "spearman_rho_vs_shift": {"rho": float(rho_spearman), "p": float(p_spearman)},
+        },
+        "calibration": {
+            "ratio": float(calibration_ratio),
+            "mean_error": float(mean_calibration_error),
+            "regression_slope": float(slope),
+            "regression_intercept": float(intercept),
+            "regression_r_squared": float(r_cal**2),
+            "slope_se": float(se_slope),
+            "slope_diff_from_1_t": float(t_stat_slope),
+            "slope_diff_from_1_p": float(p_slope_diff),
+            "interpretation": f"VOI {'overpredicts' if calibration_ratio < 1 else 'underpredicts'} magnitude by {max(1/calibration_ratio, calibration_ratio):.1f}x",
+            "binned": binned_calibration,
         },
         "voi_comparison": {
             "linear_vs_entropy_tau": float(tau_voi),

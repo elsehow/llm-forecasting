@@ -14,11 +14,17 @@ export interface SignalNode {
   rho_reasoning: string | null;
   p_parent_given_yes: number | null;
   p_parent_given_no: number | null;
+  // Alternative naming for conditional probabilities (used by some generators)
+  p_target_given_yes?: number | null;
+  p_target_given_no?: number | null;
   is_leaf: boolean;
   depth: number;
-  // Relationship type: 'necessity' means parent probability becomes 0 when this resolves NO
-  // Used for logical dependencies (e.g., "must be nominated to win")
-  relationship_type?: 'correlation' | 'necessity' | 'sufficiency';
+  // Relationship types:
+  // - 'correlation': standard rho-based evidence contribution
+  // - 'necessity': parent = 0 if this resolves NO (logical prerequisite)
+  // - 'sufficiency': parent = 1 if this resolves YES
+  // - 'exclusivity': competitor - if this resolves YES, parent probability drops significantly
+  relationship_type?: 'correlation' | 'necessity' | 'sufficiency' | 'exclusivity';
 
   // Cross-tree references
   ref?: string | null;

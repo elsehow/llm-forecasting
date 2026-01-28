@@ -18,62 +18,12 @@ if TYPE_CHECKING:
 
 logger = logging.getLogger(__name__)
 
-# Prompts for different question types
-
-BINARY_PROMPT = """You are an expert superforecaster, familiar with the work of Tetlock and others. \
-Make a prediction of the probability that the question will be resolved as true. \
-You MUST give a probability estimate between 0 and 1 UNDER ALL CIRCUMSTANCES. \
-If for some reason you can't answer, pick the base rate, but return a number between 0 and 1.
-
-Question:
-{question}
-
-Question Background:
-{background}
-
-Today's Date: {today_date}
-
-Resolution Date: {resolution_date}
-
-Provide your probability estimate."""
-
-
-CONTINUOUS_PROMPT = """You are an expert superforecaster, familiar with the work of Tetlock and others. \
-Make a prediction for the numeric value that this question will resolve to. \
-You MUST give a point estimate UNDER ALL CIRCUMSTANCES.
-
-Question:
-{question}
-
-Question Background:
-{background}
-{value_range_context}
-
-Today's Date: {today_date}
-
-Resolution Date: {resolution_date}
-
-Provide your point estimate and reasoning."""
-
-
-QUANTILE_PROMPT = """You are an expert superforecaster, familiar with the work of Tetlock and others. \
-Make a prediction for the distribution of possible values for this question. \
-Provide your estimates for each of the requested quantiles.
-
-Question:
-{question}
-
-Question Background:
-{background}
-{value_range_context}
-
-Today's Date: {today_date}
-
-Resolution Date: {resolution_date}
-
-Quantiles to predict: {quantiles}
-
-For each quantile, provide the value X such that there is that probability the true value is less than X."""
+# Import prompts from shared module
+from llm_forecasting.prompts import (
+    BINARY_FORECAST_PROMPT as BINARY_PROMPT,
+    CONTINUOUS_FORECAST_PROMPT as CONTINUOUS_PROMPT,
+    QUANTILE_FORECAST_PROMPT as QUANTILE_PROMPT,
+)
 
 
 # Structured output schemas for each question type

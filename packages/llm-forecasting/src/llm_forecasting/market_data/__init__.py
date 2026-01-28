@@ -36,10 +36,17 @@ from llm_forecasting.market_data.base import (
 from llm_forecasting.market_data.models import (
     Candle,
     Market,
+    MarketMatch,
     MarketStatus,
+    MarketValidation,
     PricePoint,
 )
 from llm_forecasting.market_data.storage import MarketDataStorage
+from llm_forecasting.market_data.matcher import (
+    extract_keywords,
+    find_matching_market,
+    compute_validation_status,
+)
 
 # Import implementations to register them
 from llm_forecasting.market_data.kalshi import KalshiData
@@ -52,11 +59,17 @@ __all__ = [
     "market_data_registry",
     # Models
     "Market",
+    "MarketMatch",
     "MarketStatus",
+    "MarketValidation",
     "Candle",
     "PricePoint",
     # Storage
     "MarketDataStorage",
+    # Matcher
+    "extract_keywords",
+    "find_matching_market",
+    "compute_validation_status",
     # Implementations
     "KalshiData",
     "MetaculusData",

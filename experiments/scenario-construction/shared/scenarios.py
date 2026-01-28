@@ -121,7 +121,8 @@ CRITICAL REQUIREMENTS:
 7. SCENARIO PROBABILITY (scenario_probability):
    - For each scenario, estimate P(scenario) - the probability that THIS scenario occurs
    - Consider all signals holistically when making this estimate
-   - Think about: current trends, signal base rates, geopolitical context, expert forecasts
+   - IMPORTANT: Use the "current_probability" field for each signal - this is the CURRENT market
+     probability. A signal at 0.02 (2%) is nearly certain to resolve NO. Factor this in!
    - Probabilities across ALL scenarios MUST sum to 1.0 (they are MECE)
    - Provide scenario_probability as a decimal (e.g., 0.35 for 35%)
 
@@ -185,7 +186,8 @@ CRITICAL REQUIREMENTS:
 7. SCENARIO PROBABILITY (scenario_probability):
    - For each scenario, estimate P(scenario) - the probability that THIS scenario occurs
    - Consider all signals holistically when making this estimate
-   - Think about: current trends, signal base rates, geopolitical context, expert forecasts
+   - IMPORTANT: Use the "current_probability" field for each signal - this is the CURRENT market
+     probability. A signal at 0.02 (2%) is nearly certain to resolve NO. Factor this in!
    - Probabilities across ALL scenarios MUST sum to 1.0 (they are MECE)
    - Provide scenario_probability as a decimal (e.g., 0.35 for 35%)
 
@@ -251,6 +253,9 @@ async def generate_mece_scenarios(
             signal_info["reasoning"] = s["reasoning"][:100]
         if "voi" in s:
             signal_info["voi"] = round(s["voi"], 3)
+        # Include current market probability - critical for scenario estimation
+        if s.get("base_rate") is not None:
+            signal_info["current_probability"] = round(s["base_rate"], 2)
         signals_formatted.append(signal_info)
 
     signals_json = json.dumps(signals_formatted, indent=2)
@@ -300,12 +305,25 @@ async def generate_and_print_scenarios(
         MECEScenariosResponse with scenarios
     """
     from .output import print_results
+    from .signals import fetch_missing_probabilities
 
     print("Generating MECE scenarios...")
 
-    # Restructure signals for the prompt
+    # Fetch any missing probabilities before scenario generation
+    # This ensures the LLM sees current market probabilities for all signals
+    missing_count = sum(1 for s in signals if s.get("base_rate") is None)
+    if missing_count > 0:
+        print(f"  Fetching {missing_count} missing signal probabilities...")
+        await fetch_missing_probabilities(signals, verbose=True)
+
+    # Restructure signals for the prompt - include base_rate!
     signals_for_prompt = [
-        {"text": s.get("text") or s.get("question", ""), "source": s["source"], "voi": s.get("voi", 0)}
+        {
+            "text": s.get("text") or s.get("question", ""),
+            "source": s["source"],
+            "voi": s.get("voi", 0),
+            "base_rate": s.get("base_rate"),  # Critical for scenario probability estimation
+        }
         for s in signals
     ]
 

@@ -5,7 +5,7 @@ from pathlib import Path
 
 from llm_forecasting.semantic_search import SemanticSignalSearcher
 from llm_forecasting.voi import (
-    estimate_rho_batch,
+    estimate_rho_two_step_batch,
     estimate_conditional_expectations_batch,
     entropy_voi_from_rho,
     rho_to_posteriors,
@@ -137,6 +137,40 @@ def deduplicate_market_signals(
 
 # Default max horizon for actionable signals (1 year from now)
 DEFAULT_MAX_HORIZON_DAYS = 365
+
+
+def compute_signal_cutoff(target_resolution_date, max_days: int = DEFAULT_MAX_HORIZON_DAYS) -> int:
+    """Compute signal cutoff as the EARLIER of:
+    - max_days (default 1 year)
+    - 1/3 of time between now and target resolution
+
+    Args:
+        target_resolution_date: Target resolution date (date object, ISO string, or None)
+        max_days: Maximum horizon in days (default 365)
+
+    Returns:
+        Number of days for signal cutoff
+    """
+    from datetime import date as date_type
+
+    if target_resolution_date is None:
+        return max_days
+
+    # Handle string dates
+    if isinstance(target_resolution_date, str):
+        try:
+            target_resolution_date = date_type.fromisoformat(str(target_resolution_date)[:10])
+        except ValueError:
+            return max_days
+
+    today = date_type.today()
+    days_to_resolution = (target_resolution_date - today).days
+
+    if days_to_resolution <= 0:
+        return max_days  # Target already resolved, use default
+
+    one_third = days_to_resolution // 3
+    return min(max_days, one_third)
 
 
 def parse_date(d: str | None):
@@ -493,9 +527,10 @@ async def rank_signals_by_voi(
         signal_text = s.get("question") or s.get("text", "")
         pairs.append((target, signal_text))
 
-    # Estimate rho for all pairs using batch API
-    print("  Estimating rho for all signals...")
-    rho_results = await estimate_rho_batch(pairs)
+    # Estimate rho for all pairs using two-step batch API
+    # (direction + magnitude, fixes sign errors on competition scenarios)
+    print("  Estimating rho for all signals (two-step)...")
+    rho_results = await estimate_rho_two_step_batch(pairs)
 
     # For continuous targets, also estimate E[target|signal]
     cond_exp_results = None

@@ -1,0 +1,586 @@
+{
+  "target": {
+    "id": "canada_happiness_v3",
+    "text": "Will Canada's World Happiness Report ranking be higher than the United States' ranking in 2035?",
+    "resolution_date": null,
+    "base_rate": 0.5,
+    "probability_source": null,
+    "market_price": null,
+    "market_url": null,
+    "market_platform": null,
+    "market_match_confidence": null,
+    "confidence_interval": null,
+    "base_rate_sources": [],
+    "research_reasoning": null,
+    "parent_id": null,
+    "children": [
+      {
+        "id": "sig_f520612b",
+        "text": "Will Canada win the 2026 FIFA World Cup?",
+        "resolution_date": null,
+        "base_rate": 0.0045,
+        "probability_source": "market",
+        "market_price": 0.0045,
+        "market_url": "https://polymarket.com/market/will-canada-win-the-2026-fifa-world-cup-755",
+        "market_platform": "polymarket",
+        "market_match_confidence": 0.6,
+        "confidence_interval": null,
+        "base_rate_sources": [
+          "market:polymarket"
+        ],
+        "research_reasoning": null,
+        "parent_id": "canada_happiness_v3",
+        "children": [],
+        "relationship_type": "necessity",
+        "rho": null,
+        "rho_reasoning": "If Canada ceases to exist as a nation or withdraws from the World Happiness Report, it cannot have a ranking to compare",
+        "p_target_given_yes": null,
+        "p_target_given_no": null,
+        "p_parent_given_yes": null,
+        "p_parent_given_no": null,
+        "ref": null,
+        "is_leaf": true,
+        "depth": 1
+      },
+      {
+        "id": "sig_05988988",
+        "text": "The United States must maintain its status as a sovereign nation and continue participating in the World Happiness Report",
+        "resolution_date": null,
+        "base_rate": 0.9,
+        "probability_source": "research",
+        "market_price": null,
+        "market_url": null,
+        "market_platform": null,
+        "market_match_confidence": null,
+        "confidence_interval": [
+          0.85,
+          0.95
+        ],
+        "base_rate_sources": [
+          "outside-view",
+          "news"
+        ],
+        "research_reasoning": "Based on the guidelines provided, I have synthesized the probability estimates as follows:\n- The prediction market price is not provided, so I have not weighted that highest.\n- The outside view estimate of 95% is weighted medium, as it represents a base rate.\n- The news estimate of 85% is weighted lower, as it is an adjustment to the base rate.\n- Combining these, I arrive at a final synthesized probability estimate of 0.90, with an 80% confidence interval of 0.85 to 0.95.",
+        "parent_id": "canada_happiness_v3",
+        "children": [],
+        "relationship_type": "necessity",
+        "rho": null,
+        "rho_reasoning": "If the US ceases to exist as a nation or withdraws from the World Happiness Report, there would be no US ranking to compare against",
+        "p_target_given_yes": null,
+        "p_target_given_no": null,
+        "p_parent_given_yes": null,
+        "p_parent_given_no": null,
+        "ref": null,
+        "is_leaf": true,
+        "depth": 1
+      },
+      {
+        "id": "sig_badb590a",
+        "text": "The World Happiness Report must continue to be published in 2035 with country rankings",
+        "resolution_date": null,
+        "base_rate": 0.75,
+        "probability_source": "research",
+        "market_price": null,
+        "market_url": null,
+        "market_platform": null,
+        "market_match_confidence": null,
+        "confidence_interval": [
+          0.65,
+          0.85
+        ],
+        "base_rate_sources": [
+          "outside-view",
+          "news"
+        ],
+        "research_reasoning": "Based on the guidelines provided, I weighted the prediction market price (80%) higher than the outside view (60%). Since no prediction market price was given, I used the 80% outside view estimate as the primary input and adjusted it down slightly to 75% to account for the lower weighting of the news estimate. The 80% confidence interval was set to 65-85% to reflect moderate uncertainty around the final estimate.",
+        "parent_id": "canada_happiness_v3",
+        "children": [],
+        "relationship_type": "necessity",
+        "rho": null,
+        "rho_reasoning": "Without the report being published or containing rankings, there would be no rankings to compare",
+        "p_target_given_yes": null,
+        "p_target_given_no": null,
+        "p_parent_given_yes": null,
+        "p_parent_given_no": null,
+        "ref": null,
+        "is_leaf": true,
+        "depth": 1
+      },
+      {
+        "id": "sig_64d59d95",
+        "text": "Canada's GDP per capita growth 2025-2035",
+        "resolution_date": null,
+        "base_rate": 0.65,
+        "probability_source": "research",
+        "market_price": null,
+        "market_url": null,
+        "market_platform": null,
+        "market_match_confidence": null,
+        "confidence_interval": [
+          0.55,
+          0.75
+        ],
+        "base_rate_sources": [
+          "outside-view",
+          "news"
+        ],
+        "research_reasoning": "Based on the guidelines provided, I weighted the outside view estimate (70%) higher than the news estimate (60%), since the outside view represents a more calibrated base rate. I split the difference between the two estimates to arrive at a final synthesized probability of 0.65, with an 80% confidence interval of 0.55 to 0.75.",
+        "parent_id": "canada_happiness_v3",
+        "children": [],
+        "relationship_type": "correlation",
+        "rho": 0.4,
+        "rho_reasoning": "Higher economic prosperity correlates with higher happiness scores in the World Happiness Report: positive",
+        "p_target_given_yes": null,
+        "p_target_given_no": null,
+        "p_parent_given_yes": 0.6467598771410685,
+        "p_parent_given_no": 0.22744594245230124,
+        "ref": null,
+        "is_leaf": true,
+        "depth": 1
+      },
+      {
+        "id": "sig_7d0fcf7e",
+        "text": "Changes in Canada's social safety net programs by 2035",
+        "resolution_date": null,
+        "base_rate": 0.375,
+        "probability_source": "research",
+        "market_price": null,
+        "market_url": null,
+        "market_platform": null,
+        "market_match_confidence": null,
+        "confidence_interval": [
+          0.3,
+          0.45
+        ],
+        "base_rate_sources": [
+          "outside-view",
+          "news"
+        ],
+        "research_reasoning": "Based on the guidelines provided, I weighted the outside view estimate (30%) higher than the news estimate (40%) since the outside view is likely more calibrated. I split the difference between the two estimates to arrive at a final synthesized probability of 37.5%, with an 80% confidence interval of 30-45%.",
+        "parent_id": "canada_happiness_v3",
+        "children": [],
+        "relationship_type": "correlation",
+        "rho": 0.4,
+        "rho_reasoning": "Stronger social support systems are a key factor measured in happiness rankings: positive if expanded, negative if reduced",
+        "p_target_given_yes": null,
+        "p_target_given_no": null,
+        "p_parent_given_yes": 0.7581988897471611,
+        "p_parent_given_no": 0.3450806661517033,
+        "ref": null,
+        "is_leaf": true,
+        "depth": 1
+      },
+      {
+        "id": "sig_0e2a3fd3",
+        "text": "US political polarization and social unrest trends 2025-2035",
+        "resolution_date": null,
+        "base_rate": 0.35,
+        "probability_source": "research",
+        "market_price": null,
+        "market_url": null,
+        "market_platform": null,
+        "market_match_confidence": null,
+        "confidence_interval": [
+          0.25,
+          0.45
+        ],
+        "base_rate_sources": [
+          "outside-view",
+          "news"
+        ],
+        "research_reasoning": "Based on the guidelines provided, I have synthesized the probability estimates as follows:\n\n- The prediction market price is not provided, so that cannot be weighted highest. \n- The outside view estimate of 30% is weighted medium, as it represents a base rate.\n- The news estimate of 40% is weighted lower, as it is an adjustment from the base rate.\n\nCombining these, I arrive at a final synthesized probability estimate of 35%, with an 80% confidence interval of 25-45%. This reflects a medium likelihood of significant US political polarization and social unrest in the 2025-2035 timeframe.",
+        "parent_id": "canada_happiness_v3",
+        "children": [],
+        "relationship_type": "correlation",
+        "rho": 0.4,
+        "rho_reasoning": "Political instability and social division negatively impact national happiness metrics: positive (helps Canada's relative position)",
+        "p_target_given_yes": null,
+        "p_target_given_no": null,
+        "p_parent_given_yes": 0.7725540575476988,
+        "p_parent_given_no": 0.3532401228589314,
+        "ref": null,
+        "is_leaf": true,
+        "depth": 1
+      },
+      {
+        "id": "sig_ff9f34fb",
+        "text": "Will there be at least 2\u02daC of global warming by 2100?",
+        "resolution_date": null,
+        "base_rate": 0.9,
+        "probability_source": "market",
+        "market_price": 0.98,
+        "market_url": null,
+        "market_platform": "metaculus",
+        "market_match_confidence": null,
+        "confidence_interval": [
+          0.85,
+          0.95
+        ],
+        "base_rate_sources": [
+          "market:metaculus",
+          "outside-view",
+          "news"
+        ],
+        "research_reasoning": "Based on the provided guidelines, I weighted the prediction market estimate (98%) the highest, the outside view estimate (70%) medium, and the news estimate (100%) lower. Combining these, I arrived at a final synthesized probability of 90%, with an 80% confidence interval of 85-95%. The prediction market price is likely the most calibrated, so I weighted that most heavily, while still incorporating the outside view and news adjustments to arrive at the final estimate.",
+        "parent_id": "canada_happiness_v3",
+        "children": [],
+        "relationship_type": "correlation",
+        "rho": 0.4,
+        "rho_reasoning": "Environmental quality and climate resilience affect quality of life and happiness scores: depends on relative impacts - positive if Canada adapts better",
+        "p_target_given_yes": null,
+        "p_target_given_no": null,
+        "p_parent_given_yes": 0.5102040816326531,
+        "p_parent_given_no": 0.01,
+        "ref": null,
+        "is_leaf": true,
+        "depth": 1
+      },
+      {
+        "id": "sig_632c9a03",
+        "text": "Healthcare system performance in both countries 2025-2035",
+        "resolution_date": null,
+        "base_rate": 0.65,
+        "probability_source": "research",
+        "market_price": null,
+        "market_url": null,
+        "market_platform": null,
+        "market_match_confidence": null,
+        "confidence_interval": [
+          0.55,
+          0.75
+        ],
+        "base_rate_sources": [
+          "outside-view",
+          "news"
+        ],
+        "research_reasoning": "Based on the guidelines provided, I have synthesized the probability estimates as follows:\n\nThe prediction market price is not provided, so that cannot be weighted highest. \n\nThe outside view estimate of 70% is weighted medium, as it represents a base rate.\n\nThe news estimate of 60% is weighted lower, as it is an adjustment from the base rate.\n\nCombining these, I arrive at a final synthesized probability estimate of 0.65, with an 80% confidence interval of 0.55 to 0.75. This puts more weight on the outside view estimate while incorporating the news adjustment to some degree.",
+        "parent_id": "canada_happiness_v3",
+        "children": [],
+        "relationship_type": "correlation",
+        "rho": 0.4,
+        "rho_reasoning": "Healthcare access and quality are major components of happiness and life satisfaction: positive if Canada maintains universal healthcare advantage",
+        "p_target_given_yes": null,
+        "p_target_given_no": null,
+        "p_parent_given_yes": 0.6467598771410685,
+        "p_parent_given_no": 0.22744594245230124,
+        "ref": null,
+        "is_leaf": true,
+        "depth": 1
+      }
+    ],
+    "relationship_type": "correlation",
+    "rho": null,
+    "rho_reasoning": null,
+    "p_target_given_yes": null,
+    "p_target_given_no": null,
+    "p_parent_given_yes": null,
+    "p_parent_given_no": null,
+    "ref": null,
+    "is_leaf": false,
+    "depth": 0
+  },
+  "signals": [
+    {
+      "id": "sig_f520612b",
+      "text": "Will Canada win the 2026 FIFA World Cup?",
+      "resolution_date": null,
+      "base_rate": 0.0045,
+      "probability_source": "market",
+      "market_price": 0.0045,
+      "market_url": "https://polymarket.com/market/will-canada-win-the-2026-fifa-world-cup-755",
+      "market_platform": "polymarket",
+      "market_match_confidence": 0.6,
+      "confidence_interval": null,
+      "base_rate_sources": [
+        "market:polymarket"
+      ],
+      "research_reasoning": null,
+      "parent_id": "canada_happiness_v3",
+      "children": [],
+      "relationship_type": "necessity",
+      "rho": null,
+      "rho_reasoning": "If Canada ceases to exist as a nation or withdraws from the World Happiness Report, it cannot have a ranking to compare",
+      "p_target_given_yes": null,
+      "p_target_given_no": null,
+      "p_parent_given_yes": null,
+      "p_parent_given_no": null,
+      "ref": null,
+      "is_leaf": true,
+      "depth": 1
+    },
+    {
+      "id": "sig_05988988",
+      "text": "The United States must maintain its status as a sovereign nation and continue participating in the World Happiness Report",
+      "resolution_date": null,
+      "base_rate": 0.9,
+      "probability_source": "research",
+      "market_price": null,
+      "market_url": null,
+      "market_platform": null,
+      "market_match_confidence": null,
+      "confidence_interval": [
+        0.85,
+        0.95
+      ],
+      "base_rate_sources": [
+        "outside-view",
+        "news"
+      ],
+      "research_reasoning": "Based on the guidelines provided, I have synthesized the probability estimates as follows:\n- The prediction market price is not provided, so I have not weighted that highest.\n- The outside view estimate of 95% is weighted medium, as it represents a base rate.\n- The news estimate of 85% is weighted lower, as it is an adjustment to the base rate.\n- Combining these, I arrive at a final synthesized probability estimate of 0.90, with an 80% confidence interval of 0.85 to 0.95.",
+      "parent_id": "canada_happiness_v3",
+      "children": [],
+      "relationship_type": "necessity",
+      "rho": null,
+      "rho_reasoning": "If the US ceases to exist as a nation or withdraws from the World Happiness Report, there would be no US ranking to compare against",
+      "p_target_given_yes": null,
+      "p_target_given_no": null,
+      "p_parent_given_yes": null,
+      "p_parent_given_no": null,
+      "ref": null,
+      "is_leaf": true,
+      "depth": 1
+    },
+    {
+      "id": "sig_badb590a",
+      "text": "The World Happiness Report must continue to be published in 2035 with country rankings",
+      "resolution_date": null,
+      "base_rate": 0.75,
+      "probability_source": "research",
+      "market_price": null,
+      "market_url": null,
+      "market_platform": null,
+      "market_match_confidence": null,
+      "confidence_interval": [
+        0.65,
+        0.85
+      ],
+      "base_rate_sources": [
+        "outside-view",
+        "news"
+      ],
+      "research_reasoning": "Based on the guidelines provided, I weighted the prediction market price (80%) higher than the outside view (60%). Since no prediction market price was given, I used the 80% outside view estimate as the primary input and adjusted it down slightly to 75% to account for the lower weighting of the news estimate. The 80% confidence interval was set to 65-85% to reflect moderate uncertainty around the final estimate.",
+      "parent_id": "canada_happiness_v3",
+      "children": [],
+      "relationship_type": "necessity",
+      "rho": null,
+      "rho_reasoning": "Without the report being published or containing rankings, there would be no rankings to compare",
+      "p_target_given_yes": null,
+      "p_target_given_no": null,
+      "p_parent_given_yes": null,
+      "p_parent_given_no": null,
+      "ref": null,
+      "is_leaf": true,
+      "depth": 1
+    },
+    {
+      "id": "sig_64d59d95",
+      "text": "Canada's GDP per capita growth 2025-2035",
+      "resolution_date": null,
+      "base_rate": 0.65,
+      "probability_source": "research",
+      "market_price": null,
+      "market_url": null,
+      "market_platform": null,
+      "market_match_confidence": null,
+      "confidence_interval": [
+        0.55,
+        0.75
+      ],
+      "base_rate_sources": [
+        "outside-view",
+        "news"
+      ],
+      "research_reasoning": "Based on the guidelines provided, I weighted the outside view estimate (70%) higher than the news estimate (60%), since the outside view represents a more calibrated base rate. I split the difference between the two estimates to arrive at a final synthesized probability of 0.65, with an 80% confidence interval of 0.55 to 0.75.",
+      "parent_id": "canada_happiness_v3",
+      "children": [],
+      "relationship_type": "correlation",
+      "rho": 0.4,
+      "rho_reasoning": "Higher economic prosperity correlates with higher happiness scores in the World Happiness Report: positive",
+      "p_target_given_yes": null,
+      "p_target_given_no": null,
+      "p_parent_given_yes": 0.6467598771410685,
+      "p_parent_given_no": 0.22744594245230124,
+      "ref": null,
+      "is_leaf": true,
+      "depth": 1
+    },
+    {
+      "id": "sig_7d0fcf7e",
+      "text": "Changes in Canada's social safety net programs by 2035",
+      "resolution_date": null,
+      "base_rate": 0.375,
+      "probability_source": "research",
+      "market_price": null,
+      "market_url": null,
+      "market_platform": null,
+      "market_match_confidence": null,
+      "confidence_interval": [
+        0.3,
+        0.45
+      ],
+      "base_rate_sources": [
+        "outside-view",
+        "news"
+      ],
+      "research_reasoning": "Based on the guidelines provided, I weighted the outside view estimate (30%) higher than the news estimate (40%) since the outside view is likely more calibrated. I split the difference between the two estimates to arrive at a final synthesized probability of 37.5%, with an 80% confidence interval of 30-45%.",
+      "parent_id": "canada_happiness_v3",
+      "children": [],
+      "relationship_type": "correlation",
+      "rho": 0.4,
+      "rho_reasoning": "Stronger social support systems are a key factor measured in happiness rankings: positive if expanded, negative if reduced",
+      "p_target_given_yes": null,
+      "p_target_given_no": null,
+      "p_parent_given_yes": 0.7581988897471611,
+      "p_parent_given_no": 0.3450806661517033,
+      "ref": null,
+      "is_leaf": true,
+      "depth": 1
+    },
+    {
+      "id": "sig_0e2a3fd3",
+      "text": "US political polarization and social unrest trends 2025-2035",
+      "resolution_date": null,
+      "base_rate": 0.35,
+      "probability_source": "research",
+      "market_price": null,
+      "market_url": null,
+      "market_platform": null,
+      "market_match_confidence": null,
+      "confidence_interval": [
+        0.25,
+        0.45
+      ],
+      "base_rate_sources": [
+        "outside-view",
+        "news"
+      ],
+      "research_reasoning": "Based on the guidelines provided, I have synthesized the probability estimates as follows:\n\n- The prediction market price is not provided, so that cannot be weighted highest. \n- The outside view estimate of 30% is weighted medium, as it represents a base rate.\n- The news estimate of 40% is weighted lower, as it is an adjustment from the base rate.\n\nCombining these, I arrive at a final synthesized probability estimate of 35%, with an 80% confidence interval of 25-45%. This reflects a medium likelihood of significant US political polarization and social unrest in the 2025-2035 timeframe.",
+      "parent_id": "canada_happiness_v3",
+      "children": [],
+      "relationship_type": "correlation",
+      "rho": 0.4,
+      "rho_reasoning": "Political instability and social division negatively impact national happiness metrics: positive (helps Canada's relative position)",
+      "p_target_given_yes": null,
+      "p_target_given_no": null,
+      "p_parent_given_yes": 0.7725540575476988,
+      "p_parent_given_no": 0.3532401228589314,
+      "ref": null,
+      "is_leaf": true,
+      "depth": 1
+    },
+    {
+      "id": "sig_ff9f34fb",
+      "text": "Will there be at least 2\u02daC of global warming by 2100?",
+      "resolution_date": null,
+      "base_rate": 0.9,
+      "probability_source": "market",
+      "market_price": 0.98,
+      "market_url": null,
+      "market_platform": "metaculus",
+      "market_match_confidence": null,
+      "confidence_interval": [
+        0.85,
+        0.95
+      ],
+      "base_rate_sources": [
+        "market:metaculus",
+        "outside-view",
+        "news"
+      ],
+      "research_reasoning": "Based on the provided guidelines, I weighted the prediction market estimate (98%) the highest, the outside view estimate (70%) medium, and the news estimate (100%) lower. Combining these, I arrived at a final synthesized probability of 90%, with an 80% confidence interval of 85-95%. The prediction market price is likely the most calibrated, so I weighted that most heavily, while still incorporating the outside view and news adjustments to arrive at the final estimate.",
+      "parent_id": "canada_happiness_v3",
+      "children": [],
+      "relationship_type": "correlation",
+      "rho": 0.4,
+      "rho_reasoning": "Environmental quality and climate resilience affect quality of life and happiness scores: depends on relative impacts - positive if Canada adapts better",
+      "p_target_given_yes": null,
+      "p_target_given_no": null,
+      "p_parent_given_yes": 0.5102040816326531,
+      "p_parent_given_no": 0.01,
+      "ref": null,
+      "is_leaf": true,
+      "depth": 1
+    },
+    {
+      "id": "sig_632c9a03",
+      "text": "Healthcare system performance in both countries 2025-2035",
+      "resolution_date": null,
+      "base_rate": 0.65,
+      "probability_source": "research",
+      "market_price": null,
+      "market_url": null,
+      "market_platform": null,
+      "market_match_confidence": null,
+      "confidence_interval": [
+        0.55,
+        0.75
+      ],
+      "base_rate_sources": [
+        "outside-view",
+        "news"
+      ],
+      "research_reasoning": "Based on the guidelines provided, I have synthesized the probability estimates as follows:\n\nThe prediction market price is not provided, so that cannot be weighted highest. \n\nThe outside view estimate of 70% is weighted medium, as it represents a base rate.\n\nThe news estimate of 60% is weighted lower, as it is an adjustment from the base rate.\n\nCombining these, I arrive at a final synthesized probability estimate of 0.65, with an 80% confidence interval of 0.55 to 0.75. This puts more weight on the outside view estimate while incorporating the news adjustment to some degree.",
+      "parent_id": "canada_happiness_v3",
+      "children": [],
+      "relationship_type": "correlation",
+      "rho": 0.4,
+      "rho_reasoning": "Healthcare access and quality are major components of happiness and life satisfaction: positive if Canada maintains universal healthcare advantage",
+      "p_target_given_yes": null,
+      "p_target_given_no": null,
+      "p_parent_given_yes": 0.6467598771410685,
+      "p_parent_given_no": 0.22744594245230124,
+      "ref": null,
+      "is_leaf": true,
+      "depth": 1
+    }
+  ],
+  "max_depth": 1,
+  "leaf_count": 8,
+  "actionable_horizon_days": 365,
+  "computed_probability": 0.0045,
+  "analysis": {
+    "computed_probability": 0.0045,
+    "evidence_breakdown": {
+      "positive": 0.36589213959030364,
+      "negative": -0.11453686815274734,
+      "net": 0.2513552714375563
+    },
+    "top_contributors": [
+      {
+        "signal_id": "sig_ff9f34fb",
+        "text": "Will there be at least 2\u02daC of global warming by 2100?",
+        "evidence": 0.24009795918367347,
+        "base_rate": 0.98,
+        "relationship_type": "correlation"
+      },
+      {
+        "signal_id": "sig_0e2a3fd3",
+        "text": "US political polarization and social unrest trends 2025-2035",
+        "evidence": -0.06289709020331512,
+        "base_rate": 0.35,
+        "relationship_type": "correlation"
+      },
+      {
+        "signal_id": "sig_64d59d95",
+        "text": "Canada's GDP per capita growth 2025-2035",
+        "evidence": 0.0628970902033151,
+        "base_rate": 0.65,
+        "relationship_type": "correlation"
+      },
+      {
+        "signal_id": "sig_632c9a03",
+        "text": "Healthcare system performance in both countries 2025-2035",
+        "evidence": 0.0628970902033151,
+        "base_rate": 0.65,
+        "relationship_type": "correlation"
+      },
+      {
+        "signal_id": "sig_7d0fcf7e",
+        "text": "Changes in Canada's social safety net programs by 2035",
+        "evidence": -0.051639777949432225,
+        "base_rate": 0.375,
+        "relationship_type": "correlation"
+      }
+    ]
+  }
+}

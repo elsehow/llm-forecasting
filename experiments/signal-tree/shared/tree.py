@@ -21,8 +21,8 @@ class SignalNode(BaseModel):
     base_rate: float | None = Field(
         default=None, description="Current probability (from market or estimate)"
     )
-    probability_source: Literal["polymarket", "metaculus", "llm", "manual", "market"] | None = (
-        Field(default=None, description="Source of base_rate")
+    probability_source: Literal["polymarket", "metaculus", "llm", "manual", "market", "research"] | None = (
+        Field(default=None, description="Source of base_rate (research = structured multi-source research)")
     )
 
     # Market data (for leaves with matched market prices)
@@ -41,6 +41,20 @@ class SignalNode(BaseModel):
     market_match_confidence: float | None = Field(
         default=None,
         description="Confidence in the market match (0-1)",
+    )
+
+    # Confidence tracking (from structured research)
+    confidence_interval: tuple[float, float] | None = Field(
+        default=None,
+        description="80% confidence interval for base_rate (low, high)",
+    )
+    base_rate_sources: list[str] = Field(
+        default_factory=list,
+        description="Sources used: market:polymarket, outside-view, news, llm-estimate, research",
+    )
+    research_reasoning: str | None = Field(
+        default=None,
+        description="Explanation of how base_rate was derived from research",
     )
 
     # Tree structure

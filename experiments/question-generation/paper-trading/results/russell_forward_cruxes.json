@@ -1,0 +1,1451 @@
+{
+  "metadata": {
+    "experiment": "russell_forward",
+    "generated_at": "2026-01-26T09:57:32.675673",
+    "n_stocks": 14,
+    "n_stock_days": 14,
+    "trading_days": [
+      "2026-01-27",
+      "2026-01-28",
+      "2026-01-29",
+      "2026-01-30",
+      "2026-02-02",
+      "2026-02-03",
+      "2026-02-04",
+      "2026-02-05",
+      "2026-02-06",
+      "2026-02-09"
+    ],
+    "total_searches": 96
+  },
+  "predictions": [
+    {
+      "ticker": "AAON",
+      "company_name": "AAON, Inc.",
+      "sector": "Industrials",
+      "date": "2026-01-27",
+      "ultimate": "Will AAON close higher than it opened on 2026-01-27?",
+      "baseline_cruxes": [
+        {
+          "text": "Will AAON report positive earnings for Q4 2025 before January 27, 2026?",
+          "rationale": "Earnings reports can significantly influence stock prices in the short term, and positive results often lead to upward price movement.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.20475
+        },
+        {
+          "text": "Will AAON announce any major contracts or partnerships before January 27, 2026?",
+          "rationale": "New contracts or partnerships can enhance investor confidence and drive stock prices higher, impacting short-term performance.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.45,
+          "voi_linear": 0.08399999999999999
+        },
+        {
+          "text": "Will there be any major developments in the HVAC industry that could positively affect AAON's performance before January 27, 2026?",
+          "rationale": "As a player in the HVAC sector, industry trends and developments can directly influence AAON's stock price and market perception.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.16799999999999998
+        },
+        {
+          "text": "Will there be a significant increase in AAON's order backlog reported before January 27, 2026?",
+          "rationale": "An increase in order backlog can signal future revenue growth, positively affecting investor sentiment and stock price.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Will broader market trends, particularly within the industrials sector, show upward movement leading up to January 27, 2026?",
+          "rationale": "Overall sector performance often correlates with individual stock movements, and a positive trend in the industrials sector could benefit AAON's price.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        }
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "AAON Inc. announces their Q4 2025 earnings release on January 26, 2026.",
+          "rationale": "Earnings reports often lead to significant price volatility; any unexpected results could drive stock prices up or down.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "AAON Inc. is scheduled to participate in an industrials-focused conference on January 30, 2026.",
+          "rationale": "Company participation at industry events can influence investor sentiment and stock performance ahead of the event.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.55,
+          "p_ult_given_no": 0.45,
+          "voi_linear": 0.04550000000000002
+        },
+        {
+          "text": "Market overall trends are influenced by Federal Reserve meeting outcomes in January 2026, scheduled for January 24, 2026.",
+          "rationale": "Interest rate announcements have wide-ranging impacts on market sentiment, especially for industrial sectors.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.15924999999999995
+        },
+        {
+          "text": "AAON Inc. may announce a strategic partnership or product launch prior to January 27, 2026.",
+          "rationale": "Such announcements could create positive sentiment and increase stock value if received well by the market.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.45,
+          "voi_linear": 0.08399999999999999
+        },
+        {
+          "text": "AAON Inc. faces potential supply chain disruptions reported on January 25, 2026, affecting production schedules.",
+          "rationale": "Any confirmation of supply chain issues could negatively affect the stock price, influencing whether it closes higher or lower.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.35,
+          "p_ult_given_yes": 0.45,
+          "p_ult_given_no": 0.55,
+          "voi_linear": 0.04550000000000002
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "ticker": "IPGP",
+      "company_name": "IPG Photonics Corporation",
+      "sector": "Technology",
+      "date": "2026-01-28",
+      "ultimate": "Will IPGP close higher than it opened on 2026-01-28?",
+      "baseline_cruxes": [
+        {
+          "text": "Will IPGP release a positive earnings report on or before January 28, 2026?",
+          "rationale": "Earnings reports significantly impact stock prices, and a positive report could lead to an increase in price.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.35,
+          "voi_linear": 0.182
+        },
+        {
+          "text": "Will there be any major technological breakthroughs or product announcements from IPGP prior to January 28, 2026?",
+          "rationale": "Technological advancements can boost investor confidence and contribute to stock price increases, making this a relevant factor.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.16799999999999998
+        },
+        {
+          "text": "Will overall market conditions in the technology sector be bullish leading up to January 28, 2026?",
+          "rationale": "A positive trend in the broader technology sector can influence individual stocks, including IPGP, impacting its likelihood of closing higher.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Will IPGP's competitors announce new products or services that could negatively impact IPGP's market position before January 28, 2026?",
+          "rationale": "Competitor activities can affect investor sentiment and IPGP's stock performance, making this a crucial question for short-term price movement.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.4,
+          "p_ult_given_no": 0.7,
+          "voi_linear": 0.14399999999999996
+        },
+        {
+          "text": "Will there be significant changes in regulatory policies affecting the technology sector before January 28, 2026?",
+          "rationale": "Regulatory changes can impact company operations and future earnings, thereby affecting stock prices directly.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        }
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Will IPGP report positive earnings for Q4 2025?",
+          "rationale": "If IPGP's Q4 2025 earnings report is positive, it is likely to drive up investor confidence and stock price.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Will IPGP announce any major technological advancement or product launch on January 28, 2026?",
+          "rationale": "A major product launch or technological milestone could significantly boost market perception and increase the stock price.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.12599999999999995
+        },
+        {
+          "text": "Will the overall technology sector show positive momentum leading to January 28, 2026?",
+          "rationale": "A strong performance in the technology sector typically influences individual stock performance positively.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Will there be any significant changes in management or company strategy announced on or before January 28, 2026?",
+          "rationale": "Changes in leadership or business strategy can lead to shifts in stock performance, impacting investor sentiment.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.35,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.45,
+          "voi_linear": 0.091
+        },
+        {
+          "text": "Will IPGP engage in any strategic partnership or acquisition announcement prior to January 28, 2026?",
+          "rationale": "Strategic partnerships or acquisitions can enhance growth prospects, potentially boosting the stock price.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.45,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.14849999999999997
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "ticker": "LSCC",
+      "company_name": "Lattice Semiconductor Corporati",
+      "sector": "Technology",
+      "date": "2026-01-29",
+      "ultimate": "Will LSCC close higher than it opened on 2026-01-29?",
+      "baseline_cruxes": [
+        {
+          "text": "Will LSCC announce a new product or technology breakthrough by January 27, 2026?",
+          "rationale": "Product launches or technological advancements can significantly influence investor sentiment and lead to increased stock prices.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.5,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.14999999999999997
+        },
+        {
+          "text": "Will LSCC report favorable quarterly earnings on January 26, 2026?",
+          "rationale": "Strong earnings reports typically result in positive stock movement, making this a critical indicator for short-term stock performance.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.15924999999999995
+        },
+        {
+          "text": "Will any major competitor in the semiconductor sector announce a significant setback before January 29, 2026?",
+          "rationale": "Competitor setbacks could enhance LSCC's market position, potentially leading to a rise in its stock price due to increased investor confidence.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.144
+        },
+        {
+          "text": "Will there be any significant changes in government regulations or trade policies affecting the technology sector before January 29, 2026?",
+          "rationale": "Changes in regulations can impact the entire sector; favorable changes may boost stock prices, while unfavorable ones may lead to declines.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Will LSCC's stock receive a positive upgrade or recommendation from a major financial analyst before January 29, 2026?",
+          "rationale": "Analyst upgrades can drive investor interest and confidence, often leading to short-term increases in stock prices.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.45,
+          "voi_linear": 0.096
+        }
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Earnings Announcement Impact",
+          "rationale": "If Lattice Semiconductor announces better-than-expected earnings on this date, it could lead to a higher closing price due to positive investor sentiment.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Revenue Guidance Update",
+          "rationale": "A revenue guidance update provided during the announcement could impact stock price. An upward revision may prompt the stock to close higher.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.182
+        },
+        {
+          "text": "Market Reaction to Tech Sector Trends",
+          "rationale": "The overall performance of the technology sector around this date, especially if favorable reports are released, may influence LSCC's stock positively or negatively. A favorable trend could lead to a higher closing.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.15924999999999995
+        },
+        {
+          "text": "Investor Sentiment Post-Earnings",
+          "rationale": "Post-earnings analyst upgrades or downgrades can significantly affect stock performance. Analyst ratings released on or before this date may influence whether LSCC closes higher.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.20475
+        },
+        {
+          "text": "Macro Economic Indicators",
+          "rationale": "Any major economic indicators (like interest rate changes or inflation data) released before January 29 could affect investor sentiment. Positive economic news might lead to a higher closing.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.15924999999999995
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "ticker": "SNV",
+      "company_name": "Synovus Financial Corp.",
+      "sector": "Financial Services",
+      "date": "2026-01-30",
+      "ultimate": "Will SNV close higher than it opened on 2026-01-30?",
+      "baseline_cruxes": [
+        {
+          "text": "Will SNV report better-than-expected quarterly earnings ahead of 2026-01-30?",
+          "rationale": "Earnings reports are significant drivers of stock price movements, and a positive surprise could lead to an increase in stock price.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.15924999999999995
+        },
+        {
+          "text": "Will interest rates be expected to stabilize or decrease prior to 2026-01-30?",
+          "rationale": "As a financial services company, SNV's performance is heavily influenced by interest rate trends; stabilization or a decrease could signal favorable conditions for its stock.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Will any major regulatory changes affecting the financial services sector be announced before 2026-01-30?",
+          "rationale": "Regulatory changes can greatly impact the dynamics within the financial sector, and positive regulations could bolster investor confidence in SNV.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.192
+        },
+        {
+          "text": "Will there be any significant news or events affecting SNV specifically before 2026-01-30?",
+          "rationale": "Company-specific news, such as management changes or strategic initiatives, can create sentiment shifts that influence short-term stock price movements.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.7,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.10500000000000004
+        },
+        {
+          "text": "Will the overall stock market sentiment be positive prior to 2026-01-30, particularly in the financial sector?",
+          "rationale": "Market sentiment often affects stocks in a sector uniformly; positive sentiment could buoy SNV's stock despite individual performance factors.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        }
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Earnings announcement on January 30, 2026",
+          "rationale": "SNV's earnings announcement is critical as it often leads to stock price fluctuations depending on whether the results meet, exceed, or fall short of analyst expectations.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Federal Reserve monetary policy meeting before January 30, 2026",
+          "rationale": "The Fed's decisions regarding interest rates can impact financial stocks like SNV, affecting how investors perceive the future profitability and risk of the bank.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.14399999999999996
+        },
+        {
+          "text": "Economic data release relevant to financial services on or around January 30, 2026",
+          "rationale": "Key economic indicators, such as employment rates or consumer confidence indices, can influence the performance of financial services stocks.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Market analyst upgrades/downgrades released before January 30, 2026",
+          "rationale": "Analyst ratings changes can have immediate effects on the stock's trading patterns leading up to and on the specific date.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.16799999999999998
+        },
+        {
+          "text": "Competitive developments or news impacting the financial sector released before January 30, 2026",
+          "rationale": "News regarding competitors, new regulations, or technological advancements can impact investor sentiment and SNV's stock price.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.16799999999999998
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "ticker": "GBCI",
+      "company_name": "Glacier Bancorp, Inc.",
+      "sector": "Financial Services",
+      "date": "2026-02-02",
+      "ultimate": "Will GBCI close higher than it opened on 2026-02-02?",
+      "baseline_cruxes": [
+        {
+          "text": "Will GBCI report better than expected quarterly earnings prior to 2026-02-02?",
+          "rationale": "Earnings reports significantly influence stock prices, and better than expected earnings could drive the stock price higher.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.15924999999999995
+        },
+        {
+          "text": "Will the Federal Reserve announce a change in interest rates before 2026-02-02?",
+          "rationale": "Interest rate changes can affect financial services companies like GBCI, impacting lending rates and profitability.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.7,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.10500000000000004
+        },
+        {
+          "text": "Will there be any major acquisition or partnership announcements involving GBCI before 2026-02-02?",
+          "rationale": "Acquisitions or partnerships can boost investor confidence and lead to an increase in stock price.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.45,
+          "voi_linear": 0.08399999999999999
+        },
+        {
+          "text": "Will there be any adverse regulatory news affecting the financial services sector before 2026-02-02?",
+          "rationale": "Negative regulatory news can impact investor sentiment and stock prices in the financial services sector.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.08399999999999996
+        },
+        {
+          "text": "Will consumer confidence or economic indicators improve in the weeks leading up to 2026-02-02?",
+          "rationale": "Improvement in consumer confidence or economic indicators can lead to increased lending and spending, positively affecting GBCI's stock price.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.15924999999999995
+        }
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Earnings Report Release on February 2, 2026",
+          "rationale": "If Glacier Bancorp releases its earnings report on the scheduled date, positive earnings could drive the stock price higher.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Analysis of Loan Portfolio Quality Update",
+          "rationale": "Any announcements related to improvements or concerns about the loan portfolio quality could significantly impact investor sentiment and stock performance.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.45,
+          "voi_linear": 0.13649999999999998
+        },
+        {
+          "text": "Regulatory Changes Impacting Financial Services",
+          "rationale": "Potential announcements of new regulations or financial policies affecting the banking sector could sway GBCI's stock price either positively or negatively.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Interest Rate Decisions or Announcements",
+          "rationale": "If the Federal Reserve makes a decision regarding interest rates close to this date, it could affect the financial sector's stock prices significantly.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Market Reactions to Economic Data Released Prior to February 2, 2026",
+          "rationale": "Investors will react to economic indicators released leading up to this date, which may influence stock movement on the date itself.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.182
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "ticker": "ACHC",
+      "company_name": "Acadia Healthcare Company, Inc.",
+      "sector": "Healthcare",
+      "date": "2026-02-03",
+      "ultimate": "Will ACHC close higher than it opened on 2026-02-03?",
+      "baseline_cruxes": [
+        {
+          "text": "Will ACHC report positive quarterly earnings results for Q4 2025?",
+          "rationale": "Positive earnings can lead to increased investor confidence and drive the stock price higher.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.15924999999999995
+        },
+        {
+          "text": "Will any major healthcare legislation affecting mental health services be passed before 2026-02-03?",
+          "rationale": "Changes in legislation could impact the financial outlook for Acadia Healthcare, influencing its stock price.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.14399999999999996
+        },
+        {
+          "text": "Will ACHC receive any analyst upgrades or positive forecasts prior to 2026-02-03?",
+          "rationale": "Analyst upgrades often boost stock prices as investors react to positive sentiment and projections.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.16799999999999998
+        },
+        {
+          "text": "Will there be any significant news regarding ACHC's acquisitions or expansions before 2026-02-03?",
+          "rationale": "Strategic acquisitions or expansions can be catalysts for stock price increases and investor enthusiasm.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.15924999999999995
+        },
+        {
+          "text": "Will the overall healthcare sector show a positive trend in investor sentiment leading up to 2026-02-03?",
+          "rationale": "The performance of the broader healthcare sector can influence ACHC's stock price through market dynamics.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        }
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Will Acadia Healthcare announce its Q4 2025 earnings report on February 3, 2026?",
+          "rationale": "Earnings reports often significantly influence stock prices; a positive report could lead to a price increase.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.75,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.09375
+        },
+        {
+          "text": "Will Acadia Healthcare have any upcoming investor presentations or conferences prior to February 3, 2026?",
+          "rationale": "Investor sentiment can change based on presentations or interactions with key stakeholders, which could affect stock price.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.55,
+          "p_ult_given_no": 0.45,
+          "voi_linear": 0.04550000000000002
+        },
+        {
+          "text": "Is there expected news related to regulatory changes affecting the healthcare sector on or around February 3, 2026?",
+          "rationale": "Changes in regulations can greatly impact healthcare companies' operations, potentially affecting ACHC's stock price.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.45,
+          "voi_linear": 0.096
+        },
+        {
+          "text": "Are there any major competitor results or news being announced around February 3, 2026?",
+          "rationale": "Competitor performances can influence market perception of ACHC, impacting its stock prices.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.12
+        },
+        {
+          "text": "Will any analysts be upgrading or downgrading ACHC or providing revised price targets around February 3, 2026?",
+          "rationale": "Analyst ratings can sway investor sentiment, leading to stock price fluctuations.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.16799999999999998
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "ticker": "ADUS",
+      "company_name": "Addus HomeCare Corporation",
+      "sector": "Healthcare",
+      "date": "2026-02-04",
+      "ultimate": "Will ADUS close higher than it opened on 2026-02-04?",
+      "baseline_cruxes": [
+        {
+          "text": "Will Addus HomeCare Corporation report an increase in patient admissions for Q4 2025 before 2026-02-04?",
+          "rationale": "Increased patient admissions can indicate higher revenue, positively impacting stock price.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.15924999999999995
+        },
+        {
+          "text": "Will ADUS announce any new contracts with healthcare providers before 2026-02-04?",
+          "rationale": "New contracts can lead to increased business and investor confidence, likely resulting in a higher stock price.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.15924999999999995
+        },
+        {
+          "text": "Will there be any major regulatory changes affecting the home healthcare sector announced before 2026-02-04?",
+          "rationale": "Regulatory changes can significantly impact operational costs and revenue potential, influencing stock performance.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.45,
+          "voi_linear": 0.096
+        },
+        {
+          "text": "Will Addus HomeCare Corporation's competitors report weaker than expected earnings before 2026-02-04?",
+          "rationale": "Weak earnings from competitors could lead to increased market share for ADUS, boosting its stock price.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.15924999999999995
+        },
+        {
+          "text": "Will ADUS release any positive news regarding its financial outlook or guidance before 2026-02-04?",
+          "rationale": "Positive guidance can enhance market sentiment, potentially driving the stock higher in the short term.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.15924999999999995
+        }
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Earnings Report due on 2026-02-04",
+          "rationale": "The scheduled earnings report on the same date could lead to significant stock movement based on results.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.45,
+          "voi_linear": 0.11374999999999999
+        },
+        {
+          "text": "Analyst Conference Call following earnings report on 2026-02-04",
+          "rationale": "An associated conference call may provide insights or updates that impact investor sentiment.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.15924999999999995
+        },
+        {
+          "text": "Regulatory announcements affecting HomeCare industry on week of 2026-02-04",
+          "rationale": "Potential regulatory changes can alter market perceptions and stock performance.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.75,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.09375
+        },
+        {
+          "text": "Market reaction to competitor earnings released just prior to 2026-02-04",
+          "rationale": "Recent earnings from competitors could influence investor expectations for ADUS.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Economic indicators released on 2026-02-04",
+          "rationale": "Key economic data may affect overall market direction and influence ADUS's stock price.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.45,
+          "voi_linear": 0.11374999999999999
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "ticker": "ANF",
+      "company_name": "Abercrombie & Fitch Company",
+      "sector": "Consumer Cyclical",
+      "date": "2026-02-05",
+      "ultimate": "Will ANF close higher than it opened on 2026-02-05?",
+      "baseline_cruxes": [
+        {
+          "text": "Will Abercrombie & Fitch report an increase in same-store sales for Q4 2025 before February 5, 2026?",
+          "rationale": "Higher same-store sales may indicate strong consumer demand, positively influencing stock performance in the short-term.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.15924999999999995
+        },
+        {
+          "text": "Will consumer sentiment indexes reflect an increase in confidence in the retail sector leading up to February 5, 2026?",
+          "rationale": "Improved consumer sentiment can drive spending, impacting Abercrombie & Fitch's sales and influencing stock price positively.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Will ANF announce a new partnership or collaboration that enhances its brand appeal before February 5, 2026?",
+          "rationale": "Strategic partnerships can boost brand visibility and sales, likely contributing to a positive stock price movement.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.25,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.11249999999999999
+        },
+        {
+          "text": "Will there be any significant changes in ANF's management or corporate strategy before February 5, 2026?",
+          "rationale": "Changes in leadership or strategy can impact investor confidence and stock performance in the short-run.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.14399999999999996
+        },
+        {
+          "text": "Will competitor performance reports indicate that Abercrombie & Fitch is capturing more market share in Q4 2025?",
+          "rationale": "Gaining market share can signal relative strength, attracting investor interest and positively impacting stock price.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.15924999999999995
+        }
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Will ANF announce earnings on February 5, 2026?",
+          "rationale": "A positive earnings report could lead to increased investor confidence and drive the stock price higher.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.7,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.45,
+          "voi_linear": 0.08400000000000003
+        },
+        {
+          "text": "What will be the market reaction to ANF's holiday sales results?",
+          "rationale": "If Abercrombie reports strong holiday sales leading into February, it may positively influence the stock price.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Will there be any significant news related to Abercrombie's new product launches coinciding with February 5, 2026?",
+          "rationale": "Positive media coverage or successful product launches could boost investor sentiment.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.14399999999999996
+        },
+        {
+          "text": "How will changes in consumer spending reports before February 5, 2026, impact ANF?",
+          "rationale": "If consumer spending is strong, it may indicate higher sales for Abercrombie, affecting stock price positively.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Will macroeconomic factors like inflation reports influence Abercrombie's stock price on February 5, 2026?",
+          "rationale": "Economic indicators could impact consumer spending, which in turn could affect ANF's stock performance.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.75,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.35,
+          "voi_linear": 0.11249999999999999
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "ticker": "BURL",
+      "company_name": "Burlington Stores, Inc.",
+      "sector": "Consumer Cyclical",
+      "date": "2026-02-06",
+      "ultimate": "Will BURL close higher than it opened on 2026-02-06?",
+      "baseline_cruxes": [
+        {
+          "text": "Will Burlington Stores, Inc. report a year-over-year increase in same-store sales for Q4 2025?",
+          "rationale": "An increase in same-store sales typically indicates strong consumer demand and positive sales momentum, which can lead to a higher stock price before the target date.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.15924999999999995
+        },
+        {
+          "text": "Will Burlington announce any changes to its guidance for revenue growth for 2026 in its upcoming earnings report?",
+          "rationale": "Revisions to revenue guidance can significantly impact investor sentiment and stock performance leading up to the target date.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.14399999999999996
+        },
+        {
+          "text": "Will external economic indicators such as consumer confidence index or retail sales data released before the target date show improvement?",
+          "rationale": "Positive economic indicators can boost the overall market sentiment towards consumer cyclical stocks like Burlington, impacting its stock price.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Will Burlington Stores, Inc. experience any notable shifts in executive leadership or strategic direction before the target date?",
+          "rationale": "Leadership changes or strategic shifts can influence investor perceptions and stock performance, making this a relevant factor for short-term price movements.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.25,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.11249999999999999
+        },
+        {
+          "text": "Will there be any significant competitor developments, such as mergers or acquisitions, in the retail sector before February 6, 2026?",
+          "rationale": "Changes in the competitive landscape can affect Burlington's market position and stock performance, making it crucial to monitor such developments before the target date.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.10499999999999998
+        }
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Earnings report release on February 6, 2026",
+          "rationale": "The company's earnings report can greatly influence stock price. If the report shows better-than-expected results, the stock is likely to close higher than it opened.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.7,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.10500000000000004
+        },
+        {
+          "text": "Analyst upgrades/downgrades leading into February 6, 2026",
+          "rationale": "Any significant analyst activity can influence investor sentiment and stock price. If analysts upgrade their rating before this date, it could lead to a higher close.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Consumer spending data release on February 5, 2026",
+          "rationale": "As a retail company, consumer spending data just before the earnings report could impact expectations and stock price movements for Burlington.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.45,
+          "voi_linear": 0.11374999999999999
+        },
+        {
+          "text": "Market reaction to peer retail earnings before February 6, 2026",
+          "rationale": "If competitors release strong earnings leading up to this date, it may positively affect BURL's stock, depending on the broader context in retail.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Press release about new product lines or expansions on February 5, 2026",
+          "rationale": "Announcements of new product lines or expansions could boost investor confidence and impact stock price positively.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "ticker": "HELE",
+      "company_name": "Helen of Troy Limited",
+      "sector": "Consumer Defensive",
+      "date": "2026-02-09",
+      "ultimate": "Will HELE close higher than it opened on 2026-02-09?",
+      "baseline_cruxes": [
+        {
+          "text": "Will HELE announce any significant changes in its product line before 2026-02-09?",
+          "rationale": "Changes in product offerings can directly impact consumer interest and sales, potentially affecting short-term stock prices.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.10499999999999998
+        },
+        {
+          "text": "Will HELE report quarterly earnings that exceed market expectations before 2026-02-09?",
+          "rationale": "Earnings reports that surpass expectations often lead to a positive stock price reaction, which can influence the closing price on the target date.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.15924999999999995
+        },
+        {
+          "text": "Will there be any major shifts in consumer trends in the personal care or household goods sector before 2026-02-09?",
+          "rationale": "Consumer behavior changes can have immediate effects on demand for HELE's products, impacting their stock price.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.14399999999999996
+        },
+        {
+          "text": "Will HELE face any supply chain disruptions affecting its operations before 2026-02-09?",
+          "rationale": "Supply chain issues can negatively impact product availability and sales, leading to potential stock declines.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.6,
+          "voi_linear": 0.042
+        },
+        {
+          "text": "Will there be notable regulatory changes impacting consumer defensive products before 2026-02-09?",
+          "rationale": "Regulatory changes can affect operational costs and pricing strategies, which likely influences HELE's stock performance.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.45,
+          "voi_linear": 0.096
+        }
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Will HELE report earnings exceeding analyst expectations on the scheduled earnings release?",
+          "rationale": "Positive earnings performance often leads to stock price increases, while missing expectations might result in a decline.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Will HELE announce a successful new product launch prior to February 9, 2026?",
+          "rationale": "A successful product introduction can enhance consumer interest and sales, potentially driving the stock price up.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.21600000000000003
+        },
+        {
+          "text": "Will there be a significant shift in consumer demand for personal care products leading up to February 9, 2026?",
+          "rationale": "Changes in consumer preferences can impact sales and, therefore, stock performance. Increased demand could posit a positive outcome for HELE.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Will HELE face any regulatory changes or scrutiny affecting its business before February 9, 2026?",
+          "rationale": "Regulatory challenges can have immediate negative impacts on stock prices, while favorable regulations can boost investor confidence.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.55,
+          "voi_linear": 0.042
+        },
+        {
+          "text": "Will there be positive macroeconomic indicators released before February 9, 2026, that could influence consumer spending in the consumer defensive sector?",
+          "rationale": "Strong economic indicators can lead consumers to spend more, benefiting companies in the consumer defensive sector like HELE.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "ticker": "CTRA",
+      "company_name": "Coterra Energy Inc.",
+      "sector": "Energy",
+      "date": "2026-01-27",
+      "ultimate": "Will CTRA close higher than it opened on 2026-01-27?",
+      "baseline_cruxes": [
+        {
+          "text": "Will CTRA announce a significant increase in production figures prior to 2026-01-27?",
+          "rationale": "An increase in production can signal higher future revenues, boosting investor confidence and potentially driving the stock price up.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.16799999999999998
+        },
+        {
+          "text": "Will crude oil prices rise in the month leading up to 2026-01-27?",
+          "rationale": "Since COTA is in the energy sector, changes in crude oil prices could directly impact its profitability and stock performance.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Will CTRA issue any positive earnings guidance in its quarterly report before 2026-01-27?",
+          "rationale": "Positive earnings guidance can attract investors and lead to an increase in stock price as market expectations are adjusted upward.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.182
+        },
+        {
+          "text": "Will there be any major geopolitical events affecting energy prices prior to 2026-01-27?",
+          "rationale": "Geopolitical events often affect energy supply and demand, which can influence stock prices in the energy sector, including CTRA.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.14399999999999996
+        },
+        {
+          "text": "Will there be any significant regulatory changes impacting the energy sector before 2026-01-27?",
+          "rationale": "Regulatory changes can affect operational costs and business viability for companies in the energy sector, thus affecting stock prices.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.14399999999999996
+        }
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Coterra Energy's Q4 2025 Earnings Report will be released on January 26, 2026.",
+          "rationale": "The report will provide insight into the company's financial performance and outlook. Positive earnings could boost investor confidence and lead to a higher closing price.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.15924999999999995
+        },
+        {
+          "text": "Any major announcements related to Coterra's future projects or acquisitions during January 2026.",
+          "rationale": "News about new developments or acquisitions can significantly affect investor sentiment and stock price.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.45,
+          "voi_linear": 0.11374999999999999
+        },
+        {
+          "text": "Updates on the regulatory environment affecting the energy sector in late January 2026.",
+          "rationale": "Any changes in regulation can impact the company's operations and profitability, influencing stock performance.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Market reaction to oil and gas price trends leading into late January 2026.",
+          "rationale": "As an energy company, fluctuations in oil and gas prices can directly affect revenue expectations and thus stock price.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Performance and outlook of Coterra Energy in relation to its competitors around January 2026.",
+          "rationale": "Investor sentiment can be swayed by the performance of competitors, affecting CTRA's relative stock price.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.182
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "ticker": "SM",
+      "company_name": "SM Energy Company",
+      "sector": "Energy",
+      "date": "2026-01-28",
+      "ultimate": "Will SM close higher than it opened on 2026-01-28?",
+      "baseline_cruxes": [
+        {
+          "text": "Will SM Energy Company report an increase in quarterly earnings for Q4 2025?",
+          "rationale": "Earnings reports can significantly affect stock prices, and a positive earnings report could lead to increased investor confidence and a higher closing price.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.15924999999999995
+        },
+        {
+          "text": "Will the price of crude oil increase in the weeks leading up to January 28, 2026?",
+          "rationale": "As an energy company, SM Energy's stock price is closely tied to the price of crude oil. An increase in crude oil prices could positively influence SM's stock performance.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Will there be a major announcement regarding new energy projects or acquisitions by SM Energy before January 28, 2026?",
+          "rationale": "Significant business developments can impact investor sentiment and stock prices. New projects or acquisitions could be seen as positive for future growth.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.16799999999999998
+        },
+        {
+          "text": "Will the U.S. Energy Information Administration forecast an increase in energy demand through late January 2026?",
+          "rationale": "Expectations of rising energy demand can lead to positive sentiment in energy stocks like SM Energy, potentially pushing the stock price higher.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Will SM Energy's competitor stocks show a strong performance in the weeks leading up to January 28, 2026?",
+          "rationale": "Performance of competitors can affect the overall market sentiment towards the sector, and positive movement in peer companies could lead to increased investment in SM Energy.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.15924999999999995
+        }
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Earnings report release date",
+          "rationale": "If SM Energy reports Q4 2025 earnings on or around January 28, 2026, the market reaction could significantly impact the stock price.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.7,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.45,
+          "voi_linear": 0.08400000000000003
+        },
+        {
+          "text": "Oil price trends preceding the date",
+          "rationale": "Changes in crude oil prices before January 28 could influence SM Energy's stock performance, as the company is heavily impacted by energy market trends.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Natural gas inventory report release",
+          "rationale": "Natural gas inventory reports are typically released in late January and could affect investor sentiment towards SM Energy.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Analyst upgrade/downgrade",
+          "rationale": "If leading analysts issue upgrades or downgrades for SM Energy right before January 28, it may sway investor decisions and stock price.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Quarterly production report",
+          "rationale": "If SM Energy announces its production figures prior to January 28, this could directly affect market perception and stock performance.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "ticker": "AES",
+      "company_name": "The AES Corporation",
+      "sector": "Utilities",
+      "date": "2026-01-29",
+      "ultimate": "Will AES close higher than it opened on 2026-01-29?",
+      "baseline_cruxes": [
+        {
+          "text": "Is AES Corporation expected to announce any significant regulatory changes or government contracts before 2026-01-29?",
+          "rationale": "Regulatory changes or new contracts can have immediate impacts on the stock price in the utilities sector, making this question highly relevant for short-term predictions.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.45,
+          "voi_linear": 0.096
+        },
+        {
+          "text": "Are there any scheduled earnings reports for AES Corporation prior to 2026-01-29?",
+          "rationale": "Earnings reports often lead to volatility in stock prices, making this question critical for assessing potential short-term movements in AES's stock.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.7,
+          "p_ult_given_yes": 0.6,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.08399999999999996
+        },
+        {
+          "text": "Is there a forecast for any extreme weather conditions affecting AES's operational regions before 2026-01-29?",
+          "rationale": "Extreme weather can significantly impact utility companies like AES, potentially boosting or hurting short-term performance depending on service demands and operational capacity.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.45,
+          "voi_linear": 0.08399999999999999
+        },
+        {
+          "text": "Are there any significant corporate announcements, such as mergers or acquisitions involving AES, expected before 2026-01-29?",
+          "rationale": "Mergers and acquisitions can dramatically affect stock prices, making it essential to monitor any announcements that may occur leading up to the target date.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.3,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.45,
+          "voi_linear": 0.10499999999999998
+        },
+        {
+          "text": "Is the current market sentiment towards the utilities sector expected to improve before 2026-01-29?",
+          "rationale": "General market sentiment can influence investor behavior significantly in the short term, affecting stock movement for companies like AES in the utilities sector.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        }
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "AES Corporation reacts positively to earnings surprise",
+          "rationale": "If AES beats earnings expectations on this date, it could lead to a surge in stock price. Conversely, missing earnings could lead to a decline.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Changes in regulatory policies announced",
+          "rationale": "Should there be any announcements regarding changes in energy regulation on that date, it could significantly impact AES's stock outlook in the utilities sector.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.15924999999999995
+        },
+        {
+          "text": "Market response to broader utility sector trends",
+          "rationale": "If the utility sector shows a bullish trend on January 29th, AES is likely to follow, indicating a potential increase in its stock price.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Impact of energy prices on stock performance",
+          "rationale": "Should energy prices increase or decrease significantly on January 29th, this may directly impact AES\u2019s revenue projections and stock price.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.15924999999999995
+        },
+        {
+          "text": "Corporate announcements regarding renewable energy projects",
+          "rationale": "If AES announces new renewable energy initiatives or partnerships on January 29th, it could positively affect investor sentiment and drive the stock price up.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.75,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.15924999999999995
+        }
+      ],
+      "resolution": null
+    },
+    {
+      "ticker": "EVRG",
+      "company_name": "Evergy, Inc.",
+      "sector": "Utilities",
+      "date": "2026-01-30",
+      "ultimate": "Will EVRG close higher than it opened on 2026-01-30?",
+      "baseline_cruxes": [
+        {
+          "text": "Will Evergy, Inc. report a positive earnings surprise in its Q4 2025 earnings report?",
+          "rationale": "Earnings surprises can significantly impact a stock's short-term price movement, especially in the utilities sector, where financial performance often affects investor sentiment.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Will any major regulatory changes affecting utility rates in Evergy's operating regions be announced before January 2026?",
+          "rationale": "Regulatory changes can directly influence utility companies' revenue and future earnings, which can impact stock prices in the short term.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.35,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.45,
+          "voi_linear": 0.091
+        },
+        {
+          "text": "Will Evergy's major competitors announce new initiatives that could affect market share or pricing strategies by January 2026?",
+          "rationale": "Competitive actions can influence market dynamics and investor perceptions, impacting Evergy's stock price movement leading up to the target date.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Will the weather forecast for Evergy's service areas indicate higher than normal electricity demand during the first week of January 2026?",
+          "rationale": "Severe weather can lead to increased electricity demand, impacting utility sales and investor expectations prior to the stock market opening on January 30, 2026.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Will there be any significant changes in leadership or management strategy at Evergy announced before January 2026?",
+          "rationale": "Leadership changes can affect investor confidence and corporate direction, potentially leading to significant price movements in a short time frame.",
+          "pipeline": "baseline",
+          "p_crux_yes": 0.4,
+          "p_ult_given_yes": 0.65,
+          "p_ult_given_no": 0.45,
+          "voi_linear": 0.096
+        }
+      ],
+      "enhanced_cruxes": [
+        {
+          "text": "Earnings Report Release",
+          "rationale": "If Evergy announces its Q4 earnings on 2026-01-30, the market's reaction to the reported results will determine whether the stock closes higher or lower than it opened.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Regulatory Decisions",
+          "rationale": "Any significant regulatory decisions or announcements regarding utility rates or energy policies on or before this date could impact Evergy's stock performance.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.3,
+          "voi_linear": 0.19199999999999998
+        },
+        {
+          "text": "Market Conditions on Earnings Day",
+          "rationale": "General market sentiment and conditions on January 30, 2026, particularly in the utilities sector, can lead to EVRG closing higher or lower than its opening price.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.35,
+          "voi_linear": 0.15925
+        },
+        {
+          "text": "Weather Impact on Energy Demand",
+          "rationale": "Severe weather events that affect energy demand and pricing leading up to January 30, 2026, could significantly influence EVRG\u2019s stock price.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.65,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.13649999999999995
+        },
+        {
+          "text": "Competing Utility Performance Announcements",
+          "rationale": "Performance announcements or earnings from competing utilities may affect investor sentiment towards Evergy, impacting its stock price on that day.",
+          "pipeline": "enhanced",
+          "p_crux_yes": 0.6,
+          "p_ult_given_yes": 0.7,
+          "p_ult_given_no": 0.4,
+          "voi_linear": 0.14399999999999996
+        }
+      ],
+      "resolution": null
+    }
+  ]
+}
