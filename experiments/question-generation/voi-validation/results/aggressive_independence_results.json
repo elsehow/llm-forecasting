@@ -1,0 +1,2504 @@
+{
+  "metadata": {
+    "generated_at": "2026-01-28T17:31:53.405461",
+    "model": "claude-opus-4-5-20251101",
+    "n_pairs": 30,
+    "source": "H1 false positives (low-rho pairs marked as related)"
+  },
+  "summary": {
+    "2_confidence": {
+      "n_independent": 22,
+      "pct_independent": 0.7333333333333333
+    },
+    "4_adversarial": {
+      "n_independent": 20,
+      "pct_independent": 0.6666666666666666
+    },
+    "5_bidirectional": {
+      "n_independent": 14,
+      "pct_independent": 0.4666666666666667
+    },
+    "6_prior": {
+      "n_independent": 7,
+      "pct_independent": 0.23333333333333334
+    },
+    "7_specificity": {
+      "n_independent": 6,
+      "pct_independent": 0.2
+    }
+  },
+  "results": {
+    "2_confidence": [
+      {
+        "pair_idx": 27,
+        "is_independent": true,
+        "spread": 0,
+        "confidence": 45,
+        "raw": {
+          "confidence": 45,
+          "is_related": false,
+          "mechanism": "independent - While both involve Russian military actions in 2022, the casualty count in Ukraine is primarily driven by the intensity of that specific conflict, not by whether Russia opens additional fronts. Russia invading another country would likely stretch resources and potentially reduce Ukraine casualties, or could indicate broader escalation - the direction is unclear and speculative.",
+          "base_p_x": 0.05,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 33,
+        "is_independent": true,
+        "spread": 0,
+        "confidence": 62,
+        "raw": {
+          "confidence": 62,
+          "is_related": false,
+          "mechanism": "Both questions relate to Russian military aggression in 2022, and a larger refugee crisis could correlate with broader Russian military ambitions. However, the refugee count from Ukraine doesn't directly cause or prevent Russia from invading other countries - these are parallel outcomes of Russian policy decisions rather than causally linked events.",
+          "base_p_x": 0.15,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 38,
+        "is_independent": true,
+        "spread": 0,
+        "confidence": 72,
+        "raw": {
+          "confidence": 72,
+          "is_related": false,
+          "mechanism": "Both events stem from the Russia-Ukraine conflict, but the refugee count doesn't directly cause YouTube blocking. Russia's decision to block YouTube relates to information control and sanctions responses, while refugee flows depend on conflict intensity and humanitarian conditions. These are parallel consequences of the same conflict rather than causally linked to each other.",
+          "base_p_x": 0.35,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 49,
+        "is_independent": false,
+        "spread": 0.03,
+        "confidence": 85,
+        "raw": {
+          "confidence": 85,
+          "is_related": true,
+          "mechanism": "Putin's continued presidency is a necessary condition for Russia's sustained military campaign in Ukraine. If Putin were not president by Feb 1, 2022, it would likely indicate regime change that could dramatically alter the war's trajectory and casualty figures.",
+          "base_p_x": 0.95,
+          "shift_magnitude": 0.03,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 62,
+        "is_independent": false,
+        "spread": 0.3,
+        "confidence": 85,
+        "raw": {
+          "confidence": 85,
+          "is_related": true,
+          "mechanism": "Kyiv falling would represent a major Russian military success, indicating strong offensive capability that would likely correlate with capturing other Ukrainian cities. Both questions measure Russian military progress in the same campaign during the same timeframe.",
+          "base_p_x": 0.25,
+          "shift_magnitude": 0.3,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 66,
+        "is_independent": true,
+        "spread": 0,
+        "confidence": 72,
+        "raw": {
+          "confidence": 72,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.35,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 79,
+        "is_independent": true,
+        "spread": 0,
+        "confidence": 35,
+        "raw": {
+          "confidence": 35,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.35,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 82,
+        "is_independent": true,
+        "spread": 0,
+        "confidence": 35,
+        "raw": {
+          "confidence": 35,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.5,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 84,
+        "is_independent": false,
+        "spread": 0.25,
+        "confidence": 85,
+        "raw": {
+          "confidence": 85,
+          "is_related": true,
+          "mechanism": "If Kyiv falls to Russian control, it would represent a major military escalation and collapse of Ukrainian resistance, causing massive additional displacement and refugee flows as civilians flee Russian-controlled territory, significantly increasing the likelihood of reaching 5 million refugees",
+          "base_p_x": 0.15,
+          "shift_magnitude": 0.25,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 86,
+        "is_independent": true,
+        "spread": 0,
+        "confidence": 62,
+        "raw": {
+          "confidence": 62,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.45,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 90,
+        "is_independent": false,
+        "spread": 0.25,
+        "confidence": 95,
+        "raw": {
+          "confidence": 95,
+          "is_related": true,
+          "mechanism": "Logical subset relationship: 50,000+ deaths necessarily includes 25,000+ deaths. If Q resolves YES (>25k killed), X becomes possible. If X resolves YES (>50k killed), Q must also be YES. These are nested thresholds measuring the same underlying variable (total deaths in the same conflict, same year).",
+          "base_p_x": 0.45,
+          "shift_magnitude": 0.25,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 93,
+        "is_independent": true,
+        "spread": 0,
+        "confidence": 45,
+        "raw": {
+          "confidence": 45,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.35,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 100,
+        "is_independent": true,
+        "spread": 0,
+        "confidence": 35,
+        "raw": {
+          "confidence": 35,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.3,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 102,
+        "is_independent": true,
+        "spread": 0,
+        "confidence": 45,
+        "raw": {
+          "confidence": 45,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.05,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 108,
+        "is_independent": true,
+        "spread": 0,
+        "confidence": 62,
+        "raw": {
+          "confidence": 62,
+          "is_related": false,
+          "mechanism": "Both relate to Russia-West tensions and could be influenced by the same geopolitical dynamics (Russian aggression driving Western/NATO responses), but Finland's NATO accession process was primarily driven by Russia's invasion of Ukraine broadly, not specifically by Ukrainian military success in Crimea. These are parallel responses to Russian actions rather than causally linked to each other.",
+          "base_p_x": 0.15,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 110,
+        "is_independent": true,
+        "spread": 0,
+        "confidence": 45,
+        "raw": {
+          "confidence": 45,
+          "is_related": false,
+          "mechanism": "independent - while both involve Russian military actions, controlling Kyiv is about success in Ukraine specifically, whereas invading another country is a separate strategic decision. Russia could fail in Kyiv yet still threaten other nations, or succeed in Kyiv without expanding elsewhere. The connection is speculative - military overextension or emboldened aggression could go either way.",
+          "base_p_x": 0.08,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 111,
+        "is_independent": true,
+        "spread": 0,
+        "confidence": 75,
+        "raw": {
+          "confidence": 75,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.65,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 116,
+        "is_independent": true,
+        "spread": 0,
+        "confidence": 15,
+        "raw": {
+          "confidence": 15,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.65,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 117,
+        "is_independent": false,
+        "spread": 0.25,
+        "confidence": 85,
+        "raw": {
+          "confidence": 85,
+          "is_related": true,
+          "mechanism": "A meeting between Putin and Zelenskyy to discuss peaceful resolution would be a direct prerequisite or strong indicator of progress toward a bilateral cease-fire or peace agreement - such high-level direct negotiations are typically necessary for formal agreements",
+          "base_p_x": 0.12,
+          "shift_magnitude": 0.25,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 128,
+        "is_independent": false,
+        "spread": 0.35,
+        "confidence": 95,
+        "raw": {
+          "confidence": 95,
+          "is_related": true,
+          "mechanism": "Q is a subset of X - if Russia controls Kyiv on June 1, 2022, then Kyiv would be under Russian control before 2023. Q being true guarantees X is true, but X could be true even if Q is false (Russia could take control later in 2022).",
+          "base_p_x": 0.12,
+          "shift_magnitude": 0.35,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 133,
+        "is_independent": true,
+        "spread": 0,
+        "confidence": 35,
+        "raw": {
+          "confidence": 35,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.25,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 134,
+        "is_independent": true,
+        "spread": 0,
+        "confidence": 25,
+        "raw": {
+          "confidence": 25,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.5,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 135,
+        "is_independent": true,
+        "spread": 0,
+        "confidence": 72,
+        "raw": {
+          "confidence": 72,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.65,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 136,
+        "is_independent": true,
+        "spread": 0,
+        "confidence": 25,
+        "raw": {
+          "confidence": 25,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.15,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 137,
+        "is_independent": true,
+        "spread": 0,
+        "confidence": 35,
+        "raw": {
+          "confidence": 35,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.25,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 139,
+        "is_independent": false,
+        "spread": 0.45,
+        "confidence": 95,
+        "raw": {
+          "confidence": 95,
+          "is_related": true,
+          "mechanism": "If Trump is reelected (Q is YES), he would be inaugurated on January 20, 2021 and would be President on January 21, 2021. Q being called by Nov 10th with Trump winning directly causes X to be YES.",
+          "base_p_x": 0.5,
+          "shift_magnitude": 0.45,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 142,
+        "is_independent": true,
+        "spread": 0,
+        "confidence": 72,
+        "raw": {
+          "confidence": 72,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.75,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 145,
+        "is_independent": true,
+        "spread": 0,
+        "confidence": 72,
+        "raw": {
+          "confidence": 72,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.15,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 149,
+        "is_independent": true,
+        "spread": 0,
+        "confidence": 62,
+        "raw": {
+          "confidence": 62,
+          "is_related": false,
+          "mechanism": "Possible connection - if Russia controls Kyiv, they might feel less pressure to use chemical weapons; if they don't control it, escalation including chemical weapons becomes more likely. However, the decision to use chemical weapons depends on many other factors (international response, military doctrine, specific tactical situations) that are largely independent of Kyiv's status.",
+          "base_p_x": 0.15,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 153,
+        "is_independent": false,
+        "spread": 0.2,
+        "confidence": 85,
+        "raw": {
+          "confidence": 85,
+          "is_related": true,
+          "mechanism": "If Russia controls Kyiv, it implies successful large-scale military operations including urban warfare for Ukraine's capital city, which would necessarily involve massive casualties on both sides - likely pushing total deaths well above 50,000. Conversely, failure to take Kyiv suggests Ukrainian resistance succeeded, but intense fighting for the capital would still cause significant casualties.",
+          "base_p_x": 0.65,
+          "shift_magnitude": 0.2,
+          "direction": "positive"
+        }
+      }
+    ],
+    "4_adversarial": [
+      {
+        "pair_idx": 27,
+        "is_independent": true,
+        "spread": 0,
+        "stage": "second_call",
+        "mechanism": "A Russian invasion of another country in 2022 could indicate a broader military escalation and more aggressive Russian posture, which could correlate with intensified fighting in Ukraine leading to higher casualties. Additionally, if Russia invaded another country, it might spread military resources thinner or alternatively signal a willingness to engage in more deadly conflict overall, potentially affecting the death toll in Ukraine.",
+        "counter_argument": "The claimed mechanism relies on several questionable assumptions. First, it assumes that Russian military capacity and willingness to cause casualties in Ukraine would be meaningfully affected by operations elsewhere - but Russia's military is large enough that a limited incursion into another country (like a small border state) wouldn't necessarily draw significant resources from Ukraine. Second, the 50,000 death threshold is primarily determined by the intensity of fighting already occurring in Ukraine throughout 2022, which depends on factors like Ukrainian resistance, Western weapons supplies, territorial control, and tactical decisions - none of which are directly caused by whether Russia opens a second front. Third, the timeline matters: if Russia invaded another country late in 2022, it would have minimal impact on cumulative 2022 casualties in Ukraine. Fourth, an invasion of another country might actually REDUCE Ukraine casualties if it diverted Russian attention and resources. The death toll in Ukraine is fundamentally driven by the dynamics of that specific conflict - troop concentrations, urban warfare decisions, artillery usage, defensive positions - rather than Russia's broader geopolitical ambitions. A Russian invasion elsewhere could occur for entirely separate strategic reasons (NATO concerns, opportunism, internal politics) that have no causal connection to how deadly the Ukraine fighting becomes. The correlation suggested is speculative and relies on a vague 'aggressive posture' theory rather than any direct causal mechanism.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "A Russian invasion of another country in 2022 could indicate a broader military escalation and more aggressive Russian posture, which could correlate with intensified fighting in Ukraine leading to higher casualties. Additionally, if Russia invaded another country, it might spread military resources thinner or alternatively signal a willingness to engage in more deadly conflict overall, potentially affecting the death toll in Ukraine."
+          },
+          "second": {
+            "counter_argument": "The claimed mechanism relies on several questionable assumptions. First, it assumes that Russian military capacity and willingness to cause casualties in Ukraine would be meaningfully affected by operations elsewhere - but Russia's military is large enough that a limited incursion into another country (like a small border state) wouldn't necessarily draw significant resources from Ukraine. Second, the 50,000 death threshold is primarily determined by the intensity of fighting already occurring in Ukraine throughout 2022, which depends on factors like Ukrainian resistance, Western weapons supplies, territorial control, and tactical decisions - none of which are directly caused by whether Russia opens a second front. Third, the timeline matters: if Russia invaded another country late in 2022, it would have minimal impact on cumulative 2022 casualties in Ukraine. Fourth, an invasion of another country might actually REDUCE Ukraine casualties if it diverted Russian attention and resources. The death toll in Ukraine is fundamentally driven by the dynamics of that specific conflict - troop concentrations, urban warfare decisions, artillery usage, defensive positions - rather than Russia's broader geopolitical ambitions. A Russian invasion elsewhere could occur for entirely separate strategic reasons (NATO concerns, opportunism, internal politics) that have no causal connection to how deadly the Ukraine fighting becomes. The correlation suggested is speculative and relies on a vague 'aggressive posture' theory rather than any direct causal mechanism.",
+            "relationship_survives": false
+          }
+        }
+      },
+      {
+        "pair_idx": 33,
+        "is_independent": true,
+        "spread": 0,
+        "stage": "second_call",
+        "mechanism": "Russian military aggression is the common causal factor - an invasion of Ukraine drives refugee flows, and if Russia invades additional countries, it could create more refugees and regional instability that affects Ukrainian refugee movements and international assistance capacity",
+        "counter_argument": "The claimed relationship relies on several questionable assumptions. First, it assumes that Russian military capacity and decision-making for Ukraine operations directly correlates with decisions to invade other countries - but these are largely independent strategic calculations with different risk profiles, NATO implications, and resource requirements. Second, the 5 million refugee threshold is primarily driven by conditions within Ukraine (intensity of fighting, civilian targeting, infrastructure destruction) rather than broader Russian geopolitical behavior. The refugee flow had already reached massive scale by early 2022 based solely on the Ukraine invasion itself. Third, international assistance capacity for Ukrainian refugees is determined by European political will, economic resources, and domestic policies - factors largely independent of whether Russia attacks Moldova or Georgia. Fourth, the timeframe matters: refugee flows respond to immediate conflict conditions, while a hypothetical second invasion would be a discrete strategic decision with its own timeline. The connection is too indirect - Russia could invade another country while Ukrainian refugee numbers plateau, or refugee numbers could surge past 5 million without any additional Russian aggression. These outcomes are driven by fundamentally different causal mechanisms: one is humanitarian response to ongoing conflict intensity, the other is high-level geopolitical decision-making about opening new fronts.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "Russian military aggression is the common causal factor - an invasion of Ukraine drives refugee flows, and if Russia invades additional countries, it could create more refugees and regional instability that affects Ukrainian refugee movements and international assistance capacity"
+          },
+          "second": {
+            "counter_argument": "The claimed relationship relies on several questionable assumptions. First, it assumes that Russian military capacity and decision-making for Ukraine operations directly correlates with decisions to invade other countries - but these are largely independent strategic calculations with different risk profiles, NATO implications, and resource requirements. Second, the 5 million refugee threshold is primarily driven by conditions within Ukraine (intensity of fighting, civilian targeting, infrastructure destruction) rather than broader Russian geopolitical behavior. The refugee flow had already reached massive scale by early 2022 based solely on the Ukraine invasion itself. Third, international assistance capacity for Ukrainian refugees is determined by European political will, economic resources, and domestic policies - factors largely independent of whether Russia attacks Moldova or Georgia. Fourth, the timeframe matters: refugee flows respond to immediate conflict conditions, while a hypothetical second invasion would be a discrete strategic decision with its own timeline. The connection is too indirect - Russia could invade another country while Ukrainian refugee numbers plateau, or refugee numbers could surge past 5 million without any additional Russian aggression. These outcomes are driven by fundamentally different causal mechanisms: one is humanitarian response to ongoing conflict intensity, the other is high-level geopolitical decision-making about opening new fronts.",
+            "relationship_survives": false
+          }
+        }
+      },
+      {
+        "pair_idx": 38,
+        "is_independent": true,
+        "spread": 0,
+        "stage": "second_call",
+        "mechanism": "Both questions relate to consequences of the Russia-Ukraine conflict in 2022. Russian government actions (like blocking YouTube) and Ukrainian refugee flows are both outcomes of the same geopolitical crisis. Escalation of the conflict could simultaneously increase refugee numbers and lead to more Russian internet censorship/isolation.",
+        "counter_argument": "While both questions relate to the Russia-Ukraine conflict, the mechanisms driving each outcome are largely independent. The refugee crisis is driven by direct military action, civilian safety concerns, and humanitarian conditions on the ground in Ukraine - factors determined by battlefield dynamics, targeting of civilian infrastructure, and Ukrainian government evacuation policies. YouTube blocking in Russia, however, is driven by entirely different factors: Russian domestic censorship policy, the Kremlin's information control strategy, YouTube's compliance with Russian demands, and Google's corporate decisions about operating in Russia. These are separate decision-making processes by different actors (Ukrainian civilians fleeing vs. Russian government censors). The refugee threshold of 5 million could be reached regardless of Russian internet policy - refugees fled based on physical danger, not Russian media access. Similarly, Russia could block YouTube for reasons unrelated to conflict intensity (e.g., YouTube removing Russian state media, hosting opposition content, or general 'Western platform' purges). The timing correlation exists only because both stem from the same broad event, but the specific outcomes are determined by independent causal chains. A ceasefire might reduce refugees while Russia still blocks YouTube for political reasons, or conflict could intensify refugee flows while YouTube remains accessible due to Russian strategic calculations about maintaining some Western platform access.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "Both questions relate to consequences of the Russia-Ukraine conflict in 2022. Russian government actions (like blocking YouTube) and Ukrainian refugee flows are both outcomes of the same geopolitical crisis. Escalation of the conflict could simultaneously increase refugee numbers and lead to more Russian internet censorship/isolation."
+          },
+          "second": {
+            "counter_argument": "While both questions relate to the Russia-Ukraine conflict, the mechanisms driving each outcome are largely independent. The refugee crisis is driven by direct military action, civilian safety concerns, and humanitarian conditions on the ground in Ukraine - factors determined by battlefield dynamics, targeting of civilian infrastructure, and Ukrainian government evacuation policies. YouTube blocking in Russia, however, is driven by entirely different factors: Russian domestic censorship policy, the Kremlin's information control strategy, YouTube's compliance with Russian demands, and Google's corporate decisions about operating in Russia. These are separate decision-making processes by different actors (Ukrainian civilians fleeing vs. Russian government censors). The refugee threshold of 5 million could be reached regardless of Russian internet policy - refugees fled based on physical danger, not Russian media access. Similarly, Russia could block YouTube for reasons unrelated to conflict intensity (e.g., YouTube removing Russian state media, hosting opposition content, or general 'Western platform' purges). The timing correlation exists only because both stem from the same broad event, but the specific outcomes are determined by independent causal chains. A ceasefire might reduce refugees while Russia still blocks YouTube for political reasons, or conflict could intensify refugee flows while YouTube remains accessible due to Russian strategic calculations about maintaining some Western platform access.",
+            "relationship_survives": false
+          }
+        }
+      },
+      {
+        "pair_idx": 49,
+        "is_independent": true,
+        "spread": 0,
+        "stage": "second_call",
+        "mechanism": "Putin's continued presidency is directly relevant to the continuation and intensity of the Russo-Ukrainian War, as he initiated and directs Russia's military operations in Ukraine. His removal from power could potentially affect the war's trajectory and casualty counts.",
+        "counter_argument": "The claimed relationship relies on several questionable assumptions. First, Question X only asks about Putin's presidency on February 1, 2020 - a date that has already passed and predates the 2022 invasion by two years. This temporal disconnect makes the questions largely independent. Second, even if we assume a typo meant February 1, 2022, Putin was definitively president at that time (the invasion began February 24, 2022), so Question X would resolve YES regardless of casualty counts. Third, the 25,000 casualty threshold for 2022 depends on factors largely independent of Putin's specific leadership: military logistics, Ukrainian resistance, Western support, terrain, weather, and the inherent momentum of large-scale military operations. Even a hypothetical leadership change in early 2022 wouldn't necessarily prevent high casualties - wars have institutional inertia, and Russian military operations could continue under different leadership. Fourth, the casualty count is influenced by both sides' actions, not just Russian decisions. Ukrainian defensive operations, counteroffensives, and Western weapons supplies are independent variables. The connection assumes Putin's personal involvement is the primary driver of casualty numbers, when in reality, once a war of this scale begins, casualty counts are determined by battlefield dynamics that transcend individual leadership.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "Putin's continued presidency is directly relevant to the continuation and intensity of the Russo-Ukrainian War, as he initiated and directs Russia's military operations in Ukraine. His removal from power could potentially affect the war's trajectory and casualty counts."
+          },
+          "second": {
+            "counter_argument": "The claimed relationship relies on several questionable assumptions. First, Question X only asks about Putin's presidency on February 1, 2020 - a date that has already passed and predates the 2022 invasion by two years. This temporal disconnect makes the questions largely independent. Second, even if we assume a typo meant February 1, 2022, Putin was definitively president at that time (the invasion began February 24, 2022), so Question X would resolve YES regardless of casualty counts. Third, the 25,000 casualty threshold for 2022 depends on factors largely independent of Putin's specific leadership: military logistics, Ukrainian resistance, Western support, terrain, weather, and the inherent momentum of large-scale military operations. Even a hypothetical leadership change in early 2022 wouldn't necessarily prevent high casualties - wars have institutional inertia, and Russian military operations could continue under different leadership. Fourth, the casualty count is influenced by both sides' actions, not just Russian decisions. Ukrainian defensive operations, counteroffensives, and Western weapons supplies are independent variables. The connection assumes Putin's personal involvement is the primary driver of casualty numbers, when in reality, once a war of this scale begins, casualty counts are determined by battlefield dynamics that transcend individual leadership.",
+            "relationship_survives": false
+          }
+        }
+      },
+      {
+        "pair_idx": 62,
+        "is_independent": false,
+        "spread": 0.1,
+        "stage": "second_call",
+        "mechanism": "Both questions concern Russian military advances and territorial control in Ukraine during the same time period (early 2022). The fall of Kyiv would likely correlate with broader Russian military success in capturing other Ukrainian cities, as Kyiv is the capital and a primary strategic objective. Success or failure in taking multiple cities would indicate overall campaign momentum affecting both outcomes.",
+        "counter_argument": "The claimed relationship relies on several questionable assumptions. First, it assumes Russian military strategy would prioritize Kyiv equally with other cities, but Russia might concentrate forces on the capital while neglecting other fronts, or vice versa - pursue a 'surround and starve' strategy for Kyiv while actively capturing smaller cities. Second, 'one half of currently threatened cities' is vague - which cities? How many? A scenario where Russia captures numerous smaller eastern/southern cities (Mariupol, Kherson, etc.) while failing at Kyiv is entirely plausible given geographic and logistical realities. Third, the timeframe 'by April 2022' is extremely short - Kyiv's fall would require a decisive quick victory, while capturing 'half of threatened cities' might involve slower siege warfare across dispersed locations. These could operate on completely different military timelines. Fourth, Ukrainian defense resources aren't zero-sum; defending Kyiv doesn't necessarily weaken defense of Kharkiv or Mariupol, as different units, terrain, and supply lines are involved. Finally, international support and sanctions responses might differentially affect these outcomes - Western weapons might flow specifically to Kyiv's defense while other cities receive less attention.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "Both questions concern Russian military advances and territorial control in Ukraine during the same time period (early 2022). The fall of Kyiv would likely correlate with broader Russian military success in capturing other Ukrainian cities, as Kyiv is the capital and a primary strategic objective. Success or failure in taking multiple cities would indicate overall campaign momentum affecting both outcomes."
+          },
+          "second": {
+            "counter_argument": "The claimed relationship relies on several questionable assumptions. First, it assumes Russian military strategy would prioritize Kyiv equally with other cities, but Russia might concentrate forces on the capital while neglecting other fronts, or vice versa - pursue a 'surround and starve' strategy for Kyiv while actively capturing smaller cities. Second, 'one half of currently threatened cities' is vague - which cities? How many? A scenario where Russia captures numerous smaller eastern/southern cities (Mariupol, Kherson, etc.) while failing at Kyiv is entirely plausible given geographic and logistical realities. Third, the timeframe 'by April 2022' is extremely short - Kyiv's fall would require a decisive quick victory, while capturing 'half of threatened cities' might involve slower siege warfare across dispersed locations. These could operate on completely different military timelines. Fourth, Ukrainian defense resources aren't zero-sum; defending Kyiv doesn't necessarily weaken defense of Kharkiv or Mariupol, as different units, terrain, and supply lines are involved. Finally, international support and sanctions responses might differentially affect these outcomes - Western weapons might flow specifically to Kyiv's defense while other cities receive less attention.",
+            "relationship_survives": true
+          }
+        }
+      },
+      {
+        "pair_idx": 66,
+        "is_independent": false,
+        "spread": 0.1,
+        "stage": "second_call",
+        "mechanism": "Both questions relate to the Russia-Ukraine conflict. A meeting between Putin and Zelenskyy for peaceful resolution could prevent or end Russian military control of Kyiv, or alternatively, Russian control of Kyiv could be a precondition or outcome that influences whether/when such a meeting occurs.",
+        "counter_argument": "The claimed relationship relies on several questionable assumptions. First, it assumes that diplomatic meetings directly influence military outcomes on specific timelines - but the June 1, 2022 deadline is extremely short-term, and any meeting between Putin and Zelenskyy would likely take weeks or months to arrange and even longer to produce tangible military changes on the ground. Second, the mechanism assumes rational, linear causation between diplomacy and territorial control, but Russia's military campaign around Kyiv was already failing by late March 2022 due to logistical and tactical factors completely independent of any peace talks. Russia withdrew from the Kyiv region in early April 2022 for military reasons, not diplomatic ones. Third, multiple confounding factors break the link: Ukrainian military resistance, Western weapons supplies, Russian military incompetence, weather conditions, and supply line issues all independently determined Kyiv's status regardless of whether leaders met. The questions operate on different causal planes - one is about immediate military capability and tactical success, the other is about diplomatic willingness and political conditions. A meeting could occur while Russia still attempts to control Kyiv, or Russia could fail to control Kyiv regardless of whether any meeting happens. The connection is too indirect given the specific June 1 timeframe.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "Both questions relate to the Russia-Ukraine conflict. A meeting between Putin and Zelenskyy for peaceful resolution could prevent or end Russian military control of Kyiv, or alternatively, Russian control of Kyiv could be a precondition or outcome that influences whether/when such a meeting occurs."
+          },
+          "second": {
+            "counter_argument": "The claimed relationship relies on several questionable assumptions. First, it assumes that diplomatic meetings directly influence military outcomes on specific timelines - but the June 1, 2022 deadline is extremely short-term, and any meeting between Putin and Zelenskyy would likely take weeks or months to arrange and even longer to produce tangible military changes on the ground. Second, the mechanism assumes rational, linear causation between diplomacy and territorial control, but Russia's military campaign around Kyiv was already failing by late March 2022 due to logistical and tactical factors completely independent of any peace talks. Russia withdrew from the Kyiv region in early April 2022 for military reasons, not diplomatic ones. Third, multiple confounding factors break the link: Ukrainian military resistance, Western weapons supplies, Russian military incompetence, weather conditions, and supply line issues all independently determined Kyiv's status regardless of whether leaders met. The questions operate on different causal planes - one is about immediate military capability and tactical success, the other is about diplomatic willingness and political conditions. A meeting could occur while Russia still attempts to control Kyiv, or Russia could fail to control Kyiv regardless of whether any meeting happens. The connection is too indirect given the specific June 1 timeframe.",
+            "relationship_survives": true
+          }
+        }
+      },
+      {
+        "pair_idx": 79,
+        "is_independent": true,
+        "spread": 0,
+        "stage": "second_call",
+        "mechanism": "Both questions relate to US economic conditions in 2025. Lower unemployment typically signals a stronger economy, which can boost corporate earnings and tech spending. Nvidia's performance is tied to economic health affecting demand for AI/chips, and both metrics reflect broader market sentiment and economic cycles. Strong employment could support tech investment and Nvidia's growth, while weak employment might dampen demand.",
+        "counter_argument": "The claimed relationship relies on several questionable assumptions. First, it assumes Nvidia's performance is primarily driven by general economic conditions, when in reality Nvidia's stock is dominated by AI-specific factors (data center demand, AI chip competition, hyperscaler capex decisions) that operate largely independently of traditional employment metrics. Second, the unemployment comparison is backward-looking (Nov 2024 vs Nov 2025), measuring a change in labor market conditions, while Nvidia's performance is forward-looking and driven by growth expectations in a specific technology sector. Third, Nvidia can dramatically outperform or underperform the S&P 500 regardless of employment trends - during 2023-2024, Nvidia surged on AI enthusiasm while unemployment remained relatively stable. The connection is too indirect: unemployment affects consumer spending and broad corporate health, but Nvidia's revenue comes primarily from enterprise AI infrastructure spending, which follows its own investment cycle driven by AI adoption timelines, not consumer employment. Confounding factors include: AI competition (AMD, custom chips), export restrictions to China, supply chain dynamics, and valuation multiples that can compress regardless of fundamentals. A scenario where unemployment rises slightly (due to Fed policy normalization) while Nvidia outperforms (due to continued AI infrastructure buildout) is entirely plausible, as is the reverse where employment improves but Nvidia underperforms due to sector rotation or competition.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "Both questions relate to US economic conditions in 2025. Lower unemployment typically signals a stronger economy, which can boost corporate earnings and tech spending. Nvidia's performance is tied to economic health affecting demand for AI/chips, and both metrics reflect broader market sentiment and economic cycles. Strong employment could support tech investment and Nvidia's growth, while weak employment might dampen demand."
+          },
+          "second": {
+            "counter_argument": "The claimed relationship relies on several questionable assumptions. First, it assumes Nvidia's performance is primarily driven by general economic conditions, when in reality Nvidia's stock is dominated by AI-specific factors (data center demand, AI chip competition, hyperscaler capex decisions) that operate largely independently of traditional employment metrics. Second, the unemployment comparison is backward-looking (Nov 2024 vs Nov 2025), measuring a change in labor market conditions, while Nvidia's performance is forward-looking and driven by growth expectations in a specific technology sector. Third, Nvidia can dramatically outperform or underperform the S&P 500 regardless of employment trends - during 2023-2024, Nvidia surged on AI enthusiasm while unemployment remained relatively stable. The connection is too indirect: unemployment affects consumer spending and broad corporate health, but Nvidia's revenue comes primarily from enterprise AI infrastructure spending, which follows its own investment cycle driven by AI adoption timelines, not consumer employment. Confounding factors include: AI competition (AMD, custom chips), export restrictions to China, supply chain dynamics, and valuation multiples that can compress regardless of fundamentals. A scenario where unemployment rises slightly (due to Fed policy normalization) while Nvidia outperforms (due to continued AI infrastructure buildout) is entirely plausible, as is the reverse where employment improves but Nvidia underperforms due to sector rotation or competition.",
+            "relationship_survives": false
+          }
+        }
+      },
+      {
+        "pair_idx": 82,
+        "is_independent": true,
+        "spread": 0,
+        "stage": "second_call",
+        "mechanism": "A significant military conflict between Israel and Iran could disrupt oil supplies and energy markets, potentially causing oil price spikes that would affect US inflation/CPI. Middle East conflicts historically impact global energy prices which feed into consumer price indices.",
+        "counter_argument": "The claimed mechanism relies on several fragile assumptions that likely break down in practice. First, it assumes a conflict would significantly disrupt oil supplies, but modern energy markets are more diversified with US shale production, strategic reserves, and alternative suppliers able to compensate for disruptions. Second, the US has become much less dependent on Middle East oil than historically, reducing the transmission mechanism. Third, even if oil prices spike, the CPI is a broad measure where energy is only one component (~7-8%), and the question asks about 12-month percentage CHANGE - meaning we're comparing to the prior year, so temporary spikes may wash out. Fourth, the Federal Reserve actively manages inflation expectations and can adjust policy to counteract supply shocks. Fifth, the timeframe matters enormously - a conflict in one month doesn't necessarily affect CPI readings in November specifically, as there are lags and the comparison is year-over-year. Sixth, many other factors dominate CPI movements: housing costs, wage growth, supply chain conditions, monetary policy, and domestic economic conditions. The connection requires a specific chain: conflict \u2192 sustained oil disruption \u2192 significant price increase \u2192 pass-through to US consumers \u2192 measurable impact on overall CPI \u2192 impact specifically in November's year-over-year reading. Each link has substantial uncertainty, making the overall connection quite tenuous.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "A significant military conflict between Israel and Iran could disrupt oil supplies and energy markets, potentially causing oil price spikes that would affect US inflation/CPI. Middle East conflicts historically impact global energy prices which feed into consumer price indices."
+          },
+          "second": {
+            "counter_argument": "The claimed mechanism relies on several fragile assumptions that likely break down in practice. First, it assumes a conflict would significantly disrupt oil supplies, but modern energy markets are more diversified with US shale production, strategic reserves, and alternative suppliers able to compensate for disruptions. Second, the US has become much less dependent on Middle East oil than historically, reducing the transmission mechanism. Third, even if oil prices spike, the CPI is a broad measure where energy is only one component (~7-8%), and the question asks about 12-month percentage CHANGE - meaning we're comparing to the prior year, so temporary spikes may wash out. Fourth, the Federal Reserve actively manages inflation expectations and can adjust policy to counteract supply shocks. Fifth, the timeframe matters enormously - a conflict in one month doesn't necessarily affect CPI readings in November specifically, as there are lags and the comparison is year-over-year. Sixth, many other factors dominate CPI movements: housing costs, wage growth, supply chain conditions, monetary policy, and domestic economic conditions. The connection requires a specific chain: conflict \u2192 sustained oil disruption \u2192 significant price increase \u2192 pass-through to US consumers \u2192 measurable impact on overall CPI \u2192 impact specifically in November's year-over-year reading. Each link has substantial uncertainty, making the overall connection quite tenuous.",
+            "relationship_survives": false
+          }
+        }
+      },
+      {
+        "pair_idx": 84,
+        "is_independent": true,
+        "spread": 0,
+        "stage": "second_call",
+        "mechanism": "Russian military advances and control of major cities like Kyiv would likely cause mass displacement of Ukrainian civilians, increasing the number of refugees seeking assistance in other countries. The fall of the capital could trigger a significant exodus.",
+        "counter_argument": "The claimed mechanism relies on several questionable assumptions. First, it assumes that Kyiv falling would be the primary driver of refugee flows, but the 5 million refugee threshold could easily be reached (and was reached in reality) without Kyiv falling - widespread bombing, fighting in other regions, and general fear of invasion are sufficient causes. Second, the relationship could actually be inverse: if Russia quickly captured Kyiv and the war ended rapidly, fewer refugees might flee than in a prolonged conflict where Kyiv remains contested. Third, the refugee exodus began immediately with the invasion itself, not contingent on territorial control of specific cities. Fourth, refugees flee from many factors including economic collapse, infrastructure destruction, and fear of future violence - none of which require Russian control of the capital. Fifth, there's a confounding factor: both outcomes are driven by the underlying variable of 'Russian military aggression/invasion' rather than being causally linked to each other. The invasion causes both potential outcomes somewhat independently. Finally, the 5 million threshold is relatively low given Ukraine's 44 million population - this could be reached through evacuation policies, border region displacement, or precautionary migration regardless of Kyiv's status.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "Russian military advances and control of major cities like Kyiv would likely cause mass displacement of Ukrainian civilians, increasing the number of refugees seeking assistance in other countries. The fall of the capital could trigger a significant exodus."
+          },
+          "second": {
+            "counter_argument": "The claimed mechanism relies on several questionable assumptions. First, it assumes that Kyiv falling would be the primary driver of refugee flows, but the 5 million refugee threshold could easily be reached (and was reached in reality) without Kyiv falling - widespread bombing, fighting in other regions, and general fear of invasion are sufficient causes. Second, the relationship could actually be inverse: if Russia quickly captured Kyiv and the war ended rapidly, fewer refugees might flee than in a prolonged conflict where Kyiv remains contested. Third, the refugee exodus began immediately with the invasion itself, not contingent on territorial control of specific cities. Fourth, refugees flee from many factors including economic collapse, infrastructure destruction, and fear of future violence - none of which require Russian control of the capital. Fifth, there's a confounding factor: both outcomes are driven by the underlying variable of 'Russian military aggression/invasion' rather than being causally linked to each other. The invasion causes both potential outcomes somewhat independently. Finally, the 5 million threshold is relatively low given Ukraine's 44 million population - this could be reached through evacuation policies, border region displacement, or precautionary migration regardless of Kyiv's status.",
+            "relationship_survives": false
+          }
+        }
+      },
+      {
+        "pair_idx": 86,
+        "is_independent": true,
+        "spread": 0,
+        "stage": "second_call",
+        "mechanism": "The release of o3 (Question Q) could directly impact OpenAI's competitive position on the Chatbot Arena Leaderboard (Question X). If o3 is released before March 28, 2025, it would be available for evaluation on the leaderboard by December 31, 2025, potentially helping OpenAI achieve or maintain the top position. A more capable o3 model could outperform competitors' models in the arena rankings.",
+        "counter_argument": "The claimed relationship relies on several questionable assumptions. First, it assumes o3 would actually be submitted to and evaluated on Chatbot Arena - OpenAI has historically been selective about which models they submit to public benchmarks. Second, even if o3 is released before March 28, 2025, OpenAI could release even more advanced models (o4, GPT-5, etc.) by December 31, 2025 that would be the ones competing for the top spot, making the o3 release timing irrelevant. Third, the Chatbot Arena leaderboard position depends heavily on what competitors release - Anthropic, Google, Meta, and others are all developing advanced models, and OpenAI's position is more dependent on the competitive landscape than on any single model release. Fourth, Chatbot Arena rankings are based on user preferences in head-to-head comparisons, which don't always correlate with raw capability - factors like response style, safety tuning, and specific use cases matter. Fifth, OpenAI already has strong models on the leaderboard; whether they top it in December 2025 depends more on their overall R&D trajectory and competitor actions than on whether one specific model was released by a particular March date. The March 28 deadline is arbitrary relative to a December 31 evaluation - there's no special significance to that 9-month gap.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "The release of o3 (Question Q) could directly impact OpenAI's competitive position on the Chatbot Arena Leaderboard (Question X). If o3 is released before March 28, 2025, it would be available for evaluation on the leaderboard by December 31, 2025, potentially helping OpenAI achieve or maintain the top position. A more capable o3 model could outperform competitors' models in the arena rankings."
+          },
+          "second": {
+            "counter_argument": "The claimed relationship relies on several questionable assumptions. First, it assumes o3 would actually be submitted to and evaluated on Chatbot Arena - OpenAI has historically been selective about which models they submit to public benchmarks. Second, even if o3 is released before March 28, 2025, OpenAI could release even more advanced models (o4, GPT-5, etc.) by December 31, 2025 that would be the ones competing for the top spot, making the o3 release timing irrelevant. Third, the Chatbot Arena leaderboard position depends heavily on what competitors release - Anthropic, Google, Meta, and others are all developing advanced models, and OpenAI's position is more dependent on the competitive landscape than on any single model release. Fourth, Chatbot Arena rankings are based on user preferences in head-to-head comparisons, which don't always correlate with raw capability - factors like response style, safety tuning, and specific use cases matter. Fifth, OpenAI already has strong models on the leaderboard; whether they top it in December 2025 depends more on their overall R&D trajectory and competitor actions than on whether one specific model was released by a particular March date. The March 28 deadline is arbitrary relative to a December 31 evaluation - there's no special significance to that 9-month gap.",
+            "relationship_survives": false
+          }
+        }
+      },
+      {
+        "pair_idx": 90,
+        "is_independent": false,
+        "spread": 0.1,
+        "stage": "second_call",
+        "mechanism": "Question X is a subset of Question Q - if more than 50,000 people are killed (X is true), then more than 25,000 people are necessarily also killed (Q must be true). These questions measure the same underlying variable (death toll) at different thresholds, creating a logical dependency where P(X) \u2264 P(Q).",
+        "counter_argument": "One might argue these questions are independent by claiming: (1) The questions could be interpreted as referring to different conflict phases or different counting methodologies - perhaps Q refers to confirmed military deaths while X includes civilian estimates from different sources, making them measure different things entirely. (2) The 'killed' definition might vary - one threshold could count only direct combat deaths while another includes indirect deaths from displacement, disease, or infrastructure collapse, meaning they're not actually nested measurements. (3) If we're treating these as forecasting questions, a forecaster might have completely different information sources or models for each threshold - perhaps reliable data exists for the 25k threshold but the 50k threshold relies on entirely speculative extrapolation, making the probability assessments functionally independent cognitive exercises. (4) Measurement uncertainty at higher death tolls might be so severe that the 50k question becomes essentially unanswerable, decoupling it from the more grounded 25k estimate.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "Question X is a subset of Question Q - if more than 50,000 people are killed (X is true), then more than 25,000 people are necessarily also killed (Q must be true). These questions measure the same underlying variable (death toll) at different thresholds, creating a logical dependency where P(X) \u2264 P(Q)."
+          },
+          "second": {
+            "counter_argument": "One might argue these questions are independent by claiming: (1) The questions could be interpreted as referring to different conflict phases or different counting methodologies - perhaps Q refers to confirmed military deaths while X includes civilian estimates from different sources, making them measure different things entirely. (2) The 'killed' definition might vary - one threshold could count only direct combat deaths while another includes indirect deaths from displacement, disease, or infrastructure collapse, meaning they're not actually nested measurements. (3) If we're treating these as forecasting questions, a forecaster might have completely different information sources or models for each threshold - perhaps reliable data exists for the 25k threshold but the 50k threshold relies on entirely speculative extrapolation, making the probability assessments functionally independent cognitive exercises. (4) Measurement uncertainty at higher death tolls might be so severe that the 50k question becomes essentially unanswerable, decoupling it from the more grounded 25k estimate.",
+            "relationship_survives": true
+          }
+        }
+      },
+      {
+        "pair_idx": 93,
+        "is_independent": true,
+        "spread": 0,
+        "stage": "second_call",
+        "mechanism": "Trump's political influence and potential return to power could drive abortion restrictions including mifepristone bans, while his stance on such issues affects his favorability among different voter groups. Both questions relate to the broader political landscape around reproductive rights and conservative policy goals.",
+        "counter_argument": "The claimed mechanism relies on several questionable assumptions. First, it assumes Trump's favorability is primarily driven by abortion policy positions, when in reality his approval ratings are influenced by numerous factors including economic conditions, foreign policy, personal scandals, media coverage, and his handling of various issues unrelated to reproductive rights. Second, mifepristone restrictions depend on complex legal and regulatory processes involving the FDA, federal courts, and state legislatures - these have their own institutional momentum largely independent of any single politician's popularity. The Dobbs decision and subsequent state-level restrictions were driven by decades of conservative legal strategy and judicial appointments, not tied to Trump's current favorability. Third, Trump himself has shown inconsistent messaging on abortion, sometimes distancing himself from strict bans when politically convenient. His favorability could rise or fall based on economic messaging, immigration rhetoric, or legal troubles while mifepristone policy follows its own trajectory through the courts. The connection is too indirect - many confounding factors like judicial independence, state-level political dynamics, pharmaceutical industry lobbying, and the specific legal arguments in ongoing cases would need to align perfectly for these questions to be meaningfully correlated.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "Trump's political influence and potential return to power could drive abortion restrictions including mifepristone bans, while his stance on such issues affects his favorability among different voter groups. Both questions relate to the broader political landscape around reproductive rights and conservative policy goals."
+          },
+          "second": {
+            "counter_argument": "The claimed mechanism relies on several questionable assumptions. First, it assumes Trump's favorability is primarily driven by abortion policy positions, when in reality his approval ratings are influenced by numerous factors including economic conditions, foreign policy, personal scandals, media coverage, and his handling of various issues unrelated to reproductive rights. Second, mifepristone restrictions depend on complex legal and regulatory processes involving the FDA, federal courts, and state legislatures - these have their own institutional momentum largely independent of any single politician's popularity. The Dobbs decision and subsequent state-level restrictions were driven by decades of conservative legal strategy and judicial appointments, not tied to Trump's current favorability. Third, Trump himself has shown inconsistent messaging on abortion, sometimes distancing himself from strict bans when politically convenient. His favorability could rise or fall based on economic messaging, immigration rhetoric, or legal troubles while mifepristone policy follows its own trajectory through the courts. The connection is too indirect - many confounding factors like judicial independence, state-level political dynamics, pharmaceutical industry lobbying, and the specific legal arguments in ongoing cases would need to align perfectly for these questions to be meaningfully correlated.",
+            "relationship_survives": false
+          }
+        }
+      },
+      {
+        "pair_idx": 100,
+        "is_independent": true,
+        "spread": 0,
+        "stage": "second_call",
+        "mechanism": "Wars and military escalations can impact unemployment rates through multiple channels: increased defense spending and military production can lower unemployment, while economic disruptions, trade impacts, sanctions, and uncertainty from major conflicts can negatively affect employment. A major war could also trigger refugee flows, supply chain disruptions, or energy price shocks that influence US labor markets.",
+        "counter_argument": "The claimed relationship relies on several questionable assumptions. First, it assumes the war would directly involve or significantly impact the US economy - but a conflict killing 5,000+ people could occur in regions with minimal US economic ties (e.g., civil wars in Africa, conflicts in Central Asia). Second, the mechanism assumes effects would materialize within the relevant timeframe - unemployment data for November 2025 reflects economic conditions that largely precede it, and war impacts on labor markets typically take months or years to manifest through defense spending or supply chain adjustments. Third, the US economy is remarkably insulated from most global conflicts; even major wars like the ongoing Russia-Ukraine conflict have had limited direct impact on US unemployment rates. Fourth, US unemployment is primarily driven by domestic factors: Federal Reserve monetary policy, fiscal policy, business cycles, technological changes, and labor force participation trends. These domestic drivers vastly outweigh the indirect effects of foreign conflicts. Fifth, the 5,000 casualty threshold is relatively low for geopolitical significance - many ongoing conflicts exceed this without meaningfully affecting US labor markets. The connection requires a very specific type of war (major power involvement, energy-producing region, or direct US participation) to have measurable employment effects, making the general claim too indirect and conditional to establish meaningful dependence.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "Wars and military escalations can impact unemployment rates through multiple channels: increased defense spending and military production can lower unemployment, while economic disruptions, trade impacts, sanctions, and uncertainty from major conflicts can negatively affect employment. A major war could also trigger refugee flows, supply chain disruptions, or energy price shocks that influence US labor markets."
+          },
+          "second": {
+            "counter_argument": "The claimed relationship relies on several questionable assumptions. First, it assumes the war would directly involve or significantly impact the US economy - but a conflict killing 5,000+ people could occur in regions with minimal US economic ties (e.g., civil wars in Africa, conflicts in Central Asia). Second, the mechanism assumes effects would materialize within the relevant timeframe - unemployment data for November 2025 reflects economic conditions that largely precede it, and war impacts on labor markets typically take months or years to manifest through defense spending or supply chain adjustments. Third, the US economy is remarkably insulated from most global conflicts; even major wars like the ongoing Russia-Ukraine conflict have had limited direct impact on US unemployment rates. Fourth, US unemployment is primarily driven by domestic factors: Federal Reserve monetary policy, fiscal policy, business cycles, technological changes, and labor force participation trends. These domestic drivers vastly outweigh the indirect effects of foreign conflicts. Fifth, the 5,000 casualty threshold is relatively low for geopolitical significance - many ongoing conflicts exceed this without meaningfully affecting US labor markets. The connection requires a very specific type of war (major power involvement, energy-producing region, or direct US participation) to have measurable employment effects, making the general claim too indirect and conditional to establish meaningful dependence.",
+            "relationship_survives": false
+          }
+        }
+      },
+      {
+        "pair_idx": 102,
+        "is_independent": true,
+        "spread": 0,
+        "stage": "second_call",
+        "mechanism": "Russian military success in Ukraine (Q) could embolden or enable further territorial expansion into other countries (X), or conversely, military overextension in Ukraine could limit capacity for other invasions. Both questions relate to Russian military aggression and geopolitical ambitions in 2022.",
+        "counter_argument": "The claimed mechanism relies on several questionable assumptions. First, it assumes Russian decision-making about invading other countries would be primarily driven by military success metrics in Ukraine, when in reality such decisions involve complex diplomatic, economic, and domestic political calculations largely independent of battlefield outcomes. Second, the 'emboldening' theory assumes a linear relationship between success and aggression, but historically, military campaigns often have predetermined strategic objectives regardless of tactical outcomes. Third, the 'overextension' argument cuts both ways and is speculative - Russia could simultaneously pursue limited operations elsewhere regardless of Ukraine's status. More importantly, the 2022 timeframe is crucial: any decision to invade another country would require months of preparation, troop positioning, and political groundwork that would be largely independent of real-time Ukrainian city control. The status of Ukrainian cities at any given moment is a lagging indicator that wouldn't causally drive near-term invasion decisions elsewhere. Additionally, potential targets like Moldova, Georgia, or Baltic states have entirely different strategic contexts, NATO implications, and risk profiles that would dominate any invasion calculus far more than Ukrainian battlefield metrics. The connection is too indirect - many intervening variables (Western sanctions response, NATO positioning, domestic Russian politics, target country alliances) would independently determine whether Russia invades elsewhere.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "Russian military success in Ukraine (Q) could embolden or enable further territorial expansion into other countries (X), or conversely, military overextension in Ukraine could limit capacity for other invasions. Both questions relate to Russian military aggression and geopolitical ambitions in 2022."
+          },
+          "second": {
+            "counter_argument": "The claimed mechanism relies on several questionable assumptions. First, it assumes Russian decision-making about invading other countries would be primarily driven by military success metrics in Ukraine, when in reality such decisions involve complex diplomatic, economic, and domestic political calculations largely independent of battlefield outcomes. Second, the 'emboldening' theory assumes a linear relationship between success and aggression, but historically, military campaigns often have predetermined strategic objectives regardless of tactical outcomes. Third, the 'overextension' argument cuts both ways and is speculative - Russia could simultaneously pursue limited operations elsewhere regardless of Ukraine's status. More importantly, the 2022 timeframe is crucial: any decision to invade another country would require months of preparation, troop positioning, and political groundwork that would be largely independent of real-time Ukrainian city control. The status of Ukrainian cities at any given moment is a lagging indicator that wouldn't causally drive near-term invasion decisions elsewhere. Additionally, potential targets like Moldova, Georgia, or Baltic states have entirely different strategic contexts, NATO implications, and risk profiles that would dominate any invasion calculus far more than Ukrainian battlefield metrics. The connection is too indirect - many intervening variables (Western sanctions response, NATO positioning, domestic Russian politics, target country alliances) would independently determine whether Russia invades elsewhere.",
+            "relationship_survives": false
+          }
+        }
+      },
+      {
+        "pair_idx": 108,
+        "is_independent": true,
+        "spread": 0,
+        "stage": "second_call",
+        "mechanism": "Both questions are related to geopolitical responses to Russia's 2022 invasion of Ukraine. Finland's NATO membership decision was directly accelerated by Russian aggression in Ukraine, while Ukraine's military efforts to sever the land bridge to Crimea are part of the same conflict. Escalation or de-escalation in the Ukraine war could influence NATO expansion timelines and vice versa.",
+        "counter_argument": "While both questions relate to the Russia-Ukraine conflict, they operate on fundamentally different timelines, actors, and decision-making processes. Finland's NATO accession was a diplomatic and bureaucratic process involving 30+ member states' ratification procedures, driven by Finland's own security calculus and domestic politics. By contrast, Ukraine's military operations to sever the land bridge depend on battlefield conditions, military capabilities, weather, Western weapons deliveries, and Russian defensive positions. These are orthogonal processes: Finland's accession moved through predictable diplomatic channels largely insulated from day-to-day battlefield developments, while Ukraine's territorial gains depend on tactical military factors. The claimed mechanism assumes that 'escalation or de-escalation' would affect both simultaneously, but Finland's ratification process was essentially locked in by early 2023 regardless of battlefield outcomes. Turkey and Hungary's ratification delays were about bilateral disputes (Kurdish issues, domestic politics), not Ukraine war developments. Furthermore, Ukraine could theoretically sever the land bridge through a successful offensive while Finland's accession faced delays, or vice versa - the outcomes are determined by completely different stakeholder decisions and constraints.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "Both questions are related to geopolitical responses to Russia's 2022 invasion of Ukraine. Finland's NATO membership decision was directly accelerated by Russian aggression in Ukraine, while Ukraine's military efforts to sever the land bridge to Crimea are part of the same conflict. Escalation or de-escalation in the Ukraine war could influence NATO expansion timelines and vice versa."
+          },
+          "second": {
+            "counter_argument": "While both questions relate to the Russia-Ukraine conflict, they operate on fundamentally different timelines, actors, and decision-making processes. Finland's NATO accession was a diplomatic and bureaucratic process involving 30+ member states' ratification procedures, driven by Finland's own security calculus and domestic politics. By contrast, Ukraine's military operations to sever the land bridge depend on battlefield conditions, military capabilities, weather, Western weapons deliveries, and Russian defensive positions. These are orthogonal processes: Finland's accession moved through predictable diplomatic channels largely insulated from day-to-day battlefield developments, while Ukraine's territorial gains depend on tactical military factors. The claimed mechanism assumes that 'escalation or de-escalation' would affect both simultaneously, but Finland's ratification process was essentially locked in by early 2023 regardless of battlefield outcomes. Turkey and Hungary's ratification delays were about bilateral disputes (Kurdish issues, domestic politics), not Ukraine war developments. Furthermore, Ukraine could theoretically sever the land bridge through a successful offensive while Finland's accession faced delays, or vice versa - the outcomes are determined by completely different stakeholder decisions and constraints.",
+            "relationship_survives": false
+          }
+        }
+      },
+      {
+        "pair_idx": 110,
+        "is_independent": true,
+        "spread": 0,
+        "stage": "second_call",
+        "mechanism": "Russia controlling Kyiv would indicate significant military success and capacity, which could embolden further military expansion into other countries. Conversely, if Russia struggles to control Kyiv, it would likely lack resources/capability to invade elsewhere. Both questions relate to Russian military aggression and territorial ambitions in 2022.",
+        "counter_argument": "The claimed mechanism relies on several questionable assumptions. First, it assumes Russian military decision-making is primarily resource-based, when in reality geopolitical decisions to invade countries depend on entirely different factors: NATO membership status, strategic importance, diplomatic consequences, and domestic political calculations. Russia could control Kyiv yet face such severe international sanctions and diplomatic isolation that further expansion becomes politically impossible. Conversely, Russia could fail in Kyiv yet still conduct limited operations elsewhere (like Moldova/Transnistria) that require far fewer resources. Second, the timeframe is extremely compressed - by June 1, 2022, there's barely 3 months from invasion start, hardly enough time for 'emboldening' to translate into planning and executing another invasion. Third, the questions measure fundamentally different things: Q asks about tactical military success in an ongoing operation, while X asks about strategic decision-making to initiate entirely new conflicts. A country can be militarily overextended yet still make aggressive moves for domestic political reasons, or be militarily successful yet strategically cautious. The connection assumes a rational actor model that may not apply. Finally, other countries Russia might invade (Georgia, Moldova, Baltic states) have completely different defensive situations, alliance structures, and Russian strategic interests that are independent of Ukraine outcomes.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "Russia controlling Kyiv would indicate significant military success and capacity, which could embolden further military expansion into other countries. Conversely, if Russia struggles to control Kyiv, it would likely lack resources/capability to invade elsewhere. Both questions relate to Russian military aggression and territorial ambitions in 2022."
+          },
+          "second": {
+            "counter_argument": "The claimed mechanism relies on several questionable assumptions. First, it assumes Russian military decision-making is primarily resource-based, when in reality geopolitical decisions to invade countries depend on entirely different factors: NATO membership status, strategic importance, diplomatic consequences, and domestic political calculations. Russia could control Kyiv yet face such severe international sanctions and diplomatic isolation that further expansion becomes politically impossible. Conversely, Russia could fail in Kyiv yet still conduct limited operations elsewhere (like Moldova/Transnistria) that require far fewer resources. Second, the timeframe is extremely compressed - by June 1, 2022, there's barely 3 months from invasion start, hardly enough time for 'emboldening' to translate into planning and executing another invasion. Third, the questions measure fundamentally different things: Q asks about tactical military success in an ongoing operation, while X asks about strategic decision-making to initiate entirely new conflicts. A country can be militarily overextended yet still make aggressive moves for domestic political reasons, or be militarily successful yet strategically cautious. The connection assumes a rational actor model that may not apply. Finally, other countries Russia might invade (Georgia, Moldova, Baltic states) have completely different defensive situations, alliance structures, and Russian strategic interests that are independent of Ukraine outcomes.",
+            "relationship_survives": false
+          }
+        }
+      },
+      {
+        "pair_idx": 111,
+        "is_independent": false,
+        "spread": 0.1,
+        "stage": "second_call",
+        "mechanism": "Federal interest rates directly affect mortgage rates, which influence housing demand and affordability. Lower interest rates typically reduce borrowing costs, potentially increasing housing demand and driving up prices. If rates are lower at end of 2025 vs end of 2024, this could stimulate housing market activity and contribute to real housing price increases.",
+        "counter_argument": "The claimed mechanism relies on several questionable assumptions: (1) That mortgage rates move in lockstep with federal rates - but mortgage rates are influenced by many factors including bond markets, lender risk premiums, and MBS demand, often moving independently of Fed policy. (2) That lower rates automatically increase housing demand - but demand also depends on employment, wages, consumer confidence, demographic shifts, and housing supply constraints. (3) That increased demand translates to higher REAL prices - but nominal price increases may be offset by inflation, and the question asks about real (inflation-adjusted) prices. (4) The timing assumption is flawed - comparing end-of-year rate snapshots ignores the path of rates throughout the year; rates could be lower at year-end but have been high most of the year, limiting housing market impact. (5) Supply-side factors like construction costs, zoning regulations, and existing inventory levels can dominate price movements regardless of interest rates. (6) The 2024 baseline matters - if 2024 already saw significant real price increases due to supply constraints, 2025 could see moderation even with lower rates. (7) Regional variation means national averages obscure local dynamics where rates matter less than local economic conditions. The connection is too indirect given these multiple intervening variables and potential confounders.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "Federal interest rates directly affect mortgage rates, which influence housing demand and affordability. Lower interest rates typically reduce borrowing costs, potentially increasing housing demand and driving up prices. If rates are lower at end of 2025 vs end of 2024, this could stimulate housing market activity and contribute to real housing price increases."
+          },
+          "second": {
+            "counter_argument": "The claimed mechanism relies on several questionable assumptions: (1) That mortgage rates move in lockstep with federal rates - but mortgage rates are influenced by many factors including bond markets, lender risk premiums, and MBS demand, often moving independently of Fed policy. (2) That lower rates automatically increase housing demand - but demand also depends on employment, wages, consumer confidence, demographic shifts, and housing supply constraints. (3) That increased demand translates to higher REAL prices - but nominal price increases may be offset by inflation, and the question asks about real (inflation-adjusted) prices. (4) The timing assumption is flawed - comparing end-of-year rate snapshots ignores the path of rates throughout the year; rates could be lower at year-end but have been high most of the year, limiting housing market impact. (5) Supply-side factors like construction costs, zoning regulations, and existing inventory levels can dominate price movements regardless of interest rates. (6) The 2024 baseline matters - if 2024 already saw significant real price increases due to supply constraints, 2025 could see moderation even with lower rates. (7) Regional variation means national averages obscure local dynamics where rates matter less than local economic conditions. The connection is too indirect given these multiple intervening variables and potential confounders.",
+            "relationship_survives": true
+          }
+        }
+      },
+      {
+        "pair_idx": 116,
+        "is_independent": true,
+        "spread": 0,
+        "stage": "second_call",
+        "mechanism": "An Iranian attack on Israel could trigger broader geopolitical instability and market volatility, potentially causing a flight from risk assets like tech stocks including NVIDIA, or conversely, increased demand for AI/defense-related technologies could boost NVIDIA. Middle East conflicts historically impact global market sentiment and investor behavior.",
+        "counter_argument": "The claimed mechanism relies on several questionable assumptions: (1) that an Iranian attack would significantly move global markets rather than being a localized event, (2) that NVIDIA specifically would be affected when it's primarily a semiconductor/AI company with no direct Middle East exposure, (3) that any market reaction would be large enough to prevent NVIDIA from reaching $950 when the stock is driven primarily by AI demand fundamentals, earnings reports, and sector-specific factors. NVIDIA's price trajectory is overwhelmingly determined by AI chip demand, data center growth, earnings beats, and tech sector sentiment - not Middle East geopolitics. The company has no significant Israel operations or Middle East revenue dependency. Historical evidence shows tech stocks often decouple from geopolitical events within days, and NVIDIA's momentum in early 2024 was driven by unprecedented AI demand that dwarfed macro concerns. The 'flight from risk assets' theory is too generic - it assumes all risk assets move together, ignoring that NVIDIA could easily hit $950 on strong earnings or AI news regardless of geopolitical backdrop. The timeframes also differ (May 1 vs May 21), and NVIDIA only needs ONE day above $950, making it robust to temporary volatility. These are fundamentally independent events operating in different domains.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "An Iranian attack on Israel could trigger broader geopolitical instability and market volatility, potentially causing a flight from risk assets like tech stocks including NVIDIA, or conversely, increased demand for AI/defense-related technologies could boost NVIDIA. Middle East conflicts historically impact global market sentiment and investor behavior."
+          },
+          "second": {
+            "counter_argument": "The claimed mechanism relies on several questionable assumptions: (1) that an Iranian attack would significantly move global markets rather than being a localized event, (2) that NVIDIA specifically would be affected when it's primarily a semiconductor/AI company with no direct Middle East exposure, (3) that any market reaction would be large enough to prevent NVIDIA from reaching $950 when the stock is driven primarily by AI demand fundamentals, earnings reports, and sector-specific factors. NVIDIA's price trajectory is overwhelmingly determined by AI chip demand, data center growth, earnings beats, and tech sector sentiment - not Middle East geopolitics. The company has no significant Israel operations or Middle East revenue dependency. Historical evidence shows tech stocks often decouple from geopolitical events within days, and NVIDIA's momentum in early 2024 was driven by unprecedented AI demand that dwarfed macro concerns. The 'flight from risk assets' theory is too generic - it assumes all risk assets move together, ignoring that NVIDIA could easily hit $950 on strong earnings or AI news regardless of geopolitical backdrop. The timeframes also differ (May 1 vs May 21), and NVIDIA only needs ONE day above $950, making it robust to temporary volatility. These are fundamentally independent events operating in different domains.",
+            "relationship_survives": false
+          }
+        }
+      },
+      {
+        "pair_idx": 117,
+        "is_independent": false,
+        "spread": 0.1,
+        "stage": "second_call",
+        "mechanism": "A meeting between Putin and Zelenskyy to discuss peaceful resolution would likely be a prerequisite or key step toward achieving a bilateral cease-fire or peace agreement. If such a meeting occurs and is successful, it increases the probability of a peace agreement being reached.",
+        "counter_argument": "The claimed mechanism relies on several questionable assumptions: 1) That a Putin-Zelenskyy meeting would be the primary pathway to peace, when historically many conflicts have been resolved through intermediaries, back-channel negotiations, or multilateral frameworks without direct leader summits. 2) That such a meeting would be 'successful' - leaders can meet and fail spectacularly, potentially hardening positions rather than advancing peace. 3) The questions may have different time horizons - a meeting could happen in 2024 while a peace agreement might not materialize until years later, making them temporally disconnected. 4) Peace agreements can emerge from battlefield exhaustion, economic pressure, or third-party mediation (China, Turkey, etc.) without any direct Putin-Zelenskyy meeting. Conversely, the two leaders could meet multiple times for photo opportunities or preliminary discussions without ever reaching a binding agreement. 5) A cease-fire could be imposed unilaterally or through military stalemate rather than negotiated bilaterally. The connection assumes a linear diplomatic process that rarely reflects how modern conflicts actually end.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "A meeting between Putin and Zelenskyy to discuss peaceful resolution would likely be a prerequisite or key step toward achieving a bilateral cease-fire or peace agreement. If such a meeting occurs and is successful, it increases the probability of a peace agreement being reached."
+          },
+          "second": {
+            "counter_argument": "The claimed mechanism relies on several questionable assumptions: 1) That a Putin-Zelenskyy meeting would be the primary pathway to peace, when historically many conflicts have been resolved through intermediaries, back-channel negotiations, or multilateral frameworks without direct leader summits. 2) That such a meeting would be 'successful' - leaders can meet and fail spectacularly, potentially hardening positions rather than advancing peace. 3) The questions may have different time horizons - a meeting could happen in 2024 while a peace agreement might not materialize until years later, making them temporally disconnected. 4) Peace agreements can emerge from battlefield exhaustion, economic pressure, or third-party mediation (China, Turkey, etc.) without any direct Putin-Zelenskyy meeting. Conversely, the two leaders could meet multiple times for photo opportunities or preliminary discussions without ever reaching a binding agreement. 5) A cease-fire could be imposed unilaterally or through military stalemate rather than negotiated bilaterally. The connection assumes a linear diplomatic process that rarely reflects how modern conflicts actually end.",
+            "relationship_survives": true
+          }
+        }
+      },
+      {
+        "pair_idx": 128,
+        "is_independent": false,
+        "spread": 0.1,
+        "stage": "second_call",
+        "mechanism": "Question Q is a specific instance that falls within the timeframe of Question X. If Russia controls Kyiv on June 1, 2022, then Question X would necessarily resolve yes, since June 1, 2022 is before 2023. Q resolving yes would guarantee X resolves yes, making Q a sufficient but not necessary condition for X.",
+        "counter_argument": "The claimed relationship relies on several assumptions that could be challenged. First, it assumes a clear, binary definition of 'control' - but what constitutes 'control' of Kyiv? Military occupation of the city center? Administrative control? Surrounding the city? Different interpretations could lead to different resolutions. Second, the mechanism assumes perfect information - we might know Russia controls Kyiv on June 1 but dispute whether that counts as 'before 2023' control if the control was brief or contested. Third, there could be definitional edge cases: what if Russia controls part of Kyiv but not all? What if there's a puppet government installed - does that count as 'Russian control'? However, these objections are relatively weak. The core logical relationship is sound: June 1, 2022 is definitively before 2023, and if we accept that Q resolves yes (Russia controls Kyiv on that specific date), then by any reasonable interpretation, X must also resolve yes. The temporal containment is absolute - there's no scenario where Russia controls Kyiv on June 1, 2022 but Kyiv was NOT under Russian control before 2023. The logical implication (Q\u2192X) is mathematically certain, even if the reverse is not true.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "Question Q is a specific instance that falls within the timeframe of Question X. If Russia controls Kyiv on June 1, 2022, then Question X would necessarily resolve yes, since June 1, 2022 is before 2023. Q resolving yes would guarantee X resolves yes, making Q a sufficient but not necessary condition for X."
+          },
+          "second": {
+            "counter_argument": "The claimed relationship relies on several assumptions that could be challenged. First, it assumes a clear, binary definition of 'control' - but what constitutes 'control' of Kyiv? Military occupation of the city center? Administrative control? Surrounding the city? Different interpretations could lead to different resolutions. Second, the mechanism assumes perfect information - we might know Russia controls Kyiv on June 1 but dispute whether that counts as 'before 2023' control if the control was brief or contested. Third, there could be definitional edge cases: what if Russia controls part of Kyiv but not all? What if there's a puppet government installed - does that count as 'Russian control'? However, these objections are relatively weak. The core logical relationship is sound: June 1, 2022 is definitively before 2023, and if we accept that Q resolves yes (Russia controls Kyiv on that specific date), then by any reasonable interpretation, X must also resolve yes. The temporal containment is absolute - there's no scenario where Russia controls Kyiv on June 1, 2022 but Kyiv was NOT under Russian control before 2023. The logical implication (Q\u2192X) is mathematically certain, even if the reverse is not true.",
+            "relationship_survives": true
+          }
+        }
+      },
+      {
+        "pair_idx": 133,
+        "is_independent": true,
+        "spread": 0,
+        "stage": "second_call",
+        "mechanism": "A new war or escalation could affect Trump's favorability - either boosting it through rally-around-the-flag effects if he's seen as a strong leader, or hurting it if the war is unpopular or he's blamed for it. War-related economic impacts (inflation, gas prices) could also influence public opinion of political figures.",
+        "counter_argument": "The claimed mechanism relies on several questionable assumptions. First, it assumes Trump would be in a position of power or relevance where a war would directly reflect on him - but the question is about December 2025, and Trump's favorability could be shaped by entirely domestic factors regardless of global conflicts. Second, the 5,000 death threshold for a war could be met in conflicts completely disconnected from US interests (e.g., regional conflicts in Africa, Asia, or elsewhere) that would receive minimal US media coverage and have negligible impact on American political sentiment. Third, Trump's favorability is primarily driven by deeply entrenched partisan polarization - his approval ratings have historically been remarkably stable regardless of external events, suggesting limited sensitivity to international developments. Fourth, the rally-around-the-flag effect typically benefits sitting presidents, not former presidents or candidates. If Trump is not president in 2025, a war would more likely affect Biden's or another incumbent's favorability. Fifth, the economic transmission mechanism (gas prices, inflation) is highly indirect and would affect all political figures similarly, not Trump specifically. The connection requires too many conditional steps: a specific type of war, US involvement or relevance, media framing favorable or unfavorable to Trump specifically, and breakthrough of partisan information bubbles.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "A new war or escalation could affect Trump's favorability - either boosting it through rally-around-the-flag effects if he's seen as a strong leader, or hurting it if the war is unpopular or he's blamed for it. War-related economic impacts (inflation, gas prices) could also influence public opinion of political figures."
+          },
+          "second": {
+            "counter_argument": "The claimed mechanism relies on several questionable assumptions. First, it assumes Trump would be in a position of power or relevance where a war would directly reflect on him - but the question is about December 2025, and Trump's favorability could be shaped by entirely domestic factors regardless of global conflicts. Second, the 5,000 death threshold for a war could be met in conflicts completely disconnected from US interests (e.g., regional conflicts in Africa, Asia, or elsewhere) that would receive minimal US media coverage and have negligible impact on American political sentiment. Third, Trump's favorability is primarily driven by deeply entrenched partisan polarization - his approval ratings have historically been remarkably stable regardless of external events, suggesting limited sensitivity to international developments. Fourth, the rally-around-the-flag effect typically benefits sitting presidents, not former presidents or candidates. If Trump is not president in 2025, a war would more likely affect Biden's or another incumbent's favorability. Fifth, the economic transmission mechanism (gas prices, inflation) is highly indirect and would affect all political figures similarly, not Trump specifically. The connection requires too many conditional steps: a specific type of war, US involvement or relevance, media framing favorable or unfavorable to Trump specifically, and breakthrough of partisan information bubbles.",
+            "relationship_survives": false
+          }
+        }
+      },
+      {
+        "pair_idx": 134,
+        "is_independent": true,
+        "spread": 0,
+        "stage": "second_call",
+        "mechanism": "Lower US interest rates could make it easier for the US to extend financial assistance or bailouts to foreign countries like Argentina, as borrowing costs would be reduced. Additionally, lower US rates often signal economic conditions that might correlate with emerging market stress, potentially increasing the likelihood Argentina would need a bailout. US monetary policy also affects global dollar liquidity and emerging market debt sustainability.",
+        "counter_argument": "The claimed relationship relies on several questionable assumptions. First, US bailout decisions for Argentina are primarily driven by geopolitical considerations, IMF coordination, and bilateral diplomatic relationships - not marginal changes in US borrowing costs. The US government's ability to extend financial assistance is essentially unconstrained by interest rate differentials of a few percentage points. Second, the mechanism assumes Argentina would need a bailout specifically in this timeframe AND that the US would be the entity providing it - Argentina's financial distress is more typically addressed through IMF programs, not direct US bailouts. Third, the interest rate comparison (end of 2025 vs end of 2020) captures a very specific monetary policy snapshot that may not reflect conditions when any bailout decision would actually be made. Fourth, there are major confounding factors: Argentina's economic trajectory depends on domestic policy choices, commodity prices, and its relationship with the IMF; US bailout decisions depend on which administration is in power, Congressional approval, and strategic priorities in Latin America. A scenario where rates are higher could coincide with strong US economic growth and greater willingness to assist allies, while lower rates during a recession might make Congress less willing to approve foreign aid. The connection between these specific rate conditions and a binary bailout outcome is too indirect and mediated by too many independent political and economic factors.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "Lower US interest rates could make it easier for the US to extend financial assistance or bailouts to foreign countries like Argentina, as borrowing costs would be reduced. Additionally, lower US rates often signal economic conditions that might correlate with emerging market stress, potentially increasing the likelihood Argentina would need a bailout. US monetary policy also affects global dollar liquidity and emerging market debt sustainability."
+          },
+          "second": {
+            "counter_argument": "The claimed relationship relies on several questionable assumptions. First, US bailout decisions for Argentina are primarily driven by geopolitical considerations, IMF coordination, and bilateral diplomatic relationships - not marginal changes in US borrowing costs. The US government's ability to extend financial assistance is essentially unconstrained by interest rate differentials of a few percentage points. Second, the mechanism assumes Argentina would need a bailout specifically in this timeframe AND that the US would be the entity providing it - Argentina's financial distress is more typically addressed through IMF programs, not direct US bailouts. Third, the interest rate comparison (end of 2025 vs end of 2020) captures a very specific monetary policy snapshot that may not reflect conditions when any bailout decision would actually be made. Fourth, there are major confounding factors: Argentina's economic trajectory depends on domestic policy choices, commodity prices, and its relationship with the IMF; US bailout decisions depend on which administration is in power, Congressional approval, and strategic priorities in Latin America. A scenario where rates are higher could coincide with strong US economic growth and greater willingness to assist allies, while lower rates during a recession might make Congress less willing to approve foreign aid. The connection between these specific rate conditions and a binary bailout outcome is too indirect and mediated by too many independent political and economic factors.",
+            "relationship_survives": false
+          }
+        }
+      },
+      {
+        "pair_idx": 135,
+        "is_independent": true,
+        "spread": 0,
+        "stage": "second_call",
+        "mechanism": "If Kyiv falls to Russian forces, it could indicate either a swift Russian victory (potentially fewer casualties) or intense urban combat (potentially more casualties). The fall of the capital could also lead to either war termination or intensified resistance/insurgency, both affecting total death toll. The outcome of the battle for Kyiv is a major factor in determining the war's intensity and duration in 2022.",
+        "counter_argument": "The claimed relationship relies on several questionable assumptions. First, it assumes the battle for Kyiv would be the primary driver of casualties, when in reality the war's death toll depends on fighting across multiple fronts (Donbas, Kherson, Mariupol, etc.) that would continue regardless of Kyiv's fate. Second, the mechanism is internally contradictory - the colleague admits Kyiv falling could lead to EITHER more OR fewer casualties, which suggests no clear directional relationship. Third, the 50,000 threshold is relatively low for a major conventional war lasting most of a year; this number could easily be reached through sustained attritional warfare in eastern Ukraine alone, independent of what happens in Kyiv. Fourth, there's a timing mismatch: the Kyiv question resolves by April 2022 (early in the conflict), while the casualty question covers all of 2022. Most casualties could accumulate in the subsequent 8+ months through entirely different dynamics. Finally, confounding factors like Western military aid levels, Russian mobilization decisions, and fighting in other major cities (Mariupol's siege alone caused massive casualties) would independently drive the death toll regardless of Kyiv's outcome. The connection is too indirect and multi-branched to establish meaningful dependence.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "If Kyiv falls to Russian forces, it could indicate either a swift Russian victory (potentially fewer casualties) or intense urban combat (potentially more casualties). The fall of the capital could also lead to either war termination or intensified resistance/insurgency, both affecting total death toll. The outcome of the battle for Kyiv is a major factor in determining the war's intensity and duration in 2022."
+          },
+          "second": {
+            "counter_argument": "The claimed relationship relies on several questionable assumptions. First, it assumes the battle for Kyiv would be the primary driver of casualties, when in reality the war's death toll depends on fighting across multiple fronts (Donbas, Kherson, Mariupol, etc.) that would continue regardless of Kyiv's fate. Second, the mechanism is internally contradictory - the colleague admits Kyiv falling could lead to EITHER more OR fewer casualties, which suggests no clear directional relationship. Third, the 50,000 threshold is relatively low for a major conventional war lasting most of a year; this number could easily be reached through sustained attritional warfare in eastern Ukraine alone, independent of what happens in Kyiv. Fourth, there's a timing mismatch: the Kyiv question resolves by April 2022 (early in the conflict), while the casualty question covers all of 2022. Most casualties could accumulate in the subsequent 8+ months through entirely different dynamics. Finally, confounding factors like Western military aid levels, Russian mobilization decisions, and fighting in other major cities (Mariupol's siege alone caused massive casualties) would independently drive the death toll regardless of Kyiv's outcome. The connection is too indirect and multi-branched to establish meaningful dependence.",
+            "relationship_survives": false
+          }
+        }
+      },
+      {
+        "pair_idx": 136,
+        "is_independent": true,
+        "spread": 0,
+        "stage": "second_call",
+        "mechanism": "Eliminating the Department of Education could affect employment levels - both through direct job losses of federal employees and potential downstream effects on education sector employment, which could influence the overall unemployment rate",
+        "counter_argument": "The claimed relationship relies on several questionable assumptions. First, the Department of Education employs approximately 4,000 people - a negligible fraction of the 160+ million US labor force (about 0.0025%). Even if all employees were immediately laid off, this would have virtually no measurable impact on the national unemployment rate. Second, the timeline is problematic: eliminating a federal department through law or executive action is a lengthy process involving legal challenges, congressional action, and implementation periods. Even if initiated, actual job losses wouldn't materialize quickly enough to affect November 2025 unemployment figures. Third, the 'downstream effects on education sector employment' assumes a direct causal chain that doesn't exist - education is primarily funded and administered at state and local levels, not through the federal Department of Education. Teachers and school staff wouldn't lose jobs because a federal coordinating agency was eliminated. Fourth, the unemployment rate is driven by massive macroeconomic forces: monetary policy, GDP growth, global economic conditions, technological change, and business cycles. These factors completely dwarf any theoretical impact from one small agency's elimination. Finally, there are countless confounding variables - recessions, Fed policy, trade conditions, labor force participation changes - that would determine unemployment rates independent of any education department decision.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "Eliminating the Department of Education could affect employment levels - both through direct job losses of federal employees and potential downstream effects on education sector employment, which could influence the overall unemployment rate"
+          },
+          "second": {
+            "counter_argument": "The claimed relationship relies on several questionable assumptions. First, the Department of Education employs approximately 4,000 people - a negligible fraction of the 160+ million US labor force (about 0.0025%). Even if all employees were immediately laid off, this would have virtually no measurable impact on the national unemployment rate. Second, the timeline is problematic: eliminating a federal department through law or executive action is a lengthy process involving legal challenges, congressional action, and implementation periods. Even if initiated, actual job losses wouldn't materialize quickly enough to affect November 2025 unemployment figures. Third, the 'downstream effects on education sector employment' assumes a direct causal chain that doesn't exist - education is primarily funded and administered at state and local levels, not through the federal Department of Education. Teachers and school staff wouldn't lose jobs because a federal coordinating agency was eliminated. Fourth, the unemployment rate is driven by massive macroeconomic forces: monetary policy, GDP growth, global economic conditions, technological change, and business cycles. These factors completely dwarf any theoretical impact from one small agency's elimination. Finally, there are countless confounding variables - recessions, Fed policy, trade conditions, labor force participation changes - that would determine unemployment rates independent of any education department decision.",
+            "relationship_survives": false
+          }
+        }
+      },
+      {
+        "pair_idx": 137,
+        "is_independent": true,
+        "spread": 0,
+        "stage": "second_call",
+        "mechanism": "Both questions relate to consequences of the Russia-Ukraine conflict in 2022-2024. Russian government actions (like blocking YouTube) and Ukrainian military actions (like attacking the Crimean Bridge) are both escalation dynamics within the same geopolitical conflict, where one type of event could influence the likelihood or timing of the other.",
+        "counter_argument": "The claimed connection relies on several questionable assumptions. First, it assumes that Russian domestic internet policy decisions are primarily driven by military conflict dynamics, when in reality YouTube blocking decisions are more likely driven by internal political considerations, content moderation disputes, and long-standing tensions between Russian authorities and Western tech platforms that predate the 2022 conflict. Russia has threatened to block YouTube for years over unrelated issues like content removal requests. Second, the Crimean Bridge attack would be a Ukrainian military/strategic decision based on tactical considerations, logistics capabilities, and Western weapons availability - factors largely independent of Russian domestic censorship policies. Third, the mechanism assumes a tight escalation feedback loop, but these events operate on different timelines and through different decision-making bodies (Russian media regulators vs. Ukrainian military command). A YouTube block wouldn't meaningfully change Ukrainian military targeting priorities, and a bridge attack wouldn't necessarily accelerate or delay Russian internet censorship that was already being considered. The connection is spurious because both events are downstream effects of the broader conflict existing, but they don't causally influence each other - they're parallel consequences rather than linked in a causal chain. The confounding factor is simply 'the Russia-Ukraine war is happening,' which makes many events more likely simultaneously without those events being interdependent.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "Both questions relate to consequences of the Russia-Ukraine conflict in 2022-2024. Russian government actions (like blocking YouTube) and Ukrainian military actions (like attacking the Crimean Bridge) are both escalation dynamics within the same geopolitical conflict, where one type of event could influence the likelihood or timing of the other."
+          },
+          "second": {
+            "counter_argument": "The claimed connection relies on several questionable assumptions. First, it assumes that Russian domestic internet policy decisions are primarily driven by military conflict dynamics, when in reality YouTube blocking decisions are more likely driven by internal political considerations, content moderation disputes, and long-standing tensions between Russian authorities and Western tech platforms that predate the 2022 conflict. Russia has threatened to block YouTube for years over unrelated issues like content removal requests. Second, the Crimean Bridge attack would be a Ukrainian military/strategic decision based on tactical considerations, logistics capabilities, and Western weapons availability - factors largely independent of Russian domestic censorship policies. Third, the mechanism assumes a tight escalation feedback loop, but these events operate on different timelines and through different decision-making bodies (Russian media regulators vs. Ukrainian military command). A YouTube block wouldn't meaningfully change Ukrainian military targeting priorities, and a bridge attack wouldn't necessarily accelerate or delay Russian internet censorship that was already being considered. The connection is spurious because both events are downstream effects of the broader conflict existing, but they don't causally influence each other - they're parallel consequences rather than linked in a causal chain. The confounding factor is simply 'the Russia-Ukraine war is happening,' which makes many events more likely simultaneously without those events being interdependent.",
+            "relationship_survives": false
+          }
+        }
+      },
+      {
+        "pair_idx": 139,
+        "is_independent": false,
+        "spread": 0.1,
+        "stage": "second_call",
+        "mechanism": "If Trump is reelected president (Question Q), he would be inaugurated and serving as President on January 21, 2021 (Question X). However, Question X could also be true if Trump remains president without reelection (e.g., election disputes, delayed transition), so Q being true would make X true, but X could be true even if Q is false.",
+        "counter_argument": "The claimed relationship relies on several questionable assumptions. First, Question Q has a truncated date ('November 10th 202') which appears incomplete - it's unclear if this refers to 2020, 2024, or another year entirely. If Q refers to 2024, then Trump being reelected would mean he becomes president on January 20, 2025, NOT January 21, 2021 - making the questions completely unrelated temporally. Second, even if Q refers to 2020, the mechanism assumes a straightforward path from election results to inauguration, but Question Q specifically asks about the election being 'called' by a certain date, which is different from official certification or actual inauguration. Media calling an election doesn't guarantee the outcome. Third, Question X asks about January 21, 2021 specifically - one day AFTER the standard inauguration date of January 20th. This oddly specific date suggests the question might be probing something other than simple reelection (perhaps testing whether inauguration actually occurs, or whether there's a gap in presidency). Fourth, Trump was already president in 2020, so X being true on January 21, 2021 was the default state unless something actively removed him - this has nothing to do with whether an election was 'called' by a specific date. The questions operate on different logical planes: one about election calling timing, one about actual presidential status on a specific date.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "If Trump is reelected president (Question Q), he would be inaugurated and serving as President on January 21, 2021 (Question X). However, Question X could also be true if Trump remains president without reelection (e.g., election disputes, delayed transition), so Q being true would make X true, but X could be true even if Q is false."
+          },
+          "second": {
+            "counter_argument": "The claimed relationship relies on several questionable assumptions. First, Question Q has a truncated date ('November 10th 202') which appears incomplete - it's unclear if this refers to 2020, 2024, or another year entirely. If Q refers to 2024, then Trump being reelected would mean he becomes president on January 20, 2025, NOT January 21, 2021 - making the questions completely unrelated temporally. Second, even if Q refers to 2020, the mechanism assumes a straightforward path from election results to inauguration, but Question Q specifically asks about the election being 'called' by a certain date, which is different from official certification or actual inauguration. Media calling an election doesn't guarantee the outcome. Third, Question X asks about January 21, 2021 specifically - one day AFTER the standard inauguration date of January 20th. This oddly specific date suggests the question might be probing something other than simple reelection (perhaps testing whether inauguration actually occurs, or whether there's a gap in presidency). Fourth, Trump was already president in 2020, so X being true on January 21, 2021 was the default state unless something actively removed him - this has nothing to do with whether an election was 'called' by a specific date. The questions operate on different logical planes: one about election calling timing, one about actual presidential status on a specific date.",
+            "relationship_survives": true
+          }
+        }
+      },
+      {
+        "pair_idx": 142,
+        "is_independent": false,
+        "spread": 0.1,
+        "stage": "second_call",
+        "mechanism": "An Iranian attack on Israel could strengthen Netanyahu's political position through rally-around-the-flag effects, making his removal less likely. Conversely, it could also potentially destabilize his government if the response is seen as inadequate. Additionally, Netanyahu's policies and actions as PM could influence the likelihood of Iranian aggression against Israel.",
+        "counter_argument": "The claimed relationship relies on several questionable assumptions. First, it assumes Iranian decision-making about attacks is primarily driven by who leads Israel, when in reality Iran's strategic calculus involves broader regional dynamics, US policy, internal Iranian politics, and proxy warfare considerations that operate largely independently of Netanyahu specifically. Second, the 'rally-around-the-flag' effect is not guaranteed - Israeli politics are complex, and Netanyahu faces corruption trials and coalition challenges that exist regardless of external threats. His political survival depends more on coalition mathematics, legal proceedings, and domestic economic issues than on any single security event. Third, the timeframe matters: Question Q asks about events before May 2024, while Question X covers all of 2024 - an attack in April wouldn't necessarily determine Netanyahu's status in December. Fourth, Israel has faced numerous security challenges throughout its history without automatic political consequences for sitting leaders. The connection assumes a direct causal chain that ignores the many intervening variables: how the attack is handled, media framing, opposition response, coalition partner reactions, and ongoing legal matters. Iran's strategic decisions are driven by their nuclear program negotiations, regional influence goals, and domestic pressures - factors largely orthogonal to Netanyahu's personal political fortunes.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "An Iranian attack on Israel could strengthen Netanyahu's political position through rally-around-the-flag effects, making his removal less likely. Conversely, it could also potentially destabilize his government if the response is seen as inadequate. Additionally, Netanyahu's policies and actions as PM could influence the likelihood of Iranian aggression against Israel."
+          },
+          "second": {
+            "counter_argument": "The claimed relationship relies on several questionable assumptions. First, it assumes Iranian decision-making about attacks is primarily driven by who leads Israel, when in reality Iran's strategic calculus involves broader regional dynamics, US policy, internal Iranian politics, and proxy warfare considerations that operate largely independently of Netanyahu specifically. Second, the 'rally-around-the-flag' effect is not guaranteed - Israeli politics are complex, and Netanyahu faces corruption trials and coalition challenges that exist regardless of external threats. His political survival depends more on coalition mathematics, legal proceedings, and domestic economic issues than on any single security event. Third, the timeframe matters: Question Q asks about events before May 2024, while Question X covers all of 2024 - an attack in April wouldn't necessarily determine Netanyahu's status in December. Fourth, Israel has faced numerous security challenges throughout its history without automatic political consequences for sitting leaders. The connection assumes a direct causal chain that ignores the many intervening variables: how the attack is handled, media framing, opposition response, coalition partner reactions, and ongoing legal matters. Iran's strategic decisions are driven by their nuclear program negotiations, regional influence goals, and domestic pressures - factors largely orthogonal to Netanyahu's personal political fortunes.",
+            "relationship_survives": true
+          }
+        }
+      },
+      {
+        "pair_idx": 145,
+        "is_independent": false,
+        "spread": 0.1,
+        "stage": "second_call",
+        "mechanism": "A bilateral cease-fire or peace agreement could prevent Kyiv from falling by ending hostilities, or conversely, the fall of Kyiv could influence the likelihood and terms of a peace agreement. Both questions concern outcomes of the same Russo-Ukrainian conflict in overlapping timeframes.",
+        "counter_argument": "The claimed relationship relies on several questionable assumptions. First, it assumes that a cease-fire would necessarily prevent Kyiv's fall, but a cease-fire could occur AFTER Kyiv falls or could be limited to other regions entirely. Second, the timeframes don't actually overlap well - Question Q has a specific April 2022 deadline while Question X appears truncated but likely covers a different or broader period. Third, the mechanisms are largely independent: Kyiv falling depends on military factors like Russian force capability, Ukrainian defense strength, and tactical decisions, while a peace agreement depends on diplomatic factors like political will, international pressure, and negotiating positions. A peace agreement could happen without any threat to Kyiv (if Russia abandons that objective), and Kyiv could fall without any peace agreement following (if Ukraine continues fighting from elsewhere). The connection is also too indirect - many conflicts see capitals threatened or taken without immediate peace agreements, and many cease-fires occur in conflicts where capitals were never seriously threatened. The correlation between these outcomes is weak because they're driven by fundamentally different decision-makers and processes: military commanders vs. political leaders and diplomats.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "A bilateral cease-fire or peace agreement could prevent Kyiv from falling by ending hostilities, or conversely, the fall of Kyiv could influence the likelihood and terms of a peace agreement. Both questions concern outcomes of the same Russo-Ukrainian conflict in overlapping timeframes."
+          },
+          "second": {
+            "counter_argument": "The claimed relationship relies on several questionable assumptions. First, it assumes that a cease-fire would necessarily prevent Kyiv's fall, but a cease-fire could occur AFTER Kyiv falls or could be limited to other regions entirely. Second, the timeframes don't actually overlap well - Question Q has a specific April 2022 deadline while Question X appears truncated but likely covers a different or broader period. Third, the mechanisms are largely independent: Kyiv falling depends on military factors like Russian force capability, Ukrainian defense strength, and tactical decisions, while a peace agreement depends on diplomatic factors like political will, international pressure, and negotiating positions. A peace agreement could happen without any threat to Kyiv (if Russia abandons that objective), and Kyiv could fall without any peace agreement following (if Ukraine continues fighting from elsewhere). The connection is also too indirect - many conflicts see capitals threatened or taken without immediate peace agreements, and many cease-fires occur in conflicts where capitals were never seriously threatened. The correlation between these outcomes is weak because they're driven by fundamentally different decision-makers and processes: military commanders vs. political leaders and diplomats.",
+            "relationship_survives": true
+          }
+        }
+      },
+      {
+        "pair_idx": 149,
+        "is_independent": true,
+        "spread": 0,
+        "stage": "second_call",
+        "mechanism": "Russia's use of chemical weapons could be employed as a tactical escalation to help capture Kyiv, or conversely, failure to control Kyiv through conventional means might lead to chemical weapon use as a desperate measure. Both questions relate to Russian military strategy and escalation decisions in the Ukraine conflict.",
+        "counter_argument": "The claimed connection relies on several questionable assumptions. First, it assumes chemical weapons would be tactically useful for capturing a major city like Kyiv - but chemical weapons are actually poorly suited for urban warfare where you want to occupy territory and buildings, as they contaminate areas your own forces need to enter. Second, the timeline is problematic: Question Q asks about June 1, 2022, which is very early in the conflict. By late March 2022, Russia had already withdrawn from the Kyiv region entirely, pivoting to eastern Ukraine. This means the 'control Kyiv' question was essentially resolved (negatively) well before most of the year when chemical weapons could theoretically be deployed. Third, chemical weapon use decisions involve entirely different calculus than conventional military operations - they're driven by international red lines, NATO response concerns, and strategic signaling rather than tactical battlefield needs. Russia could use chemical weapons in Mariupol, Kharkiv, or Donbas regions without any connection to Kyiv operations. Fourth, there are major confounding factors: international pressure, internal Russian politics, supply chain issues, and Ukrainian resistance all independently affect both outcomes without creating a causal link between them. The questions share a common context (the Ukraine war) but operate on different strategic levels and timelines.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "Russia's use of chemical weapons could be employed as a tactical escalation to help capture Kyiv, or conversely, failure to control Kyiv through conventional means might lead to chemical weapon use as a desperate measure. Both questions relate to Russian military strategy and escalation decisions in the Ukraine conflict."
+          },
+          "second": {
+            "counter_argument": "The claimed connection relies on several questionable assumptions. First, it assumes chemical weapons would be tactically useful for capturing a major city like Kyiv - but chemical weapons are actually poorly suited for urban warfare where you want to occupy territory and buildings, as they contaminate areas your own forces need to enter. Second, the timeline is problematic: Question Q asks about June 1, 2022, which is very early in the conflict. By late March 2022, Russia had already withdrawn from the Kyiv region entirely, pivoting to eastern Ukraine. This means the 'control Kyiv' question was essentially resolved (negatively) well before most of the year when chemical weapons could theoretically be deployed. Third, chemical weapon use decisions involve entirely different calculus than conventional military operations - they're driven by international red lines, NATO response concerns, and strategic signaling rather than tactical battlefield needs. Russia could use chemical weapons in Mariupol, Kharkiv, or Donbas regions without any connection to Kyiv operations. Fourth, there are major confounding factors: international pressure, internal Russian politics, supply chain issues, and Ukrainian resistance all independently affect both outcomes without creating a causal link between them. The questions share a common context (the Ukraine war) but operate on different strategic levels and timelines.",
+            "relationship_survives": false
+          }
+        }
+      },
+      {
+        "pair_idx": 153,
+        "is_independent": false,
+        "spread": 0.1,
+        "stage": "second_call",
+        "mechanism": "If Russia were to control Kyiv, it would likely indicate a major military offensive with intense urban combat, which would significantly increase casualties and make it more likely that 50,000+ people would be killed. Conversely, failure to take Kyiv might indicate a prolonged conflict with continued fighting that could also lead to high casualties. Both questions relate to the intensity and progression of the same conflict.",
+        "counter_argument": "The claimed relationship relies on several questionable assumptions. First, it assumes that controlling Kyiv requires intense urban combat with massive casualties - but Russia could theoretically take Kyiv through siege, capitulation, or political collapse with relatively few deaths. Second, the 50,000 casualty threshold could be reached through many pathways completely independent of Kyiv's status: prolonged attritional warfare in eastern Ukraine, fighting in Mariupol, Kherson, or other cities, artillery exchanges along a static front line, or civilian casualties from bombardment across the entire country. The conflict's geographic scope extends far beyond Kyiv. Third, the timing matters: Russia could briefly control Kyiv early in the year with moderate casualties, then the conflict could de-escalate, keeping total deaths below 50,000. Alternatively, Russia could never approach Kyiv while intense fighting in Donbas and southern Ukraine drives casualties well above 50,000. The casualty count is a cumulative annual figure driven by conflict intensity, duration, and geographic spread across all of Ukraine - not specifically tied to one city's control status. Kyiv's strategic importance doesn't mean its capture is necessary or sufficient for high overall casualties. These are two different metrics (territorial control of one location vs. aggregate deaths nationwide) that can easily diverge.",
+        "raw": {
+          "first": {
+            "potentially_related": true,
+            "mechanism": "If Russia were to control Kyiv, it would likely indicate a major military offensive with intense urban combat, which would significantly increase casualties and make it more likely that 50,000+ people would be killed. Conversely, failure to take Kyiv might indicate a prolonged conflict with continued fighting that could also lead to high casualties. Both questions relate to the intensity and progression of the same conflict."
+          },
+          "second": {
+            "counter_argument": "The claimed relationship relies on several questionable assumptions. First, it assumes that controlling Kyiv requires intense urban combat with massive casualties - but Russia could theoretically take Kyiv through siege, capitulation, or political collapse with relatively few deaths. Second, the 50,000 casualty threshold could be reached through many pathways completely independent of Kyiv's status: prolonged attritional warfare in eastern Ukraine, fighting in Mariupol, Kherson, or other cities, artillery exchanges along a static front line, or civilian casualties from bombardment across the entire country. The conflict's geographic scope extends far beyond Kyiv. Third, the timing matters: Russia could briefly control Kyiv early in the year with moderate casualties, then the conflict could de-escalate, keeping total deaths below 50,000. Alternatively, Russia could never approach Kyiv while intense fighting in Donbas and southern Ukraine drives casualties well above 50,000. The casualty count is a cumulative annual figure driven by conflict intensity, duration, and geographic spread across all of Ukraine - not specifically tied to one city's control status. Kyiv's strategic importance doesn't mean its capture is necessary or sufficient for high overall casualties. These are two different metrics (territorial control of one location vs. aggregate deaths nationwide) that can easily diverge.",
+            "relationship_survives": true
+          }
+        }
+      }
+    ],
+    "5_bidirectional": [
+      {
+        "pair_idx": 27,
+        "is_independent": true,
+        "spread": 0,
+        "q_affects_x": false,
+        "x_affects_q": true,
+        "bidirectional": false,
+        "raw": {
+          "q_affects_x": false,
+          "x_affects_q": true,
+          "bidirectional": false,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.05,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 33,
+        "is_independent": true,
+        "spread": 0,
+        "q_affects_x": false,
+        "x_affects_q": true,
+        "bidirectional": false,
+        "raw": {
+          "q_affects_x": false,
+          "x_affects_q": true,
+          "bidirectional": false,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.08,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 38,
+        "is_independent": false,
+        "spread": 0.12,
+        "q_affects_x": true,
+        "x_affects_q": true,
+        "bidirectional": true,
+        "raw": {
+          "q_affects_x": true,
+          "x_affects_q": true,
+          "bidirectional": true,
+          "is_related": true,
+          "mechanism": "Both questions are indicators of conflict severity and Russian government response to international pressure. A massive refugee crisis (5M+) indicates severe, prolonged conflict, which correlates with increased Russian information control including blocking Western platforms. Conversely, Russia blocking YouTube signals an escalation in information warfare and domestic crackdown, which typically accompanies intensified military operations that drive more refugees.",
+          "base_p_x": 0.65,
+          "shift_magnitude": 0.12,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 49,
+        "is_independent": true,
+        "spread": 0,
+        "q_affects_x": false,
+        "x_affects_q": true,
+        "bidirectional": false,
+        "raw": {
+          "q_affects_x": false,
+          "x_affects_q": true,
+          "bidirectional": false,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.99,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 62,
+        "is_independent": false,
+        "spread": 0.3,
+        "q_affects_x": true,
+        "x_affects_q": true,
+        "bidirectional": true,
+        "raw": {
+          "q_affects_x": true,
+          "x_affects_q": true,
+          "bidirectional": true,
+          "is_related": true,
+          "mechanism": "Kyiv falling would represent a major Russian military success, strongly indicating they have the capability and momentum to capture multiple Ukrainian cities. Conversely, if half of threatened cities fall to Russia, this demonstrates significant Russian military progress that would make Kyiv's fall more plausible - both reflect the same underlying factor of Russian military effectiveness in the early invasion.",
+          "base_p_x": 0.35,
+          "shift_magnitude": 0.3,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 66,
+        "is_independent": false,
+        "spread": 0.25,
+        "q_affects_x": true,
+        "x_affects_q": true,
+        "bidirectional": true,
+        "raw": {
+          "q_affects_x": true,
+          "x_affects_q": true,
+          "bidirectional": true,
+          "is_related": true,
+          "mechanism": "Russian military control of Kyiv would likely mean either no negotiations (total victory scenario) or negotiations under extreme duress, dramatically changing meeting likelihood. Conversely, a Putin-Zelenskyy peace meeting would suggest diplomatic resolution is possible, making military conquest of Kyiv less likely as it would indicate a negotiated path rather than military one.",
+          "base_p_x": 0.35,
+          "shift_magnitude": 0.25,
+          "direction": "negative"
+        }
+      },
+      {
+        "pair_idx": 79,
+        "is_independent": false,
+        "spread": 0.06,
+        "q_affects_x": true,
+        "x_affects_q": true,
+        "bidirectional": true,
+        "raw": {
+          "q_affects_x": true,
+          "x_affects_q": true,
+          "bidirectional": true,
+          "is_related": true,
+          "mechanism": "Lower unemployment suggests strong economic growth, which typically benefits tech/growth stocks like Nvidia. Conversely, Nvidia outperforming often signals a risk-on environment with strong economic conditions that support employment. Both reflect underlying economic health, though the relationship is moderate since Nvidia's performance is also driven by AI-specific factors independent of broad employment trends.",
+          "base_p_x": 0.45,
+          "shift_magnitude": 0.06,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 82,
+        "is_independent": true,
+        "spread": 0,
+        "q_affects_x": true,
+        "x_affects_q": false,
+        "bidirectional": false,
+        "raw": {
+          "q_affects_x": true,
+          "x_affects_q": false,
+          "bidirectional": false,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.55,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 84,
+        "is_independent": true,
+        "spread": 0,
+        "q_affects_x": false,
+        "x_affects_q": true,
+        "bidirectional": false,
+        "raw": {
+          "q_affects_x": false,
+          "x_affects_q": true,
+          "bidirectional": false,
+          "is_related": true,
+          "mechanism": "Both stem from Russian invasion severity, but Q (refugees) is largely determined by early war phases regardless of Kyiv's fate. Learning 5M+ refugees fled doesn't strongly indicate whether Kyiv specifically fell. However, learning Kyiv fell would suggest even more refugees and confirm Q as YES.",
+          "base_p_x": 0.15,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 86,
+        "is_independent": true,
+        "spread": 0,
+        "q_affects_x": true,
+        "x_affects_q": false,
+        "bidirectional": false,
+        "raw": {
+          "q_affects_x": true,
+          "x_affects_q": false,
+          "bidirectional": false,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.35,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 90,
+        "is_independent": false,
+        "spread": 0.25,
+        "q_affects_x": true,
+        "x_affects_q": true,
+        "bidirectional": true,
+        "raw": {
+          "q_affects_x": true,
+          "x_affects_q": true,
+          "bidirectional": true,
+          "is_related": true,
+          "mechanism": "Nested thresholds on the same underlying variable (total deaths). X (>50k) is a higher threshold that necessarily implies Q (>25k). Learning Q=YES means the death count exceeded 25k, increasing probability it also exceeded 50k. Learning X=YES guarantees Q=YES since 50k>25k.",
+          "base_p_x": 0.65,
+          "shift_magnitude": 0.25,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 93,
+        "is_independent": false,
+        "spread": 0.08,
+        "q_affects_x": true,
+        "x_affects_q": true,
+        "bidirectional": true,
+        "raw": {
+          "q_affects_x": true,
+          "x_affects_q": true,
+          "bidirectional": true,
+          "is_related": true,
+          "mechanism": "Trump's favorability and mifepristone restrictions are both indicators of conservative political strength. High Trump favorability suggests a political environment where Republican/conservative policies including abortion restrictions gain traction. Conversely, if mifepristone becomes restricted, it signals conservative policy victories that would likely correlate with stronger Trump support among his base.",
+          "base_p_x": 0.25,
+          "shift_magnitude": 0.08,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 100,
+        "is_independent": true,
+        "spread": 0,
+        "q_affects_x": false,
+        "x_affects_q": true,
+        "bidirectional": false,
+        "raw": {
+          "q_affects_x": false,
+          "x_affects_q": true,
+          "bidirectional": false,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.35,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 102,
+        "is_independent": false,
+        "spread": 0.08,
+        "q_affects_x": true,
+        "x_affects_q": true,
+        "bidirectional": true,
+        "raw": {
+          "q_affects_x": true,
+          "x_affects_q": true,
+          "bidirectional": true,
+          "is_related": true,
+          "mechanism": "Both questions measure Russian military aggression and expansionism - success in capturing Ukrainian cities (Q=YES) indicates military capability and willingness to use force that could extend to other countries, while invading another country (X=YES) would indicate broader aggressive posture making intensified Ukrainian operations more likely",
+          "base_p_x": 0.05,
+          "shift_magnitude": 0.08,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 108,
+        "is_independent": true,
+        "spread": 0,
+        "q_affects_x": false,
+        "x_affects_q": false,
+        "bidirectional": false,
+        "raw": {
+          "q_affects_x": false,
+          "x_affects_q": false,
+          "bidirectional": false,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.15,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 110,
+        "is_independent": true,
+        "spread": 0,
+        "q_affects_x": true,
+        "x_affects_q": false,
+        "bidirectional": false,
+        "raw": {
+          "q_affects_x": true,
+          "x_affects_q": false,
+          "bidirectional": false,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.05,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 111,
+        "is_independent": true,
+        "spread": 0,
+        "q_affects_x": false,
+        "x_affects_q": true,
+        "bidirectional": false,
+        "raw": {
+          "q_affects_x": false,
+          "x_affects_q": true,
+          "bidirectional": false,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.72,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 116,
+        "is_independent": true,
+        "spread": 0,
+        "q_affects_x": true,
+        "x_affects_q": false,
+        "bidirectional": false,
+        "raw": {
+          "q_affects_x": true,
+          "x_affects_q": false,
+          "bidirectional": false,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.75,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 117,
+        "is_independent": false,
+        "spread": 0.35,
+        "q_affects_x": true,
+        "x_affects_q": true,
+        "bidirectional": true,
+        "raw": {
+          "q_affects_x": true,
+          "x_affects_q": true,
+          "bidirectional": true,
+          "is_related": true,
+          "mechanism": "A Putin-Zelenskyy meeting to discuss peaceful resolution (Q) would be a likely precursor or component of achieving a cease-fire/peace agreement (X). Conversely, if a bilateral cease-fire or peace agreement is reached (X), it almost certainly required direct negotiations between the leaders, making a meeting (Q) highly probable to have occurred.",
+          "base_p_x": 0.12,
+          "shift_magnitude": 0.35,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 128,
+        "is_independent": false,
+        "spread": 0.88,
+        "q_affects_x": true,
+        "x_affects_q": true,
+        "bidirectional": true,
+        "raw": {
+          "q_affects_x": true,
+          "x_affects_q": true,
+          "bidirectional": true,
+          "is_related": true,
+          "mechanism": "Q is a specific instance within the timeframe of X. If Russia controls Kyiv on June 1, 2022, then X (control before 2023) is necessarily true. If X is true (control at some point before 2023), this increases probability Q was true, though control could have occurred at a different time.",
+          "base_p_x": 0.12,
+          "shift_magnitude": 0.88,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 133,
+        "is_independent": true,
+        "spread": 0,
+        "q_affects_x": false,
+        "x_affects_q": true,
+        "bidirectional": false,
+        "raw": {
+          "q_affects_x": false,
+          "x_affects_q": true,
+          "bidirectional": false,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.35,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 134,
+        "is_independent": true,
+        "spread": 0,
+        "q_affects_x": false,
+        "x_affects_q": true,
+        "bidirectional": false,
+        "raw": {
+          "q_affects_x": false,
+          "x_affects_q": true,
+          "bidirectional": false,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.75,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 135,
+        "is_independent": false,
+        "spread": 0.15,
+        "q_affects_x": true,
+        "x_affects_q": true,
+        "bidirectional": true,
+        "raw": {
+          "q_affects_x": true,
+          "x_affects_q": true,
+          "bidirectional": true,
+          "is_related": true,
+          "mechanism": "Kyiv falling would indicate intense urban combat and likely a prolonged, brutal occupation/resistance, dramatically increasing casualties. Conversely, learning 50,000+ were killed by end of 2022 suggests either a major battle for Kyiv occurred or the war escalated significantly - both scenarios where Kyiv falling becomes more plausible given the intensity of fighting implied.",
+          "base_p_x": 0.55,
+          "shift_magnitude": 0.15,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 136,
+        "is_independent": true,
+        "spread": 0,
+        "q_affects_x": false,
+        "x_affects_q": false,
+        "bidirectional": false,
+        "raw": {
+          "q_affects_x": false,
+          "x_affects_q": false,
+          "bidirectional": false,
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.15,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 137,
+        "is_independent": false,
+        "spread": 0.08,
+        "q_affects_x": true,
+        "x_affects_q": true,
+        "bidirectional": true,
+        "raw": {
+          "q_affects_x": true,
+          "x_affects_q": true,
+          "bidirectional": true,
+          "is_related": true,
+          "mechanism": "Both events indicate escalation of Russia-West conflict - YouTube blocking signals Russian isolation/information control tightening, Crimean Bridge attack signals Ukrainian military escalation. Learning either occurred suggests a more intense conflict environment where the other becomes more likely.",
+          "base_p_x": 0.25,
+          "shift_magnitude": 0.08,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 139,
+        "is_independent": false,
+        "spread": 0.5,
+        "q_affects_x": true,
+        "x_affects_q": true,
+        "bidirectional": true,
+        "raw": {
+          "q_affects_x": true,
+          "x_affects_q": true,
+          "bidirectional": true,
+          "is_related": true,
+          "mechanism": "Trump being reelected (Q=YES) directly leads to him being president on Jan 21, 2021. Conversely, if Trump is president on Jan 21, 2021 (X=YES), it strongly implies he won reelection (the most likely path to that outcome). Both directions provide strong inferential updates.",
+          "base_p_x": 0.45,
+          "shift_magnitude": 0.5,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 142,
+        "is_independent": false,
+        "spread": 0.12,
+        "q_affects_x": true,
+        "x_affects_q": true,
+        "bidirectional": true,
+        "raw": {
+          "q_affects_x": true,
+          "x_affects_q": true,
+          "bidirectional": true,
+          "is_related": true,
+          "mechanism": "Iranian attack on Israel would likely trigger security crisis rallying support around Netanyahu, reducing chances of his removal. Conversely, Netanyahu remaining PM suggests continued hardline policies that increase regional tensions and likelihood of Iranian retaliation.",
+          "base_p_x": 0.72,
+          "shift_magnitude": 0.12,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 145,
+        "is_independent": false,
+        "spread": 0.25,
+        "q_affects_x": true,
+        "x_affects_q": true,
+        "bidirectional": true,
+        "raw": {
+          "q_affects_x": true,
+          "x_affects_q": true,
+          "bidirectional": true,
+          "is_related": true,
+          "mechanism": "Kyiv falling would likely force Ukraine to negotiate from weakness, potentially accelerating a cease-fire/peace agreement; conversely, a bilateral cease-fire by April 2022 would imply Kyiv did NOT fall (Ukraine wouldn't agree to peace after losing capital, and Russia wouldn't negotiate if they captured it)",
+          "base_p_x": 0.15,
+          "shift_magnitude": 0.25,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 149,
+        "is_independent": false,
+        "spread": 0.12,
+        "q_affects_x": true,
+        "x_affects_q": true,
+        "bidirectional": true,
+        "raw": {
+          "q_affects_x": true,
+          "x_affects_q": true,
+          "bidirectional": true,
+          "is_related": true,
+          "mechanism": "Russia controlling Kyiv by June 2022 would suggest either rapid military success (less need for chemical weapons) OR extreme escalation that enabled it (more likely chemical use occurred). Conversely, chemical weapons use would signal desperation/willingness to escalate, which correlates with both potential success through brutality OR failure requiring extreme measures. Both reflect escalation dynamics in the same conflict.",
+          "base_p_x": 0.15,
+          "shift_magnitude": 0.12,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 153,
+        "is_independent": false,
+        "spread": 0.25,
+        "q_affects_x": true,
+        "x_affects_q": true,
+        "bidirectional": true,
+        "raw": {
+          "q_affects_x": true,
+          "x_affects_q": true,
+          "bidirectional": true,
+          "is_related": true,
+          "mechanism": "Russia controlling Kyiv by June 1, 2022 would likely require intense urban combat with massive casualties, strongly increasing likelihood of 50,000+ deaths. Conversely, learning 50,000+ were killed in 2022 suggests intense, prolonged fighting consistent with major offensive operations like an assault on Kyiv, though high casualties could occur without Kyiv falling.",
+          "base_p_x": 0.55,
+          "shift_magnitude": 0.25,
+          "direction": "positive"
+        }
+      }
+    ],
+    "6_prior": [
+      {
+        "pair_idx": 27,
+        "is_independent": false,
+        "spread": 0.02,
+        "raw": {
+          "is_related": true,
+          "mechanism": "High casualties in Ukraine (Q=Yes) could indicate either Russian military struggles making further invasion unlikely, OR escalating aggression that could spread. However, 50k+ deaths primarily reflects intensity of the existing Ukraine conflict, not directly Russia's capacity/intent to open new fronts. The connection is indirect - casualties are more about the ongoing war's intensity than expansion decisions.",
+          "base_p_x": 0.05,
+          "shift_magnitude": 0.02,
+          "direction": "negative"
+        }
+      },
+      {
+        "pair_idx": 33,
+        "is_independent": false,
+        "spread": 0.03,
+        "raw": {
+          "is_related": true,
+          "mechanism": "Both questions measure the intensity/escalation of Russian military aggression in 2022. If 5+ million Ukrainian refugees flee (indicating severe, prolonged conflict), this suggests Russia is committed to aggressive military action, which could slightly increase likelihood of further invasions. However, the connection is indirect - refugee numbers primarily reflect Ukraine conflict intensity, not necessarily expansion to other countries.",
+          "base_p_x": 0.08,
+          "shift_magnitude": 0.03,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 38,
+        "is_independent": false,
+        "spread": 0.1,
+        "raw": {
+          "is_related": true,
+          "mechanism": "Both questions relate to the severity of the Russia-Ukraine conflict and Russia's isolation. A larger refugee crisis (5M+) indicates a more intense/prolonged conflict, which correlates with greater Russian government crackdowns on information flow, including blocking Western platforms like YouTube.",
+          "base_p_x": 0.35,
+          "shift_magnitude": 0.1,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 49,
+        "is_independent": true,
+        "spread": 0,
+        "raw": {
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.95,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 62,
+        "is_independent": false,
+        "spread": 0.35,
+        "raw": {
+          "is_related": true,
+          "mechanism": "Kyiv falling would represent a major Russian military success, strongly indicating Russia has the capability and momentum to capture multiple Ukrainian cities, directly increasing likelihood of half of threatened cities being under Russian control",
+          "base_p_x": 0.25,
+          "shift_magnitude": 0.35,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 66,
+        "is_independent": false,
+        "spread": 0.25,
+        "raw": {
+          "is_related": true,
+          "mechanism": "If Russia controls Kyiv by June 1, 2022, it indicates either total military victory or regime change, making a negotiated peace meeting between Putin and Zelenskyy extremely unlikely - Zelenskyy would likely be dead, captured, or in exile rather than meeting Putin for peaceful resolution",
+          "base_p_x": 0.35,
+          "shift_magnitude": 0.25,
+          "direction": "negative"
+        }
+      },
+      {
+        "pair_idx": 79,
+        "is_independent": true,
+        "spread": 0,
+        "raw": {
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.35,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 82,
+        "is_independent": false,
+        "spread": 0.1,
+        "raw": {
+          "is_related": true,
+          "mechanism": "Major Israel-Iran conflict causing 1000+ deaths would likely spike oil prices significantly, creating inflationary pressure that could push US CPI higher rather than lower in November",
+          "base_p_x": 0.55,
+          "shift_magnitude": 0.1,
+          "direction": "negative"
+        }
+      },
+      {
+        "pair_idx": 84,
+        "is_independent": false,
+        "spread": 0.12,
+        "raw": {
+          "is_related": true,
+          "mechanism": "Russian military success in capturing Kyiv would likely cause massive additional refugee outflows, as the capital's fall would signal broader Ukrainian collapse and trigger panic displacement. Both questions measure severity of the conflict.",
+          "base_p_x": 0.08,
+          "shift_magnitude": 0.12,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 86,
+        "is_independent": false,
+        "spread": 0.1,
+        "raw": {
+          "is_related": true,
+          "mechanism": "Releasing o3 (a frontier model) before March 2025 would give OpenAI a stronger competitive position and more time for the model to be evaluated on Chatbot Arena by end of 2025. Earlier release of advanced models increases likelihood of topping leaderboards.",
+          "base_p_x": 0.45,
+          "shift_magnitude": 0.1,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 90,
+        "is_independent": false,
+        "spread": 0.25,
+        "raw": {
+          "is_related": true,
+          "mechanism": "Q asks about 25,000+ deaths and X asks about 50,000+ deaths in the same conflict during the same time period. If Q resolves YES (>25k killed), this is a necessary but not sufficient condition for X. Knowing >25k were killed provides direct evidence about the intensity/scale of the conflict, updating the probability that the higher 50k threshold was also reached.",
+          "base_p_x": 0.35,
+          "shift_magnitude": 0.25,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 93,
+        "is_independent": false,
+        "spread": 0.08,
+        "raw": {
+          "is_related": true,
+          "mechanism": "Trump's favorability correlates with Republican political power; higher favorability suggests stronger conservative political environment where abortion restrictions including mifepristone limits are more likely to advance through courts/policy",
+          "base_p_x": 0.25,
+          "shift_magnitude": 0.08,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 100,
+        "is_independent": true,
+        "spread": 0,
+        "raw": {
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.35,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 102,
+        "is_independent": false,
+        "spread": 0.03,
+        "raw": {
+          "is_related": true,
+          "mechanism": "Both questions measure Russian military aggression/expansion in 2022. Success in capturing Ukrainian cities (Q) indicates military capability and willingness to expand, which could correlate with invading other countries (X). However, the connection is indirect - capturing Ukrainian cities could either embolden further expansion OR indicate Russia is fully committed in Ukraine with no capacity for other invasions.",
+          "base_p_x": 0.08,
+          "shift_magnitude": 0.03,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 108,
+        "is_independent": false,
+        "spread": 0.08,
+        "raw": {
+          "is_related": true,
+          "mechanism": "Both questions are directly tied to the Russia-Ukraine war dynamics. Finland joining NATO represents Western consolidation against Russian aggression, while Ukraine severing the land bridge represents Ukrainian military success. Both reflect the intensity of the conflict and Western resolve - Finland's NATO accession (driven by Russian invasion) and Ukrainian military advances are correlated responses to the same geopolitical crisis.",
+          "base_p_x": 0.15,
+          "shift_magnitude": 0.08,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 110,
+        "is_independent": false,
+        "spread": 0.04,
+        "raw": {
+          "is_related": true,
+          "mechanism": "Controlling Kyiv would indicate decisive Russian military success and potentially embolden further territorial ambitions, while also demonstrating military capacity for additional operations. However, controlling Kyiv would also mean Russia is heavily committed in Ukraine, potentially limiting capacity for other invasions.",
+          "base_p_x": 0.08,
+          "shift_magnitude": 0.04,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 111,
+        "is_independent": false,
+        "spread": 0.1,
+        "raw": {
+          "is_related": true,
+          "mechanism": "Lower interest rates reduce mortgage costs, which typically increases housing demand and prices. If housing prices increase more in 2025 vs 2024, this suggests favorable conditions that could include lower rates. However, the relationship is not deterministic - housing prices can rise due to supply constraints, demographics, or other factors independent of rates.",
+          "base_p_x": 0.65,
+          "shift_magnitude": 0.1,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 116,
+        "is_independent": true,
+        "spread": 0,
+        "raw": {
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.65,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 117,
+        "is_independent": false,
+        "spread": 0.25,
+        "raw": {
+          "is_related": true,
+          "mechanism": "A Putin-Zelenskyy meeting to discuss peaceful resolution would be a direct prerequisite or strong indicator of progress toward a bilateral cease-fire or peace agreement - such meetings are typically where such agreements would be negotiated",
+          "base_p_x": 0.15,
+          "shift_magnitude": 0.25,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 128,
+        "is_independent": false,
+        "spread": 0.85,
+        "raw": {
+          "is_related": true,
+          "mechanism": "Q resolving YES (Russia controls Kyiv on June 1, 2022) directly entails X resolving YES, since June 1, 2022 is before 2023. Q YES guarantees X YES.",
+          "base_p_x": 0.15,
+          "shift_magnitude": 0.85,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 133,
+        "is_independent": true,
+        "spread": 0,
+        "raw": {
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.35,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 134,
+        "is_independent": true,
+        "spread": 0,
+        "raw": {
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.55,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 135,
+        "is_independent": false,
+        "spread": 0.2,
+        "raw": {
+          "is_related": true,
+          "mechanism": "If Kyiv falls to Russian forces, it would likely involve intense urban combat with massive casualties on both sides, significantly increasing the probability of exceeding 50,000 deaths. A successful Russian capture of the capital would represent a major escalation in fighting intensity.",
+          "base_p_x": 0.55,
+          "shift_magnitude": 0.2,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 136,
+        "is_independent": true,
+        "spread": 0,
+        "raw": {
+          "is_related": false,
+          "mechanism": "independent",
+          "base_p_x": 0.15,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 137,
+        "is_independent": false,
+        "spread": 0.08,
+        "raw": {
+          "is_related": true,
+          "mechanism": "Both questions relate to Russia-West conflict escalation in 2022-2024. YouTube blocking indicates Russian isolation/information control, while Crimean Bridge attack indicates Ukrainian military success against Russian infrastructure. Both are markers of conflict intensity - if Russia blocks YouTube (defensive information war measure), it suggests heightened conflict where bridge attacks are also more likely.",
+          "base_p_x": 0.35,
+          "shift_magnitude": 0.08,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 139,
+        "is_independent": false,
+        "spread": 0.35,
+        "raw": {
+          "is_related": true,
+          "mechanism": "If Trump wins reelection (Q resolves yes), he would be inaugurated on January 20, 2021 and thus be President on January 21, 2021. However, Q being called by Nov 10 doesn't guarantee he takes office - there could be legal challenges, health issues, etc. Also X could resolve yes even if Q is no (if Trump wins but election isn't called by Nov 10).",
+          "base_p_x": 0.45,
+          "shift_magnitude": 0.35,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 142,
+        "is_independent": false,
+        "spread": 0.1,
+        "raw": {
+          "is_related": true,
+          "mechanism": "An Iranian attack on Israel would likely trigger a national security crisis that historically consolidates support around sitting Israeli leaders, making it harder to remove Netanyahu from power and more likely coalition partners would maintain unity during wartime",
+          "base_p_x": 0.75,
+          "shift_magnitude": 0.1,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 145,
+        "is_independent": false,
+        "spread": 0.08,
+        "raw": {
+          "is_related": true,
+          "mechanism": "If Kyiv falls to Russia by April 2022, Ukraine's negotiating position collapses dramatically, likely forcing either capitulation or continued resistance without a bilateral agreement. A Russian military victory of this magnitude would reduce incentives for Russia to negotiate a bilateral cease-fire.",
+          "base_p_x": 0.15,
+          "shift_magnitude": 0.08,
+          "direction": "negative"
+        }
+      },
+      {
+        "pair_idx": 149,
+        "is_independent": false,
+        "spread": 0.08,
+        "raw": {
+          "is_related": true,
+          "mechanism": "If Russia controls Kyiv by June 1, 2022, it suggests either rapid military success (less need for chemical weapons) OR extreme escalation that might include WMD use. However, failure to take Kyiv could lead to frustration-driven escalation including chemical weapons. The relationship is complex but direct - both concern Russian military escalation decisions in the same conflict.",
+          "base_p_x": 0.15,
+          "shift_magnitude": 0.08,
+          "direction": "negative"
+        }
+      },
+      {
+        "pair_idx": 153,
+        "is_independent": false,
+        "spread": 0.25,
+        "raw": {
+          "is_related": true,
+          "mechanism": "Russia controlling Kyiv would indicate a major military offensive with intense urban combat, significantly increasing casualties. Taking a capital city of this size would involve massive fighting and likely push total deaths well above 50,000.",
+          "base_p_x": 0.65,
+          "shift_magnitude": 0.25,
+          "direction": "positive"
+        }
+      }
+    ],
+    "7_specificity": [
+      {
+        "pair_idx": 27,
+        "is_independent": false,
+        "spread": 0.02,
+        "shared_variable": "Russian military resource allocation and operational capacity in 2022",
+        "raw": {
+          "shared_variable": "Russian military resource allocation and operational capacity in 2022",
+          "is_related": true,
+          "base_p_x": 0.05,
+          "shift_magnitude": 0.02,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 33,
+        "is_independent": false,
+        "spread": 0.03,
+        "shared_variable": "Russian military operational capacity and strategic objectives in Ukraine",
+        "raw": {
+          "shared_variable": "Russian military operational capacity and strategic objectives in Ukraine",
+          "is_related": true,
+          "base_p_x": 0.08,
+          "shift_magnitude": 0.03,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 38,
+        "is_independent": false,
+        "spread": 0.15,
+        "shared_variable": "Russian government response to Ukraine invasion (specifically, escalation of information control measures)",
+        "raw": {
+          "shared_variable": "Russian government response to Ukraine invasion (specifically, escalation of information control measures)",
+          "is_related": true,
+          "base_p_x": 0.35,
+          "shift_magnitude": 0.15,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 49,
+        "is_independent": false,
+        "spread": 0.02,
+        "shared_variable": "Putin's decision-making authority over Russian military operations in Ukraine",
+        "raw": {
+          "shared_variable": "Putin's decision-making authority over Russian military operations in Ukraine",
+          "is_related": true,
+          "base_p_x": 0.95,
+          "shift_magnitude": 0.02,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 62,
+        "is_independent": false,
+        "spread": 0.25,
+        "shared_variable": "Russian military offensive capability and progress in Ukraine (February-April 2022)",
+        "raw": {
+          "shared_variable": "Russian military offensive capability and progress in Ukraine (February-April 2022)",
+          "is_related": true,
+          "base_p_x": 0.35,
+          "shift_magnitude": 0.25,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 66,
+        "is_independent": false,
+        "spread": 0.15,
+        "shared_variable": "Russian military offensive success in Ukraine",
+        "raw": {
+          "shared_variable": "Russian military offensive success in Ukraine",
+          "is_related": true,
+          "base_p_x": 0.25,
+          "shift_magnitude": 0.15,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 79,
+        "is_independent": true,
+        "spread": 0,
+        "shared_variable": "none",
+        "raw": {
+          "shared_variable": "none",
+          "is_related": false,
+          "base_p_x": 0.5,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 82,
+        "is_independent": true,
+        "spread": 0,
+        "shared_variable": "none",
+        "raw": {
+          "shared_variable": "none",
+          "is_related": false,
+          "base_p_x": 0.35,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 84,
+        "is_independent": false,
+        "spread": 0.25,
+        "shared_variable": "Russian military advance and control of Ukrainian territory",
+        "raw": {
+          "shared_variable": "Russian military advance and control of Ukrainian territory",
+          "is_related": true,
+          "base_p_x": 0.15,
+          "shift_magnitude": 0.25,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 86,
+        "is_independent": false,
+        "spread": 0.12,
+        "shared_variable": "OpenAI's o3 model development and release timeline",
+        "raw": {
+          "shared_variable": "OpenAI's o3 model development and release timeline",
+          "is_related": true,
+          "base_p_x": 0.45,
+          "shift_magnitude": 0.12,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 90,
+        "is_independent": false,
+        "spread": 0.35,
+        "shared_variable": "Total combat and civilian casualties in the Russo-Ukrainian War during 2022",
+        "raw": {
+          "shared_variable": "Total combat and civilian casualties in the Russo-Ukrainian War during 2022",
+          "is_related": true,
+          "base_p_x": 0.45,
+          "shift_magnitude": 0.35,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 93,
+        "is_independent": false,
+        "spread": 0.08,
+        "shared_variable": "Trump administration executive actions and judicial appointments on abortion policy",
+        "raw": {
+          "shared_variable": "Trump administration executive actions and judicial appointments on abortion policy",
+          "is_related": true,
+          "base_p_x": 0.35,
+          "shift_magnitude": 0.08,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 100,
+        "is_independent": true,
+        "spread": 0,
+        "shared_variable": "none",
+        "raw": {
+          "shared_variable": "none",
+          "is_related": false,
+          "base_p_x": 0.15,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 102,
+        "is_independent": false,
+        "spread": 0.03,
+        "shared_variable": "Russian military operational capacity and strategic objectives in 2022",
+        "raw": {
+          "shared_variable": "Russian military operational capacity and strategic objectives in 2022",
+          "is_related": true,
+          "base_p_x": 0.05,
+          "shift_magnitude": 0.03,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 108,
+        "is_independent": false,
+        "spread": 0.06,
+        "shared_variable": "Russia's military performance and strategic position in Ukraine",
+        "raw": {
+          "shared_variable": "Russia's military performance and strategic position in Ukraine",
+          "is_related": true,
+          "base_p_x": 0.15,
+          "shift_magnitude": 0.06,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 110,
+        "is_independent": false,
+        "spread": 0.03,
+        "shared_variable": "Russian military operational capacity and strategic decision-making in 2022",
+        "raw": {
+          "shared_variable": "Russian military operational capacity and strategic decision-making in 2022",
+          "is_related": true,
+          "base_p_x": 0.05,
+          "shift_magnitude": 0.03,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 111,
+        "is_independent": false,
+        "spread": 0.08,
+        "shared_variable": "Federal Reserve federal funds rate decisions",
+        "raw": {
+          "shared_variable": "Federal Reserve federal funds rate decisions",
+          "is_related": true,
+          "base_p_x": 0.75,
+          "shift_magnitude": 0.08,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 116,
+        "is_independent": true,
+        "spread": 0,
+        "shared_variable": "none",
+        "raw": {
+          "shared_variable": "none",
+          "is_related": false,
+          "base_p_x": 0.75,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 117,
+        "is_independent": false,
+        "spread": 0.35,
+        "shared_variable": "Putin-Zelenskyy direct diplomatic engagement",
+        "raw": {
+          "shared_variable": "Putin-Zelenskyy direct diplomatic engagement",
+          "is_related": true,
+          "base_p_x": 0.15,
+          "shift_magnitude": 0.35,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 128,
+        "is_independent": false,
+        "spread": 0.35,
+        "shared_variable": "Russian military's ability to capture and hold Kyiv",
+        "raw": {
+          "shared_variable": "Russian military's ability to capture and hold Kyiv",
+          "is_related": true,
+          "base_p_x": 0.08,
+          "shift_magnitude": 0.35,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 133,
+        "is_independent": true,
+        "spread": 0,
+        "shared_variable": "none",
+        "raw": {
+          "shared_variable": "none",
+          "is_related": false,
+          "base_p_x": 0.25,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 134,
+        "is_independent": false,
+        "spread": 0.05,
+        "shared_variable": "Federal Reserve interest rate policy decisions",
+        "raw": {
+          "shared_variable": "Federal Reserve interest rate policy decisions",
+          "is_related": true,
+          "base_p_x": 0.65,
+          "shift_magnitude": 0.05,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 135,
+        "is_independent": false,
+        "spread": 0.15,
+        "shared_variable": "Russian military offensive intensity and success in early 2022",
+        "raw": {
+          "shared_variable": "Russian military offensive intensity and success in early 2022",
+          "is_related": true,
+          "base_p_x": 0.65,
+          "shift_magnitude": 0.15,
+          "direction": "negative"
+        }
+      },
+      {
+        "pair_idx": 136,
+        "is_independent": true,
+        "spread": 0,
+        "shared_variable": "none",
+        "raw": {
+          "shared_variable": "none",
+          "is_related": false,
+          "base_p_x": 0.35,
+          "shift_magnitude": 0,
+          "direction": "none"
+        }
+      },
+      {
+        "pair_idx": 137,
+        "is_independent": false,
+        "spread": 0.05,
+        "shared_variable": "Russia-Ukraine war escalation level and Western/Ukrainian military actions against Russian infrastructure",
+        "raw": {
+          "shared_variable": "Russia-Ukraine war escalation level and Western/Ukrainian military actions against Russian infrastructure",
+          "is_related": true,
+          "base_p_x": 0.15,
+          "shift_magnitude": 0.05,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 139,
+        "is_independent": false,
+        "spread": 0.52,
+        "shared_variable": "2020 US presidential election outcome",
+        "raw": {
+          "shared_variable": "2020 US presidential election outcome",
+          "is_related": true,
+          "base_p_x": 0.47,
+          "shift_magnitude": 0.52,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 142,
+        "is_independent": false,
+        "spread": 0.12,
+        "shared_variable": "Israeli security cabinet's response to Iranian military threats",
+        "raw": {
+          "shared_variable": "Israeli security cabinet's response to Iranian military threats",
+          "is_related": true,
+          "base_p_x": 0.75,
+          "shift_magnitude": 0.12,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 145,
+        "is_independent": false,
+        "spread": 0.12,
+        "shared_variable": "Russian military success and territorial control in Ukraine",
+        "raw": {
+          "shared_variable": "Russian military success and territorial control in Ukraine",
+          "is_related": true,
+          "base_p_x": 0.15,
+          "shift_magnitude": 0.12,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 149,
+        "is_independent": false,
+        "spread": 0.12,
+        "shared_variable": "Russian military progress/setbacks in Ukraine ground campaign",
+        "raw": {
+          "shared_variable": "Russian military progress/setbacks in Ukraine ground campaign",
+          "is_related": true,
+          "base_p_x": 0.15,
+          "shift_magnitude": 0.12,
+          "direction": "positive"
+        }
+      },
+      {
+        "pair_idx": 153,
+        "is_independent": false,
+        "spread": 0.15,
+        "shared_variable": "Russian military offensive intensity and success in early 2022",
+        "raw": {
+          "shared_variable": "Russian military offensive intensity and success in early 2022",
+          "is_related": true,
+          "base_p_x": 0.65,
+          "shift_magnitude": 0.15,
+          "direction": "positive"
+        }
+      }
+    ]
+  },
+  "test_pairs": [
+    {
+      "idx": 27,
+      "question_q": "Will more than 50,000 people be killed in the Russo-Ukrainian War in 2022?",
+      "question_x": "Will Russia invade any country other than Ukraine in 2022?",
+      "rho": 0.4951919475816878,
+      "h1_improvement": -0.0045000000000000005
+    },
+    {
+      "idx": 33,
+      "question_q": "Will at least 5 million refugees from Ukraine seek assistance from other countri",
+      "question_x": "Will Russia invade any country other than Ukraine in 2022?",
+      "rho": -0.4751225392739412,
+      "h1_improvement": 0.0016000000000000003
+    },
+    {
+      "idx": 38,
+      "question_q": "Will at least 5 million refugees from Ukraine seek assistance from other countri",
+      "question_x": "Will YouTube be blocked in Russia in 2022?",
+      "rho": 0.45614861644136195,
+      "h1_improvement": 0.2541
+    },
+    {
+      "idx": 49,
+      "question_q": "Will more than 25,000 people be killed in the Russo-Ukrainian War in 2022?",
+      "question_x": "Will Vladimir Putin be the president of the Russian Federation on February 1, 20",
+      "rho": 0.3916823594363826,
+      "h1_improvement": 0.011199999999999996
+    },
+    {
+      "idx": 62,
+      "question_q": "Will Kyiv fall to Russian forces by April 2022?",
+      "question_x": "Will one half of currently threatened Ukrainian cities be under Russian military",
+      "rho": -0.3558437278358064,
+      "h1_improvement": 0.0063
+    },
+    {
+      "idx": 66,
+      "question_q": "Will Russia control Kyiv on June 1, 2022?",
+      "question_x": "Will Putin and Zelenskyy meet to discuss the peaceful resolution of the Russian-",
+      "rho": 0.34552377530965084,
+      "h1_improvement": -0.2924
+    },
+    {
+      "idx": 79,
+      "question_q": "Will the US unemployment rate in November 2025 be below the rate in November 202",
+      "question_x": "Will Nvidia outperform the S&P 500 in 2025?",
+      "rho": -0.3203846211925132,
+      "h1_improvement": -0.39680000000000004
+    },
+    {
+      "idx": 82,
+      "question_q": "Will there be at least 1,000 deaths due to direct conflict between Israel and Ir",
+      "question_x": "Will the 12-month percentage change in the US Consumer Price Index be lower in N",
+      "rho": 0.31860519006398524,
+      "h1_improvement": -0.12
+    },
+    {
+      "idx": 84,
+      "question_q": "Will at least 5 million refugees from Ukraine seek assistance from other countri",
+      "question_x": "Will Kyiv be under Russian control before 2023?",
+      "rho": 0.31017240436853927,
+      "h1_improvement": -0.003299999999999999
+    },
+    {
+      "idx": 86,
+      "question_q": "Will OpenAI publicly release the full o3 model before March 28, 2025?",
+      "question_x": "Will OpenAI top the Chatbot Arena Leaderboard on December 31, 2025?",
+      "rho": 0.2982247385397866,
+      "h1_improvement": 0.07
+    },
+    {
+      "idx": 90,
+      "question_q": "Will more than 25,000 people be killed in the Russo-Ukrainian War in 2022?",
+      "question_x": "Will more than 50,000 people be killed in the Russo-Ukrainian War in 2022?",
+      "rho": 0.29150617536739337,
+      "h1_improvement": -0.08990000000000002
+    },
+    {
+      "idx": 93,
+      "question_q": "Will Donald Trump have a positive net favorability rate on December 20, 2025, ac",
+      "question_x": "Will mifepristone become significantly restricted or illegal to prescribe for ab",
+      "rho": 0.28700436058128903,
+      "h1_improvement": -0.028898999999999994
+    },
+    {
+      "idx": 100,
+      "question_q": "Will the US unemployment rate in November 2025 be below the rate in November 202",
+      "question_x": "Will a new war or a substantial escalation to a previous war kill at least 5,000",
+      "rho": 0.2739620159842312,
+      "h1_improvement": -0.1833
+    },
+    {
+      "idx": 102,
+      "question_q": "Will one half of currently threatened Ukrainian cities be under Russian military",
+      "question_x": "Will Russia invade any country other than Ukraine in 2022?",
+      "rho": 0.2728408566689788,
+      "h1_improvement": -0.010500000000000002
+    },
+    {
+      "idx": 108,
+      "question_q": "Will Finland join NATO before 2024?",
+      "question_x": "Will Ukraine sever the land bridge between Crimea and Russia before 2024?",
+      "rho": 0.266262321772476,
+      "h1_improvement": 0.04999999999999999
+    },
+    {
+      "idx": 110,
+      "question_q": "Will Russia control Kyiv on June 1, 2022?",
+      "question_x": "Will Russia invade any country other than Ukraine in 2022?",
+      "rho": -0.2637847815682246,
+      "h1_improvement": 0.0063
+    },
+    {
+      "idx": 111,
+      "question_q": "Will real housing prices in the US increase more in 2025 compared to 2024?",
+      "question_x": "Will US federal interest rates at the end of 2025 be lower than at the end of 20",
+      "rho": -0.2611869943816088,
+      "h1_improvement": -0.05289899999999999
+    },
+    {
+      "idx": 116,
+      "question_q": "Will Iran carry out a deadly attack within Israel before May 1, 2024?",
+      "question_x": "Will NVIDIA's stock price close above $950 on any single day before May 21, 2024",
+      "rho": 0.24806477908018107,
+      "h1_improvement": -0.6789
+    },
+    {
+      "idx": 117,
+      "question_q": "Will Putin and Zelenskyy meet to discuss the peaceful resolution of the Russian-",
+      "question_x": "Will there be a bilateral cease-fire or peace agreement in the Russo-Ukraine con",
+      "rho": 0.24638172523583798,
+      "h1_improvement": 0.0
+    },
+    {
+      "idx": 128,
+      "question_q": "Will Russia control Kyiv on June 1, 2022?",
+      "question_x": "Will Kyiv be under Russian control before 2023?",
+      "rho": -0.22993291053193995,
+      "h1_improvement": 0.0007999999999999999
+    },
+    {
+      "idx": 133,
+      "question_q": "Will Donald Trump have a positive net favorability rate on December 20, 2025, ac",
+      "question_x": "Will a new war or a substantial escalation to a previous war kill at least 5,000",
+      "rho": 0.22005244475767488,
+      "h1_improvement": -0.07279999999999998
+    },
+    {
+      "idx": 134,
+      "question_q": "Will the United States bailout Argentina before 2026?",
+      "question_x": "Will US federal interest rates at the end of 2025 be lower than at the end of 20",
+      "rho": -0.2166335759829762,
+      "h1_improvement": -0.08959999999999996
+    },
+    {
+      "idx": 135,
+      "question_q": "Will Kyiv fall to Russian forces by April 2022?",
+      "question_x": "Will more than 50,000 people be killed in the Russo-Ukrainian War in 2022?",
+      "rho": -0.21659501842487808,
+      "h1_improvement": -0.42749999999999994
+    },
+    {
+      "idx": 136,
+      "question_q": "Will the US unemployment rate in November 2025 be below the rate in November 202",
+      "question_x": "Will the US eliminate the Department of Education through law or presidential re",
+      "rho": 0.2134943055511007,
+      "h1_improvement": -0.014374999999999999
+    },
+    {
+      "idx": 137,
+      "question_q": "Will YouTube be blocked in Russia in 2022?",
+      "question_x": "Will the Crimean Bridge be knocked out for seven days before 2024?",
+      "rho": -0.2106462424370263,
+      "h1_improvement": 0.22960000000000008
+    },
+    {
+      "idx": 139,
+      "question_q": "Will Trump be reelected president if the election is called by November 10th 202",
+      "question_x": "Will Donald Trump be President of the United States of America on 2021-01-21?",
+      "rho": 0.2101682018691769,
+      "h1_improvement": 0.00030000000000000003
+    },
+    {
+      "idx": 142,
+      "question_q": "Will Iran carry out a deadly attack within Israel before May 1, 2024?",
+      "question_x": "Will Benjamin Netanyahu remain Prime Minister of Israel throughout 2024?",
+      "rho": 0.20638304203161667,
+      "h1_improvement": 0.08999999999999997
+    },
+    {
+      "idx": 145,
+      "question_q": "Will Kyiv fall to Russian forces by April 2022?",
+      "question_x": "Will there be a bilateral cease-fire or peace agreement in the Russo-Ukraine con",
+      "rho": 0.20185305083556798,
+      "h1_improvement": 0.5671000000000002
+    },
+    {
+      "idx": 149,
+      "question_q": "Will Russia control Kyiv on June 1, 2022?",
+      "question_x": "Will Russia use chemical weapons in Ukraine in 2022?",
+      "rho": -0.1928752456662154,
+      "h1_improvement": 0.03710000000000001
+    },
+    {
+      "idx": 153,
+      "question_q": "Will Russia control Kyiv on June 1, 2022?",
+      "question_x": "Will more than 50,000 people be killed in the Russo-Ukrainian War in 2022?",
+      "rho": -0.1883201670226981,
+      "h1_improvement": -0.3599
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "metadata": {
+    "generated_at": "2026-01-28T16:05:23.917762",
+    "model": "claude-opus-4-5-20251101",
+    "n_total_pairs": 34,
+    "n_fully_resolved": 3
+  },
+  "status_counts": {
+    "both_resolved": 3,
+    "one_resolved": 3,
+    "none_resolved": 28
+  },
+  "summary": {
+    "n": 3,
+    "mean_brier_conditional": 0.18646666666666667,
+    "mean_brier_baseline": 0.25,
+    "mean_improvement": 0.06353333333333332,
+    "std_improvement": 0.1726368120908426,
+    "median_improvement": 0.1275,
+    "n_improved": 2,
+    "n_hurt": 1,
+    "pct_improved": 0.6666666666666666,
+    "t_stat": 0.5204550557588559,
+    "p_value": 0.6546282876261598,
+    "significant_at_05": false
+  },
+  "by_category": {
+    "mutually_exclusive": {
+      "n": 2,
+      "mean_brier_conditional": 0.06845,
+      "mean_improvement": 0.18155,
+      "n_improved": 2
+    },
+    "sequential_prerequisite": {
+      "n": 1,
+      "insufficient_data": true
+    }
+  },
+  "results": [
+    {
+      "question_x": "Will the Los Angeles Rams win Super Bowl 2026?",
+      "question_q": "Will the 49ers win the 2026 NFC Championship?",
+      "category": "mutually_exclusive",
+      "q_outcome": false,
+      "x_outcome": false,
+      "p_x_given_q_yes": 0.01,
+      "p_x_given_q_no": 0.12,
+      "p_x_conditional": 0.12,
+      "reasoning": "If the 49ers win the 2026 NFC Championship (Q=YES), they represent the NFC in Super Bowl 2026, meaning the Rams cannot be in the Super Bowl at all - making it impossible for the Rams to win (P=0). If the 49ers do NOT win the NFC Championship (Q=NO), the Rams still have a chance to win the NFC themselves and then win the Super Bowl. The Rams are a competitive team, and with the 49ers eliminated as NFC champion, I estimate roughly a 12% chance the Rams win it all - accounting for them needing to both win the NFC Championship and then beat the AFC champion.",
+      "brier_conditional": 0.0144,
+      "brier_baseline": 0.25,
+      "brier_improvement": 0.2356
+    },
+    {
+      "question_x": "Fed decreases interest rates by 25 bps after January 2026 meeting?",
+      "question_q": "Fed decreases interest rates by 50+ bps after January 2026 meeting?",
+      "category": "mutually_exclusive",
+      "q_outcome": false,
+      "x_outcome": false,
+      "p_x_given_q_yes": 0.01,
+      "p_x_given_q_no": 0.35,
+      "p_x_conditional": 0.35,
+      "reasoning": "These questions are mutually exclusive outcomes for the same Fed meeting. X asks if the Fed decreases rates by exactly 25 bps, while Q asks if they decrease by 50+ bps. If Q=YES (50+ bps cut), then X=NO by definition since the cut wasn't 25 bps - it was larger. If Q=NO (no 50+ bps cut), then X could still be YES (25 bps cut), NO with a smaller cut, or NO with no cut/a hike. Given current economic conditions and Fed guidance suggesting gradual easing, a 25 bps cut remains plausible but not certain when Q=NO, as the Fed might also hold rates steady or make no change.",
+      "brier_conditional": 0.12249999999999998,
+      "brier_baseline": 0.25,
+      "brier_improvement": 0.1275
+    },
+    {
+      "question_x": "Will the Fed Cut\u2013Cut\u2013Pause in the next three decisions (Oct\u2013Dec\u2013Jan)?",
+      "question_q": "Fed increases interest rates by 25+ bps after January 2026 meeting?",
+      "category": "sequential_prerequisite",
+      "q_outcome": false,
+      "x_outcome": true,
+      "p_x_given_q_yes": 0.25,
+      "p_x_given_q_no": 0.35,
+      "p_x_conditional": 0.35,
+      "reasoning": "Q asks about a rate INCREASE after January 2026, while X asks about Cut-Cut-Pause in Oct-Dec-Jan. These are temporally separated - X covers decisions before Q's timeframe. If Q=YES (Fed hikes after Jan 2026), this suggests inflation resurged or the economy overheated, meaning the Fed may have been more cautious about cutting in late 2024. This slightly reduces the probability of aggressive cuts (Cut-Cut) in Oct-Dec, making Cut-Cut-Pause less likely. If Q=NO (no hike after Jan 2026), the Fed's easing cycle proceeded more smoothly, suggesting the Cut-Cut-Pause pattern was part of a measured approach that didn't require reversal. However, the relationship is modest since X's outcome is determined months before Q resolves. Current baseline for Cut-Cut-Pause is moderate given Fed signaling, so conditioning on future hikes only modestly shifts probabilities.",
+      "brier_conditional": 0.42250000000000004,
+      "brier_baseline": 0.25,
+      "brier_improvement": -0.17250000000000004
+    }
+  ],
+  "fully_resolved_pairs": [
+    {
+      "question_a": "Will the Los Angeles Rams win Super Bowl 2026?",
+      "question_b": "Will the 49ers win the 2026 NFC Championship?",
+      "condition_id_a": "0x2b57ed983eb34b5e081fc8dcc1372d688963fd4d9c9018b8d2ba36867b26b236",
+      "condition_id_b": "0xae3ae899f35e79ea05b5a753bafc3001ff0d0de6af7898d2f3d4f0f13d2b56c4",
+      "rho": -0.2445,
+      "shared_topics": [
+        "nfl"
+      ],
+      "resolved": "B",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:24+00:00",
+      "other_price_at_resolution": 0.1065,
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These events are mutually exclusive within the NFC conference structure. If the 49ers win the 2026 NFC Championship, they advance to Super Bowl 2026, making it impossible for the Rams (also an NFC team) to win that same Super Bowl. The negative correlation of -0.24 reflects this competitive relationship where one team's success directly reduces the other's chances."
+      },
+      "market_a_status": "resolved",
+      "market_a_outcome": false,
+      "market_a_title": "Will the Los Angeles Rams win Super Bowl 2026?",
+      "market_b_status": "resolved",
+      "market_b_outcome": false,
+      "market_b_title": "Will the 49ers win the 2026 NFC Championship?"
+    },
+    {
+      "question_a": "Fed decreases interest rates by 50+ bps after January 2026 meeting?",
+      "question_b": "Fed decreases interest rates by 25 bps after January 2026 meeting?",
+      "condition_id_a": "0x17815081230e3b9c78b098162c33b1ffa68c4ec29c123d3d14989599e0c2e113",
+      "condition_id_b": "0x35cc41270f5cdfd59b45e68ab85dc51b0b900d286a6c74ea006b8572d9ff5934",
+      "rho": 0.0912,
+      "shared_topics": [
+        "fed"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:16+00:00",
+      "other_price_at_resolution": 0.355,
+      "classification": {
+        "category": "mutually_exclusive",
+        "confidence": "high",
+        "rationale": "These are mutually exclusive outcomes for the same Fed meeting in January 2026. The Fed cannot simultaneously decrease rates by both 25 bps and 50+ bps at the same meeting. The low correlation of 0.09 makes sense because as the probability of one outcome increases, the probability of the other should decrease, creating negative correlation. However, both could be false if the Fed chooses no cut, a different amount, or raises rates, which explains why the correlation isn't strongly negative."
+      },
+      "market_a_status": "resolved",
+      "market_a_outcome": false,
+      "market_a_title": "Fed decreases interest rates by 50+ bps after January 2026 meeting?",
+      "market_b_status": "resolved",
+      "market_b_outcome": false,
+      "market_b_title": "Fed decreases interest rates by 25 bps after January 2026 meeting?"
+    },
+    {
+      "question_a": "Fed increases interest rates by 25+ bps after January 2026 meeting?",
+      "question_b": "Will the Fed Cut\u2013Cut\u2013Pause in the next three decisions (Oct\u2013Dec\u2013Jan)?",
+      "condition_id_a": "0x7c6c69d91b21cbbea08a13d0ad51c0e96a956045aaadc77bce507c6b0475b66e",
+      "condition_id_b": "0x83db787ed2cb00d225178e66bc6ae4d22e8029f19390d2b78ded5aed978eead6",
+      "rho": 0.0769,
+      "shared_topics": [
+        "fed"
+      ],
+      "resolved": "A",
+      "resolution_outcome": "NO",
+      "resolution_date": "2025-11-15T00:00:07+00:00",
+      "other_price_at_resolution": 0.35,
+      "classification": {
+        "category": "sequential_prerequisite",
+        "confidence": "medium",
+        "rationale": "Question B asks about Fed decisions through January 2026, with the January decision being the same meeting referenced in Question A. The pattern of cuts leading up to January 2026 (Cut-Cut-Pause) would make a rate increase in January less likely, as it would represent a reversal from pause to hike. However, the correlation is weak (0.08) because the January decision in Question B is just a pause, not necessarily precluding a future increase, and economic conditions could change significantly to justify a rate hike even after recent cuts."
+      },
+      "market_a_status": "resolved",
+      "market_a_outcome": false,
+      "market_a_title": "Fed increases interest rates by 25+ bps after January 2026 meeting?",
+      "market_b_status": "resolved",
+      "market_b_outcome": true,
+      "market_b_title": "Will the Fed Cut\u2013Cut\u2013Pause in the next three decisions (Oct\u2013Dec\u2013Jan)?"
+    }
+  ]
+}
