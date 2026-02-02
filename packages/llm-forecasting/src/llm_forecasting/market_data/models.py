@@ -119,3 +119,42 @@ class MarketValidation(BaseModel):
     status: str  # "OK" | "WARNING - gap >5pp" | "REVIEW - gap >15pp"
     url: str | None = None
     match_confidence: float = Field(ge=0.0, le=1.0)
+
+
+class LeaderboardEntry(BaseModel):
+    """Entry from a trader leaderboard."""
+
+    model_config = ConfigDict(frozen=True)
+
+    rank: int
+    user_address: str  # proxyWallet
+    username: str | None = None
+    pnl: float  # Profit/loss in USD
+    volume: float  # Trading volume in USD
+    profile_image: str | None = None
+
+    # Snapshot metadata
+    time_period: str  # DAY, WEEK, MONTH, ALL
+    category: str = "OVERALL"
+    fetched_at: datetime = Field(default_factory=_utc_now)
+
+
+class TraderActivity(BaseModel):
+    """A single trade or activity by a user."""
+
+    model_config = ConfigDict(frozen=True)
+
+    user_address: str  # proxyWallet
+    timestamp: datetime
+    condition_id: str  # Market condition ID
+    activity_type: str  # TRADE, SPLIT, MERGE, REDEEM, etc.
+    side: str | None = None  # BUY or SELL
+    size: float  # Number of shares/tokens
+    price: float | None = None  # Price per share (0-1)
+    usdc_size: float | None = None  # USD value of trade
+    outcome_index: int | None = None  # 0=Yes, 1=No for binary markets
+    transaction_hash: str | None = None
+
+    # Market metadata (denormalized for convenience)
+    market_title: str | None = None
+    market_slug: str | None = None

@@ -1,0 +1,197 @@
+{
+  "config": {
+    "split_ratio": 0.6,
+    "min_trades_p1": 10,
+    "min_markets_p1": 3,
+    "min_trades_p2": 5
+  },
+  "period1_traders": 84,
+  "period2_traders": 428,
+  "overlap_traders": 44,
+  "results": {
+    "n_traders": 44,
+    "correlations": {
+      "brier_score": {
+        "r": -0.10758248457452135,
+        "p": 0.4869932823934523,
+        "n": 44,
+        "significant": "False"
+      },
+      "hard_market_win_rate": {
+        "r": 0.08408847534379368,
+        "p": 0.5873467109075683,
+        "n": 44,
+        "significant": "False"
+      },
+      "timing_edge": {
+        "r": 0.06971685340813673,
+        "p": 0.6529383139748977,
+        "n": 44,
+        "significant": "False"
+      },
+      "consistency": {
+        "r": -0.18862967711091552,
+        "p": 0.22010418405624443,
+        "n": 44,
+        "significant": "False"
+      },
+      "concentration": {
+        "r": 0.0785525256410066,
+        "p": 0.6122653635594315,
+        "n": 44,
+        "significant": "False"
+      },
+      "period1_pnl": {
+        "r": -0.04338623836110999,
+        "p": 0.7797549732386717,
+        "n": 44,
+        "significant": "False"
+      },
+      "period1_return": {
+        "r": 0.08678621882985986,
+        "p": 0.5753699010892164,
+        "n": 44,
+        "significant": "False"
+      }
+    },
+    "y_stats": {
+      "mean_return": 0.17660422021087613,
+      "std_return": 0.9831250849864944,
+      "mean_brier": 0.18108159153605444
+    },
+    "multiple_regression": {
+      "r_squared": 0.050071392156596395,
+      "coefficients": {
+        "intercept": 0.17660422021087616,
+        "brier": 0.08105570753933021,
+        "hard_market": 0.14405867218256044,
+        "timing": -0.007832638716298098,
+        "concentration": -0.2281672733939889,
+        "period1_return": 0.12692935488045837
+      },
+      "n": 44
+    }
+  },
+  "metrics_p1_sample": [
+    {
+      "trader_id": "0x008bf350637ce1ea308b3622a0d44116f9f3b476",
+      "n_trades": 2068,
+      "n_markets": 25,
+      "brier_score": 0.23314839904168466,
+      "hard_market_win_rate": 1.0,
+      "timing_edge": 0.0005102986847836624,
+      "consistency": 1.6444847773549929,
+      "concentration": 0.14461854018762485,
+      "period_pnl": 74462.61696222586,
+      "period_return": 0.39207972082543224
+    },
+    {
+      "trader_id": "0x60073655845c95014a540ae3f7375b15801647a3",
+      "n_trades": 454,
+      "n_markets": 7,
+      "brier_score": 0.19169426037965812,
+      "hard_market_win_rate": null,
+      "timing_edge": 0.0002992909833768467,
+      "consistency": 0.8082337337922274,
+      "concentration": 0.2934728919330589,
+      "period_pnl": 481692.4626535487,
+      "period_return": 2.2764075792758347
+    },
+    {
+      "trader_id": "0x1c3cdc2caa24eeb9434100f82ac32c22a26b1b01",
+      "n_trades": 1754,
+      "n_markets": 63,
+      "brier_score": 0.16251342009646327,
+      "hard_market_win_rate": 0.11845102505694761,
+      "timing_edge": 0.03302383157581034,
+      "consistency": 3.576019152563993,
+      "concentration": 0.22665225395797878,
+      "period_pnl": 99143.165336748,
+      "period_return": 0.07065368851611427
+    },
+    {
+      "trader_id": "0x09abc5845c024a4f9a3abff29d95057e6b20e832",
+      "n_trades": 1117,
+      "n_markets": 12,
+      "brier_score": 0.22001402904557854,
+      "hard_market_win_rate": 1.0,
+      "timing_edge": -0.000983448458845634,
+      "consistency": 1.1343879186803394,
+      "concentration": 0.26568339891211007,
+      "period_pnl": 344099.6342375499,
+      "period_return": 0.47418891734767704
+    },
+    {
+      "trader_id": "0x1bfdf7224c358405a486b5fd8489f13c2adcb5f3",
+      "n_trades": 3380,
+      "n_markets": 35,
+      "brier_score": 0.06294072545831854,
+      "hard_market_win_rate": 0.7064220183486238,
+      "timing_edge": 0.037527443218660764,
+      "consistency": 2.8403049183050606,
+      "concentration": 0.2984522329784291,
+      "period_pnl": 206175.47484302658,
+      "period_return": 0.07501304687470654
+    },
+    {
+      "trader_id": "0xd7f85d0eb0fe0732ca38d9107ad0d4d01b1289e4",
+      "n_trades": 1098,
+      "n_markets": 13,
+      "brier_score": 0.26825301931735634,
+      "hard_market_win_rate": 1.0,
+      "timing_edge": 0.008754543558660769,
+      "consistency": 2.1593263569554684,
+      "concentration": 0.7304383680998102,
+      "period_pnl": 1777512.216473591,
+      "period_return": 0.775059947250637
+    },
+    {
+      "trader_id": "0x62d2bcd198bb6eab8b7eeb9d2061815dc02b9eb7",
+      "n_trades": 2555,
+      "n_markets": 220,
+      "brier_score": 0.05979579438715792,
+      "hard_market_win_rate": 0.18181818181818182,
+      "timing_edge": -0.004432676862123849,
+      "consistency": 2.215535942967016,
+      "concentration": 0.1362621359216542,
+      "period_pnl": 9956.56683562075,
+      "period_return": 0.006215627414720006
+    },
+    {
+      "trader_id": "0x48ae93e59028f2c67e7535573b7359642f3a85c4",
+      "n_trades": 521,
+      "n_markets": 15,
+      "brier_score": 0.1154438959442851,
+      "hard_market_win_rate": 0.9930555555555556,
+      "timing_edge": -0.0568940934423439,
+      "consistency": 1.0212400145628804,
+      "concentration": 0.2072423741835538,
+      "period_pnl": 162902.9719310002,
+      "period_return": 0.22424047400524627
+    },
+    {
+      "trader_id": "0x27aed7b479101b7436dcf04cd4a26f3d6bd8bf32",
+      "n_trades": 3077,
+      "n_markets": 20,
+      "brier_score": 0.16285567016961464,
+      "hard_market_win_rate": null,
+      "timing_edge": 0.0004919788122729072,
+      "consistency": 1.5911581391210319,
+      "concentration": 0.1587762728703246,
+      "period_pnl": 158761.26009137798,
+      "period_return": 0.9315636788704812
+    },
+    {
+      "trader_id": "0xaaab8bf3bd469688d5e09bffeae8f8bf780a8eb2",
+      "n_trades": 152,
+      "n_markets": 7,
+      "brier_score": 0.0006250000000000001,
+      "hard_market_win_rate": null,
+      "timing_edge": -0.0019316831892986028,
+      "consistency": null,
+      "concentration": 0.4907824691787183,
+      "period_pnl": 447.7959983602549,
+      "period_return": 0.0042907883435579115
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "market_id": "0x46d40e851b24d9b0af4bc1942ccd86439cae82a9011767da14950df0ad997adf",
+    "question": "Will Trump nominate Judy Shelton as the next Fed chair?",
+    "resolution_rules": "This market will resolve according to the next individual Donald Trump, as President of the United States, formally nominates to be Chair of the Federal Reserve by December 31, 2026, 11:59 PM ET. \n\nFormal nominations are defined as the submission of a nomination message to the U.S. Senate.\n\nActing or interim appointments will not count unless the individual is formally nominated to be Chair of the Federal Reserve by submission of a nomination message to the U.S. Senate.\n\nThe primary resolution source for this market will be official information from the U.S. Senate (see: https://www.senate.gov/legislative/nominations_new.htm), however a consensus of credible reporting may also be used.",
+    "market_price": 0.0055,
+    "close_date": "2026-12-31T00:00:00+00:00",
+    "liquidity": 775974.21807,
+    "url": "https://polymarket.com/market/will-trump-nominate-judy-shelton-as-the-next-fed-chair"
+  },
+  {
+    "market_id": "0x43ec78527bd98a0588dd9455685b2cc82f5743140cb3a154603dc03c02b57de5",
+    "question": "US government shutdown Saturday?",
+    "resolution_rules": "This market will resolve to \u201cYes\u201d if the U.S. Office of Personnel Management (OPM) announces another federal government shutdown due to a lapse in appropriations by January 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nPartial shutdowns count as shutdowns; announcements of office closures due to holidays or inclement weather do not qualify as a shutdown.\n\nThe resolution source for this market will be OPM\u2019s Operating Status page (https://www.opm.gov/policy-data-oversight/snow-dismissal-procedures/current-status/).",
+    "market_price": 0.865,
+    "close_date": "2026-01-31T00:00:00+00:00",
+    "liquidity": 382749.4715,
+    "url": "https://polymarket.com/market/will-there-be-another-us-government-shutdown-by-january-31"
+  },
+  {
+    "market_id": "0x61b66d02793b4a68ab0cc25be60d65f517fe18c7d654041281bb130341244fcc",
+    "question": "Will Trump nominate Kevin Warsh as the next Fed chair?",
+    "resolution_rules": "This market will resolve according to the next individual Donald Trump, as President of the United States, formally nominates to be Chair of the Federal Reserve by December 31, 2026, 11:59 PM ET. \n\nFormal nominations are defined as the submission of a nomination message to the U.S. Senate.\n\nActing or interim appointments will not count unless the individual is formally nominated to be Chair of the Federal Reserve by submission of a nomination message to the U.S. Senate.\n\nThe primary resolution source for this market will be official information from the U.S. Senate (see: https://www.senate.gov/legislative/nominations_new.htm), however a consensus of credible reporting may also be used.",
+    "market_price": 0.9925,
+    "close_date": "2026-12-31T00:00:00+00:00",
+    "liquidity": 367872.45801,
+    "url": "https://polymarket.com/market/will-trump-nominate-kevin-warsh-as-the-next-fed-chair"
+  },
+  {
+    "market_id": "0xbd603617895e199d4042781ee55a7a9614af3130ca8e90d257424ca246f66197",
+    "question": "Will Trump nominate Rick Rieder as the next Fed chair?",
+    "resolution_rules": "This market will resolve according to the next individual Donald Trump, as President of the United States, formally nominates to be Chair of the Federal Reserve by December 31, 2026, 11:59 PM ET. \n\nFormal nominations are defined as the submission of a nomination message to the U.S. Senate.\n\nActing or interim appointments will not count unless the individual is formally nominated to be Chair of the Federal Reserve by submission of a nomination message to the U.S. Senate.\n\nThe primary resolution source for this market will be official information from the U.S. Senate (see: https://www.senate.gov/legislative/nominations_new.htm), however a consensus of credible reporting may also be used.",
+    "market_price": 0.0005,
+    "close_date": "2026-12-31T00:00:00+00:00",
+    "liquidity": 527798.67801,
+    "url": "https://polymarket.com/market/will-trump-nominate-rick-rieder-as-the-next-fed-chair"
+  },
+  {
+    "market_id": "0xfc6eace32f283eda179c15d447fe61f0426846bace5c583a967ddeaba58c2f93",
+    "question": "Will Trump nominate Michelle Bowman as the next Fed chair?",
+    "resolution_rules": "This market will resolve according to the next individual Donald Trump, as President of the United States, formally nominates to be Chair of the Federal Reserve by December 31, 2026, 11:59 PM ET. \n\nFormal nominations are defined as the submission of a nomination message to the U.S. Senate.\n\nActing or interim appointments will not count unless the individual is formally nominated to be Chair of the Federal Reserve by submission of a nomination message to the U.S. Senate.\n\nThe primary resolution source for this market will be official information from the U.S. Senate (see: https://www.senate.gov/legislative/nominations_new.htm), however a consensus of credible reporting may also be used.",
+    "market_price": 0.0005,
+    "close_date": "2026-12-31T00:00:00+00:00",
+    "liquidity": 522902.00407,
+    "url": "https://polymarket.com/market/will-trump-nominate-michelle-bowman-as-the-next-fed-chair"
+  }
+]

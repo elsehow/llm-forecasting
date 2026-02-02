@@ -38,12 +38,14 @@ from scipy import stats
 
 from llm_forecasting.market_data.polymarket import PolymarketData
 from llm_forecasting.market_data.models import Market, MarketStatus, PricePoint
+from llm_forecasting.market_data.storage import MarketDataStorage
 
 # Paths
 SCRIPT_DIR = Path(__file__).parent
 OUTPUT_DIR = SCRIPT_DIR / "results"
 PAIRS_FILE = OUTPUT_DIR / "polymarket_comovement_pairs.json"
 RESULTS_FILE = OUTPUT_DIR / "polymarket_comovement_conditional_results.json"
+DB_PATH = _monorepo_root / "forecastbench.db"
 
 # Model
 MODEL = "claude-opus-4-5-20251101"
@@ -108,9 +110,27 @@ def parse_response(text: str) -> tuple[float, float, float, dict]:
         return 0.5, 0.5, 0, {}
 
 
-async def fetch_resolved_markets() -> list[Market]:
-    """Fetch all resolved binary markets from Polymarket."""
+async def fetch_resolved_markets(storage: MarketDataStorage | None = None) -> list[Market]:
+    """Fetch all resolved binary markets from Polymarket.
+
+    First checks database cache, then fetches from API and saves to cache.
+    """
     print("\n[Phase 1] Fetching resolved markets from Polymarket...")
+
+    # Check database cache first
+    if storage:
+        print("  Checking database cache...")
+        cached = await storage.get_markets(
+            platform="polymarket",
+            status=MarketStatus.RESOLVED,
+        )
+        if cached:
+            # Filter to those with resolved_value
+            cached = [m for m in cached if m.resolved_value is not None]
+            if len(cached) >= 100:  # Use cache if we have substantial data
+                print(f"  Found {len(cached)} resolved markets in cache")
+                return cached
+            print(f"  Cache has only {len(cached)} markets, fetching fresh data...")
 
     provider = PolymarketData()
 
@@ -119,7 +139,7 @@ async def fetch_resolved_markets() -> list[Market]:
     all_markets = []
 
     # Fetch active=false to get closed/resolved markets
-    print("  Fetching closed/resolved markets...")
+    print("  Fetching closed/resolved markets from API...")
 
     # Direct API call for resolved markets since the provider defaults to active_only
     import httpx
@@ -168,26 +188,61 @@ async def fetch_resolved_markets() -> list[Market]:
                 break
 
     print(f"  Found {len(all_markets)} resolved binary markets")
+
+    # Save to database cache
+    if storage and all_markets:
+        print(f"  Saving {len(all_markets)} markets to database cache...")
+        await storage.save_markets(all_markets)
+
     return all_markets
 
 
 async def fetch_all_histories(
     markets: list[Market],
     provider: PolymarketData,
+    storage: MarketDataStorage | None = None,
 ) -> dict[str, list[PricePoint]]:
-    """Fetch price history for each resolved market."""
+    """Fetch price history for each resolved market.
+
+    First checks database cache, then fetches from API and saves to cache.
+    """
     print(f"\n[Phase 2] Fetching price histories for {len(markets)} markets...")
 
     histories = {}
     skipped = 0
+    from_cache = 0
+    from_api = 0
 
     for i, market in enumerate(markets):
         if i > 0 and i % 20 == 0:
-            print(f"  Processed {i}/{len(markets)} markets, {len(histories)} with valid history...")
+            print(f"  Processed {i}/{len(markets)} markets, {len(histories)} with valid history (cache: {from_cache}, api: {from_api})...")
 
         if not market.clob_token_ids:
             skipped += 1
             continue
+
+        # Check database cache first
+        if storage:
+            try:
+                cached_candles = await storage.get_price_history(
+                    platform="polymarket",
+                    market_id=market.id,
+                )
+                if cached_candles and len(cached_candles) >= MIN_OVERLAP_DAYS:
+                    # Convert Candle to PricePoint for compatibility
+                    histories[market.id] = [
+                        PricePoint(
+                            market_id=c.market_id,
+                            platform=c.platform,
+                            timestamp=c.timestamp,
+                            price=c.close,  # Use close price
+                        )
+                        for c in cached_candles
+                    ]
+                    from_cache += 1
+                    continue
+            except Exception:
+                pass  # Fall through to API fetch
 
         try:
             # Fetch 1 year of history to maximize overlap
@@ -203,6 +258,18 @@ async def fetch_all_histories(
 
             if len(history) >= MIN_OVERLAP_DAYS:
                 histories[market.id] = history
+                from_api += 1
+
+                # Save to database cache
+                if storage:
+                    try:
+                        await storage.save_price_history(
+                            market_id=market.id,
+                            platform="polymarket",
+                            candles=history,
+                        )
+                    except Exception:
+                        pass  # Don't fail on cache write errors
 
         except Exception as e:
             # Silently skip failures
@@ -211,7 +278,7 @@ async def fetch_all_histories(
         # Small delay to avoid rate limiting
         await asyncio.sleep(0.05)
 
-    print(f"  Got price history for {len(histories)} markets (skipped {skipped} without token IDs)")
+    print(f"  Got price history for {len(histories)} markets (cache: {from_cache}, api: {from_api}, skipped: {skipped})")
     return histories
 
 
@@ -559,8 +626,12 @@ async def main():
     print("=" * 80)
     print("Goal: Replicate Metaculus H1+confidence results on Polymarket data")
 
+    # Initialize database storage for caching
+    storage = MarketDataStorage(db_path=DB_PATH)
+    print(f"\nUsing database cache: {DB_PATH}")
+
     # Phase 1: Fetch resolved markets
-    markets = await fetch_resolved_markets()
+    markets = await fetch_resolved_markets(storage=storage)
 
     if len(markets) < 10:
         print("\nERROR: Not enough resolved markets found. Exiting.")
@@ -568,7 +639,7 @@ async def main():
 
     # Phase 2: Get price histories
     provider = PolymarketData()
-    histories = await fetch_all_histories(markets, provider)
+    histories = await fetch_all_histories(markets, provider, storage=storage)
 
     if len(histories) < 10:
         print("\nERROR: Not enough price histories available. Exiting.")

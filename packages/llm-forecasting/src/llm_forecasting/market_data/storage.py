@@ -1,14 +1,21 @@
 """SQLite storage for market data."""
 
 import json
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 from sqlalchemy import Date, DateTime, Float, Index, Integer, String, Text, select
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
-from llm_forecasting.market_data.models import Candle, Market, MarketStatus, PricePoint
+from llm_forecasting.market_data.models import (
+    Candle,
+    LeaderboardEntry,
+    Market,
+    MarketStatus,
+    PricePoint,
+    TraderActivity,
+)
 
 
 class MarketDataBase(DeclarativeBase):
@@ -89,6 +96,59 @@ class PriceHistoryRow(MarketDataBase):
     volume: Mapped[float | None] = mapped_column(Float, nullable=True)
 
     __table_args__ = (Index("ix_price_history_market", "platform", "market_id"),)
+
+
+class LeaderboardSnapshotRow(MarketDataBase):
+    """Leaderboard snapshot at a point in time."""
+
+    __tablename__ = "leaderboard_snapshots"
+
+    # Composite primary key
+    user_address: Mapped[str] = mapped_column(String, primary_key=True)
+    time_period: Mapped[str] = mapped_column(String, primary_key=True)
+    fetched_at: Mapped[datetime] = mapped_column(DateTime, primary_key=True)
+
+    # Leaderboard data
+    rank: Mapped[int] = mapped_column(Integer)
+    username: Mapped[str | None] = mapped_column(String, nullable=True)
+    pnl: Mapped[float] = mapped_column(Float)
+    volume: Mapped[float] = mapped_column(Float)
+    category: Mapped[str] = mapped_column(String, default="OVERALL")
+    profile_image: Mapped[str | None] = mapped_column(String, nullable=True)
+
+    __table_args__ = (
+        Index("ix_leaderboard_time_period", "time_period", "fetched_at"),
+        Index("ix_leaderboard_rank", "time_period", "rank"),
+    )
+
+
+class TraderActivityRow(MarketDataBase):
+    """Individual trader activity/trade."""
+
+    __tablename__ = "trader_activity"
+
+    # Composite primary key
+    user_address: Mapped[str] = mapped_column(String, primary_key=True)
+    timestamp: Mapped[datetime] = mapped_column(DateTime, primary_key=True)
+    condition_id: Mapped[str] = mapped_column(String, primary_key=True)
+    transaction_hash: Mapped[str] = mapped_column(String, primary_key=True)
+
+    # Activity data
+    activity_type: Mapped[str] = mapped_column(String)  # TRADE, SPLIT, etc.
+    side: Mapped[str | None] = mapped_column(String, nullable=True)  # BUY, SELL
+    size: Mapped[float] = mapped_column(Float)
+    price: Mapped[float | None] = mapped_column(Float, nullable=True)
+    usdc_size: Mapped[float | None] = mapped_column(Float, nullable=True)
+    outcome_index: Mapped[int | None] = mapped_column(Integer, nullable=True)
+
+    # Market metadata (denormalized)
+    market_title: Mapped[str | None] = mapped_column(Text, nullable=True)
+    market_slug: Mapped[str | None] = mapped_column(String, nullable=True)
+
+    __table_args__ = (
+        Index("ix_trader_activity_user", "user_address", "timestamp"),
+        Index("ix_trader_activity_market", "condition_id", "timestamp"),
+    )
 
 
 class MarketDataStorage:
@@ -317,6 +377,190 @@ class MarketDataStorage:
             )
             return result.scalar_one()
 
+    # === Leaderboard methods ===
+
+    async def save_leaderboard_snapshot(
+        self, entries: list[LeaderboardEntry], fetched_at: datetime | None = None
+    ) -> None:
+        """Save a leaderboard snapshot."""
+        if fetched_at is None:
+            fetched_at = datetime.now(timezone.utc)
+
+        async with await self._get_session() as session:
+            for entry in entries:
+                row = LeaderboardSnapshotRow(
+                    user_address=entry.user_address,
+                    time_period=entry.time_period,
+                    fetched_at=fetched_at,
+                    rank=entry.rank,
+                    username=entry.username,
+                    pnl=entry.pnl,
+                    volume=entry.volume,
+                    category=entry.category,
+                    profile_image=entry.profile_image,
+                )
+                await session.merge(row)
+            await session.commit()
+
+    async def get_leaderboard_snapshot(
+        self,
+        time_period: str,
+        fetched_at: datetime | None = None,
+        limit: int = 100,
+    ) -> list[LeaderboardEntry]:
+        """Get leaderboard snapshot, optionally at a specific time.
+
+        If fetched_at is None, returns the most recent snapshot.
+        """
+        async with await self._get_session() as session:
+            if fetched_at is None:
+                # Find most recent snapshot time for this period
+                from sqlalchemy import func
+
+                result = await session.execute(
+                    select(func.max(LeaderboardSnapshotRow.fetched_at)).where(
+                        LeaderboardSnapshotRow.time_period == time_period
+                    )
+                )
+                fetched_at = result.scalar_one_or_none()
+                if fetched_at is None:
+                    return []
+
+            stmt = (
+                select(LeaderboardSnapshotRow)
+                .where(
+                    LeaderboardSnapshotRow.time_period == time_period,
+                    LeaderboardSnapshotRow.fetched_at == fetched_at,
+                )
+                .order_by(LeaderboardSnapshotRow.rank)
+                .limit(limit)
+            )
+
+            result = await session.execute(stmt)
+            rows = result.scalars().all()
+            return [self._row_to_leaderboard_entry(row) for row in rows]
+
+    async def get_leaderboard_history(
+        self,
+        user_address: str,
+        time_period: str = "ALL",
+    ) -> list[LeaderboardEntry]:
+        """Get historical leaderboard entries for a user."""
+        async with await self._get_session() as session:
+            stmt = (
+                select(LeaderboardSnapshotRow)
+                .where(
+                    LeaderboardSnapshotRow.user_address == user_address,
+                    LeaderboardSnapshotRow.time_period == time_period,
+                )
+                .order_by(LeaderboardSnapshotRow.fetched_at)
+            )
+
+            result = await session.execute(stmt)
+            rows = result.scalars().all()
+            return [self._row_to_leaderboard_entry(row) for row in rows]
+
+    # === Trader activity methods ===
+
+    async def save_trader_activity(self, activities: list[TraderActivity]) -> None:
+        """Save trader activities."""
+        async with await self._get_session() as session:
+            for activity in activities:
+                row = TraderActivityRow(
+                    user_address=activity.user_address,
+                    timestamp=activity.timestamp,
+                    condition_id=activity.condition_id,
+                    transaction_hash=activity.transaction_hash or "",
+                    activity_type=activity.activity_type,
+                    side=activity.side,
+                    size=activity.size,
+                    price=activity.price,
+                    usdc_size=activity.usdc_size,
+                    outcome_index=activity.outcome_index,
+                    market_title=activity.market_title,
+                    market_slug=activity.market_slug,
+                )
+                await session.merge(row)
+            await session.commit()
+
+    async def get_trader_activity(
+        self,
+        user_address: str,
+        *,
+        start: datetime | None = None,
+        end: datetime | None = None,
+        activity_types: list[str] | None = None,
+        limit: int | None = None,
+    ) -> list[TraderActivity]:
+        """Get activity for a trader."""
+        async with await self._get_session() as session:
+            stmt = select(TraderActivityRow).where(
+                TraderActivityRow.user_address == user_address
+            )
+
+            if start:
+                stmt = stmt.where(TraderActivityRow.timestamp >= start)
+            if end:
+                stmt = stmt.where(TraderActivityRow.timestamp <= end)
+            if activity_types:
+                stmt = stmt.where(TraderActivityRow.activity_type.in_(activity_types))
+
+            stmt = stmt.order_by(TraderActivityRow.timestamp.desc())
+
+            if limit:
+                stmt = stmt.limit(limit)
+
+            result = await session.execute(stmt)
+            rows = result.scalars().all()
+            return [self._row_to_trader_activity(row) for row in rows]
+
+    async def get_market_trades(
+        self,
+        condition_id: str,
+        *,
+        start: datetime | None = None,
+        end: datetime | None = None,
+    ) -> list[TraderActivity]:
+        """Get all trades for a specific market."""
+        async with await self._get_session() as session:
+            stmt = select(TraderActivityRow).where(
+                TraderActivityRow.condition_id == condition_id,
+                TraderActivityRow.activity_type == "TRADE",
+            )
+
+            if start:
+                stmt = stmt.where(TraderActivityRow.timestamp >= start)
+            if end:
+                stmt = stmt.where(TraderActivityRow.timestamp <= end)
+
+            stmt = stmt.order_by(TraderActivityRow.timestamp)
+
+            result = await session.execute(stmt)
+            rows = result.scalars().all()
+            return [self._row_to_trader_activity(row) for row in rows]
+
+    async def get_tracked_traders(self) -> list[str]:
+        """Get list of all traders we have activity for."""
+        async with await self._get_session() as session:
+            from sqlalchemy import distinct
+
+            result = await session.execute(
+                select(distinct(TraderActivityRow.user_address))
+            )
+            return [row[0] for row in result.fetchall()]
+
+    async def get_trader_activity_count(self, user_address: str) -> int:
+        """Get count of activities for a trader."""
+        async with await self._get_session() as session:
+            from sqlalchemy import func
+
+            result = await session.execute(
+                select(func.count())
+                .select_from(TraderActivityRow)
+                .where(TraderActivityRow.user_address == user_address)
+            )
+            return result.scalar_one()
+
     # === Conversion helpers ===
 
     def _market_to_row(self, market: Market) -> MarketRow:
@@ -391,6 +635,35 @@ class MarketDataStorage:
             low=row.low,
             close=row.close,
             volume=row.volume,
+        )
+
+    def _row_to_leaderboard_entry(self, row: LeaderboardSnapshotRow) -> LeaderboardEntry:
+        return LeaderboardEntry(
+            rank=row.rank,
+            user_address=row.user_address,
+            username=row.username,
+            pnl=row.pnl,
+            volume=row.volume,
+            profile_image=row.profile_image,
+            time_period=row.time_period,
+            category=row.category,
+            fetched_at=row.fetched_at,
+        )
+
+    def _row_to_trader_activity(self, row: TraderActivityRow) -> TraderActivity:
+        return TraderActivity(
+            user_address=row.user_address,
+            timestamp=row.timestamp,
+            condition_id=row.condition_id,
+            activity_type=row.activity_type,
+            side=row.side,
+            size=row.size,
+            price=row.price,
+            usdc_size=row.usdc_size,
+            outcome_index=row.outcome_index,
+            transaction_hash=row.transaction_hash if row.transaction_hash else None,
+            market_title=row.market_title,
+            market_slug=row.market_slug,
         )
 
     async def close(self) -> None:

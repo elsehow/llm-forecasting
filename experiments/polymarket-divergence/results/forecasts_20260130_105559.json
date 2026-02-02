@@ -1,0 +1,69 @@
+{
+  "timestamp": "2026-01-30T10:55:59",
+  "markets_file": "markets_20260130_105559.json",
+  "divergence_threshold": 0.10,
+  "forecasts": [
+    {
+      "market_id": "0x46d40e851b24d9b0af4bc1942ccd86439cae82a9011767da14950df0ad997adf",
+      "question": "Will Trump nominate Judy Shelton as the next Fed chair?",
+      "market_price": 0.0055,
+      "forecast": 0.01,
+      "confidence_interval": [0.005, 0.03],
+      "divergence": 0.0045,
+      "signal": null,
+      "rationale": "Trump has formally nominated Kevin Warsh today. Shelton was never on the shortlist and failed confirmation in 2020. Only residual uncertainty if Warsh nomination fails.",
+      "status": "effectively_resolved"
+    },
+    {
+      "market_id": "0x43ec78527bd98a0588dd9455685b2cc82f5743140cb3a154603dc03c02b57de5",
+      "question": "US government shutdown Saturday?",
+      "market_price": 0.865,
+      "forecast": 0.88,
+      "confidence_interval": [0.82, 0.92],
+      "divergence": 0.015,
+      "signal": null,
+      "rationale": "House in recess until Monday makes weekend lapse mechanically near-certain. OPM historically announces even brief shutdowns. Senate vote failed 44-55 Thursday, Graham blocking fast-track.",
+      "status": "active"
+    },
+    {
+      "market_id": "0x61b66d02793b4a68ab0cc25be60d65f517fe18c7d654041281bb130341244fcc",
+      "question": "Will Trump nominate Kevin Warsh as the next Fed chair?",
+      "market_price": 0.9925,
+      "forecast": 1.0,
+      "confidence_interval": [1.0, 1.0],
+      "divergence": 0.0075,
+      "signal": null,
+      "rationale": "Resolved YES. Trump formally nominated Warsh on January 30, 2026 via Truth Social and submission to Senate.",
+      "status": "resolved"
+    },
+    {
+      "market_id": "0xbd603617895e199d4042781ee55a7a9614af3130ca8e90d257424ca246f66197",
+      "question": "Will Trump nominate Rick Rieder as the next Fed chair?",
+      "market_price": 0.0005,
+      "forecast": 0.01,
+      "confidence_interval": [0.0, 0.03],
+      "divergence": 0.0095,
+      "signal": null,
+      "rationale": "Effectively resolved NO. Trump nominated Warsh, not Rieder. Only path is Warsh confirmation failure + Trump choosing Rieder as replacement, which is unlikely.",
+      "status": "effectively_resolved"
+    },
+    {
+      "market_id": "0xfc6eace32f283eda179c15d447fe61f0426846bace5c583a967ddeaba58c2f93",
+      "question": "Will Trump nominate Michelle Bowman as the next Fed chair?",
+      "market_price": 0.0005,
+      "forecast": 0.0,
+      "confidence_interval": [0.0, 0.0],
+      "divergence": -0.0005,
+      "signal": null,
+      "rationale": "Effectively resolved NO. Trump nominated Warsh. Bowman is currently Vice Chair for Supervision.",
+      "status": "effectively_resolved"
+    }
+  ],
+  "summary": {
+    "total_markets": 5,
+    "active_markets": 1,
+    "resolved_or_near_resolved": 4,
+    "actionable_signals": 0,
+    "notes": "Fed chair markets resolved today with Warsh nomination. Shutdown market shows no significant divergence from our forecast."
+  }
+}

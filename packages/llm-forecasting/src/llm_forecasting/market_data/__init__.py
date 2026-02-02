@@ -35,11 +35,13 @@ from llm_forecasting.market_data.base import (
 )
 from llm_forecasting.market_data.models import (
     Candle,
+    LeaderboardEntry,
     Market,
     MarketMatch,
     MarketStatus,
     MarketValidation,
     PricePoint,
+    TraderActivity,
 )
 from llm_forecasting.market_data.storage import MarketDataStorage
 from llm_forecasting.market_data.matcher import (
@@ -58,12 +60,14 @@ __all__ = [
     "MarketDataProvider",
     "market_data_registry",
     # Models
+    "Candle",
+    "LeaderboardEntry",
     "Market",
     "MarketMatch",
     "MarketStatus",
     "MarketValidation",
-    "Candle",
     "PricePoint",
+    "TraderActivity",
     # Storage
     "MarketDataStorage",
     # Matcher

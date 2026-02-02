@@ -9,12 +9,19 @@ import httpx
 from llm_forecasting.date_utils import parse_iso_datetime
 from llm_forecasting.http_utils import HTTPClientMixin
 from llm_forecasting.market_data.base import MarketDataProvider, market_data_registry
-from llm_forecasting.market_data.models import Market, MarketStatus, PricePoint
+from llm_forecasting.market_data.models import (
+    LeaderboardEntry,
+    Market,
+    MarketStatus,
+    PricePoint,
+    TraderActivity,
+)
 
 logger = logging.getLogger(__name__)
 
 GAMMA_API_URL = "https://gamma-api.polymarket.com"
 CLOB_API_URL = "https://clob.polymarket.com"
+DATA_API_URL = "https://data-api.polymarket.com"
 
 
 @market_data_registry.register
@@ -210,6 +217,236 @@ class PolymarketData(MarketDataProvider, HTTPClientMixin):
                 unique.append(p)
 
         return unique
+
+    async def fetch_leaderboard(
+        self,
+        *,
+        time_period: str = "ALL",
+        category: str = "OVERALL",
+        order_by: str = "PNL",
+        limit: int = 100,
+    ) -> list[LeaderboardEntry]:
+        """Fetch trader leaderboard from Polymarket Data API.
+
+        Args:
+            time_period: DAY, WEEK, MONTH, or ALL
+            category: OVERALL, POLITICS, SPORTS, CRYPTO, etc.
+            order_by: PNL or VOL
+            limit: Max entries to fetch (API max is 50 per request)
+
+        Returns:
+            List of LeaderboardEntry objects
+        """
+        client = await self._get_client()
+        entries = []
+        offset = 0
+        batch_size = 50  # API max per request
+
+        while len(entries) < limit:
+            params = {
+                "timePeriod": time_period,
+                "category": category,
+                "orderBy": order_by,
+                "limit": min(batch_size, limit - len(entries)),
+                "offset": offset,
+            }
+
+            try:
+                response = await client.get(
+                    f"{DATA_API_URL}/v1/leaderboard", params=params
+                )
+                response.raise_for_status()
+                batch = response.json()
+
+                if not batch:
+                    break
+
+                for raw in batch:
+                    entry = LeaderboardEntry(
+                        rank=raw.get("rank", offset + len(entries) + 1),
+                        user_address=raw.get("proxyWallet", ""),
+                        username=raw.get("userName"),
+                        pnl=float(raw.get("pnl", 0) or 0),
+                        volume=float(raw.get("vol", 0) or 0),
+                        profile_image=raw.get("profileImage"),
+                        time_period=time_period,
+                        category=category,
+                    )
+                    entries.append(entry)
+
+                if len(batch) < batch_size:
+                    break
+                offset += batch_size
+
+            except httpx.HTTPStatusError as e:
+                logger.warning(f"Error fetching leaderboard: {e}")
+                break
+
+        logger.info(f"Fetched {len(entries)} leaderboard entries")
+        return entries
+
+    async def fetch_user_activity(
+        self,
+        user_address: str,
+        *,
+        activity_types: list[str] | None = None,
+        start: datetime | None = None,
+        end: datetime | None = None,
+        limit: int = 500,
+    ) -> list[TraderActivity]:
+        """Fetch activity history for a user.
+
+        Args:
+            user_address: User's wallet address (0x-prefixed)
+            activity_types: Filter by type (TRADE, SPLIT, MERGE, REDEEM, etc.)
+            start: Start timestamp
+            end: End timestamp
+            limit: Max entries to fetch (API max is 500 per request)
+
+        Returns:
+            List of TraderActivity objects
+        """
+        client = await self._get_client()
+        activities = []
+        offset = 0
+        batch_size = 500  # API max per request
+
+        while len(activities) < limit:
+            params = {
+                "user": user_address,
+                "limit": min(batch_size, limit - len(activities)),
+                "offset": offset,
+                "sortBy": "TIMESTAMP",
+                "sortDirection": "DESC",
+            }
+
+            if activity_types:
+                params["type"] = ",".join(activity_types)
+            if start:
+                params["start"] = int(start.timestamp())
+            if end:
+                params["end"] = int(end.timestamp())
+
+            try:
+                response = await client.get(f"{DATA_API_URL}/activity", params=params)
+                response.raise_for_status()
+                batch = response.json()
+
+                if not batch:
+                    break
+
+                for raw in batch:
+                    ts = raw.get("timestamp")
+                    if isinstance(ts, int):
+                        timestamp = datetime.fromtimestamp(ts, tz=timezone.utc)
+                    else:
+                        timestamp = parse_iso_datetime(ts) or datetime.now(timezone.utc)
+
+                    activity = TraderActivity(
+                        user_address=raw.get("proxyWallet", user_address),
+                        timestamp=timestamp,
+                        condition_id=raw.get("conditionId", ""),
+                        activity_type=raw.get("type", "UNKNOWN"),
+                        side=raw.get("side"),
+                        size=float(raw.get("size", 0) or 0),
+                        price=float(raw.get("price")) if raw.get("price") else None,
+                        usdc_size=float(raw.get("usdcSize")) if raw.get("usdcSize") else None,
+                        outcome_index=raw.get("outcomeIndex"),
+                        transaction_hash=raw.get("transactionHash"),
+                        market_title=raw.get("title"),
+                        market_slug=raw.get("slug"),
+                    )
+                    activities.append(activity)
+
+                if len(batch) < batch_size:
+                    break
+                offset += batch_size
+
+            except httpx.HTTPStatusError as e:
+                logger.warning(f"Error fetching user activity for {user_address}: {e}")
+                break
+
+        logger.info(f"Fetched {len(activities)} activities for user {user_address[:10]}...")
+        return activities
+
+    async def fetch_trades(
+        self,
+        *,
+        user_address: str | None = None,
+        market_ids: list[str] | None = None,
+        side: str | None = None,
+        limit: int = 1000,
+    ) -> list[TraderActivity]:
+        """Fetch trades from Polymarket Data API.
+
+        Args:
+            user_address: Filter by user wallet address
+            market_ids: Filter by market condition IDs
+            side: Filter by BUY or SELL
+            limit: Max entries to fetch
+
+        Returns:
+            List of TraderActivity objects (type=TRADE)
+        """
+        client = await self._get_client()
+        trades = []
+        offset = 0
+        batch_size = 500
+
+        while len(trades) < limit:
+            params = {
+                "limit": min(batch_size, limit - len(trades)),
+                "offset": offset,
+                "takerOnly": "false",
+            }
+
+            if user_address:
+                params["user"] = user_address
+            if market_ids:
+                params["market"] = ",".join(market_ids)
+            if side:
+                params["side"] = side
+
+            try:
+                response = await client.get(f"{DATA_API_URL}/trades", params=params)
+                response.raise_for_status()
+                batch = response.json()
+
+                if not batch:
+                    break
+
+                for raw in batch:
+                    ts = raw.get("timestamp")
+                    if isinstance(ts, int):
+                        timestamp = datetime.fromtimestamp(ts, tz=timezone.utc)
+                    else:
+                        timestamp = parse_iso_datetime(ts) or datetime.now(timezone.utc)
+
+                    trade = TraderActivity(
+                        user_address=raw.get("proxyWallet", user_address or ""),
+                        timestamp=timestamp,
+                        condition_id=raw.get("conditionId", ""),
+                        activity_type="TRADE",
+                        side=raw.get("side"),
+                        size=float(raw.get("size", 0) or 0),
+                        price=float(raw.get("price")) if raw.get("price") else None,
+                        outcome_index=raw.get("outcomeIndex"),
+                        transaction_hash=raw.get("transactionHash"),
+                        market_title=raw.get("title"),
+                        market_slug=raw.get("slug"),
+                    )
+                    trades.append(trade)
+
+                if len(batch) < batch_size:
+                    break
+                offset += batch_size
+
+            except httpx.HTTPStatusError as e:
+                logger.warning(f"Error fetching trades: {e}")
+                break
+
+        logger.info(f"Fetched {len(trades)} trades")
+        return trades
 
     def _parse_market(self, raw: dict) -> Market | None:
         """Parse raw API response into Market model."""

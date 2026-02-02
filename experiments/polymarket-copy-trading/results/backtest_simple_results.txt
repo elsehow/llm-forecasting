@@ -1,0 +1,14 @@
+SIMPLIFIED BACKTEST RESULTS
+============================================================
+Initial Capital: $10,000.00
+Final Value: $23,207.08
+Total Return: 132.1%
+Total PNL: $13,207.08
+Total Fees Paid: $310.84
+Total Trades: 23
+Win Rate: 73.9%
+============================================================
+Slippage: 1.0%
+Trading Fee: 2.0%
+Top N Traders: 50
+Selection Window: 90 days
