@@ -1,0 +1,23 @@
+{
+  "n_pairs": 50,
+  "models": [
+    "o3-2025-04-16",
+    "claude-opus-4-5-20251101",
+    "gpt-4.1-2025-04-14",
+    "claude-sonnet-4-20250514"
+  ],
+  "aggregate": {
+    "n_observations": 200,
+    "mean_spread": 0.12675,
+    "pct_near_zero": 0.47,
+    "mean_sensitivity_ratio": 2.8595741576306737,
+    "median_sensitivity_ratio": 0.8837982367394128,
+    "direction_accuracy": 0.32,
+    "magnitude_capture": 2.025446226759507
+  },
+  "civbench_reference": {
+    "signal_capture": "16-19%",
+    "direction_accuracy": "61%",
+    "magnitude_capture": "2-3%"
+  }
+}

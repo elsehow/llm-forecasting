@@ -1,0 +1,15 @@
+{
+  "metadata": {
+    "timestamp": "2026-02-03T12:31:32.422851",
+    "benchmark_timestamp": null,
+    "n_cruxes": 194,
+    "results_type": "enhanced",
+    "rho_method": "baseline"
+  },
+  "results": {
+    "error": "Only 0 trackers have shift data. Need at least 5.",
+    "n_valid": 0,
+    "n_total": 194
+  },
+  "top_movers": []
+}

@@ -106,3 +106,5 @@ async def example():
 ```
 
 Sources (`PolymarketSource`, `MetaculusSource`) use these providers internally and convert `Market` → `Question`.
+
+Always use `uv run` to execute Python scripts in this project, not bare `python` or `python3`.

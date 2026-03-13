@@ -1,0 +1,18 @@
+{
+  "description": "Reanalysis of existing conditional data through CivBench anchoring lens",
+  "date": "2026-03-03",
+  "civbench_reference": {
+    "signal_capture": "16-19%",
+    "direction_accuracy": "61%",
+    "magnitude_capture": "2-3%",
+    "brier_gap_pct": "+48% to +119%"
+  },
+  "findings": {
+    "spread_near_zero": "88-95% of pairs across Metaculus and Polymarket have spread < 0.05",
+    "brier_gap_exists": "Conditioning worsens Brier on 4/5 datasets (+14.9% to +217.7%)",
+    "h1_high_rho_exception": "Specialized prompting helps on related pairs (-35.1% Brier) but requires forced relationship detection",
+    "polymarket_gap_enormous": "+217.7% \u2014 LLM conditionals degrade badly against well-calibrated baselines",
+    "opus_spread_high": "Direct elicitation prompt achieves mean spread 0.297, but direction accuracy was ~20%"
+  },
+  "conclusion": "Same base-rate anchoring pattern appears in real-world data. Models don't differentiate between conditions, and when forced, get direction partially right but magnitude wrong."
+}

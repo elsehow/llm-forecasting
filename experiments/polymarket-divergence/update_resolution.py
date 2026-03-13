@@ -5,13 +5,13 @@ from pathlib import Path
 FORECASTS_FILE = Path(__file__).parent / "results" / "forecasts.jsonl"
 
 
-def update_resolution(forecast_id: str, resolution: str, status: str = "resolved") -> bool:
+def update_resolution(forecast_id: str, resolution: str | None, status: str = "resolved") -> bool:
     """Update the resolution field for a forecast.
 
     Args:
         forecast_id: The forecast ID (e.g., "f_20260130_001")
-        resolution: The resolution value (YES, NO, or other outcome)
-        status: New status (default: resolved)
+        resolution: The resolution value (YES, NO, or other outcome). None to clear.
+        status: New status (default: resolved, or "active" if clearing)
 
     Returns:
         True if forecast was found and updated, False otherwise
@@ -29,7 +29,7 @@ def update_resolution(forecast_id: str, resolution: str, status: str = "resolved
             continue
         record = json.loads(line)
         if record["id"] == forecast_id:
-            record["resolution"] = resolution
+            record["resolution"] = resolution  # Can be None to clear
             record["status"] = status
             found = True
         updated.append(json.dumps(record))
@@ -64,6 +64,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Update forecast resolution")
     parser.add_argument("--id", help="Forecast ID to update")
     parser.add_argument("--resolution", help="Resolution value (YES/NO)")
+    parser.add_argument("--clear", action="store_true", help="Clear resolution (revert to active)")
     parser.add_argument("--list", action="store_true", help="List pending forecasts")
 
     args = parser.parse_args()
@@ -78,6 +79,8 @@ if __name__ == "__main__":
                 signal_str = f" [{p['signal']}]" if p.get("signal") else ""
                 print(f"  {p['id']}: {p['question'][:60]}...{signal_str}")
                 print(f"    Close: {p['close_date']} | Market: {p['market_price']:.1%} | Forecast: {p['forecast']:.1%}")
+    elif args.id and args.clear:
+        update_resolution(args.id, None, status="active")
     elif args.id and args.resolution:
         update_resolution(args.id, args.resolution)
     else:

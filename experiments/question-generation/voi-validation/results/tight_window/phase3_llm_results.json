@@ -1,0 +1,1760 @@
+{
+  "results": [
+    {
+      "pair_idx": 0,
+      "a_title": "Will Bologna FC 1909 win on 2026-03-02?",
+      "b_title": "Will Middlesbrough FC win on 2026-03-02?",
+      "a_resolved": "YES",
+      "b_price_before": 0.375,
+      "b_price_after": 0.865,
+      "market_shift": 0.49,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.42,
+          "p_conditional": 0.45,
+          "llm_shift": 0.030000000000000027,
+          "spread": 0.030000000000000027
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.3,
+          "p_conditional": 0.5,
+          "llm_shift": 0.2,
+          "spread": 0.2
+        }
+      }
+    },
+    {
+      "pair_idx": 1,
+      "a_title": "Will Bologna FC 1909 win on 2026-03-02?",
+      "b_title": "Will Iran close the Strait of Hormuz by March 31?",
+      "a_resolved": "YES",
+      "b_price_before": 0.385,
+      "b_price_after": 0.715,
+      "market_shift": 0.32999999999999996,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.03,
+          "p_conditional": 0.05,
+          "llm_shift": 0.020000000000000004,
+          "spread": 0.020000000000000004
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.05,
+          "p_conditional": 0.5,
+          "llm_shift": 0.45,
+          "spread": 0.45
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.15,
+          "p_conditional": 0.02,
+          "llm_shift": -0.13,
+          "spread": 0.13
+        }
+      }
+    },
+    {
+      "pair_idx": 2,
+      "a_title": "Will Bologna FC 1909 win on 2026-03-02?",
+      "b_title": "Will FC Andorra win on 2026-03-02?",
+      "a_resolved": "YES",
+      "b_price_before": 0.66,
+      "b_price_after": 0.9745,
+      "market_shift": 0.3145,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.4,
+          "p_conditional": 0.35,
+          "llm_shift": -0.050000000000000044,
+          "spread": 0.050000000000000044
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.23,
+          "p_conditional": 0.5,
+          "llm_shift": 0.27,
+          "spread": 0.27
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.3,
+          "p_conditional": 0.5,
+          "llm_shift": 0.2,
+          "spread": 0.2
+        }
+      }
+    },
+    {
+      "pair_idx": 3,
+      "a_title": "Will Bologna FC 1909 win on 2026-03-02?",
+      "b_title": "Will Iran close the Strait of Hormuz before 2027?",
+      "a_resolved": "YES",
+      "b_price_before": 0.494,
+      "b_price_after": 0.75,
+      "market_shift": 0.256,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.08,
+          "p_conditional": 0.05,
+          "llm_shift": -0.03,
+          "spread": 0.03
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.12,
+          "p_conditional": 0.5,
+          "llm_shift": 0.38,
+          "spread": 0.38
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.15,
+          "p_conditional": 0.05,
+          "llm_shift": -0.09999999999999999,
+          "spread": 0.09999999999999999
+        }
+      }
+    },
+    {
+      "pair_idx": 4,
+      "a_title": "Will Bologna FC 1909 win on 2026-03-02?",
+      "b_title": "Will Getafe CF win on 2026-03-02?",
+      "a_resolved": "YES",
+      "b_price_before": 0.105,
+      "b_price_after": 0.35,
+      "market_shift": 0.245,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.35,
+          "p_conditional": 0.35,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.37,
+          "p_conditional": 0.5,
+          "llm_shift": 0.13,
+          "spread": 0.13
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.3,
+          "p_conditional": 0.5,
+          "llm_shift": 0.2,
+          "spread": 0.2
+        }
+      }
+    },
+    {
+      "pair_idx": 5,
+      "a_title": "Will Bologna FC 1909 win on 2026-03-02?",
+      "b_title": "Will Israel launch a major ground offensive in Lebanon by March 31?",
+      "a_resolved": "YES",
+      "b_price_before": 0.645,
+      "b_price_after": 0.815,
+      "market_shift": 0.16999999999999993,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.72,
+          "p_conditional": 0.7,
+          "llm_shift": -0.020000000000000018,
+          "spread": 0.020000000000000018
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.3,
+          "p_conditional": 0.5,
+          "llm_shift": 0.2,
+          "spread": 0.2
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.3,
+          "p_conditional": 0.2,
+          "llm_shift": -0.09999999999999998,
+          "spread": 0.09999999999999998
+        }
+      }
+    },
+    {
+      "pair_idx": 6,
+      "a_title": "Will Bologna FC 1909 win on 2026-03-02?",
+      "b_title": "Will Sport Lisboa e Benfica win on 2026-03-02?",
+      "a_resolved": "YES",
+      "b_price_before": 0.635,
+      "b_price_after": 0.8,
+      "market_shift": 0.16500000000000004,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.55,
+          "p_conditional": 0.7,
+          "llm_shift": 0.1499999999999999,
+          "spread": 0.1499999999999999
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        }
+      }
+    },
+    {
+      "pair_idx": 7,
+      "a_title": "Will Bologna FC 1909 win on 2026-03-02?",
+      "b_title": "Will Udinese Calcio win on 2026-03-02?",
+      "a_resolved": "YES",
+      "b_price_before": 0.535,
+      "b_price_after": 0.65,
+      "market_shift": 0.11499999999999999,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.35,
+          "p_conditional": 0.0,
+          "llm_shift": -0.35,
+          "spread": 0.35
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.36,
+          "p_conditional": 0.5,
+          "llm_shift": 0.14,
+          "spread": 0.14
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.3,
+          "p_conditional": 0.0,
+          "llm_shift": -0.3,
+          "spread": 0.3
+        }
+      }
+    },
+    {
+      "pair_idx": 8,
+      "a_title": "Will Real Madrid CF win on 2026-03-02?",
+      "b_title": "Will Sport Lisboa e Benfica win on 2026-03-02?",
+      "a_resolved": "NO",
+      "b_price_before": 0.89,
+      "b_price_after": 0.9995,
+      "market_shift": 0.10950000000000004,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.55,
+          "p_conditional": 0.5,
+          "llm_shift": -0.050000000000000044,
+          "spread": 0.050000000000000044
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.6,
+          "p_conditional": 0.5,
+          "llm_shift": -0.09999999999999998,
+          "spread": 0.09999999999999998
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        }
+      }
+    },
+    {
+      "pair_idx": 9,
+      "a_title": "Will Real Madrid CF win on 2026-03-02?",
+      "b_title": "Will Iran close the Strait of Hormuz by March 31?",
+      "a_resolved": "NO",
+      "b_price_before": 0.665,
+      "b_price_after": 0.565,
+      "market_shift": -0.10000000000000009,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.03,
+          "p_conditional": 0.02,
+          "llm_shift": -0.009999999999999998,
+          "spread": 0.009999999999999998
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.05,
+          "p_conditional": 0.5,
+          "llm_shift": 0.45,
+          "spread": 0.45
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.15,
+          "p_conditional": 0.02,
+          "llm_shift": -0.13,
+          "spread": 0.13
+        }
+      }
+    },
+    {
+      "pair_idx": 10,
+      "a_title": "Will Real Madrid CF win on 2026-03-02?",
+      "b_title": "Will another country strike Iran by March 7?",
+      "a_resolved": "NO",
+      "b_price_before": 0.305,
+      "b_price_after": 0.405,
+      "market_shift": 0.10000000000000003,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.35,
+          "p_conditional": 0.3,
+          "llm_shift": -0.04999999999999999,
+          "spread": 0.04999999999999999
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.18,
+          "p_conditional": 0.5,
+          "llm_shift": 0.32,
+          "spread": 0.32
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.15,
+          "p_conditional": 0.1,
+          "llm_shift": -0.04999999999999999,
+          "spread": 0.04999999999999999
+        }
+      }
+    },
+    {
+      "pair_idx": 11,
+      "a_title": "Will Real Madrid CF win on 2026-03-02?",
+      "b_title": "Will \"KPop Demon Hunters\" be the #2 global Netflix movie this week?",
+      "a_resolved": "NO",
+      "b_price_before": 0.8005,
+      "b_price_after": 0.897,
+      "market_shift": 0.09650000000000003,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.72,
+          "p_conditional": 0.5,
+          "llm_shift": -0.21999999999999997,
+          "spread": 0.21999999999999997
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.01,
+          "p_conditional": 0.5,
+          "llm_shift": 0.49,
+          "spread": 0.49
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.1,
+          "p_conditional": 0.1,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        }
+      }
+    },
+    {
+      "pair_idx": 12,
+      "a_title": "Will Bologna FC 1909 win on 2026-03-02?",
+      "b_title": "Will Saudi Arabia strike Iran by March 31?",
+      "a_resolved": "YES",
+      "b_price_before": 0.45,
+      "b_price_after": 0.54,
+      "market_shift": 0.09000000000000002,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.03,
+          "p_conditional": 0.03,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.05,
+          "p_conditional": 0.5,
+          "llm_shift": 0.45,
+          "spread": 0.45
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.15,
+          "p_conditional": 0.1,
+          "llm_shift": -0.04999999999999999,
+          "spread": 0.04999999999999999
+        }
+      }
+    },
+    {
+      "pair_idx": 13,
+      "a_title": "Will Elon Musk post 180-199 tweets from February 24 to March 3, 2026?",
+      "b_title": "Will Viking Therapeutics be acquired before 2027?",
+      "a_resolved": "NO",
+      "b_price_before": 0.51,
+      "b_price_after": 0.585,
+      "market_shift": 0.07499999999999996,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.35,
+          "p_conditional": 0.15,
+          "llm_shift": -0.19999999999999998,
+          "spread": 0.19999999999999998
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.18,
+          "p_conditional": 0.5,
+          "llm_shift": 0.32,
+          "spread": 0.32
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.3,
+          "p_conditional": 0.3,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        }
+      }
+    },
+    {
+      "pair_idx": 14,
+      "a_title": "Will Bologna FC 1909 win on 2026-03-02?",
+      "b_title": "Will Elon Musk post 200-219 tweets from February 24 to March 3, 2026?",
+      "a_resolved": "YES",
+      "b_price_before": 0.315,
+      "b_price_after": 0.3865,
+      "market_shift": 0.07150000000000001,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.08,
+          "p_conditional": 0.1,
+          "llm_shift": 0.020000000000000004,
+          "spread": 0.020000000000000004
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.12,
+          "p_conditional": 0.5,
+          "llm_shift": 0.38,
+          "spread": 0.38
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.15,
+          "p_conditional": 0.5,
+          "llm_shift": 0.35,
+          "spread": 0.35
+        }
+      }
+    },
+    {
+      "pair_idx": 15,
+      "a_title": "Will Real Madrid CF win on 2026-03-02?",
+      "b_title": "Will Israel launch a major ground offensive in Lebanon by March 31?",
+      "a_resolved": "NO",
+      "b_price_before": 0.815,
+      "b_price_after": 0.745,
+      "market_shift": -0.06999999999999995,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.75,
+          "p_conditional": 0.85,
+          "llm_shift": 0.09999999999999998,
+          "spread": 0.09999999999999998
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.3,
+          "p_conditional": 0.5,
+          "llm_shift": 0.2,
+          "spread": 0.2
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.3,
+          "p_conditional": 0.2,
+          "llm_shift": -0.09999999999999998,
+          "spread": 0.09999999999999998
+        }
+      }
+    },
+    {
+      "pair_idx": 16,
+      "a_title": "Will Real Madrid CF win on 2026-03-02?",
+      "b_title": "Will Iran close the Strait of Hormuz before 2027?",
+      "a_resolved": "NO",
+      "b_price_before": 0.7095,
+      "b_price_after": 0.6415,
+      "market_shift": -0.06800000000000006,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.08,
+          "p_conditional": 0.05,
+          "llm_shift": -0.03,
+          "spread": 0.03
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.15,
+          "p_conditional": 0.0,
+          "llm_shift": -0.15,
+          "spread": 0.15
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.15,
+          "p_conditional": 0.1,
+          "llm_shift": -0.04999999999999999,
+          "spread": 0.04999999999999999
+        }
+      }
+    },
+    {
+      "pair_idx": 17,
+      "a_title": "Will Bologna FC 1909 win on 2026-03-02?",
+      "b_title": "Will Iran strike Oman in March?",
+      "a_resolved": "YES",
+      "b_price_before": 0.802,
+      "b_price_after": 0.7355,
+      "market_shift": -0.0665,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.01,
+          "p_conditional": 0.05,
+          "llm_shift": 0.04,
+          "spread": 0.04
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.01,
+          "p_conditional": 0.5,
+          "llm_shift": 0.49,
+          "spread": 0.49
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.02,
+          "p_conditional": 0.0,
+          "llm_shift": -0.02,
+          "spread": 0.02
+        }
+      }
+    },
+    {
+      "pair_idx": 18,
+      "a_title": "Will Elon Musk post 180-199 tweets from February 24 to March 3, 2026?",
+      "b_title": "Will the price of Ethereum be above $2,000 on March 4?",
+      "a_resolved": "NO",
+      "b_price_before": 0.68,
+      "b_price_after": 0.62,
+      "market_shift": -0.06000000000000005,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.72,
+          "p_conditional": 0.5,
+          "llm_shift": -0.21999999999999997,
+          "spread": 0.21999999999999997
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.95,
+          "p_conditional": 0.5,
+          "llm_shift": -0.44999999999999996,
+          "spread": 0.44999999999999996
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.7,
+          "p_conditional": 0.7,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        }
+      }
+    },
+    {
+      "pair_idx": 19,
+      "a_title": "Will Bologna FC 1909 win on 2026-03-02?",
+      "b_title": "Will a Gulf State strike Iran by March 7?",
+      "a_resolved": "YES",
+      "b_price_before": 0.315,
+      "b_price_after": 0.375,
+      "market_shift": 0.06,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.02,
+          "p_conditional": 0.03,
+          "llm_shift": 0.009999999999999998,
+          "spread": 0.009999999999999998
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.03,
+          "p_conditional": 0.5,
+          "llm_shift": 0.47,
+          "spread": 0.47
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.15,
+          "p_conditional": 0.05,
+          "llm_shift": -0.09999999999999999,
+          "spread": 0.09999999999999999
+        }
+      }
+    },
+    {
+      "pair_idx": 20,
+      "a_title": "Will Bologna FC 1909 win on 2026-03-02?",
+      "b_title": "Will the price of Ethereum be between $1,900 and $2,000 on March 3?",
+      "a_resolved": "YES",
+      "b_price_before": 0.305,
+      "b_price_after": 0.245,
+      "market_shift": -0.06,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.15,
+          "p_conditional": 0.25,
+          "llm_shift": 0.1,
+          "spread": 0.1
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.28,
+          "p_conditional": 0.5,
+          "llm_shift": 0.21999999999999997,
+          "spread": 0.21999999999999997
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.15,
+          "p_conditional": 0.5,
+          "llm_shift": 0.35,
+          "spread": 0.35
+        }
+      }
+    },
+    {
+      "pair_idx": 21,
+      "a_title": "Will Real Madrid CF win on 2026-03-02?",
+      "b_title": "Will Getafe CF win on 2026-03-02?",
+      "a_resolved": "NO",
+      "b_price_before": 0.94,
+      "b_price_after": 0.9995,
+      "market_shift": 0.05950000000000011,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.35,
+          "p_conditional": 0.35,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.32,
+          "p_conditional": 0.0,
+          "llm_shift": -0.32,
+          "spread": 0.32
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.3,
+          "p_conditional": 0.3,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        }
+      }
+    },
+    {
+      "pair_idx": 22,
+      "a_title": "Will Real Madrid CF win on 2026-03-02?",
+      "b_title": "Will Iran strike Cyprus in March?",
+      "a_resolved": "NO",
+      "b_price_before": 0.285,
+      "b_price_after": 0.34,
+      "market_shift": 0.05500000000000005,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.02,
+          "p_conditional": 0.02,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.01,
+          "p_conditional": 0.5,
+          "llm_shift": 0.49,
+          "spread": 0.49
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.05,
+          "p_conditional": 0.1,
+          "llm_shift": 0.05,
+          "spread": 0.05
+        }
+      }
+    },
+    {
+      "pair_idx": 23,
+      "a_title": "Will Real Madrid CF win on 2026-03-02?",
+      "b_title": "Will the price of Bitcoin be above $70,000 on March 4?",
+      "a_resolved": "NO",
+      "b_price_before": 0.365,
+      "b_price_after": 0.42,
+      "market_shift": 0.05499999999999999,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.35,
+          "p_conditional": 0.5,
+          "llm_shift": 0.15000000000000002,
+          "spread": 0.15000000000000002
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.35,
+          "p_conditional": 0.5,
+          "llm_shift": 0.15000000000000002,
+          "spread": 0.15000000000000002
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.3,
+          "p_conditional": 0.5,
+          "llm_shift": 0.2,
+          "spread": 0.2
+        }
+      }
+    },
+    {
+      "pair_idx": 24,
+      "a_title": "Will Bologna FC 1909 win on 2026-03-02?",
+      "b_title": "Will Reza Pahlavi enter Iran by June 30?",
+      "a_resolved": "YES",
+      "b_price_before": 0.25,
+      "b_price_after": 0.195,
+      "market_shift": -0.05499999999999999,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.15,
+          "p_conditional": 0.12,
+          "llm_shift": -0.03,
+          "spread": 0.03
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.01,
+          "p_conditional": 0.5,
+          "llm_shift": 0.49,
+          "spread": 0.49
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.05,
+          "p_conditional": 0.05,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        }
+      }
+    },
+    {
+      "pair_idx": 25,
+      "a_title": "Will Bologna FC 1909 win on 2026-03-02?",
+      "b_title": "US strikes Iraq by February 28?",
+      "a_resolved": "YES",
+      "b_price_before": 0.1175,
+      "b_price_after": 0.171,
+      "market_shift": 0.05350000000000002,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.72,
+          "p_conditional": 0.4,
+          "llm_shift": -0.31999999999999995,
+          "spread": 0.31999999999999995
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.01,
+          "p_conditional": 0.5,
+          "llm_shift": 0.49,
+          "spread": 0.49
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.1,
+          "p_conditional": 0.1,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        }
+      }
+    },
+    {
+      "pair_idx": 26,
+      "a_title": "Will Real Madrid CF win on 2026-03-02?",
+      "b_title": "Will Iran close the Strait of Hormuz by June 30?",
+      "a_resolved": "NO",
+      "b_price_before": 0.7305,
+      "b_price_after": 0.685,
+      "market_shift": -0.045499999999999985,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.05,
+          "p_conditional": 0.08,
+          "llm_shift": 0.03,
+          "spread": 0.03
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.05,
+          "p_conditional": 0.5,
+          "llm_shift": 0.45,
+          "spread": 0.45
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.15,
+          "p_conditional": 0.05,
+          "llm_shift": -0.09999999999999999,
+          "spread": 0.09999999999999999
+        }
+      }
+    },
+    {
+      "pair_idx": 27,
+      "a_title": "Will Real Madrid CF win on 2026-03-02?",
+      "b_title": "Will the price of Bitcoin be above $68,000 on March 3?",
+      "a_resolved": "NO",
+      "b_price_before": 0.715,
+      "b_price_after": 0.76,
+      "market_shift": 0.04500000000000004,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.35,
+          "p_conditional": 0.5,
+          "llm_shift": 0.15000000000000002,
+          "spread": 0.15000000000000002
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.58,
+          "p_conditional": 0.5,
+          "llm_shift": -0.07999999999999996,
+          "spread": 0.07999999999999996
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.3,
+          "p_conditional": 0.5,
+          "llm_shift": 0.2,
+          "spread": 0.2
+        }
+      }
+    },
+    {
+      "pair_idx": 28,
+      "a_title": "Will Elon Musk post 180-199 tweets from February 24 to March 3, 2026?",
+      "b_title": "Will the price of Bitcoin be above $68,000 on March 3?",
+      "a_resolved": "NO",
+      "b_price_before": 0.55,
+      "b_price_after": 0.505,
+      "market_shift": -0.04500000000000004,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.35,
+          "p_conditional": 0.55,
+          "llm_shift": 0.20000000000000007,
+          "spread": 0.20000000000000007
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.65,
+          "p_conditional": 0.5,
+          "llm_shift": -0.15000000000000002,
+          "spread": 0.15000000000000002
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.3,
+          "p_conditional": 0.5,
+          "llm_shift": 0.2,
+          "spread": 0.2
+        }
+      }
+    },
+    {
+      "pair_idx": 29,
+      "a_title": "Will Real Madrid CF win on 2026-03-02?",
+      "b_title": "Will Saudi Arabia strike Iran by March 31?",
+      "a_resolved": "NO",
+      "b_price_before": 0.58,
+      "b_price_after": 0.535,
+      "market_shift": -0.04499999999999993,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.03,
+          "p_conditional": 0.02,
+          "llm_shift": -0.009999999999999998,
+          "spread": 0.009999999999999998
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.05,
+          "p_conditional": 0.5,
+          "llm_shift": 0.45,
+          "spread": 0.45
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.05,
+          "p_conditional": 0.1,
+          "llm_shift": 0.05,
+          "spread": 0.05
+        }
+      }
+    },
+    {
+      "pair_idx": 30,
+      "a_title": "Will Bologna FC 1909 win on 2026-03-02?",
+      "b_title": "Iran x Israel/US conflict ends by March 15?",
+      "a_resolved": "YES",
+      "b_price_before": 0.195,
+      "b_price_after": 0.235,
+      "market_shift": 0.03999999999999998,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.25,
+          "p_conditional": 0.1,
+          "llm_shift": -0.15,
+          "spread": 0.15
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.1,
+          "p_conditional": 0.5,
+          "llm_shift": 0.4,
+          "spread": 0.4
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.3,
+          "p_conditional": 0.5,
+          "llm_shift": 0.2,
+          "spread": 0.2
+        }
+      }
+    },
+    {
+      "pair_idx": 31,
+      "a_title": "Will Bologna FC 1909 win on 2026-03-02?",
+      "b_title": "Opinion FDV above $500M one day after launch?",
+      "a_resolved": "YES",
+      "b_price_before": 0.673,
+      "b_price_after": 0.6345,
+      "market_shift": -0.03850000000000009,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.35,
+          "p_conditional": 0.5,
+          "llm_shift": 0.15000000000000002,
+          "spread": 0.15000000000000002
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.1,
+          "p_conditional": 0.5,
+          "llm_shift": 0.4,
+          "spread": 0.4
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.3,
+          "p_conditional": 0.5,
+          "llm_shift": 0.2,
+          "spread": 0.2
+        }
+      }
+    },
+    {
+      "pair_idx": 32,
+      "a_title": "Will Elon Musk post 180-199 tweets from February 24 to March 3, 2026?",
+      "b_title": "Will the price of Ethereum be above $1,900 on March 3?",
+      "a_resolved": "NO",
+      "b_price_before": 0.88,
+      "b_price_after": 0.845,
+      "market_shift": -0.03500000000000003,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.72,
+          "p_conditional": 0.5,
+          "llm_shift": -0.21999999999999997,
+          "spread": 0.21999999999999997
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.8,
+          "p_conditional": 0.5,
+          "llm_shift": -0.30000000000000004,
+          "spread": 0.30000000000000004
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.7,
+          "p_conditional": 0.5,
+          "llm_shift": -0.19999999999999996,
+          "spread": 0.19999999999999996
+        }
+      }
+    },
+    {
+      "pair_idx": 33,
+      "a_title": "Will Bologna FC 1909 win on 2026-03-02?",
+      "b_title": "Will Iran name a successor to Khamenei by March 3?",
+      "a_resolved": "YES",
+      "b_price_before": 0.155,
+      "b_price_after": 0.12,
+      "market_shift": -0.035,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.08,
+          "p_conditional": 0.1,
+          "llm_shift": 0.020000000000000004,
+          "spread": 0.020000000000000004
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.05,
+          "p_conditional": 0.5,
+          "llm_shift": 0.45,
+          "spread": 0.45
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.05,
+          "p_conditional": 0.1,
+          "llm_shift": 0.05,
+          "spread": 0.05
+        }
+      }
+    },
+    {
+      "pair_idx": 34,
+      "a_title": "Will Elon Musk post 180-199 tweets from February 24 to March 3, 2026?",
+      "b_title": "US strike on Cuba by December 31?",
+      "a_resolved": "NO",
+      "b_price_before": 0.295,
+      "b_price_after": 0.26,
+      "market_shift": -0.034999999999999976,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.01,
+          "p_conditional": 0.02,
+          "llm_shift": 0.01,
+          "spread": 0.01
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.01,
+          "p_conditional": 0.0,
+          "llm_shift": -0.01,
+          "spread": 0.01
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.05,
+          "p_conditional": 0.05,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        }
+      }
+    },
+    {
+      "pair_idx": 35,
+      "a_title": "Will Real Madrid CF win on 2026-03-02?",
+      "b_title": "Will Reza Pahlavi lead Iran in 2026?",
+      "a_resolved": "NO",
+      "b_price_before": 0.1585,
+      "b_price_after": 0.19,
+      "market_shift": 0.0315,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.02,
+          "p_conditional": 0.02,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.01,
+          "p_conditional": 0.0,
+          "llm_shift": -0.01,
+          "spread": 0.01
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.05,
+          "p_conditional": 0.05,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        }
+      }
+    },
+    {
+      "pair_idx": 36,
+      "a_title": "Will Elon Musk post 180-199 tweets from February 24 to March 3, 2026?",
+      "b_title": "Will the price of Bitcoin be above $66,000 on March 3?",
+      "a_resolved": "NO",
+      "b_price_before": 0.73,
+      "b_price_after": 0.7,
+      "market_shift": -0.030000000000000027,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.35,
+          "p_conditional": 0.7,
+          "llm_shift": 0.35,
+          "spread": 0.35
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.64,
+          "p_conditional": 0.5,
+          "llm_shift": -0.14,
+          "spread": 0.14
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.3,
+          "p_conditional": 0.5,
+          "llm_shift": 0.2,
+          "spread": 0.2
+        }
+      }
+    },
+    {
+      "pair_idx": 37,
+      "a_title": "Will Bologna FC 1909 win on 2026-03-02?",
+      "b_title": "GPT-5.3 released by March 8, 2026?",
+      "a_resolved": "YES",
+      "b_price_before": 0.755,
+      "b_price_after": 0.725,
+      "market_shift": -0.030000000000000027,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.08,
+          "p_conditional": 0.02,
+          "llm_shift": -0.06,
+          "spread": 0.06
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.82,
+          "p_conditional": 0.5,
+          "llm_shift": -0.31999999999999995,
+          "spread": 0.31999999999999995
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.2,
+          "p_conditional": 0.15,
+          "llm_shift": -0.05000000000000002,
+          "spread": 0.05000000000000002
+        }
+      }
+    },
+    {
+      "pair_idx": 38,
+      "a_title": "Will Elon Musk post 180-199 tweets from February 24 to March 3, 2026?",
+      "b_title": "Will the price of Ethereum be between $1,900 and $2,000 on March 3?",
+      "a_resolved": "NO",
+      "b_price_before": 0.17,
+      "b_price_after": 0.2,
+      "market_shift": 0.03,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.15,
+          "p_conditional": 0.12,
+          "llm_shift": -0.03,
+          "spread": 0.03
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.27,
+          "p_conditional": 0.5,
+          "llm_shift": 0.22999999999999998,
+          "spread": 0.22999999999999998
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.15,
+          "p_conditional": 0.05,
+          "llm_shift": -0.09999999999999999,
+          "spread": 0.09999999999999999
+        }
+      }
+    },
+    {
+      "pair_idx": 39,
+      "a_title": "Will Elon Musk post 180-199 tweets from February 24 to March 3, 2026?",
+      "b_title": "Will the price of Bitcoin be above $66,000 on March 4?",
+      "a_resolved": "NO",
+      "b_price_before": 0.705,
+      "b_price_after": 0.675,
+      "market_shift": -0.029999999999999916,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.35,
+          "p_conditional": 0.5,
+          "llm_shift": 0.15000000000000002,
+          "spread": 0.15000000000000002
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.58,
+          "p_conditional": 0.5,
+          "llm_shift": -0.07999999999999996,
+          "spread": 0.07999999999999996
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.3,
+          "p_conditional": 0.5,
+          "llm_shift": 0.2,
+          "spread": 0.2
+        }
+      }
+    },
+    {
+      "pair_idx": 40,
+      "a_title": "Will Real Madrid CF win on 2026-03-02?",
+      "b_title": "Will Elon Musk post 140-159 tweets from February 27 to March 6, 2026?",
+      "a_resolved": "NO",
+      "b_price_before": 0.0595,
+      "b_price_after": 0.089,
+      "market_shift": 0.0295,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.12,
+          "p_conditional": 0.1,
+          "llm_shift": -0.01999999999999999,
+          "spread": 0.01999999999999999
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.15,
+          "p_conditional": 0.5,
+          "llm_shift": 0.35,
+          "spread": 0.35
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.15,
+          "p_conditional": 0.5,
+          "llm_shift": 0.35,
+          "spread": 0.35
+        }
+      }
+    },
+    {
+      "pair_idx": 41,
+      "a_title": "Will Bologna FC 1909 win on 2026-03-02?",
+      "b_title": "Will France, UK, or Germany strike Iran by March 31?",
+      "a_resolved": "YES",
+      "b_price_before": 0.2585,
+      "b_price_after": 0.2295,
+      "market_shift": -0.028999999999999998,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.02,
+          "p_conditional": 0.03,
+          "llm_shift": 0.009999999999999998,
+          "spread": 0.009999999999999998
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.08,
+          "p_conditional": 0.5,
+          "llm_shift": 0.42,
+          "spread": 0.42
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.05,
+          "p_conditional": 0.1,
+          "llm_shift": 0.05,
+          "spread": 0.05
+        }
+      }
+    },
+    {
+      "pair_idx": 42,
+      "a_title": "Will Bologna FC 1909 win on 2026-03-02?",
+      "b_title": "Will Crude Oil (CL) hit (HIGH) $75 by end of March?",
+      "a_resolved": "YES",
+      "b_price_before": 0.784,
+      "b_price_after": 0.8115,
+      "market_shift": 0.02749999999999997,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.62,
+          "p_conditional": 0.5,
+          "llm_shift": -0.12,
+          "spread": 0.12
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.85,
+          "p_conditional": 0.5,
+          "llm_shift": -0.35,
+          "spread": 0.35
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.3,
+          "p_conditional": 0.5,
+          "llm_shift": 0.2,
+          "spread": 0.2
+        }
+      }
+    },
+    {
+      "pair_idx": 43,
+      "a_title": "Will Real Madrid CF win on 2026-03-02?",
+      "b_title": "Will Elon Musk post 220-239 tweets from February 27 to March 6, 2026?",
+      "a_resolved": "NO",
+      "b_price_before": 0.1805,
+      "b_price_after": 0.1555,
+      "market_shift": -0.024999999999999994,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.08,
+          "p_conditional": 0.05,
+          "llm_shift": -0.03,
+          "spread": 0.03
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.07,
+          "p_conditional": 0.5,
+          "llm_shift": 0.43,
+          "spread": 0.43
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.15,
+          "p_conditional": 0.5,
+          "llm_shift": 0.35,
+          "spread": 0.35
+        }
+      }
+    },
+    {
+      "pair_idx": 44,
+      "a_title": "Will Elon Musk post 180-199 tweets from February 24 to March 3, 2026?",
+      "b_title": "Will the price of Bitcoin be above $72,000 on March 4?",
+      "a_resolved": "NO",
+      "b_price_before": 0.205,
+      "b_price_after": 0.18,
+      "market_shift": -0.024999999999999994,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.35,
+          "p_conditional": 0.5,
+          "llm_shift": 0.15000000000000002,
+          "spread": 0.15000000000000002
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.35,
+          "p_conditional": 0.5,
+          "llm_shift": 0.15000000000000002,
+          "spread": 0.15000000000000002
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.3,
+          "p_conditional": 0.5,
+          "llm_shift": 0.2,
+          "spread": 0.2
+        }
+      }
+    },
+    {
+      "pair_idx": 45,
+      "a_title": "Will Bologna FC 1909 win on 2026-03-02?",
+      "b_title": "Will Stephen Curry lead the NBA in three pointers made during the 2025\u201326 NBA season?",
+      "a_resolved": "YES",
+      "b_price_before": 0.185,
+      "b_price_after": 0.21,
+      "market_shift": 0.024999999999999994,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.25,
+          "p_conditional": 0.35,
+          "llm_shift": 0.09999999999999998,
+          "spread": 0.09999999999999998
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.28,
+          "p_conditional": 0.5,
+          "llm_shift": 0.21999999999999997,
+          "spread": 0.21999999999999997
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.3,
+          "p_conditional": 0.2,
+          "llm_shift": -0.09999999999999998,
+          "spread": 0.09999999999999998
+        }
+      }
+    },
+    {
+      "pair_idx": 46,
+      "a_title": "Will Elon Musk post 180-199 tweets from February 24 to March 3, 2026?",
+      "b_title": "Will the price of Bitcoin be above $64,000 on March 4?",
+      "a_resolved": "NO",
+      "b_price_before": 0.835,
+      "b_price_after": 0.81,
+      "market_shift": -0.02499999999999991,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.35,
+          "p_conditional": 0.5,
+          "llm_shift": 0.15000000000000002,
+          "spread": 0.15000000000000002
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.62,
+          "p_conditional": 0.5,
+          "llm_shift": -0.12,
+          "spread": 0.12
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.3,
+          "p_conditional": 0.5,
+          "llm_shift": 0.2,
+          "spread": 0.2
+        }
+      }
+    },
+    {
+      "pair_idx": 47,
+      "a_title": "Will Bologna FC 1909 win on 2026-03-02?",
+      "b_title": "Will Gholam-Hossein Mohseni-Eje'i be the next Supreme Leader of Iran?",
+      "a_resolved": "YES",
+      "b_price_before": 0.168,
+      "b_price_after": 0.19,
+      "market_shift": 0.021999999999999992,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.08,
+          "p_conditional": 0.15,
+          "llm_shift": 0.06999999999999999,
+          "spread": 0.06999999999999999
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.05,
+          "p_conditional": 0.5,
+          "llm_shift": 0.45,
+          "spread": 0.45
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.15,
+          "p_conditional": 0.1,
+          "llm_shift": -0.04999999999999999,
+          "spread": 0.04999999999999999
+        }
+      }
+    },
+    {
+      "pair_idx": 48,
+      "a_title": "Will Real Madrid CF win on 2026-03-02?",
+      "b_title": "US strikes Iraq by February 28?",
+      "a_resolved": "NO",
+      "b_price_before": 0.171,
+      "b_price_after": 0.15,
+      "market_shift": -0.02100000000000002,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.75,
+          "p_conditional": 0.35,
+          "llm_shift": -0.4,
+          "spread": 0.4
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.03,
+          "p_conditional": 0.5,
+          "llm_shift": 0.47,
+          "spread": 0.47
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.05,
+          "p_conditional": 0.1,
+          "llm_shift": 0.05,
+          "spread": 0.05
+        }
+      }
+    },
+    {
+      "pair_idx": 49,
+      "a_title": "Will Bologna FC 1909 win on 2026-03-02?",
+      "b_title": "Will Alireza Arafi be the next Supreme Leader of Iran?",
+      "a_resolved": "YES",
+      "b_price_before": 0.201,
+      "b_price_after": 0.2215,
+      "market_shift": 0.02049999999999999,
+      "model_results": {
+        "o3-2025-04-16": {
+          "p_unconditional": 0.5,
+          "p_conditional": 0.5,
+          "llm_shift": 0.0,
+          "spread": 0.0
+        },
+        "claude-opus-4-5-20251101": {
+          "p_unconditional": 0.08,
+          "p_conditional": 0.02,
+          "llm_shift": -0.06,
+          "spread": 0.06
+        },
+        "gpt-4.1-2025-04-14": {
+          "p_unconditional": 0.05,
+          "p_conditional": 0.0,
+          "llm_shift": -0.05,
+          "spread": 0.05
+        },
+        "claude-sonnet-4-20250514": {
+          "p_unconditional": 0.15,
+          "p_conditional": 0.1,
+          "llm_shift": -0.04999999999999999,
+          "spread": 0.04999999999999999
+        }
+      }
+    }
+  ],
+  "models": [
+    "o3-2025-04-16",
+    "claude-opus-4-5-20251101",
+    "gpt-4.1-2025-04-14",
+    "claude-sonnet-4-20250514"
+  ]
+}
