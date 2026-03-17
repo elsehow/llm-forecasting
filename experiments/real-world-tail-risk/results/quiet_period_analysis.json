@@ -1,0 +1,3098 @@
+[
+  {
+    "window": "Sep 2025",
+    "type": "quiet",
+    "cutoff": "2025-09-15",
+    "horizon": "H1",
+    "days": 7,
+    "cutoff_price": 63.29999923706055,
+    "actual": 62.63999938964844,
+    "actual_return": -1.0426537999477459,
+    "ovx": 30.97999954223633,
+    "avg_llm_vol": 26.70747219836057,
+    "avg_ratio": 0.8620875594897655,
+    "inside_pct": 96.15384615384616,
+    "models": [
+      {
+        "model": "claude-opus-4-5-20251101",
+        "llm_vol": 27.8,
+        "ratio": 0.897,
+        "p10": 59.5,
+        "p90": 67.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 30.6,
+        "ratio": 0.986,
+        "p10": 58.8,
+        "p90": 67.0
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 33.2,
+        "ratio": 1.073,
+        "p10": 59.0,
+        "p90": 68.0
+      },
+      {
+        "model": "claude-sonnet-4-20250514",
+        "llm_vol": 36.7,
+        "ratio": 1.183,
+        "p10": 59.0,
+        "p90": 69.0
+      },
+      {
+        "model": "claude-haiku-4-5-20251001",
+        "llm_vol": 19.7,
+        "ratio": 0.635,
+        "p10": 60.5,
+        "p90": 65.8
+      },
+      {
+        "model": "claude-3-haiku-20240307",
+        "llm_vol": 14.4,
+        "ratio": 0.465,
+        "p10": 63.0,
+        "p90": 67.0
+      },
+      {
+        "model": "gpt-5.1-2025-11-13",
+        "llm_vol": 44.4,
+        "ratio": 1.432,
+        "p10": 57.5,
+        "p90": 69.5
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 17.7,
+        "ratio": 0.571,
+        "p10": 61.1,
+        "p90": 65.9
+      },
+      {
+        "model": "gpt-5-mini-2025-08-07",
+        "llm_vol": 29.5,
+        "ratio": 0.953,
+        "p10": 59.5,
+        "p90": 67.5
+      },
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 15.9,
+        "ratio": 0.513,
+        "p10": 61.2,
+        "p90": 65.5
+      },
+      {
+        "model": "gpt-4o",
+        "llm_vol": 14.6,
+        "ratio": 0.472,
+        "p10": 62.0,
+        "p90": 66.0
+      },
+      {
+        "model": "o3-2025-04-16",
+        "llm_vol": 44.7,
+        "ratio": 1.444,
+        "p10": 57.0,
+        "p90": 69.0
+      },
+      {
+        "model": "o3-mini-2025-01-31",
+        "llm_vol": 14.0,
+        "ratio": 0.452,
+        "p10": 61.6,
+        "p90": 65.4
+      },
+      {
+        "model": "o4-mini-2025-04-16",
+        "llm_vol": 16.7,
+        "ratio": 0.538,
+        "p10": 61.0,
+        "p90": 65.5
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 27.8,
+        "ratio": 0.897,
+        "p10": 59.5,
+        "p90": 67.0
+      },
+      {
+        "model": "gemini-2.0-flash-lite-001",
+        "llm_vol": 14.9,
+        "ratio": 0.48,
+        "p10": 61.0,
+        "p90": 65.0
+      },
+      {
+        "model": "mistral-large-2411",
+        "llm_vol": 29.3,
+        "ratio": 0.946,
+        "p10": 60.0,
+        "p90": 68.0
+      },
+      {
+        "model": "mistral-large-2407",
+        "llm_vol": 22.0,
+        "ratio": 0.709,
+        "p10": 61.0,
+        "p90": 67.0
+      },
+      {
+        "model": "mistral-large-latest",
+        "llm_vol": 29.8,
+        "ratio": 0.961,
+        "p10": 59.0,
+        "p90": 67.0
+      },
+      {
+        "model": "DeepSeek-V3",
+        "llm_vol": 26.2,
+        "ratio": 0.847,
+        "p10": 59.0,
+        "p90": 66.0
+      },
+      {
+        "model": "DeepSeek-V3.1",
+        "llm_vol": 14.8,
+        "ratio": 0.476,
+        "p10": 61.5,
+        "p90": 65.5
+      },
+      {
+        "model": "Llama-3.3-70B-Instruct-Turbo",
+        "llm_vol": 36.1,
+        "ratio": 1.165,
+        "p10": 60.0,
+        "p90": 70.0
+      },
+      {
+        "model": "grok-4-fast-reasoning",
+        "llm_vol": 29.5,
+        "ratio": 0.953,
+        "p10": 59.5,
+        "p90": 67.5
+      },
+      {
+        "model": "grok-4-fast-non-reasoning",
+        "llm_vol": 44.7,
+        "ratio": 1.444,
+        "p10": 57.0,
+        "p90": 69.0
+      },
+      {
+        "model": "grok-4-1-fast-reasoning",
+        "llm_vol": 29.8,
+        "ratio": 0.961,
+        "p10": 59.0,
+        "p90": 67.0
+      },
+      {
+        "model": "grok-4-1-fast-non-reasoning",
+        "llm_vol": 29.8,
+        "ratio": 0.961,
+        "p10": 59.0,
+        "p90": 67.0
+      }
+    ]
+  },
+  {
+    "window": "Sep 2025",
+    "type": "quiet",
+    "cutoff": "2025-09-15",
+    "horizon": "H2",
+    "days": 14,
+    "cutoff_price": 63.29999923706055,
+    "actual": 63.45000076293945,
+    "actual_return": 0.2369692380518762,
+    "ovx": 30.97999954223633,
+    "avg_llm_vol": 24.27191528747598,
+    "avg_ratio": 0.7834704856720565,
+    "inside_pct": 100.0,
+    "models": [
+      {
+        "model": "claude-opus-4-5-20251101",
+        "llm_vol": 28.7,
+        "ratio": 0.928,
+        "p10": 58.0,
+        "p90": 69.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 27.3,
+        "ratio": 0.88,
+        "p10": 57.5,
+        "p90": 67.8
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 31.4,
+        "ratio": 1.013,
+        "p10": 57.5,
+        "p90": 69.5
+      },
+      {
+        "model": "claude-sonnet-4-20250514",
+        "llm_vol": 33.5,
+        "ratio": 1.081,
+        "p10": 58.0,
+        "p90": 71.0
+      },
+      {
+        "model": "claude-haiku-4-5-20251001",
+        "llm_vol": 19.3,
+        "ratio": 0.623,
+        "p10": 59.8,
+        "p90": 67.2
+      },
+      {
+        "model": "claude-3-haiku-20240307",
+        "llm_vol": 10.5,
+        "ratio": 0.339,
+        "p10": 61.0,
+        "p90": 65.0
+      },
+      {
+        "model": "gpt-5.1-2025-11-13",
+        "llm_vol": 39.3,
+        "ratio": 1.268,
+        "p10": 56.0,
+        "p90": 71.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 17.7,
+        "ratio": 0.572,
+        "p10": 60.2,
+        "p90": 67.0
+      },
+      {
+        "model": "gpt-5-mini-2025-08-07",
+        "llm_vol": 25.5,
+        "ratio": 0.824,
+        "p10": 58.8,
+        "p90": 68.6
+      },
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 13.0,
+        "ratio": 0.421,
+        "p10": 61.0,
+        "p90": 66.0
+      },
+      {
+        "model": "gpt-4o",
+        "llm_vol": 10.5,
+        "ratio": 0.339,
+        "p10": 61.0,
+        "p90": 65.0
+      },
+      {
+        "model": "o3-2025-04-16",
+        "llm_vol": 39.3,
+        "ratio": 1.268,
+        "p10": 56.0,
+        "p90": 71.0
+      },
+      {
+        "model": "o3-mini-2025-01-31",
+        "llm_vol": 11.9,
+        "ratio": 0.385,
+        "p10": 61.5,
+        "p90": 66.1
+      },
+      {
+        "model": "o4-mini-2025-04-16",
+        "llm_vol": 17.0,
+        "ratio": 0.55,
+        "p10": 60.0,
+        "p90": 66.5
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 27.5,
+        "ratio": 0.889,
+        "p10": 58.0,
+        "p90": 68.5
+      },
+      {
+        "model": "gemini-2.0-flash-lite-001",
+        "llm_vol": 10.7,
+        "ratio": 0.345,
+        "p10": 60.0,
+        "p90": 64.0
+      },
+      {
+        "model": "mistral-large-2411",
+        "llm_vol": 21.0,
+        "ratio": 0.679,
+        "p10": 59.0,
+        "p90": 67.0
+      },
+      {
+        "model": "mistral-large-2407",
+        "llm_vol": 23.1,
+        "ratio": 0.747,
+        "p10": 60.0,
+        "p90": 69.0
+      },
+      {
+        "model": "mistral-large-latest",
+        "llm_vol": 28.7,
+        "ratio": 0.928,
+        "p10": 58.0,
+        "p90": 69.0
+      },
+      {
+        "model": "DeepSeek-V3",
+        "llm_vol": 25.5,
+        "ratio": 0.824,
+        "p10": 57.0,
+        "p90": 66.5
+      },
+      {
+        "model": "DeepSeek-V3.1",
+        "llm_vol": 13.2,
+        "ratio": 0.428,
+        "p10": 60.0,
+        "p90": 65.0
+      },
+      {
+        "model": "Llama-3.3-70B-Instruct-Turbo",
+        "llm_vol": 33.0,
+        "ratio": 1.064,
+        "p10": 59.0,
+        "p90": 72.0
+      },
+      {
+        "model": "grok-4-fast-reasoning",
+        "llm_vol": 28.7,
+        "ratio": 0.928,
+        "p10": 58.0,
+        "p90": 69.0
+      },
+      {
+        "model": "grok-4-fast-non-reasoning",
+        "llm_vol": 36.9,
+        "ratio": 1.192,
+        "p10": 56.0,
+        "p90": 70.0
+      },
+      {
+        "model": "grok-4-1-fast-reasoning",
+        "llm_vol": 28.7,
+        "ratio": 0.928,
+        "p10": 58.0,
+        "p90": 69.0
+      },
+      {
+        "model": "grok-4-1-fast-non-reasoning",
+        "llm_vol": 28.7,
+        "ratio": 0.928,
+        "p10": 58.0,
+        "p90": 69.0
+      }
+    ]
+  },
+  {
+    "window": "Sep 2025",
+    "type": "quiet",
+    "cutoff": "2025-09-15",
+    "horizon": "H3",
+    "days": 21,
+    "cutoff_price": 63.29999923706055,
+    "actual": 61.689998626708984,
+    "actual_return": -2.5434449127274994,
+    "ovx": 30.97999954223633,
+    "avg_llm_vol": 24.00061347955996,
+    "avg_ratio": 0.7747131644349742,
+    "inside_pct": 96.15384615384616,
+    "models": [
+      {
+        "model": "claude-opus-4-5-20251101",
+        "llm_vol": 30.6,
+        "ratio": 0.989,
+        "p10": 57.0,
+        "p90": 71.5
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 27.2,
+        "ratio": 0.879,
+        "p10": 56.0,
+        "p90": 68.5
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 29.9,
+        "ratio": 0.966,
+        "p10": 56.5,
+        "p90": 70.5
+      },
+      {
+        "model": "claude-sonnet-4-20250514",
+        "llm_vol": 33.4,
+        "ratio": 1.079,
+        "p10": 57.0,
+        "p90": 73.0
+      },
+      {
+        "model": "claude-haiku-4-5-20251001",
+        "llm_vol": 22.0,
+        "ratio": 0.71,
+        "p10": 58.8,
+        "p90": 69.2
+      },
+      {
+        "model": "claude-3-haiku-20240307",
+        "llm_vol": 8.9,
+        "ratio": 0.286,
+        "p10": 59.0,
+        "p90": 63.0
+      },
+      {
+        "model": "gpt-5.1-2025-11-13",
+        "llm_vol": 38.6,
+        "ratio": 1.245,
+        "p10": 54.5,
+        "p90": 72.5
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 18.7,
+        "ratio": 0.603,
+        "p10": 59.4,
+        "p90": 68.2
+      },
+      {
+        "model": "gpt-5-mini-2025-08-07",
+        "llm_vol": 25.2,
+        "ratio": 0.813,
+        "p10": 58.1,
+        "p90": 70.0
+      },
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 13.9,
+        "ratio": 0.449,
+        "p10": 60.0,
+        "p90": 66.5
+      },
+      {
+        "model": "gpt-4o",
+        "llm_vol": 8.7,
+        "ratio": 0.282,
+        "p10": 60.0,
+        "p90": 64.0
+      },
+      {
+        "model": "o3-2025-04-16",
+        "llm_vol": 38.3,
+        "ratio": 1.235,
+        "p10": 55.0,
+        "p90": 73.0
+      },
+      {
+        "model": "o3-mini-2025-01-31",
+        "llm_vol": 10.9,
+        "ratio": 0.353,
+        "p10": 61.7,
+        "p90": 66.9
+      },
+      {
+        "model": "o4-mini-2025-04-16",
+        "llm_vol": 15.2,
+        "ratio": 0.489,
+        "p10": 59.0,
+        "p90": 66.0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 29.0,
+        "ratio": 0.935,
+        "p10": 56.5,
+        "p90": 70.0
+      },
+      {
+        "model": "gemini-2.0-flash-lite-001",
+        "llm_vol": 8.9,
+        "ratio": 0.286,
+        "p10": 59.0,
+        "p90": 63.0
+      },
+      {
+        "model": "mistral-large-2411",
+        "llm_vol": 17.5,
+        "ratio": 0.564,
+        "p10": 58.0,
+        "p90": 66.0
+      },
+      {
+        "model": "mistral-large-2407",
+        "llm_vol": 29.2,
+        "ratio": 0.943,
+        "p10": 58.0,
+        "p90": 72.0
+      },
+      {
+        "model": "mistral-large-latest",
+        "llm_vol": 29.7,
+        "ratio": 0.958,
+        "p10": 57.0,
+        "p90": 71.0
+      },
+      {
+        "model": "DeepSeek-V3",
+        "llm_vol": 24.6,
+        "ratio": 0.795,
+        "p10": 55.0,
+        "p90": 66.0
+      },
+      {
+        "model": "DeepSeek-V3.1",
+        "llm_vol": 19.5,
+        "ratio": 0.629,
+        "p10": 58.0,
+        "p90": 67.0
+      },
+      {
+        "model": "Llama-3.3-70B-Instruct-Turbo",
+        "llm_vol": 25.4,
+        "ratio": 0.82,
+        "p10": 58.0,
+        "p90": 70.0
+      },
+      {
+        "model": "grok-4-fast-reasoning",
+        "llm_vol": 28.7,
+        "ratio": 0.927,
+        "p10": 57.0,
+        "p90": 70.5
+      },
+      {
+        "model": "grok-4-fast-non-reasoning",
+        "llm_vol": 32.6,
+        "ratio": 1.052,
+        "p10": 55.0,
+        "p90": 70.0
+      },
+      {
+        "model": "grok-4-1-fast-reasoning",
+        "llm_vol": 29.7,
+        "ratio": 0.958,
+        "p10": 57.0,
+        "p90": 71.0
+      },
+      {
+        "model": "grok-4-1-fast-non-reasoning",
+        "llm_vol": 27.8,
+        "ratio": 0.896,
+        "p10": 57.0,
+        "p90": 70.0
+      }
+    ]
+  },
+  {
+    "window": "Oct 2025",
+    "type": "quiet",
+    "cutoff": "2025-10-20",
+    "horizon": "H1",
+    "days": 7,
+    "cutoff_price": 57.52000045776367,
+    "actual": 61.310001373291016,
+    "actual_return": 6.589014056615494,
+    "ovx": 36.77000045776367,
+    "avg_llm_vol": 32.66402541213875,
+    "avg_ratio": 0.8883335601167233,
+    "inside_pct": 60.71428571428571,
+    "models": [
+      {
+        "model": "claude-opus-4-5-20251101",
+        "llm_vol": 28.5,
+        "ratio": 0.776,
+        "p10": 54.0,
+        "p90": 61.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 28.6,
+        "ratio": 0.779,
+        "p10": 53.8,
+        "p90": 60.8
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 36.7,
+        "ratio": 0.999,
+        "p10": 53.0,
+        "p90": 62.0
+      },
+      {
+        "model": "claude-sonnet-4-20250514",
+        "llm_vol": 58.3,
+        "ratio": 1.587,
+        "p10": 53.0,
+        "p90": 68.0
+      },
+      {
+        "model": "claude-haiku-4-5-20251001",
+        "llm_vol": 33.9,
+        "ratio": 0.922,
+        "p10": 55.8,
+        "p90": 64.5
+      },
+      {
+        "model": "claude-3-haiku-20240307",
+        "llm_vol": 30.2,
+        "ratio": 0.823,
+        "p10": 58.0,
+        "p90": 66.0
+      },
+      {
+        "model": "gpt-5.1-2025-11-13",
+        "llm_vol": 40.5,
+        "ratio": 1.1,
+        "p10": 53.0,
+        "p90": 63.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 21.1,
+        "ratio": 0.574,
+        "p10": 54.69,
+        "p90": 59.85
+      },
+      {
+        "model": "gpt-5-mini-2025-08-07",
+        "llm_vol": 41.9,
+        "ratio": 1.141,
+        "p10": 53.5,
+        "p90": 64.0
+      },
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 17.6,
+        "ratio": 0.478,
+        "p10": 55.2,
+        "p90": 59.5
+      },
+      {
+        "model": "gpt-4o",
+        "llm_vol": 15.9,
+        "ratio": 0.432,
+        "p10": 57.0,
+        "p90": 61.0
+      },
+      {
+        "model": "o3-2025-04-16",
+        "llm_vol": 21.3,
+        "ratio": 0.58,
+        "p10": 54.5,
+        "p90": 59.7
+      },
+      {
+        "model": "o3-mini-2025-01-31",
+        "llm_vol": 15.6,
+        "ratio": 0.424,
+        "p10": 55.2,
+        "p90": 59.0
+      },
+      {
+        "model": "o4-mini-2025-04-16",
+        "llm_vol": 27.1,
+        "ratio": 0.737,
+        "p10": 57.0,
+        "p90": 64.0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 24.4,
+        "ratio": 0.665,
+        "p10": 54.5,
+        "p90": 60.5
+      },
+      {
+        "model": "gemini-2.0-flash-lite-001",
+        "llm_vol": 47.0,
+        "ratio": 1.278,
+        "p10": 54.0,
+        "p90": 66.0
+      },
+      {
+        "model": "mistral-large-2411",
+        "llm_vol": 30.2,
+        "ratio": 0.823,
+        "p10": 58.0,
+        "p90": 66.0
+      },
+      {
+        "model": "mistral-large-2407",
+        "llm_vol": 39.8,
+        "ratio": 1.082,
+        "p10": 54.0,
+        "p90": 64.0
+      },
+      {
+        "model": "mistral-large-latest",
+        "llm_vol": 42.7,
+        "ratio": 1.161,
+        "p10": 55.0,
+        "p90": 66.0
+      },
+      {
+        "model": "DeepSeek-V3",
+        "llm_vol": 32.3,
+        "ratio": 0.88,
+        "p10": 54.0,
+        "p90": 62.0
+      },
+      {
+        "model": "DeepSeek-V3.1",
+        "llm_vol": 21.9,
+        "ratio": 0.596,
+        "p10": 56.0,
+        "p90": 61.5
+      },
+      {
+        "model": "Llama-3.3-70B-Instruct-Turbo",
+        "llm_vol": 52.2,
+        "ratio": 1.421,
+        "p10": 52.0,
+        "p90": 65.0
+      },
+      {
+        "model": "Mixtral-8x7B-Instruct-v0.1",
+        "llm_vol": 53.1,
+        "ratio": 1.444,
+        "p10": 63.69,
+        "p90": 79.91
+      },
+      {
+        "model": "grok-4-0709",
+        "llm_vol": 20.7,
+        "ratio": 0.562,
+        "p10": 54.2,
+        "p90": 59.2
+      },
+      {
+        "model": "grok-4-fast-reasoning",
+        "llm_vol": 24.7,
+        "ratio": 0.671,
+        "p10": 54.0,
+        "p90": 60.0
+      },
+      {
+        "model": "grok-4-fast-non-reasoning",
+        "llm_vol": 36.7,
+        "ratio": 0.999,
+        "p10": 53.0,
+        "p90": 62.0
+      },
+      {
+        "model": "grok-4-1-fast-reasoning",
+        "llm_vol": 32.3,
+        "ratio": 0.88,
+        "p10": 54.0,
+        "p90": 62.0
+      },
+      {
+        "model": "grok-4-1-fast-non-reasoning",
+        "llm_vol": 39.1,
+        "ratio": 1.064,
+        "p10": 55.0,
+        "p90": 65.0
+      }
+    ]
+  },
+  {
+    "window": "Oct 2025",
+    "type": "quiet",
+    "cutoff": "2025-10-20",
+    "horizon": "H2",
+    "days": 14,
+    "cutoff_price": 57.52000045776367,
+    "actual": 61.04999923706055,
+    "actual_return": 6.136993656474177,
+    "ovx": 36.77000045776367,
+    "avg_llm_vol": 27.872290172233104,
+    "avg_ratio": 0.7580171287799945,
+    "inside_pct": 64.28571428571429,
+    "models": [
+      {
+        "model": "claude-opus-4-5-20251101",
+        "llm_vol": 29.9,
+        "ratio": 0.814,
+        "p10": 53.0,
+        "p90": 63.5
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 27.0,
+        "ratio": 0.734,
+        "p10": 52.5,
+        "p90": 61.8
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 36.9,
+        "ratio": 1.005,
+        "p10": 52.0,
+        "p90": 65.0
+      },
+      {
+        "model": "claude-sonnet-4-20250514",
+        "llm_vol": 58.4,
+        "ratio": 1.588,
+        "p10": 52.0,
+        "p90": 74.0
+      },
+      {
+        "model": "claude-haiku-4-5-20251001",
+        "llm_vol": 24.3,
+        "ratio": 0.66,
+        "p10": 57.0,
+        "p90": 66.0
+      },
+      {
+        "model": "claude-3-haiku-20240307",
+        "llm_vol": 21.7,
+        "ratio": 0.591,
+        "p10": 57.0,
+        "p90": 65.0
+      },
+      {
+        "model": "gpt-5.1-2025-11-13",
+        "llm_vol": 29.1,
+        "ratio": 0.792,
+        "p10": 52.0,
+        "p90": 62.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 21.2,
+        "ratio": 0.577,
+        "p10": 53.37,
+        "p90": 60.67
+      },
+      {
+        "model": "gpt-5-mini-2025-08-07",
+        "llm_vol": 44.4,
+        "ratio": 1.208,
+        "p10": 52.0,
+        "p90": 68.0
+      },
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 15.0,
+        "ratio": 0.408,
+        "p10": 53.7,
+        "p90": 58.8
+      },
+      {
+        "model": "gpt-4o",
+        "llm_vol": 11.4,
+        "ratio": 0.311,
+        "p10": 56.0,
+        "p90": 60.0
+      },
+      {
+        "model": "o3-2025-04-16",
+        "llm_vol": 21.7,
+        "ratio": 0.591,
+        "p10": 53.5,
+        "p90": 61.0
+      },
+      {
+        "model": "o3-mini-2025-01-31",
+        "llm_vol": 13.8,
+        "ratio": 0.375,
+        "p10": 55.2,
+        "p90": 60.0
+      },
+      {
+        "model": "o4-mini-2025-04-16",
+        "llm_vol": 18.9,
+        "ratio": 0.513,
+        "p10": 58.0,
+        "p90": 65.0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 25.4,
+        "ratio": 0.692,
+        "p10": 53.0,
+        "p90": 61.8
+      },
+      {
+        "model": "gemini-2.0-flash-lite-001",
+        "llm_vol": 34.4,
+        "ratio": 0.935,
+        "p10": 52.0,
+        "p90": 64.0
+      },
+      {
+        "model": "mistral-large-2411",
+        "llm_vol": 21.0,
+        "ratio": 0.572,
+        "p10": 59.0,
+        "p90": 67.0
+      },
+      {
+        "model": "mistral-large-2407",
+        "llm_vol": 28.6,
+        "ratio": 0.778,
+        "p10": 53.0,
+        "p90": 63.0
+      },
+      {
+        "model": "mistral-large-latest",
+        "llm_vol": 38.2,
+        "ratio": 1.038,
+        "p10": 54.0,
+        "p90": 68.0
+      },
+      {
+        "model": "DeepSeek-V3",
+        "llm_vol": 23.3,
+        "ratio": 0.633,
+        "p10": 53.0,
+        "p90": 61.0
+      },
+      {
+        "model": "DeepSeek-V3.1",
+        "llm_vol": 18.7,
+        "ratio": 0.507,
+        "p10": 54.5,
+        "p90": 61.0
+      },
+      {
+        "model": "Llama-3.3-70B-Instruct-Turbo",
+        "llm_vol": 37.6,
+        "ratio": 1.022,
+        "p10": 51.0,
+        "p90": 64.0
+      },
+      {
+        "model": "Mixtral-8x7B-Instruct-v0.1",
+        "llm_vol": 38.1,
+        "ratio": 1.036,
+        "p10": 64.68,
+        "p90": 81.41
+      },
+      {
+        "model": "grok-4-0709",
+        "llm_vol": 20.8,
+        "ratio": 0.564,
+        "p10": 52.4,
+        "p90": 59.4
+      },
+      {
+        "model": "grok-4-fast-reasoning",
+        "llm_vol": 20.5,
+        "ratio": 0.558,
+        "p10": 53.0,
+        "p90": 60.0
+      },
+      {
+        "model": "grok-4-fast-non-reasoning",
+        "llm_vol": 31.2,
+        "ratio": 0.849,
+        "p10": 53.0,
+        "p90": 64.0
+      },
+      {
+        "model": "grok-4-1-fast-reasoning",
+        "llm_vol": 33.8,
+        "ratio": 0.919,
+        "p10": 53.0,
+        "p90": 65.0
+      },
+      {
+        "model": "grok-4-1-fast-non-reasoning",
+        "llm_vol": 35.1,
+        "ratio": 0.955,
+        "p10": 55.0,
+        "p90": 68.0
+      }
+    ]
+  },
+  {
+    "window": "Oct 2025",
+    "type": "quiet",
+    "cutoff": "2025-10-20",
+    "horizon": "H3",
+    "days": 21,
+    "cutoff_price": 57.52000045776367,
+    "actual": 60.130001068115234,
+    "actual_return": 4.5375531807724245,
+    "ovx": 36.77000045776367,
+    "avg_llm_vol": 26.256056418641798,
+    "avg_ratio": 0.7140619007824366,
+    "inside_pct": 82.14285714285714,
+    "models": [
+      {
+        "model": "claude-opus-4-5-20251101",
+        "llm_vol": 30.9,
+        "ratio": 0.841,
+        "p10": 52.5,
+        "p90": 66.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 26.8,
+        "ratio": 0.729,
+        "p10": 51.5,
+        "p90": 62.8
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 36.9,
+        "ratio": 1.003,
+        "p10": 51.0,
+        "p90": 67.0
+      },
+      {
+        "model": "claude-sonnet-4-20250514",
+        "llm_vol": 58.2,
+        "ratio": 1.583,
+        "p10": 52.0,
+        "p90": 80.0
+      },
+      {
+        "model": "claude-haiku-4-5-20251001",
+        "llm_vol": 20.7,
+        "ratio": 0.562,
+        "p10": 57.5,
+        "p90": 67.0
+      },
+      {
+        "model": "claude-3-haiku-20240307",
+        "llm_vol": 18.0,
+        "ratio": 0.491,
+        "p10": 56.0,
+        "p90": 64.0
+      },
+      {
+        "model": "gpt-5.1-2025-11-13",
+        "llm_vol": 24.2,
+        "ratio": 0.658,
+        "p10": 51.0,
+        "p90": 61.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 21.3,
+        "ratio": 0.58,
+        "p10": 52.3,
+        "p90": 61.24
+      },
+      {
+        "model": "gpt-5-mini-2025-08-07",
+        "llm_vol": 44.0,
+        "ratio": 1.196,
+        "p10": 52.0,
+        "p90": 72.0
+      },
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 14.8,
+        "ratio": 0.401,
+        "p10": 52.0,
+        "p90": 58.0
+      },
+      {
+        "model": "gpt-4o",
+        "llm_vol": 9.5,
+        "ratio": 0.258,
+        "p10": 55.0,
+        "p90": 59.0
+      },
+      {
+        "model": "o3-2025-04-16",
+        "llm_vol": 24.9,
+        "ratio": 0.676,
+        "p10": 52.0,
+        "p90": 62.5
+      },
+      {
+        "model": "o3-mini-2025-01-31",
+        "llm_vol": 12.8,
+        "ratio": 0.347,
+        "p10": 55.5,
+        "p90": 61.0
+      },
+      {
+        "model": "o4-mini-2025-04-16",
+        "llm_vol": 15.2,
+        "ratio": 0.412,
+        "p10": 59.0,
+        "p90": 66.0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 27.5,
+        "ratio": 0.747,
+        "p10": 51.5,
+        "p90": 63.1
+      },
+      {
+        "model": "gemini-2.0-flash-lite-001",
+        "llm_vol": 29.1,
+        "ratio": 0.791,
+        "p10": 50.0,
+        "p90": 62.0
+      },
+      {
+        "model": "mistral-large-2411",
+        "llm_vol": 16.9,
+        "ratio": 0.46,
+        "p10": 60.0,
+        "p90": 68.0
+      },
+      {
+        "model": "mistral-large-2407",
+        "llm_vol": 23.8,
+        "ratio": 0.647,
+        "p10": 52.0,
+        "p90": 62.0
+      },
+      {
+        "model": "mistral-large-latest",
+        "llm_vol": 37.6,
+        "ratio": 1.023,
+        "p10": 53.0,
+        "p90": 70.0
+      },
+      {
+        "model": "DeepSeek-V3",
+        "llm_vol": 19.3,
+        "ratio": 0.526,
+        "p10": 52.0,
+        "p90": 60.0
+      },
+      {
+        "model": "DeepSeek-V3.1",
+        "llm_vol": 17.9,
+        "ratio": 0.486,
+        "p10": 53.0,
+        "p90": 60.5
+      },
+      {
+        "model": "Llama-3.3-70B-Instruct-Turbo",
+        "llm_vol": 31.2,
+        "ratio": 0.849,
+        "p10": 50.0,
+        "p90": 63.0
+      },
+      {
+        "model": "Mixtral-8x7B-Instruct-v0.1",
+        "llm_vol": 31.9,
+        "ratio": 0.867,
+        "p10": 65.32,
+        "p90": 82.69
+      },
+      {
+        "model": "grok-4-0709",
+        "llm_vol": 20.9,
+        "ratio": 0.568,
+        "p10": 50.9,
+        "p90": 59.4
+      },
+      {
+        "model": "grok-4-fast-reasoning",
+        "llm_vol": 21.6,
+        "ratio": 0.587,
+        "p10": 52.0,
+        "p90": 61.0
+      },
+      {
+        "model": "grok-4-fast-non-reasoning",
+        "llm_vol": 30.2,
+        "ratio": 0.82,
+        "p10": 52.0,
+        "p90": 65.0
+      },
+      {
+        "model": "grok-4-1-fast-reasoning",
+        "llm_vol": 34.3,
+        "ratio": 0.932,
+        "p10": 52.0,
+        "p90": 67.0
+      },
+      {
+        "model": "grok-4-1-fast-non-reasoning",
+        "llm_vol": 35.1,
+        "ratio": 0.954,
+        "p10": 54.0,
+        "p90": 70.0
+      }
+    ]
+  },
+  {
+    "window": "Nov 2025",
+    "type": "quiet",
+    "cutoff": "2025-11-24",
+    "horizon": "H1",
+    "days": 7,
+    "cutoff_price": 58.84000015258789,
+    "actual": 59.31999969482422,
+    "actual_return": 0.8157708038605715,
+    "ovx": 36.29999923706055,
+    "avg_llm_vol": 37.69956410347432,
+    "avg_ratio": 1.038555506772157,
+    "inside_pct": 96.29629629629629,
+    "models": [
+      {
+        "model": "claude-opus-4-5-20251101",
+        "llm_vol": 24.0,
+        "ratio": 0.662,
+        "p10": 55.5,
+        "p90": 61.5
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 25.2,
+        "ratio": 0.693,
+        "p10": 55.5,
+        "p90": 61.8
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 39.1,
+        "ratio": 1.077,
+        "p10": 55.0,
+        "p90": 65.0
+      },
+      {
+        "model": "claude-sonnet-4-20250514",
+        "llm_vol": 54.0,
+        "ratio": 1.487,
+        "p10": 54.0,
+        "p90": 68.0
+      },
+      {
+        "model": "claude-haiku-4-5-20251001",
+        "llm_vol": 31.8,
+        "ratio": 0.876,
+        "p10": 55.0,
+        "p90": 63.0
+      },
+      {
+        "model": "claude-3-haiku-20240307",
+        "llm_vol": 42.7,
+        "ratio": 1.176,
+        "p10": 60.0,
+        "p90": 72.0
+      },
+      {
+        "model": "gpt-5.1-2025-11-13",
+        "llm_vol": 47.0,
+        "ratio": 1.294,
+        "p10": 54.0,
+        "p90": 66.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 32.7,
+        "ratio": 0.901,
+        "p10": 54.7,
+        "p90": 62.9
+      },
+      {
+        "model": "gpt-5-mini-2025-08-07",
+        "llm_vol": 47.0,
+        "ratio": 1.294,
+        "p10": 54.0,
+        "p90": 66.0
+      },
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 31.8,
+        "ratio": 0.876,
+        "p10": 55.0,
+        "p90": 63.0
+      },
+      {
+        "model": "gpt-4o",
+        "llm_vol": 26.7,
+        "ratio": 0.735,
+        "p10": 58.0,
+        "p90": 65.0
+      },
+      {
+        "model": "o3-2025-04-16",
+        "llm_vol": 31.8,
+        "ratio": 0.876,
+        "p10": 55.0,
+        "p90": 63.0
+      },
+      {
+        "model": "o3-mini-2025-01-31",
+        "llm_vol": 15.6,
+        "ratio": 0.43,
+        "p10": 58.0,
+        "p90": 62.0
+      },
+      {
+        "model": "o4-mini-2025-04-16",
+        "llm_vol": 35.5,
+        "ratio": 0.977,
+        "p10": 55.0,
+        "p90": 64.0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 32.1,
+        "ratio": 0.883,
+        "p10": 54.5,
+        "p90": 62.5
+      },
+      {
+        "model": "gemini-2.0-flash-lite-001",
+        "llm_vol": 30.7,
+        "ratio": 0.847,
+        "p10": 57.0,
+        "p90": 65.0
+      },
+      {
+        "model": "mistral-large-2411",
+        "llm_vol": 60.2,
+        "ratio": 1.658,
+        "p10": 58.0,
+        "p90": 75.0
+      },
+      {
+        "model": "mistral-large-2407",
+        "llm_vol": 71.7,
+        "ratio": 1.976,
+        "p10": 53.0,
+        "p90": 72.0
+      },
+      {
+        "model": "mistral-large-latest",
+        "llm_vol": 42.7,
+        "ratio": 1.176,
+        "p10": 55.0,
+        "p90": 66.0
+      },
+      {
+        "model": "DeepSeek-V3",
+        "llm_vol": 31.6,
+        "ratio": 0.87,
+        "p10": 56.8,
+        "p90": 65.0
+      },
+      {
+        "model": "DeepSeek-V3.1",
+        "llm_vol": 31.3,
+        "ratio": 0.861,
+        "p10": 56.0,
+        "p90": 64.0
+      },
+      {
+        "model": "Llama-3.3-70B-Instruct-Turbo",
+        "llm_vol": 52.2,
+        "ratio": 1.439,
+        "p10": 52.0,
+        "p90": 65.0
+      },
+      {
+        "model": "grok-4-0709",
+        "llm_vol": 34.8,
+        "ratio": 0.96,
+        "p10": 53.6,
+        "p90": 62.2
+      },
+      {
+        "model": "grok-4-fast-reasoning",
+        "llm_vol": 35.5,
+        "ratio": 0.977,
+        "p10": 55.0,
+        "p90": 64.0
+      },
+      {
+        "model": "grok-4-fast-non-reasoning",
+        "llm_vol": 32.3,
+        "ratio": 0.891,
+        "p10": 54.0,
+        "p90": 62.0
+      },
+      {
+        "model": "grok-4-1-fast-reasoning",
+        "llm_vol": 27.6,
+        "ratio": 0.76,
+        "p10": 56.0,
+        "p90": 63.0
+      },
+      {
+        "model": "grok-4-1-fast-non-reasoning",
+        "llm_vol": 50.5,
+        "ratio": 1.391,
+        "p10": 54.0,
+        "p90": 67.0
+      }
+    ]
+  },
+  {
+    "window": "Nov 2025",
+    "type": "quiet",
+    "cutoff": "2025-11-24",
+    "horizon": "H2",
+    "days": 14,
+    "cutoff_price": 58.84000015258789,
+    "actual": 58.880001068115234,
+    "actual_return": 0.06798252111421821,
+    "ovx": 36.29999923706055,
+    "avg_llm_vol": 32.16623702976454,
+    "avg_ratio": 0.8861222508490955,
+    "inside_pct": 96.29629629629629,
+    "models": [
+      {
+        "model": "claude-opus-4-5-20251101",
+        "llm_vol": 24.2,
+        "ratio": 0.667,
+        "p10": 54.0,
+        "p90": 62.5
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 25.6,
+        "ratio": 0.705,
+        "p10": 53.8,
+        "p90": 62.8
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 35.7,
+        "ratio": 0.984,
+        "p10": 54.0,
+        "p90": 67.0
+      },
+      {
+        "model": "claude-sonnet-4-20250514",
+        "llm_vol": 46.1,
+        "ratio": 1.269,
+        "p10": 53.0,
+        "p90": 70.0
+      },
+      {
+        "model": "claude-haiku-4-5-20251001",
+        "llm_vol": 33.2,
+        "ratio": 0.915,
+        "p10": 54.0,
+        "p90": 66.0
+      },
+      {
+        "model": "claude-3-haiku-20240307",
+        "llm_vol": 30.6,
+        "ratio": 0.844,
+        "p10": 59.0,
+        "p90": 71.0
+      },
+      {
+        "model": "gpt-5.1-2025-11-13",
+        "llm_vol": 43.7,
+        "ratio": 1.203,
+        "p10": 53.0,
+        "p90": 69.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 28.8,
+        "ratio": 0.793,
+        "p10": 53.7,
+        "p90": 63.9
+      },
+      {
+        "model": "gpt-5-mini-2025-08-07",
+        "llm_vol": 41.3,
+        "ratio": 1.136,
+        "p10": 53.0,
+        "p90": 68.0
+      },
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 28.1,
+        "ratio": 0.775,
+        "p10": 54.0,
+        "p90": 64.0
+      },
+      {
+        "model": "gpt-4o",
+        "llm_vol": 19.2,
+        "ratio": 0.528,
+        "p10": 57.0,
+        "p90": 64.0
+      },
+      {
+        "model": "o3-2025-04-16",
+        "llm_vol": 31.2,
+        "ratio": 0.86,
+        "p10": 53.0,
+        "p90": 64.0
+      },
+      {
+        "model": "o3-mini-2025-01-31",
+        "llm_vol": 17.9,
+        "ratio": 0.492,
+        "p10": 57.0,
+        "p90": 63.5
+      },
+      {
+        "model": "o4-mini-2025-04-16",
+        "llm_vol": 25.5,
+        "ratio": 0.703,
+        "p10": 54.0,
+        "p90": 63.0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 31.5,
+        "ratio": 0.867,
+        "p10": 52.5,
+        "p90": 63.5
+      },
+      {
+        "model": "gemini-2.0-flash-lite-001",
+        "llm_vol": 22.1,
+        "ratio": 0.609,
+        "p10": 56.0,
+        "p90": 64.0
+      },
+      {
+        "model": "mistral-large-2411",
+        "llm_vol": 46.1,
+        "ratio": 1.271,
+        "p10": 56.0,
+        "p90": 74.0
+      },
+      {
+        "model": "mistral-large-2407",
+        "llm_vol": 49.9,
+        "ratio": 1.375,
+        "p10": 54.0,
+        "p90": 73.0
+      },
+      {
+        "model": "mistral-large-latest",
+        "llm_vol": 40.6,
+        "ratio": 1.118,
+        "p10": 54.0,
+        "p90": 69.0
+      },
+      {
+        "model": "DeepSeek-V3",
+        "llm_vol": 25.1,
+        "ratio": 0.69,
+        "p10": 56.3,
+        "p90": 65.5
+      },
+      {
+        "model": "DeepSeek-V3.1",
+        "llm_vol": 27.7,
+        "ratio": 0.762,
+        "p10": 55.0,
+        "p90": 65.0
+      },
+      {
+        "model": "Llama-3.3-70B-Instruct-Turbo",
+        "llm_vol": 37.6,
+        "ratio": 1.035,
+        "p10": 51.0,
+        "p90": 64.0
+      },
+      {
+        "model": "grok-4-0709",
+        "llm_vol": 34.7,
+        "ratio": 0.955,
+        "p10": 51.1,
+        "p90": 63.0
+      },
+      {
+        "model": "grok-4-fast-reasoning",
+        "llm_vol": 30.7,
+        "ratio": 0.845,
+        "p10": 54.0,
+        "p90": 65.0
+      },
+      {
+        "model": "grok-4-fast-non-reasoning",
+        "llm_vol": 26.0,
+        "ratio": 0.715,
+        "p10": 53.0,
+        "p90": 62.0
+      },
+      {
+        "model": "grok-4-1-fast-reasoning",
+        "llm_vol": 25.1,
+        "ratio": 0.691,
+        "p10": 55.0,
+        "p90": 64.0
+      },
+      {
+        "model": "grok-4-1-fast-non-reasoning",
+        "llm_vol": 40.6,
+        "ratio": 1.118,
+        "p10": 54.0,
+        "p90": 69.0
+      }
+    ]
+  },
+  {
+    "window": "Nov 2025",
+    "type": "quiet",
+    "cutoff": "2025-11-24",
+    "horizon": "H3",
+    "days": 21,
+    "cutoff_price": 58.84000015258789,
+    "actual": 56.81999969482422,
+    "actual_return": -3.433039518227854,
+    "ovx": 36.29999923706055,
+    "avg_llm_vol": 30.756956515017396,
+    "avg_ratio": 0.8472990953568953,
+    "inside_pct": 96.29629629629629,
+    "models": [
+      {
+        "model": "claude-opus-4-5-20251101",
+        "llm_vol": 23.4,
+        "ratio": 0.644,
+        "p10": 53.0,
+        "p90": 63.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 25.7,
+        "ratio": 0.708,
+        "p10": 52.5,
+        "p90": 63.5
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 35.7,
+        "ratio": 0.982,
+        "p10": 53.0,
+        "p90": 69.0
+      },
+      {
+        "model": "claude-sonnet-4-20250514",
+        "llm_vol": 44.0,
+        "ratio": 1.212,
+        "p10": 52.0,
+        "p90": 72.0
+      },
+      {
+        "model": "claude-haiku-4-5-20251001",
+        "llm_vol": 33.7,
+        "ratio": 0.928,
+        "p10": 53.0,
+        "p90": 68.0
+      },
+      {
+        "model": "claude-3-haiku-20240307",
+        "llm_vol": 25.4,
+        "ratio": 0.7,
+        "p10": 58.0,
+        "p90": 70.0
+      },
+      {
+        "model": "gpt-5.1-2025-11-13",
+        "llm_vol": 44.0,
+        "ratio": 1.212,
+        "p10": 52.0,
+        "p90": 72.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 29.3,
+        "ratio": 0.808,
+        "p10": 52.0,
+        "p90": 64.6
+      },
+      {
+        "model": "gpt-5-mini-2025-08-07",
+        "llm_vol": 38.2,
+        "ratio": 1.053,
+        "p10": 52.0,
+        "p90": 69.0
+      },
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 29.6,
+        "ratio": 0.817,
+        "p10": 53.0,
+        "p90": 66.0
+      },
+      {
+        "model": "gpt-4o",
+        "llm_vol": 15.9,
+        "ratio": 0.439,
+        "p10": 56.0,
+        "p90": 63.0
+      },
+      {
+        "model": "o3-2025-04-16",
+        "llm_vol": 34.8,
+        "ratio": 0.96,
+        "p10": 51.0,
+        "p90": 66.0
+      },
+      {
+        "model": "o3-mini-2025-01-31",
+        "llm_vol": 18.0,
+        "ratio": 0.497,
+        "p10": 56.0,
+        "p90": 64.0
+      },
+      {
+        "model": "o4-mini-2025-04-16",
+        "llm_vol": 25.5,
+        "ratio": 0.702,
+        "p10": 53.0,
+        "p90": 64.0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 31.7,
+        "ratio": 0.874,
+        "p10": 51.0,
+        "p90": 64.5
+      },
+      {
+        "model": "gemini-2.0-flash-lite-001",
+        "llm_vol": 18.4,
+        "ratio": 0.506,
+        "p10": 55.0,
+        "p90": 63.0
+      },
+      {
+        "model": "mistral-large-2411",
+        "llm_vol": 41.4,
+        "ratio": 1.141,
+        "p10": 53.0,
+        "p90": 72.0
+      },
+      {
+        "model": "mistral-large-2407",
+        "llm_vol": 40.1,
+        "ratio": 1.105,
+        "p10": 55.0,
+        "p90": 74.0
+      },
+      {
+        "model": "mistral-large-latest",
+        "llm_vol": 41.4,
+        "ratio": 1.141,
+        "p10": 53.0,
+        "p90": 72.0
+      },
+      {
+        "model": "DeepSeek-V3",
+        "llm_vol": 22.7,
+        "ratio": 0.625,
+        "p10": 55.8,
+        "p90": 66.0
+      },
+      {
+        "model": "DeepSeek-V3.1",
+        "llm_vol": 27.1,
+        "ratio": 0.747,
+        "p10": 54.0,
+        "p90": 66.0
+      },
+      {
+        "model": "Llama-3.3-70B-Instruct-Turbo",
+        "llm_vol": 31.2,
+        "ratio": 0.86,
+        "p10": 50.0,
+        "p90": 63.0
+      },
+      {
+        "model": "grok-4-0709",
+        "llm_vol": 35.1,
+        "ratio": 0.967,
+        "p10": 48.9,
+        "p90": 63.4
+      },
+      {
+        "model": "grok-4-fast-reasoning",
+        "llm_vol": 29.6,
+        "ratio": 0.817,
+        "p10": 53.0,
+        "p90": 66.0
+      },
+      {
+        "model": "grok-4-fast-non-reasoning",
+        "llm_vol": 23.8,
+        "ratio": 0.655,
+        "p10": 52.0,
+        "p90": 62.0
+      },
+      {
+        "model": "grok-4-1-fast-reasoning",
+        "llm_vol": 25.1,
+        "ratio": 0.69,
+        "p10": 54.0,
+        "p90": 65.0
+      },
+      {
+        "model": "grok-4-1-fast-non-reasoning",
+        "llm_vol": 39.5,
+        "ratio": 1.089,
+        "p10": 53.0,
+        "p90": 71.0
+      }
+    ]
+  },
+  {
+    "window": "Jan 2026",
+    "type": "quiet",
+    "cutoff": "2026-01-12",
+    "horizon": "H1",
+    "days": 8,
+    "cutoff_price": 59.5,
+    "actual": 60.34000015258789,
+    "actual_return": 1.4117649623325956,
+    "ovx": 38.849998474121094,
+    "avg_llm_vol": 29.480806854064912,
+    "avg_ratio": 0.7588367570645537,
+    "inside_pct": 92.5925925925926,
+    "models": [
+      {
+        "model": "claude-opus-4-5-20251101",
+        "llm_vol": 29.5,
+        "ratio": 0.759,
+        "p10": 55.5,
+        "p90": 63.5
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 26.6,
+        "ratio": 0.684,
+        "p10": 55.8,
+        "p90": 63.0
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 36.6,
+        "ratio": 0.942,
+        "p10": 55.0,
+        "p90": 65.0
+      },
+      {
+        "model": "claude-sonnet-4-20250514",
+        "llm_vol": 54.6,
+        "ratio": 1.405,
+        "p10": 53.0,
+        "p90": 68.0
+      },
+      {
+        "model": "claude-haiku-4-5-20251001",
+        "llm_vol": 22.1,
+        "ratio": 0.569,
+        "p10": 56.5,
+        "p90": 62.5
+      },
+      {
+        "model": "claude-3-haiku-20240307",
+        "llm_vol": 32.1,
+        "ratio": 0.826,
+        "p10": 57.0,
+        "p90": 66.0
+      },
+      {
+        "model": "gpt-5.1-2025-11-13",
+        "llm_vol": 44.7,
+        "ratio": 1.15,
+        "p10": 53.0,
+        "p90": 65.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 25.8,
+        "ratio": 0.665,
+        "p10": 55.62,
+        "p90": 62.58
+      },
+      {
+        "model": "gpt-5-mini-2025-08-07",
+        "llm_vol": 31.6,
+        "ratio": 0.814,
+        "p10": 55.21,
+        "p90": 63.79
+      },
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 22.1,
+        "ratio": 0.569,
+        "p10": 56.5,
+        "p90": 62.5
+      },
+      {
+        "model": "gpt-4o",
+        "llm_vol": 25.8,
+        "ratio": 0.664,
+        "p10": 56.0,
+        "p90": 63.0
+      },
+      {
+        "model": "o3-2025-04-16",
+        "llm_vol": 22.1,
+        "ratio": 0.569,
+        "p10": 56.5,
+        "p90": 62.5
+      },
+      {
+        "model": "o3-mini-2025-01-31",
+        "llm_vol": 14.1,
+        "ratio": 0.364,
+        "p10": 57.0,
+        "p90": 60.8
+      },
+      {
+        "model": "o4-mini-2025-04-16",
+        "llm_vol": 23.3,
+        "ratio": 0.599,
+        "p10": 58.0,
+        "p90": 64.5
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 29.5,
+        "ratio": 0.759,
+        "p10": 55.5,
+        "p90": 63.5
+      },
+      {
+        "model": "gemini-2.0-flash-lite-001",
+        "llm_vol": 22.3,
+        "ratio": 0.574,
+        "p10": 56.0,
+        "p90": 62.0
+      },
+      {
+        "model": "mistral-large-2411",
+        "llm_vol": 30.8,
+        "ratio": 0.792,
+        "p10": 53.0,
+        "p90": 61.0
+      },
+      {
+        "model": "mistral-large-2407",
+        "llm_vol": 55.5,
+        "ratio": 1.429,
+        "p10": 52.0,
+        "p90": 67.0
+      },
+      {
+        "model": "mistral-large-latest",
+        "llm_vol": 21.9,
+        "ratio": 0.564,
+        "p10": 57.0,
+        "p90": 63.0
+      },
+      {
+        "model": "DeepSeek-V3",
+        "llm_vol": 15.1,
+        "ratio": 0.389,
+        "p10": 56.0,
+        "p90": 60.0
+      },
+      {
+        "model": "DeepSeek-V3.1",
+        "llm_vol": 19.1,
+        "ratio": 0.49,
+        "p10": 55.0,
+        "p90": 60.0
+      },
+      {
+        "model": "Llama-3.3-70B-Instruct-Turbo",
+        "llm_vol": 45.5,
+        "ratio": 1.17,
+        "p10": 52.0,
+        "p90": 64.0
+      },
+      {
+        "model": "grok-4-0709",
+        "llm_vol": 23.7,
+        "ratio": 0.609,
+        "p10": 56.1,
+        "p90": 62.5
+      },
+      {
+        "model": "grok-4-fast-reasoning",
+        "llm_vol": 29.2,
+        "ratio": 0.753,
+        "p10": 56.0,
+        "p90": 64.0
+      },
+      {
+        "model": "grok-4-fast-non-reasoning",
+        "llm_vol": 29.7,
+        "ratio": 0.765,
+        "p10": 55.0,
+        "p90": 63.0
+      },
+      {
+        "model": "grok-4-1-fast-reasoning",
+        "llm_vol": 36.6,
+        "ratio": 0.942,
+        "p10": 55.0,
+        "p90": 65.0
+      },
+      {
+        "model": "grok-4-1-fast-non-reasoning",
+        "llm_vol": 26.2,
+        "ratio": 0.675,
+        "p10": 55.0,
+        "p90": 62.0
+      }
+    ]
+  },
+  {
+    "window": "Jan 2026",
+    "type": "quiet",
+    "cutoff": "2026-01-12",
+    "horizon": "H2",
+    "days": 14,
+    "cutoff_price": 59.5,
+    "actual": 60.630001068115234,
+    "actual_return": 1.8991614590172068,
+    "ovx": 38.849998474121094,
+    "avg_llm_vol": 28.253772893342283,
+    "avg_ratio": 0.7272528700911736,
+    "inside_pct": 92.5925925925926,
+    "models": [
+      {
+        "model": "claude-opus-4-5-20251101",
+        "llm_vol": 30.7,
+        "ratio": 0.79,
+        "p10": 54.0,
+        "p90": 65.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 26.6,
+        "ratio": 0.685,
+        "p10": 54.5,
+        "p90": 64.0
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 35.7,
+        "ratio": 0.919,
+        "p10": 54.0,
+        "p90": 67.0
+      },
+      {
+        "model": "claude-sonnet-4-20250514",
+        "llm_vol": 51.6,
+        "ratio": 1.327,
+        "p10": 52.0,
+        "p90": 71.0
+      },
+      {
+        "model": "claude-haiku-4-5-20251001",
+        "llm_vol": 24.9,
+        "ratio": 0.64,
+        "p10": 55.5,
+        "p90": 64.5
+      },
+      {
+        "model": "claude-3-haiku-20240307",
+        "llm_vol": 28.1,
+        "ratio": 0.724,
+        "p10": 54.0,
+        "p90": 64.0
+      },
+      {
+        "model": "gpt-5.1-2025-11-13",
+        "llm_vol": 42.0,
+        "ratio": 1.08,
+        "p10": 52.0,
+        "p90": 67.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 29.7,
+        "ratio": 0.763,
+        "p10": 53.47,
+        "p90": 63.96
+      },
+      {
+        "model": "gpt-5-mini-2025-08-07",
+        "llm_vol": 34.2,
+        "ratio": 0.881,
+        "p10": 52.92,
+        "p90": 65.08
+      },
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 21.0,
+        "ratio": 0.54,
+        "p10": 55.5,
+        "p90": 63.0
+      },
+      {
+        "model": "gpt-4o",
+        "llm_vol": 19.8,
+        "ratio": 0.51,
+        "p10": 55.0,
+        "p90": 62.0
+      },
+      {
+        "model": "o3-2025-04-16",
+        "llm_vol": 25.2,
+        "ratio": 0.648,
+        "p10": 54.8,
+        "p90": 63.8
+      },
+      {
+        "model": "o3-mini-2025-01-31",
+        "llm_vol": 14.0,
+        "ratio": 0.361,
+        "p10": 56.5,
+        "p90": 61.5
+      },
+      {
+        "model": "o4-mini-2025-04-16",
+        "llm_vol": 23.0,
+        "ratio": 0.592,
+        "p10": 57.0,
+        "p90": 65.5
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 30.7,
+        "ratio": 0.79,
+        "p10": 54.0,
+        "p90": 65.0
+      },
+      {
+        "model": "gemini-2.0-flash-lite-001",
+        "llm_vol": 17.1,
+        "ratio": 0.441,
+        "p10": 55.0,
+        "p90": 61.0
+      },
+      {
+        "model": "mistral-large-2411",
+        "llm_vol": 23.3,
+        "ratio": 0.599,
+        "p10": 53.0,
+        "p90": 61.0
+      },
+      {
+        "model": "mistral-large-2407",
+        "llm_vol": 47.6,
+        "ratio": 1.226,
+        "p10": 51.0,
+        "p90": 68.0
+      },
+      {
+        "model": "mistral-large-latest",
+        "llm_vol": 24.7,
+        "ratio": 0.635,
+        "p10": 56.0,
+        "p90": 65.0
+      },
+      {
+        "model": "DeepSeek-V3",
+        "llm_vol": 11.8,
+        "ratio": 0.304,
+        "p10": 54.0,
+        "p90": 58.0
+      },
+      {
+        "model": "DeepSeek-V3.1",
+        "llm_vol": 14.5,
+        "ratio": 0.374,
+        "p10": 54.5,
+        "p90": 59.5
+      },
+      {
+        "model": "Llama-3.3-70B-Instruct-Turbo",
+        "llm_vol": 39.5,
+        "ratio": 1.016,
+        "p10": 52.0,
+        "p90": 66.0
+      },
+      {
+        "model": "grok-4-0709",
+        "llm_vol": 25.5,
+        "ratio": 0.657,
+        "p10": 54.6,
+        "p90": 63.7
+      },
+      {
+        "model": "grok-4-fast-reasoning",
+        "llm_vol": 30.2,
+        "ratio": 0.777,
+        "p10": 55.0,
+        "p90": 66.0
+      },
+      {
+        "model": "grok-4-fast-non-reasoning",
+        "llm_vol": 25.1,
+        "ratio": 0.646,
+        "p10": 55.0,
+        "p90": 64.0
+      },
+      {
+        "model": "grok-4-1-fast-reasoning",
+        "llm_vol": 38.8,
+        "ratio": 0.999,
+        "p10": 53.0,
+        "p90": 67.0
+      },
+      {
+        "model": "grok-4-1-fast-non-reasoning",
+        "llm_vol": 27.7,
+        "ratio": 0.712,
+        "p10": 55.0,
+        "p90": 65.0
+      }
+    ]
+  },
+  {
+    "window": "Jan 2026",
+    "type": "quiet",
+    "cutoff": "2026-01-12",
+    "horizon": "H3",
+    "days": 21,
+    "cutoff_price": 59.5,
+    "actual": 62.13999938964844,
+    "actual_return": 4.436973764115026,
+    "ovx": 38.849998474121094,
+    "avg_llm_vol": 27.352087407090863,
+    "avg_ratio": 0.7040434615540779,
+    "inside_pct": 74.07407407407408,
+    "models": [
+      {
+        "model": "claude-opus-4-5-20251101",
+        "llm_vol": 29.6,
+        "ratio": 0.763,
+        "p10": 53.0,
+        "p90": 66.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 26.8,
+        "ratio": 0.69,
+        "p10": 53.3,
+        "p90": 65.0
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 35.7,
+        "ratio": 0.918,
+        "p10": 53.0,
+        "p90": 69.0
+      },
+      {
+        "model": "claude-sonnet-4-20250514",
+        "llm_vol": 50.3,
+        "ratio": 1.295,
+        "p10": 51.0,
+        "p90": 74.0
+      },
+      {
+        "model": "claude-haiku-4-5-20251001",
+        "llm_vol": 28.1,
+        "ratio": 0.724,
+        "p10": 54.0,
+        "p90": 66.5
+      },
+      {
+        "model": "claude-3-haiku-20240307",
+        "llm_vol": 23.8,
+        "ratio": 0.612,
+        "p10": 52.0,
+        "p90": 62.0
+      },
+      {
+        "model": "gpt-5.1-2025-11-13",
+        "llm_vol": 40.9,
+        "ratio": 1.052,
+        "p10": 51.0,
+        "p90": 69.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 27.7,
+        "ratio": 0.712,
+        "p10": 52.36,
+        "p90": 64.25
+      },
+      {
+        "model": "gpt-5-mini-2025-08-07",
+        "llm_vol": 34.6,
+        "ratio": 0.891,
+        "p10": 51.05,
+        "p90": 65.95
+      },
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 19.4,
+        "ratio": 0.5,
+        "p10": 55.0,
+        "p90": 63.5
+      },
+      {
+        "model": "gpt-4o",
+        "llm_vol": 16.5,
+        "ratio": 0.424,
+        "p10": 54.0,
+        "p90": 61.0
+      },
+      {
+        "model": "o3-2025-04-16",
+        "llm_vol": 23.4,
+        "ratio": 0.602,
+        "p10": 54.0,
+        "p90": 64.2
+      },
+      {
+        "model": "o3-mini-2025-01-31",
+        "llm_vol": 13.3,
+        "ratio": 0.343,
+        "p10": 56.0,
+        "p90": 61.8
+      },
+      {
+        "model": "o4-mini-2025-04-16",
+        "llm_vol": 22.2,
+        "ratio": 0.572,
+        "p10": 56.0,
+        "p90": 66.0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 31.9,
+        "ratio": 0.822,
+        "p10": 52.5,
+        "p90": 66.5
+      },
+      {
+        "model": "gemini-2.0-flash-lite-001",
+        "llm_vol": 14.2,
+        "ratio": 0.367,
+        "p10": 54.0,
+        "p90": 60.0
+      },
+      {
+        "model": "mistral-large-2411",
+        "llm_vol": 19.0,
+        "ratio": 0.489,
+        "p10": 53.0,
+        "p90": 61.0
+      },
+      {
+        "model": "mistral-large-2407",
+        "llm_vol": 43.5,
+        "ratio": 1.12,
+        "p10": 50.0,
+        "p90": 69.0
+      },
+      {
+        "model": "mistral-large-latest",
+        "llm_vol": 24.6,
+        "ratio": 0.634,
+        "p10": 55.0,
+        "p90": 66.0
+      },
+      {
+        "model": "DeepSeek-V3",
+        "llm_vol": 12.4,
+        "ratio": 0.319,
+        "p10": 52.0,
+        "p90": 57.0
+      },
+      {
+        "model": "DeepSeek-V3.1",
+        "llm_vol": 12.0,
+        "ratio": 0.308,
+        "p10": 54.0,
+        "p90": 59.0
+      },
+      {
+        "model": "Llama-3.3-70B-Instruct-Turbo",
+        "llm_vol": 45.5,
+        "ratio": 1.171,
+        "p10": 50.0,
+        "p90": 70.0
+      },
+      {
+        "model": "grok-4-0709",
+        "llm_vol": 25.5,
+        "ratio": 0.657,
+        "p10": 53.4,
+        "p90": 64.5
+      },
+      {
+        "model": "grok-4-fast-reasoning",
+        "llm_vol": 31.2,
+        "ratio": 0.802,
+        "p10": 54.0,
+        "p90": 68.0
+      },
+      {
+        "model": "grok-4-fast-non-reasoning",
+        "llm_vol": 23.0,
+        "ratio": 0.591,
+        "p10": 54.0,
+        "p90": 64.0
+      },
+      {
+        "model": "grok-4-1-fast-reasoning",
+        "llm_vol": 36.3,
+        "ratio": 0.933,
+        "p10": 52.0,
+        "p90": 68.0
+      },
+      {
+        "model": "grok-4-1-fast-non-reasoning",
+        "llm_vol": 27.1,
+        "ratio": 0.698,
+        "p10": 54.0,
+        "p90": 66.0
+      }
+    ]
+  },
+  {
+    "window": "Hormuz crisis",
+    "type": "crisis",
+    "cutoff": "2026-02-13",
+    "horizon": "H1",
+    "days": 7,
+    "cutoff_price": 62.88999938964844,
+    "actual": 66.38999938964844,
+    "actual_return": 5.565272752373551,
+    "ovx": 42.18000030517578,
+    "avg_llm_vol": 33.01222204195241,
+    "avg_ratio": 0.7826510621883894,
+    "inside_pct": 75.0,
+    "models": [
+      {
+        "model": "claude-opus-4-5-20251101",
+        "llm_vol": 38.0,
+        "ratio": 0.902,
+        "p10": 57.8,
+        "p90": 68.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 37.5,
+        "ratio": 0.89,
+        "p10": 57.5,
+        "p90": 67.5
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 30.2,
+        "ratio": 0.717,
+        "p10": 58.0,
+        "p90": 66.0
+      },
+      {
+        "model": "claude-sonnet-4-20250514",
+        "llm_vol": 51.4,
+        "ratio": 1.219,
+        "p10": 57.0,
+        "p90": 71.0
+      },
+      {
+        "model": "claude-haiku-4-5-20251001",
+        "llm_vol": 33.3,
+        "ratio": 0.788,
+        "p10": 58.3,
+        "p90": 67.2
+      },
+      {
+        "model": "claude-3-haiku-20240307",
+        "llm_vol": 15.1,
+        "ratio": 0.358,
+        "p10": 60.0,
+        "p90": 64.0
+      },
+      {
+        "model": "gpt-5.1-2025-11-13",
+        "llm_vol": 28.0,
+        "ratio": 0.664,
+        "p10": 59.0,
+        "p90": 66.5
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 27.2,
+        "ratio": 0.645,
+        "p10": 59.24,
+        "p90": 66.54
+      },
+      {
+        "model": "gpt-5-mini-2025-08-07",
+        "llm_vol": 34.9,
+        "ratio": 0.827,
+        "p10": 58.5,
+        "p90": 67.9
+      },
+      {
+        "model": "gpt-5-nano-2025-08-07",
+        "llm_vol": 25.8,
+        "ratio": 0.612,
+        "p10": 60.0,
+        "p90": 67.0
+      },
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 22.3,
+        "ratio": 0.529,
+        "p10": 60.0,
+        "p90": 66.0
+      },
+      {
+        "model": "gpt-4o",
+        "llm_vol": 30.2,
+        "ratio": 0.717,
+        "p10": 58.0,
+        "p90": 66.0
+      },
+      {
+        "model": "o3-2025-04-16",
+        "llm_vol": 24.1,
+        "ratio": 0.571,
+        "p10": 60.0,
+        "p90": 66.5
+      },
+      {
+        "model": "o3-mini-2025-01-31",
+        "llm_vol": 8.2,
+        "ratio": 0.194,
+        "p10": 61.8,
+        "p90": 64.0
+      },
+      {
+        "model": "o4-mini-2025-04-16",
+        "llm_vol": 18.4,
+        "ratio": 0.437,
+        "p10": 61.0,
+        "p90": 66.0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 29.8,
+        "ratio": 0.706,
+        "p10": 59.0,
+        "p90": 67.0
+      },
+      {
+        "model": "gemini-2.0-flash-lite-001",
+        "llm_vol": 29.3,
+        "ratio": 0.695,
+        "p10": 60.0,
+        "p90": 68.0
+      },
+      {
+        "model": "mistral-large-2411",
+        "llm_vol": 29.3,
+        "ratio": 0.695,
+        "p10": 60.0,
+        "p90": 68.0
+      },
+      {
+        "model": "mistral-large-2407",
+        "llm_vol": 69.6,
+        "ratio": 1.65,
+        "p10": 52.0,
+        "p90": 70.0
+      },
+      {
+        "model": "mistral-large-latest",
+        "llm_vol": 42.7,
+        "ratio": 1.012,
+        "p10": 60.0,
+        "p90": 72.0
+      },
+      {
+        "model": "DeepSeek-V3",
+        "llm_vol": 28.2,
+        "ratio": 0.669,
+        "p10": 58.5,
+        "p90": 66.0
+      },
+      {
+        "model": "DeepSeek-V3.1",
+        "llm_vol": 32.0,
+        "ratio": 0.759,
+        "p10": 58.0,
+        "p90": 66.5
+      },
+      {
+        "model": "Llama-3.3-70B-Instruct-Turbo",
+        "llm_vol": 36.1,
+        "ratio": 0.856,
+        "p10": 60.0,
+        "p90": 70.0
+      },
+      {
+        "model": "grok-4-0709",
+        "llm_vol": 35.2,
+        "ratio": 0.835,
+        "p10": 58.11,
+        "p90": 67.55
+      },
+      {
+        "model": "grok-4-fast-reasoning",
+        "llm_vol": 44.7,
+        "ratio": 1.06,
+        "p10": 57.0,
+        "p90": 69.0
+      },
+      {
+        "model": "grok-4-fast-non-reasoning",
+        "llm_vol": 37.2,
+        "ratio": 0.883,
+        "p10": 58.0,
+        "p90": 68.0
+      },
+      {
+        "model": "grok-4-1-fast-reasoning",
+        "llm_vol": 44.7,
+        "ratio": 1.06,
+        "p10": 57.0,
+        "p90": 69.0
+      },
+      {
+        "model": "grok-4-1-fast-non-reasoning",
+        "llm_vol": 40.7,
+        "ratio": 0.964,
+        "p10": 58.0,
+        "p90": 69.0
+      }
+    ]
+  },
+  {
+    "window": "Hormuz crisis",
+    "type": "crisis",
+    "cutoff": "2026-02-13",
+    "horizon": "H2",
+    "days": 14,
+    "cutoff_price": 62.88999938964844,
+    "actual": 67.0199966430664,
+    "actual_return": 6.567017480521331,
+    "ovx": 42.18000030517578,
+    "avg_llm_vol": 28.749863745158997,
+    "avg_ratio": 0.6815994200367796,
+    "inside_pct": 75.0,
+    "models": [
+      {
+        "model": "claude-opus-4-5-20251101",
+        "llm_vol": 35.2,
+        "ratio": 0.834,
+        "p10": 56.2,
+        "p90": 69.5
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 32.7,
+        "ratio": 0.776,
+        "p10": 55.8,
+        "p90": 68.0
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 29.2,
+        "ratio": 0.692,
+        "p10": 57.0,
+        "p90": 68.0
+      },
+      {
+        "model": "claude-sonnet-4-20250514",
+        "llm_vol": 43.9,
+        "ratio": 1.04,
+        "p10": 56.0,
+        "p90": 73.0
+      },
+      {
+        "model": "claude-haiku-4-5-20251001",
+        "llm_vol": 28.1,
+        "ratio": 0.667,
+        "p10": 57.8,
+        "p90": 68.5
+      },
+      {
+        "model": "claude-3-haiku-20240307",
+        "llm_vol": 10.9,
+        "ratio": 0.257,
+        "p10": 59.0,
+        "p90": 63.0
+      },
+      {
+        "model": "gpt-5.1-2025-11-13",
+        "llm_vol": 24.1,
+        "ratio": 0.571,
+        "p10": 57.5,
+        "p90": 66.5
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 28.8,
+        "ratio": 0.683,
+        "p10": 57.43,
+        "p90": 68.35
+      },
+      {
+        "model": "gpt-5-mini-2025-08-07",
+        "llm_vol": 33.3,
+        "ratio": 0.79,
+        "p10": 57.13,
+        "p90": 69.87
+      },
+      {
+        "model": "gpt-5-nano-2025-08-07",
+        "llm_vol": 20.7,
+        "ratio": 0.491,
+        "p10": 60.0,
+        "p90": 68.0
+      },
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 21.0,
+        "ratio": 0.499,
+        "p10": 59.0,
+        "p90": 67.0
+      },
+      {
+        "model": "gpt-4o",
+        "llm_vol": 21.7,
+        "ratio": 0.515,
+        "p10": 57.0,
+        "p90": 65.0
+      },
+      {
+        "model": "o3-2025-04-16",
+        "llm_vol": 24.9,
+        "ratio": 0.591,
+        "p10": 58.5,
+        "p90": 68.0
+      },
+      {
+        "model": "o3-mini-2025-01-31",
+        "llm_vol": 8.6,
+        "ratio": 0.204,
+        "p10": 61.7,
+        "p90": 65.0
+      },
+      {
+        "model": "o4-mini-2025-04-16",
+        "llm_vol": 19.5,
+        "ratio": 0.462,
+        "p10": 60.0,
+        "p90": 67.5
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 29.0,
+        "ratio": 0.687,
+        "p10": 57.5,
+        "p90": 68.5
+      },
+      {
+        "model": "gemini-2.0-flash-lite-001",
+        "llm_vol": 21.0,
+        "ratio": 0.499,
+        "p10": 59.0,
+        "p90": 67.0
+      },
+      {
+        "model": "mistral-large-2411",
+        "llm_vol": 20.7,
+        "ratio": 0.491,
+        "p10": 60.0,
+        "p90": 68.0
+      },
+      {
+        "model": "mistral-large-2407",
+        "llm_vol": 50.0,
+        "ratio": 1.186,
+        "p10": 51.0,
+        "p90": 69.0
+      },
+      {
+        "model": "mistral-large-latest",
+        "llm_vol": 37.5,
+        "ratio": 0.889,
+        "p10": 59.0,
+        "p90": 74.0
+      },
+      {
+        "model": "DeepSeek-V3",
+        "llm_vol": 21.7,
+        "ratio": 0.515,
+        "p10": 57.0,
+        "p90": 65.0
+      },
+      {
+        "model": "DeepSeek-V3.1",
+        "llm_vol": 29.4,
+        "ratio": 0.698,
+        "p10": 56.5,
+        "p90": 67.5
+      },
+      {
+        "model": "Llama-3.3-70B-Instruct-Turbo",
+        "llm_vol": 33.0,
+        "ratio": 0.781,
+        "p10": 59.0,
+        "p90": 72.0
+      },
+      {
+        "model": "grok-4-0709",
+        "llm_vol": 33.8,
+        "ratio": 0.8,
+        "p10": 56.4,
+        "p90": 69.16
+      },
+      {
+        "model": "grok-4-fast-reasoning",
+        "llm_vol": 39.3,
+        "ratio": 0.931,
+        "p10": 56.0,
+        "p90": 71.0
+      },
+      {
+        "model": "grok-4-fast-non-reasoning",
+        "llm_vol": 31.1,
+        "ratio": 0.738,
+        "p10": 58.0,
+        "p90": 70.0
+      },
+      {
+        "model": "grok-4-1-fast-reasoning",
+        "llm_vol": 44.6,
+        "ratio": 1.057,
+        "p10": 55.0,
+        "p90": 72.0
+      },
+      {
+        "model": "grok-4-1-fast-non-reasoning",
+        "llm_vol": 31.1,
+        "ratio": 0.738,
+        "p10": 58.0,
+        "p90": 70.0
+      }
+    ]
+  },
+  {
+    "window": "Hormuz crisis",
+    "type": "crisis",
+    "cutoff": "2026-02-13",
+    "horizon": "H3",
+    "days": 21,
+    "cutoff_price": 62.88999938964844,
+    "actual": 90.9000015258789,
+    "actual_return": 44.538086195053864,
+    "ovx": 42.18000030517578,
+    "avg_llm_vol": 27.232976520331636,
+    "avg_ratio": 0.6456371816808631,
+    "inside_pct": 0.0,
+    "models": [
+      {
+        "model": "claude-opus-4-5-20251101",
+        "llm_vol": 33.6,
+        "ratio": 0.796,
+        "p10": 55.0,
+        "p90": 70.5
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 31.5,
+        "ratio": 0.747,
+        "p10": 54.5,
+        "p90": 68.8
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 28.2,
+        "ratio": 0.669,
+        "p10": 56.0,
+        "p90": 69.0
+      },
+      {
+        "model": "claude-sonnet-4-20250514",
+        "llm_vol": 41.9,
+        "ratio": 0.994,
+        "p10": 55.0,
+        "p90": 75.0
+      },
+      {
+        "model": "claude-haiku-4-5-20251001",
+        "llm_vol": 26.9,
+        "ratio": 0.639,
+        "p10": 57.1,
+        "p90": 69.7
+      },
+      {
+        "model": "claude-3-haiku-20240307",
+        "llm_vol": 9.0,
+        "ratio": 0.214,
+        "p10": 58.0,
+        "p90": 62.0
+      },
+      {
+        "model": "gpt-5.1-2025-11-13",
+        "llm_vol": 24.2,
+        "ratio": 0.575,
+        "p10": 56.0,
+        "p90": 67.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 29.4,
+        "ratio": 0.697,
+        "p10": 56.08,
+        "p90": 69.7
+      },
+      {
+        "model": "gpt-5-mini-2025-08-07",
+        "llm_vol": 34.7,
+        "ratio": 0.822,
+        "p10": 55.84,
+        "p90": 72.16
+      },
+      {
+        "model": "gpt-5-nano-2025-08-07",
+        "llm_vol": 16.9,
+        "ratio": 0.401,
+        "p10": 60.0,
+        "p90": 68.0
+      },
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 23.5,
+        "ratio": 0.556,
+        "p10": 58.0,
+        "p90": 69.0
+      },
+      {
+        "model": "gpt-4o",
+        "llm_vol": 18.0,
+        "ratio": 0.428,
+        "p10": 56.0,
+        "p90": 64.0
+      },
+      {
+        "model": "o3-2025-04-16",
+        "llm_vol": 25.6,
+        "ratio": 0.607,
+        "p10": 57.5,
+        "p90": 69.5
+      },
+      {
+        "model": "o3-mini-2025-01-31",
+        "llm_vol": 9.7,
+        "ratio": 0.231,
+        "p10": 61.6,
+        "p90": 66.2
+      },
+      {
+        "model": "o4-mini-2025-04-16",
+        "llm_vol": 18.2,
+        "ratio": 0.431,
+        "p10": 59.0,
+        "p90": 67.5
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 30.2,
+        "ratio": 0.715,
+        "p10": 56.0,
+        "p90": 70.0
+      },
+      {
+        "model": "gemini-2.0-flash-lite-001",
+        "llm_vol": 17.5,
+        "ratio": 0.414,
+        "p10": 58.0,
+        "p90": 66.0
+      },
+      {
+        "model": "mistral-large-2411",
+        "llm_vol": 16.9,
+        "ratio": 0.401,
+        "p10": 60.0,
+        "p90": 68.0
+      },
+      {
+        "model": "mistral-large-2407",
+        "llm_vol": 41.6,
+        "ratio": 0.985,
+        "p10": 50.0,
+        "p90": 68.0
+      },
+      {
+        "model": "mistral-large-latest",
+        "llm_vol": 36.5,
+        "ratio": 0.866,
+        "p10": 58.0,
+        "p90": 76.0
+      },
+      {
+        "model": "DeepSeek-V3",
+        "llm_vol": 20.3,
+        "ratio": 0.482,
+        "p10": 55.5,
+        "p90": 64.5
+      },
+      {
+        "model": "DeepSeek-V3.1",
+        "llm_vol": 29.7,
+        "ratio": 0.703,
+        "p10": 55.0,
+        "p90": 68.5
+      },
+      {
+        "model": "Llama-3.3-70B-Instruct-Turbo",
+        "llm_vol": 27.3,
+        "ratio": 0.648,
+        "p10": 58.0,
+        "p90": 71.0
+      },
+      {
+        "model": "grok-4-0709",
+        "llm_vol": 33.3,
+        "ratio": 0.79,
+        "p10": 55.04,
+        "p90": 70.42
+      },
+      {
+        "model": "grok-4-fast-reasoning",
+        "llm_vol": 36.4,
+        "ratio": 0.863,
+        "p10": 55.0,
+        "p90": 72.0
+      },
+      {
+        "model": "grok-4-fast-non-reasoning",
+        "llm_vol": 29.7,
+        "ratio": 0.704,
+        "p10": 57.0,
+        "p90": 71.0
+      },
+      {
+        "model": "grok-4-1-fast-reasoning",
+        "llm_vol": 42.6,
+        "ratio": 1.01,
+        "p10": 54.0,
+        "p90": 74.0
+      },
+      {
+        "model": "grok-4-1-fast-non-reasoning",
+        "llm_vol": 29.2,
+        "ratio": 0.693,
+        "p10": 58.0,
+        "p90": 72.0
+      }
+    ]
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "generated": "2026-03-16T19:44:45",
+  "n_results": 4047,
+  "models": [
+    "claude-opus-4-6",
+    "claude-sonnet-4-5-20250929",
+    "gemini-3-pro-preview",
+    "gpt-4.1-2025-04-14",
+    "gpt-5-2025-08-07"
+  ],
+  "assets": [
+    "alphabet",
+    "amazon",
+    "apple",
+    "em",
+    "gold",
+    "nasdaq100",
+    "oil",
+    "russell",
+    "sp500",
+    "treasury"
+  ]
+}

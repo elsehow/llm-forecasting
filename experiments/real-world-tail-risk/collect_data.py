@@ -82,6 +82,18 @@ ASSETS = {
             "H3": "2026-03-07",
         },
     },
+    "wheat": {
+        "ticker": "ZW=F",
+        "name": "CBOT Wheat",
+        "unit": "¢/bushel",
+        "history_start": "2024-01-01",
+        "cutoff": "2026-02-14",
+        "horizons": {
+            "H1": "2026-02-21",
+            "H2": "2026-02-28",
+            "H3": "2026-03-07",
+        },
+    },
 }
 
 

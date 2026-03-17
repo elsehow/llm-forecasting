@@ -1,0 +1,872 @@
+[
+  {
+    "asset": "wti_crude",
+    "horizon": "H1",
+    "days": 7,
+    "cutoff_price": 62.89,
+    "actual": 66.38999938964844,
+    "actual_return": 5.565271727855681,
+    "market_vol_ann": 42.2,
+    "vol_source": "OVX (implied)",
+    "market_p10": 57.33,
+    "market_p50": 62.73,
+    "market_p90": 68.65,
+    "market_p99": 73.88,
+    "avg_llm_vol_ann": 31.5,
+    "vol_ratio": 0.75,
+    "models": [
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 29.8,
+        "p10": 59.0,
+        "p50": 63.0,
+        "p90": 67.0,
+        "p99": 72.0
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 44.7,
+        "p10": 57.0,
+        "p50": 63.0,
+        "p90": 69.0,
+        "p99": 75.0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 29.8,
+        "p10": 59.0,
+        "p50": 63.0,
+        "p90": 67.0,
+        "p99": 71.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 31.8,
+        "p10": 58.5,
+        "p50": 62.8,
+        "p90": 67.0,
+        "p99": 71.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 21.6,
+        "p10": 60.0,
+        "p50": 63.0,
+        "p90": 65.8,
+        "p99": 68.8
+      }
+    ]
+  },
+  {
+    "asset": "wti_crude",
+    "horizon": "H2",
+    "days": 14,
+    "cutoff_price": 62.89,
+    "actual": 67.0199966430664,
+    "actual_return": 6.5670164462814595,
+    "market_vol_ann": 42.2,
+    "vol_source": "OVX (implied)",
+    "market_p10": 55.09,
+    "market_p50": 62.58,
+    "market_p90": 71.08,
+    "market_p99": 78.86,
+    "avg_llm_vol_ann": 28.7,
+    "vol_ratio": 0.68,
+    "models": [
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 26.3,
+        "p10": 58.0,
+        "p50": 63.0,
+        "p90": 68.0,
+        "p99": 74.0
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 39.3,
+        "p10": 56.0,
+        "p50": 63.0,
+        "p90": 71.0,
+        "p99": 79.0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 29.0,
+        "p10": 57.5,
+        "p50": 63.0,
+        "p90": 68.5,
+        "p99": 74.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 29.2,
+        "p10": 57.0,
+        "p50": 62.5,
+        "p90": 68.0,
+        "p99": 73.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 19.5,
+        "p10": 59.2,
+        "p50": 62.7,
+        "p90": 66.6,
+        "p99": 71.0
+      }
+    ]
+  },
+  {
+    "asset": "wti_crude",
+    "horizon": "H3",
+    "days": 21,
+    "cutoff_price": 62.89,
+    "actual": 90.9000015258789,
+    "actual_return": 44.53808479230228,
+    "market_vol_ann": 42.2,
+    "vol_source": "OVX (implied)",
+    "market_p10": 53.41,
+    "market_p50": 62.43,
+    "market_p90": 72.97,
+    "market_p99": 82.87,
+    "avg_llm_vol_ann": 29.3,
+    "vol_ratio": 0.7,
+    "models": [
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 27.8,
+        "p10": 57.0,
+        "p50": 63.0,
+        "p90": 70.0,
+        "p99": 77.0
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 38.3,
+        "p10": 55.0,
+        "p50": 63.0,
+        "p90": 73.0,
+        "p99": 82.0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 30.2,
+        "p10": 56.0,
+        "p50": 63.0,
+        "p90": 70.0,
+        "p99": 76.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 29.4,
+        "p10": 55.5,
+        "p50": 62.2,
+        "p90": 69.0,
+        "p99": 75.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 21.0,
+        "p10": 57.8,
+        "p50": 62.4,
+        "p90": 67.5,
+        "p99": 73.5
+      }
+    ]
+  },
+  {
+    "asset": "bitcoin",
+    "horizon": "H1",
+    "days": 7,
+    "cutoff_price": 109250.59,
+    "actual": 112071.4296875,
+    "actual_return": 2.58199034668829,
+    "market_vol_ann": 26.2,
+    "vol_source": "30d realized (lower bound)",
+    "market_p10": 103213.51,
+    "market_p50": 109146.73,
+    "market_p90": 115421.03,
+    "market_p99": 120802.16,
+    "avg_llm_vol_ann": 43.0,
+    "vol_ratio": 1.64,
+    "models": [
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 34.1,
+        "p10": 102000.0,
+        "p50": 110000.0,
+        "p90": 118000.0,
+        "p99": 130000.0
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 34.1,
+        "p10": 102000.0,
+        "p50": 109000.0,
+        "p90": 118000.0,
+        "p99": 130000.0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 49.5,
+        "p10": 98500.0,
+        "p50": 109500.0,
+        "p90": 121700.0,
+        "p99": 132800.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 49.8,
+        "p10": 97000.0,
+        "p50": 109000.0,
+        "p90": 120000.0,
+        "p99": 132000.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 47.6,
+        "p10": 99366.0,
+        "p50": 110000.0,
+        "p90": 121770.0,
+        "p99": 132308.0
+      }
+    ]
+  },
+  {
+    "asset": "bitcoin",
+    "horizon": "H2",
+    "days": 14,
+    "cutoff_price": 109250.59,
+    "actual": 115444.875,
+    "actual_return": 5.669795467466132,
+    "market_vol_ann": 26.2,
+    "vol_source": "30d realized (lower bound)",
+    "market_p10": 100755.5,
+    "market_p50": 109042.97,
+    "market_p90": 118012.12,
+    "market_p99": 125867.49,
+    "avg_llm_vol_ann": 42.5,
+    "vol_ratio": 1.62,
+    "models": [
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 32.9,
+        "p10": 100000.0,
+        "p50": 111000.0,
+        "p90": 122000.0,
+        "p99": 140000.0
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 32.9,
+        "p10": 100000.0,
+        "p50": 109000.0,
+        "p90": 122000.0,
+        "p99": 140000.0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 50.1,
+        "p10": 94300.0,
+        "p50": 109700.0,
+        "p90": 127600.0,
+        "p99": 144400.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 48.9,
+        "p10": 93000.0,
+        "p50": 110000.0,
+        "p90": 125000.0,
+        "p99": 140000.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 47.5,
+        "p10": 96149.0,
+        "p50": 111000.0,
+        "p90": 128137.0,
+        "p99": 144076.0
+      }
+    ]
+  },
+  {
+    "asset": "bitcoin",
+    "horizon": "H3",
+    "days": 30,
+    "cutoff_price": 109250.59,
+    "actual": 118648.9296875,
+    "actual_return": 8.602552798570695,
+    "market_vol_ann": 26.2,
+    "vol_source": "30d realized (lower bound)",
+    "market_p10": 96917.27,
+    "market_p50": 108806.18,
+    "market_p90": 122153.51,
+    "market_p99": 134237.75,
+    "avg_llm_vol_ann": 42.2,
+    "vol_ratio": 1.61,
+    "models": [
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 29.1,
+        "p10": 99000.0,
+        "p50": 112000.0,
+        "p90": 128000.0,
+        "p99": 150000.0
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 36.0,
+        "p10": 96000.0,
+        "p50": 110000.0,
+        "p90": 132000.0,
+        "p99": 160000.0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 49.8,
+        "p10": 88300.0,
+        "p50": 110000.0,
+        "p90": 137100.0,
+        "p99": 164100.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 48.4,
+        "p10": 88000.0,
+        "p50": 112000.0,
+        "p90": 135000.0,
+        "p99": 158000.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 47.6,
+        "p10": 90742.0,
+        "p50": 112000.0,
+        "p90": 138253.0,
+        "p99": 164136.0
+      }
+    ]
+  },
+  {
+    "asset": "bitcoin",
+    "horizon": "H4",
+    "days": 61,
+    "cutoff_price": 109250.59,
+    "actual": 110064.015625,
+    "actual_return": 0.7445503269135623,
+    "market_vol_ann": 26.2,
+    "vol_source": "30d realized (lower bound)",
+    "market_p10": 91868.57,
+    "market_p50": 108348.86,
+    "market_p90": 127785.55,
+    "market_p99": 146184.41,
+    "avg_llm_vol_ann": 42.6,
+    "vol_ratio": 1.63,
+    "models": [
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 30.7,
+        "p10": 95000.0,
+        "p50": 115000.0,
+        "p90": 140000.0,
+        "p99": 170000.0
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 39.8,
+        "p10": 92000.0,
+        "p50": 115000.0,
+        "p90": 152000.0,
+        "p99": 195000.0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 49.2,
+        "p10": 81400.0,
+        "p50": 111000.0,
+        "p90": 151300.0,
+        "p99": 196300.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 45.9,
+        "p10": 83000.0,
+        "p50": 115000.0,
+        "p90": 148000.0,
+        "p99": 185000.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 47.6,
+        "p10": 84463.0,
+        "p50": 114000.0,
+        "p90": 153877.0,
+        "p99": 196593.0
+      }
+    ]
+  },
+  {
+    "asset": "bitcoin",
+    "horizon": "H5",
+    "days": 91,
+    "cutoff_price": 109250.59,
+    "actual": 86321.5703125,
+    "actual_return": -20.98754769882707,
+    "market_vol_ann": 26.2,
+    "vol_source": "30d realized (lower bound)",
+    "market_p10": 88212.92,
+    "market_p50": 107908.12,
+    "market_p90": 132000.64,
+    "market_p99": 155571.14,
+    "avg_llm_vol_ann": 42.1,
+    "vol_ratio": 1.61,
+    "models": [
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 29.7,
+        "p10": 95000.0,
+        "p50": 120000.0,
+        "p90": 150000.0,
+        "p99": 190000.0
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 40.5,
+        "p10": 90000.0,
+        "p50": 120000.0,
+        "p90": 168000.0,
+        "p99": 225000.0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 49.3,
+        "p10": 76600.0,
+        "p50": 112000.0,
+        "p90": 163800.0,
+        "p99": 225500.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 45.0,
+        "p10": 80000.0,
+        "p50": 118000.0,
+        "p90": 160000.0,
+        "p99": 210000.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 45.9,
+        "p10": 80423.0,
+        "p50": 116000.0,
+        "p90": 163154.0,
+        "p99": 225597.0
+      }
+    ]
+  },
+  {
+    "asset": "bitcoin",
+    "horizon": "H6",
+    "days": 122,
+    "cutoff_price": 109250.59,
+    "actual": 88731.984375,
+    "actual_return": -18.78123095262002,
+    "market_vol_ann": 26.2,
+    "vol_source": "30d realized (lower bound)",
+    "market_p10": 85091.47,
+    "market_p50": 107454.57,
+    "market_p90": 135694.97,
+    "market_p99": 164127.43,
+    "avg_llm_vol_ann": 42.6,
+    "vol_ratio": 1.63,
+    "models": [
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 32.3,
+        "p10": 90000.0,
+        "p50": 122000.0,
+        "p90": 160000.0,
+        "p99": 220000.0
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 39.5,
+        "p10": 88000.0,
+        "p50": 122000.0,
+        "p90": 178000.0,
+        "p99": 245000.0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 49.3,
+        "p10": 72800.0,
+        "p50": 113000.0,
+        "p90": 175400.0,
+        "p99": 254000.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 44.3,
+        "p10": 78000.0,
+        "p50": 120000.0,
+        "p90": 172000.0,
+        "p99": 230000.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 47.8,
+        "p10": 77078.0,
+        "p50": 118000.0,
+        "p90": 180682.0,
+        "p99": 255222.0
+      }
+    ]
+  },
+  {
+    "asset": "bitcoin",
+    "horizon": "H7",
+    "days": 181,
+    "cutoff_price": 109250.59,
+    "actual": 65738.1015625,
+    "actual_return": -39.82814961228127,
+    "market_vol_ann": 26.2,
+    "vol_source": "30d realized (lower bound)",
+    "market_p10": 80224.92,
+    "market_p50": 106596.63,
+    "market_p90": 141637.3,
+    "market_p99": 178569.97,
+    "avg_llm_vol_ann": 42.7,
+    "vol_ratio": 1.63,
+    "models": [
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 34.5,
+        "p10": 85000.0,
+        "p50": 125000.0,
+        "p90": 180000.0,
+        "p99": 260000.0
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 38.2,
+        "p10": 85000.0,
+        "p50": 125000.0,
+        "p90": 195000.0,
+        "p99": 280000.0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 49.7,
+        "p10": 67000.0,
+        "p50": 115000.0,
+        "p90": 197300.0,
+        "p99": 306400.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 42.8,
+        "p10": 75000.0,
+        "p50": 125000.0,
+        "p90": 190000.0,
+        "p99": 270000.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 48.2,
+        "p10": 72128.0,
+        "p50": 121000.0,
+        "p90": 205615.0,
+        "p99": 309167.0
+      }
+    ]
+  },
+  {
+    "asset": "silver",
+    "horizon": "H1",
+    "days": 7,
+    "cutoff_price": 58.42,
+    "actual": 57.77899932861328,
+    "actual_return": -1.097228126303873,
+    "market_vol_ann": 44.4,
+    "vol_source": "30d realized (lower bound)",
+    "market_p10": 52.99,
+    "market_p50": 58.26,
+    "market_p90": 64.06,
+    "market_p99": 69.21,
+    "avg_llm_vol_ann": 67.3,
+    "vol_ratio": 1.51,
+    "models": [
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 159.2,
+        "p10": 38.0,
+        "p50": 56.0,
+        "p90": 75.0,
+        "p99": 105.0
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 51.4,
+        "p10": 53.0,
+        "p50": 58.0,
+        "p90": 66.0,
+        "p99": 75.0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 39.8,
+        "p10": 54.0,
+        "p50": 58.5,
+        "p90": 64.0,
+        "p99": 72.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 48.6,
+        "p10": 52.0,
+        "p50": 57.5,
+        "p90": 64.0,
+        "p99": 72.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 37.5,
+        "p10": 54.28,
+        "p50": 58.8,
+        "p90": 63.7,
+        "p99": 68.0
+      }
+    ]
+  },
+  {
+    "asset": "silver",
+    "horizon": "H2",
+    "days": 14,
+    "cutoff_price": 58.42,
+    "actual": 62.939998626708984,
+    "actual_return": 7.737073992997234,
+    "market_vol_ann": 44.4,
+    "vol_source": "30d realized (lower bound)",
+    "market_p10": 50.81,
+    "market_p50": 58.1,
+    "market_p90": 66.44,
+    "market_p99": 74.12,
+    "avg_llm_vol_ann": 62.1,
+    "vol_ratio": 1.4,
+    "models": [
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 123.7,
+        "p10": 36.0,
+        "p50": 54.0,
+        "p90": 76.0,
+        "p99": 115.0
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 49.2,
+        "p10": 52.0,
+        "p50": 59.0,
+        "p90": 70.0,
+        "p99": 82.0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 47.6,
+        "p10": 51.0,
+        "p50": 58.5,
+        "p90": 68.0,
+        "p99": 80.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 52.6,
+        "p10": 49.5,
+        "p50": 57.5,
+        "p90": 68.0,
+        "p99": 78.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 37.4,
+        "p10": 52.84,
+        "p50": 59.18,
+        "p90": 66.25,
+        "p99": 72.77
+      }
+    ]
+  },
+  {
+    "asset": "silver",
+    "horizon": "H3",
+    "days": 30,
+    "cutoff_price": 58.42,
+    "actual": 70.13400268554688,
+    "actual_return": 20.05135687358246,
+    "market_vol_ann": 44.4,
+    "vol_source": "30d realized (lower bound)",
+    "market_p10": 47.44,
+    "market_p50": 57.74,
+    "market_p90": 70.27,
+    "market_p99": 82.47,
+    "avg_llm_vol_ann": 54.2,
+    "vol_ratio": 1.22,
+    "models": [
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 89.5,
+        "p10": 34.0,
+        "p50": 52.0,
+        "p90": 75.0,
+        "p99": 120.0
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 45.1,
+        "p10": 51.0,
+        "p50": 61.0,
+        "p90": 76.0,
+        "p99": 92.0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 48.9,
+        "p10": 48.0,
+        "p50": 59.0,
+        "p90": 74.0,
+        "p99": 92.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 49.1,
+        "p10": 46.0,
+        "p50": 57.0,
+        "p90": 71.0,
+        "p99": 85.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 38.5,
+        "p10": 50.61,
+        "p50": 60.13,
+        "p90": 71.15,
+        "p99": 81.58
+      }
+    ]
+  },
+  {
+    "asset": "silver",
+    "horizon": "H4",
+    "days": 63,
+    "cutoff_price": 58.42,
+    "actual": 76.77799987792969,
+    "actual_return": 31.424169595908392,
+    "market_vol_ann": 44.4,
+    "vol_source": "30d realized (lower bound)",
+    "market_p10": 42.88,
+    "market_p50": 57.0,
+    "market_p90": 75.76,
+    "market_p99": 95.54,
+    "avg_llm_vol_ann": 47.0,
+    "vol_ratio": 1.06,
+    "models": [
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 65.4,
+        "p10": 32.0,
+        "p50": 50.0,
+        "p90": 74.0,
+        "p99": 125.0
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 38.6,
+        "p10": 50.0,
+        "p50": 62.0,
+        "p90": 82.0,
+        "p99": 105.0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 50.4,
+        "p10": 43.0,
+        "p50": 59.5,
+        "p90": 82.0,
+        "p99": 105.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 43.4,
+        "p10": 43.0,
+        "p50": 57.0,
+        "p90": 75.0,
+        "p99": 95.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 37.0,
+        "p10": 48.83,
+        "p50": 61.87,
+        "p90": 78.47,
+        "p99": 95.27
+      }
+    ]
+  },
+  {
+    "asset": "silver",
+    "horizon": "H5",
+    "days": 91,
+    "cutoff_price": 58.42,
+    "actual": 88.28399658203125,
+    "actual_return": 51.119473779581035,
+    "market_vol_ann": 44.4,
+    "vol_source": "30d realized (lower bound)",
+    "market_p10": 40.05,
+    "market_p50": 56.38,
+    "market_p90": 79.37,
+    "market_p99": 104.89,
+    "avg_llm_vol_ann": 44.8,
+    "vol_ratio": 1.01,
+    "models": [
+      {
+        "model": "gpt-4.1-2025-04-14",
+        "llm_vol": 57.7,
+        "p10": 30.0,
+        "p50": 48.0,
+        "p90": 73.0,
+        "p99": 130.0
+      },
+      {
+        "model": "claude-sonnet-4-5-20250929",
+        "llm_vol": 35.2,
+        "p10": 50.0,
+        "p50": 64.0,
+        "p90": 86.0,
+        "p99": 112.0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "llm_vol": 51.2,
+        "p10": 40.0,
+        "p50": 60.0,
+        "p90": 88.0,
+        "p99": 120.0
+      },
+      {
+        "model": "claude-opus-4-6",
+        "llm_vol": 42.6,
+        "p10": 41.0,
+        "p50": 57.0,
+        "p90": 79.0,
+        "p99": 102.0
+      },
+      {
+        "model": "gpt-5-2025-08-07",
+        "llm_vol": 37.0,
+        "p10": 47.66,
+        "p50": 63.39,
+        "p90": 84.31,
+        "p99": 106.27
+      }
+    ]
+  }
+]

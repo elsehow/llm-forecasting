@@ -48,8 +48,49 @@ MODELS = [
     "anthropic/claude-opus-4-6",
 ]
 
+ALL_MODELS = [
+    # Anthropic
+    "anthropic/claude-opus-4-5-20251101",
+    "anthropic/claude-opus-4-6",
+    "anthropic/claude-sonnet-4-5-20250929",
+    "anthropic/claude-sonnet-4-20250514",
+    "anthropic/claude-haiku-4-5-20251001",
+    "anthropic/claude-3-haiku-20240307",
+    # OpenAI
+    "openai/gpt-5.1-2025-11-13",
+    "openai/gpt-5-2025-08-07",
+    "openai/gpt-5-mini-2025-08-07",
+    "openai/gpt-5-nano-2025-08-07",
+    "openai/gpt-4.1-2025-04-14",
+    "openai/gpt-4o",
+    "openai/gpt-3.5-turbo-0125",
+    "openai/o3-2025-04-16",
+    "openai/o3-mini-2025-01-31",
+    "openai/o4-mini-2025-04-16",
+    # Google
+    "google/gemini-3-pro-preview",
+    "google/gemini-2.5-pro",
+    "google/gemini-2.5-flash",
+    "google/gemini-2.0-flash-lite-001",
+    # Mistral
+    "mistral/mistral-large-2411",
+    "mistral/mistral-large-2407",
+    "mistral/mistral-large-latest",
+    # Together AI
+    "together_ai/deepseek-ai/DeepSeek-V3",
+    "together_ai/deepseek-ai/DeepSeek-V3.1",
+    "together_ai/meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "together_ai/mistralai/Mixtral-8x7B-Instruct-v0.1",
+    # xAI
+    "xai/grok-4-0709",
+    "xai/grok-4-fast-reasoning",
+    "xai/grok-4-fast-non-reasoning",
+    "xai/grok-4-1-fast-reasoning",
+    "xai/grok-4-1-fast-non-reasoning",
+]
+
 # Models that don't support temperature parameter
-NO_TEMPERATURE = {"gpt-5", "gpt-5-mini", "o1", "o3", "o3-mini", "o3-pro", "o4-mini"}
+NO_TEMPERATURE = {"gpt-5", "gpt-5.1", "gpt-5-mini", "gpt-5-nano", "o1", "o3", "o3-mini", "o3-pro", "o4-mini"}
 
 # LiteLLM prefix normalization
 PREFIX_MAP = {"google": "gemini"}
@@ -151,7 +192,9 @@ def parse_percentiles(response: str, num_questions: int) -> list[dict | None]:
 
 def load_price_history(asset_id: str, cutoff_date: str) -> str:
     """Load price history CSV up to cutoff date, formatted for prompt."""
-    csv_path = DATA_DIR / "prices" / f"{asset_id}.csv"
+    # Map quiet-period asset IDs back to base asset
+    base_id = asset_id.split("_quiet_")[0] if "_quiet_" in asset_id else asset_id
+    csv_path = DATA_DIR / "prices" / f"{base_id}.csv"
     df = pd.read_csv(csv_path, parse_dates=["Date"])
     if "Date" in df.columns:
         df = df.set_index("Date")
@@ -187,10 +230,12 @@ async def call_model(model_id: str, prompt: str) -> str:
 
 
 async def run_experiment(models: list[str], assets: list[str] | None,
-                          dry_run: bool = False):
+                          dry_run: bool = False,
+                          questions_file: Path | None = None):
     """Run all models on all assets."""
     # Load questions
-    with open(DATA_DIR / "questions.json") as f:
+    qf = questions_file or (DATA_DIR / "questions.json")
+    with open(qf) as f:
         data = json.load(f)
 
     # Group questions by asset
@@ -258,6 +303,9 @@ async def run_experiment(models: list[str], assets: list[str] | None,
                         "percentiles": pcts,
                         "raw_response_length": len(response),
                     }
+                    # Preserve window_label if present (quiet-period questions)
+                    if "window_label" in q:
+                        result["window_label"] = q["window_label"]
                     all_results.append(result)
 
                     if pcts:
@@ -284,16 +332,26 @@ async def run_experiment(models: list[str], assets: list[str] | None,
 def main():
     parser = argparse.ArgumentParser(description="Real-world tail-risk forecasting experiment")
     parser.add_argument("--dry-run", action="store_true")
-    parser.add_argument("--models", nargs="+", default=MODELS)
+    parser.add_argument("--models", nargs="+", default=MODELS,
+                        help="Model IDs to test (default: 5 core models)")
+    parser.add_argument("--all-models", action="store_true",
+                        help="Run all 31 CivBench models")
     parser.add_argument("--assets", nargs="+", default=None,
                         help="Asset IDs to test (default: all)")
+    parser.add_argument("--questions-file", default=None,
+                        help="Path to questions JSON (default: data/questions.json)")
+    parser.add_argument("--output-file", default=None,
+                        help="Path to output JSON (default: results/forecasts.json)")
     args = parser.parse_args()
 
-    results = asyncio.run(run_experiment(args.models, args.assets, dry_run=args.dry_run))
+    models = ALL_MODELS if args.all_models else args.models
+    questions_file = Path(args.questions_file) if args.questions_file else DATA_DIR / "questions.json"
+    results = asyncio.run(run_experiment(models, args.assets, dry_run=args.dry_run,
+                                         questions_file=questions_file))
 
     if results:
         RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-        out_file = RESULTS_DIR / "forecasts.json"
+        out_file = Path(args.output_file) if args.output_file else RESULTS_DIR / "forecasts.json"
 
         # Load existing and merge (dedup by model + asset + horizon)
         existing = []
