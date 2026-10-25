@@ -246,6 +246,71 @@ def analyze():
             print(f"  {model.split('/')[-1]:<35} {np.mean(crps_vals):>11.2f} "
                   f"{np.mean(rel_crps_vals):>14.4f} {len(crps_vals):>5}")
 
+    # ===== NORMALIZED CRPS (per-asset/horizon median) =====
+    print(f"\n{'='*80}")
+    print("  NORMALIZED CRPS (divided by per-(asset, horizon) cross-model median)")
+    print(f"{'='*80}")
+    print("  Normalization: for each (asset, horizon) cell, divide each model's mean CRPS")
+    print("  by the cross-model median CRPS, then average across cells per model.")
+
+    # Step 1: compute per-model mean CRPS for each (asset, horizon) cell
+    # cell_crps[model][(asset, horizon)] = mean CRPS
+    cell_crps = {}
+    for model in models:
+        cell_crps[model] = {}
+        for asset in assets:
+            for hz in horizons:
+                vals = []
+                for r in valid:
+                    if r["model"] != model or r["asset_id"] != asset or r["horizon"] != hz:
+                        continue
+                    c = compute_crps(r["percentiles"], r["ground_truth"])
+                    if c is not None:
+                        vals.append(c)
+                if vals:
+                    cell_crps[model][(asset, hz)] = np.mean(vals)
+
+    # Step 2: compute cross-model median for each (asset, horizon) cell
+    all_cells = set()
+    for model in models:
+        all_cells.update(cell_crps[model].keys())
+
+    cell_medians = {}
+    for cell in all_cells:
+        model_means = [cell_crps[m][cell] for m in models if cell in cell_crps[m]]
+        if model_means:
+            cell_medians[cell] = np.median(model_means)
+
+    # Step 3: normalize and average across cells per model
+    print(f"\n  {'Model':<35} {'Norm CRPS':>12} {'Cells':>8}")
+    print(f"  {'-'*58}")
+    norm_crps_per_model = {}
+    for model in models:
+        norm_vals = []
+        for cell, median in cell_medians.items():
+            if cell in cell_crps[model] and median > 0:
+                norm_vals.append(cell_crps[model][cell] / median)
+        if norm_vals:
+            norm_crps_per_model[model] = np.mean(norm_vals)
+            print(f"  {model.split('/')[-1]:<35} {np.mean(norm_vals):>11.4f} {len(norm_vals):>7}")
+
+    # Per-asset breakdown to verify normalization is working
+    print(f"\n  Per-asset normalized CRPS (pooled across models and horizons):")
+    print(f"  {'Asset':<15} {'Raw mean CRPS':>15} {'Norm CRPS':>12} {'N cells':>8}")
+    print(f"  {'-'*52}")
+    for asset in assets:
+        raw_vals = []
+        norm_vals = []
+        for model in models:
+            for hz in horizons:
+                cell = (asset, hz)
+                if cell in cell_crps[model]:
+                    raw_vals.append(cell_crps[model][cell])
+                    if cell in cell_medians and cell_medians[cell] > 0:
+                        norm_vals.append(cell_crps[model][cell] / cell_medians[cell])
+        if raw_vals:
+            print(f"  {asset:<15} {np.mean(raw_vals):>14.2f} {np.mean(norm_vals):>11.4f} {len(norm_vals):>7}")
+
     # ===== SAVE STRUCTURED OUTPUT =====
     output = {
         "generated": str(np.datetime64("now")),
