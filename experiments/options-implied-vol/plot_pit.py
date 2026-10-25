@@ -76,15 +76,28 @@ def main():
         "Bonds": "#1B7837",
     }
 
-    # Sort models by peakedness (mid-concentration) for gradient ordering
+    # Exclude models with >70% parse failure (< 300 valid results out of 840)
+    MIN_VALID = 300
     models = sorted(set(r["model"] for r in valid))
+    model_counts = {m: sum(1 for r in valid if r["model"] == m) for m in models}
+    excluded = [m for m in models if model_counts[m] < MIN_VALID]
+    included = [m for m in models if model_counts[m] >= MIN_VALID]
+    if excluded:
+        print(f"Excluded {len(excluded)} models with <{MIN_VALID} valid results:")
+        for m in excluded:
+            print(f"  {m.split('/')[-1]:<40} {model_counts[m]}/840")
+    # Also filter valid records to included models only (affects left panel pooling)
+    valid = [r for r in valid if r["model"] in included]
+    print(f"After exclusion: {len(valid)} valid forecasts, {len(included)} models")
+
+    # Sort models by peakedness (mid-concentration) for gradient ordering
     model_peak = {}
-    for model in models:
+    for model in included:
         pits = compute_pit([r for r in valid if r["model"] == model])
         if len(pits) > 0:
             model_peak[model] = np.mean((pits >= 0.3) & (pits <= 0.7))
     models_sorted = sorted(model_peak.keys(), key=lambda m: model_peak[m])
-    cmap = plt.get_cmap("viridis", len(models_sorted))
+    cmap = plt.get_cmap("viridis_r", len(models_sorted))
 
     print(f"Models: {len(models_sorted)}")
     print("\nPer-model mid-concentration (0.3-0.7):")
